@@ -193,7 +193,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec,
-      [arg_details, arg_action_handler],
+      { arg_details: arg_details, arg_action_handler: arg_action_handler },
       false);
   }
 
@@ -262,13 +262,13 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendErrorDetails');
-          const result = this.impl.sendErrorDetails(params.arg_arg_details, params.arg_arg_action_handler);
+          const result = this.impl.sendErrorDetails(params.arg_details, params.arg_action_handler);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_item' in response) ? response.arg_arg_item : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_item' in response) ? response.arg_item : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec.$.structSpec, { 'arg_item': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendErrorDetails FAILED:', e));
           }
@@ -332,7 +332,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationInstanceRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -401,12 +401,12 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -470,7 +470,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationItemRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -604,7 +604,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec,
       null,
-      [arg_buttonIndex],
+      { arg_buttonIndex: arg_buttonIndex },
       false);
   }
 
@@ -613,7 +613,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNotificationButtonClicked');
-          const result = this.impl.onNotificationButtonClicked(params.arg_arg_buttonIndex);
+          const result = this.impl.onNotificationButtonClicked(params.arg_buttonIndex);
           break;
         }
         case 1: {

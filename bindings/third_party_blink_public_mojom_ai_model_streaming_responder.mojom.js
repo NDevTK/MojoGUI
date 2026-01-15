@@ -212,7 +212,7 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec,
       null,
-      [arg_context_info],
+      { arg_context_info: arg_context_info },
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec,
       null,
-      [arg_status, arg_quota_error_info],
+      { arg_status: arg_status, arg_quota_error_info: arg_quota_error_info },
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec,
       null,
-      [arg_text],
+      { arg_text: arg_text },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -311,21 +311,21 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCompletion');
-          const result = this.impl.onCompletion(params.arg_arg_context_info);
+          const result = this.impl.onCompletion(params.arg_context_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_status, params.arg_arg_quota_error_info);
+          const result = this.impl.onError(params.arg_status, params.arg_quota_error_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStreaming');
-          const result = this.impl.onStreaming(params.arg_arg_text);
+          const result = this.impl.onStreaming(params.arg_text);
           break;
         }
         case 3: {

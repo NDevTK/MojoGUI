@@ -301,7 +301,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec,
-      [arg_source_id],
+      { arg_source_id: arg_source_id },
       false);
   }
 
@@ -310,7 +310,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsSupported_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsSupported_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -319,7 +319,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ResponseParamsSpec,
-      [arg_source_id],
+      { arg_source_id: arg_source_id },
       false);
   }
 
@@ -390,12 +390,12 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCameraAppDevice');
-          const result = this.impl.getCameraAppDevice(params.arg_arg_source_id);
+          const result = this.impl.getCameraAppDevice(params.arg_source_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_device']);
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_device': response.arg_device });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCameraAppDevice FAILED:', e));
           }
@@ -410,8 +410,8 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_supported' in response) ? response.arg_arg_is_supported : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsSupported_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_supported' in response) ? response.arg_is_supported : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsSupported_ResponseParamsSpec.$.structSpec, { 'arg_is_supported': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isSupported FAILED:', e));
           }
@@ -421,13 +421,13 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isDeviceInUse');
-          const result = this.impl.isDeviceInUse(params.arg_arg_source_id);
+          const result = this.impl.isDeviceInUse(params.arg_source_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_in_use' in response) ? response.arg_arg_in_use : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_in_use' in response) ? response.arg_in_use : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ResponseParamsSpec.$.structSpec, { 'arg_in_use': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isDeviceInUse FAILED:', e));
           }
@@ -503,7 +503,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec,
-      [arg_device_id],
+      { arg_device_id: arg_device_id },
       false);
   }
 
@@ -512,7 +512,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsSupported_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsSupported_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -521,7 +521,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ResponseParamsSpec,
-      [arg_device_id, arg_enabled],
+      { arg_device_id: arg_device_id, arg_enabled: arg_enabled },
       false);
   }
 
@@ -530,7 +530,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ResponseParamsSpec,
-      [arg_device_id],
+      { arg_device_id: arg_device_id },
       false);
   }
 
@@ -602,12 +602,12 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCameraAppDevice');
-          const result = this.impl.getCameraAppDevice(params.arg_arg_device_id);
+          const result = this.impl.getCameraAppDevice(params.arg_device_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_device']);
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_device': response.arg_device });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCameraAppDevice FAILED:', e));
           }
@@ -622,8 +622,8 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_supported' in response) ? response.arg_arg_is_supported : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsSupported_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_supported' in response) ? response.arg_is_supported : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsSupported_ResponseParamsSpec.$.structSpec, { 'arg_is_supported': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isSupported FAILED:', e));
           }
@@ -633,13 +633,13 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVirtualDeviceEnabled');
-          const result = this.impl.setVirtualDeviceEnabled(params.arg_arg_device_id, params.arg_arg_enabled);
+          const result = this.impl.setVirtualDeviceEnabled(params.arg_device_id, params.arg_enabled);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setVirtualDeviceEnabled FAILED:', e));
           }
@@ -649,13 +649,13 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isDeviceInUse');
-          const result = this.impl.isDeviceInUse(params.arg_arg_device_id);
+          const result = this.impl.isDeviceInUse(params.arg_device_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_in_use' in response) ? response.arg_arg_in_use : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_in_use' in response) ? response.arg_in_use : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ResponseParamsSpec.$.structSpec, { 'arg_in_use': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isDeviceInUse FAILED:', e));
           }
@@ -767,7 +767,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_TakePortraitModePhoto_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_TakePortraitModePhoto_ResponseParamsSpec,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -776,7 +776,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetFpsRange_ResponseParamsSpec,
-      [arg_fps_range],
+      { arg_fps_range: arg_fps_range },
       false);
   }
 
@@ -785,7 +785,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetStillCaptureResolution_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetStillCaptureResolution_ResponseParamsSpec,
-      [arg_resolution],
+      { arg_resolution: arg_resolution },
       false);
   }
 
@@ -794,7 +794,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCaptureIntent_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCaptureIntent_ResponseParamsSpec,
-      [arg_intent],
+      { arg_intent: arg_intent },
       false);
   }
 
@@ -803,7 +803,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_AddResultMetadataObserver_ResponseParamsSpec,
-      [arg_observer, arg_stream_type],
+      { arg_observer: arg_observer, arg_stream_type: arg_stream_type },
       false);
   }
 
@@ -812,7 +812,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_AddCameraEventObserver_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_AddCameraEventObserver_ResponseParamsSpec,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -821,7 +821,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ResponseParamsSpec,
-      [arg_is_enabled],
+      { arg_is_enabled: arg_is_enabled },
       false);
   }
 
@@ -830,7 +830,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_GetCameraFrameRotation_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_GetCameraFrameRotation_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -839,7 +839,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ResponseParamsSpec,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -848,7 +848,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ResponseParamsSpec,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -857,7 +857,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ResponseParamsSpec,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -866,7 +866,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCropRegion_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCropRegion_ResponseParamsSpec,
-      [arg_crop_region],
+      { arg_crop_region: arg_crop_region },
       false);
   }
 
@@ -875,7 +875,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_ResetCropRegion_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_ResetCropRegion_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -956,12 +956,12 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_TakePortraitModePhoto_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.takePortraitModePhoto');
-          const result = this.impl.takePortraitModePhoto(params.arg_arg_observer);
+          const result = this.impl.takePortraitModePhoto(params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_TakePortraitModePhoto_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_TakePortraitModePhoto_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] takePortraitModePhoto FAILED:', e));
           }
@@ -971,13 +971,13 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFpsRange');
-          const result = this.impl.setFpsRange(params.arg_arg_fps_range);
+          const result = this.impl.setFpsRange(params.arg_fps_range);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_success' in response) ? response.arg_arg_is_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetFpsRange_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_success' in response) ? response.arg_is_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetFpsRange_ResponseParamsSpec.$.structSpec, { 'arg_is_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setFpsRange FAILED:', e));
           }
@@ -987,12 +987,12 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetStillCaptureResolution_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setStillCaptureResolution');
-          const result = this.impl.setStillCaptureResolution(params.arg_arg_resolution);
+          const result = this.impl.setStillCaptureResolution(params.arg_resolution);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetStillCaptureResolution_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetStillCaptureResolution_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setStillCaptureResolution FAILED:', e));
           }
@@ -1002,12 +1002,12 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCaptureIntent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCaptureIntent');
-          const result = this.impl.setCaptureIntent(params.arg_arg_intent);
+          const result = this.impl.setCaptureIntent(params.arg_intent);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCaptureIntent_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCaptureIntent_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setCaptureIntent FAILED:', e));
           }
@@ -1017,12 +1017,12 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addResultMetadataObserver');
-          const result = this.impl.addResultMetadataObserver(params.arg_arg_observer, params.arg_arg_stream_type);
+          const result = this.impl.addResultMetadataObserver(params.arg_observer, params.arg_stream_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_AddResultMetadataObserver_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_AddResultMetadataObserver_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addResultMetadataObserver FAILED:', e));
           }
@@ -1032,12 +1032,12 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_AddCameraEventObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addCameraEventObserver');
-          const result = this.impl.addCameraEventObserver(params.arg_arg_observer);
+          const result = this.impl.addCameraEventObserver(params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_AddCameraEventObserver_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_AddCameraEventObserver_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addCameraEventObserver FAILED:', e));
           }
@@ -1047,13 +1047,13 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCameraFrameRotationEnabledAtSource');
-          const result = this.impl.setCameraFrameRotationEnabledAtSource(params.arg_arg_is_enabled);
+          const result = this.impl.setCameraFrameRotationEnabledAtSource(params.arg_is_enabled);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_success' in response) ? response.arg_arg_is_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_success' in response) ? response.arg_is_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ResponseParamsSpec.$.structSpec, { 'arg_is_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setCameraFrameRotationEnabledAtSource FAILED:', e));
           }
@@ -1068,8 +1068,8 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_rotation' in response) ? response.arg_arg_rotation : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_GetCameraFrameRotation_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_rotation' in response) ? response.arg_rotation : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_GetCameraFrameRotation_ResponseParamsSpec.$.structSpec, { 'arg_rotation': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCameraFrameRotation FAILED:', e));
           }
@@ -1079,12 +1079,12 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerDocumentCornersObserver');
-          const result = this.impl.registerDocumentCornersObserver(params.arg_arg_observer);
+          const result = this.impl.registerDocumentCornersObserver(params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] registerDocumentCornersObserver FAILED:', e));
           }
@@ -1094,12 +1094,12 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMultipleStreamsEnabled');
-          const result = this.impl.setMultipleStreamsEnabled(params.arg_arg_enabled);
+          const result = this.impl.setMultipleStreamsEnabled(params.arg_enabled);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setMultipleStreamsEnabled FAILED:', e));
           }
@@ -1109,12 +1109,12 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerCameraInfoObserver');
-          const result = this.impl.registerCameraInfoObserver(params.arg_arg_observer);
+          const result = this.impl.registerCameraInfoObserver(params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] registerCameraInfoObserver FAILED:', e));
           }
@@ -1124,12 +1124,12 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCropRegion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCropRegion');
-          const result = this.impl.setCropRegion(params.arg_arg_crop_region);
+          const result = this.impl.setCropRegion(params.arg_crop_region);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCropRegion_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCropRegion_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setCropRegion FAILED:', e));
           }
@@ -1144,7 +1144,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_ResetCropRegion_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraAppDevice_ResetCropRegion_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] resetCropRegion FAILED:', e));
           }
@@ -1208,7 +1208,7 @@ mojo.internal.bindings.cros.mojom.ResultMetadataObserverRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.ResultMetadataObserver_OnMetadataAvailable_ParamsSpec,
       null,
-      [arg_camera_metadata],
+      { arg_camera_metadata: arg_camera_metadata },
       false);
   }
 
@@ -1277,7 +1277,7 @@ mojo.internal.bindings.cros.mojom.ResultMetadataObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.ResultMetadataObserver_OnMetadataAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMetadataAvailable');
-          const result = this.impl.onMetadataAvailable(params.arg_arg_camera_metadata);
+          const result = this.impl.onMetadataAvailable(params.arg_camera_metadata);
           break;
         }
       }
@@ -1338,7 +1338,7 @@ mojo.internal.bindings.cros.mojom.CameraEventObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraEventObserver_OnShutterDone_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1468,7 +1468,7 @@ mojo.internal.bindings.cros.mojom.DocumentCornersObserverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.DocumentCornersObserver_OnDocumentCornersUpdated_ParamsSpec,
       null,
-      [arg_corners],
+      { arg_corners: arg_corners },
       false);
   }
 
@@ -1537,7 +1537,7 @@ mojo.internal.bindings.cros.mojom.DocumentCornersObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.DocumentCornersObserver_OnDocumentCornersUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDocumentCornersUpdated');
-          const result = this.impl.onDocumentCornersUpdated(params.arg_arg_corners);
+          const result = this.impl.onDocumentCornersUpdated(params.arg_corners);
           break;
         }
       }
@@ -1598,7 +1598,7 @@ mojo.internal.bindings.cros.mojom.CameraInfoObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_ParamsSpec,
       null,
-      [arg_camera_info],
+      { arg_camera_info: arg_camera_info },
       false);
   }
 
@@ -1667,7 +1667,7 @@ mojo.internal.bindings.cros.mojom.CameraInfoObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCameraInfoUpdated');
-          const result = this.impl.onCameraInfoUpdated(params.arg_arg_camera_info);
+          const result = this.impl.onCameraInfoUpdated(params.arg_camera_info);
           break;
         }
       }
@@ -1728,7 +1728,7 @@ mojo.internal.bindings.cros.mojom.StillCaptureResultObserverRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec,
       null,
-      [arg_effect, arg_status, arg_blob],
+      { arg_effect: arg_effect, arg_status: arg_status, arg_blob: arg_blob },
       false);
   }
 
@@ -1797,7 +1797,7 @@ mojo.internal.bindings.cros.mojom.StillCaptureResultObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStillCaptureDone');
-          const result = this.impl.onStillCaptureDone(params.arg_arg_effect, params.arg_arg_status, params.arg_arg_blob);
+          const result = this.impl.onStillCaptureDone(params.arg_effect, params.arg_status, params.arg_blob);
           break;
         }
       }

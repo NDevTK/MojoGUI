@@ -195,7 +195,7 @@ mojo.internal.bindings.blink.mojom.ManagedConfigurationObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -350,7 +350,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -455,8 +455,8 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDirectoryId FAILED:', e));
           }
@@ -471,8 +471,8 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getHostname FAILED:', e));
           }
@@ -487,8 +487,8 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSerialNumber FAILED:', e));
           }
@@ -503,8 +503,8 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAnnotatedAssetId FAILED:', e));
           }
@@ -519,8 +519,8 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAnnotatedLocation FAILED:', e));
           }
@@ -588,7 +588,7 @@ mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec,
-      [arg_keys],
+      { arg_keys: arg_keys },
       false);
   }
 
@@ -597,7 +597,7 @@ mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -667,13 +667,13 @@ mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getManagedConfiguration');
-          const result = this.impl.getManagedConfiguration(params.arg_arg_keys);
+          const result = this.impl.getManagedConfiguration(params.arg_keys);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_configurations' in response) ? response.arg_arg_configurations : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_configurations' in response) ? response.arg_configurations : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec.$.structSpec, { 'arg_configurations': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getManagedConfiguration FAILED:', e));
           }
@@ -683,7 +683,7 @@ mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToManagedConfiguration');
-          const result = this.impl.subscribeToManagedConfiguration(params.arg_arg_observer);
+          const result = this.impl.subscribeToManagedConfiguration(params.arg_observer);
           break;
         }
       }

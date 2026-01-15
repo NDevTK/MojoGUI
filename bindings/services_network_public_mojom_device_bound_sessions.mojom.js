@@ -397,7 +397,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec,
       mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -406,7 +406,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec,
       null,
-      [arg_reason, arg_session],
+      { arg_reason: arg_reason, arg_session: arg_session },
       false);
   }
 
@@ -415,7 +415,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec,
       mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ResponseParamsSpec,
-      [arg_reason, arg_created_after_time, arg_created_before_time, arg_filter],
+      { arg_reason: arg_reason, arg_created_after_time: arg_created_after_time, arg_created_before_time: arg_created_before_time, arg_filter: arg_filter },
       false);
   }
 
@@ -424,7 +424,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec,
       null,
-      [arg_url, arg_observer],
+      { arg_url: arg_url, arg_observer: arg_observer },
       false);
   }
 
@@ -433,7 +433,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerRemoteCallHandler 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -442,7 +442,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerRemoteCallHandler 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec,
       mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec,
-      [arg_params, arg_wrapped_key, arg_cookies_to_set, arg_cookie_options],
+      { arg_params: arg_params, arg_wrapped_key: arg_wrapped_key, arg_cookies_to_set: arg_cookies_to_set, arg_cookie_options: arg_cookie_options },
       false);
   }
 
@@ -521,8 +521,8 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_sessions' in response) ? response.arg_arg_sessions : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_sessions' in response) ? response.arg_sessions : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec.$.structSpec, { 'arg_sessions': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAllSessions FAILED:', e));
           }
@@ -532,19 +532,19 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteSession');
-          const result = this.impl.deleteSession(params.arg_arg_reason, params.arg_arg_session);
+          const result = this.impl.deleteSession(params.arg_reason, params.arg_session);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteAllSessions');
-          const result = this.impl.deleteAllSessions(params.arg_arg_reason, params.arg_arg_created_after_time, params.arg_arg_created_before_time, params.arg_arg_filter);
+          const result = this.impl.deleteAllSessions(params.arg_reason, params.arg_created_after_time, params.arg_created_before_time, params.arg_filter);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteAllSessions FAILED:', e));
           }
@@ -554,26 +554,26 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_arg_url, params.arg_arg_observer);
+          const result = this.impl.addObserver(params.arg_url, params.arg_observer);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addEventObserver');
-          const result = this.impl.addEventObserver(params.arg_arg_observer);
+          const result = this.impl.addEventObserver(params.arg_observer);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createBoundSessions');
-          const result = this.impl.createBoundSessions(params.arg_arg_params, params.arg_arg_wrapped_key, params.arg_arg_cookies_to_set, params.arg_arg_cookie_options);
+          const result = this.impl.createBoundSessions(params.arg_params, params.arg_wrapped_key, params.arg_cookies_to_set, params.arg_cookie_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec.$.structSpec, ['response.arg_arg_session_results', 'response.arg_arg_cookie_results']);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec.$.structSpec, { 'arg_session_results': response.arg_session_results, 'arg_cookie_results': response.arg_cookie_results });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createBoundSessions FAILED:', e));
           }
@@ -641,7 +641,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec,
       null,
-      [arg_access],
+      { arg_access: arg_access },
       false);
   }
 
@@ -650,7 +650,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -720,14 +720,14 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceBoundSessionAccessed');
-          const result = this.impl.onDeviceBoundSessionAccessed(params.arg_arg_access);
+          const result = this.impl.onDeviceBoundSessionAccessed(params.arg_access);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_observer);
+          const result = this.impl.clone(params.arg_observer);
           break;
         }
       }
@@ -792,7 +792,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec,
       null,
-      [arg_event],
+      { arg_event: arg_event },
       false);
   }
 
@@ -801,7 +801,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec,
       null,
-      [arg_session_displays],
+      { arg_session_displays: arg_session_displays },
       false);
   }
 
@@ -871,14 +871,14 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceBoundSessionEventReceived');
-          const result = this.impl.onDeviceBoundSessionEventReceived(params.arg_arg_event);
+          const result = this.impl.onDeviceBoundSessionEventReceived(params.arg_event);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDeviceBoundSessionDisplays');
-          const result = this.impl.addDeviceBoundSessionDisplays(params.arg_arg_session_displays);
+          const result = this.impl.addDeviceBoundSessionDisplays(params.arg_session_displays);
           break;
         }
       }

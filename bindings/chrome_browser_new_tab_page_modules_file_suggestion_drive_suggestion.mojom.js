@@ -186,7 +186,7 @@ mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec,
       mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -280,8 +280,8 @@ mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandlerReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_files' in response) ? response.arg_arg_files : response;
-              encoder.encodeStructInline(mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_files' in response) ? response.arg_files : response;
+              encoder.encodeStructInline(mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec.$.structSpec, { 'arg_files': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFiles FAILED:', e));
           }

@@ -203,7 +203,7 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerFactoryRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec,
       null,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerFactoryReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createBrowserCommandHandler');
-          const result = this.impl.createBrowserCommandHandler(params.arg_arg_handler);
+          const result = this.impl.createBrowserCommandHandler(params.arg_handler);
           break;
         }
       }
@@ -337,7 +337,7 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec,
       mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec,
-      [arg_command_id],
+      { arg_command_id: arg_command_id },
       false);
   }
 
@@ -346,7 +346,7 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec,
       mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec,
-      [arg_command_id, arg_click_info],
+      { arg_command_id: arg_command_id, arg_click_info: arg_click_info },
       false);
   }
 
@@ -416,13 +416,13 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canExecuteCommand');
-          const result = this.impl.canExecuteCommand(params.arg_arg_command_id);
+          const result = this.impl.canExecuteCommand(params.arg_command_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_can_execute' in response) ? response.arg_arg_can_execute : response;
-              encoder.encodeStructInline(mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_can_execute' in response) ? response.arg_can_execute : response;
+              encoder.encodeStructInline(mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec.$.structSpec, { 'arg_can_execute': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] canExecuteCommand FAILED:', e));
           }
@@ -432,13 +432,13 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeCommand');
-          const result = this.impl.executeCommand(params.arg_arg_command_id, params.arg_arg_click_info);
+          const result = this.impl.executeCommand(params.arg_command_id, params.arg_click_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_command_executed' in response) ? response.arg_arg_command_executed : response;
-              encoder.encodeStructInline(mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_command_executed' in response) ? response.arg_command_executed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec.$.structSpec, { 'arg_command_executed': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] executeCommand FAILED:', e));
           }

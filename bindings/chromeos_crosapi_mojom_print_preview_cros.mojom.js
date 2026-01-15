@@ -234,7 +234,7 @@ mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegateRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec,
-      [arg_token, arg_params],
+      { arg_token: arg_token, arg_params: arg_params },
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegateRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec,
-      [arg_token],
+      { arg_token: arg_token },
       false);
   }
 
@@ -313,13 +313,13 @@ mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegateReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPrintPreview');
-          const result = this.impl.requestPrintPreview(params.arg_arg_token, params.arg_arg_params);
+          const result = this.impl.requestPrintPreview(params.arg_token, params.arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestPrintPreview FAILED:', e));
           }
@@ -329,13 +329,13 @@ mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegateReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printPreviewDone');
-          const result = this.impl.printPreviewDone(params.arg_arg_token);
+          const result = this.impl.printPreviewDone(params.arg_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] printPreviewDone FAILED:', e));
           }
@@ -403,7 +403,7 @@ mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClientRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec,
-      [arg_token, arg_settings],
+      { arg_token: arg_token, arg_settings: arg_settings },
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClientRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec,
-      [arg_token],
+      { arg_token: arg_token },
       false);
   }
 
@@ -482,13 +482,13 @@ mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generatePrintPreview');
-          const result = this.impl.generatePrintPreview(params.arg_arg_token, params.arg_arg_settings);
+          const result = this.impl.generatePrintPreview(params.arg_token, params.arg_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] generatePrintPreview FAILED:', e));
           }
@@ -498,13 +498,13 @@ mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleDialogClosed');
-          const result = this.impl.handleDialogClosed(params.arg_arg_token);
+          const result = this.impl.handleDialogClosed(params.arg_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] handleDialogClosed FAILED:', e));
           }

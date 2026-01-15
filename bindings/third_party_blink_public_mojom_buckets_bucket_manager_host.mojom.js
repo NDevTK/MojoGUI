@@ -275,7 +275,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_Persist_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketHost_Persist_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -284,7 +284,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -293,7 +293,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -302,7 +302,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_Durability_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketHost_Durability_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -311,7 +311,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ResponseParamsSpec,
-      [arg_expires],
+      { arg_expires: arg_expires },
       false);
   }
 
@@ -320,7 +320,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_Expires_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketHost_Expires_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -329,7 +329,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_GetIdbFactory_ParamsSpec,
       null,
-      [arg_idb_factory],
+      { arg_idb_factory: arg_idb_factory },
       false);
   }
 
@@ -338,7 +338,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_GetLockManager_ParamsSpec,
       null,
-      [arg_lock_manager],
+      { arg_lock_manager: arg_lock_manager },
       false);
   }
 
@@ -347,7 +347,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_GetCaches_ParamsSpec,
       null,
-      [arg_cache_storage],
+      { arg_cache_storage: arg_cache_storage },
       false);
   }
 
@@ -356,7 +356,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec,
-      [arg_directory_path_components],
+      { arg_directory_path_components: arg_directory_path_components },
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_Persist_ResponseParamsSpec.$.structSpec, ['response.arg_arg_persisted', 'response.arg_arg_success']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_Persist_ResponseParamsSpec.$.structSpec, { 'arg_persisted': response.arg_persisted, 'arg_success': response.arg_success });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] persist FAILED:', e));
           }
@@ -464,7 +464,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ResponseParamsSpec.$.structSpec, ['response.arg_arg_persisted', 'response.arg_arg_success']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ResponseParamsSpec.$.structSpec, { 'arg_persisted': response.arg_persisted, 'arg_success': response.arg_success });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] persisted FAILED:', e));
           }
@@ -479,7 +479,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ResponseParamsSpec.$.structSpec, ['response.arg_arg_current_usage', 'response.arg_arg_current_quota', 'response.arg_arg_success']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ResponseParamsSpec.$.structSpec, { 'arg_current_usage': response.arg_current_usage, 'arg_current_quota': response.arg_current_quota, 'arg_success': response.arg_success });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] estimate FAILED:', e));
           }
@@ -494,7 +494,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_Durability_ResponseParamsSpec.$.structSpec, ['response.arg_arg_durability', 'response.arg_arg_success']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_Durability_ResponseParamsSpec.$.structSpec, { 'arg_durability': response.arg_durability, 'arg_success': response.arg_success });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] durability FAILED:', e));
           }
@@ -504,13 +504,13 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setExpires');
-          const result = this.impl.setExpires(params.arg_arg_expires);
+          const result = this.impl.setExpires(params.arg_expires);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setExpires FAILED:', e));
           }
@@ -525,7 +525,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_Expires_ResponseParamsSpec.$.structSpec, ['response.arg_arg_expires', 'response.arg_arg_success']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_Expires_ResponseParamsSpec.$.structSpec, { 'arg_expires': response.arg_expires, 'arg_success': response.arg_success });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] expires FAILED:', e));
           }
@@ -535,21 +535,21 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_GetIdbFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getIdbFactory');
-          const result = this.impl.getIdbFactory(params.arg_arg_idb_factory);
+          const result = this.impl.getIdbFactory(params.arg_idb_factory);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_GetLockManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getLockManager');
-          const result = this.impl.getLockManager(params.arg_arg_lock_manager);
+          const result = this.impl.getLockManager(params.arg_lock_manager);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_GetCaches_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCaches');
-          const result = this.impl.getCaches(params.arg_arg_cache_storage);
+          const result = this.impl.getCaches(params.arg_cache_storage);
           break;
         }
         case 9: {
@@ -561,7 +561,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_directory']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_directory': response.arg_directory });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDirectory FAILED:', e));
           }
@@ -571,12 +571,12 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDirectoryForDevtools');
-          const result = this.impl.getDirectoryForDevtools(params.arg_arg_directory_path_components);
+          const result = this.impl.getDirectoryForDevtools(params.arg_directory_path_components);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_directory']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_directory': response.arg_directory });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDirectoryForDevtools FAILED:', e));
           }
@@ -652,7 +652,7 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec,
-      [arg_name, arg_policy],
+      { arg_name: arg_name, arg_policy: arg_policy },
       false);
   }
 
@@ -661,7 +661,7 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec,
       null,
-      [arg_name, arg_receiver],
+      { arg_name: arg_name, arg_receiver: arg_receiver },
       false);
   }
 
@@ -670,7 +670,7 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -679,7 +679,7 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec,
-      [arg_name],
+      { arg_name: arg_name },
       false);
   }
 
@@ -751,12 +751,12 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openBucket');
-          const result = this.impl.openBucket(params.arg_arg_name, params.arg_arg_policy);
+          const result = this.impl.openBucket(params.arg_name, params.arg_policy);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec.$.structSpec, ['response.arg_arg_remote', 'response.arg_arg_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec.$.structSpec, { 'arg_remote': response.arg_remote, 'arg_error': response.arg_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openBucket FAILED:', e));
           }
@@ -766,7 +766,7 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBucketForDevtools');
-          const result = this.impl.getBucketForDevtools(params.arg_arg_name, params.arg_arg_receiver);
+          const result = this.impl.getBucketForDevtools(params.arg_name, params.arg_receiver);
           break;
         }
         case 2: {
@@ -778,7 +778,7 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec.$.structSpec, ['response.arg_arg_buckets', 'response.arg_arg_success']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec.$.structSpec, { 'arg_buckets': response.arg_buckets, 'arg_success': response.arg_success });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] keys FAILED:', e));
           }
@@ -788,13 +788,13 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteBucket');
-          const result = this.impl.deleteBucket(params.arg_arg_name);
+          const result = this.impl.deleteBucket(params.arg_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteBucket FAILED:', e));
           }

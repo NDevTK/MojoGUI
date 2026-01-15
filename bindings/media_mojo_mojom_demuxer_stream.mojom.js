@@ -203,7 +203,7 @@ mojo.internal.bindings.media.mojom.DemuxerStreamRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ParamsSpec,
       mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.media.mojom.DemuxerStreamRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.DemuxerStream_Read_ParamsSpec,
       mojo.internal.bindings.media.mojom.DemuxerStream_Read_ResponseParamsSpec,
-      [arg_count],
+      { arg_count: arg_count },
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.media.mojom.DemuxerStreamRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -297,7 +297,7 @@ mojo.internal.bindings.media.mojom.DemuxerStreamReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ResponseParamsSpec.$.structSpec, ['response.arg_arg_type', 'response.arg_arg_pipe', 'response.arg_arg_audio_config', 'response.arg_arg_video_config']);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ResponseParamsSpec.$.structSpec, { 'arg_type': response.arg_type, 'arg_pipe': response.arg_pipe, 'arg_audio_config': response.arg_audio_config, 'arg_video_config': response.arg_video_config });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] initialize FAILED:', e));
           }
@@ -307,12 +307,12 @@ mojo.internal.bindings.media.mojom.DemuxerStreamReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.DemuxerStream_Read_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.read');
-          const result = this.impl.read(params.arg_arg_count);
+          const result = this.impl.read(params.arg_count);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.DemuxerStream_Read_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_batch_buffers', 'response.arg_arg_audio_config', 'response.arg_arg_video_config']);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.DemuxerStream_Read_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_batch_buffers': response.arg_batch_buffers, 'arg_audio_config': response.arg_audio_config, 'arg_video_config': response.arg_video_config });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] read FAILED:', e));
           }

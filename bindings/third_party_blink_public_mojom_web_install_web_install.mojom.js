@@ -192,7 +192,7 @@ mojo.internal.bindings.blink.mojom.WebInstallServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebInstallService_Install_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebInstallService_Install_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -201,7 +201,7 @@ mojo.internal.bindings.blink.mojom.WebInstallServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -271,12 +271,12 @@ mojo.internal.bindings.blink.mojom.WebInstallServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebInstallService_Install_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.install');
-          const result = this.impl.install(params.arg_arg_options);
+          const result = this.impl.install(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebInstallService_Install_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_manifest_id']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebInstallService_Install_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_manifest_id': response.arg_manifest_id });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] install FAILED:', e));
           }
@@ -286,12 +286,12 @@ mojo.internal.bindings.blink.mojom.WebInstallServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installFromElement');
-          const result = this.impl.installFromElement(params.arg_arg_options);
+          const result = this.impl.installFromElement(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_manifest_id']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_manifest_id': response.arg_manifest_id });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] installFromElement FAILED:', e));
           }

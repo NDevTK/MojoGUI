@@ -220,7 +220,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec,
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec,
-      [arg_name, arg_add_to_front],
+      { arg_name: arg_name, arg_add_to_front: arg_add_to_front },
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec,
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec,
-      [arg_source_id, arg_name, arg_folder_id, arg_icon_url, arg_add_to_front],
+      { arg_source_id: arg_source_id, arg_name: arg_name, arg_folder_id: arg_folder_id, arg_icon_url: arg_icon_url, arg_add_to_front: arg_add_to_front },
       false);
   }
 
@@ -238,7 +238,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec,
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec,
-      [arg_app_id],
+      { arg_app_id: arg_app_id },
       false);
   }
 
@@ -247,7 +247,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec,
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -256,7 +256,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec,
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec,
-      [arg_app_ids],
+      { arg_app_ids: arg_app_ids },
       false);
   }
 
@@ -329,13 +329,13 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addFolder');
-          const result = this.impl.addFolder(params.arg_arg_name, params.arg_arg_add_to_front);
+          const result = this.impl.addFolder(params.arg_name, params.arg_add_to_front);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addFolder FAILED:', e));
           }
@@ -345,13 +345,13 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addApp');
-          const result = this.impl.addApp(params.arg_arg_source_id, params.arg_arg_name, params.arg_arg_folder_id, params.arg_arg_icon_url, params.arg_arg_add_to_front);
+          const result = this.impl.addApp(params.arg_source_id, params.arg_name, params.arg_folder_id, params.arg_icon_url, params.arg_add_to_front);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addApp FAILED:', e));
           }
@@ -361,13 +361,13 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteApp');
-          const result = this.impl.deleteApp(params.arg_arg_app_id);
+          const result = this.impl.deleteApp(params.arg_app_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteApp FAILED:', e));
           }
@@ -382,8 +382,8 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sortLauncherWithRemoteAppsFirst FAILED:', e));
           }
@@ -393,13 +393,13 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPinnedApps');
-          const result = this.impl.setPinnedApps(params.arg_arg_app_ids);
+          const result = this.impl.setPinnedApps(params.arg_app_ids);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setPinnedApps FAILED:', e));
           }
@@ -463,7 +463,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactoryRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec,
       null,
-      [arg_source_id, arg_remote_apps, arg_observer],
+      { arg_source_id: arg_source_id, arg_remote_apps: arg_remote_apps, arg_observer: arg_observer },
       false);
   }
 
@@ -532,7 +532,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactoryReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindRemoteAppsAndAppLaunchObserver');
-          const result = this.impl.bindRemoteAppsAndAppLaunchObserver(params.arg_arg_source_id, params.arg_arg_remote_apps, params.arg_arg_observer);
+          const result = this.impl.bindRemoteAppsAndAppLaunchObserver(params.arg_source_id, params.arg_remote_apps, params.arg_observer);
           break;
         }
       }
@@ -593,7 +593,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserverRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec,
       null,
-      [arg_app_id, arg_source_id],
+      { arg_app_id: arg_app_id, arg_source_id: arg_source_id },
       false);
   }
 
@@ -662,7 +662,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserverReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRemoteAppLaunched');
-          const result = this.impl.onRemoteAppLaunched(params.arg_arg_app_id, params.arg_arg_source_id);
+          const result = this.impl.onRemoteAppLaunched(params.arg_app_id, params.arg_source_id);
           break;
         }
       }

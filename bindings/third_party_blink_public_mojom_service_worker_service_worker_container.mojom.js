@@ -266,7 +266,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec,
-      [arg_script_url, arg_options, arg_outside_fetch_client_settings_object],
+      { arg_script_url: arg_script_url, arg_options: arg_options, arg_outside_fetch_client_settings_object: arg_outside_fetch_client_settings_object },
       false);
   }
 
@@ -275,7 +275,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec,
-      [arg_client_url],
+      { arg_client_url: arg_client_url },
       false);
   }
 
@@ -284,7 +284,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -293,7 +293,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -302,7 +302,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostRemoteCallHandler =
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec,
       null,
-      [arg_receiver, arg_purpose],
+      { arg_receiver: arg_receiver, arg_purpose: arg_purpose },
       false);
   }
 
@@ -311,7 +311,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostRemoteCallHandler =
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec,
       null,
-      [arg_container_host],
+      { arg_container_host: arg_container_host },
       false);
   }
 
@@ -320,7 +320,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostRemoteCallHandler =
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -329,7 +329,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostRemoteCallHandler =
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ResponseParamsSpec,
-      [arg_files],
+      { arg_files: arg_files },
       false);
   }
 
@@ -338,7 +338,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostRemoteCallHandler =
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -415,12 +415,12 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.register');
-          const result = this.impl.register(params.arg_arg_script_url, params.arg_arg_options, params.arg_arg_outside_fetch_client_settings_object);
+          const result = this.impl.register(params.arg_script_url, params.arg_options, params.arg_outside_fetch_client_settings_object);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_error_msg', 'response.arg_arg_registration']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_error_msg': response.arg_error_msg, 'arg_registration': response.arg_registration });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] register FAILED:', e));
           }
@@ -430,12 +430,12 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRegistration');
-          const result = this.impl.getRegistration(params.arg_arg_client_url);
+          const result = this.impl.getRegistration(params.arg_client_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_error_msg', 'response.arg_arg_registration']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_error_msg': response.arg_error_msg, 'arg_registration': response.arg_registration });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRegistration FAILED:', e));
           }
@@ -450,7 +450,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_error_msg', 'response.arg_arg_infos']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_error_msg': response.arg_error_msg, 'arg_infos': response.arg_infos });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRegistrations FAILED:', e));
           }
@@ -465,8 +465,8 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_registration' in response) ? response.arg_arg_registration : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_registration' in response) ? response.arg_registration : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec.$.structSpec, { 'arg_registration': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRegistrationForReady FAILED:', e));
           }
@@ -476,14 +476,14 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.ensureControllerServiceWorker');
-          const result = this.impl.ensureControllerServiceWorker(params.arg_arg_receiver, params.arg_arg_purpose);
+          const result = this.impl.ensureControllerServiceWorker(params.arg_receiver, params.arg_purpose);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cloneContainerHost');
-          const result = this.impl.cloneContainerHost(params.arg_arg_container_host);
+          const result = this.impl.cloneContainerHost(params.arg_container_host);
           break;
         }
         case 6: {
@@ -497,12 +497,12 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.ensureFileAccess');
-          const result = this.impl.ensureFileAccess(params.arg_arg_files);
+          const result = this.impl.ensureFileAccess(params.arg_files);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] ensureFileAccess FAILED:', e));
           }
@@ -581,7 +581,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec,
       null,
-      [arg_controller_info, arg_should_notify_controllerchange],
+      { arg_controller_info: arg_controller_info, arg_should_notify_controllerchange: arg_should_notify_controllerchange },
       false);
   }
 
@@ -590,7 +590,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec,
       null,
-      [arg_source, arg_message],
+      { arg_source: arg_source, arg_message: arg_message },
       false);
   }
 
@@ -599,7 +599,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec,
       null,
-      [arg_feature],
+      { arg_feature: arg_feature },
       false);
   }
 
@@ -670,21 +670,21 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setController');
-          const result = this.impl.setController(params.arg_arg_controller_info, params.arg_arg_should_notify_controllerchange);
+          const result = this.impl.setController(params.arg_controller_info, params.arg_should_notify_controllerchange);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.postMessageToClient');
-          const result = this.impl.postMessageToClient(params.arg_arg_source, params.arg_arg_message);
+          const result = this.impl.postMessageToClient(params.arg_source, params.arg_message);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.countFeature');
-          const result = this.impl.countFeature(params.arg_arg_feature);
+          const result = this.impl.countFeature(params.arg_feature);
           break;
         }
       }

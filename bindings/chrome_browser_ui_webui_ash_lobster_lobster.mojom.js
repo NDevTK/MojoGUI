@@ -267,7 +267,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec,
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec,
-      [arg_query, arg_num_candidates],
+      { arg_query: arg_query, arg_num_candidates: arg_num_candidates },
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec,
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec,
-      [arg_candidate_id],
+      { arg_candidate_id: arg_candidate_id },
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec,
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec,
-      [arg_candidate_id],
+      { arg_candidate_id: arg_candidate_id },
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandle
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec,
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec,
-      [arg_candidate_id],
+      { arg_candidate_id: arg_candidate_id },
       false);
   }
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandle
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec,
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec,
-      [arg_candidate_id],
+      { arg_candidate_id: arg_candidate_id },
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandle
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec,
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec,
-      [arg_candidate_id, arg_description],
+      { arg_candidate_id: arg_candidate_id, arg_description: arg_description },
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandle
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandle
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandle
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec,
       null,
-      [arg_metric_event],
+      { arg_metric_event: arg_metric_event },
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandle
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec,
       null,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -426,13 +426,13 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestCandidates');
-          const result = this.impl.requestCandidates(params.arg_arg_query, params.arg_arg_num_candidates);
+          const result = this.impl.requestCandidates(params.arg_query, params.arg_num_candidates);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestCandidates FAILED:', e));
           }
@@ -442,13 +442,13 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.downloadCandidate');
-          const result = this.impl.downloadCandidate(params.arg_arg_candidate_id);
+          const result = this.impl.downloadCandidate(params.arg_candidate_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] downloadCandidate FAILED:', e));
           }
@@ -458,13 +458,13 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commitAsInsert');
-          const result = this.impl.commitAsInsert(params.arg_arg_candidate_id);
+          const result = this.impl.commitAsInsert(params.arg_candidate_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] commitAsInsert FAILED:', e));
           }
@@ -474,13 +474,13 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commitAsDownload');
-          const result = this.impl.commitAsDownload(params.arg_arg_candidate_id);
+          const result = this.impl.commitAsDownload(params.arg_candidate_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] commitAsDownload FAILED:', e));
           }
@@ -490,13 +490,13 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.previewFeedback');
-          const result = this.impl.previewFeedback(params.arg_arg_candidate_id);
+          const result = this.impl.previewFeedback(params.arg_candidate_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_preview' in response) ? response.arg_arg_preview : response;
-              encoder.encodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_preview' in response) ? response.arg_preview : response;
+              encoder.encodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec.$.structSpec, { 'arg_preview': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] previewFeedback FAILED:', e));
           }
@@ -506,13 +506,13 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFeedback');
-          const result = this.impl.submitFeedback(params.arg_arg_candidate_id, params.arg_arg_description);
+          const result = this.impl.submitFeedback(params.arg_candidate_id, params.arg_description);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] submitFeedback FAILED:', e));
           }
@@ -536,14 +536,14 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.emitMetricEvent');
-          const result = this.impl.emitMetricEvent(params.arg_arg_metric_event);
+          const result = this.impl.emitMetricEvent(params.arg_metric_event);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openUrlInNewWindow');
-          const result = this.impl.openUrlInNewWindow(params.arg_arg_url);
+          const result = this.impl.openUrlInNewWindow(params.arg_url);
           break;
         }
       }

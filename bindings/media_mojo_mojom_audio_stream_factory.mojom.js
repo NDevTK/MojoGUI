@@ -355,7 +355,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec,
-      [arg_stream, arg_client, arg_observer, arg_log, arg_device_id, arg_params, arg_group_id, arg_shared_memory_count, arg_enable_agc, arg_processing_config],
+      { arg_stream: arg_stream, arg_client: arg_client, arg_observer: arg_observer, arg_log: arg_log, arg_device_id: arg_device_id, arg_params: arg_params, arg_group_id: arg_group_id, arg_shared_memory_count: arg_shared_memory_count, arg_enable_agc: arg_enable_agc, arg_processing_config: arg_processing_config },
       false);
   }
 
@@ -364,7 +364,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec,
       null,
-      [arg_input_stream_id, arg_output_device_id],
+      { arg_input_stream_id: arg_input_stream_id, arg_output_device_id: arg_output_device_id },
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec,
-      [arg_stream, arg_observer, arg_log, arg_device_id, arg_params, arg_group_id],
+      { arg_stream: arg_stream, arg_observer: arg_observer, arg_log: arg_log, arg_device_id: arg_device_id, arg_params: arg_params, arg_group_id: arg_group_id },
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec,
-      [arg_stream, arg_device_switch_receiver, arg_observer, arg_log, arg_device_id, arg_params, arg_group_id],
+      { arg_stream: arg_stream, arg_device_switch_receiver: arg_device_switch_receiver, arg_observer: arg_observer, arg_log: arg_log, arg_device_id: arg_device_id, arg_params: arg_params, arg_group_id: arg_group_id },
       false);
   }
 
@@ -391,7 +391,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.AudioStreamFactory_BindMuter_ParamsSpec,
       null,
-      [arg_receiver, arg_group_id],
+      { arg_receiver: arg_receiver, arg_group_id: arg_group_id },
       false);
   }
 
@@ -400,7 +400,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec,
-      [arg_receiver, arg_client, arg_observer, arg_params, arg_shared_memory_count, arg_group_id],
+      { arg_receiver: arg_receiver, arg_client: arg_client, arg_observer: arg_observer, arg_params: arg_params, arg_shared_memory_count: arg_shared_memory_count, arg_group_id: arg_group_id },
       false);
   }
 
@@ -474,12 +474,12 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createInputStream');
-          const result = this.impl.createInputStream(params.arg_arg_stream, params.arg_arg_client, params.arg_arg_observer, params.arg_arg_log, params.arg_arg_device_id, params.arg_arg_params, params.arg_arg_group_id, params.arg_arg_shared_memory_count, params.arg_arg_enable_agc, params.arg_arg_processing_config);
+          const result = this.impl.createInputStream(params.arg_stream, params.arg_client, params.arg_observer, params.arg_log, params.arg_device_id, params.arg_params, params.arg_group_id, params.arg_shared_memory_count, params.arg_enable_agc, params.arg_processing_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec.$.structSpec, ['response.arg_arg_data_pipe', 'response.arg_arg_initially_muted', 'response.arg_arg_stream_id']);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec.$.structSpec, { 'arg_data_pipe': response.arg_data_pipe, 'arg_initially_muted': response.arg_initially_muted, 'arg_stream_id': response.arg_stream_id });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createInputStream FAILED:', e));
           }
@@ -489,20 +489,20 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.associateInputAndOutputForAec');
-          const result = this.impl.associateInputAndOutputForAec(params.arg_arg_input_stream_id, params.arg_arg_output_device_id);
+          const result = this.impl.associateInputAndOutputForAec(params.arg_input_stream_id, params.arg_output_device_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createOutputStream');
-          const result = this.impl.createOutputStream(params.arg_arg_stream, params.arg_arg_observer, params.arg_arg_log, params.arg_arg_device_id, params.arg_arg_params, params.arg_arg_group_id);
+          const result = this.impl.createOutputStream(params.arg_stream, params.arg_observer, params.arg_log, params.arg_device_id, params.arg_params, params.arg_group_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data_pipe' in response) ? response.arg_arg_data_pipe : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data_pipe' in response) ? response.arg_data_pipe : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec.$.structSpec, { 'arg_data_pipe': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createOutputStream FAILED:', e));
           }
@@ -512,13 +512,13 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSwitchableOutputStream');
-          const result = this.impl.createSwitchableOutputStream(params.arg_arg_stream, params.arg_arg_device_switch_receiver, params.arg_arg_observer, params.arg_arg_log, params.arg_arg_device_id, params.arg_arg_params, params.arg_arg_group_id);
+          const result = this.impl.createSwitchableOutputStream(params.arg_stream, params.arg_device_switch_receiver, params.arg_observer, params.arg_log, params.arg_device_id, params.arg_params, params.arg_group_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data_pipe' in response) ? response.arg_arg_data_pipe : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data_pipe' in response) ? response.arg_data_pipe : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec.$.structSpec, { 'arg_data_pipe': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createSwitchableOutputStream FAILED:', e));
           }
@@ -528,20 +528,20 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_BindMuter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindMuter');
-          const result = this.impl.bindMuter(params.arg_arg_receiver, params.arg_arg_group_id);
+          const result = this.impl.bindMuter(params.arg_receiver, params.arg_group_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createLoopbackStream');
-          const result = this.impl.createLoopbackStream(params.arg_arg_receiver, params.arg_arg_client, params.arg_arg_observer, params.arg_arg_params, params.arg_arg_shared_memory_count, params.arg_arg_group_id);
+          const result = this.impl.createLoopbackStream(params.arg_receiver, params.arg_client, params.arg_observer, params.arg_params, params.arg_shared_memory_count, params.arg_group_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data_pipe' in response) ? response.arg_arg_data_pipe : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data_pipe' in response) ? response.arg_data_pipe : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec.$.structSpec, { 'arg_data_pipe': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createLoopbackStream FAILED:', e));
           }

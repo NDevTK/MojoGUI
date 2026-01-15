@@ -208,7 +208,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_Annotate_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_Annotate_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ResponseParamsSpec,
-      [arg_text],
+      { arg_text: arg_text },
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -297,13 +297,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_Annotate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.annotate');
-          const result = this.impl.annotate(params.arg_arg_request);
+          const result = this.impl.annotate(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_outputs' in response) ? response.arg_arg_outputs : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_Annotate_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_outputs' in response) ? response.arg_outputs : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_Annotate_ResponseParamsSpec.$.structSpec, { 'arg_outputs': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] annotate FAILED:', e));
           }
@@ -313,13 +313,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.findLanguages');
-          const result = this.impl.findLanguages(params.arg_arg_text);
+          const result = this.impl.findLanguages(params.arg_text);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_outputs' in response) ? response.arg_arg_outputs : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_outputs' in response) ? response.arg_outputs : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ResponseParamsSpec.$.structSpec, { 'arg_outputs': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] findLanguages FAILED:', e));
           }
@@ -329,13 +329,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_1');
-          const result = this.impl.rEMOVED_1(params.arg_arg_request);
+          const result = this.impl.rEMOVED_1(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_outputs' in response) ? response.arg_arg_outputs : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_outputs' in response) ? response.arg_outputs : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec.$.structSpec, { 'arg_outputs': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] rEMOVED_1 FAILED:', e));
           }

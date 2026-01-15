@@ -176,7 +176,7 @@ mojo.internal.bindings.chromecast.media.mojom.MediaCapsRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.chromecast.media.mojom.MediaCapsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_arg_observer);
+          const result = this.impl.addObserver(params.arg_observer);
           break;
         }
       }
@@ -306,7 +306,7 @@ mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec,
       null,
-      [arg_codec_profile_level],
+      { arg_codec_profile_level: arg_codec_profile_level },
       false);
   }
 
@@ -375,7 +375,7 @@ mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addSupportedCodecProfileLevel');
-          const result = this.impl.addSupportedCodecProfileLevel(params.arg_arg_codec_profile_level);
+          const result = this.impl.addSupportedCodecProfileLevel(params.arg_codec_profile_level);
           break;
         }
       }

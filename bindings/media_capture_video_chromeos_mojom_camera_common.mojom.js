@@ -259,7 +259,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleCallbacksRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec,
       null,
-      [arg_camera_id, arg_new_status],
+      { arg_camera_id: arg_camera_id, arg_new_status: arg_new_status },
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleCallbacksRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_ParamsSpec,
       null,
-      [arg_camera_id, arg_new_status],
+      { arg_camera_id: arg_camera_id, arg_new_status: arg_new_status },
       false);
   }
 
@@ -338,14 +338,14 @@ mojo.internal.bindings.cros.mojom.CameraModuleCallbacksReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cameraDeviceStatusChange');
-          const result = this.impl.cameraDeviceStatusChange(params.arg_arg_camera_id, params.arg_arg_new_status);
+          const result = this.impl.cameraDeviceStatusChange(params.arg_camera_id, params.arg_new_status);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.torchModeStatusChange');
-          const result = this.impl.torchModeStatusChange(params.arg_arg_camera_id, params.arg_arg_new_status);
+          const result = this.impl.torchModeStatusChange(params.arg_camera_id, params.arg_new_status);
           break;
         }
       }
@@ -422,7 +422,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ParamsSpec,
       mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -431,7 +431,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ParamsSpec,
       mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ParamsSpec,
       mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ResponseParamsSpec,
-      [arg_tag],
+      { arg_tag: arg_tag },
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ParamsSpec,
       mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ResponseParamsSpec,
-      [arg_tag],
+      { arg_tag: arg_tag },
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ParamsSpec,
       mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ResponseParamsSpec,
-      [arg_tag],
+      { arg_tag: arg_tag },
       false);
   }
 
@@ -536,8 +536,8 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getTagCount FAILED:', e));
           }
@@ -552,8 +552,8 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_tag_array' in response) ? response.arg_arg_tag_array : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_tag_array' in response) ? response.arg_tag_array : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ResponseParamsSpec.$.structSpec, { 'arg_tag_array': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAllTags FAILED:', e));
           }
@@ -563,13 +563,13 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSectionName');
-          const result = this.impl.getSectionName(params.arg_arg_tag);
+          const result = this.impl.getSectionName(params.arg_tag);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_name' in response) ? response.arg_arg_name : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_name' in response) ? response.arg_name : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ResponseParamsSpec.$.structSpec, { 'arg_name': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSectionName FAILED:', e));
           }
@@ -579,13 +579,13 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTagName');
-          const result = this.impl.getTagName(params.arg_arg_tag);
+          const result = this.impl.getTagName(params.arg_tag);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_name' in response) ? response.arg_arg_name : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_name' in response) ? response.arg_name : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ResponseParamsSpec.$.structSpec, { 'arg_name': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getTagName FAILED:', e));
           }
@@ -595,13 +595,13 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTagType');
-          const result = this.impl.getTagType(params.arg_arg_tag);
+          const result = this.impl.getTagType(params.arg_tag);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_type' in response) ? response.arg_arg_type : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_type' in response) ? response.arg_type : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ResponseParamsSpec.$.structSpec, { 'arg_type': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getTagType FAILED:', e));
           }
@@ -693,7 +693,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ResponseParamsSpec,
-      [arg_camera_id, arg_device_ops_receiver],
+      { arg_camera_id: arg_camera_id, arg_device_ops_receiver: arg_device_ops_receiver },
       false);
   }
 
@@ -702,7 +702,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -711,7 +711,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ResponseParamsSpec,
-      [arg_camera_id],
+      { arg_camera_id: arg_camera_id },
       false);
   }
 
@@ -720,7 +720,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ResponseParamsSpec,
-      [arg_callbacks],
+      { arg_callbacks: arg_callbacks },
       false);
   }
 
@@ -729,7 +729,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ResponseParamsSpec,
-      [arg_camera_id, arg_enabled],
+      { arg_camera_id: arg_camera_id, arg_enabled: arg_enabled },
       false);
   }
 
@@ -738,7 +738,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraModule_Init_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraModule_Init_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -747,7 +747,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ResponseParamsSpec,
-      [arg_vendor_tag_ops_receiver],
+      { arg_vendor_tag_ops_receiver: arg_vendor_tag_ops_receiver },
       false);
   }
 
@@ -756,7 +756,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ResponseParamsSpec,
-      [arg_callbacks],
+      { arg_callbacks: arg_callbacks },
       false);
   }
 
@@ -832,13 +832,13 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openDevice');
-          const result = this.impl.openDevice(params.arg_arg_camera_id, params.arg_arg_device_ops_receiver);
+          const result = this.impl.openDevice(params.arg_camera_id, params.arg_device_ops_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openDevice FAILED:', e));
           }
@@ -853,8 +853,8 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNumberOfCameras FAILED:', e));
           }
@@ -864,12 +864,12 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCameraInfo');
-          const result = this.impl.getCameraInfo(params.arg_arg_camera_id);
+          const result = this.impl.getCameraInfo(params.arg_camera_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_camera_info']);
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_camera_info': response.arg_camera_info });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCameraInfo FAILED:', e));
           }
@@ -879,13 +879,13 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCallbacks');
-          const result = this.impl.setCallbacks(params.arg_arg_callbacks);
+          const result = this.impl.setCallbacks(params.arg_callbacks);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setCallbacks FAILED:', e));
           }
@@ -895,13 +895,13 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTorchMode');
-          const result = this.impl.setTorchMode(params.arg_arg_camera_id, params.arg_arg_enabled);
+          const result = this.impl.setTorchMode(params.arg_camera_id, params.arg_enabled);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setTorchMode FAILED:', e));
           }
@@ -916,8 +916,8 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_Init_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_Init_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -927,12 +927,12 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVendorTagOps');
-          const result = this.impl.getVendorTagOps(params.arg_arg_vendor_tag_ops_receiver);
+          const result = this.impl.getVendorTagOps(params.arg_vendor_tag_ops_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getVendorTagOps FAILED:', e));
           }
@@ -942,13 +942,13 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCallbacksAssociated');
-          const result = this.impl.setCallbacksAssociated(params.arg_arg_callbacks);
+          const result = this.impl.setCallbacksAssociated(params.arg_callbacks);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setCallbacksAssociated FAILED:', e));
           }

@@ -213,7 +213,7 @@ mojo.internal.bindings.storage.mojom.StorageServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.storage.mojom.StorageServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.StorageService_SetDataDirectory_ParamsSpec,
       null,
-      [arg_path, arg_directory],
+      { arg_path: arg_path, arg_directory: arg_directory },
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.storage.mojom.StorageServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec,
       null,
-      [arg_path, arg_receiver],
+      { arg_path: arg_path, arg_receiver: arg_receiver },
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.storage.mojom.StorageServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec,
       null,
-      [arg_path, arg_receiver],
+      { arg_path: arg_path, arg_receiver: arg_receiver },
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.storage.mojom.StorageServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.storage.mojom.StorageService_BindTestApi_ParamsSpec,
       null,
-      [arg_test_api_receiver],
+      { arg_test_api_receiver: arg_test_api_receiver },
       false);
   }
 
@@ -329,28 +329,28 @@ mojo.internal.bindings.storage.mojom.StorageServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.StorageService_SetDataDirectory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDataDirectory');
-          const result = this.impl.setDataDirectory(params.arg_arg_path, params.arg_arg_directory);
+          const result = this.impl.setDataDirectory(params.arg_path, params.arg_directory);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSessionStorageControl');
-          const result = this.impl.bindSessionStorageControl(params.arg_arg_path, params.arg_arg_receiver);
+          const result = this.impl.bindSessionStorageControl(params.arg_path, params.arg_receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindLocalStorageControl');
-          const result = this.impl.bindLocalStorageControl(params.arg_arg_path, params.arg_arg_receiver);
+          const result = this.impl.bindLocalStorageControl(params.arg_path, params.arg_receiver);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.StorageService_BindTestApi_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTestApi');
-          const result = this.impl.bindTestApi(params.arg_arg_test_api_receiver);
+          const result = this.impl.bindTestApi(params.arg_test_api_receiver);
           break;
         }
       }

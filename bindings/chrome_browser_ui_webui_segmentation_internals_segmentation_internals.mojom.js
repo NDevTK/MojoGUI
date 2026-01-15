@@ -191,7 +191,7 @@ mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactoryRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactoryReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -333,7 +333,7 @@ mojo.internal.bindings.segmentation_internals.mojom.PageHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -342,7 +342,7 @@ mojo.internal.bindings.segmentation_internals.mojom.PageHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec,
       null,
-      [arg_segment_id],
+      { arg_segment_id: arg_segment_id },
       false);
   }
 
@@ -351,7 +351,7 @@ mojo.internal.bindings.segmentation_internals.mojom.PageHandlerRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec,
       null,
-      [arg_segment_id, arg_result],
+      { arg_segment_id: arg_segment_id, arg_result: arg_result },
       false);
   }
 
@@ -360,7 +360,7 @@ mojo.internal.bindings.segmentation_internals.mojom.PageHandlerRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec,
       null,
-      [arg_segmentation_key, arg_optimization_target],
+      { arg_segmentation_key: arg_segmentation_key, arg_optimization_target: arg_optimization_target },
       false);
   }
 
@@ -439,21 +439,21 @@ mojo.internal.bindings.segmentation_internals.mojom.PageHandlerReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeModel');
-          const result = this.impl.executeModel(params.arg_arg_segment_id);
+          const result = this.impl.executeModel(params.arg_segment_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.overwriteResult');
-          const result = this.impl.overwriteResult(params.arg_arg_segment_id, params.arg_arg_result);
+          const result = this.impl.overwriteResult(params.arg_segment_id, params.arg_result);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSelected');
-          const result = this.impl.setSelected(params.arg_arg_segmentation_key, params.arg_arg_optimization_target);
+          const result = this.impl.setSelected(params.arg_segmentation_key, params.arg_optimization_target);
           break;
         }
       }
@@ -518,7 +518,7 @@ mojo.internal.bindings.segmentation_internals.mojom.PageRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec,
       null,
-      [arg_is_initialized, arg_status_flag],
+      { arg_is_initialized: arg_is_initialized, arg_status_flag: arg_status_flag },
       false);
   }
 
@@ -527,7 +527,7 @@ mojo.internal.bindings.segmentation_internals.mojom.PageRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec,
       null,
-      [arg_client_info],
+      { arg_client_info: arg_client_info },
       false);
   }
 
@@ -597,14 +597,14 @@ mojo.internal.bindings.segmentation_internals.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onServiceStatusChanged');
-          const result = this.impl.onServiceStatusChanged(params.arg_arg_is_initialized, params.arg_arg_status_flag);
+          const result = this.impl.onServiceStatusChanged(params.arg_is_initialized, params.arg_status_flag);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClientInfoAvailable');
-          const result = this.impl.onClientInfoAvailable(params.arg_arg_client_info);
+          const result = this.impl.onClientInfoAvailable(params.arg_client_info);
           break;
         }
       }

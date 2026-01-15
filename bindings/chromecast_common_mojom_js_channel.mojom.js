@@ -179,7 +179,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.JsChannel_PostMessage_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.JsChannel_PostMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.postMessage');
-          const result = this.impl.postMessage(params.arg_arg_message);
+          const result = this.impl.postMessage(params.arg_message);
           break;
         }
       }
@@ -313,7 +313,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelClientRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec,
       null,
-      [arg_channel, arg_pipe],
+      { arg_channel: arg_channel, arg_pipe: arg_pipe },
       false);
   }
 
@@ -322,7 +322,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelClientRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec,
       null,
-      [arg_channel],
+      { arg_channel: arg_channel },
       false);
   }
 
@@ -392,14 +392,14 @@ mojo.internal.bindings.chromecast.mojom.JsChannelClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createChannel');
-          const result = this.impl.createChannel(params.arg_arg_channel, params.arg_arg_pipe);
+          const result = this.impl.createChannel(params.arg_channel, params.arg_pipe);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeChannel');
-          const result = this.impl.removeChannel(params.arg_arg_channel);
+          const result = this.impl.removeChannel(params.arg_channel);
           break;
         }
       }
@@ -460,7 +460,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelBindingProviderRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec,
       null,
-      [arg_routing_id, arg_client],
+      { arg_routing_id: arg_routing_id, arg_client: arg_client },
       false);
   }
 
@@ -529,7 +529,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelBindingProviderReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.register');
-          const result = this.impl.register(params.arg_arg_routing_id, params.arg_arg_client);
+          const result = this.impl.register(params.arg_routing_id, params.arg_client);
           break;
         }
       }

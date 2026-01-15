@@ -208,7 +208,7 @@ mojo.internal.bindings.webnn.mojom.WebNNTensorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec,
       mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.webnn.mojom.WebNNTensorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec,
       null,
-      [arg_src_buffer],
+      { arg_src_buffer: arg_src_buffer },
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.webnn.mojom.WebNNTensorRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.webnn.mojom.WebNNTensorRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec,
       null,
-      [arg_fence],
+      { arg_fence: arg_fence },
       false);
   }
 
@@ -312,8 +312,8 @@ mojo.internal.bindings.webnn.mojom.WebNNTensorReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readTensor FAILED:', e));
           }
@@ -323,7 +323,7 @@ mojo.internal.bindings.webnn.mojom.WebNNTensorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeTensor');
-          const result = this.impl.writeTensor(params.arg_arg_src_buffer);
+          const result = this.impl.writeTensor(params.arg_src_buffer);
           break;
         }
         case 2: {
@@ -337,7 +337,7 @@ mojo.internal.bindings.webnn.mojom.WebNNTensorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.importTensor');
-          const result = this.impl.importTensor(params.arg_arg_fence);
+          const result = this.impl.importTensor(params.arg_fence);
           break;
         }
       }

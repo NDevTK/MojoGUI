@@ -193,7 +193,7 @@ mojo.internal.bindings.network.mojom.WebBundleHandleRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.WebBundleHandle_Clone_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -202,7 +202,7 @@ mojo.internal.bindings.network.mojom.WebBundleHandleRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec,
       null,
-      [arg_type, arg_message],
+      { arg_type: arg_type, arg_message: arg_message },
       false);
   }
 
@@ -211,7 +211,7 @@ mojo.internal.bindings.network.mojom.WebBundleHandleRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec,
       null,
-      [arg_success],
+      { arg_success: arg_success },
       false);
   }
 
@@ -282,21 +282,21 @@ mojo.internal.bindings.network.mojom.WebBundleHandleReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebBundleHandle_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_receiver);
+          const result = this.impl.clone(params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWebBundleError');
-          const result = this.impl.onWebBundleError(params.arg_arg_type, params.arg_arg_message);
+          const result = this.impl.onWebBundleError(params.arg_type, params.arg_message);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWebBundleLoadFinished');
-          const result = this.impl.onWebBundleLoadFinished(params.arg_arg_success);
+          const result = this.impl.onWebBundleLoadFinished(params.arg_success);
           break;
         }
       }

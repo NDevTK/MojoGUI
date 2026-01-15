@@ -205,7 +205,7 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRemo
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page],
+      { arg_page: arg_page },
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRemo
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec,
       mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRemo
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec,
       mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRemo
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec,
       mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRece
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page);
+          const result = this.impl.createPageHandler(params.arg_page);
           break;
         }
         case 1: {
@@ -316,8 +316,8 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRece
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_downloaded_models_info' in response) ? response.arg_arg_downloaded_models_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_downloaded_models_info' in response) ? response.arg_downloaded_models_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec.$.structSpec, { 'arg_downloaded_models_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestDownloadedModelsInfo FAILED:', e));
           }
@@ -332,8 +332,8 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRece
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_logged_client_ids' in response) ? response.arg_arg_logged_client_ids : response;
-              encoder.encodeStructInline(mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_logged_client_ids' in response) ? response.arg_logged_client_ids : response;
+              encoder.encodeStructInline(mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec.$.structSpec, { 'arg_logged_client_ids': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestLoggedModelQualityClientIds FAILED:', e));
           }
@@ -348,8 +348,8 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRece
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_mqls_logs' in response) ? response.arg_arg_mqls_logs : response;
-              encoder.encodeStructInline(mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_mqls_logs' in response) ? response.arg_mqls_logs : response;
+              encoder.encodeStructInline(mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec.$.structSpec, { 'arg_mqls_logs': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestMqlsLogs FAILED:', e));
           }
@@ -413,7 +413,7 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec,
       null,
-      [arg_event_time, arg_log_source, arg_source_file, arg_source_line, arg_message],
+      { arg_event_time: arg_event_time, arg_log_source: arg_log_source, arg_source_file: arg_source_file, arg_source_line: arg_source_line, arg_message: arg_message },
       false);
   }
 
@@ -482,7 +482,7 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLogMessageAdded');
-          const result = this.impl.onLogMessageAdded(params.arg_arg_event_time, params.arg_arg_log_source, params.arg_arg_source_file, params.arg_arg_source_line, params.arg_arg_message);
+          const result = this.impl.onLogMessageAdded(params.arg_event_time, params.arg_log_source, params.arg_source_file, params.arg_source_line, params.arg_message);
           break;
         }
       }

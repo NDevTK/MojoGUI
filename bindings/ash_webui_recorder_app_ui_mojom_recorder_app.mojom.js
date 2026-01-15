@@ -261,7 +261,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitorRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitorReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
-          const result = this.impl.update(params.arg_arg_state);
+          const result = this.impl.update(params.arg_state);
           break;
         }
       }
@@ -391,7 +391,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.QuietModeMonitorRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec,
       null,
-      [arg_in_quiet_mode],
+      { arg_in_quiet_mode: arg_in_quiet_mode },
       false);
   }
 
@@ -460,7 +460,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.QuietModeMonitorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
-          const result = this.impl.update(params.arg_arg_in_quiet_mode);
+          const result = this.impl.update(params.arg_in_quiet_mode);
           break;
         }
       }
@@ -585,7 +585,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec,
-      [arg_feature],
+      { arg_feature: arg_feature },
       false);
   }
 
@@ -594,7 +594,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec,
-      [arg_model_id, arg_model],
+      { arg_model_id: arg_model_id, arg_model: arg_model },
       false);
   }
 
@@ -603,7 +603,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec,
-      [arg_uuid, arg_feature, arg_fields],
+      { arg_uuid: arg_uuid, arg_feature: arg_feature, arg_fields: arg_fields },
       false);
   }
 
@@ -612,7 +612,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec,
-      [arg_safety_feature, arg_text, arg_safety_info],
+      { arg_safety_feature: arg_safety_feature, arg_text: arg_text, arg_safety_info: arg_safety_info },
       false);
   }
 
@@ -621,7 +621,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec,
-      [arg_model_id, arg_monitor],
+      { arg_model_id: arg_model_id, arg_monitor: arg_monitor },
       false);
   }
 
@@ -630,7 +630,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -639,7 +639,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -648,7 +648,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec,
-      [arg_language, arg_monitor],
+      { arg_language: arg_language, arg_monitor: arg_monitor },
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_InstallSoda_ResponseParamsSpec,
-      [arg_language],
+      { arg_language: arg_language },
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec,
-      [arg_language, arg_soda_client, arg_soda_recognizer],
+      { arg_language: arg_language, arg_soda_client: arg_soda_client, arg_soda_recognizer: arg_soda_recognizer },
       false);
   }
 
@@ -675,7 +675,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec,
       null,
-      [arg_description_template],
+      { arg_description_template: arg_description_template },
       false);
   }
 
@@ -684,7 +684,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec,
-      [arg_source_id],
+      { arg_source_id: arg_source_id },
       false);
   }
 
@@ -693,7 +693,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec,
-      [arg_monitor],
+      { arg_monitor: arg_monitor },
       false);
   }
 
@@ -702,7 +702,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec,
       null,
-      [arg_quiet_mode],
+      { arg_quiet_mode: arg_quiet_mode },
       false);
   }
 
@@ -711,7 +711,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -720,7 +720,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec,
       null,
-      [arg_consent_given, arg_consent_description_names, arg_consent_confirmation_name],
+      { arg_consent_given: arg_consent_given, arg_consent_description_names: arg_consent_description_names, arg_consent_confirmation_name: arg_consent_confirmation_name },
       false);
   }
 
@@ -729,7 +729,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -814,13 +814,13 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getModelInfo');
-          const result = this.impl.getModelInfo(params.arg_arg_feature);
+          const result = this.impl.getModelInfo(params.arg_feature);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_model_info' in response) ? response.arg_arg_model_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_model_info' in response) ? response.arg_model_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec.$.structSpec, { 'arg_model_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getModelInfo FAILED:', e));
           }
@@ -830,13 +830,13 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadModel');
-          const result = this.impl.loadModel(params.arg_arg_model_id, params.arg_arg_model);
+          const result = this.impl.loadModel(params.arg_model_id, params.arg_model);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] loadModel FAILED:', e));
           }
@@ -846,13 +846,13 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.formatModelInput');
-          const result = this.impl.formatModelInput(params.arg_arg_uuid, params.arg_arg_feature, params.arg_arg_fields);
+          const result = this.impl.formatModelInput(params.arg_uuid, params.arg_feature, params.arg_fields);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] formatModelInput FAILED:', e));
           }
@@ -862,13 +862,13 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.validateSafetyResult');
-          const result = this.impl.validateSafetyResult(params.arg_arg_safety_feature, params.arg_arg_text, params.arg_arg_safety_info);
+          const result = this.impl.validateSafetyResult(params.arg_safety_feature, params.arg_text, params.arg_safety_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_safe' in response) ? response.arg_arg_is_safe : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_safe' in response) ? response.arg_is_safe : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec.$.structSpec, { 'arg_is_safe': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] validateSafetyResult FAILED:', e));
           }
@@ -878,13 +878,13 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addModelMonitor');
-          const result = this.impl.addModelMonitor(params.arg_arg_model_id, params.arg_arg_monitor);
+          const result = this.impl.addModelMonitor(params.arg_model_id, params.arg_monitor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response.arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec.$.structSpec, { 'arg_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addModelMonitor FAILED:', e));
           }
@@ -899,8 +899,8 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_lang_packs' in response) ? response.arg_arg_lang_packs : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_lang_packs' in response) ? response.arg_lang_packs : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec.$.structSpec, { 'arg_lang_packs': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAvailableLangPacks FAILED:', e));
           }
@@ -915,8 +915,8 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_language_code' in response) ? response.arg_arg_language_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_language_code' in response) ? response.arg_language_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec.$.structSpec, { 'arg_language_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDefaultLanguage FAILED:', e));
           }
@@ -926,13 +926,13 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addSodaMonitor');
-          const result = this.impl.addSodaMonitor(params.arg_arg_language, params.arg_arg_monitor);
+          const result = this.impl.addSodaMonitor(params.arg_language, params.arg_monitor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response.arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec.$.structSpec, { 'arg_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addSodaMonitor FAILED:', e));
           }
@@ -942,12 +942,12 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installSoda');
-          const result = this.impl.installSoda(params.arg_arg_language);
+          const result = this.impl.installSoda(params.arg_language);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_InstallSoda_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_InstallSoda_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] installSoda FAILED:', e));
           }
@@ -957,13 +957,13 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadSpeechRecognizer');
-          const result = this.impl.loadSpeechRecognizer(params.arg_arg_language, params.arg_arg_soda_client, params.arg_arg_soda_recognizer);
+          const result = this.impl.loadSpeechRecognizer(params.arg_language, params.arg_soda_client, params.arg_soda_recognizer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] loadSpeechRecognizer FAILED:', e));
           }
@@ -973,20 +973,20 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openAiFeedbackDialog');
-          const result = this.impl.openAiFeedbackDialog(params.arg_arg_description_template);
+          const result = this.impl.openAiFeedbackDialog(params.arg_description_template);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMicrophoneInfo');
-          const result = this.impl.getMicrophoneInfo(params.arg_arg_source_id);
+          const result = this.impl.getMicrophoneInfo(params.arg_source_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMicrophoneInfo FAILED:', e));
           }
@@ -996,13 +996,13 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addQuietModeMonitor');
-          const result = this.impl.addQuietModeMonitor(params.arg_arg_monitor);
+          const result = this.impl.addQuietModeMonitor(params.arg_monitor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_in_quiet_mode' in response) ? response.arg_arg_in_quiet_mode : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_in_quiet_mode' in response) ? response.arg_in_quiet_mode : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec.$.structSpec, { 'arg_in_quiet_mode': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addQuietModeMonitor FAILED:', e));
           }
@@ -1012,7 +1012,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setQuietMode');
-          const result = this.impl.setQuietMode(params.arg_arg_quiet_mode);
+          const result = this.impl.setQuietMode(params.arg_quiet_mode);
           break;
         }
         case 14: {
@@ -1024,8 +1024,8 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_supported' in response) ? response.arg_arg_supported : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_supported' in response) ? response.arg_supported : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec.$.structSpec, { 'arg_supported': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] canUseSpeakerLabel FAILED:', e));
           }
@@ -1035,7 +1035,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordSpeakerLabelConsent');
-          const result = this.impl.recordSpeakerLabelConsent(params.arg_arg_consent_given, params.arg_arg_consent_description_names, params.arg_arg_consent_confirmation_name);
+          const result = this.impl.recordSpeakerLabelConsent(params.arg_consent_given, params.arg_consent_description_names, params.arg_consent_confirmation_name);
           break;
         }
         case 16: {
@@ -1047,8 +1047,8 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_supported' in response) ? response.arg_arg_supported : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_supported' in response) ? response.arg_supported : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec.$.structSpec, { 'arg_supported': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] canCaptureSystemAudioWithLoopback FAILED:', e));
           }

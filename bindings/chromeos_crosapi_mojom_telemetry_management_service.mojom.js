@@ -177,7 +177,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryManagementServiceRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec,
-      [arg_node_id, arg_gain],
+      { arg_node_id: arg_node_id, arg_gain: arg_gain },
       false);
   }
 
@@ -186,7 +186,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryManagementServiceRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec,
-      [arg_node_id, arg_volume, arg_is_muted],
+      { arg_node_id: arg_node_id, arg_volume: arg_volume, arg_is_muted: arg_is_muted },
       false);
   }
 
@@ -256,13 +256,13 @@ mojo.internal.bindings.crosapi.mojom.TelemetryManagementServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAudioGain');
-          const result = this.impl.setAudioGain(params.arg_arg_node_id, params.arg_arg_gain);
+          const result = this.impl.setAudioGain(params.arg_node_id, params.arg_gain);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_success' in response) ? response.arg_arg_is_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_success' in response) ? response.arg_is_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec.$.structSpec, { 'arg_is_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setAudioGain FAILED:', e));
           }
@@ -272,13 +272,13 @@ mojo.internal.bindings.crosapi.mojom.TelemetryManagementServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAudioVolume');
-          const result = this.impl.setAudioVolume(params.arg_arg_node_id, params.arg_arg_volume, params.arg_arg_is_muted);
+          const result = this.impl.setAudioVolume(params.arg_node_id, params.arg_volume, params.arg_is_muted);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_success' in response) ? response.arg_arg_is_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_success' in response) ? response.arg_is_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec.$.structSpec, { 'arg_is_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setAudioVolume FAILED:', e));
           }

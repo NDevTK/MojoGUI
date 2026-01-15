@@ -191,7 +191,7 @@ mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriverRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ParamsSpec,
       mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriverRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ParamsSpec,
       mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -275,8 +275,8 @@ mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriverRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_model_file' in response) ? response.arg_arg_model_file : response;
-              encoder.encodeStructInline(mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_model_file' in response) ? response.arg_model_file : response;
+              encoder.encodeStructInline(mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec.$.structSpec, { 'arg_model_file': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getLanguageDetectionModel FAILED:', e));
           }
@@ -291,8 +291,8 @@ mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriverRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getLanguageDetectionModelStatus FAILED:', e));
           }

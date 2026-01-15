@@ -197,7 +197,7 @@ mojo.internal.bindings.media.mojom.OutputProtectionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.OutputProtection_QueryStatus_ParamsSpec,
       mojo.internal.bindings.media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -206,7 +206,7 @@ mojo.internal.bindings.media.mojom.OutputProtectionRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.OutputProtection_EnableProtection_ParamsSpec,
       mojo.internal.bindings.media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec,
-      [arg_desired_protection_mask],
+      { arg_desired_protection_mask: arg_desired_protection_mask },
       false);
   }
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.media.mojom.OutputProtectionReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_link_mask', 'response.arg_arg_protection_mask']);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_link_mask': response.arg_link_mask, 'arg_protection_mask': response.arg_protection_mask });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] queryStatus FAILED:', e));
           }
@@ -291,13 +291,13 @@ mojo.internal.bindings.media.mojom.OutputProtectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.OutputProtection_EnableProtection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableProtection');
-          const result = this.impl.enableProtection(params.arg_arg_desired_protection_mask);
+          const result = this.impl.enableProtection(params.arg_desired_protection_mask);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] enableProtection FAILED:', e));
           }

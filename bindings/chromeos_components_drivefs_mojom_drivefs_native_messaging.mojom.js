@@ -184,7 +184,7 @@ mojo.internal.bindings.drivefs.mojom.NativeMessagingPortRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.drivefs.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.drivefs.mojom.NativeMessagingPortReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.postMessageToExtension');
-          const result = this.impl.postMessageToExtension(params.arg_arg_message);
+          const result = this.impl.postMessageToExtension(params.arg_message);
           break;
         }
       }
@@ -314,7 +314,7 @@ mojo.internal.bindings.drivefs.mojom.NativeMessagingHostRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.drivefs.mojom.NativeMessagingHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleMessageFromExtension');
-          const result = this.impl.handleMessageFromExtension(params.arg_arg_message);
+          const result = this.impl.handleMessageFromExtension(params.arg_message);
           break;
         }
       }

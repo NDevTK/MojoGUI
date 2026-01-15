@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.CookieStoreRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.CookieStore_AddSubscriptions_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec,
-      [arg_service_worker_registration_id, arg_subscription],
+      { arg_service_worker_registration_id: arg_service_worker_registration_id, arg_subscription: arg_subscription },
       false);
   }
 
@@ -203,7 +203,7 @@ mojo.internal.bindings.blink.mojom.CookieStoreRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec,
-      [arg_service_worker_registration_id, arg_subscription],
+      { arg_service_worker_registration_id: arg_service_worker_registration_id, arg_subscription: arg_subscription },
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.blink.mojom.CookieStoreRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.CookieStore_GetSubscriptions_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec,
-      [arg_service_worker_registration_id],
+      { arg_service_worker_registration_id: arg_service_worker_registration_id },
       false);
   }
 
@@ -283,13 +283,13 @@ mojo.internal.bindings.blink.mojom.CookieStoreReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CookieStore_AddSubscriptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addSubscriptions');
-          const result = this.impl.addSubscriptions(params.arg_arg_service_worker_registration_id, params.arg_arg_subscription);
+          const result = this.impl.addSubscriptions(params.arg_service_worker_registration_id, params.arg_subscription);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addSubscriptions FAILED:', e));
           }
@@ -299,13 +299,13 @@ mojo.internal.bindings.blink.mojom.CookieStoreReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeSubscriptions');
-          const result = this.impl.removeSubscriptions(params.arg_arg_service_worker_registration_id, params.arg_arg_subscription);
+          const result = this.impl.removeSubscriptions(params.arg_service_worker_registration_id, params.arg_subscription);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] removeSubscriptions FAILED:', e));
           }
@@ -315,12 +315,12 @@ mojo.internal.bindings.blink.mojom.CookieStoreReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CookieStore_GetSubscriptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSubscriptions');
-          const result = this.impl.getSubscriptions(params.arg_arg_service_worker_registration_id);
+          const result = this.impl.getSubscriptions(params.arg_service_worker_registration_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec.$.structSpec, ['response.arg_arg_subscriptions', 'response.arg_arg_success']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec.$.structSpec, { 'arg_subscriptions': response.arg_subscriptions, 'arg_success': response.arg_success });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSubscriptions FAILED:', e));
           }

@@ -192,7 +192,7 @@ mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactoryRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -261,7 +261,7 @@ mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactoryReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_handler);
           break;
         }
       }
@@ -326,7 +326,7 @@ mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec,
       mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec,
       mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -405,13 +405,13 @@ mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getChildFolders');
-          const result = this.impl.getChildFolders(params.arg_arg_path);
+          const result = this.impl.getChildFolders(params.arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_paths' in response) ? response.arg_arg_paths : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_paths' in response) ? response.arg_paths : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec.$.structSpec, { 'arg_paths': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getChildFolders FAILED:', e));
           }
@@ -426,7 +426,7 @@ mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_syncing_paths']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_syncing_paths': response.arg_syncing_paths });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSyncingPaths FAILED:', e));
           }

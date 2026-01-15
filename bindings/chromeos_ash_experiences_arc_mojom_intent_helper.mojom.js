@@ -372,7 +372,7 @@ mojo.internal.bindings.arc.mojom.CustomTabSessionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.CustomTabSession_OnOpenInChromeClicked_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -578,7 +578,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnIconInvalidated_ParamsSpec,
       null,
-      [arg_package_name],
+      { arg_package_name: arg_package_name },
       false);
   }
 
@@ -587,7 +587,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_ParamsSpec,
       null,
-      [arg_intent_filters],
+      { arg_intent_filters: arg_intent_filters },
       false);
   }
 
@@ -596,7 +596,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenDownloads_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -605,7 +605,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenUrl_ParamsSpec,
       null,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -614,7 +614,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenCustomTab_ParamsSpec,
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec,
-      [arg_url, arg_task_id],
+      { arg_url: arg_url, arg_task_id: arg_task_id },
       false);
   }
 
@@ -623,7 +623,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OpenWallpaperPicker_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -632,7 +632,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OpenVolumeControl_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -641,7 +641,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec,
       null,
-      [arg_page],
+      { arg_page: arg_page },
       false);
   }
 
@@ -650,7 +650,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenWebApp_ParamsSpec,
       null,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -659,7 +659,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_FactoryResetArc_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -668,7 +668,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec,
       null,
-      [arg_intent_id, arg_mode, arg_should_handle_result, arg_should_down_scale, arg_is_secure, arg_task_id],
+      { arg_intent_id: arg_intent_id, arg_mode: arg_mode, arg_should_handle_result: arg_should_handle_result, arg_should_down_scale: arg_should_down_scale, arg_is_secure: arg_is_secure, arg_task_id: arg_task_id },
       false);
   }
 
@@ -677,7 +677,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec,
       null,
-      [arg_package_name, arg_intent_filters],
+      { arg_package_name: arg_package_name, arg_intent_filters: arg_intent_filters },
       false);
   }
 
@@ -686,7 +686,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_CloseCameraApp_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -695,7 +695,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec,
       mojo.internal.bindings.arc.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec,
-      [arg_app],
+      { arg_app: arg_app },
       false);
   }
 
@@ -704,7 +704,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec,
       null,
-      [arg_added_packages, arg_removed_packages, arg_source],
+      { arg_added_packages: arg_added_packages, arg_removed_packages: arg_removed_packages, arg_source: arg_source },
       false);
   }
 
@@ -713,7 +713,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_ParamsSpec,
       null,
-      [arg_relative_path, arg_owner_package_name],
+      { arg_relative_path: arg_relative_path, arg_owner_package_name: arg_owner_package_name },
       false);
   }
 
@@ -722,7 +722,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenAppWithIntent_ParamsSpec,
       null,
-      [arg_start_url, arg_intent],
+      { arg_start_url: arg_start_url, arg_intent: arg_intent },
       false);
   }
 
@@ -731,7 +731,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenGlobalActions_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -740,7 +740,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnCloseSystemDialogs_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -749,7 +749,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnAndroidSettingChange_ParamsSpec,
       null,
-      [arg_setting, arg_is_enabled],
+      { arg_setting: arg_setting, arg_is_enabled: arg_is_enabled },
       false);
   }
 
@@ -837,14 +837,14 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperHost_OnIconInvalidated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onIconInvalidated');
-          const result = this.impl.onIconInvalidated(params.arg_arg_package_name);
+          const result = this.impl.onIconInvalidated(params.arg_package_name);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onIntentFiltersUpdated');
-          const result = this.impl.onIntentFiltersUpdated(params.arg_arg_intent_filters);
+          const result = this.impl.onIntentFiltersUpdated(params.arg_intent_filters);
           break;
         }
         case 2: {
@@ -858,20 +858,20 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOpenUrl');
-          const result = this.impl.onOpenUrl(params.arg_arg_url);
+          const result = this.impl.onOpenUrl(params.arg_url);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenCustomTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOpenCustomTab');
-          const result = this.impl.onOpenCustomTab(params.arg_arg_url, params.arg_arg_task_id);
+          const result = this.impl.onOpenCustomTab(params.arg_url, params.arg_task_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_session' in response) ? response.arg_arg_session : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_session' in response) ? response.arg_session : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec.$.structSpec, { 'arg_session': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onOpenCustomTab FAILED:', e));
           }
@@ -895,14 +895,14 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOpenChromePage');
-          const result = this.impl.onOpenChromePage(params.arg_arg_page);
+          const result = this.impl.onOpenChromePage(params.arg_page);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenWebApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOpenWebApp');
-          const result = this.impl.onOpenWebApp(params.arg_arg_url);
+          const result = this.impl.onOpenWebApp(params.arg_url);
           break;
         }
         case 9: {
@@ -916,14 +916,14 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchCameraApp');
-          const result = this.impl.launchCameraApp(params.arg_arg_intent_id, params.arg_arg_mode, params.arg_arg_should_handle_result, params.arg_arg_should_down_scale, params.arg_arg_is_secure, params.arg_arg_task_id);
+          const result = this.impl.launchCameraApp(params.arg_intent_id, params.arg_mode, params.arg_should_handle_result, params.arg_should_down_scale, params.arg_is_secure, params.arg_task_id);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onIntentFiltersUpdatedForPackage');
-          const result = this.impl.onIntentFiltersUpdatedForPackage(params.arg_arg_package_name, params.arg_arg_intent_filters);
+          const result = this.impl.onIntentFiltersUpdatedForPackage(params.arg_package_name, params.arg_intent_filters);
           break;
         }
         case 12: {
@@ -937,13 +937,13 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isChromeAppEnabled');
-          const result = this.impl.isChromeAppEnabled(params.arg_arg_app);
+          const result = this.impl.isChromeAppEnabled(params.arg_app);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_enabled' in response) ? response.arg_arg_is_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_enabled' in response) ? response.arg_is_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec.$.structSpec, { 'arg_is_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isChromeAppEnabled FAILED:', e));
           }
@@ -953,21 +953,21 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSupportedLinksChanged');
-          const result = this.impl.onSupportedLinksChanged(params.arg_arg_added_packages, params.arg_arg_removed_packages, params.arg_arg_source);
+          const result = this.impl.onSupportedLinksChanged(params.arg_added_packages, params.arg_removed_packages, params.arg_source);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDownloadAddedDeprecated');
-          const result = this.impl.onDownloadAddedDeprecated(params.arg_arg_relative_path, params.arg_arg_owner_package_name);
+          const result = this.impl.onDownloadAddedDeprecated(params.arg_relative_path, params.arg_owner_package_name);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenAppWithIntent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOpenAppWithIntent');
-          const result = this.impl.onOpenAppWithIntent(params.arg_arg_start_url, params.arg_arg_intent);
+          const result = this.impl.onOpenAppWithIntent(params.arg_start_url, params.arg_intent);
           break;
         }
         case 17: {
@@ -988,7 +988,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperHost_OnAndroidSettingChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAndroidSettingChange');
-          const result = this.impl.onAndroidSettingChange(params.arg_arg_setting, params.arg_arg_is_enabled);
+          const result = this.impl.onAndroidSettingChange(params.arg_setting, params.arg_is_enabled);
           break;
         }
       }
@@ -1109,7 +1109,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_AddPreferredPackage_ParamsSpec,
       null,
-      [arg_package_name],
+      { arg_package_name: arg_package_name },
       false);
   }
 
@@ -1118,7 +1118,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_SetVerifiedLinks_ParamsSpec,
       null,
-      [arg_package_names, arg_always_open],
+      { arg_package_names: arg_package_names, arg_always_open: arg_always_open },
       false);
   }
 
@@ -1127,7 +1127,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_HandleIntent_ParamsSpec,
       null,
-      [arg_intent, arg_activity],
+      { arg_intent: arg_intent, arg_activity: arg_activity },
       false);
   }
 
@@ -1136,7 +1136,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_ParamsSpec,
       null,
-      [arg_intent, arg_activity, arg_window_info],
+      { arg_intent: arg_intent, arg_activity: arg_activity, arg_window_info: arg_window_info },
       false);
   }
 
@@ -1145,7 +1145,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_HandleUrl_ParamsSpec,
       null,
-      [arg_url, arg_package_name],
+      { arg_url: arg_url, arg_package_name: arg_package_name },
       false);
   }
 
@@ -1154,7 +1154,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -1163,7 +1163,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec,
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec,
-      [arg_activities, arg_scale_factor],
+      { arg_activities: arg_activities, arg_scale_factor: arg_scale_factor },
       false);
   }
 
@@ -1172,7 +1172,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec,
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec,
-      [arg_intent],
+      { arg_intent: arg_intent },
       false);
   }
 
@@ -1181,7 +1181,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ParamsSpec,
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -1190,7 +1190,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec,
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec,
-      [arg_urls],
+      { arg_urls: arg_urls },
       false);
   }
 
@@ -1199,7 +1199,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_SendBroadcast_ParamsSpec,
       null,
-      [arg_action, arg_package_name, arg_cls, arg_extras],
+      { arg_action: arg_action, arg_package_name: arg_package_name, arg_cls: arg_cls, arg_extras: arg_extras },
       false);
   }
 
@@ -1208,7 +1208,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec,
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec,
-      [arg_text, arg_scale_factor],
+      { arg_text: arg_text, arg_scale_factor: arg_scale_factor },
       false);
   }
 
@@ -1217,7 +1217,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec,
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec,
-      [arg_intent_id, arg_action, arg_data],
+      { arg_intent_id: arg_intent_id, arg_action: arg_action, arg_data: arg_data },
       false);
   }
 
@@ -1226,7 +1226,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestDomainVerificationStatusUpdate_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1235,7 +1235,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_SetCaptionStyle_ParamsSpec,
       null,
-      [arg_style],
+      { arg_style: arg_style },
       false);
   }
 
@@ -1244,7 +1244,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_ParamsSpec,
       null,
-      [arg_features],
+      { arg_features: arg_features },
       false);
   }
 
@@ -1328,47 +1328,47 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_AddPreferredPackage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPreferredPackage');
-          const result = this.impl.addPreferredPackage(params.arg_arg_package_name);
+          const result = this.impl.addPreferredPackage(params.arg_package_name);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_SetVerifiedLinks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVerifiedLinks');
-          const result = this.impl.setVerifiedLinks(params.arg_arg_package_names, params.arg_arg_always_open);
+          const result = this.impl.setVerifiedLinks(params.arg_package_names, params.arg_always_open);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_HandleIntent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleIntent');
-          const result = this.impl.handleIntent(params.arg_arg_intent, params.arg_arg_activity);
+          const result = this.impl.handleIntent(params.arg_intent, params.arg_activity);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleIntentWithWindowInfo');
-          const result = this.impl.handleIntentWithWindowInfo(params.arg_arg_intent, params.arg_arg_activity, params.arg_arg_window_info);
+          const result = this.impl.handleIntentWithWindowInfo(params.arg_intent, params.arg_activity, params.arg_window_info);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_HandleUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleUrl');
-          const result = this.impl.handleUrl(params.arg_arg_url, params.arg_arg_package_name);
+          const result = this.impl.handleUrl(params.arg_url, params.arg_package_name);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -1378,13 +1378,13 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestActivityIcons');
-          const result = this.impl.requestActivityIcons(params.arg_arg_activities, params.arg_arg_scale_factor);
+          const result = this.impl.requestActivityIcons(params.arg_activities, params.arg_scale_factor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_icons' in response) ? response.arg_arg_icons : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_icons' in response) ? response.arg_icons : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec.$.structSpec, { 'arg_icons': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestActivityIcons FAILED:', e));
           }
@@ -1394,13 +1394,13 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestIntentHandlerList');
-          const result = this.impl.requestIntentHandlerList(params.arg_arg_intent);
+          const result = this.impl.requestIntentHandlerList(params.arg_intent);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_handlers' in response) ? response.arg_arg_handlers : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_handlers' in response) ? response.arg_handlers : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec.$.structSpec, { 'arg_handlers': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestIntentHandlerList FAILED:', e));
           }
@@ -1410,13 +1410,13 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestUrlHandlerList');
-          const result = this.impl.requestUrlHandlerList(params.arg_arg_url);
+          const result = this.impl.requestUrlHandlerList(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_handlers' in response) ? response.arg_arg_handlers : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_handlers' in response) ? response.arg_handlers : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec.$.structSpec, { 'arg_handlers': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestUrlHandlerList FAILED:', e));
           }
@@ -1426,13 +1426,13 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestUrlListHandlerList');
-          const result = this.impl.requestUrlListHandlerList(params.arg_arg_urls);
+          const result = this.impl.requestUrlListHandlerList(params.arg_urls);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_handlers' in response) ? response.arg_arg_handlers : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_handlers' in response) ? response.arg_handlers : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec.$.structSpec, { 'arg_handlers': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestUrlListHandlerList FAILED:', e));
           }
@@ -1442,20 +1442,20 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_SendBroadcast_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendBroadcast');
-          const result = this.impl.sendBroadcast(params.arg_arg_action, params.arg_arg_package_name, params.arg_arg_cls, params.arg_arg_extras);
+          const result = this.impl.sendBroadcast(params.arg_action, params.arg_package_name, params.arg_cls, params.arg_extras);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestTextSelectionActions');
-          const result = this.impl.requestTextSelectionActions(params.arg_arg_text, params.arg_arg_scale_factor);
+          const result = this.impl.requestTextSelectionActions(params.arg_text, params.arg_scale_factor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_actions' in response) ? response.arg_arg_actions : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_actions' in response) ? response.arg_actions : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec.$.structSpec, { 'arg_actions': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestTextSelectionActions FAILED:', e));
           }
@@ -1465,13 +1465,13 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleCameraResult');
-          const result = this.impl.handleCameraResult(params.arg_arg_intent_id, params.arg_arg_action, params.arg_arg_data);
+          const result = this.impl.handleCameraResult(params.arg_intent_id, params.arg_action, params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_success' in response) ? response.arg_arg_is_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_success' in response) ? response.arg_is_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec.$.structSpec, { 'arg_is_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] handleCameraResult FAILED:', e));
           }
@@ -1488,14 +1488,14 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_SetCaptionStyle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCaptionStyle');
-          const result = this.impl.setCaptionStyle(params.arg_arg_style);
+          const result = this.impl.setCaptionStyle(params.arg_style);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableAccessibilityFeatures');
-          const result = this.impl.enableAccessibilityFeatures(params.arg_arg_features);
+          const result = this.impl.enableAccessibilityFeatures(params.arg_features);
           break;
         }
       }

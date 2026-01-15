@@ -258,7 +258,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec,
       null,
-      [arg_clicked],
+      { arg_clicked: arg_clicked },
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec,
       null,
-      [arg_metrics, arg_removed_elements],
+      { arg_metrics: arg_metrics, arg_removed_elements: arg_removed_elements },
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec,
       null,
-      [arg_elements],
+      { arg_elements: arg_elements },
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec,
       null,
-      [arg_elements],
+      { arg_elements: arg_elements },
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec,
       null,
-      [arg_elements],
+      { arg_elements: arg_elements },
       false);
   }
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec,
       null,
-      [arg_pointer_over_event],
+      { arg_pointer_over_event: arg_pointer_over_event },
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec,
       null,
-      [arg_hover_event],
+      { arg_hover_event: arg_hover_event },
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec,
       null,
-      [arg_pointer_down_event],
+      { arg_pointer_down_event: arg_pointer_down_event },
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec,
       null,
-      [arg_pointer_data],
+      { arg_pointer_data: arg_pointer_data },
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec,
       null,
-      [arg_pointer_event],
+      { arg_pointer_event: arg_pointer_event },
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -427,70 +427,70 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementClick');
-          const result = this.impl.reportAnchorElementClick(params.arg_arg_clicked);
+          const result = this.impl.reportAnchorElementClick(params.arg_clicked);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportNewAnchorElements');
-          const result = this.impl.reportNewAnchorElements(params.arg_arg_metrics, params.arg_arg_removed_elements);
+          const result = this.impl.reportNewAnchorElements(params.arg_metrics, params.arg_removed_elements);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementsEnteredViewport');
-          const result = this.impl.reportAnchorElementsEnteredViewport(params.arg_arg_elements);
+          const result = this.impl.reportAnchorElementsEnteredViewport(params.arg_elements);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementsLeftViewport');
-          const result = this.impl.reportAnchorElementsLeftViewport(params.arg_arg_elements);
+          const result = this.impl.reportAnchorElementsLeftViewport(params.arg_elements);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementsPositionUpdate');
-          const result = this.impl.reportAnchorElementsPositionUpdate(params.arg_arg_elements);
+          const result = this.impl.reportAnchorElementsPositionUpdate(params.arg_elements);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementPointerOver');
-          const result = this.impl.reportAnchorElementPointerOver(params.arg_arg_pointer_over_event);
+          const result = this.impl.reportAnchorElementPointerOver(params.arg_pointer_over_event);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementPointerOut');
-          const result = this.impl.reportAnchorElementPointerOut(params.arg_arg_hover_event);
+          const result = this.impl.reportAnchorElementPointerOut(params.arg_hover_event);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementPointerDown');
-          const result = this.impl.reportAnchorElementPointerDown(params.arg_arg_pointer_down_event);
+          const result = this.impl.reportAnchorElementPointerDown(params.arg_pointer_down_event);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementPointerDataOnHoverTimerFired');
-          const result = this.impl.reportAnchorElementPointerDataOnHoverTimerFired(params.arg_arg_pointer_data);
+          const result = this.impl.reportAnchorElementPointerDataOnHoverTimerFired(params.arg_pointer_data);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.processPointerEventUsingMLModel');
-          const result = this.impl.processPointerEventUsingMLModel(params.arg_arg_pointer_event);
+          const result = this.impl.processPointerEventUsingMLModel(params.arg_pointer_event);
           break;
         }
         case 10: {
@@ -502,8 +502,8 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_should_skip_for_testing' in response) ? response.arg_arg_should_skip_for_testing : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_should_skip_for_testing' in response) ? response.arg_should_skip_for_testing : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec.$.structSpec, { 'arg_should_skip_for_testing': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] shouldSkipUpdateDelays FAILED:', e));
           }

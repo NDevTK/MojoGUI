@@ -189,7 +189,7 @@ mojo.internal.bindings.device.mojom.ScreenOrientationRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ParamsSpec,
       mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec,
-      [arg_orientation],
+      { arg_orientation: arg_orientation },
       false);
   }
 
@@ -198,7 +198,7 @@ mojo.internal.bindings.device.mojom.ScreenOrientationRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -268,13 +268,13 @@ mojo.internal.bindings.device.mojom.ScreenOrientationReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.lockOrientation');
-          const result = this.impl.lockOrientation(params.arg_arg_orientation);
+          const result = this.impl.lockOrientation(params.arg_orientation);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] lockOrientation FAILED:', e));
           }
@@ -345,7 +345,7 @@ mojo.internal.bindings.device.mojom.ScreenOrientationListenerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec,
       mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -419,8 +419,8 @@ mojo.internal.bindings.device.mojom.ScreenOrientationListenerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_enabled' in response) ? response.arg_arg_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_enabled' in response) ? response.arg_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec.$.structSpec, { 'arg_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isAutoRotateEnabledByUser FAILED:', e));
           }

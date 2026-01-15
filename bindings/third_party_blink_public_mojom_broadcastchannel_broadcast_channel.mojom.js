@@ -179,7 +179,7 @@ mojo.internal.bindings.blink.mojom.BroadcastChannelClientRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.blink.mojom.BroadcastChannelClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessage');
-          const result = this.impl.onMessage(params.arg_arg_message);
+          const result = this.impl.onMessage(params.arg_message);
           break;
         }
       }
@@ -309,7 +309,7 @@ mojo.internal.bindings.blink.mojom.BroadcastChannelProviderRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec,
       null,
-      [arg_name, arg_client, arg_connection],
+      { arg_name: arg_name, arg_client: arg_client, arg_connection: arg_connection },
       false);
   }
 
@@ -378,7 +378,7 @@ mojo.internal.bindings.blink.mojom.BroadcastChannelProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToChannel');
-          const result = this.impl.connectToChannel(params.arg_arg_name, params.arg_arg_client, params.arg_arg_connection);
+          const result = this.impl.connectToChannel(params.arg_name, params.arg_client, params.arg_connection);
           break;
         }
       }

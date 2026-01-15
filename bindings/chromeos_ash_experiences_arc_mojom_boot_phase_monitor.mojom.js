@@ -175,7 +175,7 @@ mojo.internal.bindings.arc.mojom.BootPhaseMonitorHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.BootPhaseMonitorHost_OnBootCompleted_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -305,7 +305,7 @@ mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstanceRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -374,12 +374,12 @@ mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }

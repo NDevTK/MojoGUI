@@ -239,7 +239,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec,
       null,
-      [arg_force_enable_zoom, arg_frame_sink_id],
+      { arg_force_enable_zoom: arg_force_enable_zoom, arg_frame_sink_id: arg_frame_sink_id },
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec,
       null,
-      [arg_frame_sink_id],
+      { arg_frame_sink_id: arg_frame_sink_id },
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec,
       null,
-      [arg_frame_sink_id],
+      { arg_frame_sink_id: arg_frame_sink_id },
       false);
   }
 
@@ -275,7 +275,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec,
       null,
-      [arg_frame_sink_id, arg_is_hidden],
+      { arg_frame_sink_id: arg_frame_sink_id, arg_is_hidden: arg_is_hidden },
       false);
   }
 
@@ -284,7 +284,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec,
       null,
-      [arg_root_widget_frame_sink_id],
+      { arg_root_widget_frame_sink_id: arg_root_widget_frame_sink_id },
       false);
   }
 
@@ -358,42 +358,42 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stateOnTouchTransfer');
-          const result = this.impl.stateOnTouchTransfer(params.arg_arg_state);
+          const result = this.impl.stateOnTouchTransfer(params.arg_state);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forceEnableZoomStateChanged');
-          const result = this.impl.forceEnableZoomStateChanged(params.arg_arg_force_enable_zoom, params.arg_arg_frame_sink_id);
+          const result = this.impl.forceEnableZoomStateChanged(params.arg_force_enable_zoom, params.arg_frame_sink_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopFlingingOnViz');
-          const result = this.impl.stopFlingingOnViz(params.arg_arg_frame_sink_id);
+          const result = this.impl.stopFlingingOnViz(params.arg_frame_sink_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restartInputEventAckTimeoutIfNecessary');
-          const result = this.impl.restartInputEventAckTimeoutIfNecessary(params.arg_arg_frame_sink_id);
+          const result = this.impl.restartInputEventAckTimeoutIfNecessary(params.arg_frame_sink_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyVisibilityChanged');
-          const result = this.impl.notifyVisibilityChanged(params.arg_arg_frame_sink_id, params.arg_arg_is_hidden);
+          const result = this.impl.notifyVisibilityChanged(params.arg_frame_sink_id, params.arg_is_hidden);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetGestureDetection');
-          const result = this.impl.resetGestureDetection(params.arg_arg_root_widget_frame_sink_id);
+          const result = this.impl.resetGestureDetection(params.arg_root_widget_frame_sink_id);
           break;
         }
       }
@@ -470,7 +470,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec,
       null,
-      [arg_event, arg_dispatched_to_renderer],
+      { arg_event: arg_event, arg_dispatched_to_renderer: arg_dispatched_to_renderer },
       false);
   }
 
@@ -479,7 +479,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec,
       null,
-      [arg_ack_source, arg_ack_result, arg_event],
+      { arg_ack_source: arg_ack_source, arg_ack_result: arg_ack_result, arg_event: arg_event },
       false);
   }
 
@@ -488,7 +488,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec,
       null,
-      [arg_overscroll],
+      { arg_overscroll: arg_overscroll },
       false);
   }
 
@@ -506,7 +506,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientRemoteCallHand
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec,
       null,
-      [arg_is_responsive, arg_ack_timeout_ts],
+      { arg_is_responsive: arg_is_responsive, arg_ack_timeout_ts: arg_ack_timeout_ts },
       false);
   }
 
@@ -579,14 +579,14 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyObserversOfInputEvent');
-          const result = this.impl.notifyObserversOfInputEvent(params.arg_arg_event, params.arg_arg_dispatched_to_renderer);
+          const result = this.impl.notifyObserversOfInputEvent(params.arg_event, params.arg_dispatched_to_renderer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyObserversOfInputEventAcks');
-          const result = this.impl.notifyObserversOfInputEventAcks(params.arg_arg_ack_source, params.arg_arg_ack_result, params.arg_arg_event);
+          const result = this.impl.notifyObserversOfInputEventAcks(params.arg_ack_source, params.arg_ack_result, params.arg_event);
           break;
         }
         case 2: {
@@ -600,14 +600,14 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stateOnOverscrollTransfer');
-          const result = this.impl.stateOnOverscrollTransfer(params.arg_arg_overscroll);
+          const result = this.impl.stateOnOverscrollTransfer(params.arg_overscroll);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rendererInputResponsivenessChanged');
-          const result = this.impl.rendererInputResponsivenessChanged(params.arg_arg_is_responsive, params.arg_arg_ack_timeout_ts);
+          const result = this.impl.rendererInputResponsivenessChanged(params.arg_is_responsive, params.arg_ack_timeout_ts);
           break;
         }
       }

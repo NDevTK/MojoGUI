@@ -224,7 +224,7 @@ mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec,
       mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec,
       mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec,
       null,
-      [arg_listener],
+      { arg_listener: arg_listener },
       false);
   }
 
@@ -318,8 +318,8 @@ mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_device_info' in response) ? response.arg_arg_device_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_device_info' in response) ? response.arg_device_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec.$.structSpec, { 'arg_device_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDeviceInfo FAILED:', e));
           }
@@ -334,8 +334,8 @@ mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_active_runtimes' in response) ? response.arg_arg_active_runtimes : response;
-              encoder.encodeStructInline(mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_active_runtimes' in response) ? response.arg_active_runtimes : response;
+              encoder.encodeStructInline(mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec.$.structSpec, { 'arg_active_runtimes': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getActiveRuntimes FAILED:', e));
           }
@@ -345,7 +345,7 @@ mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToEvents');
-          const result = this.impl.subscribeToEvents(params.arg_arg_listener);
+          const result = this.impl.subscribeToEvents(params.arg_listener);
           break;
         }
       }
@@ -434,7 +434,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec,
       null,
-      [arg_session_requested_record],
+      { arg_session_requested_record: arg_session_requested_record },
       false);
   }
 
@@ -443,7 +443,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec,
       null,
-      [arg_session_rejected_record],
+      { arg_session_rejected_record: arg_session_rejected_record },
       false);
   }
 
@@ -452,7 +452,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec,
       null,
-      [arg_session_started_record],
+      { arg_session_started_record: arg_session_started_record },
       false);
   }
 
@@ -461,7 +461,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec,
       null,
-      [arg_session_stopped_record],
+      { arg_session_stopped_record: arg_session_stopped_record },
       false);
   }
 
@@ -470,7 +470,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerRemoteCallHandler =
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec,
       null,
-      [arg_runtime_added_record],
+      { arg_runtime_added_record: arg_runtime_added_record },
       false);
   }
 
@@ -479,7 +479,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerRemoteCallHandler =
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec,
       null,
-      [arg_device_id],
+      { arg_device_id: arg_device_id },
       false);
   }
 
@@ -488,7 +488,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerRemoteCallHandler =
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec,
       null,
-      [arg_xrframe_statistics],
+      { arg_xrframe_statistics: arg_xrframe_statistics },
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerRemoteCallHandler =
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec,
       null,
-      [arg_xrlogging_statistics],
+      { arg_xrlogging_statistics: arg_xrlogging_statistics },
       false);
   }
 
@@ -573,56 +573,56 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logXrSessionRequested');
-          const result = this.impl.logXrSessionRequested(params.arg_arg_session_requested_record);
+          const result = this.impl.logXrSessionRequested(params.arg_session_requested_record);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logXrSessionRejected');
-          const result = this.impl.logXrSessionRejected(params.arg_arg_session_rejected_record);
+          const result = this.impl.logXrSessionRejected(params.arg_session_rejected_record);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logXrSessionStarted');
-          const result = this.impl.logXrSessionStarted(params.arg_arg_session_started_record);
+          const result = this.impl.logXrSessionStarted(params.arg_session_started_record);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logXrSessionStopped');
-          const result = this.impl.logXrSessionStopped(params.arg_arg_session_stopped_record);
+          const result = this.impl.logXrSessionStopped(params.arg_session_stopped_record);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logXrRuntimeAdded');
-          const result = this.impl.logXrRuntimeAdded(params.arg_arg_runtime_added_record);
+          const result = this.impl.logXrRuntimeAdded(params.arg_runtime_added_record);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logXrRuntimeRemoved');
-          const result = this.impl.logXrRuntimeRemoved(params.arg_arg_device_id);
+          const result = this.impl.logXrRuntimeRemoved(params.arg_device_id);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logFrameData');
-          const result = this.impl.logFrameData(params.arg_arg_xrframe_statistics);
+          const result = this.impl.logFrameData(params.arg_xrframe_statistics);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logConsoleMessages');
-          const result = this.impl.logConsoleMessages(params.arg_arg_xrlogging_statistics);
+          const result = this.impl.logConsoleMessages(params.arg_xrlogging_statistics);
           break;
         }
       }

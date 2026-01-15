@@ -308,7 +308,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Observer_OnSourcesChanged_ParamsSpec,
       null,
-      [arg_sources],
+      { arg_sources: arg_sources },
       false);
   }
 
@@ -317,7 +317,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Observer_OnReportsChanged_ParamsSpec,
       null,
-      [arg_reports],
+      { arg_reports: arg_reports },
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Observer_OnSourceHandled_ParamsSpec,
       null,
-      [arg_source],
+      { arg_source: arg_source },
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Observer_OnReportHandled_ParamsSpec,
       null,
-      [arg_report],
+      { arg_report: arg_report },
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Observer_OnDebugReportSent_ParamsSpec,
       null,
-      [arg_report],
+      { arg_report: arg_report },
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverRemoteCallHandler = c
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Observer_OnAggregatableDebugReportSent_ParamsSpec,
       null,
-      [arg_report],
+      { arg_report: arg_report },
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverRemoteCallHandler = c
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Observer_OnTriggerHandled_ParamsSpec,
       null,
-      [arg_trigger],
+      { arg_trigger: arg_trigger },
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverRemoteCallHandler = c
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Observer_OnOsRegistration_ParamsSpec,
       null,
-      [arg_registration],
+      { arg_registration: arg_registration },
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverRemoteCallHandler = c
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Observer_OnDebugModeChanged_ParamsSpec,
       null,
-      [arg_debug_mode],
+      { arg_debug_mode: arg_debug_mode },
       false);
   }
 
@@ -457,63 +457,63 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnSourcesChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSourcesChanged');
-          const result = this.impl.onSourcesChanged(params.arg_arg_sources);
+          const result = this.impl.onSourcesChanged(params.arg_sources);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnReportsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReportsChanged');
-          const result = this.impl.onReportsChanged(params.arg_arg_reports);
+          const result = this.impl.onReportsChanged(params.arg_reports);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnSourceHandled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSourceHandled');
-          const result = this.impl.onSourceHandled(params.arg_arg_source);
+          const result = this.impl.onSourceHandled(params.arg_source);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnReportHandled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReportHandled');
-          const result = this.impl.onReportHandled(params.arg_arg_report);
+          const result = this.impl.onReportHandled(params.arg_report);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnDebugReportSent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDebugReportSent');
-          const result = this.impl.onDebugReportSent(params.arg_arg_report);
+          const result = this.impl.onDebugReportSent(params.arg_report);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnAggregatableDebugReportSent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAggregatableDebugReportSent');
-          const result = this.impl.onAggregatableDebugReportSent(params.arg_arg_report);
+          const result = this.impl.onAggregatableDebugReportSent(params.arg_report);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnTriggerHandled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTriggerHandled');
-          const result = this.impl.onTriggerHandled(params.arg_arg_trigger);
+          const result = this.impl.onTriggerHandled(params.arg_trigger);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnOsRegistration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOsRegistration');
-          const result = this.impl.onOsRegistration(params.arg_arg_registration);
+          const result = this.impl.onOsRegistration(params.arg_registration);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Observer_OnDebugModeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDebugModeChanged');
-          const result = this.impl.onDebugModeChanged(params.arg_arg_debug_mode);
+          const result = this.impl.onDebugModeChanged(params.arg_debug_mode);
           break;
         }
       }
@@ -582,7 +582,7 @@ mojo.internal.bindings.attribution_internals.mojom.HandlerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ParamsSpec,
       mojo.internal.bindings.attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -591,7 +591,7 @@ mojo.internal.bindings.attribution_internals.mojom.HandlerRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Handler_SendReport_ParamsSpec,
       mojo.internal.bindings.attribution_internals.mojom.Handler_SendReport_ResponseParamsSpec,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -600,7 +600,7 @@ mojo.internal.bindings.attribution_internals.mojom.HandlerRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Handler_ClearStorage_ParamsSpec,
       mojo.internal.bindings.attribution_internals.mojom.Handler_ClearStorage_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -676,7 +676,7 @@ mojo.internal.bindings.attribution_internals.mojom.HandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec.$.structSpec, ['response.arg_arg_enabled', 'response.arg_arg_attribution_support']);
+              encoder.encodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec.$.structSpec, { 'arg_enabled': response.arg_enabled, 'arg_attribution_support': response.arg_attribution_support });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isAttributionReportingEnabled FAILED:', e));
           }
@@ -686,12 +686,12 @@ mojo.internal.bindings.attribution_internals.mojom.HandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Handler_SendReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendReport');
-          const result = this.impl.sendReport(params.arg_arg_id);
+          const result = this.impl.sendReport(params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Handler_SendReport_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Handler_SendReport_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendReport FAILED:', e));
           }
@@ -706,7 +706,7 @@ mojo.internal.bindings.attribution_internals.mojom.HandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Handler_ClearStorage_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Handler_ClearStorage_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] clearStorage FAILED:', e));
           }
@@ -770,7 +770,7 @@ mojo.internal.bindings.attribution_internals.mojom.FactoryRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Factory_Create_ParamsSpec,
       null,
-      [arg_observer, arg_handler],
+      { arg_observer: arg_observer, arg_handler: arg_handler },
       false);
   }
 
@@ -839,7 +839,7 @@ mojo.internal.bindings.attribution_internals.mojom.FactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_internals.mojom.Factory_Create_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
-          const result = this.impl.create(params.arg_arg_observer, params.arg_arg_handler);
+          const result = this.impl.create(params.arg_observer, params.arg_handler);
           break;
         }
       }

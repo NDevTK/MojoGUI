@@ -201,7 +201,7 @@ mojo.internal.bindings.shape_detection.mojom.ShapeDetectionServiceRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.shape_detection.mojom.ShapeDetectionServiceRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.shape_detection.mojom.ShapeDetectionServiceRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -290,21 +290,21 @@ mojo.internal.bindings.shape_detection.mojom.ShapeDetectionServiceReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindBarcodeDetectionProvider');
-          const result = this.impl.bindBarcodeDetectionProvider(params.arg_arg_receiver);
+          const result = this.impl.bindBarcodeDetectionProvider(params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindFaceDetectionProvider');
-          const result = this.impl.bindFaceDetectionProvider(params.arg_arg_receiver);
+          const result = this.impl.bindFaceDetectionProvider(params.arg_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTextDetection');
-          const result = this.impl.bindTextDetection(params.arg_arg_receiver);
+          const result = this.impl.bindTextDetection(params.arg_receiver);
           break;
         }
       }

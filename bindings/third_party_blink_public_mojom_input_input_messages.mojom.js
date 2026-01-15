@@ -195,7 +195,7 @@ mojo.internal.bindings.blink.mojom.TextSuggestionBackendRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec,
       null,
-      [arg_suggestion],
+      { arg_suggestion: arg_suggestion },
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.blink.mojom.TextSuggestionBackendRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec,
       null,
-      [arg_marker_tag, arg_suggestion_index],
+      { arg_marker_tag: arg_marker_tag, arg_suggestion_index: arg_suggestion_index },
       false);
   }
 
@@ -213,7 +213,7 @@ mojo.internal.bindings.blink.mojom.TextSuggestionBackendRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.blink.mojom.TextSuggestionBackendRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec,
       null,
-      [arg_suggestion],
+      { arg_suggestion: arg_suggestion },
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.blink.mojom.TextSuggestionBackendRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.blink.mojom.TextSuggestionBackendRemoteCallHandler = clas
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec,
       null,
-      [arg_max_number_of_suggestions],
+      { arg_max_number_of_suggestions: arg_max_number_of_suggestions },
       false);
   }
 
@@ -314,14 +314,14 @@ mojo.internal.bindings.blink.mojom.TextSuggestionBackendReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applySpellCheckSuggestion');
-          const result = this.impl.applySpellCheckSuggestion(params.arg_arg_suggestion);
+          const result = this.impl.applySpellCheckSuggestion(params.arg_suggestion);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyTextSuggestion');
-          const result = this.impl.applyTextSuggestion(params.arg_arg_marker_tag, params.arg_arg_suggestion_index);
+          const result = this.impl.applyTextSuggestion(params.arg_marker_tag, params.arg_suggestion_index);
           break;
         }
         case 2: {
@@ -335,7 +335,7 @@ mojo.internal.bindings.blink.mojom.TextSuggestionBackendReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewWordAddedToDictionary');
-          const result = this.impl.onNewWordAddedToDictionary(params.arg_arg_suggestion);
+          const result = this.impl.onNewWordAddedToDictionary(params.arg_suggestion);
           break;
         }
         case 4: {
@@ -349,7 +349,7 @@ mojo.internal.bindings.blink.mojom.TextSuggestionBackendReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.suggestionMenuTimeoutCallback');
-          const result = this.impl.suggestionMenuTimeoutCallback(params.arg_arg_max_number_of_suggestions);
+          const result = this.impl.suggestionMenuTimeoutCallback(params.arg_max_number_of_suggestions);
           break;
         }
       }

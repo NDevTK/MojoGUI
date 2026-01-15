@@ -214,7 +214,7 @@ mojo.internal.bindings.sharing.mojom.TcpSocketFactoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec,
       mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec,
-      [arg_local_addr, arg_port, arg_backlog, arg_traffic_annotation, arg_socket],
+      { arg_local_addr: arg_local_addr, arg_port: arg_port, arg_backlog: arg_backlog, arg_traffic_annotation: arg_traffic_annotation, arg_socket: arg_socket },
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.sharing.mojom.TcpSocketFactoryRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec,
       mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec,
-      [arg_timeout, arg_local_addr, arg_remote_addr_list, arg_tcp_connected_socket_options, arg_traffic_annotation, arg_socket, arg_observer],
+      { arg_timeout: arg_timeout, arg_local_addr: arg_local_addr, arg_remote_addr_list: arg_remote_addr_list, arg_tcp_connected_socket_options: arg_tcp_connected_socket_options, arg_traffic_annotation: arg_traffic_annotation, arg_socket: arg_socket, arg_observer: arg_observer },
       false);
   }
 
@@ -293,12 +293,12 @@ mojo.internal.bindings.sharing.mojom.TcpSocketFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTCPServerSocket');
-          const result = this.impl.createTCPServerSocket(params.arg_arg_local_addr, params.arg_arg_port, params.arg_arg_backlog, params.arg_arg_traffic_annotation, params.arg_arg_socket);
+          const result = this.impl.createTCPServerSocket(params.arg_local_addr, params.arg_port, params.arg_backlog, params.arg_traffic_annotation, params.arg_socket);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_local_addr_out']);
+              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_local_addr_out': response.arg_local_addr_out });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createTCPServerSocket FAILED:', e));
           }
@@ -308,12 +308,12 @@ mojo.internal.bindings.sharing.mojom.TcpSocketFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTCPConnectedSocket');
-          const result = this.impl.createTCPConnectedSocket(params.arg_arg_timeout, params.arg_arg_local_addr, params.arg_arg_remote_addr_list, params.arg_arg_tcp_connected_socket_options, params.arg_arg_traffic_annotation, params.arg_arg_socket, params.arg_arg_observer);
+          const result = this.impl.createTCPConnectedSocket(params.arg_timeout, params.arg_local_addr, params.arg_remote_addr_list, params.arg_tcp_connected_socket_options, params.arg_traffic_annotation, params.arg_socket, params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_local_addr', 'response.arg_arg_peer_addr', 'response.arg_arg_receive_stream', 'response.arg_arg_send_stream']);
+              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_local_addr': response.arg_local_addr, 'arg_peer_addr': response.arg_peer_addr, 'arg_receive_stream': response.arg_receive_stream, 'arg_send_stream': response.arg_send_stream });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createTCPConnectedSocket FAILED:', e));
           }

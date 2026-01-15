@@ -187,7 +187,7 @@ mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandlerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec,
       mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandlerRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandlerRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandlerRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -291,8 +291,8 @@ mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandlerReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_show' in response) ? response.arg_arg_show : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_show' in response) ? response.arg_show : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec.$.structSpec, { 'arg_show': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] canShowModule FAILED:', e));
           }

@@ -222,7 +222,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognizerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognizer_Start_ParamsSpec,
       null,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognizerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognizer_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start(params.arg_arg_params);
+          const result = this.impl.start(params.arg_params);
           break;
         }
       }
@@ -356,7 +356,7 @@ mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognitionRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec,
       mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec,
-      [arg_languages],
+      { arg_languages: arg_languages },
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognitionRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Install_ParamsSpec,
       mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec,
-      [arg_languages],
+      { arg_languages: arg_languages },
       false);
   }
 
@@ -435,13 +435,13 @@ mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognitionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.available');
-          const result = this.impl.available(params.arg_arg_languages);
+          const result = this.impl.available(params.arg_languages);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] available FAILED:', e));
           }
@@ -451,13 +451,13 @@ mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognitionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Install_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.install');
-          const result = this.impl.install(params.arg_arg_languages);
+          const result = this.impl.install(params.arg_languages);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] install FAILED:', e));
           }
@@ -529,7 +529,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSession_Abort_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -538,7 +538,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSession_StopCapture_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -547,7 +547,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSession_UpdateRecognitionContext_ParamsSpec,
       null,
-      [arg_recognition_context],
+      { arg_recognition_context: arg_recognition_context },
       false);
   }
 
@@ -632,7 +632,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognitionSession_UpdateRecognitionContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateRecognitionContext');
-          const result = this.impl.updateRecognitionContext(params.arg_arg_recognition_context);
+          const result = this.impl.updateRecognitionContext(params.arg_recognition_context);
           break;
         }
       }
@@ -721,7 +721,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_ResultRetrieved_ParamsSpec,
       null,
-      [arg_results],
+      { arg_results: arg_results },
       false);
   }
 
@@ -730,7 +730,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_ErrorOccurred_ParamsSpec,
       null,
-      [arg_error],
+      { arg_error: arg_error },
       false);
   }
 
@@ -739,7 +739,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_Started_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -748,7 +748,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_AudioStarted_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -757,7 +757,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientRemoteCallHandl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_SoundStarted_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -766,7 +766,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientRemoteCallHandl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_SoundEnded_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -775,7 +775,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientRemoteCallHandl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_AudioEnded_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -784,7 +784,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientRemoteCallHandl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_Ended_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -860,14 +860,14 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_ResultRetrieved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resultRetrieved');
-          const result = this.impl.resultRetrieved(params.arg_arg_results);
+          const result = this.impl.resultRetrieved(params.arg_results);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_ErrorOccurred_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.errorOccurred');
-          const result = this.impl.errorOccurred(params.arg_arg_error);
+          const result = this.impl.errorOccurred(params.arg_error);
           break;
         }
         case 2: {

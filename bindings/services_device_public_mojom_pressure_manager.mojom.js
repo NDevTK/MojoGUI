@@ -216,7 +216,7 @@ mojo.internal.bindings.device.mojom.PressureManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec,
       mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ResponseParamsSpec,
-      [arg_token, arg_source, arg_metadata],
+      { arg_token: arg_token, arg_source: arg_source, arg_metadata: arg_metadata },
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.device.mojom.PressureManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec,
       mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec,
-      [arg_token, arg_source],
+      { arg_token: arg_token, arg_source: arg_source },
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.device.mojom.PressureManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec,
       mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec,
-      [arg_token, arg_source, arg_state, arg_own_contribution_estimate],
+      { arg_token: arg_token, arg_source: arg_source, arg_state: arg_state, arg_own_contribution_estimate: arg_own_contribution_estimate },
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.device.mojom.PressureManagerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.PressureManager_AddClient_ParamsSpec,
       mojo.internal.bindings.device.mojom.PressureManager_AddClient_ResponseParamsSpec,
-      [arg_source, arg_token, arg_client],
+      { arg_source: arg_source, arg_token: arg_token, arg_client: arg_client },
       false);
   }
 
@@ -315,12 +315,12 @@ mojo.internal.bindings.device.mojom.PressureManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addVirtualPressureSource');
-          const result = this.impl.addVirtualPressureSource(params.arg_arg_token, params.arg_arg_source, params.arg_arg_metadata);
+          const result = this.impl.addVirtualPressureSource(params.arg_token, params.arg_source, params.arg_metadata);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addVirtualPressureSource FAILED:', e));
           }
@@ -330,12 +330,12 @@ mojo.internal.bindings.device.mojom.PressureManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeVirtualPressureSource');
-          const result = this.impl.removeVirtualPressureSource(params.arg_arg_token, params.arg_arg_source);
+          const result = this.impl.removeVirtualPressureSource(params.arg_token, params.arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] removeVirtualPressureSource FAILED:', e));
           }
@@ -345,12 +345,12 @@ mojo.internal.bindings.device.mojom.PressureManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateVirtualPressureSourceData');
-          const result = this.impl.updateVirtualPressureSourceData(params.arg_arg_token, params.arg_arg_source, params.arg_arg_state, params.arg_arg_own_contribution_estimate);
+          const result = this.impl.updateVirtualPressureSourceData(params.arg_token, params.arg_source, params.arg_state, params.arg_own_contribution_estimate);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateVirtualPressureSourceData FAILED:', e));
           }
@@ -360,13 +360,13 @@ mojo.internal.bindings.device.mojom.PressureManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.PressureManager_AddClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addClient');
-          const result = this.impl.addClient(params.arg_arg_source, params.arg_arg_token, params.arg_arg_client);
+          const result = this.impl.addClient(params.arg_source, params.arg_token, params.arg_client);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.PressureManager_AddClient_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.PressureManager_AddClient_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addClient FAILED:', e));
           }
@@ -430,7 +430,7 @@ mojo.internal.bindings.device.mojom.PressureClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.PressureClient_OnPressureUpdated_ParamsSpec,
       null,
-      [arg_update],
+      { arg_update: arg_update },
       false);
   }
 
@@ -499,7 +499,7 @@ mojo.internal.bindings.device.mojom.PressureClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.PressureClient_OnPressureUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPressureUpdated');
-          const result = this.impl.onPressureUpdated(params.arg_arg_update);
+          const result = this.impl.onPressureUpdated(params.arg_update);
           break;
         }
       }

@@ -300,7 +300,7 @@ mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.arc.mojom.NearbyShareHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec,
-      [arg_task_id, arg_info, arg_instance],
+      { arg_task_id: arg_task_id, arg_info: arg_info, arg_instance: arg_instance },
       false);
   }
 
@@ -499,13 +499,13 @@ mojo.internal.bindings.arc.mojom.NearbyShareHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startNearbyShare');
-          const result = this.impl.startNearbyShare(params.arg_arg_task_id, params.arg_arg_info, params.arg_arg_instance);
+          const result = this.impl.startNearbyShare(params.arg_task_id, params.arg_info, params.arg_instance);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_host' in response) ? response.arg_arg_host : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_host' in response) ? response.arg_host : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec.$.structSpec, { 'arg_host': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startNearbyShare FAILED:', e));
           }
@@ -569,7 +569,7 @@ mojo.internal.bindings.arc.mojom.NearbyShareInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -638,12 +638,12 @@ mojo.internal.bindings.arc.mojom.NearbyShareInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }

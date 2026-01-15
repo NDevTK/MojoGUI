@@ -203,7 +203,7 @@ mojo.internal.bindings.gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec,
       mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec,
-      [arg_s],
+      { arg_s: arg_s },
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec,
       mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec,
-      [arg_t],
+      { arg_t: arg_t },
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec,
       mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec,
-      [arg_g],
+      { arg_g: arg_g },
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec,
       mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec,
-      [arg_t],
+      { arg_t: arg_t },
       false);
   }
 
@@ -302,13 +302,13 @@ mojo.internal.bindings.gfx.mojom.TraitsTestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoSelectionBound');
-          const result = this.impl.echoSelectionBound(params.arg_arg_s);
+          const result = this.impl.echoSelectionBound(params.arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pass' in response) ? response.arg_arg_pass : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pass' in response) ? response.arg_pass : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec.$.structSpec, { 'arg_pass': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoSelectionBound FAILED:', e));
           }
@@ -318,13 +318,13 @@ mojo.internal.bindings.gfx.mojom.TraitsTestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoTransform');
-          const result = this.impl.echoTransform(params.arg_arg_t);
+          const result = this.impl.echoTransform(params.arg_t);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pass' in response) ? response.arg_arg_pass : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pass' in response) ? response.arg_pass : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec.$.structSpec, { 'arg_pass': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoTransform FAILED:', e));
           }
@@ -334,13 +334,13 @@ mojo.internal.bindings.gfx.mojom.TraitsTestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoGpuMemoryBufferHandle');
-          const result = this.impl.echoGpuMemoryBufferHandle(params.arg_arg_g);
+          const result = this.impl.echoGpuMemoryBufferHandle(params.arg_g);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pass' in response) ? response.arg_arg_pass : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pass' in response) ? response.arg_pass : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec.$.structSpec, { 'arg_pass': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoGpuMemoryBufferHandle FAILED:', e));
           }
@@ -350,13 +350,13 @@ mojo.internal.bindings.gfx.mojom.TraitsTestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoRRectF');
-          const result = this.impl.echoRRectF(params.arg_arg_t);
+          const result = this.impl.echoRRectF(params.arg_t);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pass' in response) ? response.arg_arg_pass : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pass' in response) ? response.arg_pass : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec.$.structSpec, { 'arg_pass': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoRRectF FAILED:', e));
           }

@@ -186,7 +186,7 @@ mojo.internal.bindings.device.mojom.NFCProviderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.NFCProvider_GetNFCForHost_ParamsSpec,
       null,
-      [arg_host_id, arg_receiver],
+      { arg_host_id: arg_host_id, arg_receiver: arg_receiver },
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.device.mojom.NFCProviderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.device.mojom.NFCProviderRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -275,7 +275,7 @@ mojo.internal.bindings.device.mojom.NFCProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFCProvider_GetNFCForHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNFCForHost');
-          const result = this.impl.getNFCForHost(params.arg_arg_host_id, params.arg_arg_receiver);
+          const result = this.impl.getNFCForHost(params.arg_host_id, params.arg_receiver);
           break;
         }
         case 1: {

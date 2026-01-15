@@ -488,7 +488,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintHost_GetServer_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintHost_GetServer_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -562,8 +562,8 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_server_remote' in response) ? response.arg_arg_server_remote : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintHost_GetServer_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_server_remote' in response) ? response.arg_server_remote : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintHost_GetServer_ResponseParamsSpec.$.structSpec, { 'arg_server_remote': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getServer FAILED:', e));
           }
@@ -627,7 +627,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintInstanceRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -696,12 +696,12 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -869,7 +869,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SetSystemVersion_ParamsSpec,
       null,
-      [arg_android_version, arg_android_patchlevel],
+      { arg_android_version: arg_android_version, arg_android_patchlevel: arg_android_patchlevel },
       false);
   }
 
@@ -878,7 +878,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_AddRngEntropy_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_AddRngEntropy_ResponseParamsSpec,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -887,7 +887,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateKey_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -896,7 +896,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportKey_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -905,7 +905,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -914,7 +914,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpgradeKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpgradeKey_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -923,7 +923,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteKey_ResponseParamsSpec,
-      [arg_key_blob],
+      { arg_key_blob: arg_key_blob },
       false);
   }
 
@@ -932,7 +932,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -941,7 +941,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -950,7 +950,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Begin_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Begin_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -959,7 +959,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeviceLocked_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeviceLocked_ResponseParamsSpec,
-      [arg_password_only, arg_timestamp_token],
+      { arg_password_only: arg_password_only, arg_timestamp_token: arg_timestamp_token },
       false);
   }
 
@@ -968,7 +968,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -977,7 +977,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ResponseParamsSpec,
-      [arg_storage_key_blob],
+      { arg_storage_key_blob: arg_storage_key_blob },
       false);
   }
 
@@ -986,7 +986,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -995,7 +995,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1004,7 +1004,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ResponseParamsSpec,
-      [arg_challenge],
+      { arg_challenge: arg_challenge },
       false);
   }
 
@@ -1013,7 +1013,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ResponseParamsSpec,
-      [arg_root_of_trust],
+      { arg_root_of_trust: arg_root_of_trust },
       false);
   }
 
@@ -1022,7 +1022,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpdateAad_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpdateAad_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -1031,7 +1031,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Update_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Update_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -1040,7 +1040,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Finish_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Finish_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -1049,7 +1049,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Abort_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Abort_ResponseParamsSpec,
-      [arg_op_handle],
+      { arg_op_handle: arg_op_handle },
       false);
   }
 
@@ -1058,7 +1058,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1067,7 +1067,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ResponseParamsSpec,
-      [arg_secret_params],
+      { arg_secret_params: arg_secret_params },
       false);
   }
 
@@ -1076,7 +1076,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ResponseParamsSpec,
-      [arg_challenge],
+      { arg_challenge: arg_challenge },
       false);
   }
 
@@ -1085,7 +1085,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ResponseParamsSpec,
-      [arg_test_mode],
+      { arg_test_mode: arg_test_mode },
       false);
   }
 
@@ -1094,7 +1094,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -1103,7 +1103,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SetVendorPatchLevel_ParamsSpec,
       null,
-      [arg_android_vendor_patchlevel],
+      { arg_android_vendor_patchlevel: arg_android_vendor_patchlevel },
       false);
   }
 
@@ -1198,20 +1198,20 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SetSystemVersion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSystemVersion');
-          const result = this.impl.setSystemVersion(params.arg_arg_android_version, params.arg_arg_android_patchlevel);
+          const result = this.impl.setSystemVersion(params.arg_android_version, params.arg_android_patchlevel);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_AddRngEntropy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addRngEntropy');
-          const result = this.impl.addRngEntropy(params.arg_arg_data);
+          const result = this.impl.addRngEntropy(params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_AddRngEntropy_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_AddRngEntropy_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addRngEntropy FAILED:', e));
           }
@@ -1221,13 +1221,13 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generateKey');
-          const result = this.impl.generateKey(params.arg_arg_request);
+          const result = this.impl.generateKey(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateKey_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateKey_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] generateKey FAILED:', e));
           }
@@ -1237,13 +1237,13 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.importKey');
-          const result = this.impl.importKey(params.arg_arg_request);
+          const result = this.impl.importKey(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportKey_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportKey_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] importKey FAILED:', e));
           }
@@ -1253,13 +1253,13 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.importWrappedKey');
-          const result = this.impl.importWrappedKey(params.arg_arg_request);
+          const result = this.impl.importWrappedKey(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] importWrappedKey FAILED:', e));
           }
@@ -1269,13 +1269,13 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpgradeKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.upgradeKey');
-          const result = this.impl.upgradeKey(params.arg_arg_request);
+          const result = this.impl.upgradeKey(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpgradeKey_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpgradeKey_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] upgradeKey FAILED:', e));
           }
@@ -1285,13 +1285,13 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteKey');
-          const result = this.impl.deleteKey(params.arg_arg_key_blob);
+          const result = this.impl.deleteKey(params.arg_key_blob);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteKey_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteKey_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteKey FAILED:', e));
           }
@@ -1306,8 +1306,8 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteAllKeys FAILED:', e));
           }
@@ -1322,8 +1322,8 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] destroyAttestationIds FAILED:', e));
           }
@@ -1333,13 +1333,13 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Begin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.begin');
-          const result = this.impl.begin(params.arg_arg_request);
+          const result = this.impl.begin(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Begin_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Begin_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] begin FAILED:', e));
           }
@@ -1349,13 +1349,13 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeviceLocked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deviceLocked');
-          const result = this.impl.deviceLocked(params.arg_arg_password_only, params.arg_arg_timestamp_token);
+          const result = this.impl.deviceLocked(params.arg_password_only, params.arg_timestamp_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeviceLocked_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeviceLocked_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deviceLocked FAILED:', e));
           }
@@ -1370,8 +1370,8 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] earlyBootEnded FAILED:', e));
           }
@@ -1381,13 +1381,13 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.convertStorageKeyToEphemeral');
-          const result = this.impl.convertStorageKeyToEphemeral(params.arg_arg_storage_key_blob);
+          const result = this.impl.convertStorageKeyToEphemeral(params.arg_storage_key_blob);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] convertStorageKeyToEphemeral FAILED:', e));
           }
@@ -1397,13 +1397,13 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getKeyCharacteristics');
-          const result = this.impl.getKeyCharacteristics(params.arg_arg_request);
+          const result = this.impl.getKeyCharacteristics(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getKeyCharacteristics FAILED:', e));
           }
@@ -1418,8 +1418,8 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRootOfTrustChallenge FAILED:', e));
           }
@@ -1429,13 +1429,13 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRootOfTrust');
-          const result = this.impl.getRootOfTrust(params.arg_arg_challenge);
+          const result = this.impl.getRootOfTrust(params.arg_challenge);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRootOfTrust FAILED:', e));
           }
@@ -1445,13 +1445,13 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendRootOfTrust');
-          const result = this.impl.sendRootOfTrust(params.arg_arg_root_of_trust);
+          const result = this.impl.sendRootOfTrust(params.arg_root_of_trust);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendRootOfTrust FAILED:', e));
           }
@@ -1461,13 +1461,13 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpdateAad_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateAad');
-          const result = this.impl.updateAad(params.arg_arg_request);
+          const result = this.impl.updateAad(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpdateAad_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpdateAad_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateAad FAILED:', e));
           }
@@ -1477,13 +1477,13 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
-          const result = this.impl.update(params.arg_arg_request);
+          const result = this.impl.update(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Update_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Update_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] update FAILED:', e));
           }
@@ -1493,13 +1493,13 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Finish_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.finish');
-          const result = this.impl.finish(params.arg_arg_request);
+          const result = this.impl.finish(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Finish_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Finish_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] finish FAILED:', e));
           }
@@ -1509,13 +1509,13 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Abort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.abort');
-          const result = this.impl.abort(params.arg_arg_op_handle);
+          const result = this.impl.abort(params.arg_op_handle);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Abort_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Abort_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] abort FAILED:', e));
           }
@@ -1530,8 +1530,8 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSharedSecretParameters FAILED:', e));
           }
@@ -1541,13 +1541,13 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.computeSharedSecret');
-          const result = this.impl.computeSharedSecret(params.arg_arg_secret_params);
+          const result = this.impl.computeSharedSecret(params.arg_secret_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] computeSharedSecret FAILED:', e));
           }
@@ -1557,13 +1557,13 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generateTimeStamp');
-          const result = this.impl.generateTimeStamp(params.arg_arg_challenge);
+          const result = this.impl.generateTimeStamp(params.arg_challenge);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] generateTimeStamp FAILED:', e));
           }
@@ -1573,13 +1573,13 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generateEcdsaP256KeyPair');
-          const result = this.impl.generateEcdsaP256KeyPair(params.arg_arg_test_mode);
+          const result = this.impl.generateEcdsaP256KeyPair(params.arg_test_mode);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] generateEcdsaP256KeyPair FAILED:', e));
           }
@@ -1589,13 +1589,13 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generateCertificateRequest');
-          const result = this.impl.generateCertificateRequest(params.arg_arg_request);
+          const result = this.impl.generateCertificateRequest(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] generateCertificateRequest FAILED:', e));
           }
@@ -1605,7 +1605,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SetVendorPatchLevel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVendorPatchLevel');
-          const result = this.impl.setVendorPatchLevel(params.arg_arg_android_vendor_patchlevel);
+          const result = this.impl.setVendorPatchLevel(params.arg_android_vendor_patchlevel);
           break;
         }
       }

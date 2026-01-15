@@ -211,7 +211,7 @@ mojo.internal.bindings.translate.mojom.TranslateAgentRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec,
       mojo.internal.bindings.translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec,
-      [arg_translate_script, arg_source_lang, arg_target_lang],
+      { arg_translate_script: arg_translate_script, arg_source_lang: arg_source_lang, arg_target_lang: arg_target_lang },
       false);
   }
 
@@ -220,7 +220,7 @@ mojo.internal.bindings.translate.mojom.TranslateAgentRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -290,12 +290,12 @@ mojo.internal.bindings.translate.mojom.TranslateAgentReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.translateFrame');
-          const result = this.impl.translateFrame(params.arg_arg_translate_script, params.arg_arg_source_lang, params.arg_arg_target_lang);
+          const result = this.impl.translateFrame(params.arg_translate_script, params.arg_source_lang, params.arg_target_lang);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec.$.structSpec, ['response.arg_arg_cancelled', 'response.arg_arg_original_lang', 'response.arg_arg_translated_lang', 'response.arg_arg_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec.$.structSpec, { 'arg_cancelled': response.arg_cancelled, 'arg_original_lang': response.arg_original_lang, 'arg_translated_lang': response.arg_translated_lang, 'arg_error': response.arg_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] translateFrame FAILED:', e));
           }
@@ -366,7 +366,7 @@ mojo.internal.bindings.translate.mojom.ContentTranslateDriverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec,
       null,
-      [arg_translate_agent, arg_details, arg_translation_critiera_met],
+      { arg_translate_agent: arg_translate_agent, arg_details: arg_details, arg_translation_critiera_met: arg_translation_critiera_met },
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.translate.mojom.ContentTranslateDriverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerPage');
-          const result = this.impl.registerPage(params.arg_arg_translate_agent, params.arg_arg_details, params.arg_arg_translation_critiera_met);
+          const result = this.impl.registerPage(params.arg_translate_agent, params.arg_details, params.arg_translation_critiera_met);
           break;
         }
       }

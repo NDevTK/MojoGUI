@@ -176,7 +176,7 @@ mojo.internal.bindings.content.mojom.MediaInternalLogRecordsRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.MediaInternalLogRecords_Log_ParamsSpec,
       null,
-      [arg_events],
+      { arg_events: arg_events },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.content.mojom.MediaInternalLogRecordsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MediaInternalLogRecords_Log_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.log');
-          const result = this.impl.log(params.arg_arg_events);
+          const result = this.impl.log(params.arg_events);
           break;
         }
       }

@@ -244,7 +244,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec,
       null,
-      [arg_event_listener],
+      { arg_event_listener: arg_event_listener },
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec,
       null,
-      [arg_event_listener],
+      { arg_event_listener: arg_event_listener },
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec,
       null,
-      [arg_extension_id, arg_event_name],
+      { arg_extension_id: arg_extension_id, arg_event_name: arg_event_name },
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec,
       null,
-      [arg_extension_id, arg_worker_scope_url, arg_event_name],
+      { arg_extension_id: arg_extension_id, arg_worker_scope_url: arg_worker_scope_url, arg_event_name: arg_event_name },
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec,
       null,
-      [arg_listener_owner, arg_event_name, arg_filter, arg_add_lazy_listener],
+      { arg_listener_owner: arg_listener_owner, arg_event_name: arg_event_name, arg_filter: arg_filter, arg_add_lazy_listener: arg_add_lazy_listener },
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec,
       null,
-      [arg_extension_id, arg_event_name, arg_service_worker_context, arg_filter, arg_add_lazy_listener],
+      { arg_extension_id: arg_extension_id, arg_event_name: arg_event_name, arg_service_worker_context: arg_service_worker_context, arg_filter: arg_filter, arg_add_lazy_listener: arg_add_lazy_listener },
       false);
   }
 
@@ -298,7 +298,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec,
       null,
-      [arg_event_listener],
+      { arg_event_listener: arg_event_listener },
       false);
   }
 
@@ -307,7 +307,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec,
       null,
-      [arg_event_listener],
+      { arg_event_listener: arg_event_listener },
       false);
   }
 
@@ -316,7 +316,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec,
       null,
-      [arg_extension_id, arg_event_name],
+      { arg_extension_id: arg_extension_id, arg_event_name: arg_event_name },
       false);
   }
 
@@ -325,7 +325,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec,
       null,
-      [arg_extension_id, arg_worker_scope_url, arg_event_name],
+      { arg_extension_id: arg_extension_id, arg_worker_scope_url: arg_worker_scope_url, arg_event_name: arg_event_name },
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec,
       null,
-      [arg_listener_owner, arg_event_name, arg_filter, arg_remove_lazy_listener],
+      { arg_listener_owner: arg_listener_owner, arg_event_name: arg_event_name, arg_filter: arg_filter, arg_remove_lazy_listener: arg_remove_lazy_listener },
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec,
       null,
-      [arg_extension_id, arg_event_name, arg_service_worker_context, arg_filter, arg_remove_lazy_listener],
+      { arg_extension_id: arg_extension_id, arg_event_name: arg_event_name, arg_service_worker_context: arg_service_worker_context, arg_filter: arg_filter, arg_remove_lazy_listener: arg_remove_lazy_listener },
       false);
   }
 
@@ -423,84 +423,84 @@ mojo.internal.bindings.extensions.mojom.EventRouterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addListenerForMainThread');
-          const result = this.impl.addListenerForMainThread(params.arg_arg_event_listener);
+          const result = this.impl.addListenerForMainThread(params.arg_event_listener);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addListenerForServiceWorker');
-          const result = this.impl.addListenerForServiceWorker(params.arg_arg_event_listener);
+          const result = this.impl.addListenerForServiceWorker(params.arg_event_listener);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addLazyListenerForMainThread');
-          const result = this.impl.addLazyListenerForMainThread(params.arg_arg_extension_id, params.arg_arg_event_name);
+          const result = this.impl.addLazyListenerForMainThread(params.arg_extension_id, params.arg_event_name);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addLazyListenerForServiceWorker');
-          const result = this.impl.addLazyListenerForServiceWorker(params.arg_arg_extension_id, params.arg_arg_worker_scope_url, params.arg_arg_event_name);
+          const result = this.impl.addLazyListenerForServiceWorker(params.arg_extension_id, params.arg_worker_scope_url, params.arg_event_name);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addFilteredListenerForMainThread');
-          const result = this.impl.addFilteredListenerForMainThread(params.arg_arg_listener_owner, params.arg_arg_event_name, params.arg_arg_filter, params.arg_arg_add_lazy_listener);
+          const result = this.impl.addFilteredListenerForMainThread(params.arg_listener_owner, params.arg_event_name, params.arg_filter, params.arg_add_lazy_listener);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addFilteredListenerForServiceWorker');
-          const result = this.impl.addFilteredListenerForServiceWorker(params.arg_arg_extension_id, params.arg_arg_event_name, params.arg_arg_service_worker_context, params.arg_arg_filter, params.arg_arg_add_lazy_listener);
+          const result = this.impl.addFilteredListenerForServiceWorker(params.arg_extension_id, params.arg_event_name, params.arg_service_worker_context, params.arg_filter, params.arg_add_lazy_listener);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeListenerForMainThread');
-          const result = this.impl.removeListenerForMainThread(params.arg_arg_event_listener);
+          const result = this.impl.removeListenerForMainThread(params.arg_event_listener);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeListenerForServiceWorker');
-          const result = this.impl.removeListenerForServiceWorker(params.arg_arg_event_listener);
+          const result = this.impl.removeListenerForServiceWorker(params.arg_event_listener);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeLazyListenerForMainThread');
-          const result = this.impl.removeLazyListenerForMainThread(params.arg_arg_extension_id, params.arg_arg_event_name);
+          const result = this.impl.removeLazyListenerForMainThread(params.arg_extension_id, params.arg_event_name);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeLazyListenerForServiceWorker');
-          const result = this.impl.removeLazyListenerForServiceWorker(params.arg_arg_extension_id, params.arg_arg_worker_scope_url, params.arg_arg_event_name);
+          const result = this.impl.removeLazyListenerForServiceWorker(params.arg_extension_id, params.arg_worker_scope_url, params.arg_event_name);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeFilteredListenerForMainThread');
-          const result = this.impl.removeFilteredListenerForMainThread(params.arg_arg_listener_owner, params.arg_arg_event_name, params.arg_arg_filter, params.arg_arg_remove_lazy_listener);
+          const result = this.impl.removeFilteredListenerForMainThread(params.arg_listener_owner, params.arg_event_name, params.arg_filter, params.arg_remove_lazy_listener);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeFilteredListenerForServiceWorker');
-          const result = this.impl.removeFilteredListenerForServiceWorker(params.arg_arg_extension_id, params.arg_arg_event_name, params.arg_arg_service_worker_context, params.arg_arg_filter, params.arg_arg_remove_lazy_listener);
+          const result = this.impl.removeFilteredListenerForServiceWorker(params.arg_extension_id, params.arg_event_name, params.arg_service_worker_context, params.arg_filter, params.arg_remove_lazy_listener);
           break;
         }
       }

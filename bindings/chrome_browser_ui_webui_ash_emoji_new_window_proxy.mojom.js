@@ -176,7 +176,7 @@ mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxyRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec,
       null,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxyReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openUrl');
-          const result = this.impl.openUrl(params.arg_arg_url);
+          const result = this.impl.openUrl(params.arg_url);
           break;
         }
       }

@@ -191,7 +191,7 @@ mojo.internal.bindings.blink.mojom.WebSocketConnectorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebSocketConnector_Connect_ParamsSpec,
       null,
-      [arg_url, arg_requested_protocols, arg_site_for_cookies, arg_user_agent, arg_storage_access_api_status, arg_handshake_client, arg_throttling_profile_id],
+      { arg_url: arg_url, arg_requested_protocols: arg_requested_protocols, arg_site_for_cookies: arg_site_for_cookies, arg_user_agent: arg_user_agent, arg_storage_access_api_status: arg_storage_access_api_status, arg_handshake_client: arg_handshake_client, arg_throttling_profile_id: arg_throttling_profile_id },
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.blink.mojom.WebSocketConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebSocketConnector_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_arg_url, params.arg_arg_requested_protocols, params.arg_arg_site_for_cookies, params.arg_arg_user_agent, params.arg_arg_storage_access_api_status, params.arg_arg_handshake_client, params.arg_arg_throttling_profile_id);
+          const result = this.impl.connect(params.arg_url, params.arg_requested_protocols, params.arg_site_for_cookies, params.arg_user_agent, params.arg_storage_access_api_status, params.arg_handshake_client, params.arg_throttling_profile_id);
           break;
         }
       }

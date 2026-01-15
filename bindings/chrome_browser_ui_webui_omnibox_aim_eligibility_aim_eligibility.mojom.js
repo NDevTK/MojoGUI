@@ -189,7 +189,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEligibilityStateChanged');
-          const result = this.impl.onEligibilityStateChanged(params.arg_arg_state);
+          const result = this.impl.onEligibilityStateChanged(params.arg_state);
           break;
         }
       }
@@ -327,7 +327,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandlerRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec,
       mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -336,7 +336,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandlerRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandlerRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec,
       mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec,
-      [arg_base64_encoded_response],
+      { arg_base64_encoded_response: arg_base64_encoded_response },
       false);
   }
 
@@ -421,8 +421,8 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response.arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec.$.structSpec, { 'arg_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getEligibilityState FAILED:', e));
           }
@@ -439,13 +439,13 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setEligibilityResponseForDebugging');
-          const result = this.impl.setEligibilityResponseForDebugging(params.arg_arg_base64_encoded_response);
+          const result = this.impl.setEligibilityResponseForDebugging(params.arg_base64_encoded_response);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setEligibilityResponseForDebugging FAILED:', e));
           }
@@ -509,7 +509,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactoryRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -578,7 +578,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactoryReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }

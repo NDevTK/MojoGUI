@@ -176,7 +176,7 @@ mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserv
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec,
       null,
-      [arg_info],
+      { arg_info: arg_info },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserv
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSupportedBitstreamAudioCodecsChanged');
-          const result = this.impl.onSupportedBitstreamAudioCodecsChanged(params.arg_arg_info);
+          const result = this.impl.onSupportedBitstreamAudioCodecsChanged(params.arg_info);
           break;
         }
       }
@@ -306,7 +306,7 @@ mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -375,7 +375,7 @@ mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesReceiv
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_arg_observer);
+          const result = this.impl.addObserver(params.arg_observer);
           break;
         }
       }

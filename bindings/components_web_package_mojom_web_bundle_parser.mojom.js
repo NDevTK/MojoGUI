@@ -242,7 +242,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserFactoryRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec,
       null,
-      [arg_receiver, arg_base_url, arg_data_source],
+      { arg_receiver: arg_receiver, arg_base_url: arg_base_url, arg_data_source: arg_data_source },
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserFactoryRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec,
       null,
-      [arg_data_source, arg_file],
+      { arg_data_source: arg_data_source, arg_file: arg_file },
       false);
   }
 
@@ -321,14 +321,14 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserFactoryReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getParserForDataSource');
-          const result = this.impl.getParserForDataSource(params.arg_arg_receiver, params.arg_arg_base_url, params.arg_arg_data_source);
+          const result = this.impl.getParserForDataSource(params.arg_receiver, params.arg_base_url, params.arg_data_source);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindFileDataSource');
-          const result = this.impl.bindFileDataSource(params.arg_arg_data_source, params.arg_arg_file);
+          const result = this.impl.bindFileDataSource(params.arg_data_source, params.arg_file);
           break;
         }
       }
@@ -401,7 +401,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec,
       mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec,
       mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec,
-      [arg_offset],
+      { arg_offset: arg_offset },
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec,
       mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec,
-      [arg_response_offset, arg_response_length],
+      { arg_response_offset: arg_response_offset, arg_response_length: arg_response_length },
       false);
   }
 
@@ -428,7 +428,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.web_package.mojom.WebBundleParser_Close_ParamsSpec,
       mojo.internal.bindings.web_package.mojom.WebBundleParser_Close_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -505,7 +505,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec.$.structSpec, ['response.arg_arg_Result', 'response.arg_arg_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec.$.structSpec, { 'arg_Result': response.arg_Result, 'arg_error': response.arg_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] parseIntegrityBlock FAILED:', e));
           }
@@ -515,12 +515,12 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseMetadata');
-          const result = this.impl.parseMetadata(params.arg_arg_offset);
+          const result = this.impl.parseMetadata(params.arg_offset);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec.$.structSpec, ['response.arg_arg_Result', 'response.arg_arg_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec.$.structSpec, { 'arg_Result': response.arg_Result, 'arg_error': response.arg_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] parseMetadata FAILED:', e));
           }
@@ -530,12 +530,12 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseResponse');
-          const result = this.impl.parseResponse(params.arg_arg_response_offset, params.arg_arg_response_length);
+          const result = this.impl.parseResponse(params.arg_response_offset, params.arg_response_length);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec.$.structSpec, ['response.arg_arg_Result', 'response.arg_arg_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec.$.structSpec, { 'arg_Result': response.arg_Result, 'arg_error': response.arg_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] parseResponse FAILED:', e));
           }
@@ -550,7 +550,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParser_Close_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.web_package.mojom.WebBundleParser_Close_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] close FAILED:', e));
           }
@@ -626,7 +626,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.web_package.mojom.BundleDataSource_Read_ParamsSpec,
       mojo.internal.bindings.web_package.mojom.BundleDataSource_Read_ResponseParamsSpec,
-      [arg_offset, arg_length],
+      { arg_offset: arg_offset, arg_length: arg_length },
       false);
   }
 
@@ -635,7 +635,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.web_package.mojom.BundleDataSource_Length_ParamsSpec,
       mojo.internal.bindings.web_package.mojom.BundleDataSource_Length_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -644,7 +644,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec,
       mojo.internal.bindings.web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -653,7 +653,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.web_package.mojom.BundleDataSource_Close_ParamsSpec,
       mojo.internal.bindings.web_package.mojom.BundleDataSource_Close_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -725,13 +725,13 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.web_package.mojom.BundleDataSource_Read_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.read');
-          const result = this.impl.read(params.arg_arg_offset, params.arg_arg_length);
+          const result = this.impl.read(params.arg_offset, params.arg_length);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_buffer' in response) ? response.arg_arg_buffer : response;
-              encoder.encodeStructInline(mojo.internal.bindings.web_package.mojom.BundleDataSource_Read_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_buffer' in response) ? response.arg_buffer : response;
+              encoder.encodeStructInline(mojo.internal.bindings.web_package.mojom.BundleDataSource_Read_ResponseParamsSpec.$.structSpec, { 'arg_buffer': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] read FAILED:', e));
           }
@@ -746,8 +746,8 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_length' in response) ? response.arg_arg_length : response;
-              encoder.encodeStructInline(mojo.internal.bindings.web_package.mojom.BundleDataSource_Length_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_length' in response) ? response.arg_length : response;
+              encoder.encodeStructInline(mojo.internal.bindings.web_package.mojom.BundleDataSource_Length_ResponseParamsSpec.$.structSpec, { 'arg_length': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] length FAILED:', e));
           }
@@ -762,8 +762,8 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_random_access' in response) ? response.arg_arg_is_random_access : response;
-              encoder.encodeStructInline(mojo.internal.bindings.web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_random_access' in response) ? response.arg_is_random_access : response;
+              encoder.encodeStructInline(mojo.internal.bindings.web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec.$.structSpec, { 'arg_is_random_access': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isRandomAccessContext FAILED:', e));
           }
@@ -778,7 +778,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.web_package.mojom.BundleDataSource_Close_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.web_package.mojom.BundleDataSource_Close_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] close FAILED:', e));
           }

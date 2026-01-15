@@ -198,7 +198,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ParamsSpec,
       mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -207,7 +207,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ParamsSpec,
       mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ResponseParamsSpec,
-      [arg_result_size],
+      { arg_result_size: arg_result_size },
       false);
   }
 
@@ -216,7 +216,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec,
       mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec,
-      [arg_frame_sink_id],
+      { arg_frame_sink_id: arg_frame_sink_id },
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec,
       mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ResponseParamsSpec,
-      [arg_frame_sink_id],
+      { arg_frame_sink_id: arg_frame_sink_id },
       false);
   }
 
@@ -302,8 +302,8 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApiReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_has_resources' in response) ? response.arg_arg_has_resources : response;
-              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_has_resources' in response) ? response.arg_has_resources : response;
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponseParamsSpec.$.structSpec, { 'arg_has_resources': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] hasUnclaimedViewTransitionResources FAILED:', e));
           }
@@ -313,12 +313,12 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApiReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSameDocNavigationScreenshotSize');
-          const result = this.impl.setSameDocNavigationScreenshotSize(params.arg_arg_result_size);
+          const result = this.impl.setSameDocNavigationScreenshotSize(params.arg_result_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setSameDocNavigationScreenshotSize FAILED:', e));
           }
@@ -328,13 +328,13 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApiReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getForceEnableZoomState');
-          const result = this.impl.getForceEnableZoomState(params.arg_arg_frame_sink_id);
+          const result = this.impl.getForceEnableZoomState(params.arg_frame_sink_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_enabled' in response) ? response.arg_arg_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_enabled' in response) ? response.arg_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec.$.structSpec, { 'arg_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getForceEnableZoomState FAILED:', e));
           }
@@ -344,12 +344,12 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApiReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.waitForSurfaceAnimationManager');
-          const result = this.impl.waitForSurfaceAnimationManager(params.arg_arg_frame_sink_id);
+          const result = this.impl.waitForSurfaceAnimationManager(params.arg_frame_sink_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] waitForSurfaceAnimationManager FAILED:', e));
           }

@@ -192,7 +192,7 @@ mojo.internal.bindings.blink.mojom.PopupMenuClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec,
       null,
-      [arg_indices],
+      { arg_indices: arg_indices },
       false);
   }
 
@@ -201,7 +201,7 @@ mojo.internal.bindings.blink.mojom.PopupMenuClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PopupMenuClient_DidCancel_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.blink.mojom.PopupMenuClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didAcceptIndices');
-          const result = this.impl.didAcceptIndices(params.arg_arg_indices);
+          const result = this.impl.didAcceptIndices(params.arg_indices);
           break;
         }
         case 1: {

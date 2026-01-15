@@ -185,7 +185,7 @@ mojo.internal.bindings.ukm.mojom.SingularUkmInterfaceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ukm.mojom.SingularUkmInterface_Submit_ParamsSpec,
       null,
-      [arg_entry],
+      { arg_entry: arg_entry },
       false);
   }
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.ukm.mojom.SingularUkmInterfaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ukm.mojom.SingularUkmInterface_Submit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submit');
-          const result = this.impl.submit(params.arg_arg_entry);
+          const result = this.impl.submit(params.arg_entry);
           break;
         }
       }
@@ -315,7 +315,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec,
       null,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -384,7 +384,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setParameters');
-          const result = this.impl.setParameters(params.arg_arg_params);
+          const result = this.impl.setParameters(params.arg_params);
           break;
         }
       }
@@ -449,7 +449,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec,
       null,
-      [arg_entry],
+      { arg_entry: arg_entry },
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec,
       null,
-      [arg_source_id, arg_url],
+      { arg_source_id: arg_source_id, arg_url: arg_url },
       false);
   }
 
@@ -528,14 +528,14 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addEntry');
-          const result = this.impl.addEntry(params.arg_arg_entry);
+          const result = this.impl.addEntry(params.arg_entry);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSourceURL');
-          const result = this.impl.updateSourceURL(params.arg_arg_source_id, params.arg_arg_url);
+          const result = this.impl.updateSourceURL(params.arg_source_id, params.arg_url);
           break;
         }
       }
@@ -596,7 +596,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderFactoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec,
       null,
-      [arg_receiver, arg_client_remote],
+      { arg_receiver: arg_receiver, arg_client_remote: arg_client_remote },
       false);
   }
 
@@ -665,7 +665,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createUkmRecorder');
-          const result = this.impl.createUkmRecorder(params.arg_arg_receiver, params.arg_arg_client_remote);
+          const result = this.impl.createUkmRecorder(params.arg_receiver, params.arg_client_remote);
           break;
         }
       }

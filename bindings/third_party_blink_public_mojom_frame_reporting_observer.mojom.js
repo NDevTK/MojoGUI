@@ -179,7 +179,7 @@ mojo.internal.bindings.blink.mojom.ReportingObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ReportingObserver_Notify_ParamsSpec,
       null,
-      [arg_report],
+      { arg_report: arg_report },
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.blink.mojom.ReportingObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingObserver_Notify_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notify');
-          const result = this.impl.notify(params.arg_arg_report);
+          const result = this.impl.notify(params.arg_report);
           break;
         }
       }

@@ -259,7 +259,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_DoSomething_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_DoSomething_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -277,7 +277,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -286,7 +286,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_CreateFolder_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_CreateFolder_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -295,7 +295,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -313,7 +313,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -322,7 +322,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -331,7 +331,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec,
-      [arg_region],
+      { arg_region: arg_region },
       false);
   }
 
@@ -340,7 +340,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -349,7 +349,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -358,7 +358,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ResponseParamsSpec,
-      [arg_file],
+      { arg_file: arg_file },
       false);
   }
 
@@ -367,7 +367,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_DoSomething_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_DoSomething_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] doSomething FAILED:', e));
           }
@@ -468,7 +468,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] doTerminateProcess FAILED:', e));
           }
@@ -483,7 +483,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] doCrashImmediately FAILED:', e));
           }
@@ -498,8 +498,8 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_succeeded' in response) ? response.arg_arg_succeeded : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_CreateFolder_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_succeeded' in response) ? response.arg_succeeded : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_CreateFolder_ResponseParamsSpec.$.structSpec, { 'arg_succeeded': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createFolder FAILED:', e));
           }
@@ -514,8 +514,8 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_name' in response) ? response.arg_arg_name : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_name' in response) ? response.arg_name : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ResponseParamsSpec.$.structSpec, { 'arg_name': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRequestorName FAILED:', e));
           }
@@ -525,13 +525,13 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createReadOnlySharedMemoryRegion');
-          const result = this.impl.createReadOnlySharedMemoryRegion(params.arg_arg_message);
+          const result = this.impl.createReadOnlySharedMemoryRegion(params.arg_message);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_region' in response) ? response.arg_arg_region : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_region' in response) ? response.arg_region : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec.$.structSpec, { 'arg_region': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createReadOnlySharedMemoryRegion FAILED:', e));
           }
@@ -541,13 +541,13 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWritableSharedMemoryRegion');
-          const result = this.impl.createWritableSharedMemoryRegion(params.arg_arg_message);
+          const result = this.impl.createWritableSharedMemoryRegion(params.arg_message);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_region' in response) ? response.arg_arg_region : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_region' in response) ? response.arg_region : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec.$.structSpec, { 'arg_region': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createWritableSharedMemoryRegion FAILED:', e));
           }
@@ -557,13 +557,13 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createUnsafeSharedMemoryRegion');
-          const result = this.impl.createUnsafeSharedMemoryRegion(params.arg_arg_message);
+          const result = this.impl.createUnsafeSharedMemoryRegion(params.arg_message);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_region' in response) ? response.arg_arg_region : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_region' in response) ? response.arg_region : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec.$.structSpec, { 'arg_region': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createUnsafeSharedMemoryRegion FAILED:', e));
           }
@@ -573,13 +573,13 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cloneSharedMemoryContents');
-          const result = this.impl.cloneSharedMemoryContents(params.arg_arg_region);
+          const result = this.impl.cloneSharedMemoryContents(params.arg_region);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_new_region' in response) ? response.arg_arg_new_region : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_new_region' in response) ? response.arg_new_region : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec.$.structSpec, { 'arg_new_region': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] cloneSharedMemoryContents FAILED:', e));
           }
@@ -594,8 +594,8 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_sandboxed' in response) ? response.arg_arg_is_sandboxed : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_sandboxed' in response) ? response.arg_is_sandboxed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec.$.structSpec, { 'arg_is_sandboxed': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isProcessSandboxed FAILED:', e));
           }
@@ -605,13 +605,13 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pseudonymizeString');
-          const result = this.impl.pseudonymizeString(params.arg_arg_value);
+          const result = this.impl.pseudonymizeString(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] pseudonymizeString FAILED:', e));
           }
@@ -621,12 +621,12 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passWriteableFile');
-          const result = this.impl.passWriteableFile(params.arg_arg_file);
+          const result = this.impl.passWriteableFile(params.arg_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] passWriteableFile FAILED:', e));
           }

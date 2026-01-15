@@ -200,7 +200,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzDummyInterfaceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec,
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -372,7 +372,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec,
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec,
       null,
-      [arg_a, arg_b],
+      { arg_a: arg_a, arg_b: arg_b },
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec,
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParamsSpec,
-      [arg_a, arg_b],
+      { arg_a: arg_a, arg_b: arg_b },
       false);
   }
 
@@ -399,7 +399,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec,
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParamsSpec,
-      [arg_a, arg_b],
+      { arg_a: arg_a, arg_b: arg_b },
       false);
   }
 
@@ -408,7 +408,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -495,7 +495,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fuzzBasicResp FAILED:', e));
           }
@@ -510,7 +510,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fuzzBasicSyncResp FAILED:', e));
           }
@@ -520,19 +520,19 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fuzzArgs');
-          const result = this.impl.fuzzArgs(params.arg_arg_a, params.arg_arg_b);
+          const result = this.impl.fuzzArgs(params.arg_a, params.arg_b);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fuzzArgsResp');
-          const result = this.impl.fuzzArgsResp(params.arg_arg_a, params.arg_arg_b);
+          const result = this.impl.fuzzArgsResp(params.arg_a, params.arg_b);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fuzzArgsResp FAILED:', e));
           }
@@ -542,12 +542,12 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fuzzArgsSyncResp');
-          const result = this.impl.fuzzArgsSyncResp(params.arg_arg_a, params.arg_arg_b);
+          const result = this.impl.fuzzArgsSyncResp(params.arg_a, params.arg_b);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fuzzArgsSyncResp FAILED:', e));
           }
@@ -557,7 +557,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fuzzAssociated');
-          const result = this.impl.fuzzAssociated(params.arg_arg_receiver);
+          const result = this.impl.fuzzAssociated(params.arg_receiver);
           break;
         }
       }

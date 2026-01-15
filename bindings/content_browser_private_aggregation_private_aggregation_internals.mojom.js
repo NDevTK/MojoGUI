@@ -210,7 +210,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.ObserverRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.ObserverRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec,
       null,
-      [arg_report],
+      { arg_report: arg_report },
       false);
   }
 
@@ -296,7 +296,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.ObserverReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReportHandled');
-          const result = this.impl.onReportHandled(params.arg_arg_report);
+          const result = this.impl.onReportHandled(params.arg_report);
           break;
         }
       }
@@ -365,7 +365,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec,
       mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec,
       mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec,
-      [arg_ids],
+      { arg_ids: arg_ids },
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec,
       mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -459,8 +459,8 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_reports' in response) ? response.arg_arg_reports : response;
-              encoder.encodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_reports' in response) ? response.arg_reports : response;
+              encoder.encodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec.$.structSpec, { 'arg_reports': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getReports FAILED:', e));
           }
@@ -470,12 +470,12 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendReports');
-          const result = this.impl.sendReports(params.arg_arg_ids);
+          const result = this.impl.sendReports(params.arg_ids);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendReports FAILED:', e));
           }
@@ -490,7 +490,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] clearStorage FAILED:', e));
           }
@@ -554,7 +554,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.FactoryRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.private_aggregation_internals.mojom.Factory_Create_ParamsSpec,
       null,
-      [arg_observer, arg_handler],
+      { arg_observer: arg_observer, arg_handler: arg_handler },
       false);
   }
 
@@ -623,7 +623,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.FactoryReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Factory_Create_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
-          const result = this.impl.create(params.arg_arg_observer, params.arg_arg_handler);
+          const result = this.impl.create(params.arg_observer, params.arg_handler);
           break;
         }
       }

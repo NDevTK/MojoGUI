@@ -316,7 +316,7 @@ mojo.internal.bindings.network.mojom.ResolveHostHandleRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ResolveHostHandle_Cancel_ParamsSpec,
       null,
-      [arg_result],
+      { arg_result: arg_result },
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.network.mojom.ResolveHostHandleReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ResolveHostHandle_Cancel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancel');
-          const result = this.impl.cancel(params.arg_arg_result);
+          const result = this.impl.cancel(params.arg_result);
           break;
         }
       }
@@ -454,7 +454,7 @@ mojo.internal.bindings.network.mojom.ResolveHostClientRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ResolveHostClient_OnComplete_ParamsSpec,
       null,
-      [arg_result, arg_resolve_error_info, arg_resolved_addresses, arg_alternative_endpoints],
+      { arg_result: arg_result, arg_resolve_error_info: arg_resolve_error_info, arg_resolved_addresses: arg_resolved_addresses, arg_alternative_endpoints: arg_alternative_endpoints },
       false);
   }
 
@@ -463,7 +463,7 @@ mojo.internal.bindings.network.mojom.ResolveHostClientRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.ResolveHostClient_OnTextResults_ParamsSpec,
       null,
-      [arg_text_results],
+      { arg_text_results: arg_text_results },
       false);
   }
 
@@ -472,7 +472,7 @@ mojo.internal.bindings.network.mojom.ResolveHostClientRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec,
       null,
-      [arg_hosts],
+      { arg_hosts: arg_hosts },
       false);
   }
 
@@ -543,21 +543,21 @@ mojo.internal.bindings.network.mojom.ResolveHostClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ResolveHostClient_OnComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
-          const result = this.impl.onComplete(params.arg_arg_result, params.arg_arg_resolve_error_info, params.arg_arg_resolved_addresses, params.arg_arg_alternative_endpoints);
+          const result = this.impl.onComplete(params.arg_result, params.arg_resolve_error_info, params.arg_resolved_addresses, params.arg_alternative_endpoints);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ResolveHostClient_OnTextResults_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTextResults');
-          const result = this.impl.onTextResults(params.arg_arg_text_results);
+          const result = this.impl.onTextResults(params.arg_text_results);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHostnameResults');
-          const result = this.impl.onHostnameResults(params.arg_arg_hosts);
+          const result = this.impl.onHostnameResults(params.arg_hosts);
           break;
         }
       }
@@ -630,7 +630,7 @@ mojo.internal.bindings.network.mojom.MdnsListenClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec,
       null,
-      [arg_update_type, arg_query_type, arg_endpoint],
+      { arg_update_type: arg_update_type, arg_query_type: arg_query_type, arg_endpoint: arg_endpoint },
       false);
   }
 
@@ -639,7 +639,7 @@ mojo.internal.bindings.network.mojom.MdnsListenClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.MdnsListenClient_OnTextResult_ParamsSpec,
       null,
-      [arg_update_type, arg_query_type, arg_text_records],
+      { arg_update_type: arg_update_type, arg_query_type: arg_query_type, arg_text_records: arg_text_records },
       false);
   }
 
@@ -648,7 +648,7 @@ mojo.internal.bindings.network.mojom.MdnsListenClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec,
       null,
-      [arg_update_type, arg_query_type, arg_host],
+      { arg_update_type: arg_update_type, arg_query_type: arg_query_type, arg_host: arg_host },
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.network.mojom.MdnsListenClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec,
       null,
-      [arg_update_type, arg_query_type],
+      { arg_update_type: arg_update_type, arg_query_type: arg_query_type },
       false);
   }
 
@@ -729,28 +729,28 @@ mojo.internal.bindings.network.mojom.MdnsListenClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAddressResult');
-          const result = this.impl.onAddressResult(params.arg_arg_update_type, params.arg_arg_query_type, params.arg_arg_endpoint);
+          const result = this.impl.onAddressResult(params.arg_update_type, params.arg_query_type, params.arg_endpoint);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.MdnsListenClient_OnTextResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTextResult');
-          const result = this.impl.onTextResult(params.arg_arg_update_type, params.arg_arg_query_type, params.arg_arg_text_records);
+          const result = this.impl.onTextResult(params.arg_update_type, params.arg_query_type, params.arg_text_records);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHostnameResult');
-          const result = this.impl.onHostnameResult(params.arg_arg_update_type, params.arg_arg_query_type, params.arg_arg_host);
+          const result = this.impl.onHostnameResult(params.arg_update_type, params.arg_query_type, params.arg_host);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUnhandledResult');
-          const result = this.impl.onUnhandledResult(params.arg_arg_update_type, params.arg_arg_query_type);
+          const result = this.impl.onUnhandledResult(params.arg_update_type, params.arg_query_type);
           break;
         }
       }
@@ -815,7 +815,7 @@ mojo.internal.bindings.network.mojom.HostResolverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.HostResolver_ResolveHost_ParamsSpec,
       null,
-      [arg_host, arg_network_anonymization_key, arg_optional_parameters, arg_response_client],
+      { arg_host: arg_host, arg_network_anonymization_key: arg_network_anonymization_key, arg_optional_parameters: arg_optional_parameters, arg_response_client: arg_response_client },
       false);
   }
 
@@ -824,7 +824,7 @@ mojo.internal.bindings.network.mojom.HostResolverRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ParamsSpec,
       mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ResponseParamsSpec,
-      [arg_host, arg_query_type, arg_response_client],
+      { arg_host: arg_host, arg_query_type: arg_query_type, arg_response_client: arg_response_client },
       false);
   }
 
@@ -894,20 +894,20 @@ mojo.internal.bindings.network.mojom.HostResolverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HostResolver_ResolveHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolveHost');
-          const result = this.impl.resolveHost(params.arg_arg_host, params.arg_arg_network_anonymization_key, params.arg_arg_optional_parameters, params.arg_arg_response_client);
+          const result = this.impl.resolveHost(params.arg_host, params.arg_network_anonymization_key, params.arg_optional_parameters, params.arg_response_client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mdnsListen');
-          const result = this.impl.mdnsListen(params.arg_arg_host, params.arg_arg_query_type, params.arg_arg_response_client);
+          const result = this.impl.mdnsListen(params.arg_host, params.arg_query_type, params.arg_response_client);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] mdnsListen FAILED:', e));
           }
@@ -971,7 +971,7 @@ mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClientRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1101,7 +1101,7 @@ mojo.internal.bindings.network.mojom.DnsConfigChangeManagerRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec,
       null,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -1170,7 +1170,7 @@ mojo.internal.bindings.network.mojom.DnsConfigChangeManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestNotifications');
-          const result = this.impl.requestNotifications(params.arg_arg_client);
+          const result = this.impl.requestNotifications(params.arg_client);
           break;
         }
       }

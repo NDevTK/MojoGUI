@@ -176,7 +176,7 @@ mojo.internal.bindings.mojom.WebEngineMediaResourceProviderRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec,
       mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -185,7 +185,7 @@ mojo.internal.bindings.mojom.WebEngineMediaResourceProviderRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec,
       null,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -260,8 +260,8 @@ mojo.internal.bindings.mojom.WebEngineMediaResourceProviderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] shouldUseAudioConsumer FAILED:', e));
           }
@@ -271,7 +271,7 @@ mojo.internal.bindings.mojom.WebEngineMediaResourceProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAudioConsumer');
-          const result = this.impl.createAudioConsumer(params.arg_arg_request);
+          const result = this.impl.createAudioConsumer(params.arg_request);
           break;
         }
       }

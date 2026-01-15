@@ -184,7 +184,7 @@ mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingServiceRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec,
       mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec,
-      [arg_stream_data],
+      { arg_stream_data: arg_stream_data },
       false);
   }
 
@@ -253,12 +253,12 @@ mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parse');
-          const result = this.impl.parse(params.arg_arg_stream_data);
+          const result = this.impl.parse(params.arg_stream_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec.$.structSpec, ['response.arg_arg_state', 'response.arg_arg_messages', 'response.arg_arg_stream_status']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec.$.structSpec, { 'arg_state': response.arg_state, 'arg_messages': response.arg_messages, 'arg_stream_status': response.arg_stream_status });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] parse FAILED:', e));
           }

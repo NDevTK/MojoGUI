@@ -170,7 +170,7 @@ mojo.internal.bindings.web_cache.mojom.WebCacheRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.web_cache.mojom.WebCache_ClearCache_ParamsSpec,
       null,
-      [arg_on_navigation],
+      { arg_on_navigation: arg_on_navigation },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.web_cache.mojom.WebCacheReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.web_cache.mojom.WebCache_ClearCache_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearCache');
-          const result = this.impl.clearCache(params.arg_arg_on_navigation);
+          const result = this.impl.clearCache(params.arg_on_navigation);
           break;
         }
       }

@@ -224,7 +224,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec,
       mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec,
       null,
-      [arg_touch_location],
+      { arg_touch_location: arg_touch_location },
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec,
       null,
-      [arg_touch_location],
+      { arg_touch_location: arg_touch_location },
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec,
       null,
-      [arg_touch_location],
+      { arg_touch_location: arg_touch_location },
       false);
   }
 
@@ -269,7 +269,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -278,7 +278,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -296,7 +296,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerRemoteCallHandler = class 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -378,8 +378,8 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_was_handled' in response) ? response.arg_arg_was_handled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_was_handled' in response) ? response.arg_was_handled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec.$.structSpec, { 'arg_was_handled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onBackGesture FAILED:', e));
           }
@@ -389,14 +389,14 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBackGestureProgress');
-          const result = this.impl.onBackGestureProgress(params.arg_arg_touch_location);
+          const result = this.impl.onBackGestureProgress(params.arg_touch_location);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTopDragGestureProgress');
-          const result = this.impl.onTopDragGestureProgress(params.arg_arg_touch_location);
+          const result = this.impl.onTopDragGestureProgress(params.arg_touch_location);
           break;
         }
         case 3: {
@@ -410,7 +410,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRightDragGestureProgress');
-          const result = this.impl.onRightDragGestureProgress(params.arg_arg_touch_location);
+          const result = this.impl.onRightDragGestureProgress(params.arg_touch_location);
           break;
         }
         case 5: {
@@ -511,7 +511,7 @@ mojo.internal.bindings.chromecast.mojom.GestureSourceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureSource_Subscribe_ParamsSpec,
       null,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -520,7 +520,7 @@ mojo.internal.bindings.chromecast.mojom.GestureSourceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec,
       null,
-      [arg_can_go_back],
+      { arg_can_go_back: arg_can_go_back },
       false);
   }
 
@@ -529,7 +529,7 @@ mojo.internal.bindings.chromecast.mojom.GestureSourceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec,
       null,
-      [arg_can_top_drag],
+      { arg_can_top_drag: arg_can_top_drag },
       false);
   }
 
@@ -538,7 +538,7 @@ mojo.internal.bindings.chromecast.mojom.GestureSourceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec,
       null,
-      [arg_can_top_drag],
+      { arg_can_top_drag: arg_can_top_drag },
       false);
   }
 
@@ -610,28 +610,28 @@ mojo.internal.bindings.chromecast.mojom.GestureSourceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureSource_Subscribe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribe');
-          const result = this.impl.subscribe(params.arg_arg_handler);
+          const result = this.impl.subscribe(params.arg_handler);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCanGoBack');
-          const result = this.impl.setCanGoBack(params.arg_arg_can_go_back);
+          const result = this.impl.setCanGoBack(params.arg_can_go_back);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCanTopDrag');
-          const result = this.impl.setCanTopDrag(params.arg_arg_can_top_drag);
+          const result = this.impl.setCanTopDrag(params.arg_can_top_drag);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCanRightDrag');
-          const result = this.impl.setCanRightDrag(params.arg_arg_can_top_drag);
+          const result = this.impl.setCanRightDrag(params.arg_can_top_drag);
           break;
         }
       }

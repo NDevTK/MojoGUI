@@ -199,7 +199,7 @@ mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec,
       null,
-      [arg_pref_path, arg_value, arg_value_state, arg_external_validation_value_state, arg_is_personal],
+      { arg_pref_path: arg_pref_path, arg_value: arg_value, arg_value_state: arg_value_state, arg_external_validation_value_state: arg_external_validation_value_state, arg_is_personal: arg_is_personal },
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec,
       null,
-      [arg_pref_path, arg_invalid_keys, arg_external_validation_invalid_keys, arg_value_state, arg_external_validation_value_state, arg_is_personal],
+      { arg_pref_path: arg_pref_path, arg_invalid_keys: arg_invalid_keys, arg_external_validation_invalid_keys: arg_external_validation_invalid_keys, arg_value_state: arg_value_state, arg_external_validation_value_state: arg_external_validation_value_state, arg_is_personal: arg_is_personal },
       false);
   }
 
@@ -278,14 +278,14 @@ mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAtomicPreferenceValidation');
-          const result = this.impl.onAtomicPreferenceValidation(params.arg_arg_pref_path, params.arg_arg_value, params.arg_arg_value_state, params.arg_arg_external_validation_value_state, params.arg_arg_is_personal);
+          const result = this.impl.onAtomicPreferenceValidation(params.arg_pref_path, params.arg_value, params.arg_value_state, params.arg_external_validation_value_state, params.arg_is_personal);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSplitPreferenceValidation');
-          const result = this.impl.onSplitPreferenceValidation(params.arg_arg_pref_path, params.arg_arg_invalid_keys, params.arg_arg_external_validation_invalid_keys, params.arg_arg_value_state, params.arg_arg_external_validation_value_state, params.arg_arg_is_personal);
+          const result = this.impl.onSplitPreferenceValidation(params.arg_pref_path, params.arg_invalid_keys, params.arg_external_validation_invalid_keys, params.arg_value_state, params.arg_external_validation_value_state, params.arg_is_personal);
           break;
         }
       }

@@ -170,7 +170,7 @@ mojo.internal.bindings.blink.mojom.PersistentRendererPrefsServiceRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec,
       null,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.blink.mojom.PersistentRendererPrefsServiceReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setViewSourceLineWrapping');
-          const result = this.impl.setViewSourceLineWrapping(params.arg_arg_value);
+          const result = this.impl.setViewSourceLineWrapping(params.arg_value);
           break;
         }
       }

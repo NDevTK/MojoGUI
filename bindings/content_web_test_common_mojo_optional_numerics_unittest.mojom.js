@@ -537,7 +537,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBool_ResponseParamsSpec,
-      [arg_optional_bool],
+      { arg_optional_bool: arg_optional_bool },
       false);
   }
 
@@ -546,7 +546,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint8_ResponseParamsSpec,
-      [arg_optional_uint8],
+      { arg_optional_uint8: arg_optional_uint8 },
       false);
   }
 
@@ -555,7 +555,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt8_ResponseParamsSpec,
-      [arg_optional_int8],
+      { arg_optional_int8: arg_optional_int8 },
       false);
   }
 
@@ -564,7 +564,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint16_ResponseParamsSpec,
-      [arg_optional_uint16],
+      { arg_optional_uint16: arg_optional_uint16 },
       false);
   }
 
@@ -573,7 +573,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16_ResponseParamsSpec,
-      [arg_optional_int16],
+      { arg_optional_int16: arg_optional_int16 },
       false);
   }
 
@@ -582,7 +582,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32_ResponseParamsSpec,
-      [arg_optional_uint32],
+      { arg_optional_uint32: arg_optional_uint32 },
       false);
   }
 
@@ -591,7 +591,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt32_ResponseParamsSpec,
-      [arg_optional_int32],
+      { arg_optional_int32: arg_optional_int32 },
       false);
   }
 
@@ -600,7 +600,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint64_ResponseParamsSpec,
-      [arg_optional_uint64],
+      { arg_optional_uint64: arg_optional_uint64 },
       false);
   }
 
@@ -609,7 +609,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt64_ResponseParamsSpec,
-      [arg_optional_int64],
+      { arg_optional_int64: arg_optional_int64 },
       false);
   }
 
@@ -618,7 +618,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullFloat_ResponseParamsSpec,
-      [arg_optional_float],
+      { arg_optional_float: arg_optional_float },
       false);
   }
 
@@ -627,7 +627,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDouble_ResponseParamsSpec,
-      [arg_optional_double],
+      { arg_optional_double: arg_optional_double },
       false);
   }
 
@@ -636,7 +636,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnum_ResponseParamsSpec,
-      [arg_optional_enum],
+      { arg_optional_enum: arg_optional_enum },
       false);
   }
 
@@ -645,7 +645,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBools_ResponseParamsSpec,
-      [arg_optional_bools],
+      { arg_optional_bools: arg_optional_bools },
       false);
   }
 
@@ -654,7 +654,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ResponseParamsSpec,
-      [arg_optional_int16s],
+      { arg_optional_int16s: arg_optional_int16s },
       false);
   }
 
@@ -663,7 +663,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ResponseParamsSpec,
-      [arg_optional_uint32s],
+      { arg_optional_uint32s: arg_optional_uint32s },
       false);
   }
 
@@ -672,7 +672,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ResponseParamsSpec,
-      [arg_optional_doubles],
+      { arg_optional_doubles: arg_optional_doubles },
       false);
   }
 
@@ -681,7 +681,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnums_ResponseParamsSpec,
-      [arg_optional_enums],
+      { arg_optional_enums: arg_optional_enums },
       false);
   }
 
@@ -690,7 +690,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ResponseParamsSpec,
-      [arg_values],
+      { arg_values: arg_values },
       false);
   }
 
@@ -699,7 +699,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ResponseParamsSpec,
-      [arg_values],
+      { arg_values: arg_values },
       false);
   }
 
@@ -708,7 +708,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ResponseParamsSpec,
-      [arg_values],
+      { arg_values: arg_values },
       false);
   }
 
@@ -717,7 +717,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec,
-      [arg_optional_bool],
+      { arg_optional_bool: arg_optional_bool },
       false);
   }
 
@@ -726,7 +726,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec,
-      [arg_optional_uint8],
+      { arg_optional_uint8: arg_optional_uint8 },
       false);
   }
 
@@ -735,7 +735,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec,
-      [arg_optional_int8],
+      { arg_optional_int8: arg_optional_int8 },
       false);
   }
 
@@ -744,7 +744,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec,
-      [arg_optional_uint16],
+      { arg_optional_uint16: arg_optional_uint16 },
       false);
   }
 
@@ -753,7 +753,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec,
-      [arg_optional_int16],
+      { arg_optional_int16: arg_optional_int16 },
       false);
   }
 
@@ -762,7 +762,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec,
-      [arg_optional_uint32],
+      { arg_optional_uint32: arg_optional_uint32 },
       false);
   }
 
@@ -771,7 +771,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec,
-      [arg_optional_int32],
+      { arg_optional_int32: arg_optional_int32 },
       false);
   }
 
@@ -780,7 +780,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec,
-      [arg_optional_uint64],
+      { arg_optional_uint64: arg_optional_uint64 },
       false);
   }
 
@@ -789,7 +789,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec,
-      [arg_optional_int64],
+      { arg_optional_int64: arg_optional_int64 },
       false);
   }
 
@@ -798,7 +798,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec,
-      [arg_optional_float],
+      { arg_optional_float: arg_optional_float },
       false);
   }
 
@@ -807,7 +807,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec,
-      [arg_optional_double],
+      { arg_optional_double: arg_optional_double },
       false);
   }
 
@@ -816,7 +816,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec,
-      [arg_optional_enum],
+      { arg_optional_enum: arg_optional_enum },
       false);
   }
 
@@ -825,7 +825,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec,
-      [arg_optional_enums],
+      { arg_optional_enums: arg_optional_enums },
       false);
   }
 
@@ -834,7 +834,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec,
-      [arg_optional_int16s],
+      { arg_optional_int16s: arg_optional_int16s },
       false);
   }
 
@@ -843,7 +843,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec,
-      [arg_optional_uint32s],
+      { arg_optional_uint32s: arg_optional_uint32s },
       false);
   }
 
@@ -852,7 +852,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec,
-      [arg_optional_doubles],
+      { arg_optional_doubles: arg_optional_doubles },
       false);
   }
 
@@ -861,7 +861,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec,
-      [arg_optional_enums],
+      { arg_optional_enums: arg_optional_enums },
       false);
   }
 
@@ -870,7 +870,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[37],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec,
-      [arg_values],
+      { arg_values: arg_values },
       false);
   }
 
@@ -879,7 +879,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[38],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec,
-      [arg_values],
+      { arg_values: arg_values },
       false);
   }
 
@@ -888,7 +888,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[39],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec,
-      [arg_values],
+      { arg_values: arg_values },
       false);
   }
 
@@ -897,7 +897,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[40],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ResponseParamsSpec,
-      [arg_s],
+      { arg_s: arg_s },
       false);
   }
 
@@ -906,7 +906,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[41],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ResponseParamsSpec,
-      [arg_s],
+      { arg_s: arg_s },
       false);
   }
 
@@ -915,7 +915,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[42],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec,
-      [arg_s],
+      { arg_s: arg_s },
       false);
   }
 
@@ -1026,12 +1026,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullBool');
-          const result = this.impl.sendNullBool(params.arg_arg_optional_bool);
+          const result = this.impl.sendNullBool(params.arg_optional_bool);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBool_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBool_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullBool FAILED:', e));
           }
@@ -1041,12 +1041,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullUint8');
-          const result = this.impl.sendNullUint8(params.arg_arg_optional_uint8);
+          const result = this.impl.sendNullUint8(params.arg_optional_uint8);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint8_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint8_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullUint8 FAILED:', e));
           }
@@ -1056,12 +1056,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullInt8');
-          const result = this.impl.sendNullInt8(params.arg_arg_optional_int8);
+          const result = this.impl.sendNullInt8(params.arg_optional_int8);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt8_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt8_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullInt8 FAILED:', e));
           }
@@ -1071,12 +1071,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullUint16');
-          const result = this.impl.sendNullUint16(params.arg_arg_optional_uint16);
+          const result = this.impl.sendNullUint16(params.arg_optional_uint16);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint16_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint16_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullUint16 FAILED:', e));
           }
@@ -1086,12 +1086,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullInt16');
-          const result = this.impl.sendNullInt16(params.arg_arg_optional_int16);
+          const result = this.impl.sendNullInt16(params.arg_optional_int16);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullInt16 FAILED:', e));
           }
@@ -1101,12 +1101,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullUint32');
-          const result = this.impl.sendNullUint32(params.arg_arg_optional_uint32);
+          const result = this.impl.sendNullUint32(params.arg_optional_uint32);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullUint32 FAILED:', e));
           }
@@ -1116,12 +1116,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullInt32');
-          const result = this.impl.sendNullInt32(params.arg_arg_optional_int32);
+          const result = this.impl.sendNullInt32(params.arg_optional_int32);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt32_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt32_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullInt32 FAILED:', e));
           }
@@ -1131,12 +1131,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullUint64');
-          const result = this.impl.sendNullUint64(params.arg_arg_optional_uint64);
+          const result = this.impl.sendNullUint64(params.arg_optional_uint64);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint64_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint64_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullUint64 FAILED:', e));
           }
@@ -1146,12 +1146,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullInt64');
-          const result = this.impl.sendNullInt64(params.arg_arg_optional_int64);
+          const result = this.impl.sendNullInt64(params.arg_optional_int64);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt64_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt64_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullInt64 FAILED:', e));
           }
@@ -1161,12 +1161,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullFloat');
-          const result = this.impl.sendNullFloat(params.arg_arg_optional_float);
+          const result = this.impl.sendNullFloat(params.arg_optional_float);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullFloat_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullFloat_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullFloat FAILED:', e));
           }
@@ -1176,12 +1176,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullDouble');
-          const result = this.impl.sendNullDouble(params.arg_arg_optional_double);
+          const result = this.impl.sendNullDouble(params.arg_optional_double);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDouble_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDouble_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullDouble FAILED:', e));
           }
@@ -1191,12 +1191,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullEnum');
-          const result = this.impl.sendNullEnum(params.arg_arg_optional_enum);
+          const result = this.impl.sendNullEnum(params.arg_optional_enum);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnum_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnum_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullEnum FAILED:', e));
           }
@@ -1206,12 +1206,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullBools');
-          const result = this.impl.sendNullBools(params.arg_arg_optional_bools);
+          const result = this.impl.sendNullBools(params.arg_optional_bools);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBools_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBools_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullBools FAILED:', e));
           }
@@ -1221,12 +1221,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullInt16s');
-          const result = this.impl.sendNullInt16s(params.arg_arg_optional_int16s);
+          const result = this.impl.sendNullInt16s(params.arg_optional_int16s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullInt16s FAILED:', e));
           }
@@ -1236,12 +1236,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullUint32s');
-          const result = this.impl.sendNullUint32s(params.arg_arg_optional_uint32s);
+          const result = this.impl.sendNullUint32s(params.arg_optional_uint32s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullUint32s FAILED:', e));
           }
@@ -1251,12 +1251,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullDoubles');
-          const result = this.impl.sendNullDoubles(params.arg_arg_optional_doubles);
+          const result = this.impl.sendNullDoubles(params.arg_optional_doubles);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullDoubles FAILED:', e));
           }
@@ -1266,12 +1266,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullEnums');
-          const result = this.impl.sendNullEnums(params.arg_arg_optional_enums);
+          const result = this.impl.sendNullEnums(params.arg_optional_enums);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnums_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnums_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullEnums FAILED:', e));
           }
@@ -1281,12 +1281,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullBoolMap');
-          const result = this.impl.sendNullBoolMap(params.arg_arg_values);
+          const result = this.impl.sendNullBoolMap(params.arg_values);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullBoolMap FAILED:', e));
           }
@@ -1296,12 +1296,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullDoubleMap');
-          const result = this.impl.sendNullDoubleMap(params.arg_arg_values);
+          const result = this.impl.sendNullDoubleMap(params.arg_values);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullDoubleMap FAILED:', e));
           }
@@ -1311,12 +1311,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullEnumMap');
-          const result = this.impl.sendNullEnumMap(params.arg_arg_values);
+          const result = this.impl.sendNullEnumMap(params.arg_values);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullEnumMap FAILED:', e));
           }
@@ -1326,13 +1326,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalBool');
-          const result = this.impl.sendOptionalBool(params.arg_arg_optional_bool);
+          const result = this.impl.sendOptionalBool(params.arg_optional_bool);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendOptionalBool FAILED:', e));
           }
@@ -1342,13 +1342,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalUint8');
-          const result = this.impl.sendOptionalUint8(params.arg_arg_optional_uint8);
+          const result = this.impl.sendOptionalUint8(params.arg_optional_uint8);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendOptionalUint8 FAILED:', e));
           }
@@ -1358,13 +1358,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalInt8');
-          const result = this.impl.sendOptionalInt8(params.arg_arg_optional_int8);
+          const result = this.impl.sendOptionalInt8(params.arg_optional_int8);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendOptionalInt8 FAILED:', e));
           }
@@ -1374,13 +1374,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalUint16');
-          const result = this.impl.sendOptionalUint16(params.arg_arg_optional_uint16);
+          const result = this.impl.sendOptionalUint16(params.arg_optional_uint16);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendOptionalUint16 FAILED:', e));
           }
@@ -1390,13 +1390,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalInt16');
-          const result = this.impl.sendOptionalInt16(params.arg_arg_optional_int16);
+          const result = this.impl.sendOptionalInt16(params.arg_optional_int16);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendOptionalInt16 FAILED:', e));
           }
@@ -1406,13 +1406,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalUint32');
-          const result = this.impl.sendOptionalUint32(params.arg_arg_optional_uint32);
+          const result = this.impl.sendOptionalUint32(params.arg_optional_uint32);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendOptionalUint32 FAILED:', e));
           }
@@ -1422,13 +1422,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalInt32');
-          const result = this.impl.sendOptionalInt32(params.arg_arg_optional_int32);
+          const result = this.impl.sendOptionalInt32(params.arg_optional_int32);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendOptionalInt32 FAILED:', e));
           }
@@ -1438,13 +1438,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalUint64');
-          const result = this.impl.sendOptionalUint64(params.arg_arg_optional_uint64);
+          const result = this.impl.sendOptionalUint64(params.arg_optional_uint64);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendOptionalUint64 FAILED:', e));
           }
@@ -1454,13 +1454,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalInt64');
-          const result = this.impl.sendOptionalInt64(params.arg_arg_optional_int64);
+          const result = this.impl.sendOptionalInt64(params.arg_optional_int64);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendOptionalInt64 FAILED:', e));
           }
@@ -1470,13 +1470,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalFloat');
-          const result = this.impl.sendOptionalFloat(params.arg_arg_optional_float);
+          const result = this.impl.sendOptionalFloat(params.arg_optional_float);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendOptionalFloat FAILED:', e));
           }
@@ -1486,13 +1486,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalDouble');
-          const result = this.impl.sendOptionalDouble(params.arg_arg_optional_double);
+          const result = this.impl.sendOptionalDouble(params.arg_optional_double);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendOptionalDouble FAILED:', e));
           }
@@ -1502,13 +1502,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalEnum');
-          const result = this.impl.sendOptionalEnum(params.arg_arg_optional_enum);
+          const result = this.impl.sendOptionalEnum(params.arg_optional_enum);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendOptionalEnum FAILED:', e));
           }
@@ -1518,13 +1518,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalBools');
-          const result = this.impl.sendOptionalBools(params.arg_arg_optional_enums);
+          const result = this.impl.sendOptionalBools(params.arg_optional_enums);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_values' in response) ? response.arg_arg_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_values' in response) ? response.arg_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec.$.structSpec, { 'arg_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendOptionalBools FAILED:', e));
           }
@@ -1534,13 +1534,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalInt16s');
-          const result = this.impl.sendOptionalInt16s(params.arg_arg_optional_int16s);
+          const result = this.impl.sendOptionalInt16s(params.arg_optional_int16s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_values' in response) ? response.arg_arg_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_values' in response) ? response.arg_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec.$.structSpec, { 'arg_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendOptionalInt16s FAILED:', e));
           }
@@ -1550,13 +1550,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalUint32s');
-          const result = this.impl.sendOptionalUint32s(params.arg_arg_optional_uint32s);
+          const result = this.impl.sendOptionalUint32s(params.arg_optional_uint32s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_values' in response) ? response.arg_arg_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_values' in response) ? response.arg_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec.$.structSpec, { 'arg_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendOptionalUint32s FAILED:', e));
           }
@@ -1566,13 +1566,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalDoubles');
-          const result = this.impl.sendOptionalDoubles(params.arg_arg_optional_doubles);
+          const result = this.impl.sendOptionalDoubles(params.arg_optional_doubles);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_values' in response) ? response.arg_arg_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_values' in response) ? response.arg_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec.$.structSpec, { 'arg_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendOptionalDoubles FAILED:', e));
           }
@@ -1582,13 +1582,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalEnums');
-          const result = this.impl.sendOptionalEnums(params.arg_arg_optional_enums);
+          const result = this.impl.sendOptionalEnums(params.arg_optional_enums);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_values' in response) ? response.arg_arg_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_values' in response) ? response.arg_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec.$.structSpec, { 'arg_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendOptionalEnums FAILED:', e));
           }
@@ -1598,13 +1598,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalBoolMap');
-          const result = this.impl.sendOptionalBoolMap(params.arg_arg_values);
+          const result = this.impl.sendOptionalBoolMap(params.arg_values);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_values' in response) ? response.arg_arg_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_values' in response) ? response.arg_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec.$.structSpec, { 'arg_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendOptionalBoolMap FAILED:', e));
           }
@@ -1614,13 +1614,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalDoubleMap');
-          const result = this.impl.sendOptionalDoubleMap(params.arg_arg_values);
+          const result = this.impl.sendOptionalDoubleMap(params.arg_values);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_values' in response) ? response.arg_arg_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_values' in response) ? response.arg_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec.$.structSpec, { 'arg_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendOptionalDoubleMap FAILED:', e));
           }
@@ -1630,13 +1630,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalEnumMap');
-          const result = this.impl.sendOptionalEnumMap(params.arg_arg_values);
+          const result = this.impl.sendOptionalEnumMap(params.arg_values);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_values' in response) ? response.arg_arg_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_values' in response) ? response.arg_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec.$.structSpec, { 'arg_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendOptionalEnumMap FAILED:', e));
           }
@@ -1646,12 +1646,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullStructWithOptionalNumerics');
-          const result = this.impl.sendNullStructWithOptionalNumerics(params.arg_arg_s);
+          const result = this.impl.sendNullStructWithOptionalNumerics(params.arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNullStructWithOptionalNumerics FAILED:', e));
           }
@@ -1661,12 +1661,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendStructWithNullOptionalNumerics');
-          const result = this.impl.sendStructWithNullOptionalNumerics(params.arg_arg_s);
+          const result = this.impl.sendStructWithNullOptionalNumerics(params.arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendStructWithNullOptionalNumerics FAILED:', e));
           }
@@ -1676,12 +1676,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendStructWithOptionalNumerics');
-          const result = this.impl.sendStructWithOptionalNumerics(params.arg_arg_s);
+          const result = this.impl.sendStructWithOptionalNumerics(params.arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec.$.structSpec, ['response.arg_arg_bool_value', 'response.arg_arg_uint8_value', 'response.arg_arg_int8_value', 'response.arg_arg_uint16_value', 'response.arg_arg_int16_value', 'response.arg_arg_uint32_value', 'response.arg_arg_int32_value', 'response.arg_arg_uint64_value', 'response.arg_arg_int64_value', 'response.arg_arg_float_value', 'response.arg_arg_double_value', 'response.arg_arg_enum_value']);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec.$.structSpec, { 'arg_bool_value': response.arg_bool_value, 'arg_uint8_value': response.arg_uint8_value, 'arg_int8_value': response.arg_int8_value, 'arg_uint16_value': response.arg_uint16_value, 'arg_int16_value': response.arg_int16_value, 'arg_uint32_value': response.arg_uint32_value, 'arg_int32_value': response.arg_int32_value, 'arg_uint64_value': response.arg_uint64_value, 'arg_int64_value': response.arg_int64_value, 'arg_float_value': response.arg_float_value, 'arg_double_value': response.arg_double_value, 'arg_enum_value': response.arg_enum_value });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendStructWithOptionalNumerics FAILED:', e));
           }
@@ -1913,7 +1913,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1922,7 +1922,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1931,7 +1931,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1940,7 +1940,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1949,7 +1949,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1958,7 +1958,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1967,7 +1967,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1976,7 +1976,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1985,7 +1985,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1994,7 +1994,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2003,7 +2003,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2012,7 +2012,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2021,7 +2021,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2030,7 +2030,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2039,7 +2039,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2048,7 +2048,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2057,7 +2057,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2066,7 +2066,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2075,7 +2075,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2084,7 +2084,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2093,7 +2093,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -2102,7 +2102,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -2111,7 +2111,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -2120,7 +2120,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -2129,7 +2129,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -2138,7 +2138,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -2147,7 +2147,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -2156,7 +2156,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -2165,7 +2165,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -2174,7 +2174,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -2183,7 +2183,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -2192,7 +2192,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -2201,7 +2201,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -2210,7 +2210,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -2219,7 +2219,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -2228,7 +2228,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -2237,7 +2237,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -2246,7 +2246,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[37],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec,
-      [arg_key, arg_value],
+      { arg_key: arg_key, arg_value: arg_value },
       false);
   }
 
@@ -2255,7 +2255,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[38],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec,
-      [arg_key, arg_value],
+      { arg_key: arg_key, arg_value: arg_value },
       false);
   }
 
@@ -2264,7 +2264,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[39],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec,
-      [arg_key, arg_value],
+      { arg_key: arg_key, arg_value: arg_value },
       false);
   }
 
@@ -2273,7 +2273,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[40],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2282,7 +2282,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[41],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2291,7 +2291,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[42],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec,
-      [arg_bool_value, arg_uint8_value, arg_int8_value, arg_uint16_value, arg_int16_value, arg_uint32_value, arg_int32_value, arg_uint64_value, arg_int64_value, arg_float_value, arg_double_value, arg_enum_value],
+      { arg_bool_value: arg_bool_value, arg_uint8_value: arg_uint8_value, arg_int8_value: arg_int8_value, arg_uint16_value: arg_uint16_value, arg_int16_value: arg_int16_value, arg_uint32_value: arg_uint32_value, arg_int32_value: arg_int32_value, arg_uint64_value: arg_uint64_value, arg_int64_value: arg_int64_value, arg_float_value: arg_float_value, arg_double_value: arg_double_value, arg_enum_value: arg_enum_value },
       false);
   }
 
@@ -2407,8 +2407,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullBool FAILED:', e));
           }
@@ -2423,8 +2423,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullUint8 FAILED:', e));
           }
@@ -2439,8 +2439,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullInt8 FAILED:', e));
           }
@@ -2455,8 +2455,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullUint16 FAILED:', e));
           }
@@ -2471,8 +2471,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullInt16 FAILED:', e));
           }
@@ -2487,8 +2487,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullUint32 FAILED:', e));
           }
@@ -2503,8 +2503,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullInt32 FAILED:', e));
           }
@@ -2519,8 +2519,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullUint64 FAILED:', e));
           }
@@ -2535,8 +2535,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullInt64 FAILED:', e));
           }
@@ -2551,8 +2551,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullFloat FAILED:', e));
           }
@@ -2567,8 +2567,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullDouble FAILED:', e));
           }
@@ -2583,8 +2583,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullEnum FAILED:', e));
           }
@@ -2599,8 +2599,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_values' in response) ? response.arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec.$.structSpec, { 'arg_optional_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullBools FAILED:', e));
           }
@@ -2615,8 +2615,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_values' in response) ? response.arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec.$.structSpec, { 'arg_optional_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullInt16s FAILED:', e));
           }
@@ -2631,8 +2631,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_values' in response) ? response.arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec.$.structSpec, { 'arg_optional_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullUint32s FAILED:', e));
           }
@@ -2647,8 +2647,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_values' in response) ? response.arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec.$.structSpec, { 'arg_optional_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullDoubles FAILED:', e));
           }
@@ -2663,8 +2663,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_values' in response) ? response.arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec.$.structSpec, { 'arg_optional_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullEnums FAILED:', e));
           }
@@ -2679,8 +2679,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_values' in response) ? response.arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec.$.structSpec, { 'arg_optional_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullBoolMap FAILED:', e));
           }
@@ -2695,8 +2695,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_values' in response) ? response.arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec.$.structSpec, { 'arg_optional_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullInt32Map FAILED:', e));
           }
@@ -2711,8 +2711,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_values' in response) ? response.arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec.$.structSpec, { 'arg_optional_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullEnumMap FAILED:', e));
           }
@@ -2722,13 +2722,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalBool');
-          const result = this.impl.getOptionalBool(params.arg_arg_value);
+          const result = this.impl.getOptionalBool(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOptionalBool FAILED:', e));
           }
@@ -2738,13 +2738,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalUint8');
-          const result = this.impl.getOptionalUint8(params.arg_arg_value);
+          const result = this.impl.getOptionalUint8(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOptionalUint8 FAILED:', e));
           }
@@ -2754,13 +2754,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalInt8');
-          const result = this.impl.getOptionalInt8(params.arg_arg_value);
+          const result = this.impl.getOptionalInt8(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOptionalInt8 FAILED:', e));
           }
@@ -2770,13 +2770,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalUint16');
-          const result = this.impl.getOptionalUint16(params.arg_arg_value);
+          const result = this.impl.getOptionalUint16(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOptionalUint16 FAILED:', e));
           }
@@ -2786,13 +2786,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalInt16');
-          const result = this.impl.getOptionalInt16(params.arg_arg_value);
+          const result = this.impl.getOptionalInt16(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOptionalInt16 FAILED:', e));
           }
@@ -2802,13 +2802,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalUint32');
-          const result = this.impl.getOptionalUint32(params.arg_arg_value);
+          const result = this.impl.getOptionalUint32(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOptionalUint32 FAILED:', e));
           }
@@ -2818,13 +2818,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalInt32');
-          const result = this.impl.getOptionalInt32(params.arg_arg_value);
+          const result = this.impl.getOptionalInt32(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOptionalInt32 FAILED:', e));
           }
@@ -2834,13 +2834,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalUint64');
-          const result = this.impl.getOptionalUint64(params.arg_arg_value);
+          const result = this.impl.getOptionalUint64(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOptionalUint64 FAILED:', e));
           }
@@ -2850,13 +2850,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalInt64');
-          const result = this.impl.getOptionalInt64(params.arg_arg_value);
+          const result = this.impl.getOptionalInt64(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOptionalInt64 FAILED:', e));
           }
@@ -2866,13 +2866,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalFloat');
-          const result = this.impl.getOptionalFloat(params.arg_arg_value);
+          const result = this.impl.getOptionalFloat(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOptionalFloat FAILED:', e));
           }
@@ -2882,13 +2882,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalDouble');
-          const result = this.impl.getOptionalDouble(params.arg_arg_value);
+          const result = this.impl.getOptionalDouble(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOptionalDouble FAILED:', e));
           }
@@ -2898,13 +2898,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalEnum');
-          const result = this.impl.getOptionalEnum(params.arg_arg_value);
+          const result = this.impl.getOptionalEnum(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_value' in response) ? response.arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec.$.structSpec, { 'arg_optional_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOptionalEnum FAILED:', e));
           }
@@ -2914,13 +2914,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalBools');
-          const result = this.impl.getOptionalBools(params.arg_arg_value);
+          const result = this.impl.getOptionalBools(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_values' in response) ? response.arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec.$.structSpec, { 'arg_optional_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOptionalBools FAILED:', e));
           }
@@ -2930,13 +2930,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalInt16s');
-          const result = this.impl.getOptionalInt16s(params.arg_arg_value);
+          const result = this.impl.getOptionalInt16s(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_values' in response) ? response.arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec.$.structSpec, { 'arg_optional_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOptionalInt16s FAILED:', e));
           }
@@ -2946,13 +2946,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalUint32s');
-          const result = this.impl.getOptionalUint32s(params.arg_arg_value);
+          const result = this.impl.getOptionalUint32s(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_values' in response) ? response.arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec.$.structSpec, { 'arg_optional_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOptionalUint32s FAILED:', e));
           }
@@ -2962,13 +2962,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalDoubles');
-          const result = this.impl.getOptionalDoubles(params.arg_arg_value);
+          const result = this.impl.getOptionalDoubles(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_values' in response) ? response.arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec.$.structSpec, { 'arg_optional_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOptionalDoubles FAILED:', e));
           }
@@ -2978,13 +2978,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalEnums');
-          const result = this.impl.getOptionalEnums(params.arg_arg_value);
+          const result = this.impl.getOptionalEnums(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_values' in response) ? response.arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec.$.structSpec, { 'arg_optional_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOptionalEnums FAILED:', e));
           }
@@ -2994,13 +2994,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalBoolMap');
-          const result = this.impl.getOptionalBoolMap(params.arg_arg_key, params.arg_arg_value);
+          const result = this.impl.getOptionalBoolMap(params.arg_key, params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_values' in response) ? response.arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec.$.structSpec, { 'arg_optional_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOptionalBoolMap FAILED:', e));
           }
@@ -3010,13 +3010,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalFloatMap');
-          const result = this.impl.getOptionalFloatMap(params.arg_arg_key, params.arg_arg_value);
+          const result = this.impl.getOptionalFloatMap(params.arg_key, params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_values' in response) ? response.arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec.$.structSpec, { 'arg_optional_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOptionalFloatMap FAILED:', e));
           }
@@ -3026,13 +3026,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalEnumMap');
-          const result = this.impl.getOptionalEnumMap(params.arg_arg_key, params.arg_arg_value);
+          const result = this.impl.getOptionalEnumMap(params.arg_key, params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_optional_values' in response) ? response.arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec.$.structSpec, { 'arg_optional_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOptionalEnumMap FAILED:', e));
           }
@@ -3047,8 +3047,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_s' in response) ? response.arg_arg_s : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_s' in response) ? response.arg_s : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec.$.structSpec, { 'arg_s': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNullStructWithOptionalNumerics FAILED:', e));
           }
@@ -3063,8 +3063,8 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_s' in response) ? response.arg_arg_s : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_s' in response) ? response.arg_s : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec.$.structSpec, { 'arg_s': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getStructWithNullOptionalNumerics FAILED:', e));
           }
@@ -3074,13 +3074,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStructWithOptionalNumerics');
-          const result = this.impl.getStructWithOptionalNumerics(params.arg_arg_bool_value, params.arg_arg_uint8_value, params.arg_arg_int8_value, params.arg_arg_uint16_value, params.arg_arg_int16_value, params.arg_arg_uint32_value, params.arg_arg_int32_value, params.arg_arg_uint64_value, params.arg_arg_int64_value, params.arg_arg_float_value, params.arg_arg_double_value, params.arg_arg_enum_value);
+          const result = this.impl.getStructWithOptionalNumerics(params.arg_bool_value, params.arg_uint8_value, params.arg_int8_value, params.arg_uint16_value, params.arg_int16_value, params.arg_uint32_value, params.arg_int32_value, params.arg_uint64_value, params.arg_int64_value, params.arg_float_value, params.arg_double_value, params.arg_enum_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_s' in response) ? response.arg_arg_s : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_s' in response) ? response.arg_s : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec.$.structSpec, { 'arg_s': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getStructWithOptionalNumerics FAILED:', e));
           }
@@ -3148,7 +3148,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0Remot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -3157,7 +3157,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0Remot
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParamsSpec,
-      [arg_s],
+      { arg_s: arg_s },
       false);
   }
 
@@ -3232,7 +3232,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0Recei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] methodWithVersionedParams FAILED:', e));
           }
@@ -3242,13 +3242,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0Recei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.methodWithVersionedStruct');
-          const result = this.impl.methodWithVersionedStruct(params.arg_arg_s);
+          const result = this.impl.methodWithVersionedStruct(params.arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_s' in response) ? response.arg_arg_s : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_s' in response) ? response.arg_s : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParamsSpec.$.structSpec, { 'arg_s': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] methodWithVersionedStruct FAILED:', e));
           }
@@ -3316,7 +3316,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2Remot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ResponseParamsSpec,
-      [arg_bool_value, arg_uint8_value, arg_int8_value, arg_uint16_value, arg_int16_value, arg_uint32_value, arg_int32_value, arg_uint64_value, arg_int64_value, arg_float_value, arg_double_value, arg_enum_value],
+      { arg_bool_value: arg_bool_value, arg_uint8_value: arg_uint8_value, arg_int8_value: arg_int8_value, arg_uint16_value: arg_uint16_value, arg_int16_value: arg_int16_value, arg_uint32_value: arg_uint32_value, arg_int32_value: arg_int32_value, arg_uint64_value: arg_uint64_value, arg_int64_value: arg_int64_value, arg_float_value: arg_float_value, arg_double_value: arg_double_value, arg_enum_value: arg_enum_value },
       false);
   }
 
@@ -3325,7 +3325,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2Remot
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParamsSpec,
-      [arg_s],
+      { arg_s: arg_s },
       false);
   }
 
@@ -3395,12 +3395,12 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2Recei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.methodWithVersionedParams');
-          const result = this.impl.methodWithVersionedParams(params.arg_arg_bool_value, params.arg_arg_uint8_value, params.arg_arg_int8_value, params.arg_arg_uint16_value, params.arg_arg_int16_value, params.arg_arg_uint32_value, params.arg_arg_int32_value, params.arg_arg_uint64_value, params.arg_arg_int64_value, params.arg_arg_float_value, params.arg_arg_double_value, params.arg_arg_enum_value);
+          const result = this.impl.methodWithVersionedParams(params.arg_bool_value, params.arg_uint8_value, params.arg_int8_value, params.arg_uint16_value, params.arg_int16_value, params.arg_uint32_value, params.arg_int32_value, params.arg_uint64_value, params.arg_int64_value, params.arg_float_value, params.arg_double_value, params.arg_enum_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ResponseParamsSpec.$.structSpec, ['response.arg_arg_bool_value', 'response.arg_arg_uint8_value', 'response.arg_arg_int8_value', 'response.arg_arg_uint16_value', 'response.arg_arg_int16_value', 'response.arg_arg_uint32_value', 'response.arg_arg_int32_value', 'response.arg_arg_uint64_value', 'response.arg_arg_int64_value', 'response.arg_arg_float_value', 'response.arg_arg_double_value', 'response.arg_arg_enum_value']);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ResponseParamsSpec.$.structSpec, { 'arg_bool_value': response.arg_bool_value, 'arg_uint8_value': response.arg_uint8_value, 'arg_int8_value': response.arg_int8_value, 'arg_uint16_value': response.arg_uint16_value, 'arg_int16_value': response.arg_int16_value, 'arg_uint32_value': response.arg_uint32_value, 'arg_int32_value': response.arg_int32_value, 'arg_uint64_value': response.arg_uint64_value, 'arg_int64_value': response.arg_int64_value, 'arg_float_value': response.arg_float_value, 'arg_double_value': response.arg_double_value, 'arg_enum_value': response.arg_enum_value });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] methodWithVersionedParams FAILED:', e));
           }
@@ -3410,13 +3410,13 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2Recei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.methodWithVersionedStruct');
-          const result = this.impl.methodWithVersionedStruct(params.arg_arg_s);
+          const result = this.impl.methodWithVersionedStruct(params.arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_s' in response) ? response.arg_arg_s : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_s' in response) ? response.arg_s : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParamsSpec.$.structSpec, { 'arg_s': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] methodWithVersionedStruct FAILED:', e));
           }

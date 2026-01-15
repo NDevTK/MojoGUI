@@ -195,7 +195,7 @@ mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec,
       mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec,
-      [arg_passages, arg_priority],
+      { arg_passages: arg_passages, arg_priority: arg_priority },
       false);
   }
 
@@ -264,13 +264,13 @@ mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generateEmbeddings');
-          const result = this.impl.generateEmbeddings(params.arg_arg_passages, params.arg_arg_priority);
+          const result = this.impl.generateEmbeddings(params.arg_passages, params.arg_priority);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
-              encoder.encodeStructInline(mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_results' in response) ? response.arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec.$.structSpec, { 'arg_results': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] generateEmbeddings FAILED:', e));
           }
@@ -334,7 +334,7 @@ mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsServiceRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec,
       mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec,
-      [arg_model_params, arg_params, arg_model],
+      { arg_model_params: arg_model_params, arg_params: arg_params, arg_model: arg_model },
       false);
   }
 
@@ -403,13 +403,13 @@ mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsServiceReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadModels');
-          const result = this.impl.loadModels(params.arg_arg_model_params, params.arg_arg_params, params.arg_arg_model);
+          const result = this.impl.loadModels(params.arg_model_params, params.arg_params, params.arg_model);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] loadModels FAILED:', e));
           }

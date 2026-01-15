@@ -234,7 +234,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSolutionRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec,
       null,
-      [arg_session, arg_params],
+      { arg_session: arg_session, arg_params: arg_params },
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSolutionRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec,
       null,
-      [arg_session],
+      { arg_session: arg_session },
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSolutionRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -323,14 +323,14 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSolutionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSession');
-          const result = this.impl.createSession(params.arg_arg_session, params.arg_arg_params);
+          const result = this.impl.createSession(params.arg_session, params.arg_params);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTextSafetySession');
-          const result = this.impl.createTextSafetySession(params.arg_arg_session);
+          const result = this.impl.createTextSafetySession(params.arg_session);
           break;
         }
         case 2: {
@@ -402,7 +402,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec,
       null,
-      [arg_reason],
+      { arg_reason: arg_reason },
       false);
   }
 
@@ -411,7 +411,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec,
       null,
-      [arg_config, arg_solution],
+      { arg_config: arg_config, arg_solution: arg_solution },
       false);
   }
 
@@ -481,14 +481,14 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unavailable');
-          const result = this.impl.unavailable(params.arg_arg_reason);
+          const result = this.impl.unavailable(params.arg_reason);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.available');
-          const result = this.impl.available(params.arg_arg_config, params.arg_arg_solution);
+          const result = this.impl.available(params.arg_config, params.arg_solution);
           break;
         }
       }
@@ -549,7 +549,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelBrokerRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec,
       null,
-      [arg_options, arg_subcriber],
+      { arg_options: arg_options, arg_subcriber: arg_subcriber },
       false);
   }
 
@@ -618,7 +618,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelBrokerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribe');
-          const result = this.impl.subscribe(params.arg_arg_options, params.arg_arg_subcriber);
+          const result = this.impl.subscribe(params.arg_options, params.arg_subcriber);
           break;
         }
       }

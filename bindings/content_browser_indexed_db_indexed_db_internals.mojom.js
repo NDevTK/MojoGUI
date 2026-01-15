@@ -220,7 +220,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_DownloadBucketData_ResponseParamsSpec,
-      [arg_bucketId],
+      { arg_bucketId: arg_bucketId },
       false);
   }
 
@@ -238,7 +238,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_ForceClose_ResponseParamsSpec,
-      [arg_bucketId],
+      { arg_bucketId: arg_bucketId },
       false);
   }
 
@@ -247,7 +247,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_StartMetadataRecording_ResponseParamsSpec,
-      [arg_bucket_id],
+      { arg_bucket_id: arg_bucket_id },
       false);
   }
 
@@ -256,7 +256,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParamsSpec,
-      [arg_bucket_id],
+      { arg_bucket_id: arg_bucket_id },
       false);
   }
 
@@ -265,7 +265,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerRemoteCallHandler = clas
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_InspectClient_ResponseParamsSpec,
-      [arg_client_info],
+      { arg_client_info: arg_client_info },
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_partitions']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_partitions': response.arg_partitions });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAllBucketsAcrossAllStorageKeys FAILED:', e));
           }
@@ -354,13 +354,13 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.downloadBucketData');
-          const result = this.impl.downloadBucketData(params.arg_arg_bucketId);
+          const result = this.impl.downloadBucketData(params.arg_bucketId);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_DownloadBucketData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_DownloadBucketData_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] downloadBucketData FAILED:', e));
           }
@@ -370,13 +370,13 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forceClose');
-          const result = this.impl.forceClose(params.arg_arg_bucketId);
+          const result = this.impl.forceClose(params.arg_bucketId);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_ForceClose_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_ForceClose_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] forceClose FAILED:', e));
           }
@@ -386,13 +386,13 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startMetadataRecording');
-          const result = this.impl.startMetadataRecording(params.arg_arg_bucket_id);
+          const result = this.impl.startMetadataRecording(params.arg_bucket_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_StartMetadataRecording_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_StartMetadataRecording_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startMetadataRecording FAILED:', e));
           }
@@ -402,12 +402,12 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopMetadataRecording');
-          const result = this.impl.stopMetadataRecording(params.arg_arg_bucket_id);
+          const result = this.impl.stopMetadataRecording(params.arg_bucket_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_metadata']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_metadata': response.arg_metadata });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] stopMetadataRecording FAILED:', e));
           }
@@ -417,13 +417,13 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.inspectClient');
-          const result = this.impl.inspectClient(params.arg_arg_client_info);
+          const result = this.impl.inspectClient(params.arg_client_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_InspectClient_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IdbInternalsHandler_InspectClient_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] inspectClient FAILED:', e));
           }

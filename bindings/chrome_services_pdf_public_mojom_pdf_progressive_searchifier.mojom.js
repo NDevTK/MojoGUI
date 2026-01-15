@@ -187,7 +187,7 @@ mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifierRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec,
       null,
-      [arg_image, arg_page_index],
+      { arg_image: arg_image, arg_page_index: arg_page_index },
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifierRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec,
       null,
-      [arg_page_index],
+      { arg_page_index: arg_page_index },
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifierRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec,
       mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -276,14 +276,14 @@ mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifierReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPage');
-          const result = this.impl.addPage(params.arg_arg_image, params.arg_arg_page_index);
+          const result = this.impl.addPage(params.arg_image, params.arg_page_index);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deletePage');
-          const result = this.impl.deletePage(params.arg_arg_page_index);
+          const result = this.impl.deletePage(params.arg_page_index);
           break;
         }
         case 2: {
@@ -295,8 +295,8 @@ mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifierReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_searchified_pdf' in response) ? response.arg_arg_searchified_pdf : response;
-              encoder.encodeStructInline(mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_searchified_pdf' in response) ? response.arg_searchified_pdf : response;
+              encoder.encodeStructInline(mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec.$.structSpec, { 'arg_searchified_pdf': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] save FAILED:', e));
           }

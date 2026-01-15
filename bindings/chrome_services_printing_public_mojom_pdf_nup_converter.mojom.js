@@ -212,7 +212,7 @@ mojo.internal.bindings.printing.mojom.PdfNupConverterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec,
-      [arg_pages_per_sheet, arg_page_size, arg_printable_area, arg_pdf_page_regions],
+      { arg_pages_per_sheet: arg_pages_per_sheet, arg_page_size: arg_page_size, arg_printable_area: arg_printable_area, arg_pdf_page_regions: arg_pdf_page_regions },
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.printing.mojom.PdfNupConverterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec,
-      [arg_pages_per_sheet, arg_page_size, arg_printable_area, arg_src_pdf_region],
+      { arg_pages_per_sheet: arg_pages_per_sheet, arg_page_size: arg_page_size, arg_printable_area: arg_printable_area, arg_src_pdf_region: arg_src_pdf_region },
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.printing.mojom.PdfNupConverterRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec,
       null,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.printing.mojom.PdfNupConverterRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
-      [arg_use_skia],
+      { arg_use_skia: arg_use_skia },
       false);
   }
 
@@ -311,12 +311,12 @@ mojo.internal.bindings.printing.mojom.PdfNupConverterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.nupPageConvert');
-          const result = this.impl.nupPageConvert(params.arg_arg_pages_per_sheet, params.arg_arg_page_size, params.arg_arg_printable_area, params.arg_arg_pdf_page_regions);
+          const result = this.impl.nupPageConvert(params.arg_pages_per_sheet, params.arg_page_size, params.arg_printable_area, params.arg_pdf_page_regions);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_pdf_region']);
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_pdf_region': response.arg_pdf_region });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] nupPageConvert FAILED:', e));
           }
@@ -326,12 +326,12 @@ mojo.internal.bindings.printing.mojom.PdfNupConverterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.nupDocumentConvert');
-          const result = this.impl.nupDocumentConvert(params.arg_arg_pages_per_sheet, params.arg_arg_page_size, params.arg_arg_printable_area, params.arg_arg_src_pdf_region);
+          const result = this.impl.nupDocumentConvert(params.arg_pages_per_sheet, params.arg_page_size, params.arg_printable_area, params.arg_src_pdf_region);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_pdf_region']);
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_pdf_region': response.arg_pdf_region });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] nupDocumentConvert FAILED:', e));
           }
@@ -341,14 +341,14 @@ mojo.internal.bindings.printing.mojom.PdfNupConverterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWebContentsURL');
-          const result = this.impl.setWebContentsURL(params.arg_arg_url);
+          const result = this.impl.setWebContentsURL(params.arg_url);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUseSkiaRendererPolicy');
-          const result = this.impl.setUseSkiaRendererPolicy(params.arg_arg_use_skia);
+          const result = this.impl.setUseSkiaRendererPolicy(params.arg_use_skia);
           break;
         }
       }

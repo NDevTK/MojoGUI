@@ -176,7 +176,7 @@ mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTestRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec,
       mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec,
-      [arg_in],
+      { arg_in: arg_in },
       false);
   }
 
@@ -245,13 +245,13 @@ mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoMemoryConsumerTraits');
-          const result = this.impl.echoMemoryConsumerTraits(params.arg_arg_in);
+          const result = this.impl.echoMemoryConsumerTraits(params.arg_in);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_out' in response) ? response.arg_arg_out : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_out' in response) ? response.arg_out : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec.$.structSpec, { 'arg_out': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoMemoryConsumerTraits FAILED:', e));
           }

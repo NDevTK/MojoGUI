@@ -203,7 +203,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerFactoryRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_receiver);
+          const result = this.impl.createPageHandler(params.arg_receiver);
           break;
         }
       }
@@ -365,7 +365,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.glic.mojom.FrePageHandler_AcceptFre_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.glic.mojom.FrePageHandler_RejectFre_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.glic.mojom.FrePageHandler_DismissFre_ParamsSpec,
       null,
-      [arg_panel],
+      { arg_panel: arg_panel },
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.glic.mojom.FrePageHandler_FreReloaded_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec,
       mojo.internal.bindings.glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec,
       null,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec,
       null,
-      [arg_new_state],
+      { arg_new_state: arg_new_state },
       false);
   }
 
@@ -428,7 +428,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -437,7 +437,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -528,7 +528,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.FrePageHandler_DismissFre_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dismissFre');
-          const result = this.impl.dismissFre(params.arg_arg_panel);
+          const result = this.impl.dismissFre(params.arg_panel);
           break;
         }
         case 3: {
@@ -547,8 +547,8 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] prepareForClient FAILED:', e));
           }
@@ -558,14 +558,14 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.validateAndOpenLinkInNewTab');
-          const result = this.impl.validateAndOpenLinkInNewTab(params.arg_arg_url);
+          const result = this.impl.validateAndOpenLinkInNewTab(params.arg_url);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.webUiStateChanged');
-          const result = this.impl.webUiStateChanged(params.arg_arg_new_state);
+          const result = this.impl.webUiStateChanged(params.arg_new_state);
           break;
         }
         case 7: {

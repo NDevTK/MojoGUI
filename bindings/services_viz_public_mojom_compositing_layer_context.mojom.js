@@ -272,7 +272,7 @@ mojo.internal.bindings.viz.mojom.LayerContextRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.LayerContext_SetVisible_ParamsSpec,
       null,
-      [arg_visible],
+      { arg_visible: arg_visible },
       false);
   }
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.viz.mojom.LayerContextRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec,
       null,
-      [arg_update],
+      { arg_update: arg_update },
       false);
   }
 
@@ -290,7 +290,7 @@ mojo.internal.bindings.viz.mojom.LayerContextRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec,
       null,
-      [arg_tiling],
+      { arg_tiling: arg_tiling },
       false);
   }
 
@@ -361,21 +361,21 @@ mojo.internal.bindings.viz.mojom.LayerContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayerContext_SetVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVisible');
-          const result = this.impl.setVisible(params.arg_arg_visible);
+          const result = this.impl.setVisible(params.arg_visible);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateDisplayTree');
-          const result = this.impl.updateDisplayTree(params.arg_arg_update);
+          const result = this.impl.updateDisplayTree(params.arg_update);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateDisplayTiling');
-          const result = this.impl.updateDisplayTiling(params.arg_arg_tiling);
+          const result = this.impl.updateDisplayTiling(params.arg_tiling);
           break;
         }
       }
@@ -440,7 +440,7 @@ mojo.internal.bindings.viz.mojom.LayerContextClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec,
       null,
-      [arg_args],
+      { arg_args: arg_args },
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.viz.mojom.LayerContextClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec,
       null,
-      [arg_layer_id, arg_tiling_scales_to_clean_up],
+      { arg_layer_id: arg_layer_id, arg_tiling_scales_to_clean_up: arg_tiling_scales_to_clean_up },
       false);
   }
 
@@ -519,14 +519,14 @@ mojo.internal.bindings.viz.mojom.LayerContextClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRequestCommitForFrame');
-          const result = this.impl.onRequestCommitForFrame(params.arg_arg_args);
+          const result = this.impl.onRequestCommitForFrame(params.arg_args);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTilingsReadyForCleanup');
-          const result = this.impl.onTilingsReadyForCleanup(params.arg_arg_layer_id, params.arg_arg_tiling_scales_to_clean_up);
+          const result = this.impl.onTilingsReadyForCleanup(params.arg_layer_id, params.arg_tiling_scales_to_clean_up);
           break;
         }
       }

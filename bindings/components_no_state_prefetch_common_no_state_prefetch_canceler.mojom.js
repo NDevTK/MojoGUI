@@ -175,7 +175,7 @@ mojo.internal.bindings.prerender.mojom.NoStatePrefetchCancelerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -184,7 +184,7 @@ mojo.internal.bindings.prerender.mojom.NoStatePrefetchCancelerRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

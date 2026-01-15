@@ -183,7 +183,7 @@ mojo.internal.bindings.webui_examples.mojom.PageHandlerFactoryRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.webui_examples.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_handler);
           break;
         }
       }
@@ -321,7 +321,7 @@ mojo.internal.bindings.webui_examples.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webui_examples.mojom.PageHandler_Navigate_ParamsSpec,
       null,
-      [arg_guest_contents_id, arg_src],
+      { arg_guest_contents_id: arg_guest_contents_id, arg_src: arg_src },
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.webui_examples.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webui_examples.mojom.PageHandler_GoBack_ParamsSpec,
       null,
-      [arg_guest_contents_id],
+      { arg_guest_contents_id: arg_guest_contents_id },
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.webui_examples.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webui_examples.mojom.PageHandler_GoForward_ParamsSpec,
       null,
-      [arg_guest_contents_id],
+      { arg_guest_contents_id: arg_guest_contents_id },
       false);
   }
 
@@ -410,21 +410,21 @@ mojo.internal.bindings.webui_examples.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_examples.mojom.PageHandler_Navigate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.navigate');
-          const result = this.impl.navigate(params.arg_arg_guest_contents_id, params.arg_arg_src);
+          const result = this.impl.navigate(params.arg_guest_contents_id, params.arg_src);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_examples.mojom.PageHandler_GoBack_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.goBack');
-          const result = this.impl.goBack(params.arg_arg_guest_contents_id);
+          const result = this.impl.goBack(params.arg_guest_contents_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_examples.mojom.PageHandler_GoForward_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.goForward');
-          const result = this.impl.goForward(params.arg_arg_guest_contents_id);
+          const result = this.impl.goForward(params.arg_guest_contents_id);
           break;
         }
       }

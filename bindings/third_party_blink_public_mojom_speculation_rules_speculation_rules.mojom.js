@@ -228,7 +228,7 @@ mojo.internal.bindings.blink.mojom.SpeculationHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec,
       null,
-      [arg_candidates, arg_enable_cross_origin_prerender_iframes],
+      { arg_candidates: arg_candidates, arg_enable_cross_origin_prerender_iframes: arg_enable_cross_origin_prerender_iframes },
       false);
   }
 
@@ -237,7 +237,7 @@ mojo.internal.bindings.blink.mojom.SpeculationHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -246,7 +246,7 @@ mojo.internal.bindings.blink.mojom.SpeculationHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec,
       null,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -317,7 +317,7 @@ mojo.internal.bindings.blink.mojom.SpeculationHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSpeculationCandidates');
-          const result = this.impl.updateSpeculationCandidates(params.arg_arg_candidates, params.arg_arg_enable_cross_origin_prerender_iframes);
+          const result = this.impl.updateSpeculationCandidates(params.arg_candidates, params.arg_enable_cross_origin_prerender_iframes);
           break;
         }
         case 1: {
@@ -331,7 +331,7 @@ mojo.internal.bindings.blink.mojom.SpeculationHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initiatePreview');
-          const result = this.impl.initiatePreview(params.arg_arg_url);
+          const result = this.impl.initiatePreview(params.arg_url);
           break;
         }
       }

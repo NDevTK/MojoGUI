@@ -187,7 +187,7 @@ mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHostRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec,
       null,
-      [arg_reason, arg_source],
+      { arg_reason: arg_reason, arg_source: arg_source },
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHostRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFeatures_ParamsSpec,
       null,
-      [arg_details],
+      { arg_details: arg_details },
       false);
   }
 
@@ -266,14 +266,14 @@ mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHostReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.evictFromBackForwardCache');
-          const result = this.impl.evictFromBackForwardCache(params.arg_arg_reason, params.arg_arg_source);
+          const result = this.impl.evictFromBackForwardCache(params.arg_reason, params.arg_source);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFeatures_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didChangeBackForwardCacheDisablingFeatures');
-          const result = this.impl.didChangeBackForwardCacheDisablingFeatures(params.arg_arg_details);
+          const result = this.impl.didChangeBackForwardCacheDisablingFeatures(params.arg_details);
           break;
         }
       }

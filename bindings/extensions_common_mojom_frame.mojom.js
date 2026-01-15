@@ -312,7 +312,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrame_SetFrameName_ParamsSpec,
       null,
-      [arg_frame_name],
+      { arg_frame_name: arg_frame_name },
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec,
       null,
-      [arg_spatial_nav_enabled],
+      { arg_spatial_nav_enabled: arg_spatial_nav_enabled },
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrame_SetTabId_ParamsSpec,
       null,
-      [arg_tab_id],
+      { arg_tab_id: arg_tab_id },
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec,
       null,
-      [arg_send_onclosed],
+      { arg_send_onclosed: arg_send_onclosed },
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec,
       null,
-      [arg_view_type],
+      { arg_view_type: arg_view_type },
       false);
   }
 
@@ -357,7 +357,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec,
       null,
-      [arg_extension_id, arg_module_name, arg_function_name, arg_args],
+      { arg_extension_id: arg_extension_id, arg_module_name: arg_module_name, arg_function_name: arg_function_name, arg_args: arg_args },
       false);
   }
 
@@ -366,7 +366,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec,
-      [arg_param],
+      { arg_param: arg_param },
       false);
   }
 
@@ -375,7 +375,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec,
       null,
-      [arg_tab_id, arg_extension_id, arg_script_id, arg_url],
+      { arg_tab_id: arg_tab_id, arg_extension_id: arg_extension_id, arg_script_id: arg_script_id, arg_url: arg_url },
       false);
   }
 
@@ -384,7 +384,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec,
       null,
-      [arg_window_id],
+      { arg_window_id: arg_window_id },
       false);
   }
 
@@ -393,7 +393,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec,
-      [arg_port_id, arg_channel_type, arg_channel_name, arg_tab_info, arg_external_connection_info, arg_port, arg_port_host],
+      { arg_port_id: arg_port_id, arg_channel_type: arg_channel_type, arg_channel_name: arg_channel_name, arg_tab_info: arg_tab_info, arg_external_connection_info: arg_external_connection_info, arg_port: arg_port, arg_port_host: arg_port_host },
       false);
   }
 
@@ -471,54 +471,54 @@ mojo.internal.bindings.extensions.mojom.LocalFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_SetFrameName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFrameName');
-          const result = this.impl.setFrameName(params.arg_arg_frame_name);
+          const result = this.impl.setFrameName(params.arg_frame_name);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSpatialNavigationEnabled');
-          const result = this.impl.setSpatialNavigationEnabled(params.arg_arg_spatial_nav_enabled);
+          const result = this.impl.setSpatialNavigationEnabled(params.arg_spatial_nav_enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_SetTabId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTabId');
-          const result = this.impl.setTabId(params.arg_arg_tab_id);
+          const result = this.impl.setTabId(params.arg_tab_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.appWindowClosed');
-          const result = this.impl.appWindowClosed(params.arg_arg_send_onclosed);
+          const result = this.impl.appWindowClosed(params.arg_send_onclosed);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyRenderViewType');
-          const result = this.impl.notifyRenderViewType(params.arg_arg_view_type);
+          const result = this.impl.notifyRenderViewType(params.arg_view_type);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.messageInvoke');
-          const result = this.impl.messageInvoke(params.arg_arg_extension_id, params.arg_arg_module_name, params.arg_arg_function_name, params.arg_arg_args);
+          const result = this.impl.messageInvoke(params.arg_extension_id, params.arg_module_name, params.arg_function_name, params.arg_args);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeCode');
-          const result = this.impl.executeCode(params.arg_arg_param);
+          const result = this.impl.executeCode(params.arg_param);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_url', 'response.arg_arg_result']);
+              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_url': response.arg_url, 'arg_result': response.arg_result });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] executeCode FAILED:', e));
           }
@@ -528,27 +528,27 @@ mojo.internal.bindings.extensions.mojom.LocalFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeDeclarativeScript');
-          const result = this.impl.executeDeclarativeScript(params.arg_arg_tab_id, params.arg_arg_extension_id, params.arg_arg_script_id, params.arg_arg_url);
+          const result = this.impl.executeDeclarativeScript(params.arg_tab_id, params.arg_extension_id, params.arg_script_id, params.arg_url);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateBrowserWindowId');
-          const result = this.impl.updateBrowserWindowId(params.arg_arg_window_id);
+          const result = this.impl.updateBrowserWindowId(params.arg_window_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchOnConnect');
-          const result = this.impl.dispatchOnConnect(params.arg_arg_port_id, params.arg_arg_channel_type, params.arg_arg_channel_name, params.arg_arg_tab_info, params.arg_arg_external_connection_info, params.arg_arg_port, params.arg_arg_port_host);
+          const result = this.impl.dispatchOnConnect(params.arg_port_id, params.arg_channel_type, params.arg_channel_name, params.arg_tab_info, params.arg_external_connection_info, params.arg_port, params.arg_port_host);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchOnConnect FAILED:', e));
           }
@@ -660,7 +660,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec,
-      [arg_extension_id, arg_script_type, arg_run_location],
+      { arg_extension_id: arg_extension_id, arg_script_type: arg_script_type, arg_run_location: arg_run_location },
       false);
   }
 
@@ -669,7 +669,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -678,7 +678,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -687,7 +687,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec,
       null,
-      [arg_request_uuid],
+      { arg_request_uuid: arg_request_uuid },
       false);
   }
 
@@ -696,7 +696,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec,
       null,
-      [arg_css_selectors],
+      { arg_css_selectors: arg_css_selectors },
       false);
   }
 
@@ -705,7 +705,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec,
       null,
-      [arg_message, arg_source, arg_stack_trace, arg_level],
+      { arg_message: arg_message, arg_source: arg_source, arg_stack_trace: arg_stack_trace, arg_level: arg_level },
       false);
   }
 
@@ -714,7 +714,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec,
       null,
-      [arg_extension_id_to_scripts, arg_frame_url],
+      { arg_extension_id_to_scripts: arg_extension_id_to_scripts, arg_frame_url: arg_frame_url },
       false);
   }
 
@@ -723,7 +723,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -732,7 +732,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -741,7 +741,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -750,7 +750,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec,
       null,
-      [arg_info, arg_channel_type, arg_channel_name, arg_port_id, arg_port, arg_port_host],
+      { arg_info: arg_info, arg_channel_type: arg_channel_type, arg_channel_name: arg_channel_name, arg_port_id: arg_port_id, arg_port: arg_port, arg_port_host: arg_port_host },
       false);
   }
 
@@ -759,7 +759,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec,
       null,
-      [arg_native_app_name, arg_port_id, arg_port, arg_port_host],
+      { arg_native_app_name: arg_native_app_name, arg_port_id: arg_port_id, arg_port: arg_port, arg_port_host: arg_port_host },
       false);
   }
 
@@ -768,7 +768,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec,
       null,
-      [arg_tab_id, arg_frame_id, arg_document_id, arg_channel_type, arg_channel_name, arg_port_id, arg_port, arg_port_host],
+      { arg_tab_id: arg_tab_id, arg_frame_id: arg_frame_id, arg_document_id: arg_document_id, arg_channel_type: arg_channel_type, arg_channel_name: arg_channel_name, arg_port_id: arg_port_id, arg_port: arg_port, arg_port_host: arg_port_host },
       false);
   }
 
@@ -849,13 +849,13 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestScriptInjectionPermission');
-          const result = this.impl.requestScriptInjectionPermission(params.arg_arg_extension_id, params.arg_arg_script_type, params.arg_arg_run_location);
+          const result = this.impl.requestScriptInjectionPermission(params.arg_extension_id, params.arg_script_type, params.arg_run_location);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_granted' in response) ? response.arg_arg_granted : response;
-              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_granted' in response) ? response.arg_granted : response;
+              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec.$.structSpec, { 'arg_granted': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestScriptInjectionPermission FAILED:', e));
           }
@@ -865,13 +865,13 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAppInstallState');
-          const result = this.impl.getAppInstallState(params.arg_arg_url);
+          const result = this.impl.getAppInstallState(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response.arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec.$.structSpec, { 'arg_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAppInstallState FAILED:', e));
           }
@@ -881,12 +881,12 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.request');
-          const result = this.impl.request(params.arg_arg_params);
+          const result = this.impl.request(params.arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_response_wrapper', 'response.arg_arg_error', 'response.arg_arg_extra_data']);
+              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_response_wrapper': response.arg_response_wrapper, 'arg_error': response.arg_error, 'arg_extra_data': response.arg_extra_data });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] request FAILED:', e));
           }
@@ -896,28 +896,28 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.responseAck');
-          const result = this.impl.responseAck(params.arg_arg_request_uuid);
+          const result = this.impl.responseAck(params.arg_request_uuid);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.watchedPageChange');
-          const result = this.impl.watchedPageChange(params.arg_arg_css_selectors);
+          const result = this.impl.watchedPageChange(params.arg_css_selectors);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.detailedConsoleMessageAdded');
-          const result = this.impl.detailedConsoleMessageAdded(params.arg_arg_message, params.arg_arg_source, params.arg_arg_stack_trace, params.arg_arg_level);
+          const result = this.impl.detailedConsoleMessageAdded(params.arg_message, params.arg_source, params.arg_stack_trace, params.arg_level);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.contentScriptsExecuting');
-          const result = this.impl.contentScriptsExecuting(params.arg_arg_extension_id_to_scripts, params.arg_arg_frame_url);
+          const result = this.impl.contentScriptsExecuting(params.arg_extension_id_to_scripts, params.arg_frame_url);
           break;
         }
         case 7: {
@@ -945,21 +945,21 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openChannelToExtension');
-          const result = this.impl.openChannelToExtension(params.arg_arg_info, params.arg_arg_channel_type, params.arg_arg_channel_name, params.arg_arg_port_id, params.arg_arg_port, params.arg_arg_port_host);
+          const result = this.impl.openChannelToExtension(params.arg_info, params.arg_channel_type, params.arg_channel_name, params.arg_port_id, params.arg_port, params.arg_port_host);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openChannelToNativeApp');
-          const result = this.impl.openChannelToNativeApp(params.arg_arg_native_app_name, params.arg_arg_port_id, params.arg_arg_port, params.arg_arg_port_host);
+          const result = this.impl.openChannelToNativeApp(params.arg_native_app_name, params.arg_port_id, params.arg_port, params.arg_port_host);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openChannelToTab');
-          const result = this.impl.openChannelToTab(params.arg_arg_tab_id, params.arg_arg_frame_id, params.arg_arg_document_id, params.arg_arg_channel_type, params.arg_arg_channel_name, params.arg_arg_port_id, params.arg_arg_port, params.arg_arg_port_host);
+          const result = this.impl.openChannelToTab(params.arg_tab_id, params.arg_frame_id, params.arg_document_id, params.arg_channel_type, params.arg_channel_name, params.arg_port_id, params.arg_port, params.arg_port_host);
           break;
         }
       }

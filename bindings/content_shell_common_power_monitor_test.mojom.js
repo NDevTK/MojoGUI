@@ -178,7 +178,7 @@ mojo.internal.bindings.content.mojom.PowerMonitorTestRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec,
       mojo.internal.bindings.content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -252,8 +252,8 @@ mojo.internal.bindings.content.mojom.PowerMonitorTestReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_battery_power_status' in response) ? response.arg_arg_battery_power_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_battery_power_status' in response) ? response.arg_battery_power_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec.$.structSpec, { 'arg_battery_power_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] queryNextState FAILED:', e));
           }

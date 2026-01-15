@@ -176,7 +176,7 @@ mojo.internal.bindings.viz.mojom.TextureReleaserRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.TextureReleaser_Release_ParamsSpec,
       null,
-      [arg_sync_token, arg_is_lost],
+      { arg_sync_token: arg_sync_token, arg_is_lost: arg_is_lost },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.viz.mojom.TextureReleaserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.TextureReleaser_Release_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.release');
-          const result = this.impl.release(params.arg_arg_sync_token, params.arg_arg_is_lost);
+          const result = this.impl.release(params.arg_sync_token, params.arg_is_lost);
           break;
         }
       }

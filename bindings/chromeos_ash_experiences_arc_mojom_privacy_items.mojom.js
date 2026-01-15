@@ -196,7 +196,7 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec,
       null,
-      [arg_privacy_items],
+      { arg_privacy_items: arg_privacy_items },
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec,
       null,
-      [arg_flag],
+      { arg_flag: arg_flag },
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec,
       null,
-      [arg_flag],
+      { arg_flag: arg_flag },
       false);
   }
 
@@ -285,21 +285,21 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPrivacyItemsChanged');
-          const result = this.impl.onPrivacyItemsChanged(params.arg_arg_privacy_items);
+          const result = this.impl.onPrivacyItemsChanged(params.arg_privacy_items);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMicCameraIndicatorRequirementChanged');
-          const result = this.impl.onMicCameraIndicatorRequirementChanged(params.arg_arg_flag);
+          const result = this.impl.onMicCameraIndicatorRequirementChanged(params.arg_flag);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLocationIndicatorRequirementChanged');
-          const result = this.impl.onLocationIndicatorRequirementChanged(params.arg_arg_flag);
+          const result = this.impl.onLocationIndicatorRequirementChanged(params.arg_flag);
           break;
         }
       }
@@ -364,7 +364,7 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec,
       null,
-      [arg_displayId, arg_bounds],
+      { arg_displayId: arg_displayId, arg_bounds: arg_bounds },
       false);
   }
 
@@ -443,12 +443,12 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -458,7 +458,7 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStaticPrivacyIndicatorBoundsChanged');
-          const result = this.impl.onStaticPrivacyIndicatorBoundsChanged(params.arg_arg_displayId, params.arg_arg_bounds);
+          const result = this.impl.onStaticPrivacyIndicatorBoundsChanged(params.arg_displayId, params.arg_bounds);
           break;
         }
       }

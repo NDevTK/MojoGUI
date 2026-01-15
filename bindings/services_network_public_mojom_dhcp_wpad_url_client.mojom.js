@@ -177,7 +177,7 @@ mojo.internal.bindings.network.mojom.DhcpWpadUrlClientRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec,
       mojo.internal.bindings.network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -251,8 +251,8 @@ mojo.internal.bindings.network.mojom.DhcpWpadUrlClientReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_url' in response) ? response.arg_arg_url : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_url' in response) ? response.arg_url : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec.$.structSpec, { 'arg_url': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPacUrl FAILED:', e));
           }

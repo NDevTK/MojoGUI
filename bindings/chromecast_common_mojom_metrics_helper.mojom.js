@@ -171,7 +171,7 @@ mojo.internal.bindings.chromecast.metrics.mojom.MetricsHelperRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec,
       null,
-      [arg_app_id, arg_session_id, arg_sdk_version, arg_event],
+      { arg_app_id: arg_app_id, arg_session_id: arg_session_id, arg_sdk_version: arg_sdk_version, arg_event: arg_event },
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.chromecast.metrics.mojom.MetricsHelperReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordApplicationEvent');
-          const result = this.impl.recordApplicationEvent(params.arg_arg_app_id, params.arg_arg_session_id, params.arg_arg_sdk_version, params.arg_arg_event);
+          const result = this.impl.recordApplicationEvent(params.arg_app_id, params.arg_session_id, params.arg_sdk_version, params.arg_event);
           break;
         }
       }

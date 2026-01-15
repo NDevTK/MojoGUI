@@ -236,7 +236,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec,
       null,
-      [arg_acceptable_algorithms, arg_priority],
+      { arg_acceptable_algorithms: arg_acceptable_algorithms, arg_priority: arg_priority },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec,
       null,
-      [arg_wrapped_key, arg_priority],
+      { arg_wrapped_key: arg_wrapped_key, arg_priority: arg_priority },
       false);
   }
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec,
       null,
-      [arg_key_id, arg_data, arg_priority],
+      { arg_key_id: arg_key_id, arg_data: arg_data, arg_priority: arg_priority },
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRemoteCallH
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec,
       null,
-      [arg_priority],
+      { arg_priority: arg_priority },
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRemoteCallH
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKeys_ParamsSpec,
       null,
-      [arg_key_ids, arg_priority],
+      { arg_key_ids: arg_key_ids, arg_priority: arg_priority },
       false);
   }
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRemoteCallH
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec,
       null,
-      [arg_priority],
+      { arg_priority: arg_priority },
       false);
   }
 
@@ -355,42 +355,42 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generateSigningKey');
-          const result = this.impl.generateSigningKey(params.arg_arg_acceptable_algorithms, params.arg_arg_priority);
+          const result = this.impl.generateSigningKey(params.arg_acceptable_algorithms, params.arg_priority);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fromWrappedSigningKey');
-          const result = this.impl.fromWrappedSigningKey(params.arg_arg_wrapped_key, params.arg_arg_priority);
+          const result = this.impl.fromWrappedSigningKey(params.arg_wrapped_key, params.arg_priority);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sign');
-          const result = this.impl.sign(params.arg_arg_key_id, params.arg_arg_data, params.arg_arg_priority);
+          const result = this.impl.sign(params.arg_key_id, params.arg_data, params.arg_priority);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAllSigningKeysForGarbageCollection');
-          const result = this.impl.getAllSigningKeysForGarbageCollection(params.arg_arg_priority);
+          const result = this.impl.getAllSigningKeysForGarbageCollection(params.arg_priority);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKeys_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteKeys');
-          const result = this.impl.deleteKeys(params.arg_arg_key_ids, params.arg_arg_priority);
+          const result = this.impl.deleteKeys(params.arg_key_ids, params.arg_priority);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteAllKeys');
-          const result = this.impl.deleteAllKeys(params.arg_arg_priority);
+          const result = this.impl.deleteAllKeys(params.arg_priority);
           break;
         }
       }

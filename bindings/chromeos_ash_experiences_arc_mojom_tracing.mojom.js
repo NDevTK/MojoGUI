@@ -183,7 +183,7 @@ mojo.internal.bindings.arc.mojom.TracingInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.TracingInstance_QueryAvailableCategories_ParamsSpec,
       mojo.internal.bindings.arc.mojom.TracingInstance_QueryAvailableCategories_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.arc.mojom.TracingInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.TracingInstance_StartTracing_ParamsSpec,
       mojo.internal.bindings.arc.mojom.TracingInstance_StartTracing_ResponseParamsSpec,
-      [arg_categories, arg_socket],
+      { arg_categories: arg_categories, arg_socket: arg_socket },
       false);
   }
 
@@ -201,7 +201,7 @@ mojo.internal.bindings.arc.mojom.TracingInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.TracingInstance_StopTracing_ParamsSpec,
       mojo.internal.bindings.arc.mojom.TracingInstance_StopTracing_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -277,8 +277,8 @@ mojo.internal.bindings.arc.mojom.TracingInstanceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_categories' in response) ? response.arg_arg_categories : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.TracingInstance_QueryAvailableCategories_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_categories' in response) ? response.arg_categories : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.TracingInstance_QueryAvailableCategories_ResponseParamsSpec.$.structSpec, { 'arg_categories': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] queryAvailableCategories FAILED:', e));
           }
@@ -288,13 +288,13 @@ mojo.internal.bindings.arc.mojom.TracingInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TracingInstance_StartTracing_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startTracing');
-          const result = this.impl.startTracing(params.arg_arg_categories, params.arg_arg_socket);
+          const result = this.impl.startTracing(params.arg_categories, params.arg_socket);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.TracingInstance_StartTracing_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.TracingInstance_StartTracing_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startTracing FAILED:', e));
           }
@@ -309,8 +309,8 @@ mojo.internal.bindings.arc.mojom.TracingInstanceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.TracingInstance_StopTracing_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.TracingInstance_StopTracing_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] stopTracing FAILED:', e));
           }

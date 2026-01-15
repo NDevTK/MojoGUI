@@ -204,7 +204,7 @@ mojo.internal.bindings.blink.mojom.BytesProviderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsReply_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -213,7 +213,7 @@ mojo.internal.bindings.blink.mojom.BytesProviderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsStream_ParamsSpec,
       null,
-      [arg_pipe],
+      { arg_pipe: arg_pipe },
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.blink.mojom.BytesProviderRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsFile_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec,
-      [arg_source_offset, arg_source_size, arg_file, arg_file_offset],
+      { arg_source_offset: arg_source_offset, arg_source_size: arg_source_size, arg_file: arg_file, arg_file_offset: arg_file_offset },
       false);
   }
 
@@ -298,8 +298,8 @@ mojo.internal.bindings.blink.mojom.BytesProviderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestAsReply FAILED:', e));
           }
@@ -309,20 +309,20 @@ mojo.internal.bindings.blink.mojom.BytesProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestAsStream');
-          const result = this.impl.requestAsStream(params.arg_arg_pipe);
+          const result = this.impl.requestAsStream(params.arg_pipe);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestAsFile');
-          const result = this.impl.requestAsFile(params.arg_arg_source_offset, params.arg_arg_source_size, params.arg_arg_file, params.arg_arg_file_offset);
+          const result = this.impl.requestAsFile(params.arg_source_offset, params.arg_source_size, params.arg_file, params.arg_file_offset);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_time_file_modified' in response) ? response.arg_arg_time_file_modified : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_time_file_modified' in response) ? response.arg_time_file_modified : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec.$.structSpec, { 'arg_time_file_modified': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestAsFile FAILED:', e));
           }

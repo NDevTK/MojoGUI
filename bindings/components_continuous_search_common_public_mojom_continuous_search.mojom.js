@@ -205,7 +205,7 @@ mojo.internal.bindings.continuous_search.mojom.SearchResultExtractorRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec,
       mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec,
-      [arg_result_types],
+      { arg_result_types: arg_result_types },
       false);
   }
 
@@ -274,12 +274,12 @@ mojo.internal.bindings.continuous_search.mojom.SearchResultExtractorReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extractCurrentSearchResults');
-          const result = this.impl.extractCurrentSearchResults(params.arg_arg_result_types);
+          const result = this.impl.extractCurrentSearchResults(params.arg_result_types);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_results']);
+              encoder.encodeStructInline(mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_results': response.arg_results });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] extractCurrentSearchResults FAILED:', e));
           }

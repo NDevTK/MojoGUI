@@ -177,7 +177,7 @@ mojo.internal.bindings.blink.mojom.UnhandledTapNotifierRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec,
       null,
-      [arg_unhandled_tap_info],
+      { arg_unhandled_tap_info: arg_unhandled_tap_info },
       false);
   }
 
@@ -246,7 +246,7 @@ mojo.internal.bindings.blink.mojom.UnhandledTapNotifierReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showUnhandledTapUIIfNeeded');
-          const result = this.impl.showUnhandledTapUIIfNeeded(params.arg_arg_unhandled_tap_info);
+          const result = this.impl.showUnhandledTapUIIfNeeded(params.arg_unhandled_tap_info);
           break;
         }
       }

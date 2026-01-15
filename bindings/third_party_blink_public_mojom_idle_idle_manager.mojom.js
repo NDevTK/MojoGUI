@@ -191,7 +191,7 @@ mojo.internal.bindings.blink.mojom.IdleMonitorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.IdleMonitor_Update_ParamsSpec,
       null,
-      [arg_state, arg_is_overridden_by_devtools],
+      { arg_state: arg_state, arg_is_overridden_by_devtools: arg_is_overridden_by_devtools },
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.blink.mojom.IdleMonitorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IdleMonitor_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
-          const result = this.impl.update(params.arg_arg_state, params.arg_arg_is_overridden_by_devtools);
+          const result = this.impl.update(params.arg_state, params.arg_is_overridden_by_devtools);
           break;
         }
       }
@@ -321,7 +321,7 @@ mojo.internal.bindings.blink.mojom.IdleManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec,
-      [arg_monitor],
+      { arg_monitor: arg_monitor },
       false);
   }
 
@@ -390,12 +390,12 @@ mojo.internal.bindings.blink.mojom.IdleManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addMonitor');
-          const result = this.impl.addMonitor(params.arg_arg_monitor);
+          const result = this.impl.addMonitor(params.arg_monitor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_state']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_state': response.arg_state });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addMonitor FAILED:', e));
           }

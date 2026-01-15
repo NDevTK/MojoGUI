@@ -292,7 +292,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClientRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec,
       null,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -301,7 +301,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClientRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClientReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startWorker');
-          const result = this.impl.startWorker(params.arg_arg_params);
+          const result = this.impl.startWorker(params.arg_params);
           break;
         }
         case 1: {
@@ -471,7 +471,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec,
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec,
       null,
-      [arg_feature],
+      { arg_feature: arg_feature },
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec,
       null,
-      [arg_agent, arg_agent_host],
+      { arg_agent: arg_agent, arg_agent_host: arg_agent_host },
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -507,7 +507,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler =
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -516,7 +516,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler =
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec,
       null,
-      [arg_status, arg_fetch_handler_type, arg_has_hid_event_handlers, arg_has_usb_event_handlers, arg_thread_id, arg_start_timing],
+      { arg_status: arg_status, arg_fetch_handler_type: arg_fetch_handler_type, arg_has_hid_event_handlers: arg_has_hid_event_handlers, arg_has_usb_event_handlers: arg_has_usb_event_handlers, arg_thread_id: arg_thread_id, arg_start_timing: arg_start_timing },
       false);
   }
 
@@ -525,7 +525,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler =
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec,
       null,
-      [arg_error_message, arg_line_number, arg_column_number, arg_source_url],
+      { arg_error_message: arg_error_message, arg_line_number: arg_line_number, arg_column_number: arg_column_number, arg_source_url: arg_source_url },
       false);
   }
 
@@ -534,7 +534,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler =
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec,
       null,
-      [arg_source, arg_message_level, arg_message, arg_line_number, arg_source_url],
+      { arg_source: arg_source, arg_message_level: arg_message_level, arg_message: arg_message, arg_line_number: arg_line_number, arg_source_url: arg_source_url },
       false);
   }
 
@@ -543,7 +543,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler =
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -625,8 +625,8 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_will_be_terminated' in response) ? response.arg_arg_will_be_terminated : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_will_be_terminated' in response) ? response.arg_will_be_terminated : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec.$.structSpec, { 'arg_will_be_terminated': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestTermination FAILED:', e));
           }
@@ -636,14 +636,14 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.countFeature');
-          const result = this.impl.countFeature(params.arg_arg_feature);
+          const result = this.impl.countFeature(params.arg_feature);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReadyForInspection');
-          const result = this.impl.onReadyForInspection(params.arg_arg_agent, params.arg_arg_agent_host);
+          const result = this.impl.onReadyForInspection(params.arg_agent, params.arg_agent_host);
           break;
         }
         case 3: {
@@ -664,21 +664,21 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStarted');
-          const result = this.impl.onStarted(params.arg_arg_status, params.arg_arg_fetch_handler_type, params.arg_arg_has_hid_event_handlers, params.arg_arg_has_usb_event_handlers, params.arg_arg_thread_id, params.arg_arg_start_timing);
+          const result = this.impl.onStarted(params.arg_status, params.arg_fetch_handler_type, params.arg_has_hid_event_handlers, params.arg_has_usb_event_handlers, params.arg_thread_id, params.arg_start_timing);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReportException');
-          const result = this.impl.onReportException(params.arg_arg_error_message, params.arg_arg_line_number, params.arg_arg_column_number, params.arg_arg_source_url);
+          const result = this.impl.onReportException(params.arg_error_message, params.arg_line_number, params.arg_column_number, params.arg_source_url);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReportConsoleMessage');
-          const result = this.impl.onReportConsoleMessage(params.arg_arg_source, params.arg_arg_message_level, params.arg_arg_message, params.arg_arg_line_number, params.arg_arg_source_url);
+          const result = this.impl.onReportConsoleMessage(params.arg_source, params.arg_message_level, params.arg_message, params.arg_line_number, params.arg_source_url);
           break;
         }
         case 8: {

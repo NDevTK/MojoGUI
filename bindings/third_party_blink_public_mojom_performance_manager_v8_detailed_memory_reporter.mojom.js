@@ -192,7 +192,7 @@ mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporterRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec,
       mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec,
-      [arg_mode],
+      { arg_mode: arg_mode },
       false);
   }
 
@@ -261,13 +261,13 @@ mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getV8MemoryUsage');
-          const result = this.impl.getV8MemoryUsage(params.arg_arg_mode);
+          const result = this.impl.getV8MemoryUsage(params.arg_mode);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_memory_usage' in response) ? response.arg_arg_memory_usage : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_memory_usage' in response) ? response.arg_memory_usage : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec.$.structSpec, { 'arg_memory_usage': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getV8MemoryUsage FAILED:', e));
           }

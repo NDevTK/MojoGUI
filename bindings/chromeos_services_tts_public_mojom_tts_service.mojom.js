@@ -216,7 +216,7 @@ mojo.internal.bindings.chromeos.tts.mojom.TtsServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec,
       null,
-      [arg_receiver, arg_stream_factory],
+      { arg_receiver: arg_receiver, arg_stream_factory: arg_stream_factory },
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.chromeos.tts.mojom.TtsServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec,
       mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec,
-      [arg_receiver, arg_stream_factory, arg_desired_audio_parameters],
+      { arg_receiver: arg_receiver, arg_stream_factory: arg_stream_factory, arg_desired_audio_parameters: arg_desired_audio_parameters },
       false);
   }
 
@@ -295,20 +295,20 @@ mojo.internal.bindings.chromeos.tts.mojom.TtsServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindGoogleTtsStream');
-          const result = this.impl.bindGoogleTtsStream(params.arg_arg_receiver, params.arg_arg_stream_factory);
+          const result = this.impl.bindGoogleTtsStream(params.arg_receiver, params.arg_stream_factory);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindPlaybackTtsStream');
-          const result = this.impl.bindPlaybackTtsStream(params.arg_arg_receiver, params.arg_arg_stream_factory, params.arg_arg_desired_audio_parameters);
+          const result = this.impl.bindPlaybackTtsStream(params.arg_receiver, params.arg_stream_factory, params.arg_desired_audio_parameters);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_audio_parameters' in response) ? response.arg_arg_audio_parameters : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_audio_parameters' in response) ? response.arg_audio_parameters : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec.$.structSpec, { 'arg_audio_parameters': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] bindPlaybackTtsStream FAILED:', e));
           }
@@ -396,7 +396,7 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec,
       mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec,
-      [arg_voice_name, arg_voice_bytes],
+      { arg_voice_name: arg_voice_name, arg_voice_bytes: arg_voice_bytes },
       false);
   }
 
@@ -405,7 +405,7 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec,
       mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec,
-      [arg_voice_name],
+      { arg_voice_name: arg_voice_name },
       false);
   }
 
@@ -414,7 +414,7 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec,
       mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec,
-      [arg_text_jspb, arg_speaker_params_jspb],
+      { arg_text_jspb: arg_text_jspb, arg_speaker_params_jspb: arg_speaker_params_jspb },
       false);
   }
 
@@ -423,7 +423,7 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -432,7 +432,7 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec,
       null,
-      [arg_volume],
+      { arg_volume: arg_volume },
       false);
   }
 
@@ -441,7 +441,7 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -450,7 +450,7 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -525,13 +525,13 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installVoice');
-          const result = this.impl.installVoice(params.arg_arg_voice_name, params.arg_arg_voice_bytes);
+          const result = this.impl.installVoice(params.arg_voice_name, params.arg_voice_bytes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] installVoice FAILED:', e));
           }
@@ -541,13 +541,13 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectVoice');
-          const result = this.impl.selectVoice(params.arg_arg_voice_name);
+          const result = this.impl.selectVoice(params.arg_voice_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] selectVoice FAILED:', e));
           }
@@ -557,13 +557,13 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.speak');
-          const result = this.impl.speak(params.arg_arg_text_jspb, params.arg_arg_speaker_params_jspb);
+          const result = this.impl.speak(params.arg_text_jspb, params.arg_speaker_params_jspb);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_event_observer' in response) ? response.arg_arg_event_observer : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_event_observer' in response) ? response.arg_event_observer : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec.$.structSpec, { 'arg_event_observer': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] speak FAILED:', e));
           }
@@ -580,7 +580,7 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVolume');
-          const result = this.impl.setVolume(params.arg_arg_volume);
+          const result = this.impl.setVolume(params.arg_volume);
           break;
         }
         case 5: {
@@ -675,7 +675,7 @@ mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec,
       mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -684,7 +684,7 @@ mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec,
       null,
-      [arg_frames_buffer, arg_char_index, arg_last_buffer],
+      { arg_frames_buffer: arg_frames_buffer, arg_char_index: arg_char_index, arg_last_buffer: arg_last_buffer },
       false);
   }
 
@@ -693,7 +693,7 @@ mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -702,7 +702,7 @@ mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec,
       null,
-      [arg_volume],
+      { arg_volume: arg_volume },
       false);
   }
 
@@ -711,7 +711,7 @@ mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -720,7 +720,7 @@ mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = c
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -799,8 +799,8 @@ mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_event_observer' in response) ? response.arg_arg_event_observer : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_event_observer' in response) ? response.arg_event_observer : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec.$.structSpec, { 'arg_event_observer': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] play FAILED:', e));
           }
@@ -810,7 +810,7 @@ mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendAudioBuffer');
-          const result = this.impl.sendAudioBuffer(params.arg_arg_frames_buffer, params.arg_arg_char_index, params.arg_arg_last_buffer);
+          const result = this.impl.sendAudioBuffer(params.arg_frames_buffer, params.arg_char_index, params.arg_last_buffer);
           break;
         }
         case 2: {
@@ -824,7 +824,7 @@ mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVolume');
-          const result = this.impl.setVolume(params.arg_arg_volume);
+          const result = this.impl.setVolume(params.arg_volume);
           break;
         }
         case 4: {
@@ -911,7 +911,7 @@ mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserverRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -920,7 +920,7 @@ mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserverRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec,
       null,
-      [arg_char_index],
+      { arg_char_index: arg_char_index },
       false);
   }
 
@@ -929,7 +929,7 @@ mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserverRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -938,7 +938,7 @@ mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserverRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1017,7 +1017,7 @@ mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTimepoint');
-          const result = this.impl.onTimepoint(params.arg_arg_char_index);
+          const result = this.impl.onTimepoint(params.arg_char_index);
           break;
         }
         case 2: {

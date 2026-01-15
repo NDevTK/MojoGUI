@@ -269,7 +269,7 @@ mojo.internal.bindings.blink.mojom.PermissionObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -338,7 +338,7 @@ mojo.internal.bindings.blink.mojom.PermissionObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPermissionStatusChange');
-          const result = this.impl.onPermissionStatusChange(params.arg_arg_status);
+          const result = this.impl.onPermissionStatusChange(params.arg_status);
           break;
         }
       }
@@ -399,7 +399,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClientRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec,
       null,
-      [arg_allow, arg_statuses],
+      { arg_allow: arg_allow, arg_statuses: arg_statuses },
       false);
   }
 
@@ -468,7 +468,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClientReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEmbeddedPermissionControlRegistered');
-          const result = this.impl.onEmbeddedPermissionControlRegistered(params.arg_arg_allow, params.arg_arg_statuses);
+          const result = this.impl.onEmbeddedPermissionControlRegistered(params.arg_allow, params.arg_statuses);
           break;
         }
       }
@@ -561,7 +561,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ResponseParamsSpec,
-      [arg_permission],
+      { arg_permission: arg_permission },
       false);
   }
 
@@ -570,7 +570,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec,
       null,
-      [arg_permissions, arg_descriptor, arg_client],
+      { arg_permissions: arg_permissions, arg_descriptor: arg_descriptor, arg_client: arg_client },
       false);
   }
 
@@ -579,7 +579,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec,
-      [arg_permissions, arg_descriptor],
+      { arg_permissions: arg_permissions, arg_descriptor: arg_descriptor },
       false);
   }
 
@@ -588,7 +588,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec,
-      [arg_permission, arg_user_gesture],
+      { arg_permission: arg_permission, arg_user_gesture: arg_user_gesture },
       false);
   }
 
@@ -597,7 +597,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec,
-      [arg_permission, arg_user_gesture],
+      { arg_permission: arg_permission, arg_user_gesture: arg_user_gesture },
       false);
   }
 
@@ -606,7 +606,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec,
-      [arg_permission],
+      { arg_permission: arg_permission },
       false);
   }
 
@@ -615,7 +615,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec,
       null,
-      [arg_permission, arg_last_known_status, arg_observer],
+      { arg_permission: arg_permission, arg_last_known_status: arg_last_known_status, arg_observer: arg_observer },
       false);
   }
 
@@ -624,7 +624,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec,
       null,
-      [arg_permission, arg_last_known_status, arg_observer],
+      { arg_permission: arg_permission, arg_last_known_status: arg_last_known_status, arg_observer: arg_observer },
       false);
   }
 
@@ -633,7 +633,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.PermissionService_NotifyEventListener_ParamsSpec,
       null,
-      [arg_permission, arg_event_type, arg_is_added],
+      { arg_permission: arg_permission, arg_event_type: arg_event_type, arg_is_added: arg_is_added },
       false);
   }
 
@@ -710,13 +710,13 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasPermission');
-          const result = this.impl.hasPermission(params.arg_arg_permission);
+          const result = this.impl.hasPermission(params.arg_permission);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] hasPermission FAILED:', e));
           }
@@ -726,20 +726,20 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerPageEmbeddedPermissionControl');
-          const result = this.impl.registerPageEmbeddedPermissionControl(params.arg_arg_permissions, params.arg_arg_descriptor, params.arg_arg_client);
+          const result = this.impl.registerPageEmbeddedPermissionControl(params.arg_permissions, params.arg_descriptor, params.arg_client);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPageEmbeddedPermission');
-          const result = this.impl.requestPageEmbeddedPermission(params.arg_arg_permissions, params.arg_arg_descriptor);
+          const result = this.impl.requestPageEmbeddedPermission(params.arg_permissions, params.arg_descriptor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestPageEmbeddedPermission FAILED:', e));
           }
@@ -749,13 +749,13 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPermission');
-          const result = this.impl.requestPermission(params.arg_arg_permission, params.arg_arg_user_gesture);
+          const result = this.impl.requestPermission(params.arg_permission, params.arg_user_gesture);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestPermission FAILED:', e));
           }
@@ -765,13 +765,13 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPermissions');
-          const result = this.impl.requestPermissions(params.arg_arg_permission, params.arg_arg_user_gesture);
+          const result = this.impl.requestPermissions(params.arg_permission, params.arg_user_gesture);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_statuses' in response) ? response.arg_arg_statuses : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_statuses' in response) ? response.arg_statuses : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec.$.structSpec, { 'arg_statuses': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestPermissions FAILED:', e));
           }
@@ -781,13 +781,13 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.revokePermission');
-          const result = this.impl.revokePermission(params.arg_arg_permission);
+          const result = this.impl.revokePermission(params.arg_permission);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] revokePermission FAILED:', e));
           }
@@ -797,21 +797,21 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPermissionObserver');
-          const result = this.impl.addPermissionObserver(params.arg_arg_permission, params.arg_arg_last_known_status, params.arg_arg_observer);
+          const result = this.impl.addPermissionObserver(params.arg_permission, params.arg_last_known_status, params.arg_observer);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPageEmbeddedPermissionObserver');
-          const result = this.impl.addPageEmbeddedPermissionObserver(params.arg_arg_permission, params.arg_arg_last_known_status, params.arg_arg_observer);
+          const result = this.impl.addPageEmbeddedPermissionObserver(params.arg_permission, params.arg_last_known_status, params.arg_observer);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_NotifyEventListener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyEventListener');
-          const result = this.impl.notifyEventListener(params.arg_arg_permission, params.arg_arg_event_type, params.arg_arg_is_added);
+          const result = this.impl.notifyEventListener(params.arg_permission, params.arg_event_type, params.arg_is_added);
           break;
         }
       }

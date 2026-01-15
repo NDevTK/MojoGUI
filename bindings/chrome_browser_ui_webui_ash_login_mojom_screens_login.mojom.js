@@ -244,7 +244,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemo
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemo
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemo
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemo
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemo
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec,
       null,
-      [arg_required_space],
+      { arg_required_space: arg_required_space },
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec,
       null,
-      [arg_percent],
+      { arg_percent: arg_percent },
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallH
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec,
       null,
-      [arg_enough, arg_connected],
+      { arg_enough: arg_enough, arg_connected: arg_connected },
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallH
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec,
       null,
-      [arg_progress],
+      { arg_progress: arg_progress },
       false);
   }
 
@@ -507,7 +507,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallH
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec,
       null,
-      [arg_remaining_time],
+      { arg_remaining_time: arg_remaining_time },
       false);
   }
 
@@ -581,42 +581,42 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUIState');
-          const result = this.impl.setUIState(params.arg_arg_state);
+          const result = this.impl.setUIState(params.arg_state);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRequiredFreeDiskSpace');
-          const result = this.impl.setRequiredFreeDiskSpace(params.arg_arg_required_space);
+          const result = this.impl.setRequiredFreeDiskSpace(params.arg_required_space);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMinimumBatteryPercent');
-          const result = this.impl.setMinimumBatteryPercent(params.arg_arg_percent);
+          const result = this.impl.setMinimumBatteryPercent(params.arg_percent);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBatteryState');
-          const result = this.impl.setBatteryState(params.arg_arg_enough, params.arg_arg_connected);
+          const result = this.impl.setBatteryState(params.arg_enough, params.arg_connected);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMigrationProgress');
-          const result = this.impl.setMigrationProgress(params.arg_arg_progress);
+          const result = this.impl.setMigrationProgress(params.arg_progress);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setEstimatedRemainingTime');
-          const result = this.impl.setEstimatedRemainingTime(params.arg_arg_remaining_time);
+          const result = this.impl.setEstimatedRemainingTime(params.arg_remaining_time);
           break;
         }
       }
@@ -693,7 +693,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -702,7 +702,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerRem
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -711,7 +711,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerRem
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -720,7 +720,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerRem
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -729,7 +729,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerRem
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -911,7 +911,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -920,7 +920,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec,
       null,
-      [arg_progress],
+      { arg_progress: arg_progress },
       false);
   }
 
@@ -929,7 +929,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec,
       null,
-      [arg_is_resuming],
+      { arg_is_resuming: arg_is_resuming },
       false);
   }
 
@@ -938,7 +938,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageRemoteCall
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec,
       null,
-      [arg_percent, arg_is_enough, arg_is_charging],
+      { arg_percent: arg_percent, arg_is_enough: arg_is_enough, arg_is_charging: arg_is_charging },
       false);
   }
 
@@ -947,7 +947,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageRemoteCall
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec,
       null,
-      [arg_percent],
+      { arg_percent: arg_percent },
       false);
   }
 
@@ -956,7 +956,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageRemoteCall
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec,
       null,
-      [arg_available_space, arg_required_space],
+      { arg_available_space: arg_available_space, arg_required_space: arg_required_space },
       false);
   }
 
@@ -1030,42 +1030,42 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUIState');
-          const result = this.impl.setUIState(params.arg_arg_state);
+          const result = this.impl.setUIState(params.arg_state);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMigrationProgress');
-          const result = this.impl.setMigrationProgress(params.arg_arg_progress);
+          const result = this.impl.setMigrationProgress(params.arg_progress);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsResuming');
-          const result = this.impl.setIsResuming(params.arg_arg_is_resuming);
+          const result = this.impl.setIsResuming(params.arg_is_resuming);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBatteryState');
-          const result = this.impl.setBatteryState(params.arg_arg_percent, params.arg_arg_is_enough, params.arg_arg_is_charging);
+          const result = this.impl.setBatteryState(params.arg_percent, params.arg_is_enough, params.arg_is_charging);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNecessaryBatteryPercent');
-          const result = this.impl.setNecessaryBatteryPercent(params.arg_arg_percent);
+          const result = this.impl.setNecessaryBatteryPercent(params.arg_percent);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSpaceInfoInString');
-          const result = this.impl.setSpaceInfoInString(params.arg_arg_available_space, params.arg_arg_required_space);
+          const result = this.impl.setSpaceInfoInString(params.arg_available_space, params.arg_required_space);
           break;
         }
       }

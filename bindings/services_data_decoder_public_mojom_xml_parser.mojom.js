@@ -202,7 +202,7 @@ mojo.internal.bindings.data_decoder.mojom.XmlParserRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.XmlParser_Parse_ParamsSpec,
       mojo.internal.bindings.data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec,
-      [arg_xml, arg_whitespace_behavior],
+      { arg_xml: arg_xml, arg_whitespace_behavior: arg_whitespace_behavior },
       false);
   }
 
@@ -271,12 +271,12 @@ mojo.internal.bindings.data_decoder.mojom.XmlParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.XmlParser_Parse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parse');
-          const result = this.impl.parse(params.arg_arg_xml, params.arg_arg_whitespace_behavior);
+          const result = this.impl.parse(params.arg_xml, params.arg_whitespace_behavior);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_error': response.arg_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] parse FAILED:', e));
           }

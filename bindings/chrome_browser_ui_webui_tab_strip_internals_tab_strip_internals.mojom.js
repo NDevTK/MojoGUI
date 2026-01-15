@@ -246,7 +246,7 @@ mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -315,7 +315,7 @@ mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -376,7 +376,7 @@ mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec,
       mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -450,8 +450,8 @@ mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getTabStripData FAILED:', e));
           }
@@ -515,7 +515,7 @@ mojo.internal.bindings.tab_strip_internals.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec,
       null,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -584,7 +584,7 @@ mojo.internal.bindings.tab_strip_internals.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTabStripUpdated');
-          const result = this.impl.onTabStripUpdated(params.arg_arg_data);
+          const result = this.impl.onTabStripUpdated(params.arg_data);
           break;
         }
       }

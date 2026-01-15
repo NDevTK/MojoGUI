@@ -171,7 +171,7 @@ mojo.internal.bindings.math.mojom.MathServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.math.mojom.MathService_Divide_ParamsSpec,
       mojo.internal.bindings.math.mojom.MathService_Divide_ResponseParamsSpec,
-      [arg_dividend, arg_divisor],
+      { arg_dividend: arg_dividend, arg_divisor: arg_divisor },
       false);
   }
 
@@ -240,13 +240,13 @@ mojo.internal.bindings.math.mojom.MathServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.math.mojom.MathService_Divide_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.divide');
-          const result = this.impl.divide(params.arg_arg_dividend, params.arg_arg_divisor);
+          const result = this.impl.divide(params.arg_dividend, params.arg_divisor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_quotient' in response) ? response.arg_arg_quotient : response;
-              encoder.encodeStructInline(mojo.internal.bindings.math.mojom.MathService_Divide_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_quotient' in response) ? response.arg_quotient : response;
+              encoder.encodeStructInline(mojo.internal.bindings.math.mojom.MathService_Divide_ResponseParamsSpec.$.structSpec, { 'arg_quotient': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] divide FAILED:', e));
           }

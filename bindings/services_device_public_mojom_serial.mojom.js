@@ -295,7 +295,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPortManager_SetClient_ParamsSpec,
       null,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPortManager_GetDevices_ParamsSpec,
       mojo.internal.bindings.device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -313,7 +313,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ParamsSpec,
       mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec,
-      [arg_token, arg_use_alternate_path, arg_options, arg_client, arg_watcher],
+      { arg_token: arg_token, arg_use_alternate_path: arg_use_alternate_path, arg_options: arg_options, arg_client: arg_client, arg_watcher: arg_watcher },
       false);
   }
 
@@ -384,7 +384,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManager_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
-          const result = this.impl.setClient(params.arg_arg_client);
+          const result = this.impl.setClient(params.arg_client);
           break;
         }
         case 1: {
@@ -396,8 +396,8 @@ mojo.internal.bindings.device.mojom.SerialPortManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_devices' in response) ? response.arg_arg_devices : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_devices' in response) ? response.arg_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec.$.structSpec, { 'arg_devices': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDevices FAILED:', e));
           }
@@ -407,13 +407,13 @@ mojo.internal.bindings.device.mojom.SerialPortManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openPort');
-          const result = this.impl.openPort(params.arg_arg_token, params.arg_arg_use_alternate_path, params.arg_arg_options, params.arg_arg_client, params.arg_arg_watcher);
+          const result = this.impl.openPort(params.arg_token, params.arg_use_alternate_path, params.arg_options, params.arg_client, params.arg_watcher);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_port' in response) ? response.arg_arg_port : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_port' in response) ? response.arg_port : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec.$.structSpec, { 'arg_port': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openPort FAILED:', e));
           }
@@ -485,7 +485,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerClientRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec,
       null,
-      [arg_port_info],
+      { arg_port_info: arg_port_info },
       false);
   }
 
@@ -494,7 +494,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerClientRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec,
       null,
-      [arg_port_info],
+      { arg_port_info: arg_port_info },
       false);
   }
 
@@ -503,7 +503,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerClientRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec,
       null,
-      [arg_port_info],
+      { arg_port_info: arg_port_info },
       false);
   }
 
@@ -574,21 +574,21 @@ mojo.internal.bindings.device.mojom.SerialPortManagerClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPortAdded');
-          const result = this.impl.onPortAdded(params.arg_arg_port_info);
+          const result = this.impl.onPortAdded(params.arg_port_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPortRemoved');
-          const result = this.impl.onPortRemoved(params.arg_arg_port_info);
+          const result = this.impl.onPortRemoved(params.arg_port_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPortConnectedStateChanged');
-          const result = this.impl.onPortConnectedStateChanged(params.arg_arg_port_info);
+          const result = this.impl.onPortConnectedStateChanged(params.arg_port_info);
           break;
         }
       }
@@ -681,7 +681,7 @@ mojo.internal.bindings.device.mojom.SerialPortRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPort_StartWriting_ParamsSpec,
       null,
-      [arg_consumer],
+      { arg_consumer: arg_consumer },
       false);
   }
 
@@ -690,7 +690,7 @@ mojo.internal.bindings.device.mojom.SerialPortRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPort_StartReading_ParamsSpec,
       null,
-      [arg_producer],
+      { arg_producer: arg_producer },
       false);
   }
 
@@ -699,7 +699,7 @@ mojo.internal.bindings.device.mojom.SerialPortRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPort_Flush_ParamsSpec,
       mojo.internal.bindings.device.mojom.SerialPort_Flush_ResponseParamsSpec,
-      [arg_mode],
+      { arg_mode: arg_mode },
       false);
   }
 
@@ -708,7 +708,7 @@ mojo.internal.bindings.device.mojom.SerialPortRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPort_Drain_ParamsSpec,
       mojo.internal.bindings.device.mojom.SerialPort_Drain_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -717,7 +717,7 @@ mojo.internal.bindings.device.mojom.SerialPortRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPort_GetControlSignals_ParamsSpec,
       mojo.internal.bindings.device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -726,7 +726,7 @@ mojo.internal.bindings.device.mojom.SerialPortRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPort_SetControlSignals_ParamsSpec,
       mojo.internal.bindings.device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec,
-      [arg_signals],
+      { arg_signals: arg_signals },
       false);
   }
 
@@ -735,7 +735,7 @@ mojo.internal.bindings.device.mojom.SerialPortRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPort_ConfigurePort_ParamsSpec,
       mojo.internal.bindings.device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -744,7 +744,7 @@ mojo.internal.bindings.device.mojom.SerialPortRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPort_GetPortInfo_ParamsSpec,
       mojo.internal.bindings.device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -753,7 +753,7 @@ mojo.internal.bindings.device.mojom.SerialPortRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPort_Close_ParamsSpec,
       mojo.internal.bindings.device.mojom.SerialPort_Close_ResponseParamsSpec,
-      [arg_flush],
+      { arg_flush: arg_flush },
       false);
   }
 
@@ -830,26 +830,26 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_StartWriting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startWriting');
-          const result = this.impl.startWriting(params.arg_arg_consumer);
+          const result = this.impl.startWriting(params.arg_consumer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_StartReading_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startReading');
-          const result = this.impl.startReading(params.arg_arg_producer);
+          const result = this.impl.startReading(params.arg_producer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_Flush_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flush');
-          const result = this.impl.flush(params.arg_arg_mode);
+          const result = this.impl.flush(params.arg_mode);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_Flush_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_Flush_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] flush FAILED:', e));
           }
@@ -864,7 +864,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_Drain_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_Drain_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] drain FAILED:', e));
           }
@@ -879,8 +879,8 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_signals' in response) ? response.arg_arg_signals : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_signals' in response) ? response.arg_signals : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec.$.structSpec, { 'arg_signals': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getControlSignals FAILED:', e));
           }
@@ -890,13 +890,13 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_SetControlSignals_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setControlSignals');
-          const result = this.impl.setControlSignals(params.arg_arg_signals);
+          const result = this.impl.setControlSignals(params.arg_signals);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setControlSignals FAILED:', e));
           }
@@ -906,13 +906,13 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_ConfigurePort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.configurePort');
-          const result = this.impl.configurePort(params.arg_arg_options);
+          const result = this.impl.configurePort(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] configurePort FAILED:', e));
           }
@@ -927,8 +927,8 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPortInfo FAILED:', e));
           }
@@ -938,12 +938,12 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_Close_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.close');
-          const result = this.impl.close(params.arg_arg_flush);
+          const result = this.impl.close(params.arg_flush);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_Close_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_Close_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] close FAILED:', e));
           }
@@ -1011,7 +1011,7 @@ mojo.internal.bindings.device.mojom.SerialPortClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPortClient_OnReadError_ParamsSpec,
       null,
-      [arg_error],
+      { arg_error: arg_error },
       false);
   }
 
@@ -1020,7 +1020,7 @@ mojo.internal.bindings.device.mojom.SerialPortClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPortClient_OnSendError_ParamsSpec,
       null,
-      [arg_error],
+      { arg_error: arg_error },
       false);
   }
 
@@ -1090,14 +1090,14 @@ mojo.internal.bindings.device.mojom.SerialPortClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortClient_OnReadError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReadError');
-          const result = this.impl.onReadError(params.arg_arg_error);
+          const result = this.impl.onReadError(params.arg_error);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortClient_OnSendError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSendError');
-          const result = this.impl.onSendError(params.arg_arg_error);
+          const result = this.impl.onSendError(params.arg_error);
           break;
         }
       }

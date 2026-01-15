@@ -203,7 +203,7 @@ mojo.internal.bindings.blink.mojom.WorkletDevToolsHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec,
       null,
-      [arg_agent, arg_agent_host],
+      { arg_agent: arg_agent, arg_agent_host: arg_agent_host },
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.blink.mojom.WorkletDevToolsHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReadyForInspection');
-          const result = this.impl.onReadyForInspection(params.arg_arg_agent, params.arg_arg_agent_host);
+          const result = this.impl.onReadyForInspection(params.arg_agent, params.arg_agent_host);
           break;
         }
       }

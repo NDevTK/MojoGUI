@@ -224,7 +224,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListenerRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec,
       null,
-      [arg_result, arg_entries, arg_has_more_entries],
+      { arg_result: arg_result, arg_entries: arg_entries, arg_has_more_entries: arg_has_more_entries },
       false);
   }
 
@@ -293,7 +293,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListenerRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didReadDirectory');
-          const result = this.impl.didReadDirectory(params.arg_arg_result, params.arg_arg_entries, params.arg_arg_has_more_entries);
+          const result = this.impl.didReadDirectory(params.arg_result, params.arg_entries, params.arg_has_more_entries);
           break;
         }
       }
@@ -402,7 +402,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSpec,
-      [arg_mode],
+      { arg_mode: arg_mode },
       false);
   }
 
@@ -411,7 +411,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec,
-      [arg_mode],
+      { arg_mode: arg_mode },
       false);
   }
 
@@ -420,7 +420,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec,
-      [arg_basename, arg_create],
+      { arg_basename: arg_basename, arg_create: arg_create },
       false);
   }
 
@@ -429,7 +429,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec,
-      [arg_basename, arg_create],
+      { arg_basename: arg_basename, arg_create: arg_create },
       false);
   }
 
@@ -438,7 +438,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec,
       null,
-      [arg_listener],
+      { arg_listener: arg_listener },
       false);
   }
 
@@ -447,7 +447,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec,
-      [arg_new_entry_name],
+      { arg_new_entry_name: arg_new_entry_name },
       false);
   }
 
@@ -456,7 +456,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec,
-      [arg_destination_directory, arg_new_entry_name],
+      { arg_destination_directory: arg_destination_directory, arg_new_entry_name: arg_new_entry_name },
       false);
   }
 
@@ -465,7 +465,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec,
-      [arg_recurse],
+      { arg_recurse: arg_recurse },
       false);
   }
 
@@ -474,7 +474,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec,
-      [arg_basename, arg_recurse],
+      { arg_basename: arg_basename, arg_recurse: arg_recurse },
       false);
   }
 
@@ -483,7 +483,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec,
-      [arg_possible_child],
+      { arg_possible_child: arg_possible_child },
       false);
   }
 
@@ -492,7 +492,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec,
       null,
-      [arg_token],
+      { arg_token: arg_token },
       false);
   }
 
@@ -501,7 +501,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -510,7 +510,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -591,13 +591,13 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPermissionStatus');
-          const result = this.impl.getPermissionStatus(params.arg_arg_mode);
+          const result = this.impl.getPermissionStatus(params.arg_mode);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPermissionStatus FAILED:', e));
           }
@@ -607,12 +607,12 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPermission');
-          const result = this.impl.requestPermission(params.arg_arg_mode);
+          const result = this.impl.requestPermission(params.arg_mode);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_status']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_status': response.arg_status });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestPermission FAILED:', e));
           }
@@ -622,12 +622,12 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFile');
-          const result = this.impl.getFile(params.arg_arg_basename, params.arg_arg_create);
+          const result = this.impl.getFile(params.arg_basename, params.arg_create);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_file']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_file': response.arg_file });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFile FAILED:', e));
           }
@@ -637,12 +637,12 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDirectory');
-          const result = this.impl.getDirectory(params.arg_arg_basename, params.arg_arg_create);
+          const result = this.impl.getDirectory(params.arg_basename, params.arg_create);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_directory']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_directory': response.arg_directory });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDirectory FAILED:', e));
           }
@@ -652,20 +652,20 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getEntries');
-          const result = this.impl.getEntries(params.arg_arg_listener);
+          const result = this.impl.getEntries(params.arg_listener);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rename');
-          const result = this.impl.rename(params.arg_arg_new_entry_name);
+          const result = this.impl.rename(params.arg_new_entry_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] rename FAILED:', e));
           }
@@ -675,13 +675,13 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.move');
-          const result = this.impl.move(params.arg_arg_destination_directory, params.arg_arg_new_entry_name);
+          const result = this.impl.move(params.arg_destination_directory, params.arg_new_entry_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] move FAILED:', e));
           }
@@ -691,13 +691,13 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.remove');
-          const result = this.impl.remove(params.arg_arg_recurse);
+          const result = this.impl.remove(params.arg_recurse);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] remove FAILED:', e));
           }
@@ -707,13 +707,13 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeEntry');
-          const result = this.impl.removeEntry(params.arg_arg_basename, params.arg_arg_recurse);
+          const result = this.impl.removeEntry(params.arg_basename, params.arg_recurse);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] removeEntry FAILED:', e));
           }
@@ -723,12 +723,12 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolve');
-          const result = this.impl.resolve(params.arg_arg_possible_child);
+          const result = this.impl.resolve(params.arg_possible_child);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_path']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_path': response.arg_path });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] resolve FAILED:', e));
           }
@@ -738,7 +738,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.transfer');
-          const result = this.impl.transfer(params.arg_arg_token);
+          const result = this.impl.transfer(params.arg_token);
           break;
         }
         case 11: {
@@ -750,7 +750,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_id']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_id': response.arg_id });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUniqueId FAILED:', e));
           }
@@ -765,7 +765,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_cloud_identifiers']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_cloud_identifiers': response.arg_cloud_identifiers });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCloudIdentifiers FAILED:', e));
           }

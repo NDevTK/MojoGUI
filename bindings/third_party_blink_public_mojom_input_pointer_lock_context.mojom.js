@@ -176,7 +176,7 @@ mojo.internal.bindings.blink.mojom.PointerLockContextRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec,
-      [arg_unadjusted_movement],
+      { arg_unadjusted_movement: arg_unadjusted_movement },
       false);
   }
 
@@ -245,13 +245,13 @@ mojo.internal.bindings.blink.mojom.PointerLockContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestMouseLockChange');
-          const result = this.impl.requestMouseLockChange(params.arg_arg_unadjusted_movement);
+          const result = this.impl.requestMouseLockChange(params.arg_unadjusted_movement);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestMouseLockChange FAILED:', e));
           }

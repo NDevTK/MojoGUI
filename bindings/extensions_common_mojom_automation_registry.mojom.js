@@ -177,7 +177,7 @@ mojo.internal.bindings.extensions.mojom.RendererAutomationRegistryRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec,
       null,
-      [arg_automation],
+      { arg_automation: arg_automation },
       false);
   }
 
@@ -246,7 +246,7 @@ mojo.internal.bindings.extensions.mojom.RendererAutomationRegistryReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAutomation');
-          const result = this.impl.bindAutomation(params.arg_arg_automation);
+          const result = this.impl.bindAutomation(params.arg_automation);
           break;
         }
       }

@@ -183,7 +183,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec,
-      [arg_query],
+      { arg_query: arg_query },
       false);
   }
 
@@ -252,13 +252,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.check');
-          const result = this.impl.check(params.arg_arg_query);
+          const result = this.impl.check(params.arg_query);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] check FAILED:', e));
           }

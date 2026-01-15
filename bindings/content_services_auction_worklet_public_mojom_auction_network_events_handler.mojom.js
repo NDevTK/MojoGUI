@@ -205,7 +205,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec,
       null,
-      [arg_request, arg_timestamp],
+      { arg_request: arg_request, arg_timestamp: arg_timestamp },
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec,
       null,
-      [arg_request_id, arg_loader_id, arg_request_url, arg_headers],
+      { arg_request_id: arg_request_id, arg_loader_id: arg_loader_id, arg_request_url: arg_request_url, arg_headers: arg_headers },
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec,
       null,
-      [arg_request_id, arg_status],
+      { arg_request_id: arg_request_id, arg_status: arg_status },
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -304,28 +304,28 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkSendRequest');
-          const result = this.impl.onNetworkSendRequest(params.arg_arg_request, params.arg_arg_timestamp);
+          const result = this.impl.onNetworkSendRequest(params.arg_request, params.arg_timestamp);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkResponseReceived');
-          const result = this.impl.onNetworkResponseReceived(params.arg_arg_request_id, params.arg_arg_loader_id, params.arg_arg_request_url, params.arg_arg_headers);
+          const result = this.impl.onNetworkResponseReceived(params.arg_request_id, params.arg_loader_id, params.arg_request_url, params.arg_headers);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkRequestComplete');
-          const result = this.impl.onNetworkRequestComplete(params.arg_arg_request_id, params.arg_arg_status);
+          const result = this.impl.onNetworkRequestComplete(params.arg_request_id, params.arg_status);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_receiver);
+          const result = this.impl.clone(params.arg_receiver);
           break;
         }
       }

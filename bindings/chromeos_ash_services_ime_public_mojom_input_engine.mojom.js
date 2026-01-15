@@ -172,7 +172,7 @@ mojo.internal.bindings.ash.ime.mojom.InputChannelRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -241,13 +241,13 @@ mojo.internal.bindings.ash.ime.mojom.InputChannelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.processMessage');
-          const result = this.impl.processMessage(params.arg_arg_message);
+          const result = this.impl.processMessage(params.arg_message);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] processMessage FAILED:', e));
           }

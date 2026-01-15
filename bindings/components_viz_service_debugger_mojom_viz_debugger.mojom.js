@@ -176,7 +176,7 @@ mojo.internal.bindings.viz.mojom.VizDebugOutputRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.VizDebugOutput_LogFrame_ParamsSpec,
       null,
-      [arg_frameData],
+      { arg_frameData: arg_frameData },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.viz.mojom.VizDebugOutputReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizDebugOutput_LogFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logFrame');
-          const result = this.impl.logFrame(params.arg_arg_frameData);
+          const result = this.impl.logFrame(params.arg_frameData);
           break;
         }
       }

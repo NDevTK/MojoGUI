@@ -231,7 +231,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactoryRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -300,7 +300,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_handler);
           break;
         }
       }
@@ -405,7 +405,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec,
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -414,7 +414,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -423,7 +423,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -432,7 +432,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec,
       null,
-      [arg_action_type_id],
+      { arg_action_type_id: arg_action_type_id },
       false);
   }
 
@@ -441,7 +441,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec,
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -450,7 +450,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -459,7 +459,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -468,7 +468,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec,
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -477,7 +477,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec,
       null,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -486,7 +486,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec,
       null,
-      [arg_component],
+      { arg_component: arg_component },
       false);
   }
 
@@ -495,7 +495,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -504,7 +504,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -589,8 +589,8 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_message' in response) ? response.arg_arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openFeedbackDialog FAILED:', e));
           }
@@ -614,7 +614,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.triggerWelcomeTipCallToAction');
-          const result = this.impl.triggerWelcomeTipCallToAction(params.arg_arg_action_type_id);
+          const result = this.impl.triggerWelcomeTipCallToAction(params.arg_action_type_id);
           break;
         }
         case 4: {
@@ -626,8 +626,8 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_enabled' in response) ? response.arg_arg_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_enabled' in response) ? response.arg_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec.$.structSpec, { 'arg_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isLauncherSearchEnabled FAILED:', e));
           }
@@ -656,8 +656,8 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_device_info' in response) ? response.arg_arg_device_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_device_info' in response) ? response.arg_device_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec.$.structSpec, { 'arg_device_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDeviceInfo FAILED:', e));
           }
@@ -667,14 +667,14 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openUrlInBrowserAndTriggerInstallDialog');
-          const result = this.impl.openUrlInBrowserAndTriggerInstallDialog(params.arg_arg_url);
+          const result = this.impl.openUrlInBrowserAndTriggerInstallDialog(params.arg_url);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openSettings');
-          const result = this.impl.openSettings(params.arg_arg_component);
+          const result = this.impl.openSettings(params.arg_component);
           break;
         }
         case 10: {

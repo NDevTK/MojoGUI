@@ -180,7 +180,7 @@ mojo.internal.bindings.blink.mojom.InstalledAppProviderRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec,
       mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec,
-      [arg_related_apps, arg_manifest_url, arg_add_saved_related_applications],
+      { arg_related_apps: arg_related_apps, arg_manifest_url: arg_manifest_url, arg_add_saved_related_applications: arg_add_saved_related_applications },
       false);
   }
 
@@ -249,13 +249,13 @@ mojo.internal.bindings.blink.mojom.InstalledAppProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.filterInstalledApps');
-          const result = this.impl.filterInstalledApps(params.arg_arg_related_apps, params.arg_arg_manifest_url, params.arg_arg_add_saved_related_applications);
+          const result = this.impl.filterInstalledApps(params.arg_related_apps, params.arg_manifest_url, params.arg_add_saved_related_applications);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_installed_apps' in response) ? response.arg_arg_installed_apps : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_installed_apps' in response) ? response.arg_installed_apps : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec.$.structSpec, { 'arg_installed_apps': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] filterInstalledApps FAILED:', e));
           }

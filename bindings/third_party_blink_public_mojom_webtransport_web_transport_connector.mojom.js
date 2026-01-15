@@ -184,7 +184,7 @@ mojo.internal.bindings.blink.mojom.WebTransportConnectorRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebTransportConnector_Connect_ParamsSpec,
       null,
-      [arg_url, arg_fingerprints, arg_application_protocols, arg_client],
+      { arg_url: arg_url, arg_fingerprints: arg_fingerprints, arg_application_protocols: arg_application_protocols, arg_client: arg_client },
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.blink.mojom.WebTransportConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebTransportConnector_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_arg_url, params.arg_arg_fingerprints, params.arg_arg_application_protocols, params.arg_arg_client);
+          const result = this.impl.connect(params.arg_url, params.arg_fingerprints, params.arg_application_protocols, params.arg_client);
           break;
         }
       }

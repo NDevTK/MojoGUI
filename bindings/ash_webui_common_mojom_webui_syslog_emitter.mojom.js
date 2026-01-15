@@ -171,7 +171,7 @@ mojo.internal.bindings.ash.common.mojom.WebUiSyslogEmitterRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec,
       null,
-      [arg_prefix, arg_message],
+      { arg_prefix: arg_prefix, arg_message: arg_message },
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.ash.common.mojom.WebUiSyslogEmitterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.emitSyslog');
-          const result = this.impl.emitSyslog(params.arg_arg_prefix, params.arg_arg_message);
+          const result = this.impl.emitSyslog(params.arg_prefix, params.arg_message);
           break;
         }
       }

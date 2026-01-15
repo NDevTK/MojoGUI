@@ -222,7 +222,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec,
       null,
-      [arg_size],
+      { arg_size: arg_size },
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderRemoteCallHandler = cla
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec,
       null,
-      [arg_stats],
+      { arg_stats: arg_stats },
       false);
   }
 
@@ -399,7 +399,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_status);
+          const result = this.impl.onError(params.arg_status);
           break;
         }
         case 5: {
@@ -420,14 +420,14 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNaturalSizeChanged');
-          const result = this.impl.onNaturalSizeChanged(params.arg_arg_size);
+          const result = this.impl.onNaturalSizeChanged(params.arg_size);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPipelineStatistics');
-          const result = this.impl.onPipelineStatistics(params.arg_arg_stats);
+          const result = this.impl.onPipelineStatistics(params.arg_stats);
           break;
         }
       }

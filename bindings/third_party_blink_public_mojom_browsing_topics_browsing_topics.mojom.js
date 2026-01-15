@@ -171,7 +171,7 @@ mojo.internal.bindings.blink.mojom.BrowsingTopicsDocumentServiceRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec,
       null,
-      [arg_observe],
+      { arg_observe: arg_observe },
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.blink.mojom.BrowsingTopicsDocumentServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBrowsingTopics');
-          const result = this.impl.getBrowsingTopics(params.arg_arg_observe);
+          const result = this.impl.getBrowsingTopics(params.arg_observe);
           break;
         }
       }

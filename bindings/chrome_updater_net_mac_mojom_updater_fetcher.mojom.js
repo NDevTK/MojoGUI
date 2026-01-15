@@ -204,7 +204,7 @@ mojo.internal.bindings.updater.mojom.PostRequestObserverRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec,
       null,
-      [arg_http_status_code, arg_content_length],
+      { arg_http_status_code: arg_http_status_code, arg_content_length: arg_content_length },
       false);
   }
 
@@ -213,7 +213,7 @@ mojo.internal.bindings.updater.mojom.PostRequestObserverRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.updater.mojom.PostRequestObserver_OnProgress_ParamsSpec,
       null,
-      [arg_current],
+      { arg_current: arg_current },
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.updater.mojom.PostRequestObserverRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec,
       null,
-      [arg_response_body, arg_net_error, arg_header_etag, arg_header_x_cup_server_proof, arg_header_set_cookie, arg_xheader_retry_after_sec],
+      { arg_response_body: arg_response_body, arg_net_error: arg_net_error, arg_header_etag: arg_header_etag, arg_header_x_cup_server_proof: arg_header_x_cup_server_proof, arg_header_set_cookie: arg_header_set_cookie, arg_xheader_retry_after_sec: arg_xheader_retry_after_sec },
       false);
   }
 
@@ -293,21 +293,21 @@ mojo.internal.bindings.updater.mojom.PostRequestObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponseStarted');
-          const result = this.impl.onResponseStarted(params.arg_arg_http_status_code, params.arg_arg_content_length);
+          const result = this.impl.onResponseStarted(params.arg_http_status_code, params.arg_content_length);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.PostRequestObserver_OnProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
-          const result = this.impl.onProgress(params.arg_arg_current);
+          const result = this.impl.onProgress(params.arg_current);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRequestComplete');
-          const result = this.impl.onRequestComplete(params.arg_arg_response_body, params.arg_arg_net_error, params.arg_arg_header_etag, params.arg_arg_header_x_cup_server_proof, params.arg_arg_header_set_cookie, params.arg_arg_xheader_retry_after_sec);
+          const result = this.impl.onRequestComplete(params.arg_response_body, params.arg_net_error, params.arg_header_etag, params.arg_header_x_cup_server_proof, params.arg_header_set_cookie, params.arg_xheader_retry_after_sec);
           break;
         }
       }
@@ -376,7 +376,7 @@ mojo.internal.bindings.updater.mojom.FileDownloadObserverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec,
       null,
-      [arg_http_status_code, arg_content_length],
+      { arg_http_status_code: arg_http_status_code, arg_content_length: arg_content_length },
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.updater.mojom.FileDownloadObserverRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec,
       null,
-      [arg_current],
+      { arg_current: arg_current },
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.updater.mojom.FileDownloadObserverRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec,
       null,
-      [arg_net_error, arg_content_size],
+      { arg_net_error: arg_net_error, arg_content_size: arg_content_size },
       false);
   }
 
@@ -465,21 +465,21 @@ mojo.internal.bindings.updater.mojom.FileDownloadObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponseStarted');
-          const result = this.impl.onResponseStarted(params.arg_arg_http_status_code, params.arg_arg_content_length);
+          const result = this.impl.onResponseStarted(params.arg_http_status_code, params.arg_content_length);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
-          const result = this.impl.onProgress(params.arg_arg_current);
+          const result = this.impl.onProgress(params.arg_current);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDownloadComplete');
-          const result = this.impl.onDownloadComplete(params.arg_arg_net_error, params.arg_arg_content_size);
+          const result = this.impl.onDownloadComplete(params.arg_net_error, params.arg_content_size);
           break;
         }
       }
@@ -544,7 +544,7 @@ mojo.internal.bindings.updater.mojom.FetchServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ParamsSpec,
       mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec,
-      [arg_url, arg_post_data, arg_content_type, arg_additional_headers],
+      { arg_url: arg_url, arg_post_data: arg_post_data, arg_content_type: arg_content_type, arg_additional_headers: arg_additional_headers },
       false);
   }
 
@@ -553,7 +553,7 @@ mojo.internal.bindings.updater.mojom.FetchServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec,
       mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec,
-      [arg_url, arg_output_file],
+      { arg_url: arg_url, arg_output_file: arg_output_file },
       false);
   }
 
@@ -623,13 +623,13 @@ mojo.internal.bindings.updater.mojom.FetchServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.postRequest');
-          const result = this.impl.postRequest(params.arg_arg_url, params.arg_arg_post_data, params.arg_arg_content_type, params.arg_arg_additional_headers);
+          const result = this.impl.postRequest(params.arg_url, params.arg_post_data, params.arg_content_type, params.arg_additional_headers);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_observer' in response) ? response.arg_arg_observer : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_observer' in response) ? response.arg_observer : response;
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec.$.structSpec, { 'arg_observer': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] postRequest FAILED:', e));
           }
@@ -639,13 +639,13 @@ mojo.internal.bindings.updater.mojom.FetchServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.downloadToFile');
-          const result = this.impl.downloadToFile(params.arg_arg_url, params.arg_arg_output_file);
+          const result = this.impl.downloadToFile(params.arg_url, params.arg_output_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_observer' in response) ? response.arg_arg_observer : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_observer' in response) ? response.arg_observer : response;
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec.$.structSpec, { 'arg_observer': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] downloadToFile FAILED:', e));
           }

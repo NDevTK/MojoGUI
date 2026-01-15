@@ -222,7 +222,7 @@ mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClientRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec,
       null,
-      [arg_result, arg_source_lang, arg_target_lang],
+      { arg_result: arg_result, arg_source_lang: arg_source_lang, arg_target_lang: arg_target_lang },
       false);
   }
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClientRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResult');
-          const result = this.impl.onResult(params.arg_arg_result, params.arg_arg_source_lang, params.arg_arg_target_lang);
+          const result = this.impl.onResult(params.arg_result, params.arg_source_lang, params.arg_target_lang);
           break;
         }
       }
@@ -356,7 +356,7 @@ mojo.internal.bindings.blink.mojom.TranslationManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.TranslationManager_CreateTranslator_ParamsSpec,
       null,
-      [arg_client, arg_options],
+      { arg_client: arg_client, arg_options: arg_options },
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.blink.mojom.TranslationManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec,
       mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec,
-      [arg_source_lang, arg_target_lang],
+      { arg_source_lang: arg_source_lang, arg_target_lang: arg_target_lang },
       false);
   }
 
@@ -435,20 +435,20 @@ mojo.internal.bindings.blink.mojom.TranslationManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TranslationManager_CreateTranslator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTranslator');
-          const result = this.impl.createTranslator(params.arg_arg_client, params.arg_arg_options);
+          const result = this.impl.createTranslator(params.arg_client, params.arg_options);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.translationAvailable');
-          const result = this.impl.translationAvailable(params.arg_arg_source_lang, params.arg_arg_target_lang);
+          const result = this.impl.translationAvailable(params.arg_source_lang, params.arg_target_lang);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] translationAvailable FAILED:', e));
           }

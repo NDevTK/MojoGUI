@@ -191,7 +191,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec,
       null,
-      [arg_receiver, arg_client],
+      { arg_receiver: arg_receiver, arg_client: arg_client },
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getController');
-          const result = this.impl.getController(params.arg_arg_receiver, params.arg_arg_client);
+          const result = this.impl.getController(params.arg_receiver, params.arg_client);
           break;
         }
       }
@@ -321,7 +321,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.activateMediaPerception');
-          const result = this.impl.activateMediaPerception(params.arg_arg_receiver);
+          const result = this.impl.activateMediaPerception(params.arg_receiver);
           break;
         }
       }
@@ -451,7 +451,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -520,7 +520,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToVideoCaptureService');
-          const result = this.impl.connectToVideoCaptureService(params.arg_arg_receiver);
+          const result = this.impl.connectToVideoCaptureService(params.arg_receiver);
           break;
         }
       }

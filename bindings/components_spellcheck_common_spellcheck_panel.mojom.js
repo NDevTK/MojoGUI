@@ -186,7 +186,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec,
       null,
-      [arg_visible],
+      { arg_visible: arg_visible },
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -265,7 +265,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleSpellPanel');
-          const result = this.impl.toggleSpellPanel(params.arg_arg_visible);
+          const result = this.impl.toggleSpellPanel(params.arg_visible);
           break;
         }
         case 1: {
@@ -337,7 +337,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHostRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec,
       null,
-      [arg_show],
+      { arg_show: arg_show },
       false);
   }
 
@@ -346,7 +346,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHostRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec,
       null,
-      [arg_word],
+      { arg_word: arg_word },
       false);
   }
 
@@ -416,14 +416,14 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showSpellingPanel');
-          const result = this.impl.showSpellingPanel(params.arg_arg_show);
+          const result = this.impl.showSpellingPanel(params.arg_show);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSpellingPanelWithMisspelledWord');
-          const result = this.impl.updateSpellingPanelWithMisspelledWord(params.arg_arg_word);
+          const result = this.impl.updateSpellingPanelWithMisspelledWord(params.arg_word);
           break;
         }
       }

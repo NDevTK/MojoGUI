@@ -441,7 +441,7 @@ mojo.internal.bindings.device.mojom.HidManagerClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.HidManagerClient_DeviceAdded_ParamsSpec,
       null,
-      [arg_device_info],
+      { arg_device_info: arg_device_info },
       false);
   }
 
@@ -450,7 +450,7 @@ mojo.internal.bindings.device.mojom.HidManagerClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec,
       null,
-      [arg_device_info],
+      { arg_device_info: arg_device_info },
       false);
   }
 
@@ -459,7 +459,7 @@ mojo.internal.bindings.device.mojom.HidManagerClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.HidManagerClient_DeviceChanged_ParamsSpec,
       null,
-      [arg_device_info],
+      { arg_device_info: arg_device_info },
       false);
   }
 
@@ -530,21 +530,21 @@ mojo.internal.bindings.device.mojom.HidManagerClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.HidManagerClient_DeviceAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deviceAdded');
-          const result = this.impl.deviceAdded(params.arg_arg_device_info);
+          const result = this.impl.deviceAdded(params.arg_device_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deviceRemoved');
-          const result = this.impl.deviceRemoved(params.arg_arg_device_info);
+          const result = this.impl.deviceRemoved(params.arg_device_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.HidManagerClient_DeviceChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deviceChanged');
-          const result = this.impl.deviceChanged(params.arg_arg_device_info);
+          const result = this.impl.deviceChanged(params.arg_device_info);
           break;
         }
       }
@@ -617,7 +617,7 @@ mojo.internal.bindings.device.mojom.HidManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec,
       mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -626,7 +626,7 @@ mojo.internal.bindings.device.mojom.HidManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.HidManager_GetDevices_ParamsSpec,
       mojo.internal.bindings.device.mojom.HidManager_GetDevices_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -635,7 +635,7 @@ mojo.internal.bindings.device.mojom.HidManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.HidManager_Connect_ParamsSpec,
       mojo.internal.bindings.device.mojom.HidManager_Connect_ResponseParamsSpec,
-      [arg_device_guid, arg_connection_client, arg_watcher, arg_allow_protected_reports, arg_allow_fido_reports],
+      { arg_device_guid: arg_device_guid, arg_connection_client: arg_connection_client, arg_watcher: arg_watcher, arg_allow_protected_reports: arg_allow_protected_reports, arg_allow_fido_reports: arg_allow_fido_reports },
       false);
   }
 
@@ -644,7 +644,7 @@ mojo.internal.bindings.device.mojom.HidManagerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.HidManager_AddReceiver_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -716,13 +716,13 @@ mojo.internal.bindings.device.mojom.HidManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDevicesAndSetClient');
-          const result = this.impl.getDevicesAndSetClient(params.arg_arg_client);
+          const result = this.impl.getDevicesAndSetClient(params.arg_client);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_devices' in response) ? response.arg_arg_devices : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_devices' in response) ? response.arg_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec.$.structSpec, { 'arg_devices': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDevicesAndSetClient FAILED:', e));
           }
@@ -737,8 +737,8 @@ mojo.internal.bindings.device.mojom.HidManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_devices' in response) ? response.arg_arg_devices : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidManager_GetDevices_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_devices' in response) ? response.arg_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidManager_GetDevices_ResponseParamsSpec.$.structSpec, { 'arg_devices': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDevices FAILED:', e));
           }
@@ -748,13 +748,13 @@ mojo.internal.bindings.device.mojom.HidManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.HidManager_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_arg_device_guid, params.arg_arg_connection_client, params.arg_arg_watcher, params.arg_arg_allow_protected_reports, params.arg_arg_allow_fido_reports);
+          const result = this.impl.connect(params.arg_device_guid, params.arg_connection_client, params.arg_watcher, params.arg_allow_protected_reports, params.arg_allow_fido_reports);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_connection' in response) ? response.arg_arg_connection : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidManager_Connect_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_connection' in response) ? response.arg_connection : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidManager_Connect_ResponseParamsSpec.$.structSpec, { 'arg_connection': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] connect FAILED:', e));
           }
@@ -764,7 +764,7 @@ mojo.internal.bindings.device.mojom.HidManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.HidManager_AddReceiver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addReceiver');
-          const result = this.impl.addReceiver(params.arg_arg_receiver);
+          const result = this.impl.addReceiver(params.arg_receiver);
           break;
         }
       }
@@ -837,7 +837,7 @@ mojo.internal.bindings.device.mojom.HidConnectionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.HidConnection_Read_ParamsSpec,
       mojo.internal.bindings.device.mojom.HidConnection_Read_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -846,7 +846,7 @@ mojo.internal.bindings.device.mojom.HidConnectionRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.HidConnection_Write_ParamsSpec,
       mojo.internal.bindings.device.mojom.HidConnection_Write_ResponseParamsSpec,
-      [arg_report_id, arg_buffer],
+      { arg_report_id: arg_report_id, arg_buffer: arg_buffer },
       false);
   }
 
@@ -855,7 +855,7 @@ mojo.internal.bindings.device.mojom.HidConnectionRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ParamsSpec,
       mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec,
-      [arg_report_id],
+      { arg_report_id: arg_report_id },
       false);
   }
 
@@ -864,7 +864,7 @@ mojo.internal.bindings.device.mojom.HidConnectionRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ParamsSpec,
       mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec,
-      [arg_report_id, arg_buffer],
+      { arg_report_id: arg_report_id, arg_buffer: arg_buffer },
       false);
   }
 
@@ -941,7 +941,7 @@ mojo.internal.bindings.device.mojom.HidConnectionReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidConnection_Read_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_report_id', 'response.arg_arg_buffer']);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidConnection_Read_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_report_id': response.arg_report_id, 'arg_buffer': response.arg_buffer });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] read FAILED:', e));
           }
@@ -951,13 +951,13 @@ mojo.internal.bindings.device.mojom.HidConnectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.HidConnection_Write_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.write');
-          const result = this.impl.write(params.arg_arg_report_id, params.arg_arg_buffer);
+          const result = this.impl.write(params.arg_report_id, params.arg_buffer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidConnection_Write_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidConnection_Write_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] write FAILED:', e));
           }
@@ -967,12 +967,12 @@ mojo.internal.bindings.device.mojom.HidConnectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFeatureReport');
-          const result = this.impl.getFeatureReport(params.arg_arg_report_id);
+          const result = this.impl.getFeatureReport(params.arg_report_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_buffer']);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_buffer': response.arg_buffer });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFeatureReport FAILED:', e));
           }
@@ -982,13 +982,13 @@ mojo.internal.bindings.device.mojom.HidConnectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendFeatureReport');
-          const result = this.impl.sendFeatureReport(params.arg_arg_report_id, params.arg_arg_buffer);
+          const result = this.impl.sendFeatureReport(params.arg_report_id, params.arg_buffer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendFeatureReport FAILED:', e));
           }
@@ -1052,7 +1052,7 @@ mojo.internal.bindings.device.mojom.HidConnectionClientRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.HidConnectionClient_OnInputReport_ParamsSpec,
       null,
-      [arg_report_id, arg_buffer],
+      { arg_report_id: arg_report_id, arg_buffer: arg_buffer },
       false);
   }
 
@@ -1121,7 +1121,7 @@ mojo.internal.bindings.device.mojom.HidConnectionClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.HidConnectionClient_OnInputReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInputReport');
-          const result = this.impl.onInputReport(params.arg_arg_report_id, params.arg_arg_buffer);
+          const result = this.impl.onInputReport(params.arg_report_id, params.arg_buffer);
           break;
         }
       }

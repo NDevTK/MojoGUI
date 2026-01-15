@@ -209,7 +209,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaObserverRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec,
       null,
-      [arg_key, arg_new_value, arg_old_value, arg_source],
+      { arg_key: arg_key, arg_new_value: arg_new_value, arg_old_value: arg_old_value, arg_source: arg_source },
       false);
   }
 
@@ -218,7 +218,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaObserverRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec,
       null,
-      [arg_key, arg_source],
+      { arg_key: arg_key, arg_source: arg_source },
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaObserverRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec,
       null,
-      [arg_key, arg_old_value, arg_source],
+      { arg_key: arg_key, arg_old_value: arg_old_value, arg_source: arg_source },
       false);
   }
 
@@ -236,7 +236,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaObserverRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec,
       null,
-      [arg_was_nonempty, arg_source],
+      { arg_was_nonempty: arg_was_nonempty, arg_source: arg_source },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaObserverRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec,
       null,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -318,35 +318,35 @@ mojo.internal.bindings.blink.mojom.StorageAreaObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.keyChanged');
-          const result = this.impl.keyChanged(params.arg_arg_key, params.arg_arg_new_value, params.arg_arg_old_value, params.arg_arg_source);
+          const result = this.impl.keyChanged(params.arg_key, params.arg_new_value, params.arg_old_value, params.arg_source);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.keyChangeFailed');
-          const result = this.impl.keyChangeFailed(params.arg_arg_key, params.arg_arg_source);
+          const result = this.impl.keyChangeFailed(params.arg_key, params.arg_source);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.keyDeleted');
-          const result = this.impl.keyDeleted(params.arg_arg_key, params.arg_arg_old_value, params.arg_arg_source);
+          const result = this.impl.keyDeleted(params.arg_key, params.arg_old_value, params.arg_source);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.allDeleted');
-          const result = this.impl.allDeleted(params.arg_arg_was_nonempty, params.arg_arg_source);
+          const result = this.impl.allDeleted(params.arg_was_nonempty, params.arg_source);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shouldSendOldValueOnMutations');
-          const result = this.impl.shouldSendOldValueOnMutations(params.arg_arg_value);
+          const result = this.impl.shouldSendOldValueOnMutations(params.arg_value);
           break;
         }
       }
@@ -427,7 +427,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageArea_AddObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -436,7 +436,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageArea_Put_ParamsSpec,
       mojo.internal.bindings.blink.mojom.StorageArea_Put_ResponseParamsSpec,
-      [arg_key, arg_value, arg_client_old_value, arg_source],
+      { arg_key: arg_key, arg_value: arg_value, arg_client_old_value: arg_client_old_value, arg_source: arg_source },
       false);
   }
 
@@ -445,7 +445,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageArea_Delete_ParamsSpec,
       mojo.internal.bindings.blink.mojom.StorageArea_Delete_ResponseParamsSpec,
-      [arg_key, arg_client_old_value, arg_source],
+      { arg_key: arg_key, arg_client_old_value: arg_client_old_value, arg_source: arg_source },
       false);
   }
 
@@ -454,7 +454,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ParamsSpec,
       mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec,
-      [arg_source, arg_new_observer],
+      { arg_source: arg_source, arg_new_observer: arg_new_observer },
       false);
   }
 
@@ -463,7 +463,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageArea_Get_ParamsSpec,
       mojo.internal.bindings.blink.mojom.StorageArea_Get_ResponseParamsSpec,
-      [arg_key],
+      { arg_key: arg_key },
       false);
   }
 
@@ -472,7 +472,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ParamsSpec,
       mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ResponseParamsSpec,
-      [arg_new_observer],
+      { arg_new_observer: arg_new_observer },
       false);
   }
 
@@ -546,20 +546,20 @@ mojo.internal.bindings.blink.mojom.StorageAreaReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_arg_observer);
+          const result = this.impl.addObserver(params.arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_Put_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.put');
-          const result = this.impl.put(params.arg_arg_key, params.arg_arg_value, params.arg_arg_client_old_value, params.arg_arg_source);
+          const result = this.impl.put(params.arg_key, params.arg_value, params.arg_client_old_value, params.arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_Put_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_Put_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] put FAILED:', e));
           }
@@ -569,13 +569,13 @@ mojo.internal.bindings.blink.mojom.StorageAreaReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_Delete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.delete');
-          const result = this.impl.delete(params.arg_arg_key, params.arg_arg_client_old_value, params.arg_arg_source);
+          const result = this.impl.delete(params.arg_key, params.arg_client_old_value, params.arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_Delete_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_Delete_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] delete FAILED:', e));
           }
@@ -585,13 +585,13 @@ mojo.internal.bindings.blink.mojom.StorageAreaReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteAll');
-          const result = this.impl.deleteAll(params.arg_arg_source, params.arg_arg_new_observer);
+          const result = this.impl.deleteAll(params.arg_source, params.arg_new_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteAll FAILED:', e));
           }
@@ -601,12 +601,12 @@ mojo.internal.bindings.blink.mojom.StorageAreaReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_Get_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.get');
-          const result = this.impl.get(params.arg_arg_key);
+          const result = this.impl.get(params.arg_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_Get_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_value']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_Get_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_value': response.arg_value });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] get FAILED:', e));
           }
@@ -616,13 +616,13 @@ mojo.internal.bindings.blink.mojom.StorageAreaReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAll');
-          const result = this.impl.getAll(params.arg_arg_new_observer);
+          const result = this.impl.getAll(params.arg_new_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAll FAILED:', e));
           }

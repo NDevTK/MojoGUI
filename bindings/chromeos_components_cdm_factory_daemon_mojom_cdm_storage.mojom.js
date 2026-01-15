@@ -196,7 +196,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec,
-      [arg_file_name],
+      { arg_file_name: arg_file_name },
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec,
-      [arg_file_name, arg_data],
+      { arg_file_name: arg_file_name, arg_data: arg_data },
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec,
-      [arg_file_name],
+      { arg_file_name: arg_file_name },
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec,
-      [arg_file_name],
+      { arg_file_name: arg_file_name },
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec,
-      [arg_file_name],
+      { arg_file_name: arg_file_name },
       false);
   }
 
@@ -305,12 +305,12 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.read');
-          const result = this.impl.read(params.arg_arg_file_name);
+          const result = this.impl.read(params.arg_file_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_data']);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_data': response.arg_data });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] read FAILED:', e));
           }
@@ -320,13 +320,13 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.write');
-          const result = this.impl.write(params.arg_arg_file_name, params.arg_arg_data);
+          const result = this.impl.write(params.arg_file_name, params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] write FAILED:', e));
           }
@@ -336,13 +336,13 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.exists');
-          const result = this.impl.exists(params.arg_arg_file_name);
+          const result = this.impl.exists(params.arg_file_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] exists FAILED:', e));
           }
@@ -352,12 +352,12 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSize');
-          const result = this.impl.getSize(params.arg_arg_file_name);
+          const result = this.impl.getSize(params.arg_file_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_size']);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_size': response.arg_size });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSize FAILED:', e));
           }
@@ -367,13 +367,13 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.remove');
-          const result = this.impl.remove(params.arg_arg_file_name);
+          const result = this.impl.remove(params.arg_file_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] remove FAILED:', e));
           }

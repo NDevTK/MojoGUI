@@ -223,7 +223,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec,
       mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec,
-      [arg_device_id],
+      { arg_device_id: arg_device_id },
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec,
       mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec,
-      [arg_device_id],
+      { arg_device_id: arg_device_id },
       false);
   }
 
@@ -241,7 +241,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ParamsSpec,
       mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -250,7 +250,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec,
       mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -259,7 +259,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec,
       mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec,
       mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -277,7 +277,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec,
       mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec,
-      [arg_input_device_id],
+      { arg_input_device_id: arg_input_device_id },
       false);
   }
 
@@ -286,7 +286,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec,
       mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec,
-      [arg_input_device_id],
+      { arg_input_device_id: arg_input_device_id },
       false);
   }
 
@@ -362,13 +362,13 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInputStreamParameters');
-          const result = this.impl.getInputStreamParameters(params.arg_arg_device_id);
+          const result = this.impl.getInputStreamParameters(params.arg_device_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_params' in response) ? response.arg_arg_params : response;
-              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_params' in response) ? response.arg_params : response;
+              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec.$.structSpec, { 'arg_params': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getInputStreamParameters FAILED:', e));
           }
@@ -378,13 +378,13 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOutputStreamParameters');
-          const result = this.impl.getOutputStreamParameters(params.arg_arg_device_id);
+          const result = this.impl.getOutputStreamParameters(params.arg_device_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_params' in response) ? response.arg_arg_params : response;
-              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_params' in response) ? response.arg_params : response;
+              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec.$.structSpec, { 'arg_params': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOutputStreamParameters FAILED:', e));
           }
@@ -399,8 +399,8 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_has_input_devices' in response) ? response.arg_arg_has_input_devices : response;
-              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_has_input_devices' in response) ? response.arg_has_input_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec.$.structSpec, { 'arg_has_input_devices': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] hasInputDevices FAILED:', e));
           }
@@ -415,8 +415,8 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_has_output_devices' in response) ? response.arg_arg_has_output_devices : response;
-              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_has_output_devices' in response) ? response.arg_has_output_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec.$.structSpec, { 'arg_has_output_devices': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] hasOutputDevices FAILED:', e));
           }
@@ -431,8 +431,8 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_device_descriptions' in response) ? response.arg_arg_device_descriptions : response;
-              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_device_descriptions' in response) ? response.arg_device_descriptions : response;
+              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec.$.structSpec, { 'arg_device_descriptions': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getInputDeviceDescriptions FAILED:', e));
           }
@@ -447,8 +447,8 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_device_descriptions' in response) ? response.arg_arg_device_descriptions : response;
-              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_device_descriptions' in response) ? response.arg_device_descriptions : response;
+              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec.$.structSpec, { 'arg_device_descriptions': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOutputDeviceDescriptions FAILED:', e));
           }
@@ -458,13 +458,13 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAssociatedOutputDeviceID');
-          const result = this.impl.getAssociatedOutputDeviceID(params.arg_arg_input_device_id);
+          const result = this.impl.getAssociatedOutputDeviceID(params.arg_input_device_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_associated_output_device_id' in response) ? response.arg_arg_associated_output_device_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_associated_output_device_id' in response) ? response.arg_associated_output_device_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec.$.structSpec, { 'arg_associated_output_device_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAssociatedOutputDeviceID FAILED:', e));
           }
@@ -474,12 +474,12 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInputDeviceInfo');
-          const result = this.impl.getInputDeviceInfo(params.arg_arg_input_device_id);
+          const result = this.impl.getInputDeviceInfo(params.arg_input_device_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_input_params', 'response.arg_arg_associated_output_device_id']);
+              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec.$.structSpec, { 'arg_input_params': response.arg_input_params, 'arg_associated_output_device_id': response.arg_associated_output_device_id });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getInputDeviceInfo FAILED:', e));
           }

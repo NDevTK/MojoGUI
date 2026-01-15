@@ -174,7 +174,7 @@ mojo.internal.bindings.color_change_listener.mojom.PageHandlerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.color_change_listener.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      [arg_page],
+      { arg_page: arg_page },
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.color_change_listener.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.color_change_listener.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPage');
-          const result = this.impl.setPage(params.arg_arg_page);
+          const result = this.impl.setPage(params.arg_page);
           break;
         }
       }
@@ -304,7 +304,7 @@ mojo.internal.bindings.color_change_listener.mojom.PageRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

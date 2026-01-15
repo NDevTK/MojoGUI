@@ -200,7 +200,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec,
       mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec,
-      [arg_method_data],
+      { arg_method_data: arg_method_data },
       false);
   }
 
@@ -209,7 +209,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec,
       mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec,
-      [arg_shipping_option_id],
+      { arg_shipping_option_id: arg_shipping_option_id },
       false);
   }
 
@@ -218,7 +218,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec,
       mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec,
-      [arg_shipping_address],
+      { arg_shipping_address: arg_shipping_address },
       false);
   }
 
@@ -289,13 +289,13 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.changePaymentMethod');
-          const result = this.impl.changePaymentMethod(params.arg_arg_method_data);
+          const result = this.impl.changePaymentMethod(params.arg_method_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response_data' in response) ? response.arg_arg_response_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response_data' in response) ? response.arg_response_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec.$.structSpec, { 'arg_response_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] changePaymentMethod FAILED:', e));
           }
@@ -305,13 +305,13 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.changeShippingOption');
-          const result = this.impl.changeShippingOption(params.arg_arg_shipping_option_id);
+          const result = this.impl.changeShippingOption(params.arg_shipping_option_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response_data' in response) ? response.arg_arg_response_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response_data' in response) ? response.arg_response_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec.$.structSpec, { 'arg_response_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] changeShippingOption FAILED:', e));
           }
@@ -321,13 +321,13 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.changeShippingAddress');
-          const result = this.impl.changeShippingAddress(params.arg_arg_shipping_address);
+          const result = this.impl.changeShippingAddress(params.arg_shipping_address);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response_data' in response) ? response.arg_arg_response_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response_data' in response) ? response.arg_response_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec.$.structSpec, { 'arg_response_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] changeShippingAddress FAILED:', e));
           }

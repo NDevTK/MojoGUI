@@ -300,7 +300,7 @@ mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec,
       null,
-      [arg_progress],
+      { arg_progress: arg_progress },
       false);
   }
 
@@ -369,7 +369,7 @@ mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverReceiv
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.progress');
-          const result = this.impl.progress(params.arg_arg_progress);
+          const result = this.impl.progress(params.arg_progress);
           break;
         }
       }
@@ -442,7 +442,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec,
-      [arg_params, arg_model],
+      { arg_params: arg_params, arg_model: arg_model },
       false);
   }
 
@@ -451,7 +451,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec,
-      [arg_weights],
+      { arg_weights: arg_weights },
       false);
   }
 
@@ -460,7 +460,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec,
       null,
-      [arg_params, arg_model],
+      { arg_params: arg_params, arg_model: arg_model },
       false);
   }
 
@@ -469,7 +469,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -541,13 +541,13 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadModel');
-          const result = this.impl.loadModel(params.arg_arg_params, params.arg_arg_model);
+          const result = this.impl.loadModel(params.arg_params, params.arg_model);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] loadModel FAILED:', e));
           }
@@ -557,13 +557,13 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCapabilities');
-          const result = this.impl.getCapabilities(params.arg_arg_weights);
+          const result = this.impl.getCapabilities(params.arg_weights);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_capabilities' in response) ? response.arg_arg_capabilities : response;
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_capabilities' in response) ? response.arg_capabilities : response;
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec.$.structSpec, { 'arg_capabilities': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCapabilities FAILED:', e));
           }
@@ -573,7 +573,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadTextSafetyModel');
-          const result = this.impl.loadTextSafetyModel(params.arg_arg_params, params.arg_arg_model);
+          const result = this.impl.loadTextSafetyModel(params.arg_params, params.arg_model);
           break;
         }
         case 3: {
@@ -585,7 +585,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceReceiver = clas
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_performanceInfo', 'response.arg_arg_device_info']);
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec.$.structSpec, { 'arg_performanceInfo': response.arg_performanceInfo, 'arg_device_info': response.arg_device_info });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDeviceAndPerformanceInfo FAILED:', e));
           }
@@ -665,7 +665,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec,
-      [arg_uuid, arg_model, arg_progress_observer],
+      { arg_uuid: arg_uuid, arg_model: arg_model, arg_progress_observer: arg_progress_observer },
       false);
   }
 
@@ -674,7 +674,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceRemoteC
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec,
-      [arg_uuid],
+      { arg_uuid: arg_uuid },
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceRemoteC
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -692,7 +692,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceRemoteC
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec,
-      [arg_uuid, arg_feature, arg_fields],
+      { arg_uuid: arg_uuid, arg_feature: arg_feature, arg_fields: arg_fields },
       false);
   }
 
@@ -701,7 +701,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceRemoteC
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec,
-      [arg_safety_feature, arg_text, arg_safety_info],
+      { arg_safety_feature: arg_safety_feature, arg_text: arg_text, arg_safety_info: arg_safety_info },
       false);
   }
 
@@ -774,13 +774,13 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadPlatformModel');
-          const result = this.impl.loadPlatformModel(params.arg_arg_uuid, params.arg_arg_model, params.arg_arg_progress_observer);
+          const result = this.impl.loadPlatformModel(params.arg_uuid, params.arg_model, params.arg_progress_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] loadPlatformModel FAILED:', e));
           }
@@ -790,13 +790,13 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPlatformModelState');
-          const result = this.impl.getPlatformModelState(params.arg_arg_uuid);
+          const result = this.impl.getPlatformModelState(params.arg_uuid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPlatformModelState FAILED:', e));
           }
@@ -811,8 +811,8 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_performance_class' in response) ? response.arg_arg_performance_class : response;
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_performance_class' in response) ? response.arg_performance_class : response;
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec.$.structSpec, { 'arg_performance_class': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getEstimatedPerformanceClass FAILED:', e));
           }
@@ -822,13 +822,13 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.formatInput');
-          const result = this.impl.formatInput(params.arg_arg_uuid, params.arg_arg_feature, params.arg_arg_fields);
+          const result = this.impl.formatInput(params.arg_uuid, params.arg_feature, params.arg_fields);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] formatInput FAILED:', e));
           }
@@ -838,13 +838,13 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.validateSafetyResult');
-          const result = this.impl.validateSafetyResult(params.arg_arg_safety_feature, params.arg_arg_text, params.arg_arg_safety_info);
+          const result = this.impl.validateSafetyResult(params.arg_safety_feature, params.arg_text, params.arg_safety_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] validateSafetyResult FAILED:', e));
           }

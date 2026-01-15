@@ -185,7 +185,7 @@ mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec,
-      [arg_user_requested],
+      { arg_user_requested: arg_user_requested },
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -264,13 +264,13 @@ mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.trySchedule');
-          const result = this.impl.trySchedule(params.arg_arg_user_requested);
+          const result = this.impl.trySchedule(params.arg_user_requested);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_out' in response) ? response.arg_arg_out : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_out' in response) ? response.arg_out : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec.$.structSpec, { 'arg_out': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] trySchedule FAILED:', e));
           }

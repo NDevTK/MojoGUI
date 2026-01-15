@@ -180,7 +180,7 @@ mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec,
       null,
-      [arg_features],
+      { arg_features: arg_features },
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFeaturesUpdated');
-          const result = this.impl.onFeaturesUpdated(params.arg_arg_features);
+          const result = this.impl.onFeaturesUpdated(params.arg_features);
           break;
         }
       }
@@ -310,7 +310,7 @@ mojo.internal.bindings.chromecast.mojom.FeatureUpdateServiceRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -379,7 +379,7 @@ mojo.internal.bindings.chromecast.mojom.FeatureUpdateServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerFeatureUpdateObserver');
-          const result = this.impl.registerFeatureUpdateObserver(params.arg_arg_observer);
+          const result = this.impl.registerFeatureUpdateObserver(params.arg_observer);
           break;
         }
       }

@@ -253,7 +253,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec,
       null,
-      [arg_result],
+      { arg_result: arg_result },
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec,
       null,
-      [arg_buffer_id, arg_buffer_handle],
+      { arg_buffer_id: arg_buffer_id, arg_buffer_handle: arg_buffer_handle },
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec,
       null,
-      [arg_buffer],
+      { arg_buffer: arg_buffer },
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec,
       null,
-      [arg_buffer_id],
+      { arg_buffer_id: arg_buffer_id },
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec,
       null,
-      [arg_reason],
+      { arg_reason: arg_reason },
       false);
   }
 
@@ -298,7 +298,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec,
       null,
-      [arg_capture_version],
+      { arg_capture_version: arg_capture_version },
       false);
   }
 
@@ -372,42 +372,42 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStateChanged');
-          const result = this.impl.onStateChanged(params.arg_arg_result);
+          const result = this.impl.onStateChanged(params.arg_result);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewBuffer');
-          const result = this.impl.onNewBuffer(params.arg_arg_buffer_id, params.arg_arg_buffer_handle);
+          const result = this.impl.onNewBuffer(params.arg_buffer_id, params.arg_buffer_handle);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBufferReady');
-          const result = this.impl.onBufferReady(params.arg_arg_buffer);
+          const result = this.impl.onBufferReady(params.arg_buffer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBufferDestroyed');
-          const result = this.impl.onBufferDestroyed(params.arg_arg_buffer_id);
+          const result = this.impl.onBufferDestroyed(params.arg_buffer_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameDropped');
-          const result = this.impl.onFrameDropped(params.arg_arg_reason);
+          const result = this.impl.onFrameDropped(params.arg_reason);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewCaptureVersion');
-          const result = this.impl.onNewCaptureVersion(params.arg_arg_capture_version);
+          const result = this.impl.onNewCaptureVersion(params.arg_capture_version);
           break;
         }
       }
@@ -500,7 +500,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureHost_Start_ParamsSpec,
       null,
-      [arg_device_id, arg_session_id, arg_params, arg_observer],
+      { arg_device_id: arg_device_id, arg_session_id: arg_session_id, arg_params: arg_params, arg_observer: arg_observer },
       false);
   }
 
@@ -509,7 +509,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureHost_Stop_ParamsSpec,
       null,
-      [arg_device_id],
+      { arg_device_id: arg_device_id },
       false);
   }
 
@@ -518,7 +518,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureHost_Pause_ParamsSpec,
       null,
-      [arg_device_id],
+      { arg_device_id: arg_device_id },
       false);
   }
 
@@ -527,7 +527,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureHost_Resume_ParamsSpec,
       null,
-      [arg_device_id, arg_session_id, arg_params],
+      { arg_device_id: arg_device_id, arg_session_id: arg_session_id, arg_params: arg_params },
       false);
   }
 
@@ -536,7 +536,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec,
       null,
-      [arg_device_id],
+      { arg_device_id: arg_device_id },
       false);
   }
 
@@ -545,7 +545,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec,
       null,
-      [arg_device_id, arg_buffer_id, arg_feedback],
+      { arg_device_id: arg_device_id, arg_buffer_id: arg_buffer_id, arg_feedback: arg_feedback },
       false);
   }
 
@@ -554,7 +554,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec,
       mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec,
-      [arg_device_id, arg_session_id],
+      { arg_device_id: arg_device_id, arg_session_id: arg_session_id },
       false);
   }
 
@@ -563,7 +563,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec,
       mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec,
-      [arg_device_id, arg_session_id],
+      { arg_device_id: arg_device_id, arg_session_id: arg_session_id },
       false);
   }
 
@@ -572,7 +572,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureHost_OnLog_ParamsSpec,
       null,
-      [arg_device_id, arg_message],
+      { arg_device_id: arg_device_id, arg_message: arg_message },
       false);
   }
 
@@ -649,55 +649,55 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start(params.arg_arg_device_id, params.arg_arg_session_id, params.arg_arg_params, params.arg_arg_observer);
+          const result = this.impl.start(params.arg_device_id, params.arg_session_id, params.arg_params, params.arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_Stop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stop');
-          const result = this.impl.stop(params.arg_arg_device_id);
+          const result = this.impl.stop(params.arg_device_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_Pause_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pause');
-          const result = this.impl.pause(params.arg_arg_device_id);
+          const result = this.impl.pause(params.arg_device_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_Resume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resume');
-          const result = this.impl.resume(params.arg_arg_device_id, params.arg_arg_session_id, params.arg_arg_params);
+          const result = this.impl.resume(params.arg_device_id, params.arg_session_id, params.arg_params);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestRefreshFrame');
-          const result = this.impl.requestRefreshFrame(params.arg_arg_device_id);
+          const result = this.impl.requestRefreshFrame(params.arg_device_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.releaseBuffer');
-          const result = this.impl.releaseBuffer(params.arg_arg_device_id, params.arg_arg_buffer_id, params.arg_arg_feedback);
+          const result = this.impl.releaseBuffer(params.arg_device_id, params.arg_buffer_id, params.arg_feedback);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeviceSupportedFormats');
-          const result = this.impl.getDeviceSupportedFormats(params.arg_arg_device_id, params.arg_arg_session_id);
+          const result = this.impl.getDeviceSupportedFormats(params.arg_device_id, params.arg_session_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_formats_supported' in response) ? response.arg_arg_formats_supported : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_formats_supported' in response) ? response.arg_formats_supported : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec.$.structSpec, { 'arg_formats_supported': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDeviceSupportedFormats FAILED:', e));
           }
@@ -707,13 +707,13 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeviceFormatsInUse');
-          const result = this.impl.getDeviceFormatsInUse(params.arg_arg_device_id, params.arg_arg_session_id);
+          const result = this.impl.getDeviceFormatsInUse(params.arg_device_id, params.arg_session_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_formats_in_use' in response) ? response.arg_arg_formats_in_use : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_formats_in_use' in response) ? response.arg_formats_in_use : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec.$.structSpec, { 'arg_formats_in_use': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDeviceFormatsInUse FAILED:', e));
           }
@@ -723,7 +723,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoCaptureHost_OnLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLog');
-          const result = this.impl.onLog(params.arg_arg_device_id, params.arg_arg_message);
+          const result = this.impl.onLog(params.arg_device_id, params.arg_message);
           break;
         }
       }

@@ -174,7 +174,7 @@ mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProviderRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec,
       null,
-      [arg_histogram_name, arg_min, arg_max, arg_bucket_count, arg_flags, arg_receiver],
+      { arg_histogram_name: arg_histogram_name, arg_min: arg_min, arg_max: arg_max, arg_bucket_count: arg_bucket_count, arg_flags: arg_flags, arg_receiver: arg_receiver },
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProviderReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.acquireSingleSampleMetric');
-          const result = this.impl.acquireSingleSampleMetric(params.arg_arg_histogram_name, params.arg_arg_min, params.arg_arg_max, params.arg_arg_bucket_count, params.arg_arg_flags, params.arg_arg_receiver);
+          const result = this.impl.acquireSingleSampleMetric(params.arg_histogram_name, params.arg_min, params.arg_max, params.arg_bucket_count, params.arg_flags, params.arg_receiver);
           break;
         }
       }
@@ -304,7 +304,7 @@ mojo.internal.bindings.metrics.mojom.SingleSampleMetricRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec,
       null,
-      [arg_sample],
+      { arg_sample: arg_sample },
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.metrics.mojom.SingleSampleMetricReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSample');
-          const result = this.impl.setSample(params.arg_arg_sample);
+          const result = this.impl.setSample(params.arg_sample);
           break;
         }
       }

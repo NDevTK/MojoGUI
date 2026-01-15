@@ -332,7 +332,7 @@ mojo.internal.bindings.device.mojom.SmartCardTransactionRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec,
-      [arg_disposition],
+      { arg_disposition: arg_disposition },
       false);
   }
 
@@ -401,13 +401,13 @@ mojo.internal.bindings.device.mojom.SmartCardTransactionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.endTransaction');
-          const result = this.impl.endTransaction(params.arg_arg_disposition);
+          const result = this.impl.endTransaction(params.arg_disposition);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] endTransaction FAILED:', e));
           }
@@ -495,7 +495,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec,
-      [arg_disposition],
+      { arg_disposition: arg_disposition },
       false);
   }
 
@@ -504,7 +504,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardConnection_Transmit_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec,
-      [arg_protocol, arg_data],
+      { arg_protocol: arg_protocol, arg_data: arg_data },
       false);
   }
 
@@ -513,7 +513,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardConnection_Control_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardConnection_Control_ResponseParamsSpec,
-      [arg_control_code, arg_data],
+      { arg_control_code: arg_control_code, arg_data: arg_data },
       false);
   }
 
@@ -522,7 +522,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardConnection_GetAttrib_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -531,7 +531,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardConnection_SetAttrib_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec,
-      [arg_id, arg_data],
+      { arg_id: arg_id, arg_data: arg_data },
       false);
   }
 
@@ -540,7 +540,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardConnection_Status_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardConnection_Status_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -549,7 +549,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -624,13 +624,13 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disconnect');
-          const result = this.impl.disconnect(params.arg_arg_disposition);
+          const result = this.impl.disconnect(params.arg_disposition);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] disconnect FAILED:', e));
           }
@@ -640,13 +640,13 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Transmit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.transmit');
-          const result = this.impl.transmit(params.arg_arg_protocol, params.arg_arg_data);
+          const result = this.impl.transmit(params.arg_protocol, params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] transmit FAILED:', e));
           }
@@ -656,13 +656,13 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Control_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.control');
-          const result = this.impl.control(params.arg_arg_control_code, params.arg_arg_data);
+          const result = this.impl.control(params.arg_control_code, params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Control_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Control_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] control FAILED:', e));
           }
@@ -672,13 +672,13 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_GetAttrib_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAttrib');
-          const result = this.impl.getAttrib(params.arg_arg_id);
+          const result = this.impl.getAttrib(params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAttrib FAILED:', e));
           }
@@ -688,13 +688,13 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_SetAttrib_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAttrib');
-          const result = this.impl.setAttrib(params.arg_arg_id, params.arg_arg_data);
+          const result = this.impl.setAttrib(params.arg_id, params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setAttrib FAILED:', e));
           }
@@ -709,8 +709,8 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Status_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Status_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] status FAILED:', e));
           }
@@ -725,8 +725,8 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] beginTransaction FAILED:', e));
           }
@@ -790,7 +790,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionWatcherRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -932,7 +932,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardContext_ListReaders_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -941,7 +941,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardContext_GetStatusChange_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec,
-      [arg_timeout, arg_reader_states],
+      { arg_timeout: arg_timeout, arg_reader_states: arg_reader_states },
       false);
   }
 
@@ -950,7 +950,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardContext_Cancel_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardContext_Cancel_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -959,7 +959,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ResponseParamsSpec,
-      [arg_reader, arg_share_mode, arg_preferred_protocols, arg_connection_watcher],
+      { arg_reader: arg_reader, arg_share_mode: arg_share_mode, arg_preferred_protocols: arg_preferred_protocols, arg_connection_watcher: arg_connection_watcher },
       false);
   }
 
@@ -1036,8 +1036,8 @@ mojo.internal.bindings.device.mojom.SmartCardContextReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] listReaders FAILED:', e));
           }
@@ -1047,13 +1047,13 @@ mojo.internal.bindings.device.mojom.SmartCardContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_GetStatusChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStatusChange');
-          const result = this.impl.getStatusChange(params.arg_arg_timeout, params.arg_arg_reader_states);
+          const result = this.impl.getStatusChange(params.arg_timeout, params.arg_reader_states);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getStatusChange FAILED:', e));
           }
@@ -1068,8 +1068,8 @@ mojo.internal.bindings.device.mojom.SmartCardContextReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_Cancel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_Cancel_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] cancel FAILED:', e));
           }
@@ -1079,13 +1079,13 @@ mojo.internal.bindings.device.mojom.SmartCardContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_arg_reader, params.arg_arg_share_mode, params.arg_arg_preferred_protocols, params.arg_arg_connection_watcher);
+          const result = this.impl.connect(params.arg_reader, params.arg_share_mode, params.arg_preferred_protocols, params.arg_connection_watcher);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] connect FAILED:', e));
           }
@@ -1149,7 +1149,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextFactoryRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1223,8 +1223,8 @@ mojo.internal.bindings.device.mojom.SmartCardContextFactoryReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createContext FAILED:', e));
           }

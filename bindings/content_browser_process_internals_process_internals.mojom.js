@@ -225,7 +225,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec,
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec,
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec,
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec,
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -261,7 +261,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec,
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -270,7 +270,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec,
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -279,7 +279,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec,
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -359,8 +359,8 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getProcessCountInfo FAILED:', e));
           }
@@ -375,8 +375,8 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_mode' in response) ? response.arg_arg_mode : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_mode' in response) ? response.arg_mode : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec.$.structSpec, { 'arg_mode': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getIsolationMode FAILED:', e));
           }
@@ -391,8 +391,8 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_mode' in response) ? response.arg_arg_mode : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_mode' in response) ? response.arg_mode : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec.$.structSpec, { 'arg_mode': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getProcessPerSiteMode FAILED:', e));
           }
@@ -407,8 +407,8 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_isolated_origins' in response) ? response.arg_arg_isolated_origins : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_isolated_origins' in response) ? response.arg_isolated_origins : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec.$.structSpec, { 'arg_isolated_origins': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUserTriggeredIsolatedOrigins FAILED:', e));
           }
@@ -423,8 +423,8 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_isolated_origins' in response) ? response.arg_arg_isolated_origins : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_isolated_origins' in response) ? response.arg_isolated_origins : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec.$.structSpec, { 'arg_isolated_origins': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getWebTriggeredIsolatedOrigins FAILED:', e));
           }
@@ -439,8 +439,8 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_isolated_origins' in response) ? response.arg_arg_isolated_origins : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_isolated_origins' in response) ? response.arg_isolated_origins : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec.$.structSpec, { 'arg_isolated_origins': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getGloballyIsolatedOrigins FAILED:', e));
           }
@@ -455,8 +455,8 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_infos' in response) ? response.arg_arg_infos : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_infos' in response) ? response.arg_infos : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec.$.structSpec, { 'arg_infos': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAllWebContentsInfo FAILED:', e));
           }

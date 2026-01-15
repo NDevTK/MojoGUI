@@ -229,7 +229,7 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec,
-      [arg_options, arg_receiver, arg_observer],
+      { arg_options: arg_options, arg_receiver: arg_receiver, arg_observer: arg_observer },
       false);
   }
 
@@ -238,7 +238,7 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec,
-      [arg_options, arg_receiver, arg_listener],
+      { arg_options: arg_options, arg_receiver: arg_receiver, arg_listener: arg_listener },
       false);
   }
 
@@ -247,7 +247,7 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec,
-      [arg_options, arg_receiver, arg_listener],
+      { arg_options: arg_options, arg_receiver: arg_receiver, arg_listener: arg_listener },
       false);
   }
 
@@ -256,7 +256,7 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec,
-      [arg_options, arg_receiver],
+      { arg_options: arg_options, arg_receiver: arg_receiver },
       false);
   }
 
@@ -328,12 +328,12 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openTCPSocket');
-          const result = this.impl.openTCPSocket(params.arg_arg_options, params.arg_arg_receiver, params.arg_arg_observer);
+          const result = this.impl.openTCPSocket(params.arg_options, params.arg_receiver, params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_local_addr', 'response.arg_arg_peer_addr', 'response.arg_arg_receive_stream', 'response.arg_arg_send_stream']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_local_addr': response.arg_local_addr, 'arg_peer_addr': response.arg_peer_addr, 'arg_receive_stream': response.arg_receive_stream, 'arg_send_stream': response.arg_send_stream });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openTCPSocket FAILED:', e));
           }
@@ -343,12 +343,12 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openConnectedUDPSocket');
-          const result = this.impl.openConnectedUDPSocket(params.arg_arg_options, params.arg_arg_receiver, params.arg_arg_listener);
+          const result = this.impl.openConnectedUDPSocket(params.arg_options, params.arg_receiver, params.arg_listener);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_local_addr', 'response.arg_arg_peer_addr']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_local_addr': response.arg_local_addr, 'arg_peer_addr': response.arg_peer_addr });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openConnectedUDPSocket FAILED:', e));
           }
@@ -358,12 +358,12 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openBoundUDPSocket');
-          const result = this.impl.openBoundUDPSocket(params.arg_arg_options, params.arg_arg_receiver, params.arg_arg_listener);
+          const result = this.impl.openBoundUDPSocket(params.arg_options, params.arg_receiver, params.arg_listener);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_local_addr']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_local_addr': response.arg_local_addr });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openBoundUDPSocket FAILED:', e));
           }
@@ -373,12 +373,12 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openTCPServerSocket');
-          const result = this.impl.openTCPServerSocket(params.arg_arg_options, params.arg_arg_receiver);
+          const result = this.impl.openTCPServerSocket(params.arg_options, params.arg_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_local_addr']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_local_addr': response.arg_local_addr });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openTCPServerSocket FAILED:', e));
           }

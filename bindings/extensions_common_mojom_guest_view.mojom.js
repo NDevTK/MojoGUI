@@ -195,7 +195,7 @@ mojo.internal.bindings.extensions.mojom.GuestViewRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec,
       null,
-      [arg_success],
+      { arg_success: arg_success },
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.extensions.mojom.GuestViewRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec,
-      [arg_script_id],
+      { arg_script_id: arg_script_id },
       false);
   }
 
@@ -274,20 +274,20 @@ mojo.internal.bindings.extensions.mojom.GuestViewReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readyToCreateMimeHandlerView');
-          const result = this.impl.readyToCreateMimeHandlerView(params.arg_arg_success);
+          const result = this.impl.readyToCreateMimeHandlerView(params.arg_success);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canExecuteContentScript');
-          const result = this.impl.canExecuteContentScript(params.arg_arg_script_id);
+          const result = this.impl.canExecuteContentScript(params.arg_script_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_allowed' in response) ? response.arg_arg_allowed : response;
-              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_allowed' in response) ? response.arg_allowed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec.$.structSpec, { 'arg_allowed': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] canExecuteContentScript FAILED:', e));
           }
@@ -363,7 +363,7 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec,
       null,
-      [arg_token_id],
+      { arg_token_id: arg_token_id },
       false);
   }
 
@@ -372,7 +372,7 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerRemoteCal
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec,
       null,
-      [arg_element_instance_id],
+      { arg_element_instance_id: arg_element_instance_id },
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerRemoteCal
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec,
       null,
-      [arg_mime_handler_view_guest_element_instance_id, arg_resource_url],
+      { arg_mime_handler_view_guest_element_instance_id: arg_mime_handler_view_guest_element_instance_id, arg_resource_url: arg_resource_url },
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInternalId');
-          const result = this.impl.setInternalId(params.arg_arg_token_id);
+          const result = this.impl.setInternalId(params.arg_token_id);
           break;
         }
         case 1: {
@@ -474,8 +474,8 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerReceiver 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_before_unload_control' in response) ? response.arg_arg_before_unload_control : response;
-              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_before_unload_control' in response) ? response.arg_before_unload_control : response;
+              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec.$.structSpec, { 'arg_before_unload_control': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createBeforeUnloadControl FAILED:', e));
           }
@@ -485,14 +485,14 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.destroyFrameContainer');
-          const result = this.impl.destroyFrameContainer(params.arg_arg_element_instance_id);
+          const result = this.impl.destroyFrameContainer(params.arg_element_instance_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didLoad');
-          const result = this.impl.didLoad(params.arg_arg_mime_handler_view_guest_element_instance_id, params.arg_arg_resource_url);
+          const result = this.impl.didLoad(params.arg_mime_handler_view_guest_element_instance_id, params.arg_resource_url);
           break;
         }
       }

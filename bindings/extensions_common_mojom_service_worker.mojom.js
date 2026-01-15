@@ -201,7 +201,7 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec,
       null,
-      [arg_active_permissions, arg_withheld_permissions],
+      { arg_active_permissions: arg_active_permissions, arg_withheld_permissions: arg_withheld_permissions },
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec,
-      [arg_port_id, arg_channel_type, arg_channel_name, arg_tab_info, arg_external_connection_info, arg_port, arg_port_host],
+      { arg_port_id: arg_port_id, arg_channel_type: arg_channel_type, arg_channel_name: arg_channel_name, arg_tab_info: arg_tab_info, arg_external_connection_info: arg_external_connection_info, arg_port: arg_port, arg_port_host: arg_port_host },
       false);
   }
 
@@ -280,20 +280,20 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePermissions');
-          const result = this.impl.updatePermissions(params.arg_arg_active_permissions, params.arg_arg_withheld_permissions);
+          const result = this.impl.updatePermissions(params.arg_active_permissions, params.arg_withheld_permissions);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchOnConnect');
-          const result = this.impl.dispatchOnConnect(params.arg_arg_port_id, params.arg_arg_channel_type, params.arg_arg_channel_name, params.arg_arg_tab_info, params.arg_arg_external_connection_info, params.arg_arg_port, params.arg_arg_port_host);
+          const result = this.impl.dispatchOnConnect(params.arg_port_id, params.arg_channel_type, params.arg_channel_name, params.arg_tab_info, params.arg_external_connection_info, params.arg_port, params.arg_port_host);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchOnConnect FAILED:', e));
           }

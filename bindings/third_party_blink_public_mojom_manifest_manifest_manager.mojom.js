@@ -207,7 +207,7 @@ mojo.internal.bindings.blink.mojom.ManifestManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -216,7 +216,7 @@ mojo.internal.bindings.blink.mojom.ManifestManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.blink.mojom.ManifestManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.blink.mojom.ManifestManagerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec,
-      [arg_document_url, arg_manifest_url, arg_manifest_content],
+      { arg_document_url: arg_document_url, arg_manifest_url: arg_manifest_url, arg_manifest_content: arg_manifest_content },
       false);
   }
 
@@ -311,7 +311,7 @@ mojo.internal.bindings.blink.mojom.ManifestManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_url', 'response.arg_arg_manifest']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_url': response.arg_url, 'arg_manifest': response.arg_manifest });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestManifest FAILED:', e));
           }
@@ -333,7 +333,7 @@ mojo.internal.bindings.blink.mojom.ManifestManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_url', 'response.arg_arg_parsed_manifest', 'response.arg_arg_debug_info']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec.$.structSpec, { 'arg_url': response.arg_url, 'arg_parsed_manifest': response.arg_parsed_manifest, 'arg_debug_info': response.arg_debug_info });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestManifestDebugInfo FAILED:', e));
           }
@@ -343,13 +343,13 @@ mojo.internal.bindings.blink.mojom.ManifestManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseManifestFromString');
-          const result = this.impl.parseManifestFromString(params.arg_arg_document_url, params.arg_arg_manifest_url, params.arg_arg_manifest_content);
+          const result = this.impl.parseManifestFromString(params.arg_document_url, params.arg_manifest_url, params.arg_manifest_content);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_parsed_manifest' in response) ? response.arg_arg_parsed_manifest : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_parsed_manifest' in response) ? response.arg_parsed_manifest : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec.$.structSpec, { 'arg_parsed_manifest': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] parseManifestFromString FAILED:', e));
           }

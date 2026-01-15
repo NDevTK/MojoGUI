@@ -179,7 +179,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.QuickPairServiceRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec,
       null,
-      [arg_fast_pair_data_parser],
+      { arg_fast_pair_data_parser: arg_fast_pair_data_parser },
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.QuickPairServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_arg_fast_pair_data_parser);
+          const result = this.impl.connect(params.arg_fast_pair_data_parser);
           break;
         }
       }

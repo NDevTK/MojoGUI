@@ -178,7 +178,7 @@ mojo.internal.bindings.cast_streaming.mojom.RendererControllerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec,
       mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParamsSpec,
-      [arg_renderer],
+      { arg_renderer: arg_renderer },
       false);
   }
 
@@ -247,12 +247,12 @@ mojo.internal.bindings.cast_streaming.mojom.RendererControllerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPlaybackController');
-          const result = this.impl.setPlaybackController(params.arg_arg_renderer);
+          const result = this.impl.setPlaybackController(params.arg_renderer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setPlaybackController FAILED:', e));
           }

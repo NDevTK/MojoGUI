@@ -185,7 +185,7 @@ mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProviderRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProviderRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -269,8 +269,8 @@ mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProviderReceiver =
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMediaEngagementScoreDetails FAILED:', e));
           }
@@ -285,8 +285,8 @@ mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProviderReceiver =
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_config' in response) ? response.arg_arg_config : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_config' in response) ? response.arg_config : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec.$.structSpec, { 'arg_config': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMediaEngagementConfig FAILED:', e));
           }

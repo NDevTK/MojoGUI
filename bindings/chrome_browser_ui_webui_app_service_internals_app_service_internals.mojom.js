@@ -176,7 +176,7 @@ mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec,
       mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -250,8 +250,8 @@ mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandle
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_debug_info' in response) ? response.arg_arg_debug_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_debug_info' in response) ? response.arg_debug_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec.$.structSpec, { 'arg_debug_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDebugInfo FAILED:', e));
           }

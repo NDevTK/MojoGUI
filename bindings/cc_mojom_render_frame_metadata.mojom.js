@@ -214,7 +214,7 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -283,7 +283,7 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAllFrameSubmissionsForTesting');
-          const result = this.impl.reportAllFrameSubmissionsForTesting(params.arg_arg_enabled);
+          const result = this.impl.reportAllFrameSubmissionsForTesting(params.arg_enabled);
           break;
         }
       }
@@ -348,7 +348,7 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec,
       null,
-      [arg_frame_token, arg_metadata],
+      { arg_frame_token: arg_frame_token, arg_metadata: arg_metadata },
       false);
   }
 
@@ -357,7 +357,7 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec,
       null,
-      [arg_frame_token],
+      { arg_frame_token: arg_frame_token },
       false);
   }
 
@@ -427,14 +427,14 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRenderFrameMetadataChanged');
-          const result = this.impl.onRenderFrameMetadataChanged(params.arg_arg_frame_token, params.arg_arg_metadata);
+          const result = this.impl.onRenderFrameMetadataChanged(params.arg_frame_token, params.arg_metadata);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameSubmissionForTesting');
-          const result = this.impl.onFrameSubmissionForTesting(params.arg_arg_frame_token);
+          const result = this.impl.onFrameSubmissionForTesting(params.arg_frame_token);
           break;
         }
       }

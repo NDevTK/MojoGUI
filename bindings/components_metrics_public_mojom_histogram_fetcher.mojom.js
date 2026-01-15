@@ -201,7 +201,7 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactoryRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec,
       null,
-      [arg_shared_memory, arg_child_histogram_fetcher],
+      { arg_shared_memory: arg_shared_memory, arg_child_histogram_fetcher: arg_child_histogram_fetcher },
       false);
   }
 
@@ -270,7 +270,7 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactoryReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createFetcher');
-          const result = this.impl.createFetcher(params.arg_arg_shared_memory, params.arg_arg_child_histogram_fetcher);
+          const result = this.impl.createFetcher(params.arg_shared_memory, params.arg_child_histogram_fetcher);
           break;
         }
       }
@@ -335,7 +335,7 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec,
       mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec,
       mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec,
-      [arg_call_source],
+      { arg_call_source: arg_call_source },
       false);
   }
 
@@ -419,8 +419,8 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_deltas' in response) ? response.arg_arg_deltas : response;
-              encoder.encodeStructInline(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_deltas' in response) ? response.arg_deltas : response;
+              encoder.encodeStructInline(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec.$.structSpec, { 'arg_deltas': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getChildNonPersistentHistogramData FAILED:', e));
           }
@@ -430,12 +430,12 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.ping');
-          const result = this.impl.ping(params.arg_arg_call_source);
+          const result = this.impl.ping(params.arg_call_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] ping FAILED:', e));
           }

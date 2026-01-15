@@ -211,7 +211,7 @@ mojo.internal.bindings.blink.mojom.WebUsbServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebUsbService_GetDevices_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -220,7 +220,7 @@ mojo.internal.bindings.blink.mojom.WebUsbServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.WebUsbService_GetDevice_ParamsSpec,
       null,
-      [arg_guid, arg_device_receiver],
+      { arg_guid: arg_guid, arg_device_receiver: arg_device_receiver },
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.blink.mojom.WebUsbServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -238,7 +238,7 @@ mojo.internal.bindings.blink.mojom.WebUsbServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.WebUsbService_ForgetDevice_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebUsbService_ForgetDevice_ResponseParamsSpec,
-      [arg_guid],
+      { arg_guid: arg_guid },
       false);
   }
 
@@ -247,7 +247,7 @@ mojo.internal.bindings.blink.mojom.WebUsbServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.WebUsbService_SetClient_ParamsSpec,
       null,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -325,8 +325,8 @@ mojo.internal.bindings.blink.mojom.WebUsbServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_results' in response) ? response.arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec.$.structSpec, { 'arg_results': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDevices FAILED:', e));
           }
@@ -336,20 +336,20 @@ mojo.internal.bindings.blink.mojom.WebUsbServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebUsbService_GetDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDevice');
-          const result = this.impl.getDevice(params.arg_arg_guid, params.arg_arg_device_receiver);
+          const result = this.impl.getDevice(params.arg_guid, params.arg_device_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPermission');
-          const result = this.impl.getPermission(params.arg_arg_options);
+          const result = this.impl.getPermission(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPermission FAILED:', e));
           }
@@ -359,12 +359,12 @@ mojo.internal.bindings.blink.mojom.WebUsbServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebUsbService_ForgetDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forgetDevice');
-          const result = this.impl.forgetDevice(params.arg_arg_guid);
+          const result = this.impl.forgetDevice(params.arg_guid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebUsbService_ForgetDevice_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebUsbService_ForgetDevice_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] forgetDevice FAILED:', e));
           }
@@ -374,7 +374,7 @@ mojo.internal.bindings.blink.mojom.WebUsbServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebUsbService_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
-          const result = this.impl.setClient(params.arg_arg_client);
+          const result = this.impl.setClient(params.arg_client);
           break;
         }
       }

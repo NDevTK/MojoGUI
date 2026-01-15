@@ -200,7 +200,7 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerClientRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec,
       null,
-      [arg_device_info],
+      { arg_device_info: arg_device_info },
       false);
   }
 
@@ -209,7 +209,7 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerClientRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -279,14 +279,14 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.inputDeviceAdded');
-          const result = this.impl.inputDeviceAdded(params.arg_arg_device_info);
+          const result = this.impl.inputDeviceAdded(params.arg_device_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.inputDeviceRemoved');
-          const result = this.impl.inputDeviceRemoved(params.arg_arg_id);
+          const result = this.impl.inputDeviceRemoved(params.arg_id);
           break;
         }
       }
@@ -351,7 +351,7 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec,
       mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -360,7 +360,7 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevices_ParamsSpec,
       mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -430,13 +430,13 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDevicesAndSetClient');
-          const result = this.impl.getDevicesAndSetClient(params.arg_arg_client);
+          const result = this.impl.getDevicesAndSetClient(params.arg_client);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_devices' in response) ? response.arg_arg_devices : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_devices' in response) ? response.arg_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec.$.structSpec, { 'arg_devices': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDevicesAndSetClient FAILED:', e));
           }
@@ -451,8 +451,8 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_devices' in response) ? response.arg_arg_devices : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_devices' in response) ? response.arg_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec.$.structSpec, { 'arg_devices': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDevices FAILED:', e));
           }

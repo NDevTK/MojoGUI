@@ -302,7 +302,7 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec,
       mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -311,7 +311,7 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec,
       mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -386,8 +386,8 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_infobars' in response) ? response.arg_arg_infobars : response;
-              encoder.encodeStructInline(mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_infobars' in response) ? response.arg_infobars : response;
+              encoder.encodeStructInline(mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec.$.structSpec, { 'arg_infobars': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getInfoBars FAILED:', e));
           }
@@ -397,13 +397,13 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.triggerInfoBar');
-          const result = this.impl.triggerInfoBar(params.arg_arg_type);
+          const result = this.impl.triggerInfoBar(params.arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] triggerInfoBar FAILED:', e));
           }
@@ -467,7 +467,7 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactoryRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -536,7 +536,7 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactoryReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }

@@ -177,7 +177,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.AshEventReporterRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_ParamsSpec,
       null,
-      [arg_info],
+      { arg_info: arg_info },
       false);
   }
 
@@ -246,7 +246,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.AshEventReporterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendKeyboardDiagnosticEvent');
-          const result = this.impl.sendKeyboardDiagnosticEvent(params.arg_arg_info);
+          const result = this.impl.sendKeyboardDiagnosticEvent(params.arg_info);
           break;
         }
       }

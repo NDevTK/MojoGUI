@@ -185,7 +185,7 @@ mojo.internal.bindings.gfx.mojom.RangeTraitsTestServiceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec,
       mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec,
-      [arg_p],
+      { arg_p: arg_p },
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.gfx.mojom.RangeTraitsTestServiceRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec,
       mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec,
-      [arg_p],
+      { arg_p: arg_p },
       false);
   }
 
@@ -264,13 +264,13 @@ mojo.internal.bindings.gfx.mojom.RangeTraitsTestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoRange');
-          const result = this.impl.echoRange(params.arg_arg_p);
+          const result = this.impl.echoRange(params.arg_p);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pass' in response) ? response.arg_arg_pass : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pass' in response) ? response.arg_pass : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec.$.structSpec, { 'arg_pass': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoRange FAILED:', e));
           }
@@ -280,13 +280,13 @@ mojo.internal.bindings.gfx.mojom.RangeTraitsTestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoRangeF');
-          const result = this.impl.echoRangeF(params.arg_arg_p);
+          const result = this.impl.echoRangeF(params.arg_p);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pass' in response) ? response.arg_arg_pass : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pass' in response) ? response.arg_pass : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec.$.structSpec, { 'arg_pass': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoRangeF FAILED:', e));
           }

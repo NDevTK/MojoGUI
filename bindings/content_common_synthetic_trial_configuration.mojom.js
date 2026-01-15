@@ -176,7 +176,7 @@ mojo.internal.bindings.content.mojom.SyntheticTrialConfigurationRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec,
       null,
-      [arg_groups],
+      { arg_groups: arg_groups },
       false);
   }
 
@@ -185,7 +185,7 @@ mojo.internal.bindings.content.mojom.SyntheticTrialConfigurationRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec,
       null,
-      [arg_groups],
+      { arg_groups: arg_groups },
       false);
   }
 
@@ -255,14 +255,14 @@ mojo.internal.bindings.content.mojom.SyntheticTrialConfigurationReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addOrUpdateSyntheticTrialGroups');
-          const result = this.impl.addOrUpdateSyntheticTrialGroups(params.arg_arg_groups);
+          const result = this.impl.addOrUpdateSyntheticTrialGroups(params.arg_groups);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeSyntheticTrialGroups');
-          const result = this.impl.removeSyntheticTrialGroups(params.arg_arg_groups);
+          const result = this.impl.removeSyntheticTrialGroups(params.arg_groups);
           break;
         }
       }

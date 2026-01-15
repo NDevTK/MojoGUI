@@ -586,7 +586,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsBootstrapRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec,
       null,
-      [arg_config, arg_drive_fs, arg_delegate],
+      { arg_config: arg_config, arg_drive_fs: arg_drive_fs, arg_delegate: arg_delegate },
       false);
   }
 
@@ -655,7 +655,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsBootstrapReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_config, params.arg_arg_drive_fs, params.arg_arg_delegate);
+          const result = this.impl.init(params.arg_config, params.arg_drive_fs, params.arg_delegate);
           break;
         }
       }
@@ -860,7 +860,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetMetadata_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetMetadata_ResponseParamsSpec,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -869,7 +869,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_SetPinned_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_SetPinned_ResponseParamsSpec,
-      [arg_path, arg_pinned],
+      { arg_path: arg_path, arg_pinned: arg_pinned },
       false);
   }
 
@@ -878,7 +878,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_UpdateNetworkState_ParamsSpec,
       null,
-      [arg_pause_syncing, arg_is_offline],
+      { arg_pause_syncing: arg_pause_syncing, arg_is_offline: arg_is_offline },
       false);
   }
 
@@ -887,7 +887,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_ResetCache_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_ResetCache_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -896,7 +896,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetThumbnail_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetThumbnail_ResponseParamsSpec,
-      [arg_path, arg_crop_to_square],
+      { arg_path: arg_path, arg_crop_to_square: arg_crop_to_square },
       false);
   }
 
@@ -905,7 +905,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_CopyFile_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_CopyFile_ResponseParamsSpec,
-      [arg_source, arg_target],
+      { arg_source: arg_source, arg_target: arg_target },
       false);
   }
 
@@ -914,7 +914,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec,
       null,
-      [arg_query, arg_query_params],
+      { arg_query: arg_query, arg_query_params: arg_query_params },
       false);
   }
 
@@ -923,7 +923,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_FetchAllChangeLogs_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -932,7 +932,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_FetchChangeLog_ParamsSpec,
       null,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -941,7 +941,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -950,7 +950,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_SetStartupArguments_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_SetStartupArguments_ResponseParamsSpec,
-      [arg_arguments],
+      { arg_arguments: arg_arguments },
       false);
   }
 
@@ -959,7 +959,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetStartupArguments_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetStartupArguments_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -968,7 +968,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_SetTracingEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -977,7 +977,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -986,7 +986,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_ForcePauseSyncing_ParamsSpec,
       null,
-      [arg_enable],
+      { arg_enable: arg_enable },
       false);
   }
 
@@ -995,7 +995,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_DumpAccountSettings_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1004,7 +1004,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_LoadAccountSettings_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1013,7 +1013,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec,
       null,
-      [arg_params, arg_host, arg_port],
+      { arg_params: arg_params, arg_host: arg_host, arg_port: arg_port },
       false);
   }
 
@@ -1022,7 +1022,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec,
-      [arg_item_ids],
+      { arg_item_ids: arg_item_ids },
       false);
   }
 
@@ -1031,7 +1031,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetQuotaUsage_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1040,7 +1040,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_ToggleMirroring_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -1049,7 +1049,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_ToggleSyncForPath_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec,
-      [arg_path, arg_status],
+      { arg_path: arg_path, arg_status: arg_status },
       false);
   }
 
@@ -1058,7 +1058,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetSyncingPaths_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1067,7 +1067,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_PollHostedFilePinStates_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1076,7 +1076,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1085,7 +1085,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_SetPinnedByStableId_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec,
-      [arg_stable_id, arg_pinned],
+      { arg_stable_id: arg_stable_id, arg_pinned: arg_pinned },
       false);
   }
 
@@ -1094,7 +1094,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetMetadataByStableId_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec,
-      [arg_stable_id],
+      { arg_stable_id: arg_stable_id },
       false);
   }
 
@@ -1103,7 +1103,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_CancelUploadByPath_ParamsSpec,
       null,
-      [arg_path, arg_cancel_mode],
+      { arg_path: arg_path, arg_cancel_mode: arg_cancel_mode },
       false);
   }
 
@@ -1112,7 +1112,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -1121,7 +1121,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1130,7 +1130,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_ClearOfflineFiles_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1139,7 +1139,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_ImmediatelyUpload_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -1148,7 +1148,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -1157,7 +1157,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -1166,7 +1166,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1175,7 +1175,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -1184,7 +1184,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -1289,12 +1289,12 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMetadata');
-          const result = this.impl.getMetadata(params.arg_arg_path);
+          const result = this.impl.getMetadata(params.arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetMetadata_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_metadata']);
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetMetadata_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_metadata': response.arg_metadata });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMetadata FAILED:', e));
           }
@@ -1304,13 +1304,13 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_SetPinned_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPinned');
-          const result = this.impl.setPinned(params.arg_arg_path, params.arg_arg_pinned);
+          const result = this.impl.setPinned(params.arg_path, params.arg_pinned);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_SetPinned_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_SetPinned_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setPinned FAILED:', e));
           }
@@ -1320,7 +1320,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_UpdateNetworkState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateNetworkState');
-          const result = this.impl.updateNetworkState(params.arg_arg_pause_syncing, params.arg_arg_is_offline);
+          const result = this.impl.updateNetworkState(params.arg_pause_syncing, params.arg_is_offline);
           break;
         }
         case 3: {
@@ -1332,8 +1332,8 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_ResetCache_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_ResetCache_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] resetCache FAILED:', e));
           }
@@ -1343,13 +1343,13 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetThumbnail_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getThumbnail');
-          const result = this.impl.getThumbnail(params.arg_arg_path, params.arg_arg_crop_to_square);
+          const result = this.impl.getThumbnail(params.arg_path, params.arg_crop_to_square);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_thumbnail' in response) ? response.arg_arg_thumbnail : response;
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetThumbnail_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_thumbnail' in response) ? response.arg_thumbnail : response;
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetThumbnail_ResponseParamsSpec.$.structSpec, { 'arg_thumbnail': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getThumbnail FAILED:', e));
           }
@@ -1359,13 +1359,13 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_CopyFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.copyFile');
-          const result = this.impl.copyFile(params.arg_arg_source, params.arg_arg_target);
+          const result = this.impl.copyFile(params.arg_source, params.arg_target);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_CopyFile_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_CopyFile_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] copyFile FAILED:', e));
           }
@@ -1375,7 +1375,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startSearchQuery');
-          const result = this.impl.startSearchQuery(params.arg_arg_query, params.arg_arg_query_params);
+          const result = this.impl.startSearchQuery(params.arg_query, params.arg_query_params);
           break;
         }
         case 7: {
@@ -1389,19 +1389,19 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_FetchChangeLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchChangeLog');
-          const result = this.impl.fetchChangeLog(params.arg_arg_options);
+          const result = this.impl.fetchChangeLog(params.arg_options);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNativeMessageRequest');
-          const result = this.impl.sendNativeMessageRequest(params.arg_arg_request);
+          const result = this.impl.sendNativeMessageRequest(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_response']);
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_response': response.arg_response });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendNativeMessageRequest FAILED:', e));
           }
@@ -1411,13 +1411,13 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_SetStartupArguments_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setStartupArguments');
-          const result = this.impl.setStartupArguments(params.arg_arg_arguments);
+          const result = this.impl.setStartupArguments(params.arg_arguments);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_SetStartupArguments_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_SetStartupArguments_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setStartupArguments FAILED:', e));
           }
@@ -1432,8 +1432,8 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_arguments' in response) ? response.arg_arg_arguments : response;
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetStartupArguments_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_arguments' in response) ? response.arg_arguments : response;
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetStartupArguments_ResponseParamsSpec.$.structSpec, { 'arg_arguments': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getStartupArguments FAILED:', e));
           }
@@ -1443,21 +1443,21 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_SetTracingEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTracingEnabled');
-          const result = this.impl.setTracingEnabled(params.arg_arg_enabled);
+          const result = this.impl.setTracingEnabled(params.arg_enabled);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNetworkingEnabled');
-          const result = this.impl.setNetworkingEnabled(params.arg_arg_enabled);
+          const result = this.impl.setNetworkingEnabled(params.arg_enabled);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_ForcePauseSyncing_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forcePauseSyncing');
-          const result = this.impl.forcePauseSyncing(params.arg_arg_enable);
+          const result = this.impl.forcePauseSyncing(params.arg_enable);
           break;
         }
         case 15: {
@@ -1478,20 +1478,20 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createNativeHostSession');
-          const result = this.impl.createNativeHostSession(params.arg_arg_params, params.arg_arg_host, params.arg_arg_port);
+          const result = this.impl.createNativeHostSession(params.arg_params, params.arg_host, params.arg_port);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.locateFilesByItemIds');
-          const result = this.impl.locateFilesByItemIds(params.arg_arg_item_ids);
+          const result = this.impl.locateFilesByItemIds(params.arg_item_ids);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] locateFilesByItemIds FAILED:', e));
           }
@@ -1506,7 +1506,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_quota']);
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_quota': response.arg_quota });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getQuotaUsage FAILED:', e));
           }
@@ -1516,13 +1516,13 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_ToggleMirroring_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleMirroring');
-          const result = this.impl.toggleMirroring(params.arg_arg_enabled);
+          const result = this.impl.toggleMirroring(params.arg_enabled);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] toggleMirroring FAILED:', e));
           }
@@ -1532,13 +1532,13 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_ToggleSyncForPath_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleSyncForPath');
-          const result = this.impl.toggleSyncForPath(params.arg_arg_path, params.arg_arg_status);
+          const result = this.impl.toggleSyncForPath(params.arg_path, params.arg_status);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] toggleSyncForPath FAILED:', e));
           }
@@ -1553,7 +1553,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_paths']);
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_paths': response.arg_paths });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSyncingPaths FAILED:', e));
           }
@@ -1575,7 +1575,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_quota']);
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_quota': response.arg_quota });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPooledQuotaUsage FAILED:', e));
           }
@@ -1585,13 +1585,13 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_SetPinnedByStableId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPinnedByStableId');
-          const result = this.impl.setPinnedByStableId(params.arg_arg_stable_id, params.arg_arg_pinned);
+          const result = this.impl.setPinnedByStableId(params.arg_stable_id, params.arg_pinned);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setPinnedByStableId FAILED:', e));
           }
@@ -1601,12 +1601,12 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetMetadataByStableId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMetadataByStableId');
-          const result = this.impl.getMetadataByStableId(params.arg_arg_stable_id);
+          const result = this.impl.getMetadataByStableId(params.arg_stable_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_metadata']);
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_metadata': response.arg_metadata });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMetadataByStableId FAILED:', e));
           }
@@ -1616,19 +1616,19 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_CancelUploadByPath_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelUploadByPath');
-          const result = this.impl.cancelUploadByPath(params.arg_arg_path, params.arg_arg_cancel_mode);
+          const result = this.impl.cancelUploadByPath(params.arg_path, params.arg_cancel_mode);
           break;
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDocsOfflineEnabled');
-          const result = this.impl.setDocsOfflineEnabled(params.arg_arg_enabled);
+          const result = this.impl.setDocsOfflineEnabled(params.arg_enabled);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_status']);
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_status': response.arg_status });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setDocsOfflineEnabled FAILED:', e));
           }
@@ -1643,7 +1643,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_space_used']);
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_space_used': response.arg_space_used });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOfflineFilesSpaceUsage FAILED:', e));
           }
@@ -1658,8 +1658,8 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] clearOfflineFiles FAILED:', e));
           }
@@ -1669,13 +1669,13 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_ImmediatelyUpload_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.immediatelyUpload');
-          const result = this.impl.immediatelyUpload(params.arg_arg_path);
+          const result = this.impl.immediatelyUpload(params.arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] immediatelyUpload FAILED:', e));
           }
@@ -1685,13 +1685,13 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateFromPairedDoc');
-          const result = this.impl.updateFromPairedDoc(params.arg_arg_path);
+          const result = this.impl.updateFromPairedDoc(params.arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateFromPairedDoc FAILED:', e));
           }
@@ -1701,13 +1701,13 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getItemFromCloudStore');
-          const result = this.impl.getItemFromCloudStore(params.arg_arg_path);
+          const result = this.impl.getItemFromCloudStore(params.arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getItemFromCloudStore FAILED:', e));
           }
@@ -1722,7 +1722,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_counts']);
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_counts': response.arg_counts });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDocsOfflineStats FAILED:', e));
           }
@@ -1732,13 +1732,13 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMirrorSyncStatusForFile');
-          const result = this.impl.getMirrorSyncStatusForFile(params.arg_arg_path);
+          const result = this.impl.getMirrorSyncStatusForFile(params.arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMirrorSyncStatusForFile FAILED:', e));
           }
@@ -1748,13 +1748,13 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMirrorSyncStatusForDirectory');
-          const result = this.impl.getMirrorSyncStatusForDirectory(params.arg_arg_path);
+          const result = this.impl.getMirrorSyncStatusForDirectory(params.arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMirrorSyncStatusForDirectory FAILED:', e));
           }
@@ -1894,7 +1894,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec,
-      [arg_client_id, arg_app_id, arg_scopes],
+      { arg_client_id: arg_client_id, arg_app_id: arg_app_id, arg_scopes: arg_scopes },
       false);
   }
 
@@ -1903,7 +1903,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnMounted_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1912,7 +1912,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec,
       null,
-      [arg_retry_delay],
+      { arg_retry_delay: arg_retry_delay },
       false);
   }
 
@@ -1921,7 +1921,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec,
       null,
-      [arg_retry_delay],
+      { arg_retry_delay: arg_retry_delay },
       false);
   }
 
@@ -1930,7 +1930,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -1939,7 +1939,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec,
       null,
-      [arg_changes],
+      { arg_changes: arg_changes },
       false);
   }
 
@@ -1948,7 +1948,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnError_ParamsSpec,
       null,
-      [arg_error],
+      { arg_error: arg_error },
       false);
   }
 
@@ -1957,7 +1957,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec,
       null,
-      [arg_team_drive_ids],
+      { arg_team_drive_ids: arg_team_drive_ids },
       false);
   }
 
@@ -1966,7 +1966,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec,
       null,
-      [arg_team_drive_id, arg_change_type],
+      { arg_team_drive_id: arg_team_drive_id, arg_change_type: arg_change_type },
       false);
   }
 
@@ -1975,7 +1975,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnHeartbeat_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1984,7 +1984,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec,
-      [arg_params, arg_port, arg_host],
+      { arg_params: arg_params, arg_port: arg_port, arg_host: arg_host },
       false);
   }
 
@@ -1993,7 +1993,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec,
-      [arg_reason],
+      { arg_reason: arg_reason },
       false);
   }
 
@@ -2002,7 +2002,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec,
       null,
-      [arg_request, arg_delegate],
+      { arg_request: arg_request, arg_delegate: arg_delegate },
       false);
   }
 
@@ -2011,7 +2011,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetMachineRootID_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2020,7 +2020,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec,
       null,
-      [arg_doc_id],
+      { arg_doc_id: arg_doc_id },
       false);
   }
 
@@ -2029,7 +2029,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -2038,7 +2038,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec,
       null,
-      [arg_progress_event],
+      { arg_progress_event: arg_progress_event },
       false);
   }
 
@@ -2047,7 +2047,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec,
-      [arg_client_id, arg_app_id, arg_scopes],
+      { arg_client_id: arg_client_id, arg_app_id: arg_app_id, arg_scopes: arg_scopes },
       false);
   }
 
@@ -2056,7 +2056,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec,
       null,
-      [arg_notification],
+      { arg_notification: arg_notification },
       false);
   }
 
@@ -2065,7 +2065,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec,
       null,
-      [arg_error_list],
+      { arg_error_list: arg_error_list },
       false);
   }
 
@@ -2153,12 +2153,12 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAccessToken');
-          const result = this.impl.getAccessToken(params.arg_arg_client_id, params.arg_arg_app_id, params.arg_arg_scopes);
+          const result = this.impl.getAccessToken(params.arg_client_id, params.arg_app_id, params.arg_scopes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_access_token']);
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_access_token': response.arg_access_token });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAccessToken FAILED:', e));
           }
@@ -2175,49 +2175,49 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMountFailed');
-          const result = this.impl.onMountFailed(params.arg_arg_retry_delay);
+          const result = this.impl.onMountFailed(params.arg_retry_delay);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUnmounted');
-          const result = this.impl.onUnmounted(params.arg_arg_retry_delay);
+          const result = this.impl.onUnmounted(params.arg_retry_delay);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSyncingStatusUpdate');
-          const result = this.impl.onSyncingStatusUpdate(params.arg_arg_status);
+          const result = this.impl.onSyncingStatusUpdate(params.arg_status);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFilesChanged');
-          const result = this.impl.onFilesChanged(params.arg_arg_changes);
+          const result = this.impl.onFilesChanged(params.arg_changes);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_error);
+          const result = this.impl.onError(params.arg_error);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTeamDrivesListReady');
-          const result = this.impl.onTeamDrivesListReady(params.arg_arg_team_drive_ids);
+          const result = this.impl.onTeamDrivesListReady(params.arg_team_drive_ids);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTeamDriveChanged');
-          const result = this.impl.onTeamDriveChanged(params.arg_arg_team_drive_id, params.arg_arg_change_type);
+          const result = this.impl.onTeamDriveChanged(params.arg_team_drive_id, params.arg_change_type);
           break;
         }
         case 9: {
@@ -2231,13 +2231,13 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToExtension');
-          const result = this.impl.connectToExtension(params.arg_arg_params, params.arg_arg_port, params.arg_arg_host);
+          const result = this.impl.connectToExtension(params.arg_params, params.arg_port, params.arg_host);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] connectToExtension FAILED:', e));
           }
@@ -2247,13 +2247,13 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.displayConfirmDialog');
-          const result = this.impl.displayConfirmDialog(params.arg_arg_reason);
+          const result = this.impl.displayConfirmDialog(params.arg_reason);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] displayConfirmDialog FAILED:', e));
           }
@@ -2263,7 +2263,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeHttpRequest');
-          const result = this.impl.executeHttpRequest(params.arg_arg_request, params.arg_arg_delegate);
+          const result = this.impl.executeHttpRequest(params.arg_request, params.arg_delegate);
           break;
         }
         case 13: {
@@ -2275,8 +2275,8 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_doc_id' in response) ? response.arg_arg_doc_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetMachineRootID_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_doc_id' in response) ? response.arg_doc_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetMachineRootID_ResponseParamsSpec.$.structSpec, { 'arg_doc_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMachineRootID FAILED:', e));
           }
@@ -2286,33 +2286,33 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.persistMachineRootID');
-          const result = this.impl.persistMachineRootID(params.arg_arg_doc_id);
+          const result = this.impl.persistMachineRootID(params.arg_doc_id);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMirrorSyncingStatusUpdate');
-          const result = this.impl.onMirrorSyncingStatusUpdate(params.arg_arg_status);
+          const result = this.impl.onMirrorSyncingStatusUpdate(params.arg_status);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onItemProgress');
-          const result = this.impl.onItemProgress(params.arg_arg_progress_event);
+          const result = this.impl.onItemProgress(params.arg_progress_event);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAccessTokenWithExpiry');
-          const result = this.impl.getAccessTokenWithExpiry(params.arg_arg_client_id, params.arg_arg_app_id, params.arg_arg_scopes);
+          const result = this.impl.getAccessTokenWithExpiry(params.arg_client_id, params.arg_app_id, params.arg_scopes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_access_token']);
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_access_token': response.arg_access_token });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAccessTokenWithExpiry FAILED:', e));
           }
@@ -2322,14 +2322,14 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNotificationReceived');
-          const result = this.impl.onNotificationReceived(params.arg_arg_notification);
+          const result = this.impl.onNotificationReceived(params.arg_notification);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMirrorSyncError');
-          const result = this.impl.onMirrorSyncError(params.arg_arg_error_list);
+          const result = this.impl.onMirrorSyncError(params.arg_error_list);
           break;
         }
       }
@@ -2390,7 +2390,7 @@ mojo.internal.bindings.drivefs.mojom.SearchQueryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.drivefs.mojom.SearchQuery_GetNextPage_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.SearchQuery_GetNextPage_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2464,7 +2464,7 @@ mojo.internal.bindings.drivefs.mojom.SearchQueryReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.SearchQuery_GetNextPage_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_results']);
+              encoder.encodeStructInline(mojo.internal.bindings.drivefs.mojom.SearchQuery_GetNextPage_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_results': response.arg_results });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNextPage FAILED:', e));
           }
@@ -2540,7 +2540,7 @@ mojo.internal.bindings.drivefs.mojom.HttpDelegateRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.drivefs.mojom.HttpDelegate_GetRequestBody_ParamsSpec,
       null,
-      [arg_request_body],
+      { arg_request_body: arg_request_body },
       false);
   }
 
@@ -2549,7 +2549,7 @@ mojo.internal.bindings.drivefs.mojom.HttpDelegateRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.drivefs.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec,
       null,
-      [arg_response],
+      { arg_response: arg_response },
       false);
   }
 
@@ -2558,7 +2558,7 @@ mojo.internal.bindings.drivefs.mojom.HttpDelegateRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.drivefs.mojom.HttpDelegate_OnReceiveBody_ParamsSpec,
       null,
-      [arg_response_body],
+      { arg_response_body: arg_response_body },
       false);
   }
 
@@ -2567,7 +2567,7 @@ mojo.internal.bindings.drivefs.mojom.HttpDelegateRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.drivefs.mojom.HttpDelegate_OnRequestComplete_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -2639,28 +2639,28 @@ mojo.internal.bindings.drivefs.mojom.HttpDelegateReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.HttpDelegate_GetRequestBody_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRequestBody');
-          const result = this.impl.getRequestBody(params.arg_arg_request_body);
+          const result = this.impl.getRequestBody(params.arg_request_body);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReceiveResponse');
-          const result = this.impl.onReceiveResponse(params.arg_arg_response);
+          const result = this.impl.onReceiveResponse(params.arg_response);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.HttpDelegate_OnReceiveBody_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReceiveBody');
-          const result = this.impl.onReceiveBody(params.arg_arg_response_body);
+          const result = this.impl.onReceiveBody(params.arg_response_body);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.HttpDelegate_OnRequestComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRequestComplete');
-          const result = this.impl.onRequestComplete(params.arg_arg_status);
+          const result = this.impl.onRequestComplete(params.arg_status);
           break;
         }
       }

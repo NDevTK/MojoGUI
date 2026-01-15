@@ -170,7 +170,7 @@ mojo.internal.bindings.content.mojom.DomAutomationControllerHostRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec,
       null,
-      [arg_json_string],
+      { arg_json_string: arg_json_string },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.content.mojom.DomAutomationControllerHostReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.domOperationResponse');
-          const result = this.impl.domOperationResponse(params.arg_arg_json_string);
+          const result = this.impl.domOperationResponse(params.arg_json_string);
           break;
         }
       }

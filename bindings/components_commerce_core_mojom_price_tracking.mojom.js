@@ -231,7 +231,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec,
       null,
-      [arg_bookmark_id],
+      { arg_bookmark_id: arg_bookmark_id },
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerRemoteC
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec,
       null,
-      [arg_bookmark_id],
+      { arg_bookmark_id: arg_bookmark_id },
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerRemoteC
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec,
       null,
-      [arg_track],
+      { arg_track: arg_track },
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerRemoteC
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec,
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerRemoteC
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec,
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerRemoteC
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec,
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerRemoteC
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec,
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerRemoteC
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -370,21 +370,21 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.trackPriceForBookmark');
-          const result = this.impl.trackPriceForBookmark(params.arg_arg_bookmark_id);
+          const result = this.impl.trackPriceForBookmark(params.arg_bookmark_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.untrackPriceForBookmark');
-          const result = this.impl.untrackPriceForBookmark(params.arg_arg_bookmark_id);
+          const result = this.impl.untrackPriceForBookmark(params.arg_bookmark_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPriceTrackingStatusForCurrentUrl');
-          const result = this.impl.setPriceTrackingStatusForCurrentUrl(params.arg_arg_track);
+          const result = this.impl.setPriceTrackingStatusForCurrentUrl(params.arg_track);
           break;
         }
         case 3: {
@@ -396,8 +396,8 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerReceive
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_productInfos' in response) ? response.arg_arg_productInfos : response;
-              encoder.encodeStructInline(mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_productInfos' in response) ? response.arg_productInfos : response;
+              encoder.encodeStructInline(mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec.$.structSpec, { 'arg_productInfos': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAllShoppingBookmarkProductInfo FAILED:', e));
           }
@@ -412,8 +412,8 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerReceive
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_productInfos' in response) ? response.arg_arg_productInfos : response;
-              encoder.encodeStructInline(mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_productInfos' in response) ? response.arg_productInfos : response;
+              encoder.encodeStructInline(mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec.$.structSpec, { 'arg_productInfos': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAllPriceTrackedBookmarkProductInfo FAILED:', e));
           }
@@ -428,8 +428,8 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerReceive
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_collectionId' in response) ? response.arg_arg_collectionId : response;
-              encoder.encodeStructInline(mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_collectionId' in response) ? response.arg_collectionId : response;
+              encoder.encodeStructInline(mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec.$.structSpec, { 'arg_collectionId': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getShoppingCollectionBookmarkFolderId FAILED:', e));
           }
@@ -444,8 +444,8 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerReceive
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_name' in response) ? response.arg_arg_name : response;
-              encoder.encodeStructInline(mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_name' in response) ? response.arg_name : response;
+              encoder.encodeStructInline(mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec.$.structSpec, { 'arg_name': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getParentBookmarkFolderNameForCurrentUrl FAILED:', e));
           }
@@ -528,7 +528,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PageRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec,
       null,
-      [arg_bookmark_product],
+      { arg_bookmark_product: arg_bookmark_product },
       false);
   }
 
@@ -537,7 +537,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PageRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec,
       null,
-      [arg_bookmark_product],
+      { arg_bookmark_product: arg_bookmark_product },
       false);
   }
 
@@ -546,7 +546,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PageRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec,
       null,
-      [arg_bookmark_product, arg_attempted_track],
+      { arg_bookmark_product: arg_bookmark_product, arg_attempted_track: arg_attempted_track },
       false);
   }
 
@@ -555,7 +555,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PageRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec,
       null,
-      [arg_bookmark_product],
+      { arg_bookmark_product: arg_bookmark_product },
       false);
   }
 
@@ -627,28 +627,28 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.priceTrackedForBookmark');
-          const result = this.impl.priceTrackedForBookmark(params.arg_arg_bookmark_product);
+          const result = this.impl.priceTrackedForBookmark(params.arg_bookmark_product);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.priceUntrackedForBookmark');
-          const result = this.impl.priceUntrackedForBookmark(params.arg_arg_bookmark_product);
+          const result = this.impl.priceUntrackedForBookmark(params.arg_bookmark_product);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.operationFailedForBookmark');
-          const result = this.impl.operationFailedForBookmark(params.arg_arg_bookmark_product, params.arg_arg_attempted_track);
+          const result = this.impl.operationFailedForBookmark(params.arg_bookmark_product, params.arg_attempted_track);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProductBookmarkMoved');
-          const result = this.impl.onProductBookmarkMoved(params.arg_arg_bookmark_product);
+          const result = this.impl.onProductBookmarkMoved(params.arg_bookmark_product);
           break;
         }
       }
@@ -709,7 +709,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactory
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -778,7 +778,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactory
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPriceTrackingHandler');
-          const result = this.impl.createPriceTrackingHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPriceTrackingHandler(params.arg_page, params.arg_handler);
           break;
         }
       }

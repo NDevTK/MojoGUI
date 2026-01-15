@@ -187,7 +187,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec,
       null,
-      [arg_changes],
+      { arg_changes: arg_changes },
       false);
   }
 
@@ -256,7 +256,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFileChanges');
-          const result = this.impl.onFileChanges(params.arg_arg_changes);
+          const result = this.impl.onFileChanges(params.arg_changes);
           break;
         }
       }

@@ -225,7 +225,7 @@ mojo.internal.bindings.arc.mojom.PolicyHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.PolicyHost_GetPolicies_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.arc.mojom.PolicyHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.arc.mojom.PolicyHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec,
       null,
-      [arg_version],
+      { arg_version: arg_version },
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.arc.mojom.PolicyHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec,
       null,
-      [arg_time, arg_package_names],
+      { arg_time: arg_time, arg_package_names: arg_package_names },
       false);
   }
 
@@ -329,8 +329,8 @@ mojo.internal.bindings.arc.mojom.PolicyHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_policies' in response) ? response.arg_arg_policies : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_policies' in response) ? response.arg_policies : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec.$.structSpec, { 'arg_policies': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPolicies FAILED:', e));
           }
@@ -340,13 +340,13 @@ mojo.internal.bindings.arc.mojom.PolicyHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportCompliance');
-          const result = this.impl.reportCompliance(params.arg_arg_request);
+          const result = this.impl.reportCompliance(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] reportCompliance FAILED:', e));
           }
@@ -356,14 +356,14 @@ mojo.internal.bindings.arc.mojom.PolicyHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportDPCVersion');
-          const result = this.impl.reportDPCVersion(params.arg_arg_version);
+          const result = this.impl.reportDPCVersion(params.arg_version);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportPlayStoreLocalPolicySet');
-          const result = this.impl.reportPlayStoreLocalPolicySet(params.arg_arg_time, params.arg_arg_package_names);
+          const result = this.impl.reportPlayStoreLocalPolicySet(params.arg_time, params.arg_package_names);
           break;
         }
       }
@@ -432,7 +432,7 @@ mojo.internal.bindings.arc.mojom.PolicyInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -441,7 +441,7 @@ mojo.internal.bindings.arc.mojom.PolicyInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -450,7 +450,7 @@ mojo.internal.bindings.arc.mojom.PolicyInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec,
-      [arg_command],
+      { arg_command: arg_command },
       false);
   }
 
@@ -521,12 +521,12 @@ mojo.internal.bindings.arc.mojom.PolicyInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -543,13 +543,13 @@ mojo.internal.bindings.arc.mojom.PolicyInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCommandReceived');
-          const result = this.impl.onCommandReceived(params.arg_arg_command);
+          const result = this.impl.onCommandReceived(params.arg_command);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onCommandReceived FAILED:', e));
           }

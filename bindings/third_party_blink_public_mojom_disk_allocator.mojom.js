@@ -176,7 +176,7 @@ mojo.internal.bindings.blink.mojom.DiskAllocatorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec,
       null,
-      [arg_file],
+      { arg_file: arg_file },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.blink.mojom.DiskAllocatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.provideTemporaryFile');
-          const result = this.impl.provideTemporaryFile(params.arg_arg_file);
+          const result = this.impl.provideTemporaryFile(params.arg_file);
           break;
         }
       }

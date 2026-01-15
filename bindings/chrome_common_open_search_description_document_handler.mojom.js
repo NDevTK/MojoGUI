@@ -176,7 +176,7 @@ mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec,
       null,
-      [arg_page_url, arg_osdd_url],
+      { arg_page_url: arg_page_url, arg_osdd_url: arg_osdd_url },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pageHasOpenSearchDescriptionDocument');
-          const result = this.impl.pageHasOpenSearchDescriptionDocument(params.arg_arg_page_url, params.arg_arg_osdd_url);
+          const result = this.impl.pageHasOpenSearchDescriptionDocument(params.arg_page_url, params.arg_osdd_url);
           break;
         }
       }

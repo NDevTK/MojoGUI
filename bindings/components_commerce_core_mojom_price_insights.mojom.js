@@ -180,7 +180,7 @@ mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -189,7 +189,7 @@ mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerRemoteC
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec,
       null,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -396,7 +396,7 @@ mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPriceInsightsHandler');
-          const result = this.impl.createPriceInsightsHandler(params.arg_arg_handler);
+          const result = this.impl.createPriceInsightsHandler(params.arg_handler);
           break;
         }
       }

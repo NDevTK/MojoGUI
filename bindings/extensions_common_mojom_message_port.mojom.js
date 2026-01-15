@@ -237,7 +237,7 @@ mojo.internal.bindings.extensions.mojom.MessagePortRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec,
       null,
-      [arg_error],
+      { arg_error: arg_error },
       false);
   }
 
@@ -246,7 +246,7 @@ mojo.internal.bindings.extensions.mojom.MessagePortRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.MessagePort_DeliverMessage_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -316,14 +316,14 @@ mojo.internal.bindings.extensions.mojom.MessagePortReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchDisconnect');
-          const result = this.impl.dispatchDisconnect(params.arg_arg_error);
+          const result = this.impl.dispatchDisconnect(params.arg_error);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MessagePort_DeliverMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deliverMessage');
-          const result = this.impl.deliverMessage(params.arg_arg_message);
+          const result = this.impl.deliverMessage(params.arg_message);
           break;
         }
       }
@@ -392,7 +392,7 @@ mojo.internal.bindings.extensions.mojom.MessagePortHostRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.MessagePortHost_ClosePort_ParamsSpec,
       null,
-      [arg_close_channel, arg_error_message],
+      { arg_close_channel: arg_close_channel, arg_error_message: arg_error_message },
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.extensions.mojom.MessagePortHostRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.MessagePortHost_PostMessage_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.extensions.mojom.MessagePortHostRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -481,14 +481,14 @@ mojo.internal.bindings.extensions.mojom.MessagePortHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MessagePortHost_ClosePort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closePort');
-          const result = this.impl.closePort(params.arg_arg_close_channel, params.arg_arg_error_message);
+          const result = this.impl.closePort(params.arg_close_channel, params.arg_error_message);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.MessagePortHost_PostMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.postMessage');
-          const result = this.impl.postMessage(params.arg_arg_message);
+          const result = this.impl.postMessage(params.arg_message);
           break;
         }
         case 2: {

@@ -182,7 +182,7 @@ mojo.internal.bindings.network.mojom.MdnsResponderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec,
       mojo.internal.bindings.network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec,
-      [arg_address],
+      { arg_address: arg_address },
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.network.mojom.MdnsResponderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec,
       mojo.internal.bindings.network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec,
-      [arg_address],
+      { arg_address: arg_address },
       false);
   }
 
@@ -261,12 +261,12 @@ mojo.internal.bindings.network.mojom.MdnsResponderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createNameForAddress');
-          const result = this.impl.createNameForAddress(params.arg_arg_address);
+          const result = this.impl.createNameForAddress(params.arg_address);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec.$.structSpec, ['response.arg_arg_name', 'response.arg_arg_announcement_scheduled']);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec.$.structSpec, { 'arg_name': response.arg_name, 'arg_announcement_scheduled': response.arg_announcement_scheduled });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createNameForAddress FAILED:', e));
           }
@@ -276,12 +276,12 @@ mojo.internal.bindings.network.mojom.MdnsResponderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeNameForAddress');
-          const result = this.impl.removeNameForAddress(params.arg_arg_address);
+          const result = this.impl.removeNameForAddress(params.arg_address);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec.$.structSpec, ['response.arg_arg_removed', 'response.arg_arg_goodbye_scheduled']);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec.$.structSpec, { 'arg_removed': response.arg_removed, 'arg_goodbye_scheduled': response.arg_goodbye_scheduled });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] removeNameForAddress FAILED:', e));
           }

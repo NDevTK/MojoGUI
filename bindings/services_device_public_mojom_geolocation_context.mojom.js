@@ -212,7 +212,7 @@ mojo.internal.bindings.device.mojom.GeolocationContextRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.GeolocationContext_BindGeolocation_ParamsSpec,
       null,
-      [arg_receiver, arg_requesting_url, arg_client_id, arg_has_precise_permission],
+      { arg_receiver: arg_receiver, arg_requesting_url: arg_requesting_url, arg_client_id: arg_client_id, arg_has_precise_permission: arg_has_precise_permission },
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.device.mojom.GeolocationContextRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec,
       null,
-      [arg_origin, arg_permission_level],
+      { arg_origin: arg_origin, arg_permission_level: arg_permission_level },
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.device.mojom.GeolocationContextRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.GeolocationContext_SetOverride_ParamsSpec,
       null,
-      [arg_result],
+      { arg_result: arg_result },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.device.mojom.GeolocationContextRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.GeolocationContext_ClearOverride_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -311,21 +311,21 @@ mojo.internal.bindings.device.mojom.GeolocationContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationContext_BindGeolocation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindGeolocation');
-          const result = this.impl.bindGeolocation(params.arg_arg_receiver, params.arg_arg_requesting_url, params.arg_arg_client_id, params.arg_arg_has_precise_permission);
+          const result = this.impl.bindGeolocation(params.arg_receiver, params.arg_requesting_url, params.arg_client_id, params.arg_has_precise_permission);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPermissionUpdated');
-          const result = this.impl.onPermissionUpdated(params.arg_arg_origin, params.arg_arg_permission_level);
+          const result = this.impl.onPermissionUpdated(params.arg_origin, params.arg_permission_level);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationContext_SetOverride_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOverride');
-          const result = this.impl.setOverride(params.arg_arg_result);
+          const result = this.impl.setOverride(params.arg_result);
           break;
         }
         case 3: {

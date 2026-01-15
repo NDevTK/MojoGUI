@@ -182,7 +182,7 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec,
       mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec,
       mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -283,8 +283,8 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_request_issued' in response) ? response.arg_arg_request_issued : response;
-              encoder.encodeStructInline(mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_request_issued' in response) ? response.arg_request_issued : response;
+              encoder.encodeStructInline(mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec.$.structSpec, { 'arg_request_issued': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestUrlAccessRemote FAILED:', e));
           }
@@ -299,8 +299,8 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_request_issued' in response) ? response.arg_arg_request_issued : response;
-              encoder.encodeStructInline(mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_request_issued' in response) ? response.arg_request_issued : response;
+              encoder.encodeStructInline(mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec.$.structSpec, { 'arg_request_issued': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestUrlAccessLocal FAILED:', e));
           }

@@ -190,7 +190,7 @@ mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -352,7 +352,7 @@ mojo.internal.bindings.crosapi.mojom.LoginRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.crosapi.mojom.LoginRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.crosapi.mojom.LoginRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec,
-      [arg_password],
+      { arg_password: arg_password },
       false);
   }
 
@@ -379,7 +379,7 @@ mojo.internal.bindings.crosapi.mojom.LoginRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec,
-      [arg_password],
+      { arg_password: arg_password },
       false);
   }
 
@@ -388,7 +388,7 @@ mojo.internal.bindings.crosapi.mojom.LoginRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec,
-      [arg_password],
+      { arg_password: arg_password },
       false);
   }
 
@@ -397,7 +397,7 @@ mojo.internal.bindings.crosapi.mojom.LoginRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec,
-      [arg_password],
+      { arg_password: arg_password },
       false);
   }
 
@@ -406,7 +406,7 @@ mojo.internal.bindings.crosapi.mojom.LoginRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec,
-      [arg_password],
+      { arg_password: arg_password },
       false);
   }
 
@@ -415,7 +415,7 @@ mojo.internal.bindings.crosapi.mojom.LoginRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec,
-      [arg_properties],
+      { arg_properties: arg_properties },
       false);
   }
 
@@ -424,7 +424,7 @@ mojo.internal.bindings.crosapi.mojom.LoginRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec,
-      [arg_password],
+      { arg_password: arg_password },
       false);
   }
 
@@ -501,7 +501,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addExternalLogoutRequestObserver');
-          const result = this.impl.addExternalLogoutRequestObserver(params.arg_arg_observer);
+          const result = this.impl.addExternalLogoutRequestObserver(params.arg_observer);
           break;
         }
         case 1: {
@@ -515,13 +515,13 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_0');
-          const result = this.impl.rEMOVED_0(params.arg_arg_password);
+          const result = this.impl.rEMOVED_0(params.arg_password);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] rEMOVED_0 FAILED:', e));
           }
@@ -531,13 +531,13 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_4');
-          const result = this.impl.rEMOVED_4(params.arg_arg_password);
+          const result = this.impl.rEMOVED_4(params.arg_password);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] rEMOVED_4 FAILED:', e));
           }
@@ -547,13 +547,13 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_5');
-          const result = this.impl.rEMOVED_5(params.arg_arg_password);
+          const result = this.impl.rEMOVED_5(params.arg_password);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] rEMOVED_5 FAILED:', e));
           }
@@ -563,13 +563,13 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_6');
-          const result = this.impl.rEMOVED_6(params.arg_arg_password);
+          const result = this.impl.rEMOVED_6(params.arg_password);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] rEMOVED_6 FAILED:', e));
           }
@@ -579,13 +579,13 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_7');
-          const result = this.impl.rEMOVED_7(params.arg_arg_password);
+          const result = this.impl.rEMOVED_7(params.arg_password);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] rEMOVED_7 FAILED:', e));
           }
@@ -595,13 +595,13 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_10');
-          const result = this.impl.rEMOVED_10(params.arg_arg_properties);
+          const result = this.impl.rEMOVED_10(params.arg_properties);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] rEMOVED_10 FAILED:', e));
           }
@@ -611,13 +611,13 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_12');
-          const result = this.impl.rEMOVED_12(params.arg_arg_password);
+          const result = this.impl.rEMOVED_12(params.arg_password);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] rEMOVED_12 FAILED:', e));
           }

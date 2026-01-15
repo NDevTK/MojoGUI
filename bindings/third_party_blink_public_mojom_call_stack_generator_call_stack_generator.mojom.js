@@ -176,7 +176,7 @@ mojo.internal.bindings.blink.mojom.CallStackGeneratorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -250,7 +250,7 @@ mojo.internal.bindings.blink.mojom.CallStackGeneratorReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec.$.structSpec, ['response.arg_arg_javascript_call_stack', 'response.arg_arg_frame_token']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec.$.structSpec, { 'arg_javascript_call_stack': response.arg_javascript_call_stack, 'arg_frame_token': response.arg_frame_token });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] collectJavaScriptCallStack FAILED:', e));
           }

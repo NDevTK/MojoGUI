@@ -205,7 +205,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerFactoryRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -274,7 +274,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerFactoryReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -383,7 +383,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec,
       mojo.internal.bindings.password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec,
       mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec,
       mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -428,7 +428,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec,
       null,
-      [arg_site],
+      { arg_site: arg_site },
       false);
   }
 
@@ -437,7 +437,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec,
       mojo.internal.bindings.password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -446,7 +446,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -455,7 +455,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec,
       mojo.internal.bindings.password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -464,7 +464,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -473,7 +473,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec,
       mojo.internal.bindings.password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -482,7 +482,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec,
       mojo.internal.bindings.password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -491,7 +491,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec,
       mojo.internal.bindings.password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -584,8 +584,8 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteAllPasswordManagerData FAILED:', e));
           }
@@ -595,13 +595,13 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.copyPlaintextBackupPassword');
-          const result = this.impl.copyPlaintextBackupPassword(params.arg_arg_id);
+          const result = this.impl.copyPlaintextBackupPassword(params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] copyPlaintextBackupPassword FAILED:', e));
           }
@@ -611,7 +611,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeBackupPassword');
-          const result = this.impl.removeBackupPassword(params.arg_arg_id);
+          const result = this.impl.removeBackupPassword(params.arg_id);
           break;
         }
         case 4: {
@@ -623,8 +623,8 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_sites' in response) ? response.arg_arg_sites : response;
-              encoder.encodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_sites' in response) ? response.arg_sites : response;
+              encoder.encodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec.$.structSpec, { 'arg_sites': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getActorLoginPermissions FAILED:', e));
           }
@@ -634,7 +634,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.revokeActorLoginPermission');
-          const result = this.impl.revokeActorLoginPermission(params.arg_arg_site);
+          const result = this.impl.revokeActorLoginPermission(params.arg_site);
           break;
         }
         case 6: {
@@ -646,8 +646,8 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] changePasswordManagerPin FAILED:', e));
           }
@@ -669,8 +669,8 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_enabled' in response) ? response.arg_arg_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_enabled' in response) ? response.arg_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec.$.structSpec, { 'arg_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isAccountStorageEnabled FAILED:', e));
           }
@@ -680,7 +680,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAccountStorageEnabled');
-          const result = this.impl.setAccountStorageEnabled(params.arg_arg_enabled);
+          const result = this.impl.setAccountStorageEnabled(params.arg_enabled);
           break;
         }
         case 10: {
@@ -692,8 +692,8 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_should_show' in response) ? response.arg_arg_should_show : response;
-              encoder.encodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_should_show' in response) ? response.arg_should_show : response;
+              encoder.encodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec.$.structSpec, { 'arg_should_show': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] shouldShowAccountStorageSettingToggle FAILED:', e));
           }
@@ -708,8 +708,8 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_available' in response) ? response.arg_arg_is_available : response;
-              encoder.encodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_available' in response) ? response.arg_is_available : response;
+              encoder.encodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec.$.structSpec, { 'arg_is_available': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isPasswordManagerPinAvailable FAILED:', e));
           }
@@ -724,8 +724,8 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] switchBiometricAuthBeforeFillingState FAILED:', e));
           }

@@ -188,7 +188,7 @@ mojo.internal.bindings.ash.trash_service.mojom.TrashServiceRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec,
       mojo.internal.bindings.ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec,
-      [arg_trash_info_file],
+      { arg_trash_info_file: arg_trash_info_file },
       false);
   }
 
@@ -257,12 +257,12 @@ mojo.internal.bindings.ash.trash_service.mojom.TrashServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseTrashInfoFile');
-          const result = this.impl.parseTrashInfoFile(params.arg_arg_trash_info_file);
+          const result = this.impl.parseTrashInfoFile(params.arg_trash_info_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_restore_path', 'response.arg_arg_deletion_date']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_restore_path': response.arg_restore_path, 'arg_deletion_date': response.arg_deletion_date });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] parseTrashInfoFile FAILED:', e));
           }

@@ -182,7 +182,7 @@ mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandlerRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandlerRemoteCa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandlerRemoteCa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec,
       mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -290,8 +290,8 @@ mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandlerReceiver
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_show' in response) ? response.arg_arg_show : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_show' in response) ? response.arg_show : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec.$.structSpec, { 'arg_show': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] shouldShowModule FAILED:', e));
           }

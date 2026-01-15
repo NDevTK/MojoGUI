@@ -230,7 +230,7 @@ mojo.internal.bindings.video_capture.mojom.DeviceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.video_capture.mojom.Device_Start_ParamsSpec,
       null,
-      [arg_requested_settings, arg_handler],
+      { arg_requested_settings: arg_requested_settings, arg_handler: arg_handler },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.video_capture.mojom.DeviceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.video_capture.mojom.Device_MaybeSuspend_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.video_capture.mojom.DeviceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.video_capture.mojom.Device_Resume_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.video_capture.mojom.DeviceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.video_capture.mojom.Device_GetPhotoState_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.video_capture.mojom.DeviceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.video_capture.mojom.Device_SetPhotoOptions_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.Device_SetPhotoOptions_ResponseParamsSpec,
-      [arg_settings],
+      { arg_settings: arg_settings },
       false);
   }
 
@@ -275,7 +275,7 @@ mojo.internal.bindings.video_capture.mojom.DeviceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.video_capture.mojom.Device_TakePhoto_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.Device_TakePhoto_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -284,7 +284,7 @@ mojo.internal.bindings.video_capture.mojom.DeviceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.video_capture.mojom.Device_ProcessFeedback_ParamsSpec,
       null,
-      [arg_feedback],
+      { arg_feedback: arg_feedback },
       false);
   }
 
@@ -293,7 +293,7 @@ mojo.internal.bindings.video_capture.mojom.DeviceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.video_capture.mojom.Device_RequestRefreshFrame_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -369,7 +369,7 @@ mojo.internal.bindings.video_capture.mojom.DeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.Device_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start(params.arg_arg_requested_settings, params.arg_arg_handler);
+          const result = this.impl.start(params.arg_requested_settings, params.arg_handler);
           break;
         }
         case 1: {
@@ -395,8 +395,8 @@ mojo.internal.bindings.video_capture.mojom.DeviceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_capabilities' in response) ? response.arg_arg_capabilities : response;
-              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_capabilities' in response) ? response.arg_capabilities : response;
+              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec.$.structSpec, { 'arg_capabilities': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPhotoState FAILED:', e));
           }
@@ -406,13 +406,13 @@ mojo.internal.bindings.video_capture.mojom.DeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.Device_SetPhotoOptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPhotoOptions');
-          const result = this.impl.setPhotoOptions(params.arg_arg_settings);
+          const result = this.impl.setPhotoOptions(params.arg_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.Device_SetPhotoOptions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.Device_SetPhotoOptions_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setPhotoOptions FAILED:', e));
           }
@@ -427,8 +427,8 @@ mojo.internal.bindings.video_capture.mojom.DeviceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_blob' in response) ? response.arg_arg_blob : response;
-              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.Device_TakePhoto_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_blob' in response) ? response.arg_blob : response;
+              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.Device_TakePhoto_ResponseParamsSpec.$.structSpec, { 'arg_blob': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] takePhoto FAILED:', e));
           }
@@ -438,7 +438,7 @@ mojo.internal.bindings.video_capture.mojom.DeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.Device_ProcessFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.processFeedback');
-          const result = this.impl.processFeedback(params.arg_arg_feedback);
+          const result = this.impl.processFeedback(params.arg_feedback);
           break;
         }
         case 7: {

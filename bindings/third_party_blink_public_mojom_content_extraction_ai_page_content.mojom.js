@@ -351,7 +351,7 @@ mojo.internal.bindings.blink.mojom.AIPageContentAgentRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -420,13 +420,13 @@ mojo.internal.bindings.blink.mojom.AIPageContentAgentReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAIPageContent');
-          const result = this.impl.getAIPageContent(params.arg_arg_request);
+          const result = this.impl.getAIPageContent(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_page_content' in response) ? response.arg_arg_page_content : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_page_content' in response) ? response.arg_page_content : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec.$.structSpec, { 'arg_page_content': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAIPageContent FAILED:', e));
           }

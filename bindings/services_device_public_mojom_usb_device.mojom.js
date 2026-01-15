@@ -385,7 +385,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_Open_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_Open_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_Close_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_Close_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_SetConfiguration_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_SetConfiguration_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_ClaimInterface_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_ClaimInterface_ResponseParamsSpec,
-      [arg_interface_number],
+      { arg_interface_number: arg_interface_number },
       false);
   }
 
@@ -421,7 +421,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_ReleaseInterface_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_ReleaseInterface_ResponseParamsSpec,
-      [arg_interface_number],
+      { arg_interface_number: arg_interface_number },
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_SetInterfaceAlternateSetting_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParamsSpec,
-      [arg_interface_number, arg_alternate_setting],
+      { arg_interface_number: arg_interface_number, arg_alternate_setting: arg_alternate_setting },
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_Reset_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_Reset_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_ClearHalt_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_ClearHalt_ResponseParamsSpec,
-      [arg_direction, arg_endpoint_number],
+      { arg_direction: arg_direction, arg_endpoint_number: arg_endpoint_number },
       false);
   }
 
@@ -457,7 +457,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferIn_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferIn_ResponseParamsSpec,
-      [arg_params, arg_length, arg_timeout],
+      { arg_params: arg_params, arg_length: arg_length, arg_timeout: arg_timeout },
       false);
   }
 
@@ -466,7 +466,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferOut_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferOut_ResponseParamsSpec,
-      [arg_params, arg_data, arg_timeout],
+      { arg_params: arg_params, arg_data: arg_data, arg_timeout: arg_timeout },
       false);
   }
 
@@ -475,7 +475,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferIn_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferIn_ResponseParamsSpec,
-      [arg_endpoint_number, arg_length, arg_timeout],
+      { arg_endpoint_number: arg_endpoint_number, arg_length: arg_length, arg_timeout: arg_timeout },
       false);
   }
 
@@ -484,7 +484,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferOut_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferOut_ResponseParamsSpec,
-      [arg_endpoint_number, arg_data, arg_timeout],
+      { arg_endpoint_number: arg_endpoint_number, arg_data: arg_data, arg_timeout: arg_timeout },
       false);
   }
 
@@ -493,7 +493,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferIn_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferIn_ResponseParamsSpec,
-      [arg_endpoint_number, arg_packet_lengths, arg_timeout],
+      { arg_endpoint_number: arg_endpoint_number, arg_packet_lengths: arg_packet_lengths, arg_timeout: arg_timeout },
       false);
   }
 
@@ -502,7 +502,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferOut_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferOut_ResponseParamsSpec,
-      [arg_endpoint_number, arg_data, arg_packet_lengths, arg_timeout],
+      { arg_endpoint_number: arg_endpoint_number, arg_data: arg_data, arg_packet_lengths: arg_packet_lengths, arg_timeout: arg_timeout },
       false);
   }
 
@@ -589,8 +589,8 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_Open_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_Open_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] open FAILED:', e));
           }
@@ -605,7 +605,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_Close_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_Close_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] close FAILED:', e));
           }
@@ -615,13 +615,13 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_SetConfiguration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setConfiguration');
-          const result = this.impl.setConfiguration(params.arg_arg_value);
+          const result = this.impl.setConfiguration(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_SetConfiguration_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_SetConfiguration_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setConfiguration FAILED:', e));
           }
@@ -631,13 +631,13 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ClaimInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.claimInterface');
-          const result = this.impl.claimInterface(params.arg_arg_interface_number);
+          const result = this.impl.claimInterface(params.arg_interface_number);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ClaimInterface_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ClaimInterface_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] claimInterface FAILED:', e));
           }
@@ -647,13 +647,13 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ReleaseInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.releaseInterface');
-          const result = this.impl.releaseInterface(params.arg_arg_interface_number);
+          const result = this.impl.releaseInterface(params.arg_interface_number);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ReleaseInterface_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ReleaseInterface_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] releaseInterface FAILED:', e));
           }
@@ -663,13 +663,13 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_SetInterfaceAlternateSetting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInterfaceAlternateSetting');
-          const result = this.impl.setInterfaceAlternateSetting(params.arg_arg_interface_number, params.arg_arg_alternate_setting);
+          const result = this.impl.setInterfaceAlternateSetting(params.arg_interface_number, params.arg_alternate_setting);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setInterfaceAlternateSetting FAILED:', e));
           }
@@ -684,8 +684,8 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_Reset_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_Reset_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] reset FAILED:', e));
           }
@@ -695,13 +695,13 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ClearHalt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearHalt');
-          const result = this.impl.clearHalt(params.arg_arg_direction, params.arg_arg_endpoint_number);
+          const result = this.impl.clearHalt(params.arg_direction, params.arg_endpoint_number);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ClearHalt_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ClearHalt_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] clearHalt FAILED:', e));
           }
@@ -711,12 +711,12 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferIn_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.controlTransferIn');
-          const result = this.impl.controlTransferIn(params.arg_arg_params, params.arg_arg_length, params.arg_arg_timeout);
+          const result = this.impl.controlTransferIn(params.arg_params, params.arg_length, params.arg_timeout);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferIn_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_data']);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferIn_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_data': response.arg_data });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] controlTransferIn FAILED:', e));
           }
@@ -726,13 +726,13 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferOut_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.controlTransferOut');
-          const result = this.impl.controlTransferOut(params.arg_arg_params, params.arg_arg_data, params.arg_arg_timeout);
+          const result = this.impl.controlTransferOut(params.arg_params, params.arg_data, params.arg_timeout);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferOut_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferOut_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] controlTransferOut FAILED:', e));
           }
@@ -742,12 +742,12 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferIn_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.genericTransferIn');
-          const result = this.impl.genericTransferIn(params.arg_arg_endpoint_number, params.arg_arg_length, params.arg_arg_timeout);
+          const result = this.impl.genericTransferIn(params.arg_endpoint_number, params.arg_length, params.arg_timeout);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferIn_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_data']);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferIn_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_data': response.arg_data });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] genericTransferIn FAILED:', e));
           }
@@ -757,13 +757,13 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferOut_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.genericTransferOut');
-          const result = this.impl.genericTransferOut(params.arg_arg_endpoint_number, params.arg_arg_data, params.arg_arg_timeout);
+          const result = this.impl.genericTransferOut(params.arg_endpoint_number, params.arg_data, params.arg_timeout);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferOut_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferOut_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] genericTransferOut FAILED:', e));
           }
@@ -773,12 +773,12 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferIn_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isochronousTransferIn');
-          const result = this.impl.isochronousTransferIn(params.arg_arg_endpoint_number, params.arg_arg_packet_lengths, params.arg_arg_timeout);
+          const result = this.impl.isochronousTransferIn(params.arg_endpoint_number, params.arg_packet_lengths, params.arg_timeout);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferIn_ResponseParamsSpec.$.structSpec, ['response.arg_arg_data', 'response.arg_arg_packets']);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferIn_ResponseParamsSpec.$.structSpec, { 'arg_data': response.arg_data, 'arg_packets': response.arg_packets });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isochronousTransferIn FAILED:', e));
           }
@@ -788,13 +788,13 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferOut_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isochronousTransferOut');
-          const result = this.impl.isochronousTransferOut(params.arg_arg_endpoint_number, params.arg_arg_data, params.arg_arg_packet_lengths, params.arg_arg_timeout);
+          const result = this.impl.isochronousTransferOut(params.arg_endpoint_number, params.arg_data, params.arg_packet_lengths, params.arg_timeout);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_packets' in response) ? response.arg_arg_packets : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferOut_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_packets' in response) ? response.arg_packets : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferOut_ResponseParamsSpec.$.structSpec, { 'arg_packets': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isochronousTransferOut FAILED:', e));
           }
@@ -862,7 +862,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceClient_OnDeviceOpened_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -871,7 +871,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceClient_OnDeviceClosed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

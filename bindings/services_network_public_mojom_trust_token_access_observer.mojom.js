@@ -188,7 +188,7 @@ mojo.internal.bindings.network.mojom.TrustTokenAccessObserverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec,
       null,
-      [arg_details],
+      { arg_details: arg_details },
       false);
   }
 
@@ -197,7 +197,7 @@ mojo.internal.bindings.network.mojom.TrustTokenAccessObserverRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.TrustTokenAccessObserver_Clone_ParamsSpec,
       null,
-      [arg_listener],
+      { arg_listener: arg_listener },
       false);
   }
 
@@ -267,14 +267,14 @@ mojo.internal.bindings.network.mojom.TrustTokenAccessObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTrustTokensAccessed');
-          const result = this.impl.onTrustTokensAccessed(params.arg_arg_details);
+          const result = this.impl.onTrustTokensAccessed(params.arg_details);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TrustTokenAccessObserver_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_listener);
+          const result = this.impl.clone(params.arg_listener);
           break;
         }
       }

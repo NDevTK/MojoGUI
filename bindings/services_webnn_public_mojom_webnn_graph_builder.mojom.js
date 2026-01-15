@@ -208,7 +208,7 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec,
       null,
-      [arg_constant_handle, arg_data_type, arg_data],
+      { arg_constant_handle: arg_constant_handle, arg_data_type: arg_data_type, arg_data: arg_data },
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec,
       null,
-      [arg_graph_info],
+      { arg_graph_info: arg_graph_info },
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec,
       mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec,
-      [arg_context_properties, arg_graph_info],
+      { arg_context_properties: arg_context_properties, arg_graph_info: arg_graph_info },
       false);
   }
 
@@ -297,27 +297,27 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPendingConstant');
-          const result = this.impl.createPendingConstant(params.arg_arg_constant_handle, params.arg_arg_data_type, params.arg_arg_data);
+          const result = this.impl.createPendingConstant(params.arg_constant_handle, params.arg_data_type, params.arg_data);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createGraph');
-          const result = this.impl.createGraph(params.arg_arg_graph_info);
+          const result = this.impl.createGraph(params.arg_graph_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isValidGraphForTesting');
-          const result = this.impl.isValidGraphForTesting(params.arg_arg_context_properties, params.arg_arg_graph_info);
+          const result = this.impl.isValidGraphForTesting(params.arg_context_properties, params.arg_graph_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_valid' in response) ? response.arg_arg_is_valid : response;
-              encoder.encodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_valid' in response) ? response.arg_is_valid : response;
+              encoder.encodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec.$.structSpec, { 'arg_is_valid': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isValidGraphForTesting FAILED:', e));
           }

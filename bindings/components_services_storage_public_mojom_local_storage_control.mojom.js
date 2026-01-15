@@ -224,7 +224,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec,
       null,
-      [arg_storage_key, arg_receiver],
+      { arg_storage_key: arg_storage_key, arg_receiver: arg_receiver },
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ParamsSpec,
       mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec,
       mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ResponseParamsSpec,
-      [arg_storage_key],
+      { arg_storage_key: arg_storage_key },
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec,
       mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.storage.mojom.LocalStorageControl_Flush_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -269,7 +269,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlRemoteCallHandler = clas
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -278,7 +278,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlRemoteCallHandler = clas
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec,
       null,
-      [arg_policy_updates],
+      { arg_policy_updates: arg_policy_updates },
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlRemoteCallHandler = clas
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindStorageArea');
-          const result = this.impl.bindStorageArea(params.arg_arg_storage_key, params.arg_arg_receiver);
+          const result = this.impl.bindStorageArea(params.arg_storage_key, params.arg_receiver);
           break;
         }
         case 1: {
@@ -375,8 +375,8 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUsage FAILED:', e));
           }
@@ -386,12 +386,12 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteStorage');
-          const result = this.impl.deleteStorage(params.arg_arg_storage_key);
+          const result = this.impl.deleteStorage(params.arg_storage_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteStorage FAILED:', e));
           }
@@ -406,7 +406,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] cleanUpStorage FAILED:', e));
           }
@@ -430,7 +430,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyPolicyUpdates');
-          const result = this.impl.applyPolicyUpdates(params.arg_arg_policy_updates);
+          const result = this.impl.applyPolicyUpdates(params.arg_policy_updates);
           break;
         }
         case 7: {

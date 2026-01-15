@@ -240,7 +240,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClientRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec,
       null,
-      [arg_language_model_remote, arg_info],
+      { arg_language_model_remote: arg_language_model_remote, arg_info: arg_info },
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClientRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec,
       null,
-      [arg_error, arg_quota_error_info],
+      { arg_error: arg_error, arg_quota_error_info: arg_quota_error_info },
       false);
   }
 
@@ -319,14 +319,14 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClientReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResult');
-          const result = this.impl.onResult(params.arg_arg_language_model_remote, params.arg_arg_info);
+          const result = this.impl.onResult(params.arg_language_model_remote, params.arg_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_error, params.arg_arg_quota_error_info);
+          const result = this.impl.onError(params.arg_error, params.arg_quota_error_info);
           break;
         }
       }
@@ -403,7 +403,7 @@ mojo.internal.bindings.blink.mojom.AILanguageModelRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AILanguageModel_Prompt_ParamsSpec,
       null,
-      [arg_prompts, arg_constraint, arg_pending_responder],
+      { arg_prompts: arg_prompts, arg_constraint: arg_constraint, arg_pending_responder: arg_pending_responder },
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.blink.mojom.AILanguageModelRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AILanguageModel_Append_ParamsSpec,
       null,
-      [arg_prompts, arg_client],
+      { arg_prompts: arg_prompts, arg_client: arg_client },
       false);
   }
 
@@ -421,7 +421,7 @@ mojo.internal.bindings.blink.mojom.AILanguageModelRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.AILanguageModel_Fork_ParamsSpec,
       null,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.blink.mojom.AILanguageModelRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.AILanguageModel_Destroy_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.blink.mojom.AILanguageModelRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec,
-      [arg_input],
+      { arg_input: arg_input },
       false);
   }
 
@@ -512,21 +512,21 @@ mojo.internal.bindings.blink.mojom.AILanguageModelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AILanguageModel_Prompt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prompt');
-          const result = this.impl.prompt(params.arg_arg_prompts, params.arg_arg_constraint, params.arg_arg_pending_responder);
+          const result = this.impl.prompt(params.arg_prompts, params.arg_constraint, params.arg_pending_responder);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AILanguageModel_Append_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.append');
-          const result = this.impl.append(params.arg_arg_prompts, params.arg_arg_client);
+          const result = this.impl.append(params.arg_prompts, params.arg_client);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AILanguageModel_Fork_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fork');
-          const result = this.impl.fork(params.arg_arg_client);
+          const result = this.impl.fork(params.arg_client);
           break;
         }
         case 3: {
@@ -540,13 +540,13 @@ mojo.internal.bindings.blink.mojom.AILanguageModelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.measureInputUsage');
-          const result = this.impl.measureInputUsage(params.arg_arg_input);
+          const result = this.impl.measureInputUsage(params.arg_input);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_number_of_tokens' in response) ? response.arg_arg_number_of_tokens : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_number_of_tokens' in response) ? response.arg_number_of_tokens : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec.$.structSpec, { 'arg_number_of_tokens': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] measureInputUsage FAILED:', e));
           }

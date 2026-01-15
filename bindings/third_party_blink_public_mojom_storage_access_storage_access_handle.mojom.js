@@ -244,7 +244,7 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec,
       mojo.internal.bindings.blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAccessHandle_Estimate_ParamsSpec,
       mojo.internal.bindings.blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -298,7 +298,7 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -307,7 +307,7 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -383,21 +383,21 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindIndexedDB');
-          const result = this.impl.bindIndexedDB(params.arg_arg_receiver);
+          const result = this.impl.bindIndexedDB(params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindLocks');
-          const result = this.impl.bindLocks(params.arg_arg_receiver);
+          const result = this.impl.bindLocks(params.arg_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindCaches');
-          const result = this.impl.bindCaches(params.arg_arg_receiver);
+          const result = this.impl.bindCaches(params.arg_receiver);
           break;
         }
         case 3: {
@@ -409,7 +409,7 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_directory']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_directory': response.arg_directory });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDirectory FAILED:', e));
           }
@@ -424,7 +424,7 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec.$.structSpec, ['response.arg_arg_current_usage', 'response.arg_arg_current_quota', 'response.arg_arg_success']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec.$.structSpec, { 'arg_current_usage': response.arg_current_usage, 'arg_current_quota': response.arg_current_quota, 'arg_success': response.arg_success });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] estimate FAILED:', e));
           }
@@ -434,21 +434,21 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindBlobStorage');
-          const result = this.impl.bindBlobStorage(params.arg_arg_receiver);
+          const result = this.impl.bindBlobStorage(params.arg_receiver);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindBroadcastChannel');
-          const result = this.impl.bindBroadcastChannel(params.arg_arg_receiver);
+          const result = this.impl.bindBroadcastChannel(params.arg_receiver);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSharedWorker');
-          const result = this.impl.bindSharedWorker(params.arg_arg_receiver);
+          const result = this.impl.bindSharedWorker(params.arg_receiver);
           break;
         }
       }

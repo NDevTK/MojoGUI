@@ -230,7 +230,7 @@ mojo.internal.bindings.auction_worklet.mojom.ScoreAdClientRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.ScoreAdClient_OnScoreAdComplete_ParamsSpec,
       null,
-      [arg_score, arg_reject_reason, arg_component_auction_modified_bid_params, arg_bid_in_seller_currency, arg_scoring_signals_data_version, arg_debug_loss_report_url, arg_debug_win_report_url, arg_pa_requests, arg_real_time_contributions, arg_score_ad_timing_metrics, arg_score_ad_dependency_latencies, arg_errors],
+      { arg_score: arg_score, arg_reject_reason: arg_reject_reason, arg_component_auction_modified_bid_params: arg_component_auction_modified_bid_params, arg_bid_in_seller_currency: arg_bid_in_seller_currency, arg_scoring_signals_data_version: arg_scoring_signals_data_version, arg_debug_loss_report_url: arg_debug_loss_report_url, arg_debug_win_report_url: arg_debug_win_report_url, arg_pa_requests: arg_pa_requests, arg_real_time_contributions: arg_real_time_contributions, arg_score_ad_timing_metrics: arg_score_ad_timing_metrics, arg_score_ad_dependency_latencies: arg_score_ad_dependency_latencies, arg_errors: arg_errors },
       false);
   }
 
@@ -299,7 +299,7 @@ mojo.internal.bindings.auction_worklet.mojom.ScoreAdClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.ScoreAdClient_OnScoreAdComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScoreAdComplete');
-          const result = this.impl.onScoreAdComplete(params.arg_arg_score, params.arg_arg_reject_reason, params.arg_arg_component_auction_modified_bid_params, params.arg_arg_bid_in_seller_currency, params.arg_arg_scoring_signals_data_version, params.arg_arg_debug_loss_report_url, params.arg_arg_debug_win_report_url, params.arg_arg_pa_requests, params.arg_arg_real_time_contributions, params.arg_arg_score_ad_timing_metrics, params.arg_arg_score_ad_dependency_latencies, params.arg_arg_errors);
+          const result = this.impl.onScoreAdComplete(params.arg_score, params.arg_reject_reason, params.arg_component_auction_modified_bid_params, params.arg_bid_in_seller_currency, params.arg_scoring_signals_data_version, params.arg_debug_loss_report_url, params.arg_debug_win_report_url, params.arg_pa_requests, params.arg_real_time_contributions, params.arg_score_ad_timing_metrics, params.arg_score_ad_dependency_latencies, params.arg_errors);
           break;
         }
       }
@@ -372,7 +372,7 @@ mojo.internal.bindings.auction_worklet.mojom.SellerWorkletRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ScoreAd_ParamsSpec,
       null,
-      [arg_ad_metadata_json, arg_bid, arg_bid_currency, arg_auction_ad_config_non_shared_params, arg_key_value_signals_cache_key, arg_ad, arg_ad_components, arg_direct_from_seller_seller_signals, arg_direct_from_seller_seller_signals_header_ad_slot, arg_direct_from_seller_auction_signals, arg_direct_from_seller_auction_signals_header_ad_slot, arg_browser_signals_other_seller, arg_component_expect_bid_currency, arg_browser_signal_interest_group_owner, arg_browser_signal_selected_buyer_and_seller_reporting_id, arg_browser_signal_buyer_and_seller_reporting_id, arg_browser_signal_bidding_duration_msecs, arg_browser_signal_for_debugging_only_in_cooldown_or_lockout, arg_browser_signal_for_debugging_only_sampling, arg_seller_timeout, arg_group_by_origin_id, arg_allow_group_by_origin_mode, arg_trace_id, arg_bidder_joining_origin, arg_score_ad_client],
+      { arg_ad_metadata_json: arg_ad_metadata_json, arg_bid: arg_bid, arg_bid_currency: arg_bid_currency, arg_auction_ad_config_non_shared_params: arg_auction_ad_config_non_shared_params, arg_key_value_signals_cache_key: arg_key_value_signals_cache_key, arg_ad: arg_ad, arg_ad_components: arg_ad_components, arg_direct_from_seller_seller_signals: arg_direct_from_seller_seller_signals, arg_direct_from_seller_seller_signals_header_ad_slot: arg_direct_from_seller_seller_signals_header_ad_slot, arg_direct_from_seller_auction_signals: arg_direct_from_seller_auction_signals, arg_direct_from_seller_auction_signals_header_ad_slot: arg_direct_from_seller_auction_signals_header_ad_slot, arg_browser_signals_other_seller: arg_browser_signals_other_seller, arg_component_expect_bid_currency: arg_component_expect_bid_currency, arg_browser_signal_interest_group_owner: arg_browser_signal_interest_group_owner, arg_browser_signal_selected_buyer_and_seller_reporting_id: arg_browser_signal_selected_buyer_and_seller_reporting_id, arg_browser_signal_buyer_and_seller_reporting_id: arg_browser_signal_buyer_and_seller_reporting_id, arg_browser_signal_bidding_duration_msecs: arg_browser_signal_bidding_duration_msecs, arg_browser_signal_for_debugging_only_in_cooldown_or_lockout: arg_browser_signal_for_debugging_only_in_cooldown_or_lockout, arg_browser_signal_for_debugging_only_sampling: arg_browser_signal_for_debugging_only_sampling, arg_seller_timeout: arg_seller_timeout, arg_group_by_origin_id: arg_group_by_origin_id, arg_allow_group_by_origin_mode: arg_allow_group_by_origin_mode, arg_trace_id: arg_trace_id, arg_bidder_joining_origin: arg_bidder_joining_origin, arg_score_ad_client: arg_score_ad_client },
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.auction_worklet.mojom.SellerWorkletRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_SendPendingSignalsRequests_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.auction_worklet.mojom.SellerWorkletRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ReportResult_ParamsSpec,
       mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ReportResult_ResponseParamsSpec,
-      [arg_auction_ad_config_non_shared_params, arg_direct_from_seller_seller_signals, arg_direct_from_seller_seller_signals_header_ad_slot, arg_direct_from_seller_auction_signals, arg_direct_from_seller_auction_signals_header_ad_slot, arg_browser_signals_other_seller, arg_browser_signal_interest_group_owner, arg_browser_signal_buyer_and_seller_reporting_id, arg_browser_signal_selected_buyer_and_seller_reporting_id, arg_browser_signal_render_url, arg_browser_signal_bid, arg_browser_signal_bid_currency, arg_browser_signal_desirability, arg_browser_signal_highest_scoring_other_bid, arg_browser_signal_highest_scoring_other_bid_currency, arg_browser_signals_component_auction_report_result_params, arg_scoring_signals_data_version, arg_trace_id],
+      { arg_auction_ad_config_non_shared_params: arg_auction_ad_config_non_shared_params, arg_direct_from_seller_seller_signals: arg_direct_from_seller_seller_signals, arg_direct_from_seller_seller_signals_header_ad_slot: arg_direct_from_seller_seller_signals_header_ad_slot, arg_direct_from_seller_auction_signals: arg_direct_from_seller_auction_signals, arg_direct_from_seller_auction_signals_header_ad_slot: arg_direct_from_seller_auction_signals_header_ad_slot, arg_browser_signals_other_seller: arg_browser_signals_other_seller, arg_browser_signal_interest_group_owner: arg_browser_signal_interest_group_owner, arg_browser_signal_buyer_and_seller_reporting_id: arg_browser_signal_buyer_and_seller_reporting_id, arg_browser_signal_selected_buyer_and_seller_reporting_id: arg_browser_signal_selected_buyer_and_seller_reporting_id, arg_browser_signal_render_url: arg_browser_signal_render_url, arg_browser_signal_bid: arg_browser_signal_bid, arg_browser_signal_bid_currency: arg_browser_signal_bid_currency, arg_browser_signal_desirability: arg_browser_signal_desirability, arg_browser_signal_highest_scoring_other_bid: arg_browser_signal_highest_scoring_other_bid, arg_browser_signal_highest_scoring_other_bid_currency: arg_browser_signal_highest_scoring_other_bid_currency, arg_browser_signals_component_auction_report_result_params: arg_browser_signals_component_auction_report_result_params, arg_scoring_signals_data_version: arg_scoring_signals_data_version, arg_trace_id: arg_trace_id },
       false);
   }
 
@@ -399,7 +399,7 @@ mojo.internal.bindings.auction_worklet.mojom.SellerWorkletRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ConnectDevToolsAgent_ParamsSpec,
       null,
-      [arg_agent, arg_thread_index],
+      { arg_agent: arg_agent, arg_thread_index: arg_thread_index },
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.auction_worklet.mojom.SellerWorkletReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ScoreAd_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.scoreAd');
-          const result = this.impl.scoreAd(params.arg_arg_ad_metadata_json, params.arg_arg_bid, params.arg_arg_bid_currency, params.arg_arg_auction_ad_config_non_shared_params, params.arg_arg_key_value_signals_cache_key, params.arg_arg_ad, params.arg_arg_ad_components, params.arg_arg_direct_from_seller_seller_signals, params.arg_arg_direct_from_seller_seller_signals_header_ad_slot, params.arg_arg_direct_from_seller_auction_signals, params.arg_arg_direct_from_seller_auction_signals_header_ad_slot, params.arg_arg_browser_signals_other_seller, params.arg_arg_component_expect_bid_currency, params.arg_arg_browser_signal_interest_group_owner, params.arg_arg_browser_signal_selected_buyer_and_seller_reporting_id, params.arg_arg_browser_signal_buyer_and_seller_reporting_id, params.arg_arg_browser_signal_bidding_duration_msecs, params.arg_arg_browser_signal_for_debugging_only_in_cooldown_or_lockout, params.arg_arg_browser_signal_for_debugging_only_sampling, params.arg_arg_seller_timeout, params.arg_arg_group_by_origin_id, params.arg_arg_allow_group_by_origin_mode, params.arg_arg_trace_id, params.arg_arg_bidder_joining_origin, params.arg_arg_score_ad_client);
+          const result = this.impl.scoreAd(params.arg_ad_metadata_json, params.arg_bid, params.arg_bid_currency, params.arg_auction_ad_config_non_shared_params, params.arg_key_value_signals_cache_key, params.arg_ad, params.arg_ad_components, params.arg_direct_from_seller_seller_signals, params.arg_direct_from_seller_seller_signals_header_ad_slot, params.arg_direct_from_seller_auction_signals, params.arg_direct_from_seller_auction_signals_header_ad_slot, params.arg_browser_signals_other_seller, params.arg_component_expect_bid_currency, params.arg_browser_signal_interest_group_owner, params.arg_browser_signal_selected_buyer_and_seller_reporting_id, params.arg_browser_signal_buyer_and_seller_reporting_id, params.arg_browser_signal_bidding_duration_msecs, params.arg_browser_signal_for_debugging_only_in_cooldown_or_lockout, params.arg_browser_signal_for_debugging_only_sampling, params.arg_seller_timeout, params.arg_group_by_origin_id, params.arg_allow_group_by_origin_mode, params.arg_trace_id, params.arg_bidder_joining_origin, params.arg_score_ad_client);
           break;
         }
         case 1: {
@@ -485,12 +485,12 @@ mojo.internal.bindings.auction_worklet.mojom.SellerWorkletReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ReportResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportResult');
-          const result = this.impl.reportResult(params.arg_arg_auction_ad_config_non_shared_params, params.arg_arg_direct_from_seller_seller_signals, params.arg_arg_direct_from_seller_seller_signals_header_ad_slot, params.arg_arg_direct_from_seller_auction_signals, params.arg_arg_direct_from_seller_auction_signals_header_ad_slot, params.arg_arg_browser_signals_other_seller, params.arg_arg_browser_signal_interest_group_owner, params.arg_arg_browser_signal_buyer_and_seller_reporting_id, params.arg_arg_browser_signal_selected_buyer_and_seller_reporting_id, params.arg_arg_browser_signal_render_url, params.arg_arg_browser_signal_bid, params.arg_arg_browser_signal_bid_currency, params.arg_arg_browser_signal_desirability, params.arg_arg_browser_signal_highest_scoring_other_bid, params.arg_arg_browser_signal_highest_scoring_other_bid_currency, params.arg_arg_browser_signals_component_auction_report_result_params, params.arg_arg_scoring_signals_data_version, params.arg_arg_trace_id);
+          const result = this.impl.reportResult(params.arg_auction_ad_config_non_shared_params, params.arg_direct_from_seller_seller_signals, params.arg_direct_from_seller_seller_signals_header_ad_slot, params.arg_direct_from_seller_auction_signals, params.arg_direct_from_seller_auction_signals_header_ad_slot, params.arg_browser_signals_other_seller, params.arg_browser_signal_interest_group_owner, params.arg_browser_signal_buyer_and_seller_reporting_id, params.arg_browser_signal_selected_buyer_and_seller_reporting_id, params.arg_browser_signal_render_url, params.arg_browser_signal_bid, params.arg_browser_signal_bid_currency, params.arg_browser_signal_desirability, params.arg_browser_signal_highest_scoring_other_bid, params.arg_browser_signal_highest_scoring_other_bid_currency, params.arg_browser_signals_component_auction_report_result_params, params.arg_scoring_signals_data_version, params.arg_trace_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ReportResult_ResponseParamsSpec.$.structSpec, ['response.arg_arg_signals_for_winner', 'response.arg_arg_report_url', 'response.arg_arg_ad_beacon_map', 'response.arg_arg_pa_requests', 'response.arg_arg_time_metrics', 'response.arg_arg_error_msgs']);
+              encoder.encodeStructInline(mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ReportResult_ResponseParamsSpec.$.structSpec, { 'arg_signals_for_winner': response.arg_signals_for_winner, 'arg_report_url': response.arg_report_url, 'arg_ad_beacon_map': response.arg_ad_beacon_map, 'arg_pa_requests': response.arg_pa_requests, 'arg_time_metrics': response.arg_time_metrics, 'arg_error_msgs': response.arg_error_msgs });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] reportResult FAILED:', e));
           }
@@ -500,7 +500,7 @@ mojo.internal.bindings.auction_worklet.mojom.SellerWorkletReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ConnectDevToolsAgent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectDevToolsAgent');
-          const result = this.impl.connectDevToolsAgent(params.arg_arg_agent, params.arg_arg_thread_index);
+          const result = this.impl.connectDevToolsAgent(params.arg_agent, params.arg_thread_index);
           break;
         }
       }

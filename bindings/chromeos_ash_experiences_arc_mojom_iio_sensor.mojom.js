@@ -184,7 +184,7 @@ mojo.internal.bindings.arc.mojom.IioSensorHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec,
       null,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.arc.mojom.IioSensorHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerSensorHalClient');
-          const result = this.impl.registerSensorHalClient(params.arg_arg_client);
+          const result = this.impl.registerSensorHalClient(params.arg_client);
           break;
         }
       }
@@ -318,7 +318,7 @@ mojo.internal.bindings.arc.mojom.IioSensorInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.arc.mojom.IioSensorInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec,
       null,
-      [arg_is_tablet_mode_on],
+      { arg_is_tablet_mode_on: arg_is_tablet_mode_on },
       false);
   }
 
@@ -397,12 +397,12 @@ mojo.internal.bindings.arc.mojom.IioSensorInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -412,7 +412,7 @@ mojo.internal.bindings.arc.mojom.IioSensorInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTabletModeChanged');
-          const result = this.impl.onTabletModeChanged(params.arg_arg_is_tablet_mode_on);
+          const result = this.impl.onTabletModeChanged(params.arg_is_tablet_mode_on);
           break;
         }
       }

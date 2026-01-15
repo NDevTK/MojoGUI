@@ -209,7 +209,7 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec,
       null,
-      [arg_clone],
+      { arg_clone: arg_clone },
       false);
   }
 
@@ -218,7 +218,7 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec,
       mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec,
-      [arg_frame_token, arg_storage_type, arg_origin, arg_site_for_cookies, arg_top_frame_origin],
+      { arg_frame_token: arg_frame_token, arg_storage_type: arg_storage_type, arg_origin: arg_origin, arg_site_for_cookies: arg_site_for_cookies, arg_top_frame_origin: arg_top_frame_origin },
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec,
       null,
-      [arg_frame_token, arg_type],
+      { arg_frame_token: arg_frame_token, arg_type: arg_type },
       false);
   }
 
@@ -298,20 +298,20 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_clone);
+          const result = this.impl.clone(params.arg_clone);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.allowStorageAccess');
-          const result = this.impl.allowStorageAccess(params.arg_arg_frame_token, params.arg_arg_storage_type, params.arg_arg_origin, params.arg_arg_site_for_cookies, params.arg_arg_top_frame_origin);
+          const result = this.impl.allowStorageAccess(params.arg_frame_token, params.arg_storage_type, params.arg_origin, params.arg_site_for_cookies, params.arg_top_frame_origin);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_allowed' in response) ? response.arg_arg_allowed : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_allowed' in response) ? response.arg_allowed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec.$.structSpec, { 'arg_allowed': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] allowStorageAccess FAILED:', e));
           }
@@ -321,7 +321,7 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onContentBlocked');
-          const result = this.impl.onContentBlocked(params.arg_arg_frame_token, params.arg_arg_type);
+          const result = this.impl.onContentBlocked(params.arg_frame_token, params.arg_type);
           break;
         }
       }

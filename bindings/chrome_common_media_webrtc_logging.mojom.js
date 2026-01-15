@@ -187,7 +187,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec,
       null,
-      [arg_messages],
+      { arg_messages: arg_messages },
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAddMessages');
-          const result = this.impl.onAddMessages(params.arg_arg_messages);
+          const result = this.impl.onAddMessages(params.arg_messages);
           break;
         }
         case 1: {
@@ -338,7 +338,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec,
       null,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -347,7 +347,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -417,7 +417,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start(params.arg_arg_client);
+          const result = this.impl.start(params.arg_client);
           break;
         }
         case 1: {

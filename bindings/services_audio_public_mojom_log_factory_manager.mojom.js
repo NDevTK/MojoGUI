@@ -178,7 +178,7 @@ mojo.internal.bindings.audio.mojom.LogFactoryManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec,
       null,
-      [arg_factory],
+      { arg_factory: arg_factory },
       false);
   }
 
@@ -247,7 +247,7 @@ mojo.internal.bindings.audio.mojom.LogFactoryManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setLogFactory');
-          const result = this.impl.setLogFactory(params.arg_arg_factory);
+          const result = this.impl.setLogFactory(params.arg_factory);
           break;
         }
       }

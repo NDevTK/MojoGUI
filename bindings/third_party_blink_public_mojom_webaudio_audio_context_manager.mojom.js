@@ -185,7 +185,7 @@ mojo.internal.bindings.blink.mojom.AudioContextManagerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.AudioContextManagerRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -203,7 +203,7 @@ mojo.internal.bindings.blink.mojom.AudioContextManagerRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.blink.mojom.AudioContextManagerRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -284,28 +284,28 @@ mojo.internal.bindings.blink.mojom.AudioContextManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.audioContextAudiblePlaybackStarted');
-          const result = this.impl.audioContextAudiblePlaybackStarted(params.arg_arg_id);
+          const result = this.impl.audioContextAudiblePlaybackStarted(params.arg_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.audioContextAudiblePlaybackStopped');
-          const result = this.impl.audioContextAudiblePlaybackStopped(params.arg_arg_id);
+          const result = this.impl.audioContextAudiblePlaybackStopped(params.arg_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.audioContextCreated');
-          const result = this.impl.audioContextCreated(params.arg_arg_id);
+          const result = this.impl.audioContextCreated(params.arg_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.audioContextClosed');
-          const result = this.impl.audioContextClosed(params.arg_arg_id);
+          const result = this.impl.audioContextClosed(params.arg_id);
           break;
         }
       }

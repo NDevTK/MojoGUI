@@ -181,7 +181,7 @@ mojo.internal.bindings.blink.mojom.TextInputHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec,
       null,
-      [arg_index],
+      { arg_index: arg_index },
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.blink.mojom.TextInputHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec,
       null,
-      [arg_rect],
+      { arg_rect: arg_rect },
       false);
   }
 
@@ -260,14 +260,14 @@ mojo.internal.bindings.blink.mojom.TextInputHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.gotCharacterIndexAtPoint');
-          const result = this.impl.gotCharacterIndexAtPoint(params.arg_arg_index);
+          const result = this.impl.gotCharacterIndexAtPoint(params.arg_index);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.gotFirstRectForRange');
-          const result = this.impl.gotFirstRectForRange(params.arg_arg_rect);
+          const result = this.impl.gotFirstRectForRange(params.arg_rect);
           break;
         }
       }

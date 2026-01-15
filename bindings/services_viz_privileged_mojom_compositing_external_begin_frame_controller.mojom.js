@@ -189,7 +189,7 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec,
       mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec,
-      [arg_args, arg_force],
+      { arg_args: arg_args, arg_force: arg_force },
       false);
   }
 
@@ -258,13 +258,13 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.issueExternalBeginFrame');
-          const result = this.impl.issueExternalBeginFrame(params.arg_arg_args, params.arg_arg_force);
+          const result = this.impl.issueExternalBeginFrame(params.arg_args, params.arg_force);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_ack' in response) ? response.arg_arg_ack : response;
-              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_ack' in response) ? response.arg_ack : response;
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec.$.structSpec, { 'arg_ack': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] issueExternalBeginFrame FAILED:', e));
           }
@@ -336,7 +336,7 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec,
       null,
-      [arg_needs_begin_frames],
+      { arg_needs_begin_frames: arg_needs_begin_frames },
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec,
       null,
-      [arg_display_id, arg_needs_begin_frames],
+      { arg_display_id: arg_display_id, arg_needs_begin_frames: arg_needs_begin_frames },
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec,
       null,
-      [arg_interval],
+      { arg_interval: arg_interval },
       false);
   }
 
@@ -425,21 +425,21 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNeedsBeginFrame');
-          const result = this.impl.setNeedsBeginFrame(params.arg_arg_needs_begin_frames);
+          const result = this.impl.setNeedsBeginFrame(params.arg_needs_begin_frames);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.needsBeginFrameWithId');
-          const result = this.impl.needsBeginFrameWithId(params.arg_arg_display_id, params.arg_arg_needs_begin_frames);
+          const result = this.impl.needsBeginFrameWithId(params.arg_display_id, params.arg_needs_begin_frames);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPreferredInterval');
-          const result = this.impl.setPreferredInterval(params.arg_arg_interval);
+          const result = this.impl.setPreferredInterval(params.arg_interval);
           break;
         }
       }

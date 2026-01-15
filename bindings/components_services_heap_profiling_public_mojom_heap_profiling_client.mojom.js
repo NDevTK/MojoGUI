@@ -194,7 +194,7 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingClientRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec,
       mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -203,7 +203,7 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingClientRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec,
       mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -273,12 +273,12 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startProfiling');
-          const result = this.impl.startProfiling(params.arg_arg_params);
+          const result = this.impl.startProfiling(params.arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startProfiling FAILED:', e));
           }
@@ -293,8 +293,8 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingClientReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_profile' in response) ? response.arg_arg_profile : response;
-              encoder.encodeStructInline(mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_profile' in response) ? response.arg_profile : response;
+              encoder.encodeStructInline(mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec.$.structSpec, { 'arg_profile': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] retrieveHeapProfile FAILED:', e));
           }

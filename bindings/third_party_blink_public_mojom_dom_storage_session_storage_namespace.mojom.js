@@ -170,7 +170,7 @@ mojo.internal.bindings.blink.mojom.SessionStorageNamespaceRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SessionStorageNamespace_Clone_ParamsSpec,
       null,
-      [arg_clone_to_namespace],
+      { arg_clone_to_namespace: arg_clone_to_namespace },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.blink.mojom.SessionStorageNamespaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SessionStorageNamespace_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_clone_to_namespace);
+          const result = this.impl.clone(params.arg_clone_to_namespace);
           break;
         }
       }

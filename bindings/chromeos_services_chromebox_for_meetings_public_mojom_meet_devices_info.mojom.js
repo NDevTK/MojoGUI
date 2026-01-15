@@ -196,7 +196,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -295,7 +295,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDeviceSettingsObserver');
-          const result = this.impl.addDeviceSettingsObserver(params.arg_arg_observer);
+          const result = this.impl.addDeviceSettingsObserver(params.arg_observer);
           break;
         }
         case 1: {
@@ -307,8 +307,8 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPolicyInfo FAILED:', e));
           }
@@ -323,8 +323,8 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSysInfo FAILED:', e));
           }
@@ -339,8 +339,8 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMachineStatisticsInfo FAILED:', e));
           }
@@ -404,7 +404,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec,
       null,
-      [arg_info],
+      { arg_info: arg_info },
       false);
   }
 
@@ -473,7 +473,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPolicyInfoChange');
-          const result = this.impl.onPolicyInfoChange(params.arg_arg_info);
+          const result = this.impl.onPolicyInfoChange(params.arg_info);
           break;
         }
       }

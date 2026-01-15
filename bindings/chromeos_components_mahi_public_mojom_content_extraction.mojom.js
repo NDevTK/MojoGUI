@@ -210,7 +210,7 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec,
       mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec,
-      [arg_extraction_request],
+      { arg_extraction_request: arg_extraction_request },
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec,
       mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec,
-      [arg_extraction_request],
+      { arg_extraction_request: arg_extraction_request },
       false);
   }
 
@@ -289,13 +289,13 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extractContent');
-          const result = this.impl.extractContent(params.arg_arg_extraction_request);
+          const result = this.impl.extractContent(params.arg_extraction_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_extraction_response' in response) ? response.arg_arg_extraction_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_extraction_response' in response) ? response.arg_extraction_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec.$.structSpec, { 'arg_extraction_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] extractContent FAILED:', e));
           }
@@ -305,13 +305,13 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getContentSize');
-          const result = this.impl.getContentSize(params.arg_arg_extraction_request);
+          const result = this.impl.getContentSize(params.arg_extraction_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_contents_size_response' in response) ? response.arg_arg_contents_size_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_contents_size_response' in response) ? response.arg_contents_size_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec.$.structSpec, { 'arg_contents_size_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getContentSize FAILED:', e));
           }
@@ -379,7 +379,7 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec,
       null,
-      [arg_content_extraction_service],
+      { arg_content_extraction_service: arg_content_extraction_service },
       false);
   }
 
@@ -388,7 +388,7 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec,
       null,
-      [arg_extractor],
+      { arg_extractor: arg_extractor },
       false);
   }
 
@@ -458,14 +458,14 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindContentExtractionService');
-          const result = this.impl.bindContentExtractionService(params.arg_arg_content_extraction_service);
+          const result = this.impl.bindContentExtractionService(params.arg_content_extraction_service);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScreen2xReady');
-          const result = this.impl.onScreen2xReady(params.arg_arg_extractor);
+          const result = this.impl.onScreen2xReady(params.arg_extractor);
           break;
         }
       }

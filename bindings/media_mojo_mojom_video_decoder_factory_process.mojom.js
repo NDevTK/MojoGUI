@@ -186,7 +186,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderFactoryProcessRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec,
       null,
-      [arg_gpu_feature_info, arg_receiver, arg_gpu_remote],
+      { arg_gpu_feature_info: arg_gpu_feature_info, arg_receiver: arg_receiver, arg_gpu_remote: arg_gpu_remote },
       false);
   }
 
@@ -255,7 +255,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderFactoryProcessReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeVideoDecoderFactory');
-          const result = this.impl.initializeVideoDecoderFactory(params.arg_arg_gpu_feature_info, params.arg_arg_receiver, params.arg_arg_gpu_remote);
+          const result = this.impl.initializeVideoDecoderFactory(params.arg_gpu_feature_info, params.arg_receiver, params.arg_gpu_remote);
           break;
         }
       }

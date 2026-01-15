@@ -185,7 +185,7 @@ mojo.internal.bindings.ax.mojom.AutoclickRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec,
       null,
-      [arg_point],
+      { arg_point: arg_point },
       false);
   }
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.ax.mojom.AutoclickReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestScrollableBoundsForPoint');
-          const result = this.impl.requestScrollableBoundsForPoint(params.arg_arg_point);
+          const result = this.impl.requestScrollableBoundsForPoint(params.arg_point);
           break;
         }
       }
@@ -319,7 +319,7 @@ mojo.internal.bindings.ax.mojom.AutoclickClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec,
       null,
-      [arg_bounds],
+      { arg_bounds: arg_bounds },
       false);
   }
 
@@ -328,7 +328,7 @@ mojo.internal.bindings.ax.mojom.AutoclickClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec,
       mojo.internal.bindings.ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.ax.mojom.AutoclickClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleScrollableBoundsForPointFound');
-          const result = this.impl.handleScrollableBoundsForPointFound(params.arg_arg_bounds);
+          const result = this.impl.handleScrollableBoundsForPointFound(params.arg_bounds);
           break;
         }
         case 1: {
@@ -410,8 +410,8 @@ mojo.internal.bindings.ax.mojom.AutoclickClientReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_autoclick_receiver' in response) ? response.arg_arg_autoclick_receiver : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_autoclick_receiver' in response) ? response.arg_autoclick_receiver : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec.$.structSpec, { 'arg_autoclick_receiver': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] bindAutoclick FAILED:', e));
           }

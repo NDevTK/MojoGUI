@@ -306,7 +306,7 @@ mojo.internal.bindings.content.mojom.NavigationClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ParamsSpec,
       mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec,
-      [arg_common_params, arg_request_params, arg_response_head, arg_response_body, arg_url_loader_client_endpoints, arg_subresource_loader_factories, arg_subresource_overrides, arg_controller_service_worker_info, arg_container_info, arg_subresource_proxying_loader_factory, arg_keep_alive_loader_factory, arg_fetch_later_loader_factory, arg_document_token, arg_devtools_navigation_token, arg_base_auction_nonce, arg_permissions_policy, arg_policy_container, arg_code_cache_host, arg_code_cache_host_for_background, arg_cookie_manager_info, arg_storage_info],
+      { arg_common_params: arg_common_params, arg_request_params: arg_request_params, arg_response_head: arg_response_head, arg_response_body: arg_response_body, arg_url_loader_client_endpoints: arg_url_loader_client_endpoints, arg_subresource_loader_factories: arg_subresource_loader_factories, arg_subresource_overrides: arg_subresource_overrides, arg_controller_service_worker_info: arg_controller_service_worker_info, arg_container_info: arg_container_info, arg_subresource_proxying_loader_factory: arg_subresource_proxying_loader_factory, arg_keep_alive_loader_factory: arg_keep_alive_loader_factory, arg_fetch_later_loader_factory: arg_fetch_later_loader_factory, arg_document_token: arg_document_token, arg_devtools_navigation_token: arg_devtools_navigation_token, arg_base_auction_nonce: arg_base_auction_nonce, arg_permissions_policy: arg_permissions_policy, arg_policy_container: arg_policy_container, arg_code_cache_host: arg_code_cache_host, arg_code_cache_host_for_background: arg_code_cache_host_for_background, arg_cookie_manager_info: arg_cookie_manager_info, arg_storage_info: arg_storage_info },
       false);
   }
 
@@ -315,7 +315,7 @@ mojo.internal.bindings.content.mojom.NavigationClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec,
       mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec,
-      [arg_common_params, arg_request_params, arg_has_stale_copy_in_cache, arg_error_code, arg_extended_error_code, arg_resolve_error_info, arg_error_page_content, arg_subresource_loader_factories, arg_document_token, arg_devtools_navigation_token, arg_policy_container, arg_alternative_error_page_info],
+      { arg_common_params: arg_common_params, arg_request_params: arg_request_params, arg_has_stale_copy_in_cache: arg_has_stale_copy_in_cache, arg_error_code: arg_error_code, arg_extended_error_code: arg_extended_error_code, arg_resolve_error_info: arg_resolve_error_info, arg_error_page_content: arg_error_page_content, arg_subresource_loader_factories: arg_subresource_loader_factories, arg_document_token: arg_document_token, arg_devtools_navigation_token: arg_devtools_navigation_token, arg_policy_container: arg_policy_container, arg_alternative_error_page_info: arg_alternative_error_page_info },
       false);
   }
 
@@ -385,12 +385,12 @@ mojo.internal.bindings.content.mojom.NavigationClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commitNavigation');
-          const result = this.impl.commitNavigation(params.arg_arg_common_params, params.arg_arg_request_params, params.arg_arg_response_head, params.arg_arg_response_body, params.arg_arg_url_loader_client_endpoints, params.arg_arg_subresource_loader_factories, params.arg_arg_subresource_overrides, params.arg_arg_controller_service_worker_info, params.arg_arg_container_info, params.arg_arg_subresource_proxying_loader_factory, params.arg_arg_keep_alive_loader_factory, params.arg_arg_fetch_later_loader_factory, params.arg_arg_document_token, params.arg_arg_devtools_navigation_token, params.arg_arg_base_auction_nonce, params.arg_arg_permissions_policy, params.arg_arg_policy_container, params.arg_arg_code_cache_host, params.arg_arg_code_cache_host_for_background, params.arg_arg_cookie_manager_info, params.arg_arg_storage_info);
+          const result = this.impl.commitNavigation(params.arg_common_params, params.arg_request_params, params.arg_response_head, params.arg_response_body, params.arg_url_loader_client_endpoints, params.arg_subresource_loader_factories, params.arg_subresource_overrides, params.arg_controller_service_worker_info, params.arg_container_info, params.arg_subresource_proxying_loader_factory, params.arg_keep_alive_loader_factory, params.arg_fetch_later_loader_factory, params.arg_document_token, params.arg_devtools_navigation_token, params.arg_base_auction_nonce, params.arg_permissions_policy, params.arg_policy_container, params.arg_code_cache_host, params.arg_code_cache_host_for_background, params.arg_cookie_manager_info, params.arg_storage_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec.$.structSpec, ['response.arg_arg_params', 'response.arg_arg_interface_params']);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec.$.structSpec, { 'arg_params': response.arg_params, 'arg_interface_params': response.arg_interface_params });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] commitNavigation FAILED:', e));
           }
@@ -400,12 +400,12 @@ mojo.internal.bindings.content.mojom.NavigationClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commitFailedNavigation');
-          const result = this.impl.commitFailedNavigation(params.arg_arg_common_params, params.arg_arg_request_params, params.arg_arg_has_stale_copy_in_cache, params.arg_arg_error_code, params.arg_arg_extended_error_code, params.arg_arg_resolve_error_info, params.arg_arg_error_page_content, params.arg_arg_subresource_loader_factories, params.arg_arg_document_token, params.arg_arg_devtools_navigation_token, params.arg_arg_policy_container, params.arg_arg_alternative_error_page_info);
+          const result = this.impl.commitFailedNavigation(params.arg_common_params, params.arg_request_params, params.arg_has_stale_copy_in_cache, params.arg_error_code, params.arg_extended_error_code, params.arg_resolve_error_info, params.arg_error_page_content, params.arg_subresource_loader_factories, params.arg_document_token, params.arg_devtools_navigation_token, params.arg_policy_container, params.arg_alternative_error_page_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec.$.structSpec, ['response.arg_arg_params', 'response.arg_arg_interface_params']);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec.$.structSpec, { 'arg_params': response.arg_params, 'arg_interface_params': response.arg_interface_params });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] commitFailedNavigation FAILED:', e));
           }

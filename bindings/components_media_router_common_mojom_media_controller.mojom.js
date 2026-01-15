@@ -206,7 +206,7 @@ mojo.internal.bindings.media_router.mojom.MediaControllerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaController_Play_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -215,7 +215,7 @@ mojo.internal.bindings.media_router.mojom.MediaControllerRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaController_Pause_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.media_router.mojom.MediaControllerRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaController_SetMute_ParamsSpec,
       null,
-      [arg_mute],
+      { arg_mute: arg_mute },
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.media_router.mojom.MediaControllerRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaController_SetVolume_ParamsSpec,
       null,
-      [arg_volume],
+      { arg_volume: arg_volume },
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.media_router.mojom.MediaControllerRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaController_Seek_ParamsSpec,
       null,
-      [arg_time],
+      { arg_time: arg_time },
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.media_router.mojom.MediaControllerRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaController_NextTrack_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.media_router.mojom.MediaControllerRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaController_PreviousTrack_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -349,21 +349,21 @@ mojo.internal.bindings.media_router.mojom.MediaControllerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_SetMute_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMute');
-          const result = this.impl.setMute(params.arg_arg_mute);
+          const result = this.impl.setMute(params.arg_mute);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_SetVolume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVolume');
-          const result = this.impl.setVolume(params.arg_arg_volume);
+          const result = this.impl.setVolume(params.arg_volume);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_Seek_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.seek');
-          const result = this.impl.seek(params.arg_arg_time);
+          const result = this.impl.seek(params.arg_time);
           break;
         }
         case 5: {

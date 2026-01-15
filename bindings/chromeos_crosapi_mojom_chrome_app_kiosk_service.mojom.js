@@ -205,7 +205,7 @@ mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec,
-      [arg_app_id, arg_is_network_ready],
+      { arg_app_id: arg_app_id, arg_is_network_ready: arg_is_network_ready },
       false);
   }
 
@@ -284,13 +284,13 @@ mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installKioskApp');
-          const result = this.impl.installKioskApp(params.arg_arg_params);
+          const result = this.impl.installKioskApp(params.arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] installKioskApp FAILED:', e));
           }
@@ -300,13 +300,13 @@ mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchKioskApp');
-          const result = this.impl.launchKioskApp(params.arg_arg_app_id, params.arg_arg_is_network_ready);
+          const result = this.impl.launchKioskApp(params.arg_app_id, params.arg_is_network_ready);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] launchKioskApp FAILED:', e));
           }
@@ -370,7 +370,7 @@ mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServiceRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec,
       null,
-      [arg_controller],
+      { arg_controller: arg_controller },
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindLaunchController');
-          const result = this.impl.bindLaunchController(params.arg_arg_controller);
+          const result = this.impl.bindLaunchController(params.arg_controller);
           break;
         }
       }

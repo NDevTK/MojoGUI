@@ -182,7 +182,7 @@ mojo.internal.bindings.blink.mojom.PluginRegistryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PluginRegistry_GetPlugins_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -256,8 +256,8 @@ mojo.internal.bindings.blink.mojom.PluginRegistryReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_plugins' in response) ? response.arg_arg_plugins : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_plugins' in response) ? response.arg_plugins : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec.$.structSpec, { 'arg_plugins': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPlugins FAILED:', e));
           }

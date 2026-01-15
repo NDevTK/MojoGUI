@@ -226,7 +226,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec,
       null,
-      [arg_receiver, arg_updater, arg_client, arg_creation_params],
+      { arg_receiver: arg_receiver, arg_updater: arg_updater, arg_client: arg_client, arg_creation_params: arg_creation_params },
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec,
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ResponseParamsSpec,
-      [arg_crl_set],
+      { arg_crl_set: arg_crl_set },
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec,
       null,
-      [arg_system_time, arg_system_ticks, arg_current_time],
+      { arg_system_time: arg_system_time, arg_system_ticks: arg_system_ticks, arg_current_time: arg_current_time },
       false);
   }
 
@@ -315,19 +315,19 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNewCertVerifier');
-          const result = this.impl.getNewCertVerifier(params.arg_arg_receiver, params.arg_arg_updater, params.arg_arg_client, params.arg_arg_creation_params);
+          const result = this.impl.getNewCertVerifier(params.arg_receiver, params.arg_updater, params.arg_client, params.arg_creation_params);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateCRLSet');
-          const result = this.impl.updateCRLSet(params.arg_arg_crl_set);
+          const result = this.impl.updateCRLSet(params.arg_crl_set);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateCRLSet FAILED:', e));
           }
@@ -337,7 +337,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateNetworkTime');
-          const result = this.impl.updateNetworkTime(params.arg_arg_system_time, params.arg_arg_system_ticks, params.arg_arg_current_time);
+          const result = this.impl.updateNetworkTime(params.arg_system_time, params.arg_system_ticks, params.arg_current_time);
           break;
         }
       }

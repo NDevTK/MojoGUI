@@ -198,7 +198,7 @@ mojo.internal.bindings.autofill_ml_internals.mojom.PageRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec,
       null,
-      [arg_log],
+      { arg_log: arg_log },
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.autofill_ml_internals.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLogAdded');
-          const result = this.impl.onLogAdded(params.arg_arg_log);
+          const result = this.impl.onLogAdded(params.arg_log);
           break;
         }
       }
@@ -328,7 +328,7 @@ mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      [arg_page],
+      { arg_page: arg_page },
       false);
   }
 
@@ -397,7 +397,7 @@ mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPage');
-          const result = this.impl.setPage(params.arg_arg_page);
+          const result = this.impl.setPage(params.arg_page);
           break;
         }
       }

@@ -178,7 +178,7 @@ mojo.internal.bindings.guest_contents.mojom.GuestContentsHostRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec,
       mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec,
-      [arg_frame_to_swap, arg_guest_contents_id],
+      { arg_frame_to_swap: arg_frame_to_swap, arg_guest_contents_id: arg_guest_contents_id },
       false);
   }
 
@@ -247,13 +247,13 @@ mojo.internal.bindings.guest_contents.mojom.GuestContentsHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.attach');
-          const result = this.impl.attach(params.arg_arg_frame_to_swap, params.arg_arg_guest_contents_id);
+          const result = this.impl.attach(params.arg_frame_to_swap, params.arg_guest_contents_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] attach FAILED:', e));
           }

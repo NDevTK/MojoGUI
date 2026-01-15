@@ -242,7 +242,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebServiceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebService_CreateWebView_ParamsSpec,
       null,
-      [arg_params, arg_web_contents, arg_window],
+      { arg_params: arg_params, arg_web_contents: arg_web_contents, arg_window: arg_window },
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebServiceRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec,
       null,
-      [arg_client, arg_hosts],
+      { arg_client: arg_client, arg_hosts: arg_hosts },
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebServiceRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -269,7 +269,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebServiceRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec,
       mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -341,14 +341,14 @@ mojo.internal.bindings.chromecast.mojom.CastWebServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebService_CreateWebView_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWebView');
-          const result = this.impl.createWebView(params.arg_arg_params, params.arg_arg_web_contents, params.arg_arg_window);
+          const result = this.impl.createWebView(params.arg_params, params.arg_web_contents, params.arg_window);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerWebUiClient');
-          const result = this.impl.registerWebUiClient(params.arg_arg_client, params.arg_arg_hosts);
+          const result = this.impl.registerWebUiClient(params.arg_client, params.arg_hosts);
           break;
         }
         case 2: {
@@ -367,7 +367,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] clearLocalStorage FAILED:', e));
           }

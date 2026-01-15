@@ -177,7 +177,7 @@ mojo.internal.bindings.network.mojom.CookieEncryptionProviderRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -251,8 +251,8 @@ mojo.internal.bindings.network.mojom.CookieEncryptionProviderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_encryptor' in response) ? response.arg_arg_encryptor : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_encryptor' in response) ? response.arg_encryptor : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec.$.structSpec, { 'arg_encryptor': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getEncryptor FAILED:', e));
           }

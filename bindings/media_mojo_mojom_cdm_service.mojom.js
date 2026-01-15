@@ -199,7 +199,7 @@ mojo.internal.bindings.media.mojom.CdmServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.CdmService_CreateCdmFactory_ParamsSpec,
       null,
-      [arg_factory, arg_frame_interfaces],
+      { arg_factory: arg_factory, arg_frame_interfaces: arg_frame_interfaces },
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.media.mojom.CdmServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmService_CreateCdmFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCdmFactory');
-          const result = this.impl.createCdmFactory(params.arg_arg_factory, params.arg_arg_frame_interfaces);
+          const result = this.impl.createCdmFactory(params.arg_factory, params.arg_frame_interfaces);
           break;
         }
       }
@@ -329,7 +329,7 @@ mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec,
       mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -403,8 +403,8 @@ mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderReceiver = clas
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_tokens' in response) ? response.arg_arg_tokens : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_tokens' in response) ? response.arg_tokens : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec.$.structSpec, { 'arg_tokens': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getTokens FAILED:', e));
           }
@@ -468,7 +468,7 @@ mojo.internal.bindings.media.mojom.CdmServiceBrokerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec,
       null,
-      [arg_cdm_path, arg_token_provider, arg_receiver],
+      { arg_cdm_path: arg_cdm_path, arg_token_provider: arg_token_provider, arg_receiver: arg_receiver },
       false);
   }
 
@@ -537,7 +537,7 @@ mojo.internal.bindings.media.mojom.CdmServiceBrokerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getService');
-          const result = this.impl.getService(params.arg_arg_cdm_path, params.arg_arg_token_provider, params.arg_arg_receiver);
+          const result = this.impl.getService(params.arg_cdm_path, params.arg_token_provider, params.arg_receiver);
           break;
         }
       }

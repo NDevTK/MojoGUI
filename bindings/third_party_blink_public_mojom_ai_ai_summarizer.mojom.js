@@ -210,7 +210,7 @@ mojo.internal.bindings.blink.mojom.AISummarizerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AISummarizer_Summarize_ParamsSpec,
       null,
-      [arg_input, arg_context, arg_pending_responder],
+      { arg_input: arg_input, arg_context: arg_context, arg_pending_responder: arg_pending_responder },
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.blink.mojom.AISummarizerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec,
-      [arg_input, arg_context],
+      { arg_input: arg_input, arg_context: arg_context },
       false);
   }
 
@@ -289,20 +289,20 @@ mojo.internal.bindings.blink.mojom.AISummarizerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AISummarizer_Summarize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.summarize');
-          const result = this.impl.summarize(params.arg_arg_input, params.arg_arg_context, params.arg_arg_pending_responder);
+          const result = this.impl.summarize(params.arg_input, params.arg_context, params.arg_pending_responder);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.measureUsage');
-          const result = this.impl.measureUsage(params.arg_arg_input, params.arg_arg_context);
+          const result = this.impl.measureUsage(params.arg_input, params.arg_context);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_number_of_tokens' in response) ? response.arg_arg_number_of_tokens : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_number_of_tokens' in response) ? response.arg_number_of_tokens : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec.$.structSpec, { 'arg_number_of_tokens': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] measureUsage FAILED:', e));
           }

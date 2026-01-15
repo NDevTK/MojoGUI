@@ -187,7 +187,7 @@ mojo.internal.bindings.ash.help_app.mojom.SearchResultsObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -325,7 +325,7 @@ mojo.internal.bindings.ash.help_app.mojom.SearchHandlerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Search_ParamsSpec,
       mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec,
-      [arg_query, arg_max_num_results],
+      { arg_query: arg_query, arg_max_num_results: arg_max_num_results },
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.ash.help_app.mojom.SearchHandlerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Update_ParamsSpec,
       mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Update_ResponseParamsSpec,
-      [arg_concepts],
+      { arg_concepts: arg_concepts },
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.ash.help_app.mojom.SearchHandlerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Observe_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -414,13 +414,13 @@ mojo.internal.bindings.ash.help_app.mojom.SearchHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Search_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.search');
-          const result = this.impl.search(params.arg_arg_query, params.arg_arg_max_num_results);
+          const result = this.impl.search(params.arg_query, params.arg_max_num_results);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_results' in response) ? response.arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec.$.structSpec, { 'arg_results': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] search FAILED:', e));
           }
@@ -430,12 +430,12 @@ mojo.internal.bindings.ash.help_app.mojom.SearchHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
-          const result = this.impl.update(params.arg_arg_concepts);
+          const result = this.impl.update(params.arg_concepts);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Update_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Update_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] update FAILED:', e));
           }
@@ -445,7 +445,7 @@ mojo.internal.bindings.ash.help_app.mojom.SearchHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Observe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observe');
-          const result = this.impl.observe(params.arg_arg_observer);
+          const result = this.impl.observe(params.arg_observer);
           break;
         }
       }

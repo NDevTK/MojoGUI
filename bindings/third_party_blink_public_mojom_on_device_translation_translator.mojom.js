@@ -181,7 +181,7 @@ mojo.internal.bindings.blink.mojom.TranslatorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.Translator_Translate_ParamsSpec,
       null,
-      [arg_input, arg_pending_responder],
+      { arg_input: arg_input, arg_pending_responder: arg_pending_responder },
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.blink.mojom.TranslatorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.Translator_TranslateStreaming_ParamsSpec,
       null,
-      [arg_input, arg_pending_responder],
+      { arg_input: arg_input, arg_pending_responder: arg_pending_responder },
       false);
   }
 
@@ -260,14 +260,14 @@ mojo.internal.bindings.blink.mojom.TranslatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Translator_Translate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.translate');
-          const result = this.impl.translate(params.arg_arg_input, params.arg_arg_pending_responder);
+          const result = this.impl.translate(params.arg_input, params.arg_pending_responder);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Translator_TranslateStreaming_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.translateStreaming');
-          const result = this.impl.translateStreaming(params.arg_arg_input, params.arg_arg_pending_responder);
+          const result = this.impl.translateStreaming(params.arg_input, params.arg_pending_responder);
           break;
         }
       }

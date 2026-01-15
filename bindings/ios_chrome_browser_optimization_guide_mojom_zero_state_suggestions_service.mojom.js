@@ -181,7 +181,7 @@ mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsServiceRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec,
       mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -255,8 +255,8 @@ mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fetchZeroStateSuggestions FAILED:', e));
           }

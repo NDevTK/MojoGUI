@@ -210,7 +210,7 @@ mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec,
       null,
-      [arg_progress],
+      { arg_progress: arg_progress },
       false);
   }
 
@@ -279,7 +279,7 @@ mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.progress');
-          const result = this.impl.progress(params.arg_arg_progress);
+          const result = this.impl.progress(params.arg_progress);
           break;
         }
       }
@@ -344,7 +344,7 @@ mojo.internal.bindings.mantis.mojom.MantisServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec,
       mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.mantis.mojom.MantisServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ParamsSpec,
       mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec,
-      [arg_progress_observer, arg_processor, arg_dlc_uuid, arg_text_classifier],
+      { arg_progress_observer: arg_progress_observer, arg_processor: arg_processor, arg_dlc_uuid: arg_dlc_uuid, arg_text_classifier: arg_text_classifier },
       false);
   }
 
@@ -428,8 +428,8 @@ mojo.internal.bindings.mantis.mojom.MantisServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMantisFeatureStatus FAILED:', e));
           }
@@ -439,13 +439,13 @@ mojo.internal.bindings.mantis.mojom.MantisServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_arg_progress_observer, params.arg_arg_processor, params.arg_arg_dlc_uuid, params.arg_arg_text_classifier);
+          const result = this.impl.initialize(params.arg_progress_observer, params.arg_processor, params.arg_dlc_uuid, params.arg_text_classifier);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] initialize FAILED:', e));
           }

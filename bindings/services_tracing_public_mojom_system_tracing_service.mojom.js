@@ -177,7 +177,7 @@ mojo.internal.bindings.tracing.mojom.SystemTracingServiceRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.SystemTracingService_OpenProducerSocket_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -251,8 +251,8 @@ mojo.internal.bindings.tracing.mojom.SystemTracingServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_traced_socket' in response) ? response.arg_arg_traced_socket : response;
-              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_traced_socket' in response) ? response.arg_traced_socket : response;
+              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec.$.structSpec, { 'arg_traced_socket': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openProducerSocket FAILED:', e));
           }

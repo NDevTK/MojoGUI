@@ -219,7 +219,7 @@ mojo.internal.bindings.handwriting.mojom.HandwritingRecognizerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec,
       mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec,
-      [arg_strokes, arg_hints],
+      { arg_strokes: arg_strokes, arg_hints: arg_hints },
       false);
   }
 
@@ -288,13 +288,13 @@ mojo.internal.bindings.handwriting.mojom.HandwritingRecognizerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPrediction');
-          const result = this.impl.getPrediction(params.arg_arg_strokes, params.arg_arg_hints);
+          const result = this.impl.getPrediction(params.arg_strokes, params.arg_hints);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_prediction' in response) ? response.arg_arg_prediction : response;
-              encoder.encodeStructInline(mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_prediction' in response) ? response.arg_prediction : response;
+              encoder.encodeStructInline(mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec.$.structSpec, { 'arg_prediction': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPrediction FAILED:', e));
           }
@@ -362,7 +362,7 @@ mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionServiceRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec,
       mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec,
-      [arg_constraint],
+      { arg_constraint: arg_constraint },
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionServiceRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec,
       mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec,
-      [arg_constraint],
+      { arg_constraint: arg_constraint },
       false);
   }
 
@@ -441,12 +441,12 @@ mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionServiceReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createHandwritingRecognizer');
-          const result = this.impl.createHandwritingRecognizer(params.arg_arg_constraint);
+          const result = this.impl.createHandwritingRecognizer(params.arg_constraint);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_handwriting_recognizer']);
+              encoder.encodeStructInline(mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_handwriting_recognizer': response.arg_handwriting_recognizer });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createHandwritingRecognizer FAILED:', e));
           }
@@ -456,13 +456,13 @@ mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionServiceReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queryHandwritingRecognizer');
-          const result = this.impl.queryHandwritingRecognizer(params.arg_arg_constraint);
+          const result = this.impl.queryHandwritingRecognizer(params.arg_constraint);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] queryHandwritingRecognizer FAILED:', e));
           }

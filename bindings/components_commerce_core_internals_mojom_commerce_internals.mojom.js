@@ -211,7 +211,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactoryRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactoryReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCommerceInternalsHandler');
-          const result = this.impl.createCommerceInternalsHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createCommerceInternalsHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -365,7 +365,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec,
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec,
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec,
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerRemoteCallHandler 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec,
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerRemoteCallHandler 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerRemoteCallHandler 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec,
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -499,8 +499,8 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_eligible' in response) ? response.arg_arg_eligible : response;
-              encoder.encodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_eligible' in response) ? response.arg_eligible : response;
+              encoder.encodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec.$.structSpec, { 'arg_eligible': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getIsShoppingListEligible FAILED:', e));
           }
@@ -517,13 +517,13 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getProductInfoForUrl');
-          const result = this.impl.getProductInfoForUrl(params.arg_arg_url);
+          const result = this.impl.getProductInfoForUrl(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getProductInfoForUrl FAILED:', e));
           }
@@ -538,8 +538,8 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_subscriptions' in response) ? response.arg_arg_subscriptions : response;
-              encoder.encodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_subscriptions' in response) ? response.arg_subscriptions : response;
+              encoder.encodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec.$.structSpec, { 'arg_subscriptions': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSubscriptionDetails FAILED:', e));
           }
@@ -554,8 +554,8 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_product_specifications_set' in response) ? response.arg_arg_product_specifications_set : response;
-              encoder.encodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_product_specifications_set' in response) ? response.arg_product_specifications_set : response;
+              encoder.encodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec.$.structSpec, { 'arg_product_specifications_set': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getProductSpecificationsDetails FAILED:', e));
           }
@@ -577,8 +577,8 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_details' in response) ? response.arg_arg_details : response;
-              encoder.encodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_details' in response) ? response.arg_details : response;
+              encoder.encodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec.$.structSpec, { 'arg_details': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getShoppingEligibilityDetails FAILED:', e));
           }
@@ -642,7 +642,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsPageRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec,
       null,
-      [arg_eligible],
+      { arg_eligible: arg_eligible },
       false);
   }
 
@@ -711,7 +711,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsPageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onShoppingListEligibilityChanged');
-          const result = this.impl.onShoppingListEligibilityChanged(params.arg_arg_eligible);
+          const result = this.impl.onShoppingListEligibilityChanged(params.arg_eligible);
           break;
         }
       }

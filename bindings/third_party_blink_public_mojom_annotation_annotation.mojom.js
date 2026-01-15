@@ -219,7 +219,7 @@ mojo.internal.bindings.blink.mojom.AnnotationAgentRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec,
       null,
-      [arg_applies_focus],
+      { arg_applies_focus: arg_applies_focus },
       false);
   }
 
@@ -288,7 +288,7 @@ mojo.internal.bindings.blink.mojom.AnnotationAgentReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.scrollIntoView');
-          const result = this.impl.scrollIntoView(params.arg_arg_applies_focus);
+          const result = this.impl.scrollIntoView(params.arg_applies_focus);
           break;
         }
       }
@@ -349,7 +349,7 @@ mojo.internal.bindings.blink.mojom.AnnotationAgentHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec,
       null,
-      [arg_document_relative_rect, arg_attachment_result],
+      { arg_document_relative_rect: arg_document_relative_rect, arg_attachment_result: arg_attachment_result },
       false);
   }
 
@@ -418,7 +418,7 @@ mojo.internal.bindings.blink.mojom.AnnotationAgentHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didFinishAttachment');
-          const result = this.impl.didFinishAttachment(params.arg_arg_document_relative_rect, params.arg_arg_attachment_result);
+          const result = this.impl.didFinishAttachment(params.arg_document_relative_rect, params.arg_attachment_result);
           break;
         }
       }
@@ -487,7 +487,7 @@ mojo.internal.bindings.blink.mojom.AnnotationAgentContainerRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec,
       null,
-      [arg_host_remote, arg_agent_receiver, arg_type, arg_selector, arg_search_range_start_node_id],
+      { arg_host_remote: arg_host_remote, arg_agent_receiver: arg_agent_receiver, arg_type: arg_type, arg_selector: arg_selector, arg_search_range_start_node_id: arg_search_range_start_node_id },
       false);
   }
 
@@ -496,7 +496,7 @@ mojo.internal.bindings.blink.mojom.AnnotationAgentContainerRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -505,7 +505,7 @@ mojo.internal.bindings.blink.mojom.AnnotationAgentContainerRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec,
       null,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -576,19 +576,19 @@ mojo.internal.bindings.blink.mojom.AnnotationAgentContainerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAgent');
-          const result = this.impl.createAgent(params.arg_arg_host_remote, params.arg_arg_agent_receiver, params.arg_arg_type, params.arg_arg_selector, params.arg_arg_search_range_start_node_id);
+          const result = this.impl.createAgent(params.arg_host_remote, params.arg_agent_receiver, params.arg_type, params.arg_selector, params.arg_search_range_start_node_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAgentFromSelection');
-          const result = this.impl.createAgentFromSelection(params.arg_arg_type);
+          const result = this.impl.createAgentFromSelection(params.arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_error', 'response.arg_arg_ready_status']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_error': response.arg_error, 'arg_ready_status': response.arg_ready_status });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createAgentFromSelection FAILED:', e));
           }
@@ -598,7 +598,7 @@ mojo.internal.bindings.blink.mojom.AnnotationAgentContainerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeAgentsOfType');
-          const result = this.impl.removeAgentsOfType(params.arg_arg_type);
+          const result = this.impl.removeAgentsOfType(params.arg_type);
           break;
         }
       }

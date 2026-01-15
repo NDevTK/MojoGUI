@@ -182,7 +182,7 @@ mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistryRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ParamsSpec,
       mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ResponseParamsSpec,
-      [arg_surface_handle],
+      { arg_surface_handle: arg_surface_handle },
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistryRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistry_UnregisterDCOMPSurfaceHandle_ParamsSpec,
       null,
-      [arg_token],
+      { arg_token: arg_token },
       false);
   }
 
@@ -261,13 +261,13 @@ mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerDCOMPSurfaceHandle');
-          const result = this.impl.registerDCOMPSurfaceHandle(params.arg_arg_surface_handle);
+          const result = this.impl.registerDCOMPSurfaceHandle(params.arg_surface_handle);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_token' in response) ? response.arg_arg_token : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_token' in response) ? response.arg_token : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ResponseParamsSpec.$.structSpec, { 'arg_token': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] registerDCOMPSurfaceHandle FAILED:', e));
           }
@@ -277,7 +277,7 @@ mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistry_UnregisterDCOMPSurfaceHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unregisterDCOMPSurfaceHandle');
-          const result = this.impl.unregisterDCOMPSurfaceHandle(params.arg_arg_token);
+          const result = this.impl.unregisterDCOMPSurfaceHandle(params.arg_token);
           break;
         }
       }

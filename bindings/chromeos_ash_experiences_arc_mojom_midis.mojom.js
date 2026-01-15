@@ -194,7 +194,7 @@ mojo.internal.bindings.arc.mojom.MidisClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec,
       null,
-      [arg_device],
+      { arg_device: arg_device },
       false);
   }
 
@@ -203,7 +203,7 @@ mojo.internal.bindings.arc.mojom.MidisClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec,
       null,
-      [arg_device],
+      { arg_device: arg_device },
       false);
   }
 
@@ -273,14 +273,14 @@ mojo.internal.bindings.arc.mojom.MidisClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceAdded');
-          const result = this.impl.onDeviceAdded(params.arg_arg_device);
+          const result = this.impl.onDeviceAdded(params.arg_device);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceRemoved');
-          const result = this.impl.onDeviceRemoved(params.arg_arg_device);
+          const result = this.impl.onDeviceRemoved(params.arg_device);
           break;
         }
       }
@@ -349,7 +349,7 @@ mojo.internal.bindings.arc.mojom.MidisServerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ParamsSpec,
       mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -358,7 +358,7 @@ mojo.internal.bindings.arc.mojom.MidisServerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ParamsSpec,
       mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -367,7 +367,7 @@ mojo.internal.bindings.arc.mojom.MidisServerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.MidisServer_CloseDevice_ParamsSpec,
       null,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -443,8 +443,8 @@ mojo.internal.bindings.arc.mojom.MidisServerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_devices' in response) ? response.arg_arg_devices : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_devices' in response) ? response.arg_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ResponseParamsSpec.$.structSpec, { 'arg_devices': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] listDevices FAILED:', e));
           }
@@ -454,13 +454,13 @@ mojo.internal.bindings.arc.mojom.MidisServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPort');
-          const result = this.impl.requestPort(params.arg_arg_request);
+          const result = this.impl.requestPort(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_port_handle' in response) ? response.arg_arg_port_handle : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_port_handle' in response) ? response.arg_port_handle : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ResponseParamsSpec.$.structSpec, { 'arg_port_handle': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestPort FAILED:', e));
           }
@@ -470,7 +470,7 @@ mojo.internal.bindings.arc.mojom.MidisServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisServer_CloseDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeDevice');
-          const result = this.impl.closeDevice(params.arg_arg_request);
+          const result = this.impl.closeDevice(params.arg_request);
           break;
         }
       }
@@ -531,7 +531,7 @@ mojo.internal.bindings.arc.mojom.MidisHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.MidisHost_Connect_ParamsSpec,
       null,
-      [arg_server, arg_client],
+      { arg_server: arg_server, arg_client: arg_client },
       false);
   }
 
@@ -600,7 +600,7 @@ mojo.internal.bindings.arc.mojom.MidisHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisHost_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_arg_server, params.arg_arg_client);
+          const result = this.impl.connect(params.arg_server, params.arg_client);
           break;
         }
       }
@@ -661,7 +661,7 @@ mojo.internal.bindings.arc.mojom.MidisInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.MidisInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.MidisInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -730,12 +730,12 @@ mojo.internal.bindings.arc.mojom.MidisInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.MidisInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.MidisInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }

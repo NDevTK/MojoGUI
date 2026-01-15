@@ -191,7 +191,7 @@ mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandlerFactoryRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandlerFactoryRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createUnexportableKeysInternalsHandler');
-          const result = this.impl.createUnexportableKeysInternalsHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createUnexportableKeysInternalsHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -325,7 +325,7 @@ mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandlerRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec,
       mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandlerRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec,
       mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec,
-      [arg_key_id],
+      { arg_key_id: arg_key_id },
       false);
   }
 
@@ -409,8 +409,8 @@ mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandlerReceiver = c
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_keys' in response) ? response.arg_arg_keys : response;
-              encoder.encodeStructInline(mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_keys' in response) ? response.arg_keys : response;
+              encoder.encodeStructInline(mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec.$.structSpec, { 'arg_keys': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUnexportableKeysInfo FAILED:', e));
           }
@@ -420,13 +420,13 @@ mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandlerReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteKey');
-          const result = this.impl.deleteKey(params.arg_arg_key_id);
+          const result = this.impl.deleteKey(params.arg_key_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteKey FAILED:', e));
           }

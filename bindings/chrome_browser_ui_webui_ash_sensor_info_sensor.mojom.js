@@ -189,7 +189,7 @@ mojo.internal.bindings.sensor.mojom.PageHandlerFactoryRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.sensor.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_handler);
           break;
         }
       }
@@ -323,7 +323,7 @@ mojo.internal.bindings.sensor.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -332,7 +332,7 @@ mojo.internal.bindings.sensor.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

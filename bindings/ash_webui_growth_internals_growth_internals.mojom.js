@@ -177,7 +177,7 @@ mojo.internal.bindings.ash.growth.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec,
       mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -186,7 +186,7 @@ mojo.internal.bindings.ash.growth.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -261,8 +261,8 @@ mojo.internal.bindings.ash.growth.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_logs' in response) ? response.arg_arg_logs : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_logs' in response) ? response.arg_logs : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec.$.structSpec, { 'arg_logs': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCampaignsLogs FAILED:', e));
           }

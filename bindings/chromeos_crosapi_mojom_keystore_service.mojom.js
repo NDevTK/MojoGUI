@@ -402,7 +402,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ResponseParamsSpec,
-      [arg_type, arg_challenge, arg_migrate, arg_algorithm],
+      { arg_type: arg_type, arg_challenge: arg_challenge, arg_migrate: arg_migrate, arg_algorithm: arg_algorithm },
       false);
   }
 
@@ -411,7 +411,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyStores_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyStores_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -420,7 +420,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_SelectClientCertificates_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_SelectClientCertificates_ResponseParamsSpec,
-      [arg_certificate_authorities],
+      { arg_certificate_authorities: arg_certificate_authorities },
       false);
   }
 
@@ -429,7 +429,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_GetCertificates_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_GetCertificates_ResponseParamsSpec,
-      [arg_keystore],
+      { arg_keystore: arg_keystore },
       false);
   }
 
@@ -438,7 +438,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_AddCertificate_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_AddCertificate_ResponseParamsSpec,
-      [arg_keystore, arg_certificate],
+      { arg_keystore: arg_keystore, arg_certificate: arg_certificate },
       false);
   }
 
@@ -447,7 +447,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveCertificate_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveCertificate_ResponseParamsSpec,
-      [arg_keystore, arg_certificate],
+      { arg_keystore: arg_keystore, arg_certificate: arg_certificate },
       false);
   }
 
@@ -456,7 +456,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_GetPublicKey_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_GetPublicKey_ResponseParamsSpec,
-      [arg_certificate, arg_algorithm_name],
+      { arg_certificate: arg_certificate, arg_algorithm_name: arg_algorithm_name },
       false);
   }
 
@@ -465,7 +465,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_GenerateKey_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_GenerateKey_ResponseParamsSpec,
-      [arg_keystore, arg_algorithm],
+      { arg_keystore: arg_keystore, arg_algorithm: arg_algorithm },
       false);
   }
 
@@ -474,7 +474,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveKey_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveKey_ResponseParamsSpec,
-      [arg_keystore, arg_public_key],
+      { arg_keystore: arg_keystore, arg_public_key: arg_public_key },
       false);
   }
 
@@ -483,7 +483,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_Sign_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_Sign_ResponseParamsSpec,
-      [arg_is_keystore_provided, arg_keystore, arg_public_key, arg_scheme, arg_data],
+      { arg_is_keystore_provided: arg_is_keystore_provided, arg_keystore: arg_keystore, arg_public_key: arg_public_key, arg_scheme: arg_scheme, arg_data: arg_data },
       false);
   }
 
@@ -492,7 +492,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyTags_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyTags_ResponseParamsSpec,
-      [arg_public_key],
+      { arg_public_key: arg_public_key },
       false);
   }
 
@@ -501,7 +501,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_AddKeyTags_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_AddKeyTags_ResponseParamsSpec,
-      [arg_public_key, arg_tags],
+      { arg_public_key: arg_public_key, arg_tags: arg_tags },
       false);
   }
 
@@ -510,7 +510,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ResponseParamsSpec,
-      [arg_public_key],
+      { arg_public_key: arg_public_key },
       false);
   }
 
@@ -519,7 +519,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_SetAttributeForKey_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_SetAttributeForKey_ResponseParamsSpec,
-      [arg_keystore, arg_public_key, arg_attribute_type, arg_attribute_value],
+      { arg_keystore: arg_keystore, arg_public_key: arg_public_key, arg_attribute_type: arg_attribute_type, arg_attribute_value: arg_attribute_value },
       false);
   }
 
@@ -528,7 +528,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ResponseParamsSpec,
-      [arg_keystore, arg_algorithm, arg_extension_id],
+      { arg_keystore: arg_keystore, arg_algorithm: arg_algorithm, arg_extension_id: arg_extension_id },
       false);
   }
 
@@ -537,7 +537,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ResponseParamsSpec,
-      [arg_keystore, arg_public_key, arg_scheme, arg_data, arg_extension_id],
+      { arg_keystore: arg_keystore, arg_public_key: arg_public_key, arg_scheme: arg_scheme, arg_data: arg_data, arg_extension_id: arg_extension_id },
       false);
   }
 
@@ -546,7 +546,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ResponseParamsSpec,
-      [arg_certificate, arg_algorithm_name],
+      { arg_certificate: arg_certificate, arg_algorithm_name: arg_algorithm_name },
       false);
   }
 
@@ -555,7 +555,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -564,7 +564,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ResponseParamsSpec,
-      [arg_keystore],
+      { arg_keystore: arg_keystore },
       false);
   }
 
@@ -573,7 +573,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ResponseParamsSpec,
-      [arg_keystore, arg_certificate],
+      { arg_keystore: arg_keystore, arg_certificate: arg_certificate },
       false);
   }
 
@@ -582,7 +582,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ResponseParamsSpec,
-      [arg_keystore, arg_certificate],
+      { arg_keystore: arg_keystore, arg_certificate: arg_certificate },
       false);
   }
 
@@ -591,7 +591,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ResponseParamsSpec,
-      [arg_challenge, arg_type, arg_migrate],
+      { arg_challenge: arg_challenge, arg_type: arg_type, arg_migrate: arg_migrate },
       false);
   }
 
@@ -681,13 +681,13 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.challengeAttestationOnlyKeystore');
-          const result = this.impl.challengeAttestationOnlyKeystore(params.arg_arg_type, params.arg_arg_challenge, params.arg_arg_migrate, params.arg_arg_algorithm);
+          const result = this.impl.challengeAttestationOnlyKeystore(params.arg_type, params.arg_challenge, params.arg_migrate, params.arg_algorithm);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] challengeAttestationOnlyKeystore FAILED:', e));
           }
@@ -702,8 +702,8 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyStores_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyStores_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getKeyStores FAILED:', e));
           }
@@ -713,13 +713,13 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_SelectClientCertificates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectClientCertificates');
-          const result = this.impl.selectClientCertificates(params.arg_arg_certificate_authorities);
+          const result = this.impl.selectClientCertificates(params.arg_certificate_authorities);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_SelectClientCertificates_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_SelectClientCertificates_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] selectClientCertificates FAILED:', e));
           }
@@ -729,13 +729,13 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GetCertificates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCertificates');
-          const result = this.impl.getCertificates(params.arg_arg_keystore);
+          const result = this.impl.getCertificates(params.arg_keystore);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GetCertificates_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GetCertificates_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCertificates FAILED:', e));
           }
@@ -745,12 +745,12 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_AddCertificate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addCertificate');
-          const result = this.impl.addCertificate(params.arg_arg_keystore, params.arg_arg_certificate);
+          const result = this.impl.addCertificate(params.arg_keystore, params.arg_certificate);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_AddCertificate_ResponseParamsSpec.$.structSpec, ['response.arg_arg_is_error', 'response.arg_arg_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_AddCertificate_ResponseParamsSpec.$.structSpec, { 'arg_is_error': response.arg_is_error, 'arg_error': response.arg_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addCertificate FAILED:', e));
           }
@@ -760,12 +760,12 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveCertificate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeCertificate');
-          const result = this.impl.removeCertificate(params.arg_arg_keystore, params.arg_arg_certificate);
+          const result = this.impl.removeCertificate(params.arg_keystore, params.arg_certificate);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveCertificate_ResponseParamsSpec.$.structSpec, ['response.arg_arg_is_error', 'response.arg_arg_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveCertificate_ResponseParamsSpec.$.structSpec, { 'arg_is_error': response.arg_is_error, 'arg_error': response.arg_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] removeCertificate FAILED:', e));
           }
@@ -775,13 +775,13 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GetPublicKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPublicKey');
-          const result = this.impl.getPublicKey(params.arg_arg_certificate, params.arg_arg_algorithm_name);
+          const result = this.impl.getPublicKey(params.arg_certificate, params.arg_algorithm_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GetPublicKey_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GetPublicKey_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPublicKey FAILED:', e));
           }
@@ -791,13 +791,13 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GenerateKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generateKey');
-          const result = this.impl.generateKey(params.arg_arg_keystore, params.arg_arg_algorithm);
+          const result = this.impl.generateKey(params.arg_keystore, params.arg_algorithm);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GenerateKey_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GenerateKey_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] generateKey FAILED:', e));
           }
@@ -807,12 +807,12 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeKey');
-          const result = this.impl.removeKey(params.arg_arg_keystore, params.arg_arg_public_key);
+          const result = this.impl.removeKey(params.arg_keystore, params.arg_public_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveKey_ResponseParamsSpec.$.structSpec, ['response.arg_arg_is_error', 'response.arg_arg_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveKey_ResponseParamsSpec.$.structSpec, { 'arg_is_error': response.arg_is_error, 'arg_error': response.arg_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] removeKey FAILED:', e));
           }
@@ -822,13 +822,13 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_Sign_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sign');
-          const result = this.impl.sign(params.arg_arg_is_keystore_provided, params.arg_arg_keystore, params.arg_arg_public_key, params.arg_arg_scheme, params.arg_arg_data);
+          const result = this.impl.sign(params.arg_is_keystore_provided, params.arg_keystore, params.arg_public_key, params.arg_scheme, params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_Sign_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_Sign_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sign FAILED:', e));
           }
@@ -838,13 +838,13 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyTags_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getKeyTags');
-          const result = this.impl.getKeyTags(params.arg_arg_public_key);
+          const result = this.impl.getKeyTags(params.arg_public_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyTags_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyTags_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getKeyTags FAILED:', e));
           }
@@ -854,12 +854,12 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_AddKeyTags_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addKeyTags');
-          const result = this.impl.addKeyTags(params.arg_arg_public_key, params.arg_arg_tags);
+          const result = this.impl.addKeyTags(params.arg_public_key, params.arg_tags);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_AddKeyTags_ResponseParamsSpec.$.structSpec, ['response.arg_arg_is_error', 'response.arg_arg_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_AddKeyTags_ResponseParamsSpec.$.structSpec, { 'arg_is_error': response.arg_is_error, 'arg_error': response.arg_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addKeyTags FAILED:', e));
           }
@@ -869,13 +869,13 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canUserGrantPermissionForKey');
-          const result = this.impl.canUserGrantPermissionForKey(params.arg_arg_public_key);
+          const result = this.impl.canUserGrantPermissionForKey(params.arg_public_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_allowed' in response) ? response.arg_arg_is_allowed : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_allowed' in response) ? response.arg_is_allowed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ResponseParamsSpec.$.structSpec, { 'arg_is_allowed': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] canUserGrantPermissionForKey FAILED:', e));
           }
@@ -885,12 +885,12 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_SetAttributeForKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAttributeForKey');
-          const result = this.impl.setAttributeForKey(params.arg_arg_keystore, params.arg_arg_public_key, params.arg_arg_attribute_type, params.arg_arg_attribute_value);
+          const result = this.impl.setAttributeForKey(params.arg_keystore, params.arg_public_key, params.arg_attribute_type, params.arg_attribute_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_SetAttributeForKey_ResponseParamsSpec.$.structSpec, ['response.arg_arg_is_error', 'response.arg_arg_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_SetAttributeForKey_ResponseParamsSpec.$.structSpec, { 'arg_is_error': response.arg_is_error, 'arg_error': response.arg_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setAttributeForKey FAILED:', e));
           }
@@ -900,13 +900,13 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_ExtensionGenerateKey');
-          const result = this.impl.dEPRECATED_ExtensionGenerateKey(params.arg_arg_keystore, params.arg_arg_algorithm, params.arg_arg_extension_id);
+          const result = this.impl.dEPRECATED_ExtensionGenerateKey(params.arg_keystore, params.arg_algorithm, params.arg_extension_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_ExtensionGenerateKey FAILED:', e));
           }
@@ -916,13 +916,13 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_ExtensionSign');
-          const result = this.impl.dEPRECATED_ExtensionSign(params.arg_arg_keystore, params.arg_arg_public_key, params.arg_arg_scheme, params.arg_arg_data, params.arg_arg_extension_id);
+          const result = this.impl.dEPRECATED_ExtensionSign(params.arg_keystore, params.arg_public_key, params.arg_scheme, params.arg_data, params.arg_extension_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_ExtensionSign FAILED:', e));
           }
@@ -932,13 +932,13 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_GetPublicKey');
-          const result = this.impl.dEPRECATED_GetPublicKey(params.arg_arg_certificate, params.arg_arg_algorithm_name);
+          const result = this.impl.dEPRECATED_GetPublicKey(params.arg_certificate, params.arg_algorithm_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_GetPublicKey FAILED:', e));
           }
@@ -953,8 +953,8 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_GetKeyStores FAILED:', e));
           }
@@ -964,13 +964,13 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_GetCertificates');
-          const result = this.impl.dEPRECATED_GetCertificates(params.arg_arg_keystore);
+          const result = this.impl.dEPRECATED_GetCertificates(params.arg_keystore);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_GetCertificates FAILED:', e));
           }
@@ -980,13 +980,13 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AddCertificate');
-          const result = this.impl.dEPRECATED_AddCertificate(params.arg_arg_keystore, params.arg_arg_certificate);
+          const result = this.impl.dEPRECATED_AddCertificate(params.arg_keystore, params.arg_certificate);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_AddCertificate FAILED:', e));
           }
@@ -996,13 +996,13 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_RemoveCertificate');
-          const result = this.impl.dEPRECATED_RemoveCertificate(params.arg_arg_keystore, params.arg_arg_certificate);
+          const result = this.impl.dEPRECATED_RemoveCertificate(params.arg_keystore, params.arg_certificate);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_RemoveCertificate FAILED:', e));
           }
@@ -1012,13 +1012,13 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_ChallengeAttestationOnlyKeystore');
-          const result = this.impl.dEPRECATED_ChallengeAttestationOnlyKeystore(params.arg_arg_challenge, params.arg_arg_type, params.arg_arg_migrate);
+          const result = this.impl.dEPRECATED_ChallengeAttestationOnlyKeystore(params.arg_challenge, params.arg_type, params.arg_migrate);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_ChallengeAttestationOnlyKeystore FAILED:', e));
           }

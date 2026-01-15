@@ -176,7 +176,7 @@ mojo.internal.bindings.android_webview.mojom.RenderMessageFilterRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec,
       null,
-      [arg_parent_frame_token, arg_child_frame_token],
+      { arg_parent_frame_token: arg_parent_frame_token, arg_child_frame_token: arg_child_frame_token },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.android_webview.mojom.RenderMessageFilterReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subFrameCreated');
-          const result = this.impl.subFrameCreated(params.arg_arg_parent_frame_token, params.arg_arg_child_frame_token);
+          const result = this.impl.subFrameCreated(params.arg_parent_frame_token, params.arg_child_frame_token);
           break;
         }
       }

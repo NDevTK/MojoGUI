@@ -196,7 +196,7 @@ mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessorRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec,
       null,
-      [arg_prerender_attribute],
+      { arg_prerender_attribute: arg_prerender_attribute },
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessorRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -275,7 +275,7 @@ mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start(params.arg_arg_prerender_attribute);
+          const result = this.impl.start(params.arg_prerender_attribute);
           break;
         }
         case 1: {

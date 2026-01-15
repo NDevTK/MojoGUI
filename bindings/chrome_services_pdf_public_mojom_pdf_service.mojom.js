@@ -185,7 +185,7 @@ mojo.internal.bindings.pdf.mojom.OcrRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ParamsSpec,
       mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec,
-      [arg_image],
+      { arg_image: arg_image },
       false);
   }
 
@@ -254,13 +254,13 @@ mojo.internal.bindings.pdf.mojom.OcrReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.performOcr');
-          const result = this.impl.performOcr(params.arg_arg_image);
+          const result = this.impl.performOcr(params.arg_image);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_visual_annotation' in response) ? response.arg_arg_visual_annotation : response;
-              encoder.encodeStructInline(mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_visual_annotation' in response) ? response.arg_visual_annotation : response;
+              encoder.encodeStructInline(mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec.$.structSpec, { 'arg_visual_annotation': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] performOcr FAILED:', e));
           }

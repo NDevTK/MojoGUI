@@ -296,7 +296,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ParamsSpec,
       mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec,
-      [arg_request_audio_input, arg_request_video_input, arg_request_audio_output, arg_request_video_input_capabilities, arg_request_audio_input_capabilities],
+      { arg_request_audio_input: arg_request_audio_input, arg_request_video_input: arg_request_video_input, arg_request_audio_output: arg_request_audio_output, arg_request_video_input_capabilities: arg_request_video_input_capabilities, arg_request_audio_input_capabilities: arg_request_audio_input_capabilities },
       false);
   }
 
@@ -305,7 +305,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ParamsSpec,
       mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -314,7 +314,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ParamsSpec,
       mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec,
-      [arg_device_id],
+      { arg_device_id: arg_device_id },
       false);
   }
 
@@ -323,7 +323,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ParamsSpec,
       mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec,
-      [arg_device_id],
+      { arg_device_id: arg_device_id },
       false);
   }
 
@@ -332,7 +332,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler =
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ParamsSpec,
       mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler =
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec,
       null,
-      [arg_subscribe_audio_input, arg_subscribe_video_input, arg_subscribe_audio_output, arg_listener],
+      { arg_subscribe_audio_input: arg_subscribe_audio_input, arg_subscribe_video_input: arg_subscribe_video_input, arg_subscribe_audio_output: arg_subscribe_audio_output, arg_listener: arg_listener },
       false);
   }
 
@@ -350,7 +350,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler =
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec,
       null,
-      [arg_config],
+      { arg_config: arg_config },
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler =
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_CloseFocusWindowOfOpportunity_ParamsSpec,
       null,
-      [arg_label],
+      { arg_label: arg_label },
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler =
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec,
       mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ResponseParamsSpec,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler =
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ParamsSpec,
       mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec,
-      [arg_sink_id],
+      { arg_sink_id: arg_sink_id },
       false);
   }
 
@@ -386,7 +386,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler =
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ParamsSpec,
       mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec,
-      [arg_device_id],
+      { arg_device_id: arg_device_id },
       false);
   }
 
@@ -465,12 +465,12 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enumerateDevices');
-          const result = this.impl.enumerateDevices(params.arg_arg_request_audio_input, params.arg_arg_request_video_input, params.arg_arg_request_audio_output, params.arg_arg_request_video_input_capabilities, params.arg_arg_request_audio_input_capabilities);
+          const result = this.impl.enumerateDevices(params.arg_request_audio_input, params.arg_request_video_input, params.arg_request_audio_output, params.arg_request_video_input_capabilities, params.arg_request_audio_input_capabilities);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec.$.structSpec, ['response.arg_arg_enumeration', 'response.arg_arg_video_input_device_capabilities', 'response.arg_arg_audio_input_device_capabilities']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec.$.structSpec, { 'arg_enumeration': response.arg_enumeration, 'arg_video_input_device_capabilities': response.arg_video_input_device_capabilities, 'arg_audio_input_device_capabilities': response.arg_audio_input_device_capabilities });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] enumerateDevices FAILED:', e));
           }
@@ -485,8 +485,8 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_video_input_device_capabilities' in response) ? response.arg_arg_video_input_device_capabilities : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_video_input_device_capabilities' in response) ? response.arg_video_input_device_capabilities : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec.$.structSpec, { 'arg_video_input_device_capabilities': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getVideoInputCapabilities FAILED:', e));
           }
@@ -496,13 +496,13 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAllVideoInputDeviceFormats');
-          const result = this.impl.getAllVideoInputDeviceFormats(params.arg_arg_device_id);
+          const result = this.impl.getAllVideoInputDeviceFormats(params.arg_device_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_formats' in response) ? response.arg_arg_formats : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_formats' in response) ? response.arg_formats : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec.$.structSpec, { 'arg_formats': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAllVideoInputDeviceFormats FAILED:', e));
           }
@@ -512,13 +512,13 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAvailableVideoInputDeviceFormats');
-          const result = this.impl.getAvailableVideoInputDeviceFormats(params.arg_arg_device_id);
+          const result = this.impl.getAvailableVideoInputDeviceFormats(params.arg_device_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_formats' in response) ? response.arg_arg_formats : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_formats' in response) ? response.arg_formats : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec.$.structSpec, { 'arg_formats': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAvailableVideoInputDeviceFormats FAILED:', e));
           }
@@ -533,8 +533,8 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_audio_input_device_capabilities' in response) ? response.arg_arg_audio_input_device_capabilities : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_audio_input_device_capabilities' in response) ? response.arg_audio_input_device_capabilities : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec.$.structSpec, { 'arg_audio_input_device_capabilities': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAudioInputCapabilities FAILED:', e));
           }
@@ -544,34 +544,34 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addMediaDevicesListener');
-          const result = this.impl.addMediaDevicesListener(params.arg_arg_subscribe_audio_input, params.arg_arg_subscribe_video_input, params.arg_arg_subscribe_audio_output, params.arg_arg_listener);
+          const result = this.impl.addMediaDevicesListener(params.arg_subscribe_audio_input, params.arg_subscribe_video_input, params.arg_subscribe_audio_output, params.arg_listener);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCaptureHandleConfig');
-          const result = this.impl.setCaptureHandleConfig(params.arg_arg_config);
+          const result = this.impl.setCaptureHandleConfig(params.arg_config);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_CloseFocusWindowOfOpportunity_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeFocusWindowOfOpportunity');
-          const result = this.impl.closeFocusWindowOfOpportunity(params.arg_arg_label);
+          const result = this.impl.closeFocusWindowOfOpportunity(params.arg_label);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.produceSubCaptureTargetId');
-          const result = this.impl.produceSubCaptureTargetId(params.arg_arg_type);
+          const result = this.impl.produceSubCaptureTargetId(params.arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_id' in response) ? response.arg_arg_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_id' in response) ? response.arg_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ResponseParamsSpec.$.structSpec, { 'arg_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] produceSubCaptureTargetId FAILED:', e));
           }
@@ -581,13 +581,13 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPreferredSinkId');
-          const result = this.impl.setPreferredSinkId(params.arg_arg_sink_id);
+          const result = this.impl.setPreferredSinkId(params.arg_sink_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setPreferredSinkId FAILED:', e));
           }
@@ -597,13 +597,13 @@ mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectAudioOutput');
-          const result = this.impl.selectAudioOutput(params.arg_arg_device_id);
+          const result = this.impl.selectAudioOutput(params.arg_device_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] selectAudioOutput FAILED:', e));
           }
@@ -667,7 +667,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesListenerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec,
       null,
-      [arg_type, arg_device_infos],
+      { arg_type: arg_type, arg_device_infos: arg_device_infos },
       false);
   }
 
@@ -736,7 +736,7 @@ mojo.internal.bindings.blink.mojom.MediaDevicesListenerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDevicesChanged');
-          const result = this.impl.onDevicesChanged(params.arg_arg_type, params.arg_arg_device_infos);
+          const result = this.impl.onDevicesChanged(params.arg_type, params.arg_device_infos);
           break;
         }
       }

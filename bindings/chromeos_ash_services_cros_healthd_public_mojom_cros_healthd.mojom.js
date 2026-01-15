@@ -594,7 +594,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -603,7 +603,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ResponseParamsSpec,
-      [arg_id, arg_command, arg_include_output],
+      { arg_id: arg_id, arg_command: arg_command, arg_include_output: arg_include_output },
       false);
   }
 
@@ -612,7 +612,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ResponseParamsSpec,
-      [arg_length_seconds],
+      { arg_length_seconds: arg_length_seconds },
       false);
   }
 
@@ -621,7 +621,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -630,7 +630,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -639,7 +639,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec,
-      [arg_percentage_used_threshold],
+      { arg_percentage_used_threshold: arg_percentage_used_threshold },
       false);
   }
 
@@ -648,7 +648,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec,
-      [arg_expected_status, arg_expected_power_type],
+      { arg_expected_status: arg_expected_status, arg_expected_power_type: arg_expected_power_type },
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec,
-      [arg_length_seconds],
+      { arg_length_seconds: arg_length_seconds },
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec,
-      [arg_length_seconds],
+      { arg_length_seconds: arg_length_seconds },
       false);
   }
 
@@ -675,7 +675,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec,
-      [arg_length_seconds],
+      { arg_length_seconds: arg_length_seconds },
       false);
   }
 
@@ -684,7 +684,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ResponseParamsSpec,
-      [arg_wear_level_threshold],
+      { arg_wear_level_threshold: arg_wear_level_threshold },
       false);
   }
 
@@ -693,7 +693,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec,
-      [arg_wear_level_threshold],
+      { arg_wear_level_threshold: arg_wear_level_threshold },
       false);
   }
 
@@ -702,7 +702,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec,
-      [arg_nvme_self_test_type],
+      { arg_nvme_self_test_type: arg_nvme_self_test_type },
       false);
   }
 
@@ -711,7 +711,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec,
-      [arg_type, arg_length_seconds, arg_file_size_mb],
+      { arg_type: arg_type, arg_length_seconds: arg_length_seconds, arg_file_size_mb: arg_file_size_mb },
       false);
   }
 
@@ -720,7 +720,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec,
-      [arg_length_seconds],
+      { arg_length_seconds: arg_length_seconds },
       false);
   }
 
@@ -729,7 +729,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec,
-      [arg_length_seconds, arg_maximum_discharge_percent_allowed],
+      { arg_length_seconds: arg_length_seconds, arg_maximum_discharge_percent_allowed: arg_maximum_discharge_percent_allowed },
       false);
   }
 
@@ -738,7 +738,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec,
-      [arg_length_seconds, arg_minimum_charge_percent_required],
+      { arg_length_seconds: arg_length_seconds, arg_minimum_charge_percent_required: arg_minimum_charge_percent_required },
       false);
   }
 
@@ -747,7 +747,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ResponseParamsSpec,
-      [arg_max_testing_mem_kib],
+      { arg_max_testing_mem_kib: arg_max_testing_mem_kib },
       false);
   }
 
@@ -756,7 +756,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -765,7 +765,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -774,7 +774,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -783,7 +783,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -792,7 +792,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -801,7 +801,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -810,7 +810,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -819,7 +819,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -828,7 +828,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -837,7 +837,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -846,7 +846,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -855,7 +855,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ResponseParamsSpec,
-      [arg_stun_server_hostname],
+      { arg_stun_server_hostname: arg_stun_server_hostname },
       false);
   }
 
@@ -864,7 +864,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -873,7 +873,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -882,7 +882,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -891,7 +891,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -900,7 +900,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -909,7 +909,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -918,7 +918,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ResponseParamsSpec,
-      [arg_target_state],
+      { arg_target_state: arg_target_state },
       false);
   }
 
@@ -927,7 +927,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[37],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ResponseParamsSpec,
-      [arg_name, arg_color, arg_replier],
+      { arg_name: arg_name, arg_color: arg_color, arg_replier: arg_replier },
       false);
   }
 
@@ -936,7 +936,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[38],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -945,7 +945,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[39],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ResponseParamsSpec,
-      [arg_node_id, arg_volume, arg_mute_on],
+      { arg_node_id: arg_node_id, arg_volume: arg_volume, arg_mute_on: arg_mute_on },
       false);
   }
 
@@ -954,7 +954,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[40],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ResponseParamsSpec,
-      [arg_node_id, arg_gain, arg_deprecated_mute_on],
+      { arg_node_id: arg_node_id, arg_gain: arg_gain, arg_deprecated_mute_on: arg_deprecated_mute_on },
       false);
   }
 
@@ -963,7 +963,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[41],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -972,7 +972,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[42],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -981,7 +981,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[43],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec,
-      [arg_length_seconds],
+      { arg_length_seconds: arg_length_seconds },
       false);
   }
 
@@ -990,7 +990,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[44],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec,
-      [arg_peripheral_id],
+      { arg_peripheral_id: arg_peripheral_id },
       false);
   }
 
@@ -999,7 +999,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[45],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec,
-      [arg_timeout_seconds],
+      { arg_timeout_seconds: arg_timeout_seconds },
       false);
   }
 
@@ -1008,7 +1008,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[46],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1017,7 +1017,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[47],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1026,7 +1026,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[48],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1148,8 +1148,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_available_routines' in response) ? response.arg_arg_available_routines : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_available_routines' in response) ? response.arg_available_routines : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ResponseParamsSpec.$.structSpec, { 'arg_available_routines': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAvailableRoutines FAILED:', e));
           }
@@ -1159,13 +1159,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRoutineUpdate');
-          const result = this.impl.getRoutineUpdate(params.arg_arg_id, params.arg_arg_command, params.arg_arg_include_output);
+          const result = this.impl.getRoutineUpdate(params.arg_id, params.arg_command, params.arg_include_output);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_routine_update' in response) ? response.arg_arg_routine_update : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_routine_update' in response) ? response.arg_routine_update : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ResponseParamsSpec.$.structSpec, { 'arg_routine_update': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRoutineUpdate FAILED:', e));
           }
@@ -1175,13 +1175,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runUrandomRoutine');
-          const result = this.impl.runUrandomRoutine(params.arg_arg_length_seconds);
+          const result = this.impl.runUrandomRoutine(params.arg_length_seconds);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runUrandomRoutine FAILED:', e));
           }
@@ -1196,8 +1196,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runBatteryCapacityRoutine FAILED:', e));
           }
@@ -1212,8 +1212,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runBatteryHealthRoutine FAILED:', e));
           }
@@ -1223,13 +1223,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runSmartctlCheckRoutine');
-          const result = this.impl.runSmartctlCheckRoutine(params.arg_arg_percentage_used_threshold);
+          const result = this.impl.runSmartctlCheckRoutine(params.arg_percentage_used_threshold);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runSmartctlCheckRoutine FAILED:', e));
           }
@@ -1239,13 +1239,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runAcPowerRoutine');
-          const result = this.impl.runAcPowerRoutine(params.arg_arg_expected_status, params.arg_arg_expected_power_type);
+          const result = this.impl.runAcPowerRoutine(params.arg_expected_status, params.arg_expected_power_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runAcPowerRoutine FAILED:', e));
           }
@@ -1255,13 +1255,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runCpuCacheRoutine');
-          const result = this.impl.runCpuCacheRoutine(params.arg_arg_length_seconds);
+          const result = this.impl.runCpuCacheRoutine(params.arg_length_seconds);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runCpuCacheRoutine FAILED:', e));
           }
@@ -1271,13 +1271,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runCpuStressRoutine');
-          const result = this.impl.runCpuStressRoutine(params.arg_arg_length_seconds);
+          const result = this.impl.runCpuStressRoutine(params.arg_length_seconds);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runCpuStressRoutine FAILED:', e));
           }
@@ -1287,13 +1287,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runFloatingPointAccuracyRoutine');
-          const result = this.impl.runFloatingPointAccuracyRoutine(params.arg_arg_length_seconds);
+          const result = this.impl.runFloatingPointAccuracyRoutine(params.arg_length_seconds);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runFloatingPointAccuracyRoutine FAILED:', e));
           }
@@ -1303,13 +1303,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_RunNvmeWearLevelRoutineWithThreshold');
-          const result = this.impl.dEPRECATED_RunNvmeWearLevelRoutineWithThreshold(params.arg_arg_wear_level_threshold);
+          const result = this.impl.dEPRECATED_RunNvmeWearLevelRoutineWithThreshold(params.arg_wear_level_threshold);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_RunNvmeWearLevelRoutineWithThreshold FAILED:', e));
           }
@@ -1319,13 +1319,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_RunNvmeWearLevelRoutine');
-          const result = this.impl.dEPRECATED_RunNvmeWearLevelRoutine(params.arg_arg_wear_level_threshold);
+          const result = this.impl.dEPRECATED_RunNvmeWearLevelRoutine(params.arg_wear_level_threshold);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_RunNvmeWearLevelRoutine FAILED:', e));
           }
@@ -1335,13 +1335,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runNvmeSelfTestRoutine');
-          const result = this.impl.runNvmeSelfTestRoutine(params.arg_arg_nvme_self_test_type);
+          const result = this.impl.runNvmeSelfTestRoutine(params.arg_nvme_self_test_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runNvmeSelfTestRoutine FAILED:', e));
           }
@@ -1351,13 +1351,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runDiskReadRoutine');
-          const result = this.impl.runDiskReadRoutine(params.arg_arg_type, params.arg_arg_length_seconds, params.arg_arg_file_size_mb);
+          const result = this.impl.runDiskReadRoutine(params.arg_type, params.arg_length_seconds, params.arg_file_size_mb);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runDiskReadRoutine FAILED:', e));
           }
@@ -1367,13 +1367,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runPrimeSearchRoutine');
-          const result = this.impl.runPrimeSearchRoutine(params.arg_arg_length_seconds);
+          const result = this.impl.runPrimeSearchRoutine(params.arg_length_seconds);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runPrimeSearchRoutine FAILED:', e));
           }
@@ -1383,13 +1383,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runBatteryDischargeRoutine');
-          const result = this.impl.runBatteryDischargeRoutine(params.arg_arg_length_seconds, params.arg_arg_maximum_discharge_percent_allowed);
+          const result = this.impl.runBatteryDischargeRoutine(params.arg_length_seconds, params.arg_maximum_discharge_percent_allowed);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runBatteryDischargeRoutine FAILED:', e));
           }
@@ -1399,13 +1399,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runBatteryChargeRoutine');
-          const result = this.impl.runBatteryChargeRoutine(params.arg_arg_length_seconds, params.arg_arg_minimum_charge_percent_required);
+          const result = this.impl.runBatteryChargeRoutine(params.arg_length_seconds, params.arg_minimum_charge_percent_required);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runBatteryChargeRoutine FAILED:', e));
           }
@@ -1415,13 +1415,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runMemoryRoutine');
-          const result = this.impl.runMemoryRoutine(params.arg_arg_max_testing_mem_kib);
+          const result = this.impl.runMemoryRoutine(params.arg_max_testing_mem_kib);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runMemoryRoutine FAILED:', e));
           }
@@ -1436,8 +1436,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runLanConnectivityRoutine FAILED:', e));
           }
@@ -1452,8 +1452,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runSignalStrengthRoutine FAILED:', e));
           }
@@ -1468,8 +1468,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runGatewayCanBePingedRoutine FAILED:', e));
           }
@@ -1484,8 +1484,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runHasSecureWiFiConnectionRoutine FAILED:', e));
           }
@@ -1500,8 +1500,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runDnsResolverPresentRoutine FAILED:', e));
           }
@@ -1516,8 +1516,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runDnsLatencyRoutine FAILED:', e));
           }
@@ -1532,8 +1532,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runDnsResolutionRoutine FAILED:', e));
           }
@@ -1548,8 +1548,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runCaptivePortalRoutine FAILED:', e));
           }
@@ -1564,8 +1564,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runHttpFirewallRoutine FAILED:', e));
           }
@@ -1580,8 +1580,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runHttpsFirewallRoutine FAILED:', e));
           }
@@ -1596,8 +1596,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runHttpsLatencyRoutine FAILED:', e));
           }
@@ -1607,13 +1607,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runVideoConferencingRoutine');
-          const result = this.impl.runVideoConferencingRoutine(params.arg_arg_stun_server_hostname);
+          const result = this.impl.runVideoConferencingRoutine(params.arg_stun_server_hostname);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runVideoConferencingRoutine FAILED:', e));
           }
@@ -1628,8 +1628,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runArcHttpRoutine FAILED:', e));
           }
@@ -1644,8 +1644,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runArcPingRoutine FAILED:', e));
           }
@@ -1660,8 +1660,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runArcDnsResolutionRoutine FAILED:', e));
           }
@@ -1676,8 +1676,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runSensitiveSensorRoutine FAILED:', e));
           }
@@ -1692,8 +1692,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runFingerprintRoutine FAILED:', e));
           }
@@ -1708,8 +1708,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runFingerprintAliveRoutine FAILED:', e));
           }
@@ -1719,13 +1719,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runPrivacyScreenRoutine');
-          const result = this.impl.runPrivacyScreenRoutine(params.arg_arg_target_state);
+          const result = this.impl.runPrivacyScreenRoutine(params.arg_target_state);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runPrivacyScreenRoutine FAILED:', e));
           }
@@ -1735,13 +1735,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_RunLedLitUpRoutine');
-          const result = this.impl.dEPRECATED_RunLedLitUpRoutine(params.arg_arg_name, params.arg_arg_color, params.arg_arg_replier);
+          const result = this.impl.dEPRECATED_RunLedLitUpRoutine(params.arg_name, params.arg_color, params.arg_replier);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_RunLedLitUpRoutine FAILED:', e));
           }
@@ -1756,8 +1756,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runEmmcLifetimeRoutine FAILED:', e));
           }
@@ -1767,13 +1767,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_RunAudioSetVolumeRoutine');
-          const result = this.impl.dEPRECATED_RunAudioSetVolumeRoutine(params.arg_arg_node_id, params.arg_arg_volume, params.arg_arg_mute_on);
+          const result = this.impl.dEPRECATED_RunAudioSetVolumeRoutine(params.arg_node_id, params.arg_volume, params.arg_mute_on);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_RunAudioSetVolumeRoutine FAILED:', e));
           }
@@ -1783,13 +1783,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_RunAudioSetGainRoutine');
-          const result = this.impl.dEPRECATED_RunAudioSetGainRoutine(params.arg_arg_node_id, params.arg_arg_gain, params.arg_arg_deprecated_mute_on);
+          const result = this.impl.dEPRECATED_RunAudioSetGainRoutine(params.arg_node_id, params.arg_gain, params.arg_deprecated_mute_on);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_RunAudioSetGainRoutine FAILED:', e));
           }
@@ -1804,8 +1804,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runBluetoothPowerRoutine FAILED:', e));
           }
@@ -1820,8 +1820,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runBluetoothDiscoveryRoutine FAILED:', e));
           }
@@ -1831,13 +1831,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runBluetoothScanningRoutine');
-          const result = this.impl.runBluetoothScanningRoutine(params.arg_arg_length_seconds);
+          const result = this.impl.runBluetoothScanningRoutine(params.arg_length_seconds);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runBluetoothScanningRoutine FAILED:', e));
           }
@@ -1847,13 +1847,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runBluetoothPairingRoutine');
-          const result = this.impl.runBluetoothPairingRoutine(params.arg_arg_peripheral_id);
+          const result = this.impl.runBluetoothPairingRoutine(params.arg_peripheral_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runBluetoothPairingRoutine FAILED:', e));
           }
@@ -1863,13 +1863,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runPowerButtonRoutine');
-          const result = this.impl.runPowerButtonRoutine(params.arg_arg_timeout_seconds);
+          const result = this.impl.runPowerButtonRoutine(params.arg_timeout_seconds);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runPowerButtonRoutine FAILED:', e));
           }
@@ -1884,8 +1884,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runAudioDriverRoutine FAILED:', e));
           }
@@ -1900,8 +1900,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runUfsLifetimeRoutine FAILED:', e));
           }
@@ -1916,8 +1916,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runFanRoutine FAILED:', e));
           }
@@ -2013,7 +2013,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddBluetoothObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -2022,7 +2022,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddLidObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -2031,7 +2031,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddPowerObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -2040,7 +2040,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallH
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_AddNetworkObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -2049,7 +2049,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallH
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddAudioObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -2058,7 +2058,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallH
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddThunderboltObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -2067,7 +2067,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallH
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddUsbObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -2076,7 +2076,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallH
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_AddEventObserver_ParamsSpec,
       null,
-      [arg_category, arg_observer],
+      { arg_category: arg_category, arg_observer: arg_observer },
       false);
   }
 
@@ -2085,7 +2085,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallH
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ResponseParamsSpec,
-      [arg_category],
+      { arg_category: arg_category },
       false);
   }
 
@@ -2162,69 +2162,69 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServiceReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddBluetoothObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AddBluetoothObserver');
-          const result = this.impl.dEPRECATED_AddBluetoothObserver(params.arg_arg_observer);
+          const result = this.impl.dEPRECATED_AddBluetoothObserver(params.arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddLidObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AddLidObserver');
-          const result = this.impl.dEPRECATED_AddLidObserver(params.arg_arg_observer);
+          const result = this.impl.dEPRECATED_AddLidObserver(params.arg_observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddPowerObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AddPowerObserver');
-          const result = this.impl.dEPRECATED_AddPowerObserver(params.arg_arg_observer);
+          const result = this.impl.dEPRECATED_AddPowerObserver(params.arg_observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_AddNetworkObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addNetworkObserver');
-          const result = this.impl.addNetworkObserver(params.arg_arg_observer);
+          const result = this.impl.addNetworkObserver(params.arg_observer);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddAudioObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AddAudioObserver');
-          const result = this.impl.dEPRECATED_AddAudioObserver(params.arg_arg_observer);
+          const result = this.impl.dEPRECATED_AddAudioObserver(params.arg_observer);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddThunderboltObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AddThunderboltObserver');
-          const result = this.impl.dEPRECATED_AddThunderboltObserver(params.arg_arg_observer);
+          const result = this.impl.dEPRECATED_AddThunderboltObserver(params.arg_observer);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddUsbObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AddUsbObserver');
-          const result = this.impl.dEPRECATED_AddUsbObserver(params.arg_arg_observer);
+          const result = this.impl.dEPRECATED_AddUsbObserver(params.arg_observer);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_AddEventObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addEventObserver');
-          const result = this.impl.addEventObserver(params.arg_arg_category, params.arg_arg_observer);
+          const result = this.impl.addEventObserver(params.arg_category, params.arg_observer);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isEventSupported');
-          const result = this.impl.isEventSupported(params.arg_arg_category);
+          const result = this.impl.isEventSupported(params.arg_category);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isEventSupported FAILED:', e));
           }
@@ -2296,7 +2296,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeServiceRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ResponseParamsSpec,
-      [arg_process_id],
+      { arg_process_id: arg_process_id },
       false);
   }
 
@@ -2305,7 +2305,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeServiceRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ResponseParamsSpec,
-      [arg_categories],
+      { arg_categories: arg_categories },
       false);
   }
 
@@ -2314,7 +2314,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeServiceRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ResponseParamsSpec,
-      [arg_process_ids, arg_ignore_single_process_error],
+      { arg_process_ids: arg_process_ids, arg_ignore_single_process_error: arg_ignore_single_process_error },
       false);
   }
 
@@ -2385,13 +2385,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.probeProcessInfo');
-          const result = this.impl.probeProcessInfo(params.arg_arg_process_id);
+          const result = this.impl.probeProcessInfo(params.arg_process_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_process_info' in response) ? response.arg_arg_process_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_process_info' in response) ? response.arg_process_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ResponseParamsSpec.$.structSpec, { 'arg_process_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] probeProcessInfo FAILED:', e));
           }
@@ -2401,13 +2401,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.probeTelemetryInfo');
-          const result = this.impl.probeTelemetryInfo(params.arg_arg_categories);
+          const result = this.impl.probeTelemetryInfo(params.arg_categories);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_telemetry_info' in response) ? response.arg_arg_telemetry_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_telemetry_info' in response) ? response.arg_telemetry_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ResponseParamsSpec.$.structSpec, { 'arg_telemetry_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] probeTelemetryInfo FAILED:', e));
           }
@@ -2417,13 +2417,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.probeMultipleProcessInfo');
-          const result = this.impl.probeMultipleProcessInfo(params.arg_arg_process_ids, params.arg_arg_ignore_single_process_error);
+          const result = this.impl.probeMultipleProcessInfo(params.arg_process_ids, params.arg_ignore_single_process_error);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_multiple_process_info' in response) ? response.arg_arg_multiple_process_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_multiple_process_info' in response) ? response.arg_multiple_process_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ResponseParamsSpec.$.structSpec, { 'arg_multiple_process_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] probeMultipleProcessInfo FAILED:', e));
           }

@@ -197,7 +197,7 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec,
       null,
-      [arg_compression_scheme, arg_compression_group_data],
+      { arg_compression_scheme: arg_compression_scheme, arg_compression_group_data: arg_compression_group_data },
       false);
   }
 
@@ -206,7 +206,7 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec,
       null,
-      [arg_error_message],
+      { arg_error_message: arg_error_message },
       false);
   }
 
@@ -276,14 +276,14 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSuccess');
-          const result = this.impl.onSuccess(params.arg_arg_compression_scheme, params.arg_arg_compression_group_data);
+          const result = this.impl.onSuccess(params.arg_compression_scheme, params.arg_compression_group_data);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_error_message);
+          const result = this.impl.onError(params.arg_error_message);
           break;
         }
       }
@@ -344,7 +344,7 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec,
       null,
-      [arg_compression_group_token, arg_client],
+      { arg_compression_group_token: arg_compression_group_token, arg_client: arg_client },
       false);
   }
 
@@ -413,7 +413,7 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTrustedSignals');
-          const result = this.impl.getTrustedSignals(params.arg_arg_compression_group_token, params.arg_arg_client);
+          const result = this.impl.getTrustedSignals(params.arg_compression_group_token, params.arg_client);
           break;
         }
       }

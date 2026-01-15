@@ -174,7 +174,7 @@ mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec,
       null,
-      [arg_api_key],
+      { arg_api_key: arg_api_key },
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGeneralAudienceBrowsingAPIKeyChanged');
-          const result = this.impl.onGeneralAudienceBrowsingAPIKeyChanged(params.arg_arg_api_key);
+          const result = this.impl.onGeneralAudienceBrowsingAPIKeyChanged(params.arg_api_key);
           break;
         }
       }
@@ -304,7 +304,7 @@ mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRemo
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRece
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addGeneralAudienceBrowsingAPIKeyObserver');
-          const result = this.impl.addGeneralAudienceBrowsingAPIKeyObserver(params.arg_arg_observer);
+          const result = this.impl.addGeneralAudienceBrowsingAPIKeyObserver(params.arg_observer);
           break;
         }
       }

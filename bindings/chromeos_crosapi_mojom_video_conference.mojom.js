@@ -241,7 +241,7 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -250,7 +250,7 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -259,7 +259,7 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec,
-      [arg_device, arg_enabled],
+      { arg_device: arg_device, arg_enabled: arg_enabled },
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -345,8 +345,8 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientReceiver = clas
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_apps' in response) ? response.arg_arg_apps : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_apps' in response) ? response.arg_apps : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec.$.structSpec, { 'arg_apps': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMediaApps FAILED:', e));
           }
@@ -356,13 +356,13 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.returnToApp');
-          const result = this.impl.returnToApp(params.arg_arg_id);
+          const result = this.impl.returnToApp(params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] returnToApp FAILED:', e));
           }
@@ -372,13 +372,13 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSystemMediaDeviceStatus');
-          const result = this.impl.setSystemMediaDeviceStatus(params.arg_arg_device, params.arg_arg_enabled);
+          const result = this.impl.setSystemMediaDeviceStatus(params.arg_device, params.arg_enabled);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setSystemMediaDeviceStatus FAILED:', e));
           }

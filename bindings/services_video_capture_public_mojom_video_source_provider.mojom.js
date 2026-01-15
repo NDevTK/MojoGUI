@@ -235,7 +235,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec,
       null,
-      [arg_source_id, arg_stream],
+      { arg_source_id: arg_source_id, arg_stream: arg_stream },
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec,
       null,
-      [arg_device_info, arg_producer, arg_virtual_device_receiver],
+      { arg_device_info: arg_device_info, arg_producer: arg_producer, arg_virtual_device_receiver: arg_virtual_device_receiver },
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec,
       null,
-      [arg_device_info, arg_virtual_device_receiver],
+      { arg_device_info: arg_device_info, arg_virtual_device_receiver: arg_virtual_device_receiver },
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemoteCallHandler 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec,
       null,
-      [arg_observer, arg_raise_event_if_virtual_devices_already_present],
+      { arg_observer: arg_observer, arg_raise_event_if_virtual_devices_already_present: arg_raise_event_if_virtual_devices_already_present },
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemoteCallHandler 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemoteCallHandler 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -369,7 +369,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_source_infos']);
+              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_source_infos': response.arg_source_infos });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSourceInfos FAILED:', e));
           }
@@ -379,35 +379,35 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVideoSource');
-          const result = this.impl.getVideoSource(params.arg_arg_source_id, params.arg_arg_stream);
+          const result = this.impl.getVideoSource(params.arg_source_id, params.arg_stream);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addSharedMemoryVirtualDevice');
-          const result = this.impl.addSharedMemoryVirtualDevice(params.arg_arg_device_info, params.arg_arg_producer, params.arg_arg_virtual_device_receiver);
+          const result = this.impl.addSharedMemoryVirtualDevice(params.arg_device_info, params.arg_producer, params.arg_virtual_device_receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addTextureVirtualDevice');
-          const result = this.impl.addTextureVirtualDevice(params.arg_arg_device_info, params.arg_arg_virtual_device_receiver);
+          const result = this.impl.addTextureVirtualDevice(params.arg_device_info, params.arg_virtual_device_receiver);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerVirtualDevicesChangedObserver');
-          const result = this.impl.registerVirtualDevicesChangedObserver(params.arg_arg_observer, params.arg_arg_raise_event_if_virtual_devices_already_present);
+          const result = this.impl.registerVirtualDevicesChangedObserver(params.arg_observer, params.arg_raise_event_if_virtual_devices_already_present);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerDevicesChangedObserver');
-          const result = this.impl.registerDevicesChangedObserver(params.arg_arg_observer);
+          const result = this.impl.registerDevicesChangedObserver(params.arg_observer);
           break;
         }
         case 6: {
@@ -419,7 +419,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] close FAILED:', e));
           }

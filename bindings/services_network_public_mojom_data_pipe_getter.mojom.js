@@ -176,7 +176,7 @@ mojo.internal.bindings.network.mojom.DataPipeGetterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ParamsSpec,
       mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ResponseParamsSpec,
-      [arg_pipe],
+      { arg_pipe: arg_pipe },
       false);
   }
 
@@ -185,7 +185,7 @@ mojo.internal.bindings.network.mojom.DataPipeGetterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.DataPipeGetter_Clone_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -255,12 +255,12 @@ mojo.internal.bindings.network.mojom.DataPipeGetterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.read');
-          const result = this.impl.read(params.arg_arg_pipe);
+          const result = this.impl.read(params.arg_pipe);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_size']);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_size': response.arg_size });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] read FAILED:', e));
           }
@@ -270,7 +270,7 @@ mojo.internal.bindings.network.mojom.DataPipeGetterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DataPipeGetter_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_receiver);
+          const result = this.impl.clone(params.arg_receiver);
           break;
         }
       }

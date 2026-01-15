@@ -253,7 +253,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec,
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec,
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec,
-      [arg_encoded_parent_access_callback_proto],
+      { arg_encoded_parent_access_callback_proto: arg_encoded_parent_access_callback_proto },
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec,
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec,
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHan
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec,
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParamsSpec,
-      [arg_result],
+      { arg_result: arg_result },
       false);
   }
 
@@ -298,7 +298,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHan
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec,
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_oauth_token']);
+              encoder.encodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_oauth_token': response.arg_oauth_token });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOauthToken FAILED:', e));
           }
@@ -387,13 +387,13 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onParentAccessCallbackReceived');
-          const result = this.impl.onParentAccessCallbackReceived(params.arg_arg_encoded_parent_access_callback_proto);
+          const result = this.impl.onParentAccessCallbackReceived(params.arg_encoded_parent_access_callback_proto);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_message' in response) ? response.arg_arg_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_message' in response) ? response.arg_message : response;
+              encoder.encodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec.$.structSpec, { 'arg_message': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onParentAccessCallbackReceived FAILED:', e));
           }
@@ -408,8 +408,8 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_params' in response) ? response.arg_arg_params : response;
-              encoder.encodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_params' in response) ? response.arg_params : response;
+              encoder.encodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec.$.structSpec, { 'arg_params': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getParentAccessParams FAILED:', e));
           }
@@ -424,8 +424,8 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_url' in response) ? response.arg_arg_url : response;
-              encoder.encodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_url' in response) ? response.arg_url : response;
+              encoder.encodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec.$.structSpec, { 'arg_url': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getParentAccessUrl FAILED:', e));
           }
@@ -435,12 +435,12 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onParentAccessDone');
-          const result = this.impl.onParentAccessDone(params.arg_arg_result);
+          const result = this.impl.onParentAccessDone(params.arg_result);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onParentAccessDone FAILED:', e));
           }
@@ -455,7 +455,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onBeforeScreenDone FAILED:', e));
           }

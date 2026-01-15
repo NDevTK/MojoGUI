@@ -211,7 +211,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnConnected_ParamsSpec,
       null,
-      [arg_connection_id],
+      { arg_connection_id: arg_connection_id },
       false);
   }
 
@@ -220,7 +220,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnContextClosed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnReadyForInspection_ParamsSpec,
       null,
-      [arg_agent, arg_agent_host],
+      { arg_agent: arg_agent, arg_agent_host: arg_agent_host },
       false);
   }
 
@@ -238,7 +238,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnScriptLoadFailed_ParamsSpec,
       null,
-      [arg_error_message],
+      { arg_error_message: arg_error_message },
       false);
   }
 
@@ -247,7 +247,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec,
       null,
-      [arg_details],
+      { arg_details: arg_details },
       false);
   }
 
@@ -256,7 +256,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec,
       null,
-      [arg_feature],
+      { arg_feature: arg_feature },
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnConnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnected');
-          const result = this.impl.onConnected(params.arg_arg_connection_id);
+          const result = this.impl.onConnected(params.arg_connection_id);
           break;
         }
         case 1: {
@@ -344,28 +344,28 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnReadyForInspection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReadyForInspection');
-          const result = this.impl.onReadyForInspection(params.arg_arg_agent, params.arg_arg_agent_host);
+          const result = this.impl.onReadyForInspection(params.arg_agent, params.arg_agent_host);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnScriptLoadFailed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScriptLoadFailed');
-          const result = this.impl.onScriptLoadFailed(params.arg_arg_error_message);
+          const result = this.impl.onScriptLoadFailed(params.arg_error_message);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReportException');
-          const result = this.impl.onReportException(params.arg_arg_details);
+          const result = this.impl.onReportException(params.arg_details);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFeatureUsed');
-          const result = this.impl.onFeatureUsed(params.arg_arg_feature);
+          const result = this.impl.onFeatureUsed(params.arg_feature);
           break;
         }
       }

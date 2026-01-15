@@ -234,7 +234,7 @@ mojo.internal.bindings.coral.mojom.TitleObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.coral.mojom.TitleObserver_TitleUpdated_ParamsSpec,
       null,
-      [arg_group_id, arg_title],
+      { arg_group_id: arg_group_id, arg_title: arg_title },
       false);
   }
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.coral.mojom.TitleObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.TitleObserver_TitleUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.titleUpdated');
-          const result = this.impl.titleUpdated(params.arg_arg_group_id, params.arg_arg_title);
+          const result = this.impl.titleUpdated(params.arg_group_id, params.arg_title);
           break;
         }
       }
@@ -368,7 +368,7 @@ mojo.internal.bindings.coral.mojom.CoralProcessorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ParamsSpec,
       mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ResponseParamsSpec,
-      [arg_request, arg_observer],
+      { arg_request: arg_request, arg_observer: arg_observer },
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.coral.mojom.CoralProcessorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec,
       mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -447,13 +447,13 @@ mojo.internal.bindings.coral.mojom.CoralProcessorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.group');
-          const result = this.impl.group(params.arg_arg_request, params.arg_arg_observer);
+          const result = this.impl.group(params.arg_request, params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] group FAILED:', e));
           }
@@ -463,13 +463,13 @@ mojo.internal.bindings.coral.mojom.CoralProcessorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cacheEmbeddings');
-          const result = this.impl.cacheEmbeddings(params.arg_arg_request);
+          const result = this.impl.cacheEmbeddings(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] cacheEmbeddings FAILED:', e));
           }
@@ -545,7 +545,7 @@ mojo.internal.bindings.coral.mojom.CoralServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ParamsSpec,
       mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec,
-      [arg_request, arg_observer],
+      { arg_request: arg_request, arg_observer: arg_observer },
       false);
   }
 
@@ -554,7 +554,7 @@ mojo.internal.bindings.coral.mojom.CoralServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec,
       mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -563,7 +563,7 @@ mojo.internal.bindings.coral.mojom.CoralServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.coral.mojom.CoralService_PrepareResource_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -572,7 +572,7 @@ mojo.internal.bindings.coral.mojom.CoralServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.coral.mojom.CoralService_Initialize_ParamsSpec,
       null,
-      [arg_ml_service, arg_processor, arg_language_code],
+      { arg_ml_service: arg_ml_service, arg_processor: arg_processor, arg_language_code: arg_language_code },
       false);
   }
 
@@ -644,13 +644,13 @@ mojo.internal.bindings.coral.mojom.CoralServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.groupDeprecated');
-          const result = this.impl.groupDeprecated(params.arg_arg_request, params.arg_arg_observer);
+          const result = this.impl.groupDeprecated(params.arg_request, params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] groupDeprecated FAILED:', e));
           }
@@ -660,13 +660,13 @@ mojo.internal.bindings.coral.mojom.CoralServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cacheEmbeddingsDeprecated');
-          const result = this.impl.cacheEmbeddingsDeprecated(params.arg_arg_request);
+          const result = this.impl.cacheEmbeddingsDeprecated(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] cacheEmbeddingsDeprecated FAILED:', e));
           }
@@ -683,7 +683,7 @@ mojo.internal.bindings.coral.mojom.CoralServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralService_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_arg_ml_service, params.arg_arg_processor, params.arg_arg_language_code);
+          const result = this.impl.initialize(params.arg_ml_service, params.arg_processor, params.arg_language_code);
           break;
         }
       }

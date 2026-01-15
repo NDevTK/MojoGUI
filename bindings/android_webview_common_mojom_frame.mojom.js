@@ -229,7 +229,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec,
       null,
-      [arg_page_scale_factor],
+      { arg_page_scale_factor: arg_page_scale_factor },
       false);
   }
 
@@ -238,7 +238,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec,
       null,
-      [arg_zoom_factor],
+      { arg_zoom_factor: arg_zoom_factor },
       false);
   }
 
@@ -247,7 +247,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec,
       mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -256,7 +256,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -265,7 +265,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec,
       null,
-      [arg_target_x, arg_target_y, arg_duration],
+      { arg_target_x: arg_target_x, arg_target_y: arg_target_y, arg_duration: arg_duration },
       false);
   }
 
@@ -338,14 +338,14 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInitialPageScale');
-          const result = this.impl.setInitialPageScale(params.arg_arg_page_scale_factor);
+          const result = this.impl.setInitialPageScale(params.arg_page_scale_factor);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTextZoomFactor');
-          const result = this.impl.setTextZoomFactor(params.arg_arg_zoom_factor);
+          const result = this.impl.setTextZoomFactor(params.arg_zoom_factor);
           break;
         }
         case 2: {
@@ -357,8 +357,8 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_has_images' in response) ? response.arg_arg_has_images : response;
-              encoder.encodeStructInline(mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_has_images' in response) ? response.arg_has_images : response;
+              encoder.encodeStructInline(mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec.$.structSpec, { 'arg_has_images': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] documentHasImage FAILED:', e));
           }
@@ -375,7 +375,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.smoothScroll');
-          const result = this.impl.smoothScroll(params.arg_arg_target_x, params.arg_arg_target_y, params.arg_arg_duration);
+          const result = this.impl.smoothScroll(params.arg_target_x, params.arg_target_y, params.arg_duration);
           break;
         }
       }
@@ -444,7 +444,7 @@ mojo.internal.bindings.android_webview.mojom.FrameHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec,
       null,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.android_webview.mojom.FrameHostRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec,
       null,
-      [arg_contents_size],
+      { arg_contents_size: arg_contents_size },
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.android_webview.mojom.FrameHostRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec,
       mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec,
-      [arg_url, arg_has_user_gesture, arg_is_redirect, arg_is_outermost_main_frame],
+      { arg_url: arg_url, arg_has_user_gesture: arg_has_user_gesture, arg_is_redirect: arg_is_redirect, arg_is_outermost_main_frame: arg_is_outermost_main_frame },
       false);
   }
 
@@ -533,27 +533,27 @@ mojo.internal.bindings.android_webview.mojom.FrameHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateHitTestData');
-          const result = this.impl.updateHitTestData(params.arg_arg_data);
+          const result = this.impl.updateHitTestData(params.arg_data);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.contentsSizeChanged');
-          const result = this.impl.contentsSizeChanged(params.arg_arg_contents_size);
+          const result = this.impl.contentsSizeChanged(params.arg_contents_size);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shouldOverrideUrlLoading');
-          const result = this.impl.shouldOverrideUrlLoading(params.arg_arg_url, params.arg_arg_has_user_gesture, params.arg_arg_is_redirect, params.arg_arg_is_outermost_main_frame);
+          const result = this.impl.shouldOverrideUrlLoading(params.arg_url, params.arg_has_user_gesture, params.arg_is_redirect, params.arg_is_outermost_main_frame);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] shouldOverrideUrlLoading FAILED:', e));
           }

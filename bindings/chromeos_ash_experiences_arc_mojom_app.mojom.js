@@ -417,7 +417,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec,
       null,
-      [arg_app],
+      { arg_app: arg_app },
       false);
   }
 
@@ -426,7 +426,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnAppListRefreshed_ParamsSpec,
       null,
-      [arg_apps],
+      { arg_apps: arg_apps },
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnPackageAdded_ParamsSpec,
       null,
-      [arg_arcPackageInfo],
+      { arg_arcPackageInfo: arg_arcPackageInfo },
       false);
   }
 
@@ -444,7 +444,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec,
       null,
-      [arg_package_name, arg_apps],
+      { arg_package_name: arg_package_name, arg_apps: arg_apps },
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnPackageListRefreshed_ParamsSpec,
       null,
-      [arg_packages],
+      { arg_packages: arg_packages },
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnPackageModified_ParamsSpec,
       null,
-      [arg_arcPackageInfo],
+      { arg_arcPackageInfo: arg_arcPackageInfo },
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnPackageRemoved_ParamsSpec,
       null,
-      [arg_package_name],
+      { arg_package_name: arg_package_name },
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnTaskCreated_ParamsSpec,
       null,
-      [arg_task_id, arg_package_name, arg_activity, arg_name, arg_intent, arg_session_id],
+      { arg_task_id: arg_task_id, arg_package_name: arg_package_name, arg_activity: arg_activity, arg_name: arg_name, arg_intent: arg_intent, arg_session_id: arg_session_id },
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec,
       null,
-      [arg_task_id, arg_label, arg_icon_png_data],
+      { arg_task_id: arg_task_id, arg_label: arg_label, arg_icon_png_data: arg_icon_png_data },
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec,
       null,
-      [arg_task_id, arg_label, arg_icon, arg_primary_color, arg_status_bar_color],
+      { arg_task_id: arg_task_id, arg_label: arg_label, arg_icon: arg_icon, arg_primary_color: arg_primary_color, arg_status_bar_color: arg_status_bar_color },
       false);
   }
 
@@ -507,7 +507,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnTaskDestroyed_ParamsSpec,
       null,
-      [arg_task_id],
+      { arg_task_id: arg_task_id },
       false);
   }
 
@@ -516,7 +516,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnTaskSetActive_ParamsSpec,
       null,
-      [arg_task_id],
+      { arg_task_id: arg_task_id },
       false);
   }
 
@@ -525,7 +525,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec,
       null,
-      [arg_package_name, arg_enabled],
+      { arg_package_name: arg_package_name, arg_enabled: arg_enabled },
       false);
   }
 
@@ -534,7 +534,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnInstallShortcut_ParamsSpec,
       null,
-      [arg_shortcut],
+      { arg_shortcut: arg_shortcut },
       false);
   }
 
@@ -543,7 +543,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnInstallationStarted_ParamsSpec,
       null,
-      [arg_package_name],
+      { arg_package_name: arg_package_name },
       false);
   }
 
@@ -552,7 +552,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnInstallationFinished_ParamsSpec,
       null,
-      [arg_result],
+      { arg_result: arg_result },
       false);
   }
 
@@ -561,7 +561,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec,
       null,
-      [arg_package_name, arg_intent_uri],
+      { arg_package_name: arg_package_name, arg_intent_uri: arg_intent_uri },
       false);
   }
 
@@ -570,7 +570,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec,
       null,
-      [arg_package_name, arg_progress],
+      { arg_package_name: arg_package_name, arg_progress: arg_progress },
       false);
   }
 
@@ -579,7 +579,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec,
       null,
-      [arg_package_name, arg_active],
+      { arg_package_name: arg_package_name, arg_active: arg_active },
       false);
   }
 
@@ -666,133 +666,133 @@ mojo.internal.bindings.arc.mojom.AppHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAppAddedDeprecated');
-          const result = this.impl.onAppAddedDeprecated(params.arg_arg_app);
+          const result = this.impl.onAppAddedDeprecated(params.arg_app);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnAppListRefreshed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAppListRefreshed');
-          const result = this.impl.onAppListRefreshed(params.arg_arg_apps);
+          const result = this.impl.onAppListRefreshed(params.arg_apps);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnPackageAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPackageAdded');
-          const result = this.impl.onPackageAdded(params.arg_arg_arcPackageInfo);
+          const result = this.impl.onPackageAdded(params.arg_arcPackageInfo);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPackageAppListRefreshed');
-          const result = this.impl.onPackageAppListRefreshed(params.arg_arg_package_name, params.arg_arg_apps);
+          const result = this.impl.onPackageAppListRefreshed(params.arg_package_name, params.arg_apps);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnPackageListRefreshed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPackageListRefreshed');
-          const result = this.impl.onPackageListRefreshed(params.arg_arg_packages);
+          const result = this.impl.onPackageListRefreshed(params.arg_packages);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnPackageModified_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPackageModified');
-          const result = this.impl.onPackageModified(params.arg_arg_arcPackageInfo);
+          const result = this.impl.onPackageModified(params.arg_arcPackageInfo);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnPackageRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPackageRemoved');
-          const result = this.impl.onPackageRemoved(params.arg_arg_package_name);
+          const result = this.impl.onPackageRemoved(params.arg_package_name);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnTaskCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTaskCreated');
-          const result = this.impl.onTaskCreated(params.arg_arg_task_id, params.arg_arg_package_name, params.arg_arg_activity, params.arg_arg_name, params.arg_arg_intent, params.arg_arg_session_id);
+          const result = this.impl.onTaskCreated(params.arg_task_id, params.arg_package_name, params.arg_activity, params.arg_name, params.arg_intent, params.arg_session_id);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTaskDescriptionUpdated');
-          const result = this.impl.onTaskDescriptionUpdated(params.arg_arg_task_id, params.arg_arg_label, params.arg_arg_icon_png_data);
+          const result = this.impl.onTaskDescriptionUpdated(params.arg_task_id, params.arg_label, params.arg_icon_png_data);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTaskDescriptionChanged');
-          const result = this.impl.onTaskDescriptionChanged(params.arg_arg_task_id, params.arg_arg_label, params.arg_arg_icon, params.arg_arg_primary_color, params.arg_arg_status_bar_color);
+          const result = this.impl.onTaskDescriptionChanged(params.arg_task_id, params.arg_label, params.arg_icon, params.arg_primary_color, params.arg_status_bar_color);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnTaskDestroyed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTaskDestroyed');
-          const result = this.impl.onTaskDestroyed(params.arg_arg_task_id);
+          const result = this.impl.onTaskDestroyed(params.arg_task_id);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnTaskSetActive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTaskSetActive');
-          const result = this.impl.onTaskSetActive(params.arg_arg_task_id);
+          const result = this.impl.onTaskSetActive(params.arg_task_id);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNotificationsEnabledChanged');
-          const result = this.impl.onNotificationsEnabledChanged(params.arg_arg_package_name, params.arg_arg_enabled);
+          const result = this.impl.onNotificationsEnabledChanged(params.arg_package_name, params.arg_enabled);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnInstallShortcut_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInstallShortcut');
-          const result = this.impl.onInstallShortcut(params.arg_arg_shortcut);
+          const result = this.impl.onInstallShortcut(params.arg_shortcut);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnInstallationStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInstallationStarted');
-          const result = this.impl.onInstallationStarted(params.arg_arg_package_name);
+          const result = this.impl.onInstallationStarted(params.arg_package_name);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnInstallationFinished_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInstallationFinished');
-          const result = this.impl.onInstallationFinished(params.arg_arg_result);
+          const result = this.impl.onInstallationFinished(params.arg_result);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUninstallShortcut');
-          const result = this.impl.onUninstallShortcut(params.arg_arg_package_name, params.arg_arg_intent_uri);
+          const result = this.impl.onUninstallShortcut(params.arg_package_name, params.arg_intent_uri);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInstallationProgressChanged');
-          const result = this.impl.onInstallationProgressChanged(params.arg_arg_package_name, params.arg_arg_progress);
+          const result = this.impl.onInstallationProgressChanged(params.arg_package_name, params.arg_progress);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInstallationActiveChanged');
-          const result = this.impl.onInstallationActiveChanged(params.arg_arg_package_name, params.arg_arg_active);
+          const result = this.impl.onInstallationActiveChanged(params.arg_package_name, params.arg_active);
           break;
         }
       }
@@ -969,7 +969,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -978,7 +978,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_CloseTask_ParamsSpec,
       null,
-      [arg_task_id],
+      { arg_task_id: arg_task_id },
       false);
   }
 
@@ -987,7 +987,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_InstallPackage_ParamsSpec,
       null,
-      [arg_arcPackageInfo],
+      { arg_arcPackageInfo: arg_arcPackageInfo },
       false);
   }
 
@@ -996,7 +996,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec,
       null,
-      [arg_package_name, arg_activity, arg_window_info],
+      { arg_package_name: arg_package_name, arg_activity: arg_activity, arg_window_info: arg_window_info },
       false);
   }
 
@@ -1005,7 +1005,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec,
       null,
-      [arg_package_name, arg_shortcut_id, arg_display_id],
+      { arg_package_name: arg_package_name, arg_shortcut_id: arg_shortcut_id, arg_display_id: arg_display_id },
       false);
   }
 
@@ -1014,7 +1014,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec,
       null,
-      [arg_intent_uri, arg_window_info],
+      { arg_intent_uri: arg_intent_uri, arg_window_info: arg_window_info },
       false);
   }
 
@@ -1023,7 +1023,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_UpdateWindowInfo_ParamsSpec,
       null,
-      [arg_window_info],
+      { arg_window_info: arg_window_info },
       false);
   }
 
@@ -1032,7 +1032,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_RequestAppIcon_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec,
-      [arg_package_name, arg_activity, arg_pixel_size],
+      { arg_package_name: arg_package_name, arg_activity: arg_activity, arg_pixel_size: arg_pixel_size },
       false);
   }
 
@@ -1041,7 +1041,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_GetAppIcon_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_GetAppIcon_ResponseParamsSpec,
-      [arg_package_name, arg_activity, arg_pixel_size],
+      { arg_package_name: arg_package_name, arg_activity: arg_activity, arg_pixel_size: arg_pixel_size },
       false);
   }
 
@@ -1050,7 +1050,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_RequestShortcutIcon_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec,
-      [arg_icon_resource_id, arg_pixel_size],
+      { arg_icon_resource_id: arg_icon_resource_id, arg_pixel_size: arg_pixel_size },
       false);
   }
 
@@ -1059,7 +1059,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec,
-      [arg_icon_resource_id, arg_pixel_size],
+      { arg_icon_resource_id: arg_icon_resource_id, arg_pixel_size: arg_pixel_size },
       false);
   }
 
@@ -1068,7 +1068,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_RequestPackageIcon_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec,
-      [arg_package_name, arg_pixel_size, arg_normalize],
+      { arg_package_name: arg_package_name, arg_pixel_size: arg_pixel_size, arg_normalize: arg_normalize },
       false);
   }
 
@@ -1077,7 +1077,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_GetPackageIcon_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec,
-      [arg_package_name, arg_pixel_size, arg_normalize],
+      { arg_package_name: arg_package_name, arg_pixel_size: arg_pixel_size, arg_normalize: arg_normalize },
       false);
   }
 
@@ -1086,7 +1086,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_RemoveCachedIcon_ParamsSpec,
       null,
-      [arg_icon_resource_id],
+      { arg_icon_resource_id: arg_icon_resource_id },
       false);
   }
 
@@ -1095,7 +1095,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_SetTaskActive_ParamsSpec,
       null,
-      [arg_task_id],
+      { arg_task_id: arg_task_id },
       false);
   }
 
@@ -1104,7 +1104,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec,
       null,
-      [arg_package_name, arg_dimension_on_screen],
+      { arg_package_name: arg_package_name, arg_dimension_on_screen: arg_dimension_on_screen },
       false);
   }
 
@@ -1113,7 +1113,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec,
       null,
-      [arg_package_name, arg_page, arg_dimension_on_screen],
+      { arg_package_name: arg_package_name, arg_page: arg_page, arg_dimension_on_screen: arg_dimension_on_screen },
       false);
   }
 
@@ -1122,7 +1122,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec,
       null,
-      [arg_package_name, arg_page, arg_display_id],
+      { arg_package_name: arg_package_name, arg_page: arg_page, arg_display_id: arg_display_id },
       false);
   }
 
@@ -1131,7 +1131,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec,
       null,
-      [arg_package_name, arg_enabled],
+      { arg_package_name: arg_package_name, arg_enabled: arg_enabled },
       false);
   }
 
@@ -1140,7 +1140,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_StartPaiFlow_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1149,7 +1149,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec,
       null,
-      [arg_arc_package_names],
+      { arg_arc_package_names: arg_arc_package_names },
       false);
   }
 
@@ -1158,7 +1158,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_UninstallPackage_ParamsSpec,
       null,
-      [arg_package_name],
+      { arg_package_name: arg_package_name },
       false);
   }
 
@@ -1167,7 +1167,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_UpdateAppDetails_ParamsSpec,
       null,
-      [arg_package_name],
+      { arg_package_name: arg_package_name },
       false);
   }
 
@@ -1176,7 +1176,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_GetAndroidId_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_GetAndroidId_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1185,7 +1185,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec,
-      [arg_query, arg_max_results],
+      { arg_query: arg_query, arg_max_results: arg_max_results },
       false);
   }
 
@@ -1194,7 +1194,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutItems_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec,
-      [arg_package_name],
+      { arg_package_name: arg_package_name },
       false);
   }
 
@@ -1203,7 +1203,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec,
-      [arg_query, arg_max_results],
+      { arg_query: arg_query, arg_max_results: arg_max_results },
       false);
   }
 
@@ -1212,7 +1212,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_IsInstallable_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_IsInstallable_ResponseParamsSpec,
-      [arg_package_name],
+      { arg_package_name: arg_package_name },
       false);
   }
 
@@ -1221,7 +1221,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_GetAppCategory_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_GetAppCategory_ResponseParamsSpec,
-      [arg_package_name],
+      { arg_package_name: arg_package_name },
       false);
   }
 
@@ -1230,7 +1230,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_SetAppLocale_ParamsSpec,
       null,
-      [arg_package_name, arg_locale_tag],
+      { arg_package_name: arg_package_name, arg_locale_tag: arg_locale_tag },
       false);
   }
 
@@ -1328,12 +1328,12 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -1343,55 +1343,55 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_CloseTask_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeTask');
-          const result = this.impl.closeTask(params.arg_arg_task_id);
+          const result = this.impl.closeTask(params.arg_task_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_InstallPackage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installPackage');
-          const result = this.impl.installPackage(params.arg_arg_arcPackageInfo);
+          const result = this.impl.installPackage(params.arg_arcPackageInfo);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchAppWithWindowInfo');
-          const result = this.impl.launchAppWithWindowInfo(params.arg_arg_package_name, params.arg_arg_activity, params.arg_arg_window_info);
+          const result = this.impl.launchAppWithWindowInfo(params.arg_package_name, params.arg_activity, params.arg_window_info);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchAppShortcutItem');
-          const result = this.impl.launchAppShortcutItem(params.arg_arg_package_name, params.arg_arg_shortcut_id, params.arg_arg_display_id);
+          const result = this.impl.launchAppShortcutItem(params.arg_package_name, params.arg_shortcut_id, params.arg_display_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchIntentWithWindowInfo');
-          const result = this.impl.launchIntentWithWindowInfo(params.arg_arg_intent_uri, params.arg_arg_window_info);
+          const result = this.impl.launchIntentWithWindowInfo(params.arg_intent_uri, params.arg_window_info);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_UpdateWindowInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateWindowInfo');
-          const result = this.impl.updateWindowInfo(params.arg_arg_window_info);
+          const result = this.impl.updateWindowInfo(params.arg_window_info);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RequestAppIcon_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestAppIcon');
-          const result = this.impl.requestAppIcon(params.arg_arg_package_name, params.arg_arg_activity, params.arg_arg_pixel_size);
+          const result = this.impl.requestAppIcon(params.arg_package_name, params.arg_activity, params.arg_pixel_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_icon_png_data' in response) ? response.arg_arg_icon_png_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_icon_png_data' in response) ? response.arg_icon_png_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec.$.structSpec, { 'arg_icon_png_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestAppIcon FAILED:', e));
           }
@@ -1401,13 +1401,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppIcon_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAppIcon');
-          const result = this.impl.getAppIcon(params.arg_arg_package_name, params.arg_arg_activity, params.arg_arg_pixel_size);
+          const result = this.impl.getAppIcon(params.arg_package_name, params.arg_activity, params.arg_pixel_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_icon' in response) ? response.arg_arg_icon : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppIcon_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_icon' in response) ? response.arg_icon : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppIcon_ResponseParamsSpec.$.structSpec, { 'arg_icon': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAppIcon FAILED:', e));
           }
@@ -1417,13 +1417,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RequestShortcutIcon_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestShortcutIcon');
-          const result = this.impl.requestShortcutIcon(params.arg_arg_icon_resource_id, params.arg_arg_pixel_size);
+          const result = this.impl.requestShortcutIcon(params.arg_icon_resource_id, params.arg_pixel_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_icon_png_data' in response) ? response.arg_arg_icon_png_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_icon_png_data' in response) ? response.arg_icon_png_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec.$.structSpec, { 'arg_icon_png_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestShortcutIcon FAILED:', e));
           }
@@ -1433,13 +1433,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAppShortcutIcon');
-          const result = this.impl.getAppShortcutIcon(params.arg_arg_icon_resource_id, params.arg_arg_pixel_size);
+          const result = this.impl.getAppShortcutIcon(params.arg_icon_resource_id, params.arg_pixel_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_icon' in response) ? response.arg_arg_icon : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_icon' in response) ? response.arg_icon : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec.$.structSpec, { 'arg_icon': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAppShortcutIcon FAILED:', e));
           }
@@ -1449,13 +1449,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RequestPackageIcon_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPackageIcon');
-          const result = this.impl.requestPackageIcon(params.arg_arg_package_name, params.arg_arg_pixel_size, params.arg_arg_normalize);
+          const result = this.impl.requestPackageIcon(params.arg_package_name, params.arg_pixel_size, params.arg_normalize);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_icon_png_data' in response) ? response.arg_arg_icon_png_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_icon_png_data' in response) ? response.arg_icon_png_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec.$.structSpec, { 'arg_icon_png_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestPackageIcon FAILED:', e));
           }
@@ -1465,13 +1465,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetPackageIcon_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPackageIcon');
-          const result = this.impl.getPackageIcon(params.arg_arg_package_name, params.arg_arg_pixel_size, params.arg_arg_normalize);
+          const result = this.impl.getPackageIcon(params.arg_package_name, params.arg_pixel_size, params.arg_normalize);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_icon' in response) ? response.arg_arg_icon : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_icon' in response) ? response.arg_icon : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec.$.structSpec, { 'arg_icon': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPackageIcon FAILED:', e));
           }
@@ -1481,42 +1481,42 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RemoveCachedIcon_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeCachedIcon');
-          const result = this.impl.removeCachedIcon(params.arg_arg_icon_resource_id);
+          const result = this.impl.removeCachedIcon(params.arg_icon_resource_id);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_SetTaskActive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTaskActive');
-          const result = this.impl.setTaskActive(params.arg_arg_task_id);
+          const result = this.impl.setTaskActive(params.arg_task_id);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showPackageInfoDeprecated');
-          const result = this.impl.showPackageInfoDeprecated(params.arg_arg_package_name, params.arg_arg_dimension_on_screen);
+          const result = this.impl.showPackageInfoDeprecated(params.arg_package_name, params.arg_dimension_on_screen);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showPackageInfoOnPageDeprecated');
-          const result = this.impl.showPackageInfoOnPageDeprecated(params.arg_arg_package_name, params.arg_arg_page, params.arg_arg_dimension_on_screen);
+          const result = this.impl.showPackageInfoOnPageDeprecated(params.arg_package_name, params.arg_page, params.arg_dimension_on_screen);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showPackageInfoOnPage');
-          const result = this.impl.showPackageInfoOnPage(params.arg_arg_package_name, params.arg_arg_page, params.arg_arg_display_id);
+          const result = this.impl.showPackageInfoOnPage(params.arg_package_name, params.arg_page, params.arg_display_id);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNotificationsEnabled');
-          const result = this.impl.setNotificationsEnabled(params.arg_arg_package_name, params.arg_arg_enabled);
+          const result = this.impl.setNotificationsEnabled(params.arg_package_name, params.arg_enabled);
           break;
         }
         case 19: {
@@ -1528,8 +1528,8 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response.arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec.$.structSpec, { 'arg_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startPaiFlow FAILED:', e));
           }
@@ -1539,21 +1539,21 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startFastAppReinstallFlow');
-          const result = this.impl.startFastAppReinstallFlow(params.arg_arg_arc_package_names);
+          const result = this.impl.startFastAppReinstallFlow(params.arg_arc_package_names);
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_UninstallPackage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.uninstallPackage');
-          const result = this.impl.uninstallPackage(params.arg_arg_package_name);
+          const result = this.impl.uninstallPackage(params.arg_package_name);
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_UpdateAppDetails_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateAppDetails');
-          const result = this.impl.updateAppDetails(params.arg_arg_package_name);
+          const result = this.impl.updateAppDetails(params.arg_package_name);
           break;
         }
         case 23: {
@@ -1565,8 +1565,8 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_android_id' in response) ? response.arg_arg_android_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAndroidId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_android_id' in response) ? response.arg_android_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAndroidId_ResponseParamsSpec.$.structSpec, { 'arg_android_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAndroidId FAILED:', e));
           }
@@ -1576,13 +1576,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAppShortcutGlobalQueryItems');
-          const result = this.impl.getAppShortcutGlobalQueryItems(params.arg_arg_query, params.arg_arg_max_results);
+          const result = this.impl.getAppShortcutGlobalQueryItems(params.arg_query, params.arg_max_results);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_shortcut_items' in response) ? response.arg_arg_shortcut_items : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_shortcut_items' in response) ? response.arg_shortcut_items : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec.$.structSpec, { 'arg_shortcut_items': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAppShortcutGlobalQueryItems FAILED:', e));
           }
@@ -1592,13 +1592,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutItems_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAppShortcutItems');
-          const result = this.impl.getAppShortcutItems(params.arg_arg_package_name);
+          const result = this.impl.getAppShortcutItems(params.arg_package_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_shortcut_items' in response) ? response.arg_arg_shortcut_items : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_shortcut_items' in response) ? response.arg_shortcut_items : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec.$.structSpec, { 'arg_shortcut_items': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAppShortcutItems FAILED:', e));
           }
@@ -1608,12 +1608,12 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRecentAndSuggestedAppsFromPlayStore');
-          const result = this.impl.getRecentAndSuggestedAppsFromPlayStore(params.arg_arg_query, params.arg_arg_max_results);
+          const result = this.impl.getRecentAndSuggestedAppsFromPlayStore(params.arg_query, params.arg_max_results);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec.$.structSpec, ['response.arg_arg_state', 'response.arg_arg_results']);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec.$.structSpec, { 'arg_state': response.arg_state, 'arg_results': response.arg_results });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRecentAndSuggestedAppsFromPlayStore FAILED:', e));
           }
@@ -1623,13 +1623,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_IsInstallable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isInstallable');
-          const result = this.impl.isInstallable(params.arg_arg_package_name);
+          const result = this.impl.isInstallable(params.arg_package_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_installable' in response) ? response.arg_arg_is_installable : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_IsInstallable_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_installable' in response) ? response.arg_is_installable : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_IsInstallable_ResponseParamsSpec.$.structSpec, { 'arg_is_installable': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isInstallable FAILED:', e));
           }
@@ -1639,13 +1639,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppCategory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAppCategory');
-          const result = this.impl.getAppCategory(params.arg_arg_package_name);
+          const result = this.impl.getAppCategory(params.arg_package_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_category' in response) ? response.arg_arg_category : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppCategory_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_category' in response) ? response.arg_category : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppCategory_ResponseParamsSpec.$.structSpec, { 'arg_category': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAppCategory FAILED:', e));
           }
@@ -1655,7 +1655,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_SetAppLocale_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAppLocale');
-          const result = this.impl.setAppLocale(params.arg_arg_package_name, params.arg_arg_locale_tag);
+          const result = this.impl.setAppLocale(params.arg_package_name, params.arg_locale_tag);
           break;
         }
       }

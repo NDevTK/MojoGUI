@@ -227,7 +227,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.ModelRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -236,7 +236,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.ModelRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec,
-      [arg_options, arg_receiver],
+      { arg_options: arg_options, arg_receiver: arg_receiver },
       false);
   }
 
@@ -306,13 +306,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.ModelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_0');
-          const result = this.impl.rEMOVED_0(params.arg_arg_receiver);
+          const result = this.impl.rEMOVED_0(params.arg_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] rEMOVED_0 FAILED:', e));
           }
@@ -322,13 +322,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.ModelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createGraphExecutor');
-          const result = this.impl.createGraphExecutor(params.arg_arg_options, params.arg_arg_receiver);
+          const result = this.impl.createGraphExecutor(params.arg_options, params.arg_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createGraphExecutor FAILED:', e));
           }

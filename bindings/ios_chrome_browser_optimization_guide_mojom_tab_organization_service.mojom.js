@@ -177,7 +177,7 @@ mojo.internal.bindings.ai.mojom.TabOrganizationServiceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec,
       mojo.internal.bindings.ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -246,13 +246,13 @@ mojo.internal.bindings.ai.mojom.TabOrganizationServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeGroupTabs');
-          const result = this.impl.executeGroupTabs(params.arg_arg_request);
+          const result = this.impl.executeGroupTabs(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_output' in response) ? response.arg_arg_output : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_output' in response) ? response.arg_output : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec.$.structSpec, { 'arg_output': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] executeGroupTabs FAILED:', e));
           }

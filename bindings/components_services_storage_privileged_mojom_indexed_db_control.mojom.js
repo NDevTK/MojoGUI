@@ -241,7 +241,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBObserverRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec,
       null,
-      [arg_bucket_locator],
+      { arg_bucket_locator: arg_bucket_locator },
       false);
   }
 
@@ -250,7 +250,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBObserverRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec,
       null,
-      [arg_bucket_locator, arg_database_name, arg_object_store_name],
+      { arg_bucket_locator: arg_bucket_locator, arg_database_name: arg_database_name, arg_object_store_name: arg_object_store_name },
       false);
   }
 
@@ -320,14 +320,14 @@ mojo.internal.bindings.storage.mojom.IndexedDBObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onIndexedDBListChanged');
-          const result = this.impl.onIndexedDBListChanged(params.arg_arg_bucket_locator);
+          const result = this.impl.onIndexedDBListChanged(params.arg_bucket_locator);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onIndexedDBContentChanged');
-          const result = this.impl.onIndexedDBContentChanged(params.arg_arg_bucket_locator, params.arg_arg_database_name, params.arg_arg_object_store_name);
+          const result = this.impl.onIndexedDBContentChanged(params.arg_bucket_locator, params.arg_database_name, params.arg_object_store_name);
           break;
         }
       }
@@ -424,7 +424,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec,
       null,
-      [arg_bucket_locator, arg_client_info, arg_client_state_checker_remote, arg_receiver],
+      { arg_bucket_locator: arg_bucket_locator, arg_client_info: arg_client_info, arg_client_state_checker_remote: arg_client_state_checker_remote, arg_receiver: arg_receiver },
       false);
   }
 
@@ -433,7 +433,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ResponseParamsSpec,
-      [arg_bucket_id, arg_reason],
+      { arg_bucket_id: arg_bucket_id, arg_reason: arg_reason },
       false);
   }
 
@@ -442,7 +442,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec,
-      [arg_bucket_id],
+      { arg_bucket_id: arg_bucket_id },
       false);
   }
 
@@ -451,7 +451,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -460,7 +460,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ResponseParamsSpec,
-      [arg_bucket_id],
+      { arg_bucket_id: arg_bucket_id },
       false);
   }
 
@@ -469,7 +469,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec,
-      [arg_bucket_id],
+      { arg_bucket_id: arg_bucket_id },
       false);
   }
 
@@ -478,7 +478,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -487,7 +487,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_AddObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -496,7 +496,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec,
       null,
-      [arg_policy_updates],
+      { arg_policy_updates: arg_policy_updates },
       false);
   }
 
@@ -505,7 +505,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -583,19 +583,19 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindIndexedDB');
-          const result = this.impl.bindIndexedDB(params.arg_arg_bucket_locator, params.arg_arg_client_info, params.arg_arg_client_state_checker_remote, params.arg_arg_receiver);
+          const result = this.impl.bindIndexedDB(params.arg_bucket_locator, params.arg_client_info, params.arg_client_state_checker_remote, params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forceClose');
-          const result = this.impl.forceClose(params.arg_arg_bucket_id, params.arg_arg_reason);
+          const result = this.impl.forceClose(params.arg_bucket_id, params.arg_reason);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] forceClose FAILED:', e));
           }
@@ -605,12 +605,12 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.downloadBucketData');
-          const result = this.impl.downloadBucketData(params.arg_arg_bucket_id);
+          const result = this.impl.downloadBucketData(params.arg_bucket_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_temp_path', 'response.arg_arg_zip_path']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_temp_path': response.arg_temp_path, 'arg_zip_path': response.arg_zip_path });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] downloadBucketData FAILED:', e));
           }
@@ -625,7 +625,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec.$.structSpec, ['response.arg_arg_incognito', 'response.arg_arg_details']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec.$.structSpec, { 'arg_incognito': response.arg_incognito, 'arg_details': response.arg_details });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAllBucketsDetails FAILED:', e));
           }
@@ -635,12 +635,12 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startMetadataRecording');
-          const result = this.impl.startMetadataRecording(params.arg_arg_bucket_id);
+          const result = this.impl.startMetadataRecording(params.arg_bucket_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startMetadataRecording FAILED:', e));
           }
@@ -650,13 +650,13 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopMetadataRecording');
-          const result = this.impl.stopMetadataRecording(params.arg_arg_bucket_id);
+          const result = this.impl.stopMetadataRecording(params.arg_bucket_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_metadata' in response) ? response.arg_arg_metadata : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_metadata' in response) ? response.arg_metadata : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec.$.structSpec, { 'arg_metadata': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] stopMetadataRecording FAILED:', e));
           }
@@ -673,21 +673,21 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_arg_observer);
+          const result = this.impl.addObserver(params.arg_observer);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyPolicyUpdates');
-          const result = this.impl.applyPolicyUpdates(params.arg_arg_policy_updates);
+          const result = this.impl.applyPolicyUpdates(params.arg_policy_updates);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTestInterfaceForTesting');
-          const result = this.impl.bindTestInterfaceForTesting(params.arg_arg_receiver);
+          const result = this.impl.bindTestInterfaceForTesting(params.arg_receiver);
           break;
         }
       }

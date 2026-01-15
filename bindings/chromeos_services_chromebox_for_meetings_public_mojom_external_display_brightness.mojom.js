@@ -188,7 +188,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightnessRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayALSBrightness_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -197,7 +197,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightnessRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -206,7 +206,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightnessRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayBrightnessPercent_ParamsSpec,
       null,
-      [arg_percent],
+      { arg_percent: arg_percent },
       false);
   }
 
@@ -215,7 +215,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightnessRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayALSBrightness_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setExternalDisplayALSBrightness');
-          const result = this.impl.setExternalDisplayALSBrightness(params.arg_arg_enabled);
+          const result = this.impl.setExternalDisplayALSBrightness(params.arg_enabled);
           break;
         }
         case 1: {
@@ -299,8 +299,8 @@ mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_enabled' in response) ? response.arg_arg_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_enabled' in response) ? response.arg_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ResponseParamsSpec.$.structSpec, { 'arg_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getExternalDisplayALSBrightness FAILED:', e));
           }
@@ -310,7 +310,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayBrightnessPercent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setExternalDisplayBrightnessPercent');
-          const result = this.impl.setExternalDisplayBrightnessPercent(params.arg_arg_percent);
+          const result = this.impl.setExternalDisplayBrightnessPercent(params.arg_percent);
           break;
         }
         case 3: {
@@ -322,8 +322,8 @@ mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_percent' in response) ? response.arg_arg_percent : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_percent' in response) ? response.arg_percent : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ResponseParamsSpec.$.structSpec, { 'arg_percent': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getExternalDisplayBrightnessPercent FAILED:', e));
           }

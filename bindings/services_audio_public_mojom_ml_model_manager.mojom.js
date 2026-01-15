@@ -182,7 +182,7 @@ mojo.internal.bindings.audio.mojom.MlModelManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec,
       null,
-      [arg_tflite_file],
+      { arg_tflite_file: arg_tflite_file },
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.audio.mojom.MlModelManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -261,7 +261,7 @@ mojo.internal.bindings.audio.mojom.MlModelManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setResidualEchoEstimationModel');
-          const result = this.impl.setResidualEchoEstimationModel(params.arg_arg_tflite_file);
+          const result = this.impl.setResidualEchoEstimationModel(params.arg_tflite_file);
           break;
         }
         case 1: {

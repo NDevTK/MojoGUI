@@ -264,7 +264,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorageCache_Match_ParamsSpec,
       null,
-      [arg_request, arg_query_options, arg_in_related_fetch_event, arg_in_range_fetch_event, arg_trace_id],
+      { arg_request: arg_request, arg_query_options: arg_query_options, arg_in_related_fetch_event: arg_in_related_fetch_event, arg_in_range_fetch_event: arg_in_range_fetch_event, arg_trace_id: arg_trace_id },
       false);
   }
 
@@ -273,7 +273,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorageCache_MatchAll_ParamsSpec,
       null,
-      [arg_request, arg_query_options, arg_trace_id],
+      { arg_request: arg_request, arg_query_options: arg_query_options, arg_trace_id: arg_trace_id },
       false);
   }
 
@@ -282,7 +282,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec,
       null,
-      [arg_request, arg_query_options, arg_trace_id],
+      { arg_request: arg_request, arg_query_options: arg_query_options, arg_trace_id: arg_trace_id },
       false);
   }
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorageCache_Keys_ParamsSpec,
       null,
-      [arg_request, arg_query_options, arg_trace_id],
+      { arg_request: arg_request, arg_query_options: arg_query_options, arg_trace_id: arg_trace_id },
       false);
   }
 
@@ -300,7 +300,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec,
-      [arg_batch_operations, arg_trace_id],
+      { arg_batch_operations: arg_batch_operations, arg_trace_id: arg_trace_id },
       false);
   }
 
@@ -309,7 +309,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec,
-      [arg_url, arg_expected_response_time, arg_data, arg_trace_id],
+      { arg_url: arg_url, arg_expected_response_time: arg_expected_response_time, arg_data: arg_data, arg_trace_id: arg_trace_id },
       false);
   }
 
@@ -383,41 +383,41 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_Match_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.match');
-          const result = this.impl.match(params.arg_arg_request, params.arg_arg_query_options, params.arg_arg_in_related_fetch_event, params.arg_arg_in_range_fetch_event, params.arg_arg_trace_id);
+          const result = this.impl.match(params.arg_request, params.arg_query_options, params.arg_in_related_fetch_event, params.arg_in_range_fetch_event, params.arg_trace_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_MatchAll_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.matchAll');
-          const result = this.impl.matchAll(params.arg_arg_request, params.arg_arg_query_options, params.arg_arg_trace_id);
+          const result = this.impl.matchAll(params.arg_request, params.arg_query_options, params.arg_trace_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAllMatchedEntries');
-          const result = this.impl.getAllMatchedEntries(params.arg_arg_request, params.arg_arg_query_options, params.arg_arg_trace_id);
+          const result = this.impl.getAllMatchedEntries(params.arg_request, params.arg_query_options, params.arg_trace_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_Keys_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.keys');
-          const result = this.impl.keys(params.arg_arg_request, params.arg_arg_query_options, params.arg_arg_trace_id);
+          const result = this.impl.keys(params.arg_request, params.arg_query_options, params.arg_trace_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.batch');
-          const result = this.impl.batch(params.arg_arg_batch_operations, params.arg_arg_trace_id);
+          const result = this.impl.batch(params.arg_batch_operations, params.arg_trace_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] batch FAILED:', e));
           }
@@ -427,13 +427,13 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeSideData');
-          const result = this.impl.writeSideData(params.arg_arg_url, params.arg_arg_expected_response_time, params.arg_arg_data, params.arg_arg_trace_id);
+          const result = this.impl.writeSideData(params.arg_url, params.arg_expected_response_time, params.arg_data, params.arg_trace_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] writeSideData FAILED:', e));
           }
@@ -513,7 +513,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorage_Has_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CacheStorage_Has_ResponseParamsSpec,
-      [arg_cache_name, arg_trace_id],
+      { arg_cache_name: arg_cache_name, arg_trace_id: arg_trace_id },
       false);
   }
 
@@ -522,7 +522,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ResponseParamsSpec,
-      [arg_cache_name, arg_trace_id],
+      { arg_cache_name: arg_cache_name, arg_trace_id: arg_trace_id },
       false);
   }
 
@@ -531,7 +531,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ResponseParamsSpec,
-      [arg_trace_id],
+      { arg_trace_id: arg_trace_id },
       false);
   }
 
@@ -540,7 +540,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorage_Match_ParamsSpec,
       null,
-      [arg_request, arg_match_options, arg_in_related_fetch_event, arg_in_range_fetch_event, arg_trace_id],
+      { arg_request: arg_request, arg_match_options: arg_match_options, arg_in_related_fetch_event: arg_in_related_fetch_event, arg_in_range_fetch_event: arg_in_range_fetch_event, arg_trace_id: arg_trace_id },
       false);
   }
 
@@ -549,7 +549,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorage_Open_ParamsSpec,
       null,
-      [arg_cache_name, arg_trace_id],
+      { arg_cache_name: arg_cache_name, arg_trace_id: arg_trace_id },
       false);
   }
 
@@ -622,13 +622,13 @@ mojo.internal.bindings.blink.mojom.CacheStorageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Has_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.has');
-          const result = this.impl.has(params.arg_arg_cache_name, params.arg_arg_trace_id);
+          const result = this.impl.has(params.arg_cache_name, params.arg_trace_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Has_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Has_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] has FAILED:', e));
           }
@@ -638,13 +638,13 @@ mojo.internal.bindings.blink.mojom.CacheStorageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.delete');
-          const result = this.impl.delete(params.arg_arg_cache_name, params.arg_arg_trace_id);
+          const result = this.impl.delete(params.arg_cache_name, params.arg_trace_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] delete FAILED:', e));
           }
@@ -654,13 +654,13 @@ mojo.internal.bindings.blink.mojom.CacheStorageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.keys');
-          const result = this.impl.keys(params.arg_arg_trace_id);
+          const result = this.impl.keys(params.arg_trace_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_keys' in response) ? response.arg_arg_keys : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_keys' in response) ? response.arg_keys : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ResponseParamsSpec.$.structSpec, { 'arg_keys': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] keys FAILED:', e));
           }
@@ -670,14 +670,14 @@ mojo.internal.bindings.blink.mojom.CacheStorageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Match_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.match');
-          const result = this.impl.match(params.arg_arg_request, params.arg_arg_match_options, params.arg_arg_in_related_fetch_event, params.arg_arg_in_range_fetch_event, params.arg_arg_trace_id);
+          const result = this.impl.match(params.arg_request, params.arg_match_options, params.arg_in_related_fetch_event, params.arg_in_range_fetch_event, params.arg_trace_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CacheStorage_Open_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.open');
-          const result = this.impl.open(params.arg_arg_cache_name, params.arg_arg_trace_id);
+          const result = this.impl.open(params.arg_cache_name, params.arg_trace_id);
           break;
         }
       }

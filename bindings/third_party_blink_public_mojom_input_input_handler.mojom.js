@@ -420,7 +420,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_SetTouchActionFromMain_ParamsSpec,
       null,
-      [arg_touch_action],
+      { arg_touch_action: arg_touch_action },
       false);
   }
 
@@ -429,7 +429,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_SetPanAction_ParamsSpec,
       null,
-      [arg_pan_action],
+      { arg_pan_action: arg_pan_action },
       false);
   }
 
@@ -438,7 +438,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_DidOverscroll_ParamsSpec,
       null,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -447,7 +447,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_DidStartScrollingViewport_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -456,7 +456,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_ImeCancelComposition_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -465,7 +465,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_ImeCompositionRangeChanged_ParamsSpec,
       null,
-      [arg_range, arg_character_bounds],
+      { arg_range: arg_range, arg_character_bounds: arg_character_bounds },
       false);
   }
 
@@ -474,7 +474,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_SetMouseCapture_ParamsSpec,
       null,
-      [arg_capture],
+      { arg_capture: arg_capture },
       false);
   }
 
@@ -483,7 +483,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_SetAutoscrollSelectionActiveInMainFrame_ParamsSpec,
       null,
-      [arg_autoscroll_selection],
+      { arg_autoscroll_selection: arg_autoscroll_selection },
       false);
   }
 
@@ -492,7 +492,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostRemoteCallHandler = cla
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec,
-      [arg_from_user_gesture, arg_unadjusted_movement],
+      { arg_from_user_gesture: arg_from_user_gesture, arg_unadjusted_movement: arg_unadjusted_movement },
       false);
   }
 
@@ -569,21 +569,21 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_SetTouchActionFromMain_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTouchActionFromMain');
-          const result = this.impl.setTouchActionFromMain(params.arg_arg_touch_action);
+          const result = this.impl.setTouchActionFromMain(params.arg_touch_action);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_SetPanAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPanAction');
-          const result = this.impl.setPanAction(params.arg_arg_pan_action);
+          const result = this.impl.setPanAction(params.arg_pan_action);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_DidOverscroll_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didOverscroll');
-          const result = this.impl.didOverscroll(params.arg_arg_params);
+          const result = this.impl.didOverscroll(params.arg_params);
           break;
         }
         case 3: {
@@ -604,33 +604,33 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_ImeCompositionRangeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.imeCompositionRangeChanged');
-          const result = this.impl.imeCompositionRangeChanged(params.arg_arg_range, params.arg_arg_character_bounds);
+          const result = this.impl.imeCompositionRangeChanged(params.arg_range, params.arg_character_bounds);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_SetMouseCapture_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMouseCapture');
-          const result = this.impl.setMouseCapture(params.arg_arg_capture);
+          const result = this.impl.setMouseCapture(params.arg_capture);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_SetAutoscrollSelectionActiveInMainFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAutoscrollSelectionActiveInMainFrame');
-          const result = this.impl.setAutoscrollSelectionActiveInMainFrame(params.arg_arg_autoscroll_selection);
+          const result = this.impl.setAutoscrollSelectionActiveInMainFrame(params.arg_autoscroll_selection);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestMouseLock');
-          const result = this.impl.requestMouseLock(params.arg_arg_from_user_gesture, params.arg_arg_unadjusted_movement);
+          const result = this.impl.requestMouseLock(params.arg_from_user_gesture, params.arg_unadjusted_movement);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_context']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_context': response.arg_context });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestMouseLock FAILED:', e));
           }
@@ -810,7 +810,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_ParamsSpec,
       null,
-      [arg_start, arg_end, arg_ime_text_spans],
+      { arg_start: arg_start, arg_end: arg_end, arg_ime_text_spans: arg_ime_text_spans },
       false);
   }
 
@@ -819,7 +819,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_ParamsSpec,
       null,
-      [arg_start, arg_end, arg_type],
+      { arg_start: arg_start, arg_end: arg_end, arg_type: arg_type },
       false);
   }
 
@@ -828,7 +828,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_ParamsSpec,
       null,
-      [arg_start, arg_end, arg_ime_text_spans],
+      { arg_start: arg_start, arg_end: arg_end, arg_ime_text_spans: arg_ime_text_spans },
       false);
   }
 
@@ -837,7 +837,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndDelete_ParamsSpec,
       null,
-      [arg_before, arg_after],
+      { arg_before: arg_before, arg_after: arg_after },
       false);
   }
 
@@ -846,7 +846,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_ParamsSpec,
       null,
-      [arg_before, arg_after, arg_replacement_text],
+      { arg_before: arg_before, arg_after: arg_after, arg_replacement_text: arg_replacement_text },
       false);
   }
 
@@ -855,7 +855,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_DeleteSurroundingText_ParamsSpec,
       null,
-      [arg_before, arg_after],
+      { arg_before: arg_before, arg_after: arg_after },
       false);
   }
 
@@ -864,7 +864,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_DeleteSurroundingTextInCodePoints_ParamsSpec,
       null,
-      [arg_before, arg_after],
+      { arg_before: arg_before, arg_after: arg_after },
       false);
   }
 
@@ -873,7 +873,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SetEditableSelectionOffsets_ParamsSpec,
       null,
-      [arg_start, arg_end],
+      { arg_start: arg_start, arg_end: arg_end },
       false);
   }
 
@@ -882,7 +882,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponseParamsSpec,
-      [arg_gesture_data],
+      { arg_gesture_data: arg_gesture_data },
       false);
   }
 
@@ -891,7 +891,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_ExecuteEditCommand_ParamsSpec,
       null,
-      [arg_command, arg_value],
+      { arg_command: arg_command, arg_value: arg_value },
       false);
   }
 
@@ -900,7 +900,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Undo_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -909,7 +909,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Redo_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -918,7 +918,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Cut_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -927,7 +927,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Copy_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -936,7 +936,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_CopyToFindPboard_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -945,7 +945,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_CenterSelection_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -954,7 +954,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -963,7 +963,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -972,7 +972,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -981,7 +981,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -990,7 +990,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_CollapseSelection_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -999,7 +999,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Replace_ParamsSpec,
       null,
-      [arg_word],
+      { arg_word: arg_word },
       false);
   }
 
@@ -1008,7 +1008,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_ParamsSpec,
       null,
-      [arg_word],
+      { arg_word: arg_word },
       false);
   }
 
@@ -1017,7 +1017,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SelectRange_ParamsSpec,
       null,
-      [arg_base, arg_extent],
+      { arg_base: arg_base, arg_extent: arg_extent },
       false);
   }
 
@@ -1026,7 +1026,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec,
       null,
-      [arg_start, arg_end, arg_behavior],
+      { arg_start: arg_start, arg_end: arg_end, arg_behavior: arg_behavior },
       false);
   }
 
@@ -1035,7 +1035,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec,
-      [arg_granularity, arg_should_show_handle, arg_should_show_context_menu],
+      { arg_granularity: arg_granularity, arg_should_show_handle: arg_should_show_handle, arg_should_show_context_menu: arg_should_show_context_menu },
       false);
   }
 
@@ -1044,7 +1044,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_ParamsSpec,
       null,
-      [arg_extent],
+      { arg_extent: arg_extent },
       false);
   }
 
@@ -1053,7 +1053,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1062,7 +1062,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1071,7 +1071,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec,
       null,
-      [arg_point],
+      { arg_point: arg_point },
       false);
   }
 
@@ -1169,69 +1169,69 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addImeTextSpansToExistingText');
-          const result = this.impl.addImeTextSpansToExistingText(params.arg_arg_start, params.arg_arg_end, params.arg_arg_ime_text_spans);
+          const result = this.impl.addImeTextSpansToExistingText(params.arg_start, params.arg_end, params.arg_ime_text_spans);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearImeTextSpansByType');
-          const result = this.impl.clearImeTextSpansByType(params.arg_arg_start, params.arg_arg_end, params.arg_arg_type);
+          const result = this.impl.clearImeTextSpansByType(params.arg_start, params.arg_end, params.arg_type);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCompositionFromExistingText');
-          const result = this.impl.setCompositionFromExistingText(params.arg_arg_start, params.arg_arg_end, params.arg_arg_ime_text_spans);
+          const result = this.impl.setCompositionFromExistingText(params.arg_start, params.arg_end, params.arg_ime_text_spans);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndDelete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extendSelectionAndDelete');
-          const result = this.impl.extendSelectionAndDelete(params.arg_arg_before, params.arg_arg_after);
+          const result = this.impl.extendSelectionAndDelete(params.arg_before, params.arg_after);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extendSelectionAndReplace');
-          const result = this.impl.extendSelectionAndReplace(params.arg_arg_before, params.arg_arg_after, params.arg_arg_replacement_text);
+          const result = this.impl.extendSelectionAndReplace(params.arg_before, params.arg_after, params.arg_replacement_text);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_DeleteSurroundingText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteSurroundingText');
-          const result = this.impl.deleteSurroundingText(params.arg_arg_before, params.arg_arg_after);
+          const result = this.impl.deleteSurroundingText(params.arg_before, params.arg_after);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_DeleteSurroundingTextInCodePoints_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteSurroundingTextInCodePoints');
-          const result = this.impl.deleteSurroundingTextInCodePoints(params.arg_arg_before, params.arg_arg_after);
+          const result = this.impl.deleteSurroundingTextInCodePoints(params.arg_before, params.arg_after);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SetEditableSelectionOffsets_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setEditableSelectionOffsets');
-          const result = this.impl.setEditableSelectionOffsets(params.arg_arg_start, params.arg_arg_end);
+          const result = this.impl.setEditableSelectionOffsets(params.arg_start, params.arg_end);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleStylusWritingGestureAction');
-          const result = this.impl.handleStylusWritingGestureAction(params.arg_arg_gesture_data);
+          const result = this.impl.handleStylusWritingGestureAction(params.arg_gesture_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] handleStylusWritingGestureAction FAILED:', e));
           }
@@ -1241,7 +1241,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_ExecuteEditCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeEditCommand');
-          const result = this.impl.executeEditCommand(params.arg_arg_command, params.arg_arg_value);
+          const result = this.impl.executeEditCommand(params.arg_command, params.arg_value);
           break;
         }
         case 10: {
@@ -1325,41 +1325,41 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Replace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.replace');
-          const result = this.impl.replace(params.arg_arg_word);
+          const result = this.impl.replace(params.arg_word);
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.replaceMisspelling');
-          const result = this.impl.replaceMisspelling(params.arg_arg_word);
+          const result = this.impl.replaceMisspelling(params.arg_word);
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SelectRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectRange');
-          const result = this.impl.selectRange(params.arg_arg_base, params.arg_arg_extent);
+          const result = this.impl.selectRange(params.arg_base, params.arg_extent);
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.adjustSelectionByCharacterOffset');
-          const result = this.impl.adjustSelectionByCharacterOffset(params.arg_arg_start, params.arg_arg_end, params.arg_arg_behavior);
+          const result = this.impl.adjustSelectionByCharacterOffset(params.arg_start, params.arg_end, params.arg_behavior);
           break;
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectAroundCaret');
-          const result = this.impl.selectAroundCaret(params.arg_arg_granularity, params.arg_arg_should_show_handle, params.arg_arg_should_show_context_menu);
+          const result = this.impl.selectAroundCaret(params.arg_granularity, params.arg_should_show_handle, params.arg_should_show_context_menu);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] selectAroundCaret FAILED:', e));
           }
@@ -1369,7 +1369,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.moveRangeSelectionExtent');
-          const result = this.impl.moveRangeSelectionExtent(params.arg_arg_extent);
+          const result = this.impl.moveRangeSelectionExtent(params.arg_extent);
           break;
         }
         case 27: {
@@ -1388,7 +1388,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] waitForPageScaleAnimationForTesting FAILED:', e));
           }
@@ -1398,7 +1398,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.moveCaret');
-          const result = this.impl.moveCaret(params.arg_arg_point);
+          const result = this.impl.moveCaret(params.arg_point);
           break;
         }
       }
@@ -1515,7 +1515,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_SetFocus_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -1524,7 +1524,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_MouseCaptureLost_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1533,7 +1533,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_SetEditCommandsForNextKeyEvent_ParamsSpec,
       null,
-      [arg_commands],
+      { arg_commands: arg_commands },
       false);
   }
 
@@ -1542,7 +1542,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_CursorVisibilityChanged_ParamsSpec,
       null,
-      [arg_visible],
+      { arg_visible: arg_visible },
       false);
   }
 
@@ -1551,7 +1551,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_ImeSetComposition_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_ImeSetComposition_ResponseParamsSpec,
-      [arg_text, arg_ime_text_spans, arg_range, arg_start, arg_end, arg_ime_state],
+      { arg_text: arg_text, arg_ime_text_spans: arg_ime_text_spans, arg_range: arg_range, arg_start: arg_start, arg_end: arg_end, arg_ime_state: arg_ime_state },
       false);
   }
 
@@ -1560,7 +1560,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_ImeCommitText_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_ImeCommitText_ResponseParamsSpec,
-      [arg_text, arg_ime_text_spans, arg_range, arg_relative_cursor_position],
+      { arg_text: arg_text, arg_ime_text_spans: arg_ime_text_spans, arg_range: arg_range, arg_relative_cursor_position: arg_relative_cursor_position },
       false);
   }
 
@@ -1569,7 +1569,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_ImeFinishComposingText_ParamsSpec,
       null,
-      [arg_keep_selection],
+      { arg_keep_selection: arg_keep_selection },
       false);
   }
 
@@ -1578,7 +1578,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_RequestTextInputStateUpdate_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1587,7 +1587,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_RequestCompositionUpdates_ParamsSpec,
       null,
-      [arg_immediate_request, arg_monitor_request],
+      { arg_immediate_request: arg_immediate_request, arg_monitor_request: arg_monitor_request },
       false);
   }
 
@@ -1596,7 +1596,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_DispatchEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec,
-      [arg_event, arg_original_event_for_gesture],
+      { arg_event: arg_event, arg_original_event_for_gesture: arg_original_event_for_gesture },
       false);
   }
 
@@ -1605,7 +1605,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_DispatchNonBlockingEvent_ParamsSpec,
       null,
-      [arg_event],
+      { arg_event: arg_event },
       false);
   }
 
@@ -1614,7 +1614,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_WaitForInputProcessed_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_WaitForInputProcessed_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1623,7 +1623,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_PingMainThread_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_PingMainThread_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1632,7 +1632,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec,
       null,
-      [arg_interface_request],
+      { arg_interface_request: arg_interface_request },
       false);
   }
 
@@ -1641,7 +1641,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec,
       null,
-      [arg_constraints, arg_current, arg_animate, arg_offset_tag_modifications],
+      { arg_constraints: arg_constraints, arg_current: arg_current, arg_animate: arg_animate, arg_offset_tag_modifications: arg_offset_tag_modifications },
       false);
   }
 
@@ -1724,7 +1724,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_SetFocus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFocus');
-          const result = this.impl.setFocus(params.arg_arg_state);
+          const result = this.impl.setFocus(params.arg_state);
           break;
         }
         case 1: {
@@ -1738,26 +1738,26 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_SetEditCommandsForNextKeyEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setEditCommandsForNextKeyEvent');
-          const result = this.impl.setEditCommandsForNextKeyEvent(params.arg_arg_commands);
+          const result = this.impl.setEditCommandsForNextKeyEvent(params.arg_commands);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_CursorVisibilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cursorVisibilityChanged');
-          const result = this.impl.cursorVisibilityChanged(params.arg_arg_visible);
+          const result = this.impl.cursorVisibilityChanged(params.arg_visible);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_ImeSetComposition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.imeSetComposition');
-          const result = this.impl.imeSetComposition(params.arg_arg_text, params.arg_arg_ime_text_spans, params.arg_arg_range, params.arg_arg_start, params.arg_arg_end, params.arg_arg_ime_state);
+          const result = this.impl.imeSetComposition(params.arg_text, params.arg_ime_text_spans, params.arg_range, params.arg_start, params.arg_end, params.arg_ime_state);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_ImeSetComposition_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_ImeSetComposition_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] imeSetComposition FAILED:', e));
           }
@@ -1767,12 +1767,12 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_ImeCommitText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.imeCommitText');
-          const result = this.impl.imeCommitText(params.arg_arg_text, params.arg_arg_ime_text_spans, params.arg_arg_range, params.arg_arg_relative_cursor_position);
+          const result = this.impl.imeCommitText(params.arg_text, params.arg_ime_text_spans, params.arg_range, params.arg_relative_cursor_position);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_ImeCommitText_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_ImeCommitText_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] imeCommitText FAILED:', e));
           }
@@ -1782,7 +1782,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_ImeFinishComposingText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.imeFinishComposingText');
-          const result = this.impl.imeFinishComposingText(params.arg_arg_keep_selection);
+          const result = this.impl.imeFinishComposingText(params.arg_keep_selection);
           break;
         }
         case 7: {
@@ -1796,19 +1796,19 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_RequestCompositionUpdates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestCompositionUpdates');
-          const result = this.impl.requestCompositionUpdates(params.arg_arg_immediate_request, params.arg_arg_monitor_request);
+          const result = this.impl.requestCompositionUpdates(params.arg_immediate_request, params.arg_monitor_request);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_DispatchEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchEvent');
-          const result = this.impl.dispatchEvent(params.arg_arg_event, params.arg_arg_original_event_for_gesture);
+          const result = this.impl.dispatchEvent(params.arg_event, params.arg_original_event_for_gesture);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec.$.structSpec, ['response.arg_arg_source', 'response.arg_arg_updated_latency', 'response.arg_arg_state', 'response.arg_arg_overscroll', 'response.arg_arg_touch_action']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec.$.structSpec, { 'arg_source': response.arg_source, 'arg_updated_latency': response.arg_updated_latency, 'arg_state': response.arg_state, 'arg_overscroll': response.arg_overscroll, 'arg_touch_action': response.arg_touch_action });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchEvent FAILED:', e));
           }
@@ -1818,7 +1818,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_DispatchNonBlockingEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchNonBlockingEvent');
-          const result = this.impl.dispatchNonBlockingEvent(params.arg_arg_event);
+          const result = this.impl.dispatchNonBlockingEvent(params.arg_event);
           break;
         }
         case 11: {
@@ -1830,7 +1830,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_WaitForInputProcessed_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_WaitForInputProcessed_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] waitForInputProcessed FAILED:', e));
           }
@@ -1845,7 +1845,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_PingMainThread_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_PingMainThread_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] pingMainThread FAILED:', e));
           }
@@ -1855,14 +1855,14 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFrameWidgetInputHandler');
-          const result = this.impl.getFrameWidgetInputHandler(params.arg_arg_interface_request);
+          const result = this.impl.getFrameWidgetInputHandler(params.arg_interface_request);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateBrowserControlsState');
-          const result = this.impl.updateBrowserControlsState(params.arg_arg_constraints, params.arg_arg_current, params.arg_arg_animate, params.arg_arg_offset_tag_modifications);
+          const result = this.impl.updateBrowserControlsState(params.arg_constraints, params.arg_current, params.arg_animate, params.arg_offset_tag_modifications);
           break;
         }
       }

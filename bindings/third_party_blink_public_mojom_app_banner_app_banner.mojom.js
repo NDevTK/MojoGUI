@@ -187,7 +187,7 @@ mojo.internal.bindings.blink.mojom.AppBannerControllerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec,
-      [arg_service, arg_event_receiver, arg_platform],
+      { arg_service: arg_service, arg_event_receiver: arg_event_receiver, arg_platform: arg_platform },
       false);
   }
 
@@ -256,13 +256,13 @@ mojo.internal.bindings.blink.mojom.AppBannerControllerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bannerPromptRequest');
-          const result = this.impl.bannerPromptRequest(params.arg_arg_service, params.arg_arg_event_receiver, params.arg_arg_platform);
+          const result = this.impl.bannerPromptRequest(params.arg_service, params.arg_event_receiver, params.arg_platform);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_reply' in response) ? response.arg_arg_reply : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_reply' in response) ? response.arg_reply : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec.$.structSpec, { 'arg_reply': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] bannerPromptRequest FAILED:', e));
           }
@@ -330,7 +330,7 @@ mojo.internal.bindings.blink.mojom.AppBannerEventRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec,
       null,
-      [arg_platform],
+      { arg_platform: arg_platform },
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.blink.mojom.AppBannerEventRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -409,7 +409,7 @@ mojo.internal.bindings.blink.mojom.AppBannerEventReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bannerAccepted');
-          const result = this.impl.bannerAccepted(params.arg_arg_platform);
+          const result = this.impl.bannerAccepted(params.arg_platform);
           break;
         }
         case 1: {
@@ -477,7 +477,7 @@ mojo.internal.bindings.blink.mojom.AppBannerServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

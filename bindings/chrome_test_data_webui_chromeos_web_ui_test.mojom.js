@@ -170,7 +170,7 @@ mojo.internal.bindings.web_ui_test.mojom.TestRunnerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec,
       null,
-      [arg_failureMessage],
+      { arg_failureMessage: arg_failureMessage },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.web_ui_test.mojom.TestRunnerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.testComplete');
-          const result = this.impl.testComplete(params.arg_arg_failureMessage);
+          const result = this.impl.testComplete(params.arg_failureMessage);
           break;
         }
       }

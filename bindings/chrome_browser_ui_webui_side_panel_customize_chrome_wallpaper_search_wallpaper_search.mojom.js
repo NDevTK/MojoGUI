@@ -244,7 +244,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerF
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec,
       null,
-      [arg_client, arg_handler],
+      { arg_client: arg_client, arg_handler: arg_handler },
       false);
   }
 
@@ -313,7 +313,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerF
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWallpaperSearchHandler');
-          const result = this.impl.createWallpaperSearchHandler(params.arg_arg_client, params.arg_arg_handler);
+          const result = this.impl.createWallpaperSearchHandler(params.arg_client, params.arg_handler);
           break;
         }
       }
@@ -414,7 +414,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec,
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -423,7 +423,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec,
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -432,7 +432,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec,
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec,
-      [arg_result_descriptors],
+      { arg_result_descriptors: arg_result_descriptors },
       false);
   }
 
@@ -441,7 +441,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec,
       null,
-      [arg_result_ids, arg_time],
+      { arg_result_ids: arg_result_ids, arg_time: arg_time },
       false);
   }
 
@@ -450,7 +450,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec,
       null,
-      [arg_result_id, arg_descriptors],
+      { arg_result_id: arg_result_id, arg_descriptors: arg_descriptors },
       false);
   }
 
@@ -459,7 +459,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec,
       null,
-      [arg_id, arg_background_url],
+      { arg_id: arg_id, arg_background_url: arg_background_url },
       false);
   }
 
@@ -468,7 +468,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec,
       null,
-      [arg_result_id, arg_time, arg_descriptors],
+      { arg_result_id: arg_result_id, arg_time: arg_time, arg_descriptors: arg_descriptors },
       false);
   }
 
@@ -477,7 +477,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -486,7 +486,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec,
       null,
-      [arg_selected_option],
+      { arg_selected_option: arg_selected_option },
       false);
   }
 
@@ -495,7 +495,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -504,7 +504,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -588,8 +588,8 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_descriptors' in response) ? response.arg_arg_descriptors : response;
-              encoder.encodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_descriptors' in response) ? response.arg_descriptors : response;
+              encoder.encodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec.$.structSpec, { 'arg_descriptors': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDescriptors FAILED:', e));
           }
@@ -604,8 +604,8 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_inspirationGroups' in response) ? response.arg_arg_inspirationGroups : response;
-              encoder.encodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_inspirationGroups' in response) ? response.arg_inspirationGroups : response;
+              encoder.encodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec.$.structSpec, { 'arg_inspirationGroups': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getInspirations FAILED:', e));
           }
@@ -615,12 +615,12 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getWallpaperSearchResults');
-          const result = this.impl.getWallpaperSearchResults(params.arg_arg_result_descriptors);
+          const result = this.impl.getWallpaperSearchResults(params.arg_result_descriptors);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_results']);
+              encoder.encodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_results': response.arg_results });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getWallpaperSearchResults FAILED:', e));
           }
@@ -630,28 +630,28 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setResultRenderTime');
-          const result = this.impl.setResultRenderTime(params.arg_arg_result_ids, params.arg_arg_time);
+          const result = this.impl.setResultRenderTime(params.arg_result_ids, params.arg_time);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundToHistoryImage');
-          const result = this.impl.setBackgroundToHistoryImage(params.arg_arg_result_id, params.arg_arg_descriptors);
+          const result = this.impl.setBackgroundToHistoryImage(params.arg_result_id, params.arg_descriptors);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundToInspirationImage');
-          const result = this.impl.setBackgroundToInspirationImage(params.arg_arg_id, params.arg_arg_background_url);
+          const result = this.impl.setBackgroundToInspirationImage(params.arg_id, params.arg_background_url);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundToWallpaperSearchResult');
-          const result = this.impl.setBackgroundToWallpaperSearchResult(params.arg_arg_result_id, params.arg_arg_time, params.arg_arg_descriptors);
+          const result = this.impl.setBackgroundToWallpaperSearchResult(params.arg_result_id, params.arg_time, params.arg_descriptors);
           break;
         }
         case 7: {
@@ -665,7 +665,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUserFeedback');
-          const result = this.impl.setUserFeedback(params.arg_arg_selected_option);
+          const result = this.impl.setUserFeedback(params.arg_selected_option);
           break;
         }
         case 9: {
@@ -740,7 +740,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec,
       null,
-      [arg_history],
+      { arg_history: arg_history },
       false);
   }
 
@@ -809,7 +809,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHistory');
-          const result = this.impl.setHistory(params.arg_arg_history);
+          const result = this.impl.setHistory(params.arg_history);
           break;
         }
       }

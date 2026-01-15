@@ -185,7 +185,7 @@ mojo.internal.bindings.blink.mojom.DevToolsFrontendRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec,
       null,
-      [arg_api_script, arg_host],
+      { arg_api_script: arg_api_script, arg_host: arg_host },
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.DevToolsFrontendRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec,
       null,
-      [arg_extension_api],
+      { arg_extension_api: arg_extension_api },
       false);
   }
 
@@ -264,14 +264,14 @@ mojo.internal.bindings.blink.mojom.DevToolsFrontendReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setupDevToolsFrontend');
-          const result = this.impl.setupDevToolsFrontend(params.arg_arg_api_script, params.arg_arg_host);
+          const result = this.impl.setupDevToolsFrontend(params.arg_api_script, params.arg_host);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setupDevToolsExtensionAPI');
-          const result = this.impl.setupDevToolsExtensionAPI(params.arg_arg_extension_api);
+          const result = this.impl.setupDevToolsExtensionAPI(params.arg_extension_api);
           break;
         }
       }
@@ -332,7 +332,7 @@ mojo.internal.bindings.blink.mojom.DevToolsFrontendHostRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.blink.mojom.DevToolsFrontendHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchEmbedderMessage');
-          const result = this.impl.dispatchEmbedderMessage(params.arg_arg_message);
+          const result = this.impl.dispatchEmbedderMessage(params.arg_message);
           break;
         }
       }

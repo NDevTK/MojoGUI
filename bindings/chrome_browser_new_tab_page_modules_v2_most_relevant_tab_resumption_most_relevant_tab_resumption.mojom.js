@@ -213,7 +213,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec,
       mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteC
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec,
       null,
-      [arg_url_visits],
+      { arg_url_visits: arg_url_visits },
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteC
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec,
       null,
-      [arg_url_visit],
+      { arg_url_visit: arg_url_visit },
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteC
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec,
       null,
-      [arg_url_visits],
+      { arg_url_visits: arg_url_visits },
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteC
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec,
       null,
-      [arg_url_visit],
+      { arg_url_visit: arg_url_visit },
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteC
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec,
       null,
-      [arg_action, arg_url_key, arg_visit_request_id],
+      { arg_action: arg_action, arg_url_key: arg_url_key, arg_visit_request_id: arg_visit_request_id },
       false);
   }
 
@@ -337,8 +337,8 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerReceive
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_url_visits' in response) ? response.arg_arg_url_visits : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_url_visits' in response) ? response.arg_url_visits : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec.$.structSpec, { 'arg_url_visits': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getURLVisits FAILED:', e));
           }
@@ -348,35 +348,35 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dismissModule');
-          const result = this.impl.dismissModule(params.arg_arg_url_visits);
+          const result = this.impl.dismissModule(params.arg_url_visits);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dismissURLVisit');
-          const result = this.impl.dismissURLVisit(params.arg_arg_url_visit);
+          const result = this.impl.dismissURLVisit(params.arg_url_visit);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restoreModule');
-          const result = this.impl.restoreModule(params.arg_arg_url_visits);
+          const result = this.impl.restoreModule(params.arg_url_visits);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restoreURLVisit');
-          const result = this.impl.restoreURLVisit(params.arg_arg_url_visit);
+          const result = this.impl.restoreURLVisit(params.arg_url_visit);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordAction');
-          const result = this.impl.recordAction(params.arg_arg_action, params.arg_arg_url_key, params.arg_arg_visit_request_id);
+          const result = this.impl.recordAction(params.arg_action, params.arg_url_key, params.arg_visit_request_id);
           break;
         }
       }

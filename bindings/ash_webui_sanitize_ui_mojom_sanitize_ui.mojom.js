@@ -172,7 +172,7 @@ mojo.internal.bindings.ash.sanitize_ui.mojom.SettingsResetterRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.sanitize_ui.mojom.SettingsResetter_PerformSanitizeSettings_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

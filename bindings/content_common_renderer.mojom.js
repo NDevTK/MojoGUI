@@ -316,7 +316,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec,
       null,
-      [arg_bootstrap],
+      { arg_bootstrap: arg_bootstrap },
       false);
   }
 
@@ -325,7 +325,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec,
       null,
-      [arg_agent_scheduling_group],
+      { arg_agent_scheduling_group: arg_agent_scheduling_group },
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec,
       null,
-      [arg_last_foreground_time_region],
+      { arg_last_foreground_time_region: arg_last_foreground_time_region },
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec,
       null,
-      [arg_connection_type, arg_max_bandwidth_mbps],
+      { arg_connection_type: arg_connection_type, arg_max_bandwidth_mbps: arg_max_bandwidth_mbps },
       false);
   }
 
@@ -352,7 +352,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec,
       null,
-      [arg_effective_connection_type, arg_http_rtt, arg_transport_rtt, arg_bandwidth_kbps],
+      { arg_effective_connection_type: arg_effective_connection_type, arg_http_rtt: arg_http_rtt, arg_transport_rtt: arg_transport_rtt, arg_bandwidth_kbps: arg_bandwidth_kbps },
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec,
       null,
-      [arg_suspend],
+      { arg_suspend: arg_suspend },
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec,
       null,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -379,7 +379,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec,
       null,
-      [arg_aqua_color_variant],
+      { arg_aqua_color_variant: arg_aqua_color_variant },
       false);
   }
 
@@ -388,7 +388,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec,
       null,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -397,7 +397,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_PurgePluginListCache_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -406,7 +406,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ParamsSpec,
       mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -415,7 +415,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_SetProcessState_ParamsSpec,
       null,
-      [arg_process_priority, arg_visible_state],
+      { arg_process_priority: arg_process_priority, arg_visible_state: arg_visible_state },
       false);
   }
 
@@ -424,7 +424,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_SetIsLockedToSite_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -433,7 +433,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec,
       mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -442,7 +442,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec,
       null,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -451,7 +451,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec,
       null,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -460,7 +460,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec,
       null,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -469,7 +469,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec,
       null,
-      [arg_resource_map],
+      { arg_resource_map: arg_resource_map },
       false);
   }
 
@@ -478,7 +478,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_InitializeRenderer_ParamsSpec,
       null,
-      [arg_user_agent, arg_metadata, arg_cors_exempt_header_list, arg_origin_trials_settings, arg_cpu_performance_tier, arg_trace_id],
+      { arg_user_agent: arg_user_agent, arg_metadata: arg_metadata, arg_cors_exempt_header_list: arg_cors_exempt_header_list, arg_origin_trials_settings: arg_origin_trials_settings, arg_cpu_performance_tier: arg_cpu_performance_tier, arg_trace_id: arg_trace_id },
       false);
   }
 
@@ -565,63 +565,63 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAgentSchedulingGroup');
-          const result = this.impl.createAgentSchedulingGroup(params.arg_arg_bootstrap);
+          const result = this.impl.createAgentSchedulingGroup(params.arg_bootstrap);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAssociatedAgentSchedulingGroup');
-          const result = this.impl.createAssociatedAgentSchedulingGroup(params.arg_arg_agent_scheduling_group);
+          const result = this.impl.createAssociatedAgentSchedulingGroup(params.arg_agent_scheduling_group);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.transferSharedLastForegroundTime');
-          const result = this.impl.transferSharedLastForegroundTime(params.arg_arg_last_foreground_time_region);
+          const result = this.impl.transferSharedLastForegroundTime(params.arg_last_foreground_time_region);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkConnectionChanged');
-          const result = this.impl.onNetworkConnectionChanged(params.arg_arg_connection_type, params.arg_arg_max_bandwidth_mbps);
+          const result = this.impl.onNetworkConnectionChanged(params.arg_connection_type, params.arg_max_bandwidth_mbps);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkQualityChanged');
-          const result = this.impl.onNetworkQualityChanged(params.arg_arg_effective_connection_type, params.arg_arg_http_rtt, params.arg_arg_transport_rtt, params.arg_arg_bandwidth_kbps);
+          const result = this.impl.onNetworkQualityChanged(params.arg_effective_connection_type, params.arg_http_rtt, params.arg_transport_rtt, params.arg_bandwidth_kbps);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWebKitSharedTimersSuspended');
-          const result = this.impl.setWebKitSharedTimersSuspended(params.arg_arg_suspend);
+          const result = this.impl.setWebKitSharedTimersSuspended(params.arg_suspend);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateScrollbarTheme');
-          const result = this.impl.updateScrollbarTheme(params.arg_arg_params);
+          const result = this.impl.updateScrollbarTheme(params.arg_params);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSystemColorsChanged');
-          const result = this.impl.onSystemColorsChanged(params.arg_arg_aqua_color_variant);
+          const result = this.impl.onSystemColorsChanged(params.arg_aqua_color_variant);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSystemColorInfo');
-          const result = this.impl.updateSystemColorInfo(params.arg_arg_params);
+          const result = this.impl.updateSystemColorInfo(params.arg_params);
           break;
         }
         case 9: {
@@ -640,7 +640,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] purgeResourceCache FAILED:', e));
           }
@@ -650,7 +650,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetProcessState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setProcessState');
-          const result = this.impl.setProcessState(params.arg_arg_process_priority, params.arg_arg_visible_state);
+          const result = this.impl.setProcessState(params.arg_process_priority, params.arg_visible_state);
           break;
         }
         case 12: {
@@ -669,7 +669,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] writeClangProfilingProfile FAILED:', e));
           }
@@ -679,35 +679,35 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsCrossOriginIsolated');
-          const result = this.impl.setIsCrossOriginIsolated(params.arg_arg_value);
+          const result = this.impl.setIsCrossOriginIsolated(params.arg_value);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsWebSecurityDisabled');
-          const result = this.impl.setIsWebSecurityDisabled(params.arg_arg_value);
+          const result = this.impl.setIsWebSecurityDisabled(params.arg_value);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsIsolatedContext');
-          const result = this.impl.setIsIsolatedContext(params.arg_arg_value);
+          const result = this.impl.setIsIsolatedContext(params.arg_value);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWebUIResourceUrlToCodeCacheMap');
-          const result = this.impl.setWebUIResourceUrlToCodeCacheMap(params.arg_arg_resource_map);
+          const result = this.impl.setWebUIResourceUrlToCodeCacheMap(params.arg_resource_map);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_InitializeRenderer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeRenderer');
-          const result = this.impl.initializeRenderer(params.arg_arg_user_agent, params.arg_arg_metadata, params.arg_arg_cors_exempt_header_list, params.arg_arg_origin_trials_settings, params.arg_arg_cpu_performance_tier, params.arg_arg_trace_id);
+          const result = this.impl.initializeRenderer(params.arg_user_agent, params.arg_metadata, params.arg_cors_exempt_header_list, params.arg_origin_trials_settings, params.arg_cpu_performance_tier, params.arg_trace_id);
           break;
         }
       }

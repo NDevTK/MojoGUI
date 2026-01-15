@@ -203,7 +203,7 @@ mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec,
       mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -324,7 +324,7 @@ mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec.$.structSpec, ['response.arg_arg_tab_groups', 'response.arg_arg_showZeroState']);
+              encoder.encodeStructInline(mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec.$.structSpec, { 'arg_tab_groups': response.arg_tab_groups, 'arg_showZeroState': response.arg_showZeroState });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getTabGroups FAILED:', e));
           }
@@ -334,7 +334,7 @@ mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openTabGroup');
-          const result = this.impl.openTabGroup(params.arg_arg_id);
+          const result = this.impl.openTabGroup(params.arg_id);
           break;
         }
         case 3: {

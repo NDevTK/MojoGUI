@@ -177,7 +177,7 @@ mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandlerRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec,
       null,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -246,7 +246,7 @@ mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandlerReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handlePaymentLink');
-          const result = this.impl.handlePaymentLink(params.arg_arg_url);
+          const result = this.impl.handlePaymentLink(params.arg_url);
           break;
         }
       }

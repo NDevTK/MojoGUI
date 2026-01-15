@@ -209,7 +209,7 @@ mojo.internal.bindings.suggest_internals.mojom.PageHandlerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.suggest_internals.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      [arg_page],
+      { arg_page: arg_page },
       false);
   }
 
@@ -218,7 +218,7 @@ mojo.internal.bindings.suggest_internals.mojom.PageHandlerRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec,
       mojo.internal.bindings.suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec,
-      [arg_response, arg_delay],
+      { arg_response: arg_response, arg_delay: arg_delay },
       false);
   }
 
@@ -288,20 +288,20 @@ mojo.internal.bindings.suggest_internals.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.suggest_internals.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPage');
-          const result = this.impl.setPage(params.arg_arg_page);
+          const result = this.impl.setPage(params.arg_page);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hardcodeResponse');
-          const result = this.impl.hardcodeResponse(params.arg_arg_response, params.arg_arg_delay);
+          const result = this.impl.hardcodeResponse(params.arg_response, params.arg_delay);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_request' in response) ? response.arg_arg_request : response;
-              encoder.encodeStructInline(mojo.internal.bindings.suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_request' in response) ? response.arg_request : response;
+              encoder.encodeStructInline(mojo.internal.bindings.suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec.$.structSpec, { 'arg_request': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] hardcodeResponse FAILED:', e));
           }
@@ -373,7 +373,7 @@ mojo.internal.bindings.suggest_internals.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec,
       null,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.suggest_internals.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec,
       null,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -391,7 +391,7 @@ mojo.internal.bindings.suggest_internals.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec,
       null,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -462,21 +462,21 @@ mojo.internal.bindings.suggest_internals.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRequestCreated');
-          const result = this.impl.onRequestCreated(params.arg_arg_request);
+          const result = this.impl.onRequestCreated(params.arg_request);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRequestStarted');
-          const result = this.impl.onRequestStarted(params.arg_arg_request);
+          const result = this.impl.onRequestStarted(params.arg_request);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRequestCompleted');
-          const result = this.impl.onRequestCompleted(params.arg_arg_request);
+          const result = this.impl.onRequestCompleted(params.arg_request);
           break;
         }
       }

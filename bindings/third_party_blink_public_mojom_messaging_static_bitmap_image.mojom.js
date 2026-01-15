@@ -189,7 +189,7 @@ mojo.internal.bindings.blink.mojom.ImageReleaseCallbackRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ImageReleaseCallback_Release_ParamsSpec,
       null,
-      [arg_token],
+      { arg_token: arg_token },
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.blink.mojom.ImageReleaseCallbackReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ImageReleaseCallback_Release_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.release');
-          const result = this.impl.release(params.arg_arg_token);
+          const result = this.impl.release(params.arg_token);
           break;
         }
       }

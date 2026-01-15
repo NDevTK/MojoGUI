@@ -225,7 +225,7 @@ mojo.internal.bindings.arc.mojom.VideoDecoderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoDecoder_Initialize_ParamsSpec,
       mojo.internal.bindings.arc.mojom.VideoDecoder_Initialize_ResponseParamsSpec,
-      [arg_config, arg_client, arg_video_frame_pool],
+      { arg_config: arg_config, arg_client: arg_client, arg_video_frame_pool: arg_video_frame_pool },
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.arc.mojom.VideoDecoderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoDecoder_Decode_ParamsSpec,
       mojo.internal.bindings.arc.mojom.VideoDecoder_Decode_ResponseParamsSpec,
-      [arg_buffer],
+      { arg_buffer: arg_buffer },
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.arc.mojom.VideoDecoderRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoDecoder_Reset_ParamsSpec,
       mojo.internal.bindings.arc.mojom.VideoDecoder_Reset_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.arc.mojom.VideoDecoderRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoDecoder_ReleaseVideoFrame_ParamsSpec,
       null,
-      [arg_video_frame_id],
+      { arg_video_frame_id: arg_video_frame_id },
       false);
   }
 
@@ -324,13 +324,13 @@ mojo.internal.bindings.arc.mojom.VideoDecoderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoDecoder_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_arg_config, params.arg_arg_client, params.arg_arg_video_frame_pool);
+          const result = this.impl.initialize(params.arg_config, params.arg_client, params.arg_video_frame_pool);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.VideoDecoder_Initialize_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.VideoDecoder_Initialize_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] initialize FAILED:', e));
           }
@@ -340,13 +340,13 @@ mojo.internal.bindings.arc.mojom.VideoDecoderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoDecoder_Decode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decode');
-          const result = this.impl.decode(params.arg_arg_buffer);
+          const result = this.impl.decode(params.arg_buffer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.VideoDecoder_Decode_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.VideoDecoder_Decode_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] decode FAILED:', e));
           }
@@ -361,7 +361,7 @@ mojo.internal.bindings.arc.mojom.VideoDecoderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.VideoDecoder_Reset_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.VideoDecoder_Reset_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] reset FAILED:', e));
           }
@@ -371,7 +371,7 @@ mojo.internal.bindings.arc.mojom.VideoDecoderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoDecoder_ReleaseVideoFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.releaseVideoFrame');
-          const result = this.impl.releaseVideoFrame(params.arg_arg_video_frame_id);
+          const result = this.impl.releaseVideoFrame(params.arg_video_frame_id);
           break;
         }
       }
@@ -436,7 +436,7 @@ mojo.internal.bindings.arc.mojom.VideoDecoderClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec,
       null,
-      [arg_video_frame_id, arg_visible_rect, arg_timestamp],
+      { arg_video_frame_id: arg_video_frame_id, arg_visible_rect: arg_visible_rect, arg_timestamp: arg_timestamp },
       false);
   }
 
@@ -445,7 +445,7 @@ mojo.internal.bindings.arc.mojom.VideoDecoderClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoDecoderClient_OnError_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -515,14 +515,14 @@ mojo.internal.bindings.arc.mojom.VideoDecoderClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVideoFrameDecoded');
-          const result = this.impl.onVideoFrameDecoded(params.arg_arg_video_frame_id, params.arg_arg_visible_rect, params.arg_arg_timestamp);
+          const result = this.impl.onVideoFrameDecoded(params.arg_video_frame_id, params.arg_visible_rect, params.arg_timestamp);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoDecoderClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_status);
+          const result = this.impl.onError(params.arg_status);
           break;
         }
       }

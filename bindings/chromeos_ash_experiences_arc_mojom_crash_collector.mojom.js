@@ -196,7 +196,7 @@ mojo.internal.bindings.arc.mojom.CrashCollectorHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec,
       null,
-      [arg_type, arg_pipe, arg_uptime],
+      { arg_type: arg_type, arg_pipe: arg_pipe, arg_uptime: arg_uptime },
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.arc.mojom.CrashCollectorHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec,
       null,
-      [arg_device, arg_board, arg_cpu_abi, arg_fingerprint],
+      { arg_device: arg_device, arg_board: arg_board, arg_cpu_abi: arg_cpu_abi, arg_fingerprint: arg_fingerprint },
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.arc.mojom.CrashCollectorHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec,
       null,
-      [arg_exec_name, arg_pid, arg_timestamp, arg_minidump_fd],
+      { arg_exec_name: arg_exec_name, arg_pid: arg_pid, arg_timestamp: arg_timestamp, arg_minidump_fd: arg_minidump_fd },
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.arc.mojom.CrashCollectorHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec,
       null,
-      [arg_ramoops_handle],
+      { arg_ramoops_handle: arg_ramoops_handle },
       false);
   }
 
@@ -295,28 +295,28 @@ mojo.internal.bindings.arc.mojom.CrashCollectorHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dumpCrash');
-          const result = this.impl.dumpCrash(params.arg_arg_type, params.arg_arg_pipe, params.arg_arg_uptime);
+          const result = this.impl.dumpCrash(params.arg_type, params.arg_pipe, params.arg_uptime);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBuildProperties');
-          const result = this.impl.setBuildProperties(params.arg_arg_device, params.arg_arg_board, params.arg_arg_cpu_abi, params.arg_arg_fingerprint);
+          const result = this.impl.setBuildProperties(params.arg_device, params.arg_board, params.arg_cpu_abi, params.arg_fingerprint);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dumpNativeCrash');
-          const result = this.impl.dumpNativeCrash(params.arg_arg_exec_name, params.arg_arg_pid, params.arg_arg_timestamp, params.arg_arg_minidump_fd);
+          const result = this.impl.dumpNativeCrash(params.arg_exec_name, params.arg_pid, params.arg_timestamp, params.arg_minidump_fd);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dumpKernelCrash');
-          const result = this.impl.dumpKernelCrash(params.arg_arg_ramoops_handle);
+          const result = this.impl.dumpKernelCrash(params.arg_ramoops_handle);
           break;
         }
       }
@@ -377,7 +377,7 @@ mojo.internal.bindings.arc.mojom.CrashCollectorInstanceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.CrashCollectorInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.CrashCollectorInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -446,12 +446,12 @@ mojo.internal.bindings.arc.mojom.CrashCollectorInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }

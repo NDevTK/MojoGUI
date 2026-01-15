@@ -314,7 +314,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec,
-      [arg_idp_get_params, arg_requirement],
+      { arg_idp_get_params: arg_idp_get_params, arg_requirement: arg_requirement },
       false);
   }
 
@@ -323,7 +323,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec,
-      [arg_provider],
+      { arg_provider: arg_provider },
       false);
   }
 
@@ -332,7 +332,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec,
-      [arg_account_id, arg_token],
+      { arg_account_id: arg_account_id, arg_token: arg_token },
       false);
   }
 
@@ -350,7 +350,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ResponseParamsSpec,
-      [arg_origin, arg_status, arg_options],
+      { arg_origin: arg_origin, arg_status: arg_status, arg_options: arg_options },
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -386,7 +386,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -395,7 +395,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -473,12 +473,12 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestToken');
-          const result = this.impl.requestToken(params.arg_arg_idp_get_params, params.arg_arg_requirement);
+          const result = this.impl.requestToken(params.arg_idp_get_params, params.arg_requirement);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_selected_identity_provider_config_url', 'response.arg_arg_token', 'response.arg_arg_error', 'response.arg_arg_is_auto_selected']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_selected_identity_provider_config_url': response.arg_selected_identity_provider_config_url, 'arg_token': response.arg_token, 'arg_error': response.arg_error, 'arg_is_auto_selected': response.arg_is_auto_selected });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestToken FAILED:', e));
           }
@@ -488,12 +488,12 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestUserInfo');
-          const result = this.impl.requestUserInfo(params.arg_arg_provider);
+          const result = this.impl.requestUserInfo(params.arg_provider);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_user_info']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_user_info': response.arg_user_info });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestUserInfo FAILED:', e));
           }
@@ -510,13 +510,13 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolveTokenRequest');
-          const result = this.impl.resolveTokenRequest(params.arg_arg_account_id, params.arg_arg_token);
+          const result = this.impl.resolveTokenRequest(params.arg_account_id, params.arg_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] resolveTokenRequest FAILED:', e));
           }
@@ -526,12 +526,12 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIdpSigninStatus');
-          const result = this.impl.setIdpSigninStatus(params.arg_arg_origin, params.arg_arg_status, params.arg_arg_options);
+          const result = this.impl.setIdpSigninStatus(params.arg_origin, params.arg_status, params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setIdpSigninStatus FAILED:', e));
           }
@@ -541,13 +541,13 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerIdP');
-          const result = this.impl.registerIdP(params.arg_arg_url);
+          const result = this.impl.registerIdP(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] registerIdP FAILED:', e));
           }
@@ -557,13 +557,13 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unregisterIdP');
-          const result = this.impl.unregisterIdP(params.arg_arg_url);
+          const result = this.impl.unregisterIdP(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] unregisterIdP FAILED:', e));
           }
@@ -585,7 +585,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] preventSilentAccess FAILED:', e));
           }
@@ -595,13 +595,13 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disconnect');
-          const result = this.impl.disconnect(params.arg_arg_options);
+          const result = this.impl.disconnect(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] disconnect FAILED:', e));
           }

@@ -254,7 +254,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_Bind_ParamsSpec,
       mojo.internal.bindings.network.mojom.UDPSocket_Bind_ResponseParamsSpec,
-      [arg_local_addr, arg_socket_options],
+      { arg_local_addr: arg_local_addr, arg_socket_options: arg_socket_options },
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_Connect_ParamsSpec,
       mojo.internal.bindings.network.mojom.UDPSocket_Connect_ResponseParamsSpec,
-      [arg_remote_addr, arg_socket_options],
+      { arg_remote_addr: arg_remote_addr, arg_socket_options: arg_socket_options },
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_SetBroadcast_ParamsSpec,
       mojo.internal.bindings.network.mojom.UDPSocket_SetBroadcast_ResponseParamsSpec,
-      [arg_broadcast],
+      { arg_broadcast: arg_broadcast },
       false);
   }
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_SetSendBufferSize_ParamsSpec,
       mojo.internal.bindings.network.mojom.UDPSocket_SetSendBufferSize_ResponseParamsSpec,
-      [arg_send_buffer_size],
+      { arg_send_buffer_size: arg_send_buffer_size },
       false);
   }
 
@@ -290,7 +290,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_SetReceiveBufferSize_ParamsSpec,
       mojo.internal.bindings.network.mojom.UDPSocket_SetReceiveBufferSize_ResponseParamsSpec,
-      [arg_receive_buffer_size],
+      { arg_receive_buffer_size: arg_receive_buffer_size },
       false);
   }
 
@@ -299,7 +299,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_JoinGroup_ParamsSpec,
       mojo.internal.bindings.network.mojom.UDPSocket_JoinGroup_ResponseParamsSpec,
-      [arg_group_address],
+      { arg_group_address: arg_group_address },
       false);
   }
 
@@ -308,7 +308,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_LeaveGroup_ParamsSpec,
       mojo.internal.bindings.network.mojom.UDPSocket_LeaveGroup_ResponseParamsSpec,
-      [arg_group_address],
+      { arg_group_address: arg_group_address },
       false);
   }
 
@@ -317,7 +317,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_ReceiveMore_ParamsSpec,
       null,
-      [arg_num_additional_datagrams],
+      { arg_num_additional_datagrams: arg_num_additional_datagrams },
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_ReceiveMoreWithBufferSize_ParamsSpec,
       null,
-      [arg_num_additional_datagrams, arg_buffer_size],
+      { arg_num_additional_datagrams: arg_num_additional_datagrams, arg_buffer_size: arg_buffer_size },
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_SendTo_ParamsSpec,
       mojo.internal.bindings.network.mojom.UDPSocket_SendTo_ResponseParamsSpec,
-      [arg_dest_addr, arg_data, arg_traffic_annotation],
+      { arg_dest_addr: arg_dest_addr, arg_data: arg_data, arg_traffic_annotation: arg_traffic_annotation },
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_Send_ParamsSpec,
       mojo.internal.bindings.network.mojom.UDPSocket_Send_ResponseParamsSpec,
-      [arg_data, arg_traffic_annotation],
+      { arg_data: arg_data, arg_traffic_annotation: arg_traffic_annotation },
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_Close_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -433,12 +433,12 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_Bind_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bind');
-          const result = this.impl.bind(params.arg_arg_local_addr, params.arg_arg_socket_options);
+          const result = this.impl.bind(params.arg_local_addr, params.arg_socket_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_Bind_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_local_addr_out']);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_Bind_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_local_addr_out': response.arg_local_addr_out });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] bind FAILED:', e));
           }
@@ -448,12 +448,12 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_arg_remote_addr, params.arg_arg_socket_options);
+          const result = this.impl.connect(params.arg_remote_addr, params.arg_socket_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_Connect_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_local_addr_out']);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_Connect_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_local_addr_out': response.arg_local_addr_out });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] connect FAILED:', e));
           }
@@ -463,13 +463,13 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_SetBroadcast_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBroadcast');
-          const result = this.impl.setBroadcast(params.arg_arg_broadcast);
+          const result = this.impl.setBroadcast(params.arg_broadcast);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_SetBroadcast_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_SetBroadcast_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setBroadcast FAILED:', e));
           }
@@ -479,13 +479,13 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_SetSendBufferSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSendBufferSize');
-          const result = this.impl.setSendBufferSize(params.arg_arg_send_buffer_size);
+          const result = this.impl.setSendBufferSize(params.arg_send_buffer_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_SetSendBufferSize_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_SetSendBufferSize_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setSendBufferSize FAILED:', e));
           }
@@ -495,13 +495,13 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_SetReceiveBufferSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setReceiveBufferSize');
-          const result = this.impl.setReceiveBufferSize(params.arg_arg_receive_buffer_size);
+          const result = this.impl.setReceiveBufferSize(params.arg_receive_buffer_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_SetReceiveBufferSize_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_SetReceiveBufferSize_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setReceiveBufferSize FAILED:', e));
           }
@@ -511,13 +511,13 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_JoinGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.joinGroup');
-          const result = this.impl.joinGroup(params.arg_arg_group_address);
+          const result = this.impl.joinGroup(params.arg_group_address);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_JoinGroup_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_JoinGroup_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] joinGroup FAILED:', e));
           }
@@ -527,13 +527,13 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_LeaveGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.leaveGroup');
-          const result = this.impl.leaveGroup(params.arg_arg_group_address);
+          const result = this.impl.leaveGroup(params.arg_group_address);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_LeaveGroup_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_LeaveGroup_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] leaveGroup FAILED:', e));
           }
@@ -543,27 +543,27 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_ReceiveMore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.receiveMore');
-          const result = this.impl.receiveMore(params.arg_arg_num_additional_datagrams);
+          const result = this.impl.receiveMore(params.arg_num_additional_datagrams);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_ReceiveMoreWithBufferSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.receiveMoreWithBufferSize');
-          const result = this.impl.receiveMoreWithBufferSize(params.arg_arg_num_additional_datagrams, params.arg_arg_buffer_size);
+          const result = this.impl.receiveMoreWithBufferSize(params.arg_num_additional_datagrams, params.arg_buffer_size);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_SendTo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendTo');
-          const result = this.impl.sendTo(params.arg_arg_dest_addr, params.arg_arg_data, params.arg_arg_traffic_annotation);
+          const result = this.impl.sendTo(params.arg_dest_addr, params.arg_data, params.arg_traffic_annotation);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_SendTo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_SendTo_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendTo FAILED:', e));
           }
@@ -573,13 +573,13 @@ mojo.internal.bindings.network.mojom.UDPSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_Send_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.send');
-          const result = this.impl.send(params.arg_arg_data, params.arg_arg_traffic_annotation);
+          const result = this.impl.send(params.arg_data, params.arg_traffic_annotation);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_Send_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.UDPSocket_Send_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] send FAILED:', e));
           }
@@ -650,7 +650,7 @@ mojo.internal.bindings.network.mojom.UDPSocketListenerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocketListener_OnReceived_ParamsSpec,
       null,
-      [arg_result, arg_src_addr, arg_data],
+      { arg_result: arg_result, arg_src_addr: arg_src_addr, arg_data: arg_data },
       false);
   }
 
@@ -719,7 +719,7 @@ mojo.internal.bindings.network.mojom.UDPSocketListenerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.UDPSocketListener_OnReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReceived');
-          const result = this.impl.onReceived(params.arg_arg_result, params.arg_arg_src_addr, params.arg_arg_data);
+          const result = this.impl.onReceived(params.arg_result, params.arg_src_addr, params.arg_data);
           break;
         }
       }

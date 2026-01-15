@@ -182,7 +182,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferTokenRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferToken_GetInternalId_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferToken_GetInternalId_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferTokenRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferToken_Clone_ParamsSpec,
       null,
-      [arg_token_clone],
+      { arg_token_clone: arg_token_clone },
       false);
   }
 
@@ -266,8 +266,8 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferTokenReceiver = c
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_id' in response) ? response.arg_arg_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferToken_GetInternalId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_id' in response) ? response.arg_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferToken_GetInternalId_ResponseParamsSpec.$.structSpec, { 'arg_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getInternalId FAILED:', e));
           }
@@ -277,7 +277,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferTokenReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferToken_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_token_clone);
+          const result = this.impl.clone(params.arg_token_clone);
           break;
         }
       }

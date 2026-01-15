@@ -189,7 +189,7 @@ mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec,
       null,
-      [arg_actionId, arg_accelerators],
+      { arg_actionId: arg_actionId, arg_accelerators: arg_accelerators },
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserverReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAcceleratorsUpdated');
-          const result = this.impl.onAcceleratorsUpdated(params.arg_arg_actionId, params.arg_arg_accelerators);
+          const result = this.impl.onAcceleratorsUpdated(params.arg_actionId, params.arg_accelerators);
           break;
         }
       }
@@ -323,7 +323,7 @@ mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec,
       null,
-      [arg_actionIds, arg_observer],
+      { arg_actionIds: arg_actionIds, arg_observer: arg_observer },
       false);
   }
 
@@ -332,7 +332,7 @@ mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec,
       mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -402,7 +402,7 @@ mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeAcceleratorChanges');
-          const result = this.impl.observeAcceleratorChanges(params.arg_arg_actionIds, params.arg_arg_observer);
+          const result = this.impl.observeAcceleratorChanges(params.arg_actionIds, params.arg_observer);
           break;
         }
         case 1: {
@@ -414,8 +414,8 @@ mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_meta_key' in response) ? response.arg_arg_meta_key : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_meta_key' in response) ? response.arg_meta_key : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec.$.structSpec, { 'arg_meta_key': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMetaKeyToDisplay FAILED:', e));
           }

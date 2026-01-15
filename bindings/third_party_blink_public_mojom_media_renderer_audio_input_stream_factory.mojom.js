@@ -203,7 +203,7 @@ mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec,
       null,
-      [arg_client, arg_session_id, arg_params, arg_automatic_gain_control, arg_shared_memory_count, arg_processing_config],
+      { arg_client: arg_client, arg_session_id: arg_session_id, arg_params: arg_params, arg_automatic_gain_control: arg_automatic_gain_control, arg_shared_memory_count: arg_shared_memory_count, arg_processing_config: arg_processing_config },
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec,
       null,
-      [arg_input_stream_id, arg_output_device_id],
+      { arg_input_stream_id: arg_input_stream_id, arg_output_device_id: arg_output_device_id },
       false);
   }
 
@@ -282,14 +282,14 @@ mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createStream');
-          const result = this.impl.createStream(params.arg_arg_client, params.arg_arg_session_id, params.arg_arg_params, params.arg_arg_automatic_gain_control, params.arg_arg_shared_memory_count, params.arg_arg_processing_config);
+          const result = this.impl.createStream(params.arg_client, params.arg_session_id, params.arg_params, params.arg_automatic_gain_control, params.arg_shared_memory_count, params.arg_processing_config);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.associateInputAndOutputForAec');
-          const result = this.impl.associateInputAndOutputForAec(params.arg_arg_input_stream_id, params.arg_arg_output_device_id);
+          const result = this.impl.associateInputAndOutputForAec(params.arg_input_stream_id, params.arg_output_device_id);
           break;
         }
       }
@@ -350,7 +350,7 @@ mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClientRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec,
       null,
-      [arg_stream, arg_client_request, arg_data_pipe, arg_initially_muted, arg_stream_id],
+      { arg_stream: arg_stream, arg_client_request: arg_client_request, arg_data_pipe: arg_data_pipe, arg_initially_muted: arg_initially_muted, arg_stream_id: arg_stream_id },
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClientReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.streamCreated');
-          const result = this.impl.streamCreated(params.arg_arg_stream, params.arg_arg_client_request, params.arg_arg_data_pipe, params.arg_arg_initially_muted, params.arg_arg_stream_id);
+          const result = this.impl.streamCreated(params.arg_stream, params.arg_client_request, params.arg_data_pipe, params.arg_initially_muted, params.arg_stream_id);
           break;
         }
       }

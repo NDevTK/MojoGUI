@@ -181,7 +181,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -265,7 +265,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec.$.structSpec, ['response.arg_arg_field_trial_parameters', 'response.arg_arg_field_trial_states', 'response.arg_arg_enabled_features', 'response.arg_arg_disabled_features']);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec.$.structSpec, { 'arg_field_trial_parameters': response.arg_field_trial_parameters, 'arg_field_trial_states': response.arg_field_trial_states, 'arg_enabled_features': response.arg_enabled_features, 'arg_disabled_features': response.arg_disabled_features });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getVariationsData FAILED:', e));
           }
@@ -280,7 +280,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec.$.structSpec, ['response.arg_arg_process_data', 'response.arg_arg_gpu_memory_size']);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec.$.structSpec, { 'arg_process_data': response.arg_process_data, 'arg_gpu_memory_size': response.arg_gpu_memory_size });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMemoryDetails FAILED:', e));
           }

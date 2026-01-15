@@ -189,7 +189,7 @@ mojo.internal.bindings.blink.mojom.FontAccessManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FontAccessManager_EnumerateLocalFonts_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.blink.mojom.FontAccessManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec.$.structSpec, ['response.arg_arg_enumeration_status', 'response.arg_arg_enumeration_table']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec.$.structSpec, { 'arg_enumeration_status': response.arg_enumeration_status, 'arg_enumeration_table': response.arg_enumeration_table });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] enumerateLocalFonts FAILED:', e));
           }

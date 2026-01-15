@@ -195,7 +195,7 @@ mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiverRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec,
       null,
-      [arg_rules],
+      { arg_rules: arg_rules },
       false);
   }
 
@@ -264,7 +264,7 @@ mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiverReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRulesUpdated');
-          const result = this.impl.onRulesUpdated(params.arg_arg_rules);
+          const result = this.impl.onRulesUpdated(params.arg_rules);
           break;
         }
       }

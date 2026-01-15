@@ -224,7 +224,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec,
-      [arg_outside_fetch_client_settings_object],
+      { arg_outside_fetch_client_settings_object: arg_outside_fetch_client_settings_object },
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParamsSpec,
-      [arg_enable],
+      { arg_enable: arg_enable },
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCall
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCall
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -333,12 +333,12 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
-          const result = this.impl.update(params.arg_arg_outside_fetch_client_settings_object);
+          const result = this.impl.update(params.arg_outside_fetch_client_settings_object);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_error_msg']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_error_msg': response.arg_error_msg });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] update FAILED:', e));
           }
@@ -353,7 +353,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostReceiver =
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_error_msg']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_error_msg': response.arg_error_msg });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] unregister FAILED:', e));
           }
@@ -363,12 +363,12 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableNavigationPreload');
-          const result = this.impl.enableNavigationPreload(params.arg_arg_enable);
+          const result = this.impl.enableNavigationPreload(params.arg_enable);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_error_msg']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_error_msg': response.arg_error_msg });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] enableNavigationPreload FAILED:', e));
           }
@@ -383,7 +383,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostReceiver =
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_error_msg', 'response.arg_arg_state']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_error_msg': response.arg_error_msg, 'arg_state': response.arg_state });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNavigationPreloadState FAILED:', e));
           }
@@ -393,12 +393,12 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNavigationPreloadHeader');
-          const result = this.impl.setNavigationPreloadHeader(params.arg_arg_value);
+          const result = this.impl.setNavigationPreloadHeader(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_error_msg']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_error_msg': response.arg_error_msg });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setNavigationPreloadHeader FAILED:', e));
           }
@@ -470,7 +470,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec,
       null,
-      [arg_changed_mask, arg_installing, arg_waiting, arg_active],
+      { arg_changed_mask: arg_changed_mask, arg_installing: arg_installing, arg_waiting: arg_waiting, arg_active: arg_active },
       false);
   }
 
@@ -479,7 +479,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec,
       null,
-      [arg_update_via_cache],
+      { arg_update_via_cache: arg_update_via_cache },
       false);
   }
 
@@ -488,7 +488,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObject_UpdateFound_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -559,14 +559,14 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setServiceWorkerObjects');
-          const result = this.impl.setServiceWorkerObjects(params.arg_arg_changed_mask, params.arg_arg_installing, params.arg_arg_waiting, params.arg_arg_active);
+          const result = this.impl.setServiceWorkerObjects(params.arg_changed_mask, params.arg_installing, params.arg_waiting, params.arg_active);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUpdateViaCache');
-          const result = this.impl.setUpdateViaCache(params.arg_arg_update_via_cache);
+          const result = this.impl.setUpdateViaCache(params.arg_update_via_cache);
           break;
         }
         case 2: {

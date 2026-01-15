@@ -176,7 +176,7 @@ mojo.internal.bindings.webapps.mojom.WebPageMetadataAgentRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec,
       mojo.internal.bindings.webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -250,8 +250,8 @@ mojo.internal.bindings.webapps.mojom.WebPageMetadataAgentReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_web_page_metadata' in response) ? response.arg_arg_web_page_metadata : response;
-              encoder.encodeStructInline(mojo.internal.bindings.webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_web_page_metadata' in response) ? response.arg_web_page_metadata : response;
+              encoder.encodeStructInline(mojo.internal.bindings.webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec.$.structSpec, { 'arg_web_page_metadata': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getWebPageMetadata FAILED:', e));
           }

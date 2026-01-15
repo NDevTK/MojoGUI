@@ -233,7 +233,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsBootstrapRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec,
       mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec,
-      [arg_options, arg_delegate],
+      { arg_options: arg_options, arg_delegate: arg_delegate },
       false);
   }
 
@@ -302,12 +302,12 @@ mojo.internal.bindings.smbfs.mojom.SmbFsBootstrapReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mountShare');
-          const result = this.impl.mountShare(params.arg_arg_options, params.arg_arg_delegate);
+          const result = this.impl.mountShare(params.arg_options, params.arg_delegate);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_smbfs']);
+              encoder.encodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_smbfs': response.arg_smbfs });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] mountShare FAILED:', e));
           }
@@ -375,7 +375,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec,
       mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -384,7 +384,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec,
       mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -459,8 +459,8 @@ mojo.internal.bindings.smbfs.mojom.SmbFsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] removeSavedCredentials FAILED:', e));
           }
@@ -470,13 +470,13 @@ mojo.internal.bindings.smbfs.mojom.SmbFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteRecursively');
-          const result = this.impl.deleteRecursively(params.arg_arg_path);
+          const result = this.impl.deleteRecursively(params.arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteRecursively FAILED:', e));
           }
@@ -540,7 +540,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsDelegateRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec,
       mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -614,8 +614,8 @@ mojo.internal.bindings.smbfs.mojom.SmbFsDelegateReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_credentials' in response) ? response.arg_arg_credentials : response;
-              encoder.encodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_credentials' in response) ? response.arg_credentials : response;
+              encoder.encodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec.$.structSpec, { 'arg_credentials': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestCredentials FAILED:', e));
           }

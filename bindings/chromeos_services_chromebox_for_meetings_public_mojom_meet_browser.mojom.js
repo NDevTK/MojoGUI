@@ -172,7 +172,7 @@ mojo.internal.bindings.ash.cfm.mojom.MeetBrowserRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec,
       mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec,
-      [arg_hashed_device_id],
+      { arg_hashed_device_id: arg_hashed_device_id },
       false);
   }
 
@@ -241,13 +241,13 @@ mojo.internal.bindings.ash.cfm.mojom.MeetBrowserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.translateVideoDeviceId');
-          const result = this.impl.translateVideoDeviceId(params.arg_arg_hashed_device_id);
+          const result = this.impl.translateVideoDeviceId(params.arg_hashed_device_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_device_path' in response) ? response.arg_arg_device_path : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_device_path' in response) ? response.arg_device_path : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec.$.structSpec, { 'arg_device_path': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] translateVideoDeviceId FAILED:', e));
           }

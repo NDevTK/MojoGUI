@@ -186,7 +186,7 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec,
       null,
-      [arg_native_identifier, arg_visible, arg_rect],
+      { arg_native_identifier: arg_native_identifier, arg_visible: arg_visible, arg_rect: arg_rect },
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec,
       null,
-      [arg_native_identifier],
+      { arg_native_identifier: arg_native_identifier },
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec,
       null,
-      [arg_native_identifier, arg_custom_event_name],
+      { arg_native_identifier: arg_native_identifier, arg_custom_event_name: arg_custom_event_name },
       false);
   }
 
@@ -275,21 +275,21 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.trackedElementVisibilityChanged');
-          const result = this.impl.trackedElementVisibilityChanged(params.arg_arg_native_identifier, params.arg_arg_visible, params.arg_arg_rect);
+          const result = this.impl.trackedElementVisibilityChanged(params.arg_native_identifier, params.arg_visible, params.arg_rect);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.trackedElementActivated');
-          const result = this.impl.trackedElementActivated(params.arg_arg_native_identifier);
+          const result = this.impl.trackedElementActivated(params.arg_native_identifier);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.trackedElementCustomEvent');
-          const result = this.impl.trackedElementCustomEvent(params.arg_arg_native_identifier, params.arg_arg_custom_event_name);
+          const result = this.impl.trackedElementCustomEvent(params.arg_native_identifier, params.arg_custom_event_name);
           break;
         }
       }

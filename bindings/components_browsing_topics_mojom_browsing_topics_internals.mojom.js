@@ -214,7 +214,7 @@ mojo.internal.bindings.browsing_topics.mojom.PageHandlerRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec,
       mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.browsing_topics.mojom.PageHandlerRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec,
       mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec,
-      [arg_calculate_now],
+      { arg_calculate_now: arg_calculate_now },
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.browsing_topics.mojom.PageHandlerRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec,
       mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -241,7 +241,7 @@ mojo.internal.bindings.browsing_topics.mojom.PageHandlerRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec,
       mojo.internal.bindings.browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec,
-      [arg_hosts],
+      { arg_hosts: arg_hosts },
       false);
   }
 
@@ -318,8 +318,8 @@ mojo.internal.bindings.browsing_topics.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_config' in response) ? response.arg_arg_config : response;
-              encoder.encodeStructInline(mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_config' in response) ? response.arg_config : response;
+              encoder.encodeStructInline(mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec.$.structSpec, { 'arg_config': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getBrowsingTopicsConfiguration FAILED:', e));
           }
@@ -329,13 +329,13 @@ mojo.internal.bindings.browsing_topics.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBrowsingTopicsState');
-          const result = this.impl.getBrowsingTopicsState(params.arg_arg_calculate_now);
+          const result = this.impl.getBrowsingTopicsState(params.arg_calculate_now);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getBrowsingTopicsState FAILED:', e));
           }
@@ -350,8 +350,8 @@ mojo.internal.bindings.browsing_topics.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getModelInfo FAILED:', e));
           }
@@ -361,13 +361,13 @@ mojo.internal.bindings.browsing_topics.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.classifyHosts');
-          const result = this.impl.classifyHosts(params.arg_arg_hosts);
+          const result = this.impl.classifyHosts(params.arg_hosts);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_topics_for_hosts' in response) ? response.arg_arg_topics_for_hosts : response;
-              encoder.encodeStructInline(mojo.internal.bindings.browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_topics_for_hosts' in response) ? response.arg_topics_for_hosts : response;
+              encoder.encodeStructInline(mojo.internal.bindings.browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec.$.structSpec, { 'arg_topics_for_hosts': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] classifyHosts FAILED:', e));
           }

@@ -199,7 +199,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionServiceRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionServiceRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionServiceRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionServiceRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSessionService_Bind_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -298,28 +298,28 @@ mojo.internal.bindings.media_session.mojom.MediaSessionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAudioFocusManager');
-          const result = this.impl.bindAudioFocusManager(params.arg_arg_receiver);
+          const result = this.impl.bindAudioFocusManager(params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAudioFocusManagerDebug');
-          const result = this.impl.bindAudioFocusManagerDebug(params.arg_arg_receiver);
+          const result = this.impl.bindAudioFocusManagerDebug(params.arg_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindMediaControllerManager');
-          const result = this.impl.bindMediaControllerManager(params.arg_arg_receiver);
+          const result = this.impl.bindMediaControllerManager(params.arg_receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionService_Bind_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bind');
-          const result = this.impl.bind(params.arg_arg_receiver);
+          const result = this.impl.bind(params.arg_receiver);
           break;
         }
       }

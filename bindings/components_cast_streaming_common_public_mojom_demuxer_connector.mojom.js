@@ -214,7 +214,7 @@ mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec,
       mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec,
       mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -298,8 +298,8 @@ mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_buffer_response' in response) ? response.arg_arg_buffer_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_buffer_response' in response) ? response.arg_buffer_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec.$.structSpec, { 'arg_buffer_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getBuffer FAILED:', e));
           }
@@ -314,8 +314,8 @@ mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] enableBitstreamConverter FAILED:', e));
           }
@@ -383,7 +383,7 @@ mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec,
       mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec,
       mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -467,8 +467,8 @@ mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_buffer_response' in response) ? response.arg_arg_buffer_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_buffer_response' in response) ? response.arg_buffer_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec.$.structSpec, { 'arg_buffer_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getBuffer FAILED:', e));
           }
@@ -483,8 +483,8 @@ mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] enableBitstreamConverter FAILED:', e));
           }
@@ -552,7 +552,7 @@ mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec,
       mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -561,7 +561,7 @@ mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec,
       null,
-      [arg_audio_buffer_requester, arg_video_buffer_requester],
+      { arg_audio_buffer_requester: arg_audio_buffer_requester, arg_video_buffer_requester: arg_video_buffer_requester },
       false);
   }
 
@@ -636,7 +636,7 @@ mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] enableReceiver FAILED:', e));
           }
@@ -646,7 +646,7 @@ mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStreamsInitialized');
-          const result = this.impl.onStreamsInitialized(params.arg_arg_audio_buffer_requester, params.arg_arg_video_buffer_requester);
+          const result = this.impl.onStreamsInitialized(params.arg_audio_buffer_requester, params.arg_video_buffer_requester);
           break;
         }
       }

@@ -185,7 +185,7 @@ mojo.internal.bindings.network.mojom.AcceptCHFrameObserverRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec,
       mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec,
-      [arg_origin, arg_accept_ch_frame],
+      { arg_origin: arg_origin, arg_accept_ch_frame: arg_accept_ch_frame },
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.network.mojom.AcceptCHFrameObserverRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec,
       null,
-      [arg_listener],
+      { arg_listener: arg_listener },
       false);
   }
 
@@ -264,13 +264,13 @@ mojo.internal.bindings.network.mojom.AcceptCHFrameObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAcceptCHFrameReceived');
-          const result = this.impl.onAcceptCHFrameReceived(params.arg_arg_origin, params.arg_arg_accept_ch_frame);
+          const result = this.impl.onAcceptCHFrameReceived(params.arg_origin, params.arg_accept_ch_frame);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onAcceptCHFrameReceived FAILED:', e));
           }
@@ -280,7 +280,7 @@ mojo.internal.bindings.network.mojom.AcceptCHFrameObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_listener);
+          const result = this.impl.clone(params.arg_listener);
           break;
         }
       }

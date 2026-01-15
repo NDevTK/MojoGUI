@@ -208,7 +208,7 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec,
       mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec,
-      [arg_package_name],
+      { arg_package_name: arg_package_name },
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec,
       mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec,
-      [arg_parameters],
+      { arg_parameters: arg_parameters },
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec,
       mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec,
-      [arg_parameters],
+      { arg_parameters: arg_parameters },
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec,
       mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec,
-      [arg_request_token],
+      { arg_request_token: arg_request_token },
       false);
   }
 
@@ -307,13 +307,13 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isPaymentImplemented');
-          const result = this.impl.isPaymentImplemented(params.arg_arg_package_name);
+          const result = this.impl.isPaymentImplemented(params.arg_package_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isPaymentImplemented FAILED:', e));
           }
@@ -323,13 +323,13 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isReadyToPay');
-          const result = this.impl.isReadyToPay(params.arg_arg_parameters);
+          const result = this.impl.isReadyToPay(params.arg_parameters);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isReadyToPay FAILED:', e));
           }
@@ -339,13 +339,13 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.invokePaymentApp');
-          const result = this.impl.invokePaymentApp(params.arg_arg_parameters);
+          const result = this.impl.invokePaymentApp(params.arg_parameters);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] invokePaymentApp FAILED:', e));
           }
@@ -355,13 +355,13 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.abortPaymentApp');
-          const result = this.impl.abortPaymentApp(params.arg_arg_request_token);
+          const result = this.impl.abortPaymentApp(params.arg_request_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_aborted' in response) ? response.arg_arg_aborted : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_aborted' in response) ? response.arg_aborted : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec.$.structSpec, { 'arg_aborted': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] abortPaymentApp FAILED:', e));
           }

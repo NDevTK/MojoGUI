@@ -193,7 +193,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHostRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -202,7 +202,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHostRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.postMessageToServiceWorker');
-          const result = this.impl.postMessageToServiceWorker(params.arg_arg_message);
+          const result = this.impl.postMessageToServiceWorker(params.arg_message);
           break;
         }
         case 1: {
@@ -284,7 +284,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] terminateForTesting FAILED:', e));
           }
@@ -348,7 +348,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerObjectRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -417,7 +417,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerObjectReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stateChanged');
-          const result = this.impl.stateChanged(params.arg_arg_state);
+          const result = this.impl.stateChanged(params.arg_state);
           break;
         }
       }

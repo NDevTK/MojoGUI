@@ -205,7 +205,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandlerRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -274,7 +274,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandlerReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCarrierPortalStatusChange');
-          const result = this.impl.onCarrierPortalStatusChange(params.arg_arg_status);
+          const result = this.impl.onCarrierPortalStatusChange(params.arg_status);
           break;
         }
       }
@@ -339,7 +339,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegateRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec,
       null,
-      [arg_metadata],
+      { arg_metadata: arg_metadata },
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegateRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec,
       null,
-      [arg_result],
+      { arg_result: arg_result },
       false);
   }
 
@@ -418,14 +418,14 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegateReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onActivationStarted');
-          const result = this.impl.onActivationStarted(params.arg_arg_metadata);
+          const result = this.impl.onActivationStarted(params.arg_metadata);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onActivationFinished');
-          const result = this.impl.onActivationFinished(params.arg_arg_result);
+          const result = this.impl.onActivationFinished(params.arg_result);
           break;
         }
       }
@@ -486,7 +486,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetupRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec,
-      [arg_delegate],
+      { arg_delegate: arg_delegate },
       false);
   }
 
@@ -555,13 +555,13 @@ mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetupReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startActivation');
-          const result = this.impl.startActivation(params.arg_arg_delegate);
+          const result = this.impl.startActivation(params.arg_delegate);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_observer' in response) ? response.arg_arg_observer : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_observer' in response) ? response.arg_observer : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec.$.structSpec, { 'arg_observer': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startActivation FAILED:', e));
           }

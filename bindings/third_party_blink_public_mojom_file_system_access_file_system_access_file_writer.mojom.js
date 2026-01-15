@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriterRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec,
-      [arg_offset, arg_stream],
+      { arg_offset: arg_offset, arg_stream: arg_stream },
       false);
   }
 
@@ -203,7 +203,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriterRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec,
-      [arg_length],
+      { arg_length: arg_length },
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriterRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriterRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -293,12 +293,12 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.write');
-          const result = this.impl.write(params.arg_arg_offset, params.arg_arg_stream);
+          const result = this.impl.write(params.arg_offset, params.arg_stream);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_bytes_written']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_bytes_written': response.arg_bytes_written });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] write FAILED:', e));
           }
@@ -308,13 +308,13 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.truncate');
-          const result = this.impl.truncate(params.arg_arg_length);
+          const result = this.impl.truncate(params.arg_length);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] truncate FAILED:', e));
           }
@@ -329,8 +329,8 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriterReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] close FAILED:', e));
           }
@@ -345,8 +345,8 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriterReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] abort FAILED:', e));
           }

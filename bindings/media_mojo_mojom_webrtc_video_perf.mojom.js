@@ -182,7 +182,7 @@ mojo.internal.bindings.media.mojom.WebrtcVideoPerfRecorderRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec,
       null,
-      [arg_features, arg_video_stats],
+      { arg_features: arg_features, arg_video_stats: arg_video_stats },
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.media.mojom.WebrtcVideoPerfRecorderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateRecord');
-          const result = this.impl.updateRecord(params.arg_arg_features, params.arg_arg_video_stats);
+          const result = this.impl.updateRecord(params.arg_features, params.arg_video_stats);
           break;
         }
       }
@@ -312,7 +312,7 @@ mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistoryRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec,
       mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec,
-      [arg_features, arg_frames_per_second],
+      { arg_features: arg_features, arg_frames_per_second: arg_frames_per_second },
       false);
   }
 
@@ -381,13 +381,13 @@ mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPerfInfo');
-          const result = this.impl.getPerfInfo(params.arg_arg_features, params.arg_arg_frames_per_second);
+          const result = this.impl.getPerfInfo(params.arg_features, params.arg_frames_per_second);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_smooth' in response) ? response.arg_arg_is_smooth : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_smooth' in response) ? response.arg_is_smooth : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec.$.structSpec, { 'arg_is_smooth': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPerfInfo FAILED:', e));
           }

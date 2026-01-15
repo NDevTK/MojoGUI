@@ -282,7 +282,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -300,7 +300,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec,
       null,
-      [arg_has_nonempty_beforeunload],
+      { arg_has_nonempty_beforeunload: arg_has_nonempty_beforeunload },
       false);
   }
 
@@ -309,7 +309,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -318,7 +318,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -336,7 +336,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec,
       null,
-      [arg_is_ad_frame],
+      { arg_is_ad_frame: arg_is_ad_frame },
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec,
       null,
-      [arg_time_since_navigation_start],
+      { arg_time_since_navigation_start: arg_time_since_navigation_start },
       false);
   }
 
@@ -372,7 +372,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec,
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec,
-      [arg_mode],
+      { arg_mode: arg_mode },
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -468,14 +468,14 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setLifecycleState');
-          const result = this.impl.setLifecycleState(params.arg_arg_state);
+          const result = this.impl.setLifecycleState(params.arg_state);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHasNonEmptyBeforeUnload');
-          const result = this.impl.setHasNonEmptyBeforeUnload(params.arg_arg_has_nonempty_beforeunload);
+          const result = this.impl.setHasNonEmptyBeforeUnload(params.arg_has_nonempty_beforeunload);
           break;
         }
         case 3: {
@@ -510,7 +510,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsAdFrame');
-          const result = this.impl.setIsAdFrame(params.arg_arg_is_ad_frame);
+          const result = this.impl.setIsAdFrame(params.arg_is_ad_frame);
           break;
         }
         case 8: {
@@ -524,20 +524,20 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFirstContentfulPaint');
-          const result = this.impl.onFirstContentfulPaint(params.arg_arg_time_since_navigation_start);
+          const result = this.impl.onFirstContentfulPaint(params.arg_time_since_navigation_start);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWebMemoryMeasurementRequested');
-          const result = this.impl.onWebMemoryMeasurementRequested(params.arg_arg_mode);
+          const result = this.impl.onWebMemoryMeasurementRequested(params.arg_mode);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_measurement' in response) ? response.arg_arg_measurement : response;
-              encoder.encodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_measurement' in response) ? response.arg_measurement : response;
+              encoder.encodeStructInline(mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec.$.structSpec, { 'arg_measurement': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onWebMemoryMeasurementRequested FAILED:', e));
           }
@@ -628,7 +628,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec,
       null,
-      [arg_main_thread_task_load_is_low],
+      { arg_main_thread_task_load_is_low: arg_main_thread_task_load_is_low },
       false);
   }
 
@@ -637,7 +637,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitRemoteCa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec,
       null,
-      [arg_description, arg_iframe_attribution_data],
+      { arg_description: arg_description, arg_iframe_attribution_data: arg_iframe_attribution_data },
       false);
   }
 
@@ -646,7 +646,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitRemoteCa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec,
       null,
-      [arg_v8_context_token],
+      { arg_v8_context_token: arg_v8_context_token },
       false);
   }
 
@@ -655,7 +655,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitRemoteCa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec,
       null,
-      [arg_v8_context_token],
+      { arg_v8_context_token: arg_v8_context_token },
       false);
   }
 
@@ -664,7 +664,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitRemoteCa
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec,
       null,
-      [arg_parent_frame_token, arg_remote_frame_token, arg_iframe_attribution_data],
+      { arg_parent_frame_token: arg_parent_frame_token, arg_remote_frame_token: arg_remote_frame_token, arg_iframe_attribution_data: arg_iframe_attribution_data },
       false);
   }
 
@@ -673,7 +673,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitRemoteCa
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec,
       null,
-      [arg_parent_frame_token, arg_remote_frame_token],
+      { arg_parent_frame_token: arg_parent_frame_token, arg_remote_frame_token: arg_remote_frame_token },
       false);
   }
 
@@ -747,42 +747,42 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMainThreadTaskLoadIsLow');
-          const result = this.impl.setMainThreadTaskLoadIsLow(params.arg_arg_main_thread_task_load_is_low);
+          const result = this.impl.setMainThreadTaskLoadIsLow(params.arg_main_thread_task_load_is_low);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onV8ContextCreated');
-          const result = this.impl.onV8ContextCreated(params.arg_arg_description, params.arg_arg_iframe_attribution_data);
+          const result = this.impl.onV8ContextCreated(params.arg_description, params.arg_iframe_attribution_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onV8ContextDetached');
-          const result = this.impl.onV8ContextDetached(params.arg_arg_v8_context_token);
+          const result = this.impl.onV8ContextDetached(params.arg_v8_context_token);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onV8ContextDestroyed');
-          const result = this.impl.onV8ContextDestroyed(params.arg_arg_v8_context_token);
+          const result = this.impl.onV8ContextDestroyed(params.arg_v8_context_token);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRemoteIframeAttached');
-          const result = this.impl.onRemoteIframeAttached(params.arg_arg_parent_frame_token, params.arg_arg_remote_frame_token, params.arg_arg_iframe_attribution_data);
+          const result = this.impl.onRemoteIframeAttached(params.arg_parent_frame_token, params.arg_remote_frame_token, params.arg_iframe_attribution_data);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRemoteIframeDetached');
-          const result = this.impl.onRemoteIframeDetached(params.arg_arg_parent_frame_token, params.arg_arg_remote_frame_token);
+          const result = this.impl.onRemoteIframeDetached(params.arg_parent_frame_token, params.arg_remote_frame_token);
           break;
         }
       }
@@ -843,7 +843,7 @@ mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnitRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec,
       mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -917,7 +917,7 @@ mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnitRec
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec.$.structSpec, ['response.arg_arg_global_region', 'response.arg_arg_process_region']);
+              encoder.encodeStructInline(mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec.$.structSpec, { 'arg_global_region': response.arg_global_region, 'arg_process_region': response.arg_process_region });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] initializeChildProcessCoordination FAILED:', e));
           }

@@ -262,7 +262,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerObserverRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerObserver_OnAvailableEuiccListChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerObserverRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_ParamsSpec,
       null,
-      [arg_euicc],
+      { arg_euicc: arg_euicc },
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerObserverRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_ParamsSpec,
       null,
-      [arg_euicc],
+      { arg_euicc: arg_euicc },
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerObserverRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_ParamsSpec,
       null,
-      [arg_profile],
+      { arg_profile: arg_profile },
       false);
   }
 
@@ -368,21 +368,21 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerObserverReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProfileListChanged');
-          const result = this.impl.onProfileListChanged(params.arg_arg_euicc);
+          const result = this.impl.onProfileListChanged(params.arg_euicc);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEuiccChanged');
-          const result = this.impl.onEuiccChanged(params.arg_arg_euicc);
+          const result = this.impl.onEuiccChanged(params.arg_euicc);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProfileChanged');
-          const result = this.impl.onProfileChanged(params.arg_arg_profile);
+          const result = this.impl.onProfileChanged(params.arg_profile);
           break;
         }
       }
@@ -447,7 +447,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -456,7 +456,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -526,7 +526,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_arg_observer);
+          const result = this.impl.addObserver(params.arg_observer);
           break;
         }
         case 1: {
@@ -538,8 +538,8 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_euiccs' in response) ? response.arg_arg_euiccs : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_euiccs' in response) ? response.arg_euiccs : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParamsSpec.$.structSpec, { 'arg_euiccs': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAvailableEuiccs FAILED:', e));
           }
@@ -623,7 +623,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetProperties_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -632,7 +632,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetProfileList_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -641,7 +641,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -650,7 +650,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -659,7 +659,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSpec,
-      [arg_activation_code, arg_confirmation_code, arg_install_method],
+      { arg_activation_code: arg_activation_code, arg_confirmation_code: arg_confirmation_code, arg_install_method: arg_install_method },
       false);
   }
 
@@ -668,7 +668,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetEidQRCode_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -747,8 +747,8 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_properties' in response) ? response.arg_arg_properties : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_properties' in response) ? response.arg_properties : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParamsSpec.$.structSpec, { 'arg_properties': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getProperties FAILED:', e));
           }
@@ -763,8 +763,8 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_profiles' in response) ? response.arg_arg_profiles : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_profiles' in response) ? response.arg_profiles : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParamsSpec.$.structSpec, { 'arg_profiles': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getProfileList FAILED:', e));
           }
@@ -779,7 +779,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_profiles']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_profiles': response.arg_profiles });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestAvailableProfiles FAILED:', e));
           }
@@ -794,8 +794,8 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] refreshInstalledProfiles FAILED:', e));
           }
@@ -805,12 +805,12 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installProfileFromActivationCode');
-          const result = this.impl.installProfileFromActivationCode(params.arg_arg_activation_code, params.arg_arg_confirmation_code, params.arg_arg_install_method);
+          const result = this.impl.installProfileFromActivationCode(params.arg_activation_code, params.arg_confirmation_code, params.arg_install_method);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_profile']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_profile': response.arg_profile });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] installProfileFromActivationCode FAILED:', e));
           }
@@ -825,8 +825,8 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_qr_code' in response) ? response.arg_arg_qr_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_qr_code' in response) ? response.arg_qr_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParamsSpec.$.structSpec, { 'arg_qr_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getEidQRCode FAILED:', e));
           }
@@ -902,7 +902,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_GetProperties_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -911,7 +911,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_InstallProfile_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParamsSpec,
-      [arg_confirmation_code],
+      { arg_confirmation_code: arg_confirmation_code },
       false);
   }
 
@@ -920,7 +920,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -929,7 +929,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParamsSpec,
-      [arg_nickname],
+      { arg_nickname: arg_nickname },
       false);
   }
 
@@ -1006,8 +1006,8 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_properties' in response) ? response.arg_arg_properties : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_properties' in response) ? response.arg_properties : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParamsSpec.$.structSpec, { 'arg_properties': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getProperties FAILED:', e));
           }
@@ -1017,13 +1017,13 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_InstallProfile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installProfile');
-          const result = this.impl.installProfile(params.arg_arg_confirmation_code);
+          const result = this.impl.installProfile(params.arg_confirmation_code);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] installProfile FAILED:', e));
           }
@@ -1038,8 +1038,8 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] uninstallProfile FAILED:', e));
           }
@@ -1049,13 +1049,13 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setProfileNickname');
-          const result = this.impl.setProfileNickname(params.arg_arg_nickname);
+          const result = this.impl.setProfileNickname(params.arg_nickname);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setProfileNickname FAILED:', e));
           }

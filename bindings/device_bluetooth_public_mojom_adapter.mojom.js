@@ -295,7 +295,7 @@ mojo.internal.bindings.bluetooth.mojom.AdvertisementRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Advertisement_Unregister_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Advertisement_Unregister_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -369,7 +369,7 @@ mojo.internal.bindings.bluetooth.mojom.AdvertisementReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Advertisement_Unregister_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Advertisement_Unregister_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] unregister FAILED:', e));
           }
@@ -437,7 +437,7 @@ mojo.internal.bindings.bluetooth.mojom.DiscoverySessionRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.DiscoverySession_IsActive_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.DiscoverySession_IsActive_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -446,7 +446,7 @@ mojo.internal.bindings.bluetooth.mojom.DiscoverySessionRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.DiscoverySession_Stop_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.DiscoverySession_Stop_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -521,8 +521,8 @@ mojo.internal.bindings.bluetooth.mojom.DiscoverySessionReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_active' in response) ? response.arg_arg_active : response;
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.DiscoverySession_IsActive_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_active' in response) ? response.arg_active : response;
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.DiscoverySession_IsActive_ResponseParamsSpec.$.structSpec, { 'arg_active': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isActive FAILED:', e));
           }
@@ -537,8 +537,8 @@ mojo.internal.bindings.bluetooth.mojom.DiscoverySessionReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.DiscoverySession_Stop_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.DiscoverySession_Stop_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] stop FAILED:', e));
           }
@@ -602,7 +602,7 @@ mojo.internal.bindings.bluetooth.mojom.SocketRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Socket_Disconnect_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Socket_Disconnect_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -676,7 +676,7 @@ mojo.internal.bindings.bluetooth.mojom.SocketReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Socket_Disconnect_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Socket_Disconnect_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] disconnect FAILED:', e));
           }
@@ -744,7 +744,7 @@ mojo.internal.bindings.bluetooth.mojom.ServerSocketRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.ServerSocket_Accept_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -753,7 +753,7 @@ mojo.internal.bindings.bluetooth.mojom.ServerSocketRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.ServerSocket_Disconnect_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.ServerSocket_Disconnect_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -828,8 +828,8 @@ mojo.internal.bindings.bluetooth.mojom.ServerSocketReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] accept FAILED:', e));
           }
@@ -844,7 +844,7 @@ mojo.internal.bindings.bluetooth.mojom.ServerSocketReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.ServerSocket_Disconnect_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.ServerSocket_Disconnect_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] disconnect FAILED:', e));
           }
@@ -912,7 +912,7 @@ mojo.internal.bindings.bluetooth.mojom.GattServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.GattService_CreateCharacteristic_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.GattService_CreateCharacteristic_ResponseParamsSpec,
-      [arg_characteristic_uuid, arg_permissions, arg_properties],
+      { arg_characteristic_uuid: arg_characteristic_uuid, arg_permissions: arg_permissions, arg_properties: arg_properties },
       false);
   }
 
@@ -921,7 +921,7 @@ mojo.internal.bindings.bluetooth.mojom.GattServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.GattService_Register_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.GattService_Register_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -991,13 +991,13 @@ mojo.internal.bindings.bluetooth.mojom.GattServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.GattService_CreateCharacteristic_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCharacteristic');
-          const result = this.impl.createCharacteristic(params.arg_arg_characteristic_uuid, params.arg_arg_permissions, params.arg_arg_properties);
+          const result = this.impl.createCharacteristic(params.arg_characteristic_uuid, params.arg_permissions, params.arg_properties);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.GattService_CreateCharacteristic_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.GattService_CreateCharacteristic_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createCharacteristic FAILED:', e));
           }
@@ -1012,8 +1012,8 @@ mojo.internal.bindings.bluetooth.mojom.GattServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_code' in response) ? response.arg_arg_error_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.GattService_Register_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response.arg_error_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.GattService_Register_ResponseParamsSpec.$.structSpec, { 'arg_error_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] register FAILED:', e));
           }
@@ -1077,7 +1077,7 @@ mojo.internal.bindings.bluetooth.mojom.GattServiceObserverRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec,
-      [arg_remote_device, arg_characteristic_uuid, arg_service_uuid, arg_offset],
+      { arg_remote_device: arg_remote_device, arg_characteristic_uuid: arg_characteristic_uuid, arg_service_uuid: arg_service_uuid, arg_offset: arg_offset },
       false);
   }
 
@@ -1146,13 +1146,13 @@ mojo.internal.bindings.bluetooth.mojom.GattServiceObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLocalCharacteristicRead');
-          const result = this.impl.onLocalCharacteristicRead(params.arg_arg_remote_device, params.arg_arg_characteristic_uuid, params.arg_arg_service_uuid, params.arg_arg_offset);
+          const result = this.impl.onLocalCharacteristicRead(params.arg_remote_device, params.arg_characteristic_uuid, params.arg_service_uuid, params.arg_offset);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_read_result' in response) ? response.arg_arg_read_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_read_result' in response) ? response.arg_read_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec.$.structSpec, { 'arg_read_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onLocalCharacteristicRead FAILED:', e));
           }
@@ -1260,7 +1260,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToDevice_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec,
-      [arg_address],
+      { arg_address: arg_address },
       false);
   }
 
@@ -1269,7 +1269,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Adapter_GetDevices_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Adapter_GetDevices_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1278,7 +1278,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Adapter_GetInfo_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1287,7 +1287,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Adapter_AddObserver_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Adapter_AddObserver_ResponseParamsSpec,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -1296,7 +1296,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Adapter_RegisterAdvertisement_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Adapter_RegisterAdvertisement_ResponseParamsSpec,
-      [arg_service_id, arg_service_data, arg_use_scan_response, arg_connectable],
+      { arg_service_id: arg_service_id, arg_service_data: arg_service_data, arg_use_scan_response: arg_use_scan_response, arg_connectable: arg_connectable },
       false);
   }
 
@@ -1305,7 +1305,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Adapter_SetDiscoverable_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Adapter_SetDiscoverable_ResponseParamsSpec,
-      [arg_discoverable],
+      { arg_discoverable: arg_discoverable },
       false);
   }
 
@@ -1314,7 +1314,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Adapter_SetName_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Adapter_SetName_ResponseParamsSpec,
-      [arg_name],
+      { arg_name: arg_name },
       false);
   }
 
@@ -1323,7 +1323,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Adapter_StartDiscoverySession_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Adapter_StartDiscoverySession_ResponseParamsSpec,
-      [arg_client_name],
+      { arg_client_name: arg_client_name },
       false);
   }
 
@@ -1332,7 +1332,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec,
-      [arg_address, arg_service_uuid, arg_should_unbond_on_error],
+      { arg_address: arg_address, arg_service_uuid: arg_service_uuid, arg_should_unbond_on_error: arg_should_unbond_on_error },
       false);
   }
 
@@ -1341,7 +1341,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ResponseParamsSpec,
-      [arg_service_name, arg_service_uuid],
+      { arg_service_name: arg_service_name, arg_service_uuid: arg_service_uuid },
       false);
   }
 
@@ -1350,7 +1350,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Adapter_CreateLocalGattService_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Adapter_CreateLocalGattService_ResponseParamsSpec,
-      [arg_service_id, arg_observer],
+      { arg_service_id: arg_service_id, arg_observer: arg_observer },
       false);
   }
 
@@ -1359,7 +1359,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1439,12 +1439,12 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToDevice');
-          const result = this.impl.connectToDevice(params.arg_arg_address);
+          const result = this.impl.connectToDevice(params.arg_address);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_device']);
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_device': response.arg_device });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] connectToDevice FAILED:', e));
           }
@@ -1459,8 +1459,8 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_devices' in response) ? response.arg_arg_devices : response;
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_GetDevices_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_devices' in response) ? response.arg_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_GetDevices_ResponseParamsSpec.$.structSpec, { 'arg_devices': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDevices FAILED:', e));
           }
@@ -1475,8 +1475,8 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getInfo FAILED:', e));
           }
@@ -1486,12 +1486,12 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_arg_observer);
+          const result = this.impl.addObserver(params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_AddObserver_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_AddObserver_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addObserver FAILED:', e));
           }
@@ -1501,13 +1501,13 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_RegisterAdvertisement_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerAdvertisement');
-          const result = this.impl.registerAdvertisement(params.arg_arg_service_id, params.arg_arg_service_data, params.arg_arg_use_scan_response, params.arg_arg_connectable);
+          const result = this.impl.registerAdvertisement(params.arg_service_id, params.arg_service_data, params.arg_use_scan_response, params.arg_connectable);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_advertisement' in response) ? response.arg_arg_advertisement : response;
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_RegisterAdvertisement_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_advertisement' in response) ? response.arg_advertisement : response;
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_RegisterAdvertisement_ResponseParamsSpec.$.structSpec, { 'arg_advertisement': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] registerAdvertisement FAILED:', e));
           }
@@ -1517,13 +1517,13 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_SetDiscoverable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDiscoverable');
-          const result = this.impl.setDiscoverable(params.arg_arg_discoverable);
+          const result = this.impl.setDiscoverable(params.arg_discoverable);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_SetDiscoverable_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_SetDiscoverable_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setDiscoverable FAILED:', e));
           }
@@ -1533,13 +1533,13 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_SetName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setName');
-          const result = this.impl.setName(params.arg_arg_name);
+          const result = this.impl.setName(params.arg_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_SetName_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_SetName_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setName FAILED:', e));
           }
@@ -1549,13 +1549,13 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_StartDiscoverySession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDiscoverySession');
-          const result = this.impl.startDiscoverySession(params.arg_arg_client_name);
+          const result = this.impl.startDiscoverySession(params.arg_client_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_session' in response) ? response.arg_arg_session : response;
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_StartDiscoverySession_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_session' in response) ? response.arg_session : response;
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_StartDiscoverySession_ResponseParamsSpec.$.structSpec, { 'arg_session': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startDiscoverySession FAILED:', e));
           }
@@ -1565,13 +1565,13 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToServiceInsecurely');
-          const result = this.impl.connectToServiceInsecurely(params.arg_arg_address, params.arg_arg_service_uuid, params.arg_arg_should_unbond_on_error);
+          const result = this.impl.connectToServiceInsecurely(params.arg_address, params.arg_service_uuid, params.arg_should_unbond_on_error);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] connectToServiceInsecurely FAILED:', e));
           }
@@ -1581,13 +1581,13 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createRfcommServiceInsecurely');
-          const result = this.impl.createRfcommServiceInsecurely(params.arg_arg_service_name, params.arg_arg_service_uuid);
+          const result = this.impl.createRfcommServiceInsecurely(params.arg_service_name, params.arg_service_uuid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_server_socket' in response) ? response.arg_arg_server_socket : response;
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_server_socket' in response) ? response.arg_server_socket : response;
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ResponseParamsSpec.$.structSpec, { 'arg_server_socket': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createRfcommServiceInsecurely FAILED:', e));
           }
@@ -1597,13 +1597,13 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_CreateLocalGattService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createLocalGattService');
-          const result = this.impl.createLocalGattService(params.arg_arg_service_id, params.arg_arg_observer);
+          const result = this.impl.createLocalGattService(params.arg_service_id, params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_gatt_service' in response) ? response.arg_arg_gatt_service : response;
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_CreateLocalGattService_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_gatt_service' in response) ? response.arg_gatt_service : response;
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_CreateLocalGattService_ResponseParamsSpec.$.structSpec, { 'arg_gatt_service': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createLocalGattService FAILED:', e));
           }
@@ -1618,8 +1618,8 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_supported' in response) ? response.arg_arg_is_supported : response;
-              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_supported' in response) ? response.arg_is_supported : response;
+              encoder.encodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ResponseParamsSpec.$.structSpec, { 'arg_is_supported': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isLeScatternetDualRoleSupported FAILED:', e));
           }
@@ -1707,7 +1707,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterObserverRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.AdapterObserver_PresentChanged_ParamsSpec,
       null,
-      [arg_present],
+      { arg_present: arg_present },
       false);
   }
 
@@ -1716,7 +1716,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterObserverRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.AdapterObserver_PoweredChanged_ParamsSpec,
       null,
-      [arg_powered],
+      { arg_powered: arg_powered },
       false);
   }
 
@@ -1725,7 +1725,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterObserverRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.AdapterObserver_DiscoverableChanged_ParamsSpec,
       null,
-      [arg_discoverable],
+      { arg_discoverable: arg_discoverable },
       false);
   }
 
@@ -1734,7 +1734,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterObserverRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.AdapterObserver_DiscoveringChanged_ParamsSpec,
       null,
-      [arg_discovering],
+      { arg_discovering: arg_discovering },
       false);
   }
 
@@ -1743,7 +1743,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterObserverRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.AdapterObserver_DeviceAdded_ParamsSpec,
       null,
-      [arg_device],
+      { arg_device: arg_device },
       false);
   }
 
@@ -1752,7 +1752,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterObserverRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.AdapterObserver_DeviceChanged_ParamsSpec,
       null,
-      [arg_device],
+      { arg_device: arg_device },
       false);
   }
 
@@ -1761,7 +1761,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterObserverRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.AdapterObserver_DeviceRemoved_ParamsSpec,
       null,
-      [arg_device],
+      { arg_device: arg_device },
       false);
   }
 
@@ -1836,49 +1836,49 @@ mojo.internal.bindings.bluetooth.mojom.AdapterObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.AdapterObserver_PresentChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.presentChanged');
-          const result = this.impl.presentChanged(params.arg_arg_present);
+          const result = this.impl.presentChanged(params.arg_present);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.AdapterObserver_PoweredChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.poweredChanged');
-          const result = this.impl.poweredChanged(params.arg_arg_powered);
+          const result = this.impl.poweredChanged(params.arg_powered);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.AdapterObserver_DiscoverableChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.discoverableChanged');
-          const result = this.impl.discoverableChanged(params.arg_arg_discoverable);
+          const result = this.impl.discoverableChanged(params.arg_discoverable);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.AdapterObserver_DiscoveringChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.discoveringChanged');
-          const result = this.impl.discoveringChanged(params.arg_arg_discovering);
+          const result = this.impl.discoveringChanged(params.arg_discovering);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.AdapterObserver_DeviceAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deviceAdded');
-          const result = this.impl.deviceAdded(params.arg_arg_device);
+          const result = this.impl.deviceAdded(params.arg_device);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.AdapterObserver_DeviceChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deviceChanged');
-          const result = this.impl.deviceChanged(params.arg_arg_device);
+          const result = this.impl.deviceChanged(params.arg_device);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.AdapterObserver_DeviceRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deviceRemoved');
-          const result = this.impl.deviceRemoved(params.arg_arg_device);
+          const result = this.impl.deviceRemoved(params.arg_device);
           break;
         }
       }

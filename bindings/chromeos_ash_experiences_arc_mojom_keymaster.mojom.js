@@ -250,7 +250,7 @@ mojo.internal.bindings.arc.mojom.KeymasterHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterHost_GetServer_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterHost_GetServer_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -324,8 +324,8 @@ mojo.internal.bindings.arc.mojom.KeymasterHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_server_remote' in response) ? response.arg_arg_server_remote : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterHost_GetServer_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_server_remote' in response) ? response.arg_server_remote : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterHost_GetServer_ResponseParamsSpec.$.structSpec, { 'arg_server_remote': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getServer FAILED:', e));
           }
@@ -389,7 +389,7 @@ mojo.internal.bindings.arc.mojom.KeymasterInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -458,12 +458,12 @@ mojo.internal.bindings.arc.mojom.KeymasterInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -579,7 +579,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_SetSystemVersion_ParamsSpec,
       null,
-      [arg_os_version, arg_os_patchlevel],
+      { arg_os_version: arg_os_version, arg_os_patchlevel: arg_os_patchlevel },
       false);
   }
 
@@ -588,7 +588,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_AddRngEntropy_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_AddRngEntropy_ResponseParamsSpec,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -597,7 +597,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_GetKeyCharacteristics_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_GetKeyCharacteristics_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -606,7 +606,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_GenerateKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_GenerateKey_ResponseParamsSpec,
-      [arg_key_params],
+      { arg_key_params: arg_key_params },
       false);
   }
 
@@ -615,7 +615,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_ImportKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_ImportKey_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -624,7 +624,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_ExportKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_ExportKey_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -633,7 +633,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_AttestKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_AttestKey_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -642,7 +642,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_UpgradeKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_UpgradeKey_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -651,7 +651,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_DeleteKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_DeleteKey_ResponseParamsSpec,
-      [arg_key_blob],
+      { arg_key_blob: arg_key_blob },
       false);
   }
 
@@ -660,7 +660,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_DeleteAllKeys_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_DeleteAllKeys_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -669,7 +669,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_Begin_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_Begin_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -678,7 +678,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_Update_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_Update_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -687,7 +687,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_Finish_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_Finish_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -696,7 +696,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_Abort_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_Abort_ResponseParamsSpec,
-      [arg_op_handle],
+      { arg_op_handle: arg_op_handle },
       false);
   }
 
@@ -778,20 +778,20 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_SetSystemVersion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSystemVersion');
-          const result = this.impl.setSystemVersion(params.arg_arg_os_version, params.arg_arg_os_patchlevel);
+          const result = this.impl.setSystemVersion(params.arg_os_version, params.arg_os_patchlevel);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_AddRngEntropy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addRngEntropy');
-          const result = this.impl.addRngEntropy(params.arg_arg_data);
+          const result = this.impl.addRngEntropy(params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_AddRngEntropy_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_AddRngEntropy_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addRngEntropy FAILED:', e));
           }
@@ -801,13 +801,13 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_GetKeyCharacteristics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getKeyCharacteristics');
-          const result = this.impl.getKeyCharacteristics(params.arg_arg_request);
+          const result = this.impl.getKeyCharacteristics(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_GetKeyCharacteristics_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_GetKeyCharacteristics_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getKeyCharacteristics FAILED:', e));
           }
@@ -817,13 +817,13 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_GenerateKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generateKey');
-          const result = this.impl.generateKey(params.arg_arg_key_params);
+          const result = this.impl.generateKey(params.arg_key_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_GenerateKey_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_GenerateKey_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] generateKey FAILED:', e));
           }
@@ -833,13 +833,13 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_ImportKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.importKey');
-          const result = this.impl.importKey(params.arg_arg_request);
+          const result = this.impl.importKey(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_ImportKey_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_ImportKey_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] importKey FAILED:', e));
           }
@@ -849,13 +849,13 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_ExportKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.exportKey');
-          const result = this.impl.exportKey(params.arg_arg_request);
+          const result = this.impl.exportKey(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_ExportKey_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_ExportKey_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] exportKey FAILED:', e));
           }
@@ -865,13 +865,13 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_AttestKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.attestKey');
-          const result = this.impl.attestKey(params.arg_arg_request);
+          const result = this.impl.attestKey(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_AttestKey_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_AttestKey_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] attestKey FAILED:', e));
           }
@@ -881,13 +881,13 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_UpgradeKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.upgradeKey');
-          const result = this.impl.upgradeKey(params.arg_arg_request);
+          const result = this.impl.upgradeKey(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_UpgradeKey_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_UpgradeKey_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] upgradeKey FAILED:', e));
           }
@@ -897,13 +897,13 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_DeleteKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteKey');
-          const result = this.impl.deleteKey(params.arg_arg_key_blob);
+          const result = this.impl.deleteKey(params.arg_key_blob);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_DeleteKey_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_DeleteKey_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteKey FAILED:', e));
           }
@@ -918,8 +918,8 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_DeleteAllKeys_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_DeleteAllKeys_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteAllKeys FAILED:', e));
           }
@@ -929,13 +929,13 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_Begin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.begin');
-          const result = this.impl.begin(params.arg_arg_request);
+          const result = this.impl.begin(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_Begin_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_Begin_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] begin FAILED:', e));
           }
@@ -945,13 +945,13 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
-          const result = this.impl.update(params.arg_arg_request);
+          const result = this.impl.update(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_Update_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_Update_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] update FAILED:', e));
           }
@@ -961,13 +961,13 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_Finish_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.finish');
-          const result = this.impl.finish(params.arg_arg_request);
+          const result = this.impl.finish(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_Finish_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_Finish_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] finish FAILED:', e));
           }
@@ -977,13 +977,13 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_Abort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.abort');
-          const result = this.impl.abort(params.arg_arg_op_handle);
+          const result = this.impl.abort(params.arg_op_handle);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_Abort_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KeymasterServer_Abort_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] abort FAILED:', e));
           }

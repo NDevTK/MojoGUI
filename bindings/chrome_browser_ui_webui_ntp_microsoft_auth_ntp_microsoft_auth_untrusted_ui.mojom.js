@@ -193,7 +193,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfac
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec,
       null,
-      [arg_child_document],
+      { arg_child_document: arg_child_document },
       false);
   }
 
@@ -202,7 +202,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfac
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_handler, arg_document],
+      { arg_handler: arg_handler, arg_document: arg_document },
       false);
   }
 
@@ -272,14 +272,14 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfac
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToParentDocument');
-          const result = this.impl.connectToParentDocument(params.arg_arg_child_document);
+          const result = this.impl.connectToParentDocument(params.arg_child_document);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_handler, params.arg_arg_document);
+          const result = this.impl.createPageHandler(params.arg_handler, params.arg_document);
           break;
         }
       }
@@ -352,7 +352,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemot
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemot
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec,
       null,
-      [arg_access_token],
+      { arg_access_token: arg_access_token },
       false);
   }
 
@@ -379,7 +379,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemot
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec,
       null,
-      [arg_error_code, arg_error_message],
+      { arg_error_code: arg_error_code, arg_error_message: arg_error_message },
       false);
   }
 
@@ -465,14 +465,14 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAccessToken');
-          const result = this.impl.setAccessToken(params.arg_arg_access_token);
+          const result = this.impl.setAccessToken(params.arg_access_token);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAuthStateError');
-          const result = this.impl.setAuthStateError(params.arg_arg_error_code, params.arg_arg_error_message);
+          const result = this.impl.setAuthStateError(params.arg_error_code, params.arg_error_message);
           break;
         }
       }

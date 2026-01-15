@@ -199,7 +199,7 @@ mojo.internal.bindings.printing.mojom.PdfToEmfConverterRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec,
-      [arg_page_index],
+      { arg_page_index: arg_page_index },
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.printing.mojom.PdfToEmfConverterRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec,
       null,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.printing.mojom.PdfToEmfConverterRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
-      [arg_use_skia],
+      { arg_use_skia: arg_use_skia },
       false);
   }
 
@@ -288,12 +288,12 @@ mojo.internal.bindings.printing.mojom.PdfToEmfConverterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.convertPage');
-          const result = this.impl.convertPage(params.arg_arg_page_index);
+          const result = this.impl.convertPage(params.arg_page_index);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec.$.structSpec, ['response.arg_arg_emf_region', 'response.arg_arg_scale_factor']);
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec.$.structSpec, { 'arg_emf_region': response.arg_emf_region, 'arg_scale_factor': response.arg_scale_factor });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] convertPage FAILED:', e));
           }
@@ -303,14 +303,14 @@ mojo.internal.bindings.printing.mojom.PdfToEmfConverterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWebContentsURL');
-          const result = this.impl.setWebContentsURL(params.arg_arg_url);
+          const result = this.impl.setWebContentsURL(params.arg_url);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUseSkiaRendererPolicy');
-          const result = this.impl.setUseSkiaRendererPolicy(params.arg_arg_use_skia);
+          const result = this.impl.setUseSkiaRendererPolicy(params.arg_use_skia);
           break;
         }
       }
@@ -371,7 +371,7 @@ mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec,
-      [arg_pdf_region, arg_render_settings],
+      { arg_pdf_region: arg_pdf_region, arg_render_settings: arg_render_settings },
       false);
   }
 
@@ -440,12 +440,12 @@ mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createConverter');
-          const result = this.impl.createConverter(params.arg_arg_pdf_region, params.arg_arg_render_settings);
+          const result = this.impl.createConverter(params.arg_pdf_region, params.arg_render_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec.$.structSpec, ['response.arg_arg_converter', 'response.arg_arg_page_count']);
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec.$.structSpec, { 'arg_converter': response.arg_converter, 'arg_page_count': response.arg_page_count });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createConverter FAILED:', e));
           }

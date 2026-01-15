@@ -193,7 +193,7 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec,
       null,
-      [arg_chunk],
+      { arg_chunk: arg_chunk },
       false);
   }
 
@@ -202,7 +202,7 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTextDumpChunk');
-          const result = this.impl.onTextDumpChunk(params.arg_arg_chunk);
+          const result = this.impl.onTextDumpChunk(params.arg_chunk);
           break;
         }
         case 1: {
@@ -340,7 +340,7 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextServiceRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec,
       null,
-      [arg_request, arg_consumer],
+      { arg_request: arg_request, arg_consumer: arg_consumer },
       false);
   }
 
@@ -409,7 +409,7 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPageTextDump');
-          const result = this.impl.requestPageTextDump(params.arg_arg_request, params.arg_arg_consumer);
+          const result = this.impl.requestPageTextDump(params.arg_request, params.arg_consumer);
           break;
         }
       }

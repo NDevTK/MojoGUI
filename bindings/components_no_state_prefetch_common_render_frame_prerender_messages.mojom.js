@@ -170,7 +170,7 @@ mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessagesRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec,
       null,
-      [arg_histogram_prefix],
+      { arg_histogram_prefix: arg_histogram_prefix },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessagesReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsNoStatePrefetching');
-          const result = this.impl.setIsNoStatePrefetching(params.arg_arg_histogram_prefix);
+          const result = this.impl.setIsNoStatePrefetching(params.arg_histogram_prefix);
           break;
         }
       }

@@ -175,7 +175,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallbackRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallbackReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStatusChanged');
-          const result = this.impl.onStatusChanged(params.arg_arg_status);
+          const result = this.impl.onStatusChanged(params.arg_status);
           break;
         }
       }

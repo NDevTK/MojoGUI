@@ -183,7 +183,7 @@ mojo.internal.bindings.printing.mojom.PdfFlattenerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec,
-      [arg_src_pdf_region],
+      { arg_src_pdf_region: arg_src_pdf_region },
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.printing.mojom.PdfFlattenerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
-      [arg_use_skia],
+      { arg_use_skia: arg_use_skia },
       false);
   }
 
@@ -262,13 +262,13 @@ mojo.internal.bindings.printing.mojom.PdfFlattenerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flattenPdf');
-          const result = this.impl.flattenPdf(params.arg_arg_src_pdf_region);
+          const result = this.impl.flattenPdf(params.arg_src_pdf_region);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] flattenPdf FAILED:', e));
           }
@@ -278,7 +278,7 @@ mojo.internal.bindings.printing.mojom.PdfFlattenerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUseSkiaRendererPolicy');
-          const result = this.impl.setUseSkiaRendererPolicy(params.arg_arg_use_skia);
+          const result = this.impl.setUseSkiaRendererPolicy(params.arg_use_skia);
           break;
         }
       }

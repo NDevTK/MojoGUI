@@ -190,7 +190,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerTestRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec,
-      [arg_name, arg_serial_number, arg_landing_page],
+      { arg_name: arg_name, arg_serial_number: arg_serial_number, arg_landing_page: arg_landing_page },
       false);
   }
 
@@ -199,7 +199,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerTestRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec,
-      [arg_guid],
+      { arg_guid: arg_guid },
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerTestRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -279,12 +279,12 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDeviceForTesting');
-          const result = this.impl.addDeviceForTesting(params.arg_arg_name, params.arg_arg_serial_number, params.arg_arg_landing_page);
+          const result = this.impl.addDeviceForTesting(params.arg_name, params.arg_serial_number, params.arg_landing_page);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_message']);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_message': response.arg_message });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addDeviceForTesting FAILED:', e));
           }
@@ -294,12 +294,12 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeDeviceForTesting');
-          const result = this.impl.removeDeviceForTesting(params.arg_arg_guid);
+          const result = this.impl.removeDeviceForTesting(params.arg_guid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] removeDeviceForTesting FAILED:', e));
           }
@@ -314,8 +314,8 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerTestReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_devices' in response) ? response.arg_arg_devices : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_devices' in response) ? response.arg_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec.$.structSpec, { 'arg_devices': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getTestDevices FAILED:', e));
           }

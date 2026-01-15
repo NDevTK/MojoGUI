@@ -205,7 +205,7 @@ mojo.internal.bindings.data_decoder.mojom.ImageDecoderRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec,
       mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec,
-      [arg_encoded_data, arg_codec, arg_shrink_to_fit, arg_max_size_in_bytes, arg_desired_image_frame_size],
+      { arg_encoded_data: arg_encoded_data, arg_codec: arg_codec, arg_shrink_to_fit: arg_shrink_to_fit, arg_max_size_in_bytes: arg_max_size_in_bytes, arg_desired_image_frame_size: arg_desired_image_frame_size },
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.data_decoder.mojom.ImageDecoderRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec,
       mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec,
-      [arg_encoded_data, arg_shrink_to_fit, arg_max_size_in_bytes],
+      { arg_encoded_data: arg_encoded_data, arg_shrink_to_fit: arg_shrink_to_fit, arg_max_size_in_bytes: arg_max_size_in_bytes },
       false);
   }
 
@@ -284,12 +284,12 @@ mojo.internal.bindings.data_decoder.mojom.ImageDecoderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeImage');
-          const result = this.impl.decodeImage(params.arg_arg_encoded_data, params.arg_arg_codec, params.arg_arg_shrink_to_fit, params.arg_arg_max_size_in_bytes, params.arg_arg_desired_image_frame_size);
+          const result = this.impl.decodeImage(params.arg_encoded_data, params.arg_codec, params.arg_shrink_to_fit, params.arg_max_size_in_bytes, params.arg_desired_image_frame_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec.$.structSpec, ['response.arg_arg_decoding_duration', 'response.arg_arg_decoded_image']);
+              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec.$.structSpec, { 'arg_decoding_duration': response.arg_decoding_duration, 'arg_decoded_image': response.arg_decoded_image });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] decodeImage FAILED:', e));
           }
@@ -299,13 +299,13 @@ mojo.internal.bindings.data_decoder.mojom.ImageDecoderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeAnimation');
-          const result = this.impl.decodeAnimation(params.arg_arg_encoded_data, params.arg_arg_shrink_to_fit, params.arg_arg_max_size_in_bytes);
+          const result = this.impl.decodeAnimation(params.arg_encoded_data, params.arg_shrink_to_fit, params.arg_max_size_in_bytes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_decoded_image' in response) ? response.arg_arg_decoded_image : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_decoded_image' in response) ? response.arg_decoded_image : response;
+              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec.$.structSpec, { 'arg_decoded_image': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] decodeAnimation FAILED:', e));
           }

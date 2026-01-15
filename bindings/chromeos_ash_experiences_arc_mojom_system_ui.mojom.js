@@ -186,7 +186,7 @@ mojo.internal.bindings.arc.mojom.SystemUiInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec,
       null,
-      [arg_active],
+      { arg_active: arg_active },
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.arc.mojom.SystemUiInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec,
       null,
-      [arg_source_color, arg_theme_style],
+      { arg_source_color: arg_source_color, arg_theme_style: arg_theme_style },
       false);
   }
 
@@ -265,14 +265,14 @@ mojo.internal.bindings.arc.mojom.SystemUiInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDarkThemeStatus');
-          const result = this.impl.setDarkThemeStatus(params.arg_arg_active);
+          const result = this.impl.setDarkThemeStatus(params.arg_active);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOverlayColor');
-          const result = this.impl.setOverlayColor(params.arg_arg_source_color, params.arg_arg_theme_style);
+          const result = this.impl.setOverlayColor(params.arg_source_color, params.arg_theme_style);
           break;
         }
       }

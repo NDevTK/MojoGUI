@@ -183,7 +183,7 @@ mojo.internal.bindings.quick_answers.mojom.SpellCheckServiceRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec,
       mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec,
-      [arg_dictionary_file],
+      { arg_dictionary_file: arg_dictionary_file },
       false);
   }
 
@@ -252,13 +252,13 @@ mojo.internal.bindings.quick_answers.mojom.SpellCheckServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDictionary');
-          const result = this.impl.createDictionary(params.arg_arg_dictionary_file);
+          const result = this.impl.createDictionary(params.arg_dictionary_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_dictionary' in response) ? response.arg_arg_dictionary : response;
-              encoder.encodeStructInline(mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_dictionary' in response) ? response.arg_dictionary : response;
+              encoder.encodeStructInline(mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec.$.structSpec, { 'arg_dictionary': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createDictionary FAILED:', e));
           }
@@ -322,7 +322,7 @@ mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionaryRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec,
       mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec,
-      [arg_word],
+      { arg_word: arg_word },
       false);
   }
 
@@ -391,13 +391,13 @@ mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionaryReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkSpelling');
-          const result = this.impl.checkSpelling(params.arg_arg_word);
+          const result = this.impl.checkSpelling(params.arg_word);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_correctness' in response) ? response.arg_arg_correctness : response;
-              encoder.encodeStructInline(mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_correctness' in response) ? response.arg_correctness : response;
+              encoder.encodeStructInline(mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec.$.structSpec, { 'arg_correctness': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] checkSpelling FAILED:', e));
           }

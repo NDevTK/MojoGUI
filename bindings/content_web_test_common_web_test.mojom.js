@@ -350,7 +350,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ParamsSpec,
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_DumpFrameLayout_ParamsSpec,
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_DumpFrameLayout_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_SetTestConfiguration_ParamsSpec,
       null,
-      [arg_config, arg_starting_test],
+      { arg_config: arg_config, arg_starting_test: arg_starting_test },
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_OnDeactivated_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -386,7 +386,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_OnReactivated_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -395,7 +395,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_BlockTestUntilStart_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -404,7 +404,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_StartTest_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -413,7 +413,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_SetupRendererProcessForNonTestWindow_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -422,7 +422,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_ReplicateWebTestRuntimeFlagsChanges_ParamsSpec,
       null,
-      [arg_changed_layout_test_runtime_flags],
+      { arg_changed_layout_test_runtime_flags: arg_changed_layout_test_runtime_flags },
       false);
   }
 
@@ -431,7 +431,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_TestFinishedFromSecondaryRenderer_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_ResetRendererAfterWebTest_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_ProcessWorkItem_ParamsSpec,
       null,
-      [arg_work_item],
+      { arg_work_item: arg_work_item },
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_ReplicateWorkQueueStates_ParamsSpec,
       null,
-      [arg_work_queue_states],
+      { arg_work_queue_states: arg_work_queue_states },
       false);
   }
 
@@ -544,7 +544,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] synchronouslyCompositeAfterTest FAILED:', e));
           }
@@ -559,8 +559,8 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_frame_layout_dump' in response) ? response.arg_arg_frame_layout_dump : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.WebTestRenderFrame_DumpFrameLayout_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_frame_layout_dump' in response) ? response.arg_frame_layout_dump : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.WebTestRenderFrame_DumpFrameLayout_ResponseParamsSpec.$.structSpec, { 'arg_frame_layout_dump': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dumpFrameLayout FAILED:', e));
           }
@@ -570,7 +570,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestRenderFrame_SetTestConfiguration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTestConfiguration');
-          const result = this.impl.setTestConfiguration(params.arg_arg_config, params.arg_arg_starting_test);
+          const result = this.impl.setTestConfiguration(params.arg_config, params.arg_starting_test);
           break;
         }
         case 3: {
@@ -612,7 +612,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestRenderFrame_ReplicateWebTestRuntimeFlagsChanges_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.replicateWebTestRuntimeFlagsChanges');
-          const result = this.impl.replicateWebTestRuntimeFlagsChanges(params.arg_arg_changed_layout_test_runtime_flags);
+          const result = this.impl.replicateWebTestRuntimeFlagsChanges(params.arg_changed_layout_test_runtime_flags);
           break;
         }
         case 9: {
@@ -633,14 +633,14 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestRenderFrame_ProcessWorkItem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.processWorkItem');
-          const result = this.impl.processWorkItem(params.arg_arg_work_item);
+          const result = this.impl.processWorkItem(params.arg_work_item);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestRenderFrame_ReplicateWorkQueueStates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.replicateWorkQueueStates');
-          const result = this.impl.replicateWorkQueueStates(params.arg_arg_work_queue_states);
+          const result = this.impl.replicateWorkQueueStates(params.arg_work_queue_states);
           break;
         }
       }
@@ -857,7 +857,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_InitiateCaptureDump_ParamsSpec,
       null,
-      [arg_result, arg_capture_navigation_history, arg_capture_pixels],
+      { arg_result: arg_result, arg_capture_navigation_history: arg_capture_navigation_history, arg_capture_pixels: arg_capture_pixels },
       false);
   }
 
@@ -866,7 +866,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_TestFinishedInSecondaryRenderer_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -875,7 +875,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_PrintMessageToStderr_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -884,7 +884,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_PrintMessage_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -893,7 +893,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_OverridePreferences_ParamsSpec,
       null,
-      [arg_web_preferences],
+      { arg_web_preferences: arg_web_preferences },
       false);
   }
 
@@ -902,7 +902,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_Reload_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -911,7 +911,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_CheckForLeakedWindows_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -920,7 +920,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetMainWindowHidden_ParamsSpec,
       null,
-      [arg_hidden],
+      { arg_hidden: arg_hidden },
       false);
   }
 
@@ -929,7 +929,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetFrameWindowHidden_ParamsSpec,
       null,
-      [arg_frame_token, arg_hidden],
+      { arg_frame_token: arg_frame_token, arg_hidden: arg_hidden },
       false);
   }
 
@@ -938,7 +938,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_GoToOffset_ParamsSpec,
       null,
-      [arg_offset],
+      { arg_offset: arg_offset },
       false);
   }
 
@@ -947,7 +947,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SendBluetoothManualChooserEvent_ParamsSpec,
       null,
-      [arg_event, arg_argument],
+      { arg_event: arg_event, arg_argument: arg_argument },
       false);
   }
 
@@ -956,7 +956,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetBluetoothManualChooser_ParamsSpec,
       null,
-      [arg_enable],
+      { arg_enable: arg_enable },
       false);
   }
 
@@ -965,7 +965,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ParamsSpec,
       mojo.internal.bindings.content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -974,7 +974,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetPopupBlockingEnabled_ParamsSpec,
       null,
-      [arg_block_popups],
+      { arg_block_popups: arg_block_popups },
       false);
   }
 
@@ -983,7 +983,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_LoadURLForFrame_ParamsSpec,
       null,
-      [arg_url, arg_frame_name],
+      { arg_url: arg_url, arg_frame_name: arg_frame_name },
       false);
   }
 
@@ -992,7 +992,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SimulateScreenOrientationChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1001,7 +1001,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetPermission_ParamsSpec,
       null,
-      [arg_name, arg_status, arg_origin, arg_embedding_origin],
+      { arg_name: arg_name, arg_status: arg_status, arg_origin: arg_origin, arg_embedding_origin: arg_embedding_origin },
       false);
   }
 
@@ -1010,7 +1010,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_BlockThirdPartyCookies_ParamsSpec,
       null,
-      [arg_block],
+      { arg_block: arg_block },
       false);
   }
 
@@ -1019,7 +1019,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_GetWritableDirectory_ParamsSpec,
       mojo.internal.bindings.content.mojom.WebTestControlHost_GetWritableDirectory_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1028,7 +1028,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetFilePathForMockFileDialog_ParamsSpec,
       null,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -1037,7 +1037,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ParamsSpec,
       mojo.internal.bindings.content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ResponseParamsSpec,
-      [arg_disallowed_suffixes],
+      { arg_disallowed_suffixes: arg_disallowed_suffixes },
       false);
   }
 
@@ -1046,7 +1046,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_FocusDevtoolsSecondaryWindow_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1055,7 +1055,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ParamsSpec,
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ResponseParamsSpec,
-      [arg_raw_commitments],
+      { arg_raw_commitments: arg_raw_commitments },
       false);
   }
 
@@ -1064,7 +1064,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_ClearTrustTokenState_ParamsSpec,
       mojo.internal.bindings.content.mojom.WebTestControlHost_ClearTrustTokenState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1073,7 +1073,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SimulateWebNotificationClick_ParamsSpec,
       null,
-      [arg_title, arg_action_index, arg_reply],
+      { arg_title: arg_title, arg_action_index: arg_action_index, arg_reply: arg_reply },
       false);
   }
 
@@ -1082,7 +1082,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SimulateWebNotificationClose_ParamsSpec,
       null,
-      [arg_title, arg_by_user],
+      { arg_title: arg_title, arg_by_user: arg_by_user },
       false);
   }
 
@@ -1091,7 +1091,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SimulateWebContentIndexDelete_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -1100,7 +1100,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_WebTestRuntimeFlagsChanged_ParamsSpec,
       null,
-      [arg_changed_web_test_runtime_flags],
+      { arg_changed_web_test_runtime_flags: arg_changed_web_test_runtime_flags },
       false);
   }
 
@@ -1109,7 +1109,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ParamsSpec,
       mojo.internal.bindings.content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ResponseParamsSpec,
-      [arg_file_paths],
+      { arg_file_paths: arg_file_paths },
       false);
   }
 
@@ -1118,7 +1118,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_DropPointerLock_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1127,7 +1127,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetPointerLockWillFail_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1136,7 +1136,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetPointerLockWillRespondAsynchronously_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1145,7 +1145,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_AllowPointerLock_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1154,7 +1154,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_WorkItemAdded_ParamsSpec,
       null,
-      [arg_work_item],
+      { arg_work_item: arg_work_item },
       false);
   }
 
@@ -1163,7 +1163,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_RequestWorkItem_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1172,7 +1172,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_WorkQueueStatesChanged_ParamsSpec,
       null,
-      [arg_changed_work_queue_states],
+      { arg_changed_work_queue_states: arg_changed_work_queue_states },
       false);
   }
 
@@ -1181,7 +1181,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetAcceptLanguages_ParamsSpec,
       null,
-      [arg_accept_languages],
+      { arg_accept_languages: arg_accept_languages },
       false);
   }
 
@@ -1190,7 +1190,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[37],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetRegisterProtocolHandlerMode_ParamsSpec,
       null,
-      [arg_mode],
+      { arg_mode: arg_mode },
       false);
   }
 
@@ -1199,7 +1199,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[38],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_EnableAutoResize_ParamsSpec,
       null,
-      [arg_min_size, arg_max_size],
+      { arg_min_size: arg_min_size, arg_max_size: arg_max_size },
       false);
   }
 
@@ -1208,7 +1208,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[39],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_DisableAutoResize_ParamsSpec,
       null,
-      [arg_new_size],
+      { arg_new_size: arg_new_size },
       false);
   }
 
@@ -1316,7 +1316,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_InitiateCaptureDump_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initiateCaptureDump');
-          const result = this.impl.initiateCaptureDump(params.arg_arg_result, params.arg_arg_capture_navigation_history, params.arg_arg_capture_pixels);
+          const result = this.impl.initiateCaptureDump(params.arg_result, params.arg_capture_navigation_history, params.arg_capture_pixels);
           break;
         }
         case 1: {
@@ -1330,21 +1330,21 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_PrintMessageToStderr_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printMessageToStderr');
-          const result = this.impl.printMessageToStderr(params.arg_arg_message);
+          const result = this.impl.printMessageToStderr(params.arg_message);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_PrintMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printMessage');
-          const result = this.impl.printMessage(params.arg_arg_message);
+          const result = this.impl.printMessage(params.arg_message);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_OverridePreferences_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.overridePreferences');
-          const result = this.impl.overridePreferences(params.arg_arg_web_preferences);
+          const result = this.impl.overridePreferences(params.arg_web_preferences);
           break;
         }
         case 5: {
@@ -1365,35 +1365,35 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_SetMainWindowHidden_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMainWindowHidden');
-          const result = this.impl.setMainWindowHidden(params.arg_arg_hidden);
+          const result = this.impl.setMainWindowHidden(params.arg_hidden);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_SetFrameWindowHidden_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFrameWindowHidden');
-          const result = this.impl.setFrameWindowHidden(params.arg_arg_frame_token, params.arg_arg_hidden);
+          const result = this.impl.setFrameWindowHidden(params.arg_frame_token, params.arg_hidden);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_GoToOffset_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.goToOffset');
-          const result = this.impl.goToOffset(params.arg_arg_offset);
+          const result = this.impl.goToOffset(params.arg_offset);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_SendBluetoothManualChooserEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendBluetoothManualChooserEvent');
-          const result = this.impl.sendBluetoothManualChooserEvent(params.arg_arg_event, params.arg_arg_argument);
+          const result = this.impl.sendBluetoothManualChooserEvent(params.arg_event, params.arg_argument);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_SetBluetoothManualChooser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBluetoothManualChooser');
-          const result = this.impl.setBluetoothManualChooser(params.arg_arg_enable);
+          const result = this.impl.setBluetoothManualChooser(params.arg_enable);
           break;
         }
         case 12: {
@@ -1405,8 +1405,8 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_events' in response) ? response.arg_arg_events : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_events' in response) ? response.arg_events : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ResponseParamsSpec.$.structSpec, { 'arg_events': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getBluetoothManualChooserEvents FAILED:', e));
           }
@@ -1416,14 +1416,14 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_SetPopupBlockingEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPopupBlockingEnabled');
-          const result = this.impl.setPopupBlockingEnabled(params.arg_arg_block_popups);
+          const result = this.impl.setPopupBlockingEnabled(params.arg_block_popups);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_LoadURLForFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadURLForFrame');
-          const result = this.impl.loadURLForFrame(params.arg_arg_url, params.arg_arg_frame_name);
+          const result = this.impl.loadURLForFrame(params.arg_url, params.arg_frame_name);
           break;
         }
         case 15: {
@@ -1437,14 +1437,14 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_SetPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPermission');
-          const result = this.impl.setPermission(params.arg_arg_name, params.arg_arg_status, params.arg_arg_origin, params.arg_arg_embedding_origin);
+          const result = this.impl.setPermission(params.arg_name, params.arg_status, params.arg_origin, params.arg_embedding_origin);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_BlockThirdPartyCookies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.blockThirdPartyCookies');
-          const result = this.impl.blockThirdPartyCookies(params.arg_arg_block);
+          const result = this.impl.blockThirdPartyCookies(params.arg_block);
           break;
         }
         case 18: {
@@ -1456,8 +1456,8 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_path' in response) ? response.arg_arg_path : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_GetWritableDirectory_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_path' in response) ? response.arg_path : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_GetWritableDirectory_ResponseParamsSpec.$.structSpec, { 'arg_path': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getWritableDirectory FAILED:', e));
           }
@@ -1467,20 +1467,20 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_SetFilePathForMockFileDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFilePathForMockFileDialog');
-          const result = this.impl.setFilePathForMockFileDialog(params.arg_arg_path);
+          const result = this.impl.setFilePathForMockFileDialog(params.arg_path);
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSubresourceFilterRulesetFile');
-          const result = this.impl.createSubresourceFilterRulesetFile(params.arg_arg_disallowed_suffixes);
+          const result = this.impl.createSubresourceFilterRulesetFile(params.arg_disallowed_suffixes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_file' in response) ? response.arg_arg_file : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_file' in response) ? response.arg_file : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ResponseParamsSpec.$.structSpec, { 'arg_file': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createSubresourceFilterRulesetFile FAILED:', e));
           }
@@ -1497,12 +1497,12 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTrustTokenKeyCommitments');
-          const result = this.impl.setTrustTokenKeyCommitments(params.arg_arg_raw_commitments);
+          const result = this.impl.setTrustTokenKeyCommitments(params.arg_raw_commitments);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setTrustTokenKeyCommitments FAILED:', e));
           }
@@ -1517,7 +1517,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_ClearTrustTokenState_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_ClearTrustTokenState_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] clearTrustTokenState FAILED:', e));
           }
@@ -1527,41 +1527,41 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_SimulateWebNotificationClick_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.simulateWebNotificationClick');
-          const result = this.impl.simulateWebNotificationClick(params.arg_arg_title, params.arg_arg_action_index, params.arg_arg_reply);
+          const result = this.impl.simulateWebNotificationClick(params.arg_title, params.arg_action_index, params.arg_reply);
           break;
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_SimulateWebNotificationClose_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.simulateWebNotificationClose');
-          const result = this.impl.simulateWebNotificationClose(params.arg_arg_title, params.arg_arg_by_user);
+          const result = this.impl.simulateWebNotificationClose(params.arg_title, params.arg_by_user);
           break;
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_SimulateWebContentIndexDelete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.simulateWebContentIndexDelete');
-          const result = this.impl.simulateWebContentIndexDelete(params.arg_arg_id);
+          const result = this.impl.simulateWebContentIndexDelete(params.arg_id);
           break;
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_WebTestRuntimeFlagsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.webTestRuntimeFlagsChanged');
-          const result = this.impl.webTestRuntimeFlagsChanged(params.arg_arg_changed_web_test_runtime_flags);
+          const result = this.impl.webTestRuntimeFlagsChanged(params.arg_changed_web_test_runtime_flags);
           break;
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerIsolatedFileSystem');
-          const result = this.impl.registerIsolatedFileSystem(params.arg_arg_file_paths);
+          const result = this.impl.registerIsolatedFileSystem(params.arg_file_paths);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_filesystem_id' in response) ? response.arg_arg_filesystem_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_filesystem_id' in response) ? response.arg_filesystem_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ResponseParamsSpec.$.structSpec, { 'arg_filesystem_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] registerIsolatedFileSystem FAILED:', e));
           }
@@ -1599,7 +1599,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_WorkItemAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.workItemAdded');
-          const result = this.impl.workItemAdded(params.arg_arg_work_item);
+          const result = this.impl.workItemAdded(params.arg_work_item);
           break;
         }
         case 34: {
@@ -1613,35 +1613,35 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_WorkQueueStatesChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.workQueueStatesChanged');
-          const result = this.impl.workQueueStatesChanged(params.arg_arg_changed_work_queue_states);
+          const result = this.impl.workQueueStatesChanged(params.arg_changed_work_queue_states);
           break;
         }
         case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_SetAcceptLanguages_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAcceptLanguages');
-          const result = this.impl.setAcceptLanguages(params.arg_arg_accept_languages);
+          const result = this.impl.setAcceptLanguages(params.arg_accept_languages);
           break;
         }
         case 37: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_SetRegisterProtocolHandlerMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRegisterProtocolHandlerMode');
-          const result = this.impl.setRegisterProtocolHandlerMode(params.arg_arg_mode);
+          const result = this.impl.setRegisterProtocolHandlerMode(params.arg_mode);
           break;
         }
         case 38: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_EnableAutoResize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableAutoResize');
-          const result = this.impl.enableAutoResize(params.arg_arg_min_size, params.arg_arg_max_size);
+          const result = this.impl.enableAutoResize(params.arg_min_size, params.arg_max_size);
           break;
         }
         case 39: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestControlHost_DisableAutoResize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disableAutoResize');
-          const result = this.impl.disableAutoResize(params.arg_arg_new_size);
+          const result = this.impl.disableAutoResize(params.arg_new_size);
           break;
         }
       }
@@ -1702,7 +1702,7 @@ mojo.internal.bindings.content.mojom.NonAssociatedWebTestControlHostRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.NonAssociatedWebTestControlHost_SetLCPPNavigationHint_ParamsSpec,
       null,
-      [arg_hint],
+      { arg_hint: arg_hint },
       false);
   }
 
@@ -1771,7 +1771,7 @@ mojo.internal.bindings.content.mojom.NonAssociatedWebTestControlHostReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.NonAssociatedWebTestControlHost_SetLCPPNavigationHint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setLCPPNavigationHint');
-          const result = this.impl.setLCPPNavigationHint(params.arg_arg_hint);
+          const result = this.impl.setLCPPNavigationHint(params.arg_hint);
           break;
         }
       }

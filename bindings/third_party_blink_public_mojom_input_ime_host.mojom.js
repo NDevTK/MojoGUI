@@ -186,7 +186,7 @@ mojo.internal.bindings.blink.mojom.ImeRenderWidgetHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec,
       null,
-      [arg_cursor_anchor_info],
+      { arg_cursor_anchor_info: arg_cursor_anchor_info },
       false);
   }
 
@@ -255,7 +255,7 @@ mojo.internal.bindings.blink.mojom.ImeRenderWidgetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateCursorAnchorInfo');
-          const result = this.impl.updateCursorAnchorInfo(params.arg_arg_cursor_anchor_info);
+          const result = this.impl.updateCursorAnchorInfo(params.arg_cursor_anchor_info);
           break;
         }
       }

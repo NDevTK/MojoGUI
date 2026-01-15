@@ -179,7 +179,7 @@ mojo.internal.bindings.blink.mojom.ContactsManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ContactsManager_Select_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ContactsManager_Select_ResponseParamsSpec,
-      [arg_multiple, arg_include_names, arg_include_emails, arg_include_tel, arg_include_addresses, arg_include_icons],
+      { arg_multiple: arg_multiple, arg_include_names: arg_include_names, arg_include_emails: arg_include_emails, arg_include_tel: arg_include_tel, arg_include_addresses: arg_include_addresses, arg_include_icons: arg_include_icons },
       false);
   }
 
@@ -248,13 +248,13 @@ mojo.internal.bindings.blink.mojom.ContactsManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ContactsManager_Select_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.select');
-          const result = this.impl.select(params.arg_arg_multiple, params.arg_arg_include_names, params.arg_arg_include_emails, params.arg_arg_include_tel, params.arg_arg_include_addresses, params.arg_arg_include_icons);
+          const result = this.impl.select(params.arg_multiple, params.arg_include_names, params.arg_include_emails, params.arg_include_tel, params.arg_include_addresses, params.arg_include_icons);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_contacts' in response) ? response.arg_arg_contacts : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ContactsManager_Select_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_contacts' in response) ? response.arg_contacts : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ContactsManager_Select_ResponseParamsSpec.$.structSpec, { 'arg_contacts': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] select FAILED:', e));
           }

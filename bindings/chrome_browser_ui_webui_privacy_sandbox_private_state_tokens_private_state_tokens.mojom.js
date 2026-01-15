@@ -172,7 +172,7 @@ mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandlerR
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ParamsSpec,
       mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -246,8 +246,8 @@ mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandlerR
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_private_state_tokens_count' in response) ? response.arg_arg_private_state_tokens_count : response;
-              encoder.encodeStructInline(mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_private_state_tokens_count' in response) ? response.arg_private_state_tokens_count : response;
+              encoder.encodeStructInline(mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec.$.structSpec, { 'arg_private_state_tokens_count': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getIssuerTokenCounts FAILED:', e));
           }

@@ -263,7 +263,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec,
       null,
-      [arg_event],
+      { arg_event: arg_event },
       false);
   }
 
@@ -366,7 +366,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSpeechRecognizerEvent');
-          const result = this.impl.onSpeechRecognizerEvent(params.arg_arg_event);
+          const result = this.impl.onSpeechRecognizerEvent(params.arg_event);
           break;
         }
       }
@@ -439,7 +439,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec,
       null,
-      [arg_audio],
+      { arg_audio: arg_audio },
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -457,7 +457,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -466,7 +466,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerRemoteCallH
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -538,7 +538,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addAudio');
-          const result = this.impl.addAudio(params.arg_arg_audio);
+          const result = this.impl.addAudio(params.arg_audio);
           break;
         }
         case 1: {

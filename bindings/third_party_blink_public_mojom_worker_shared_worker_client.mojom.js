@@ -201,7 +201,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnCreated_ParamsSpec,
       null,
-      [arg_creation_context_type],
+      { arg_creation_context_type: arg_creation_context_type },
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnConnected_ParamsSpec,
       null,
-      [arg_features_used],
+      { arg_features_used: arg_features_used },
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnScriptLoadFailed_ParamsSpec,
       null,
-      [arg_error_message],
+      { arg_error_message: arg_error_message },
       false);
   }
 
@@ -228,7 +228,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnReportException_ParamsSpec,
       null,
-      [arg_details],
+      { arg_details: arg_details },
       false);
   }
 
@@ -237,7 +237,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerClientRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec,
       null,
-      [arg_feature],
+      { arg_feature: arg_feature },
       false);
   }
 
@@ -310,35 +310,35 @@ mojo.internal.bindings.blink.mojom.SharedWorkerClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCreated');
-          const result = this.impl.onCreated(params.arg_arg_creation_context_type);
+          const result = this.impl.onCreated(params.arg_creation_context_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnConnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnected');
-          const result = this.impl.onConnected(params.arg_arg_features_used);
+          const result = this.impl.onConnected(params.arg_features_used);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnScriptLoadFailed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScriptLoadFailed');
-          const result = this.impl.onScriptLoadFailed(params.arg_arg_error_message);
+          const result = this.impl.onScriptLoadFailed(params.arg_error_message);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnReportException_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReportException');
-          const result = this.impl.onReportException(params.arg_arg_details);
+          const result = this.impl.onReportException(params.arg_details);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFeatureUsed');
-          const result = this.impl.onFeatureUsed(params.arg_arg_feature);
+          const result = this.impl.onFeatureUsed(params.arg_feature);
           break;
         }
       }

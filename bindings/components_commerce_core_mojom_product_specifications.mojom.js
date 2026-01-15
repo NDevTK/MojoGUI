@@ -253,7 +253,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec,
       null,
-      [arg_version],
+      { arg_version: arg_version },
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec,
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec,
-      [arg_urls, arg_name, arg_set_id],
+      { arg_urls: arg_urls, arg_name: arg_name, arg_set_id: arg_set_id },
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclosure_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec,
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -298,7 +298,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec,
       null,
-      [arg_uuid, arg_in_new_tab],
+      { arg_uuid: arg_uuid, arg_in_new_tab: arg_in_new_tab },
       false);
   }
 
@@ -307,7 +307,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec,
       null,
-      [arg_uuids, arg_disposition],
+      { arg_uuids: arg_uuids, arg_disposition: arg_disposition },
       false);
   }
 
@@ -316,7 +316,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePage_ParamsSpec,
       null,
-      [arg_in_new_tab],
+      { arg_in_new_tab: arg_in_new_tab },
       false);
   }
 
@@ -325,7 +325,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec,
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec,
-      [arg_uuid],
+      { arg_uuid: arg_uuid },
       false);
   }
 
@@ -402,20 +402,20 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAcceptedDisclosureVersion');
-          const result = this.impl.setAcceptedDisclosureVersion(params.arg_arg_version);
+          const result = this.impl.setAcceptedDisclosureVersion(params.arg_version);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.maybeShowDisclosure');
-          const result = this.impl.maybeShowDisclosure(params.arg_arg_urls, params.arg_arg_name, params.arg_arg_set_id);
+          const result = this.impl.maybeShowDisclosure(params.arg_urls, params.arg_name, params.arg_set_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_disclosure_shown' in response) ? response.arg_arg_disclosure_shown : response;
-              encoder.encodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_disclosure_shown' in response) ? response.arg_disclosure_shown : response;
+              encoder.encodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec.$.structSpec, { 'arg_disclosure_shown': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] maybeShowDisclosure FAILED:', e));
           }
@@ -439,13 +439,13 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPageTitleFromHistory');
-          const result = this.impl.getPageTitleFromHistory(params.arg_arg_url);
+          const result = this.impl.getPageTitleFromHistory(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_title' in response) ? response.arg_arg_title : response;
-              encoder.encodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_title' in response) ? response.arg_title : response;
+              encoder.encodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec.$.structSpec, { 'arg_title': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPageTitleFromHistory FAILED:', e));
           }
@@ -455,34 +455,34 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showProductSpecificationsSetForUuid');
-          const result = this.impl.showProductSpecificationsSetForUuid(params.arg_arg_uuid, params.arg_arg_in_new_tab);
+          const result = this.impl.showProductSpecificationsSetForUuid(params.arg_uuid, params.arg_in_new_tab);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showProductSpecificationsSetsForUuids');
-          const result = this.impl.showProductSpecificationsSetsForUuids(params.arg_arg_uuids, params.arg_arg_disposition);
+          const result = this.impl.showProductSpecificationsSetsForUuids(params.arg_uuids, params.arg_disposition);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showComparePage');
-          const result = this.impl.showComparePage(params.arg_arg_in_new_tab);
+          const result = this.impl.showComparePage(params.arg_in_new_tab);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getComparisonTableUrlForUuid');
-          const result = this.impl.getComparisonTableUrlForUuid(params.arg_arg_uuid);
+          const result = this.impl.getComparisonTableUrlForUuid(params.arg_uuid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_url' in response) ? response.arg_arg_url : response;
-              encoder.encodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_url' in response) ? response.arg_url : response;
+              encoder.encodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec.$.structSpec, { 'arg_url': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getComparisonTableUrlForUuid FAILED:', e));
           }
@@ -558,7 +558,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.PageRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec,
       null,
-      [arg_set],
+      { arg_set: arg_set },
       false);
   }
 
@@ -567,7 +567,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.PageRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec,
       null,
-      [arg_set],
+      { arg_set: arg_set },
       false);
   }
 
@@ -576,7 +576,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.PageRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec,
       null,
-      [arg_uuid],
+      { arg_uuid: arg_uuid },
       false);
   }
 
@@ -585,7 +585,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.PageRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -657,21 +657,21 @@ mojo.internal.bindings.commerce.product_specifications.mojom.PageReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProductSpecificationsSetAdded');
-          const result = this.impl.onProductSpecificationsSetAdded(params.arg_arg_set);
+          const result = this.impl.onProductSpecificationsSetAdded(params.arg_set);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProductSpecificationsSetUpdated');
-          const result = this.impl.onProductSpecificationsSetUpdated(params.arg_arg_set);
+          const result = this.impl.onProductSpecificationsSetUpdated(params.arg_set);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProductSpecificationsSetRemoved');
-          const result = this.impl.onProductSpecificationsSetRemoved(params.arg_arg_uuid);
+          const result = this.impl.onProductSpecificationsSetRemoved(params.arg_uuid);
           break;
         }
         case 3: {
@@ -739,7 +739,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -808,7 +808,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createProductSpecificationsHandler');
-          const result = this.impl.createProductSpecificationsHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createProductSpecificationsHandler(params.arg_page, params.arg_handler);
           break;
         }
       }

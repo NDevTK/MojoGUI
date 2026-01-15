@@ -175,7 +175,7 @@ mojo.internal.bindings.blink.mojom.OomInterventionHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -305,7 +305,7 @@ mojo.internal.bindings.blink.mojom.OomInterventionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.OomIntervention_StartDetection_ParamsSpec,
       null,
-      [arg_host, arg_detection_args, arg_renderer_pause_enabled, arg_navigate_ads_enabled, arg_purge_v8_memory_enabled],
+      { arg_host: arg_host, arg_detection_args: arg_detection_args, arg_renderer_pause_enabled: arg_renderer_pause_enabled, arg_navigate_ads_enabled: arg_navigate_ads_enabled, arg_purge_v8_memory_enabled: arg_purge_v8_memory_enabled },
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.blink.mojom.OomInterventionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.OomIntervention_StartDetection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDetection');
-          const result = this.impl.startDetection(params.arg_arg_host, params.arg_arg_detection_args, params.arg_arg_renderer_pause_enabled, params.arg_arg_navigate_ads_enabled, params.arg_arg_purge_v8_memory_enabled);
+          const result = this.impl.startDetection(params.arg_host, params.arg_detection_args, params.arg_renderer_pause_enabled, params.arg_navigate_ads_enabled, params.arg_purge_v8_memory_enabled);
           break;
         }
       }

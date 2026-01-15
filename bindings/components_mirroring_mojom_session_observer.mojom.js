@@ -219,7 +219,7 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mirroring.mojom.SessionObserver_OnError_ParamsSpec,
       null,
-      [arg_error],
+      { arg_error: arg_error },
       false);
   }
 
@@ -228,7 +228,7 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mirroring.mojom.SessionObserver_DidStart_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -237,7 +237,7 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mirroring.mojom.SessionObserver_DidStop_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -246,7 +246,7 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -255,7 +255,7 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -264,7 +264,7 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -273,7 +273,7 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec,
       null,
-      [arg_is_remoting],
+      { arg_is_remoting: arg_is_remoting },
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.SessionObserver_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_error);
+          const result = this.impl.onError(params.arg_error);
           break;
         }
         case 1: {
@@ -369,14 +369,14 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logInfoMessage');
-          const result = this.impl.logInfoMessage(params.arg_arg_message);
+          const result = this.impl.logInfoMessage(params.arg_message);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logErrorMessage');
-          const result = this.impl.logErrorMessage(params.arg_arg_message);
+          const result = this.impl.logErrorMessage(params.arg_message);
           break;
         }
         case 5: {
@@ -390,7 +390,7 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRemotingStateChanged');
-          const result = this.impl.onRemotingStateChanged(params.arg_arg_is_remoting);
+          const result = this.impl.onRemotingStateChanged(params.arg_is_remoting);
           break;
         }
       }

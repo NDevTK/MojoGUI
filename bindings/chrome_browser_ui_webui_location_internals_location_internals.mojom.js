@@ -176,7 +176,7 @@ mojo.internal.bindings.mojom.LocationInternalsHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.mojom.LocationInternalsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindInternalsInterface');
-          const result = this.impl.bindInternalsInterface(params.arg_arg_receiver);
+          const result = this.impl.bindInternalsInterface(params.arg_receiver);
           break;
         }
       }

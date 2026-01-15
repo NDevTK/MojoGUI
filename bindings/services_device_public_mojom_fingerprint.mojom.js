@@ -259,7 +259,7 @@ mojo.internal.bindings.device.mojom.FingerprintObserverRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.FingerprintObserver_OnRestarted_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.device.mojom.FingerprintObserverRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -277,7 +277,7 @@ mojo.internal.bindings.device.mojom.FingerprintObserverRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec,
       null,
-      [arg_scan_result, arg_is_complete, arg_percent_complete],
+      { arg_scan_result: arg_scan_result, arg_is_complete: arg_is_complete, arg_percent_complete: arg_percent_complete },
       false);
   }
 
@@ -286,7 +286,7 @@ mojo.internal.bindings.device.mojom.FingerprintObserverRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec,
       null,
-      [arg_msg, arg_matches],
+      { arg_msg: arg_msg, arg_matches: arg_matches },
       false);
   }
 
@@ -295,7 +295,7 @@ mojo.internal.bindings.device.mojom.FingerprintObserverRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -375,21 +375,21 @@ mojo.internal.bindings.device.mojom.FingerprintObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStatusChanged');
-          const result = this.impl.onStatusChanged(params.arg_arg_status);
+          const result = this.impl.onStatusChanged(params.arg_status);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEnrollScanDone');
-          const result = this.impl.onEnrollScanDone(params.arg_arg_scan_result, params.arg_arg_is_complete, params.arg_arg_percent_complete);
+          const result = this.impl.onEnrollScanDone(params.arg_scan_result, params.arg_is_complete, params.arg_percent_complete);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAuthScanDone');
-          const result = this.impl.onAuthScanDone(params.arg_arg_msg, params.arg_arg_matches);
+          const result = this.impl.onAuthScanDone(params.arg_msg, params.arg_matches);
           break;
         }
         case 4: {
@@ -497,7 +497,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec,
       mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec,
-      [arg_user_id],
+      { arg_user_id: arg_user_id },
       false);
   }
 
@@ -506,7 +506,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_StartEnrollSession_ParamsSpec,
       null,
-      [arg_user_id, arg_label],
+      { arg_user_id: arg_user_id, arg_label: arg_label },
       false);
   }
 
@@ -515,7 +515,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec,
       mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -524,7 +524,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ParamsSpec,
       mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec,
-      [arg_record_path],
+      { arg_record_path: arg_record_path },
       false);
   }
 
@@ -533,7 +533,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ParamsSpec,
       mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec,
-      [arg_record_path, arg_new_label],
+      { arg_record_path: arg_record_path, arg_new_label: arg_new_label },
       false);
   }
 
@@ -542,7 +542,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ParamsSpec,
       mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec,
-      [arg_record_path],
+      { arg_record_path: arg_record_path },
       false);
   }
 
@@ -551,7 +551,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_StartAuthSession_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -560,7 +560,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec,
       mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -569,7 +569,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ParamsSpec,
       mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -578,7 +578,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -587,7 +587,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ParamsSpec,
       mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -666,12 +666,12 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRecordsForUser');
-          const result = this.impl.getRecordsForUser(params.arg_arg_user_id);
+          const result = this.impl.getRecordsForUser(params.arg_user_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec.$.structSpec, ['response.arg_arg_records', 'response.arg_arg_success']);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec.$.structSpec, { 'arg_records': response.arg_records, 'arg_success': response.arg_success });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRecordsForUser FAILED:', e));
           }
@@ -681,7 +681,7 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_StartEnrollSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startEnrollSession');
-          const result = this.impl.startEnrollSession(params.arg_arg_user_id, params.arg_arg_label);
+          const result = this.impl.startEnrollSession(params.arg_user_id, params.arg_label);
           break;
         }
         case 2: {
@@ -693,8 +693,8 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] cancelCurrentEnrollSession FAILED:', e));
           }
@@ -704,13 +704,13 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestRecordLabel');
-          const result = this.impl.requestRecordLabel(params.arg_arg_record_path);
+          const result = this.impl.requestRecordLabel(params.arg_record_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_label' in response) ? response.arg_arg_label : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_label' in response) ? response.arg_label : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec.$.structSpec, { 'arg_label': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestRecordLabel FAILED:', e));
           }
@@ -720,13 +720,13 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRecordLabel');
-          const result = this.impl.setRecordLabel(params.arg_arg_record_path, params.arg_arg_new_label);
+          const result = this.impl.setRecordLabel(params.arg_record_path, params.arg_new_label);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setRecordLabel FAILED:', e));
           }
@@ -736,13 +736,13 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeRecord');
-          const result = this.impl.removeRecord(params.arg_arg_record_path);
+          const result = this.impl.removeRecord(params.arg_record_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] removeRecord FAILED:', e));
           }
@@ -764,8 +764,8 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] endCurrentAuthSession FAILED:', e));
           }
@@ -780,8 +780,8 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] destroyAllRecords FAILED:', e));
           }
@@ -791,7 +791,7 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addFingerprintObserver');
-          const result = this.impl.addFingerprintObserver(params.arg_arg_observer);
+          const result = this.impl.addFingerprintObserver(params.arg_observer);
           break;
         }
         case 10: {
@@ -803,8 +803,8 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_type' in response) ? response.arg_arg_type : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_type' in response) ? response.arg_type : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ResponseParamsSpec.$.structSpec, { 'arg_type': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestType FAILED:', e));
           }

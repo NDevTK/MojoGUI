@@ -250,7 +250,7 @@ mojo.internal.bindings.device.mojom.GamepadObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.GamepadObserver_GamepadConnected_ParamsSpec,
       null,
-      [arg_index, arg_gamepad],
+      { arg_index: arg_index, arg_gamepad: arg_gamepad },
       false);
   }
 
@@ -259,7 +259,7 @@ mojo.internal.bindings.device.mojom.GamepadObserverRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec,
       null,
-      [arg_index, arg_gamepad],
+      { arg_index: arg_index, arg_gamepad: arg_gamepad },
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.device.mojom.GamepadObserverRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec,
       null,
-      [arg_index, arg_gamepad],
+      { arg_index: arg_index, arg_gamepad: arg_gamepad },
       false);
   }
 
@@ -339,21 +339,21 @@ mojo.internal.bindings.device.mojom.GamepadObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadObserver_GamepadConnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.gamepadConnected');
-          const result = this.impl.gamepadConnected(params.arg_arg_index, params.arg_arg_gamepad);
+          const result = this.impl.gamepadConnected(params.arg_index, params.arg_gamepad);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.gamepadDisconnected');
-          const result = this.impl.gamepadDisconnected(params.arg_arg_index, params.arg_arg_gamepad);
+          const result = this.impl.gamepadDisconnected(params.arg_index, params.arg_gamepad);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.gamepadRawInputChanged');
-          const result = this.impl.gamepadRawInputChanged(params.arg_arg_index, params.arg_arg_gamepad);
+          const result = this.impl.gamepadRawInputChanged(params.arg_index, params.arg_gamepad);
           break;
         }
       }
@@ -422,7 +422,7 @@ mojo.internal.bindings.device.mojom.GamepadMonitorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec,
       mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -431,7 +431,7 @@ mojo.internal.bindings.device.mojom.GamepadMonitorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec,
       mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.device.mojom.GamepadMonitorRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.GamepadMonitor_SetObserver_ParamsSpec,
       null,
-      [arg_gamepad_observer],
+      { arg_gamepad_observer: arg_gamepad_observer },
       false);
   }
 
@@ -516,8 +516,8 @@ mojo.internal.bindings.device.mojom.GamepadMonitorReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_memory_region' in response) ? response.arg_arg_memory_region : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_memory_region' in response) ? response.arg_memory_region : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec.$.structSpec, { 'arg_memory_region': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] gamepadStartPolling FAILED:', e));
           }
@@ -532,7 +532,7 @@ mojo.internal.bindings.device.mojom.GamepadMonitorReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] gamepadStopPolling FAILED:', e));
           }
@@ -542,7 +542,7 @@ mojo.internal.bindings.device.mojom.GamepadMonitorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadMonitor_SetObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setObserver');
-          const result = this.impl.setObserver(params.arg_arg_gamepad_observer);
+          const result = this.impl.setObserver(params.arg_gamepad_observer);
           break;
         }
       }
@@ -607,7 +607,7 @@ mojo.internal.bindings.device.mojom.GamepadHapticsManagerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec,
       mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec,
-      [arg_pad_index, arg_type, arg_params],
+      { arg_pad_index: arg_pad_index, arg_type: arg_type, arg_params: arg_params },
       false);
   }
 
@@ -616,7 +616,7 @@ mojo.internal.bindings.device.mojom.GamepadHapticsManagerRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec,
       mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec,
-      [arg_pad_index],
+      { arg_pad_index: arg_pad_index },
       false);
   }
 
@@ -686,13 +686,13 @@ mojo.internal.bindings.device.mojom.GamepadHapticsManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.playVibrationEffectOnce');
-          const result = this.impl.playVibrationEffectOnce(params.arg_arg_pad_index, params.arg_arg_type, params.arg_arg_params);
+          const result = this.impl.playVibrationEffectOnce(params.arg_pad_index, params.arg_type, params.arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] playVibrationEffectOnce FAILED:', e));
           }
@@ -702,13 +702,13 @@ mojo.internal.bindings.device.mojom.GamepadHapticsManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetVibrationActuator');
-          const result = this.impl.resetVibrationActuator(params.arg_arg_pad_index);
+          const result = this.impl.resetVibrationActuator(params.arg_pad_index);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] resetVibrationActuator FAILED:', e));
           }

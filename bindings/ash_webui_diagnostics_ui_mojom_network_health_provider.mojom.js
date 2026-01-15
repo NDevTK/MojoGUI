@@ -246,7 +246,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserverRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec,
       null,
-      [arg_network_guids, arg_active_guid],
+      { arg_network_guids: arg_network_guids, arg_active_guid: arg_active_guid },
       false);
   }
 
@@ -315,7 +315,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserverReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkListChanged');
-          const result = this.impl.onNetworkListChanged(params.arg_arg_network_guids, params.arg_arg_active_guid);
+          const result = this.impl.onNetworkListChanged(params.arg_network_guids, params.arg_active_guid);
           break;
         }
       }
@@ -376,7 +376,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserverRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec,
       null,
-      [arg_network],
+      { arg_network: arg_network },
       false);
   }
 
@@ -445,7 +445,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserverReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkStateChanged');
-          const result = this.impl.onNetworkStateChanged(params.arg_arg_network);
+          const result = this.impl.onNetworkStateChanged(params.arg_network);
           break;
         }
       }
@@ -510,7 +510,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProviderRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -519,7 +519,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProviderRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec,
       null,
-      [arg_observer, arg_guid],
+      { arg_observer: arg_observer, arg_guid: arg_guid },
       false);
   }
 
@@ -589,14 +589,14 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProviderReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeNetworkList');
-          const result = this.impl.observeNetworkList(params.arg_arg_observer);
+          const result = this.impl.observeNetworkList(params.arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeNetwork');
-          const result = this.impl.observeNetwork(params.arg_arg_observer, params.arg_arg_guid);
+          const result = this.impl.observeNetwork(params.arg_observer, params.arg_guid);
           break;
         }
       }

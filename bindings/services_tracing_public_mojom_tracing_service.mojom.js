@@ -187,7 +187,7 @@ mojo.internal.bindings.tracing.mojom.TracingServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.TracingService_Initialize_ParamsSpec,
       null,
-      [arg_clients],
+      { arg_clients: arg_clients },
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.tracing.mojom.TracingServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tracing.mojom.TracingService_AddClient_ParamsSpec,
       null,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -266,14 +266,14 @@ mojo.internal.bindings.tracing.mojom.TracingServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingService_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_arg_clients);
+          const result = this.impl.initialize(params.arg_clients);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingService_AddClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addClient');
-          const result = this.impl.addClient(params.arg_arg_client);
+          const result = this.impl.addClient(params.arg_client);
           break;
         }
       }

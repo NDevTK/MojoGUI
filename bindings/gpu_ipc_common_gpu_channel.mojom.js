@@ -426,7 +426,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_CrashForTesting_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_TerminateForTesting_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -444,7 +444,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_GetChannelToken_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_GetChannelToken_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_Flush_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_Flush_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_CreateCommandBuffer_ResponseParamsSpec,
-      [arg_params, arg_routing_id, arg_shared_state, arg_receiver, arg_client],
+      { arg_params: arg_params, arg_routing_id: arg_routing_id, arg_shared_state: arg_shared_state, arg_receiver: arg_receiver, arg_client: arg_client },
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_DestroyCommandBuffer_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_DestroyCommandBuffer_ResponseParamsSpec,
-      [arg_routing_id],
+      { arg_routing_id: arg_routing_id },
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_FlushDeferredRequests_ParamsSpec,
       null,
-      [arg_requests, arg_flushed_deferred_message_id],
+      { arg_requests: arg_requests, arg_flushed_deferred_message_id: arg_flushed_deferred_message_id },
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec,
-      [arg_size, arg_format, arg_buffer_usage],
+      { arg_size: arg_size, arg_format: arg_format, arg_buffer_usage: arg_buffer_usage },
       false);
   }
 
@@ -507,7 +507,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec,
-      [arg_route_id, arg_receiver],
+      { arg_route_id: arg_route_id, arg_receiver: arg_receiver },
       false);
   }
 
@@ -516,7 +516,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ResponseParamsSpec,
-      [arg_promotion_hint_observer, arg_mailbox],
+      { arg_promotion_hint_observer: arg_promotion_hint_observer, arg_mailbox: arg_mailbox },
       false);
   }
 
@@ -525,7 +525,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForTokenInRange_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec,
-      [arg_routing_id, arg_start, arg_end],
+      { arg_routing_id: arg_routing_id, arg_start: arg_start, arg_end: arg_end },
       false);
   }
 
@@ -534,7 +534,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec,
-      [arg_routing_id, arg_set_get_buffer_count, arg_start, arg_end],
+      { arg_routing_id: arg_routing_id, arg_set_get_buffer_count: arg_set_get_buffer_count, arg_start: arg_start, arg_end: arg_end },
       false);
   }
 
@@ -543,7 +543,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec,
-      [arg_mailbox, arg_sync_token_dependencies, arg_release_count],
+      { arg_mailbox: arg_mailbox, arg_sync_token_dependencies: arg_sync_token_dependencies, arg_release_count: arg_release_count },
       false);
   }
 
@@ -644,8 +644,8 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_token' in response) ? response.arg_arg_token : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_GetChannelToken_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_token' in response) ? response.arg_token : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_GetChannelToken_ResponseParamsSpec.$.structSpec, { 'arg_token': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getChannelToken FAILED:', e));
           }
@@ -660,7 +660,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_Flush_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_Flush_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] flush FAILED:', e));
           }
@@ -675,8 +675,8 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_version_buffer' in response) ? response.arg_arg_version_buffer : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_version_buffer' in response) ? response.arg_version_buffer : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ResponseParamsSpec.$.structSpec, { 'arg_version_buffer': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSharedMemoryForFlushId FAILED:', e));
           }
@@ -686,12 +686,12 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCommandBuffer');
-          const result = this.impl.createCommandBuffer(params.arg_arg_params, params.arg_arg_routing_id, params.arg_arg_shared_state, params.arg_arg_receiver, params.arg_arg_client);
+          const result = this.impl.createCommandBuffer(params.arg_params, params.arg_routing_id, params.arg_shared_state, params.arg_receiver, params.arg_client);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_CreateCommandBuffer_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_capabilties', 'response.arg_arg_gl_capabilities']);
+              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_CreateCommandBuffer_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_capabilties': response.arg_capabilties, 'arg_gl_capabilities': response.arg_gl_capabilities });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createCommandBuffer FAILED:', e));
           }
@@ -701,12 +701,12 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_DestroyCommandBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.destroyCommandBuffer');
-          const result = this.impl.destroyCommandBuffer(params.arg_arg_routing_id);
+          const result = this.impl.destroyCommandBuffer(params.arg_routing_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_DestroyCommandBuffer_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_DestroyCommandBuffer_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] destroyCommandBuffer FAILED:', e));
           }
@@ -716,20 +716,20 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_FlushDeferredRequests_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flushDeferredRequests');
-          const result = this.impl.flushDeferredRequests(params.arg_arg_requests, params.arg_arg_flushed_deferred_message_id);
+          const result = this.impl.flushDeferredRequests(params.arg_requests, params.arg_flushed_deferred_message_id);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createGpuMemoryBuffer');
-          const result = this.impl.createGpuMemoryBuffer(params.arg_arg_size, params.arg_arg_format, params.arg_arg_buffer_usage);
+          const result = this.impl.createGpuMemoryBuffer(params.arg_size, params.arg_format, params.arg_buffer_usage);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_buffer_handle' in response) ? response.arg_arg_buffer_handle : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_buffer_handle' in response) ? response.arg_buffer_handle : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec.$.structSpec, { 'arg_buffer_handle': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createGpuMemoryBuffer FAILED:', e));
           }
@@ -739,13 +739,13 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDCOMPTexture');
-          const result = this.impl.createDCOMPTexture(params.arg_arg_route_id, params.arg_arg_receiver);
+          const result = this.impl.createDCOMPTexture(params.arg_route_id, params.arg_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createDCOMPTexture FAILED:', e));
           }
@@ -755,13 +755,13 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerOverlayStateObserver');
-          const result = this.impl.registerOverlayStateObserver(params.arg_arg_promotion_hint_observer, params.arg_arg_mailbox);
+          const result = this.impl.registerOverlayStateObserver(params.arg_promotion_hint_observer, params.arg_mailbox);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] registerOverlayStateObserver FAILED:', e));
           }
@@ -771,13 +771,13 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForTokenInRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.waitForTokenInRange');
-          const result = this.impl.waitForTokenInRange(params.arg_arg_routing_id, params.arg_arg_start, params.arg_arg_end);
+          const result = this.impl.waitForTokenInRange(params.arg_routing_id, params.arg_start, params.arg_end);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response.arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec.$.structSpec, { 'arg_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] waitForTokenInRange FAILED:', e));
           }
@@ -787,13 +787,13 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.waitForGetOffsetInRange');
-          const result = this.impl.waitForGetOffsetInRange(params.arg_arg_routing_id, params.arg_arg_set_get_buffer_count, params.arg_arg_start, params.arg_arg_end);
+          const result = this.impl.waitForGetOffsetInRange(params.arg_routing_id, params.arg_set_get_buffer_count, params.arg_start, params.arg_end);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response.arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec.$.structSpec, { 'arg_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] waitForGetOffsetInRange FAILED:', e));
           }
@@ -803,13 +803,13 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.copyToGpuMemoryBufferAsync');
-          const result = this.impl.copyToGpuMemoryBufferAsync(params.arg_arg_mailbox, params.arg_arg_sync_token_dependencies, params.arg_arg_release_count);
+          const result = this.impl.copyToGpuMemoryBufferAsync(params.arg_mailbox, params.arg_sync_token_dependencies, params.arg_release_count);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] copyToGpuMemoryBufferAsync FAILED:', e));
           }
@@ -893,7 +893,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBuffer_SetGetBuffer_ParamsSpec,
       null,
-      [arg_shm_id],
+      { arg_shm_id: arg_shm_id },
       false);
   }
 
@@ -902,7 +902,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBuffer_RegisterTransferBuffer_ParamsSpec,
       null,
-      [arg_id, arg_buffer],
+      { arg_id: arg_id, arg_buffer: arg_buffer },
       false);
   }
 
@@ -911,7 +911,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBuffer_CreateGpuFenceFromHandle_ParamsSpec,
       null,
-      [arg_gpu_fence_id, arg_fence_handle],
+      { arg_gpu_fence_id: arg_gpu_fence_id, arg_fence_handle: arg_fence_handle },
       false);
   }
 
@@ -920,7 +920,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBuffer_GetGpuFenceHandle_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.CommandBuffer_GetGpuFenceHandle_ResponseParamsSpec,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -929,7 +929,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBuffer_SignalSyncToken_ParamsSpec,
       null,
-      [arg_sync_token, arg_signal_id],
+      { arg_sync_token: arg_sync_token, arg_signal_id: arg_signal_id },
       false);
   }
 
@@ -938,7 +938,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBuffer_SignalQuery_ParamsSpec,
       null,
-      [arg_query, arg_signal_id],
+      { arg_query: arg_query, arg_signal_id: arg_signal_id },
       false);
   }
 
@@ -1012,34 +1012,34 @@ mojo.internal.bindings.gpu.mojom.CommandBufferReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.CommandBuffer_SetGetBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setGetBuffer');
-          const result = this.impl.setGetBuffer(params.arg_arg_shm_id);
+          const result = this.impl.setGetBuffer(params.arg_shm_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.CommandBuffer_RegisterTransferBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerTransferBuffer');
-          const result = this.impl.registerTransferBuffer(params.arg_arg_id, params.arg_arg_buffer);
+          const result = this.impl.registerTransferBuffer(params.arg_id, params.arg_buffer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.CommandBuffer_CreateGpuFenceFromHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createGpuFenceFromHandle');
-          const result = this.impl.createGpuFenceFromHandle(params.arg_arg_gpu_fence_id, params.arg_arg_fence_handle);
+          const result = this.impl.createGpuFenceFromHandle(params.arg_gpu_fence_id, params.arg_fence_handle);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.CommandBuffer_GetGpuFenceHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getGpuFenceHandle');
-          const result = this.impl.getGpuFenceHandle(params.arg_arg_id);
+          const result = this.impl.getGpuFenceHandle(params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_fence_handle' in response) ? response.arg_arg_fence_handle : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.CommandBuffer_GetGpuFenceHandle_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_fence_handle' in response) ? response.arg_fence_handle : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.CommandBuffer_GetGpuFenceHandle_ResponseParamsSpec.$.structSpec, { 'arg_fence_handle': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getGpuFenceHandle FAILED:', e));
           }
@@ -1049,14 +1049,14 @@ mojo.internal.bindings.gpu.mojom.CommandBufferReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.CommandBuffer_SignalSyncToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.signalSyncToken');
-          const result = this.impl.signalSyncToken(params.arg_arg_sync_token, params.arg_arg_signal_id);
+          const result = this.impl.signalSyncToken(params.arg_sync_token, params.arg_signal_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.CommandBuffer_SignalQuery_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.signalQuery');
-          const result = this.impl.signalQuery(params.arg_arg_query, params.arg_arg_signal_id);
+          const result = this.impl.signalQuery(params.arg_query, params.arg_signal_id);
           break;
         }
       }
@@ -1133,7 +1133,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -1142,7 +1142,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1151,7 +1151,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec,
       null,
-      [arg_reason, arg_error],
+      { arg_reason: arg_reason, arg_error: arg_error },
       false);
   }
 
@@ -1160,7 +1160,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnReturnData_ParamsSpec,
       null,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -1169,7 +1169,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferClientRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnSignalAck_ParamsSpec,
       null,
-      [arg_signal_id, arg_state],
+      { arg_signal_id: arg_signal_id, arg_state: arg_state },
       false);
   }
 
@@ -1242,7 +1242,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConsoleMessage');
-          const result = this.impl.onConsoleMessage(params.arg_arg_message);
+          const result = this.impl.onConsoleMessage(params.arg_message);
           break;
         }
         case 1: {
@@ -1256,21 +1256,21 @@ mojo.internal.bindings.gpu.mojom.CommandBufferClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDestroyed');
-          const result = this.impl.onDestroyed(params.arg_arg_reason, params.arg_arg_error);
+          const result = this.impl.onDestroyed(params.arg_reason, params.arg_error);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnReturnData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReturnData');
-          const result = this.impl.onReturnData(params.arg_arg_data);
+          const result = this.impl.onReturnData(params.arg_data);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnSignalAck_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSignalAck');
-          const result = this.impl.onSignalAck(params.arg_arg_signal_id, params.arg_arg_state);
+          const result = this.impl.onSignalAck(params.arg_signal_id, params.arg_state);
           break;
         }
       }
@@ -1339,7 +1339,7 @@ mojo.internal.bindings.gpu.mojom.DCOMPTextureRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gpu.mojom.DCOMPTexture_StartListening_ParamsSpec,
       null,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -1348,7 +1348,7 @@ mojo.internal.bindings.gpu.mojom.DCOMPTextureRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.gpu.mojom.DCOMPTexture_SetTextureSize_ParamsSpec,
       null,
-      [arg_size],
+      { arg_size: arg_size },
       false);
   }
 
@@ -1357,7 +1357,7 @@ mojo.internal.bindings.gpu.mojom.DCOMPTextureRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ResponseParamsSpec,
-      [arg_token],
+      { arg_token: arg_token },
       false);
   }
 
@@ -1428,27 +1428,27 @@ mojo.internal.bindings.gpu.mojom.DCOMPTextureReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.DCOMPTexture_StartListening_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startListening');
-          const result = this.impl.startListening(params.arg_arg_client);
+          const result = this.impl.startListening(params.arg_client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.DCOMPTexture_SetTextureSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTextureSize');
-          const result = this.impl.setTextureSize(params.arg_arg_size);
+          const result = this.impl.setTextureSize(params.arg_size);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDCOMPSurfaceHandle');
-          const result = this.impl.setDCOMPSurfaceHandle(params.arg_arg_token);
+          const result = this.impl.setDCOMPSurfaceHandle(params.arg_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setDCOMPSurfaceHandle FAILED:', e));
           }
@@ -1516,7 +1516,7 @@ mojo.internal.bindings.gpu.mojom.DCOMPTextureClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gpu.mojom.DCOMPTextureClient_OnSharedImageMailboxBound_ParamsSpec,
       null,
-      [arg_mailbox],
+      { arg_mailbox: arg_mailbox },
       false);
   }
 
@@ -1525,7 +1525,7 @@ mojo.internal.bindings.gpu.mojom.DCOMPTextureClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.gpu.mojom.DCOMPTextureClient_OnOutputRectChange_ParamsSpec,
       null,
-      [arg_output_rect],
+      { arg_output_rect: arg_output_rect },
       false);
   }
 
@@ -1595,14 +1595,14 @@ mojo.internal.bindings.gpu.mojom.DCOMPTextureClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.DCOMPTextureClient_OnSharedImageMailboxBound_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSharedImageMailboxBound');
-          const result = this.impl.onSharedImageMailboxBound(params.arg_arg_mailbox);
+          const result = this.impl.onSharedImageMailboxBound(params.arg_mailbox);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.DCOMPTextureClient_OnOutputRectChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOutputRectChange');
-          const result = this.impl.onOutputRectChange(params.arg_arg_output_rect);
+          const result = this.impl.onOutputRectChange(params.arg_output_rect);
           break;
         }
       }
@@ -1663,7 +1663,7 @@ mojo.internal.bindings.gpu.mojom.OverlayStateObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gpu.mojom.OverlayStateObserver_OnStateChanged_ParamsSpec,
       null,
-      [arg_promoted],
+      { arg_promoted: arg_promoted },
       false);
   }
 
@@ -1732,7 +1732,7 @@ mojo.internal.bindings.gpu.mojom.OverlayStateObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.OverlayStateObserver_OnStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStateChanged');
-          const result = this.impl.onStateChanged(params.arg_arg_promoted);
+          const result = this.impl.onStateChanged(params.arg_promoted);
           break;
         }
       }

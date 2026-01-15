@@ -287,7 +287,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserver_OnEnrollmentFinished_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -296,7 +296,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserverRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserver_OnNewDevicesSynced_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -482,7 +482,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_AddObserver_ResponseParamsSpec,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -491,7 +491,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -500,7 +500,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceSyncNow_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceSyncNow_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -509,7 +509,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -518,7 +518,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -527,7 +527,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -536,7 +536,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -545,7 +545,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ResponseParamsSpec,
-      [arg_device_public_key, arg_software_feature, arg_enabled, arg_is_exclusive],
+      { arg_device_public_key: arg_device_public_key, arg_software_feature: arg_software_feature, arg_enabled: arg_enabled, arg_is_exclusive: arg_is_exclusive },
       false);
   }
 
@@ -554,7 +554,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ResponseParamsSpec,
-      [arg_device_instance_id, arg_feature, arg_status_change],
+      { arg_device_instance_id: arg_device_instance_id, arg_feature: arg_feature, arg_status_change: arg_status_change },
       false);
   }
 
@@ -563,7 +563,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParamsSpec,
-      [arg_software_feature],
+      { arg_software_feature: arg_software_feature },
       false);
   }
 
@@ -572,7 +572,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_NotifyDevices_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_NotifyDevices_ResponseParamsSpec,
-      [arg_device_instance_ids, arg_cryptauth_service, arg_feature],
+      { arg_device_instance_ids: arg_device_instance_ids, arg_cryptauth_service: arg_cryptauth_service, arg_feature: arg_feature },
       false);
   }
 
@@ -581,7 +581,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -590,7 +590,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDebugInfo_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDebugInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -671,12 +671,12 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_arg_observer);
+          const result = this.impl.addObserver(params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_AddObserver_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_AddObserver_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addObserver FAILED:', e));
           }
@@ -691,8 +691,8 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] forceEnrollmentNow FAILED:', e));
           }
@@ -707,8 +707,8 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceSyncNow_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceSyncNow_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] forceSyncNow FAILED:', e));
           }
@@ -723,8 +723,8 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getGroupPrivateKeyStatus FAILED:', e));
           }
@@ -739,8 +739,8 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getBetterTogetherMetadataStatus FAILED:', e));
           }
@@ -755,8 +755,8 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_devices' in response) ? response.arg_arg_devices : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_devices' in response) ? response.arg_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ResponseParamsSpec.$.structSpec, { 'arg_devices': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSyncedDevices FAILED:', e));
           }
@@ -771,8 +771,8 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_local_device' in response) ? response.arg_arg_local_device : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_local_device' in response) ? response.arg_local_device : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ResponseParamsSpec.$.structSpec, { 'arg_local_device': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getLocalDeviceMetadata FAILED:', e));
           }
@@ -782,13 +782,13 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSoftwareFeatureState');
-          const result = this.impl.setSoftwareFeatureState(params.arg_arg_device_public_key, params.arg_arg_software_feature, params.arg_arg_enabled, params.arg_arg_is_exclusive);
+          const result = this.impl.setSoftwareFeatureState(params.arg_device_public_key, params.arg_software_feature, params.arg_enabled, params.arg_is_exclusive);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result_code' in response) ? response.arg_arg_result_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result_code' in response) ? response.arg_result_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ResponseParamsSpec.$.structSpec, { 'arg_result_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setSoftwareFeatureState FAILED:', e));
           }
@@ -798,13 +798,13 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFeatureStatus');
-          const result = this.impl.setFeatureStatus(params.arg_arg_device_instance_id, params.arg_arg_feature, params.arg_arg_status_change);
+          const result = this.impl.setFeatureStatus(params.arg_device_instance_id, params.arg_feature, params.arg_status_change);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result_code' in response) ? response.arg_arg_result_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result_code' in response) ? response.arg_result_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ResponseParamsSpec.$.structSpec, { 'arg_result_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setFeatureStatus FAILED:', e));
           }
@@ -814,12 +814,12 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.findEligibleDevices');
-          const result = this.impl.findEligibleDevices(params.arg_arg_software_feature);
+          const result = this.impl.findEligibleDevices(params.arg_software_feature);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result_code', 'response.arg_arg_response']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParamsSpec.$.structSpec, { 'arg_result_code': response.arg_result_code, 'arg_response': response.arg_response });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] findEligibleDevices FAILED:', e));
           }
@@ -829,13 +829,13 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_NotifyDevices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyDevices');
-          const result = this.impl.notifyDevices(params.arg_arg_device_instance_ids, params.arg_arg_cryptauth_service, params.arg_arg_feature);
+          const result = this.impl.notifyDevices(params.arg_device_instance_ids, params.arg_cryptauth_service, params.arg_feature);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result_code' in response) ? response.arg_arg_result_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_NotifyDevices_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result_code' in response) ? response.arg_result_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_NotifyDevices_ResponseParamsSpec.$.structSpec, { 'arg_result_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] notifyDevices FAILED:', e));
           }
@@ -850,7 +850,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result_code', 'response.arg_arg_device_activity_statuses']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParamsSpec.$.structSpec, { 'arg_result_code': response.arg_result_code, 'arg_device_activity_statuses': response.arg_device_activity_statuses });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDevicesActivityStatus FAILED:', e));
           }
@@ -865,8 +865,8 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_debug_info' in response) ? response.arg_arg_debug_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDebugInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_debug_info' in response) ? response.arg_debug_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDebugInfo_ResponseParamsSpec.$.structSpec, { 'arg_debug_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDebugInfo FAILED:', e));
           }

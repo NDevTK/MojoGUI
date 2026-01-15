@@ -238,7 +238,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactoryRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -307,7 +307,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_handler);
           break;
         }
       }
@@ -424,7 +424,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -433,7 +433,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec,
       null,
-      [arg_emoji, arg_is_variant, arg_search_length],
+      { arg_emoji: arg_emoji, arg_is_variant: arg_is_variant, arg_search_length: arg_search_length },
       false);
   }
 
@@ -442,7 +442,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec,
       null,
-      [arg_gif],
+      { arg_gif: arg_gif },
       false);
   }
 
@@ -451,7 +451,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec,
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -460,7 +460,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec,
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -469,7 +469,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec,
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -478,7 +478,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec,
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec,
-      [arg_pos],
+      { arg_pos: arg_pos },
       false);
   }
 
@@ -487,7 +487,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec,
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec,
-      [arg_query, arg_pos],
+      { arg_query: arg_query, arg_pos: arg_pos },
       false);
   }
 
@@ -496,7 +496,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec,
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec,
-      [arg_ids],
+      { arg_ids: arg_ids },
       false);
   }
 
@@ -505,7 +505,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -514,7 +514,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec,
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -523,7 +523,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec,
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -532,7 +532,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec,
       null,
-      [arg_category, arg_history],
+      { arg_category: arg_category, arg_history: arg_history },
       false);
   }
 
@@ -541,7 +541,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec,
       null,
-      [arg_preferred_variants],
+      { arg_preferred_variants: arg_preferred_variants },
       false);
   }
 
@@ -550,7 +550,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec,
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec,
-      [arg_category],
+      { arg_category: arg_category },
       false);
   }
 
@@ -640,14 +640,14 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.insertEmoji');
-          const result = this.impl.insertEmoji(params.arg_arg_emoji, params.arg_arg_is_variant, params.arg_arg_search_length);
+          const result = this.impl.insertEmoji(params.arg_emoji, params.arg_is_variant, params.arg_search_length);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.insertGif');
-          const result = this.impl.insertGif(params.arg_arg_gif);
+          const result = this.impl.insertGif(params.arg_gif);
           break;
         }
         case 3: {
@@ -659,8 +659,8 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_incognito' in response) ? response.arg_arg_incognito : response;
-              encoder.encodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_incognito' in response) ? response.arg_incognito : response;
+              encoder.encodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec.$.structSpec, { 'arg_incognito': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isIncognitoTextField FAILED:', e));
           }
@@ -675,8 +675,8 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_feature_list' in response) ? response.arg_arg_feature_list : response;
-              encoder.encodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_feature_list' in response) ? response.arg_feature_list : response;
+              encoder.encodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec.$.structSpec, { 'arg_feature_list': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFeatureList FAILED:', e));
           }
@@ -691,7 +691,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_gif_categories']);
+              encoder.encodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_gif_categories': response.arg_gif_categories });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCategories FAILED:', e));
           }
@@ -701,12 +701,12 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFeaturedGifs');
-          const result = this.impl.getFeaturedGifs(params.arg_arg_pos);
+          const result = this.impl.getFeaturedGifs(params.arg_pos);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_featured_gifs']);
+              encoder.encodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_featured_gifs': response.arg_featured_gifs });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFeaturedGifs FAILED:', e));
           }
@@ -716,12 +716,12 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.searchGifs');
-          const result = this.impl.searchGifs(params.arg_arg_query, params.arg_arg_pos);
+          const result = this.impl.searchGifs(params.arg_query, params.arg_pos);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_search_gifs']);
+              encoder.encodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_search_gifs': response.arg_search_gifs });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] searchGifs FAILED:', e));
           }
@@ -731,12 +731,12 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getGifsByIds');
-          const result = this.impl.getGifsByIds(params.arg_arg_ids);
+          const result = this.impl.getGifsByIds(params.arg_ids);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_selected_gifs']);
+              encoder.encodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_selected_gifs': response.arg_selected_gifs });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getGifsByIds FAILED:', e));
           }
@@ -758,8 +758,8 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_category' in response) ? response.arg_arg_category : response;
-              encoder.encodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_category' in response) ? response.arg_category : response;
+              encoder.encodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec.$.structSpec, { 'arg_category': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getInitialCategory FAILED:', e));
           }
@@ -774,8 +774,8 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_query' in response) ? response.arg_arg_query : response;
-              encoder.encodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_query' in response) ? response.arg_query : response;
+              encoder.encodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec.$.structSpec, { 'arg_query': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getInitialQuery FAILED:', e));
           }
@@ -785,27 +785,27 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateHistoryInPrefs');
-          const result = this.impl.updateHistoryInPrefs(params.arg_arg_category, params.arg_arg_history);
+          const result = this.impl.updateHistoryInPrefs(params.arg_category, params.arg_history);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePreferredVariantsInPrefs');
-          const result = this.impl.updatePreferredVariantsInPrefs(params.arg_arg_preferred_variants);
+          const result = this.impl.updatePreferredVariantsInPrefs(params.arg_preferred_variants);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHistoryFromPrefs');
-          const result = this.impl.getHistoryFromPrefs(params.arg_arg_category);
+          const result = this.impl.getHistoryFromPrefs(params.arg_category);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_history' in response) ? response.arg_arg_history : response;
-              encoder.encodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_history' in response) ? response.arg_history : response;
+              encoder.encodeStructInline(mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec.$.structSpec, { 'arg_history': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getHistoryFromPrefs FAILED:', e));
           }

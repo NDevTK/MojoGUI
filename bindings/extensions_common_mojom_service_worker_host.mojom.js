@@ -256,7 +256,7 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerHostRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec,
       null,
-      [arg_extension_id, arg_service_worker_version_id, arg_worker_thread_id, arg_service_worker_token, arg_event_dispatcher],
+      { arg_extension_id: arg_extension_id, arg_service_worker_version_id: arg_service_worker_version_id, arg_worker_thread_id: arg_worker_thread_id, arg_service_worker_token: arg_service_worker_token, arg_event_dispatcher: arg_event_dispatcher },
       false);
   }
 
@@ -265,7 +265,7 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerHostRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec,
       null,
-      [arg_extension_id, arg_activation_token, arg_service_worker_scope, arg_service_worker_version_id, arg_worker_thread_id],
+      { arg_extension_id: arg_extension_id, arg_activation_token: arg_activation_token, arg_service_worker_scope: arg_service_worker_scope, arg_service_worker_version_id: arg_service_worker_version_id, arg_worker_thread_id: arg_worker_thread_id },
       false);
   }
 
@@ -274,7 +274,7 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerHostRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec,
       null,
-      [arg_extension_id, arg_activation_token, arg_service_worker_scope, arg_service_worker_version_id, arg_worker_thread_id],
+      { arg_extension_id: arg_extension_id, arg_activation_token: arg_activation_token, arg_service_worker_scope: arg_service_worker_scope, arg_service_worker_version_id: arg_service_worker_version_id, arg_worker_thread_id: arg_worker_thread_id },
       false);
   }
 
@@ -283,7 +283,7 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerHostRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -292,7 +292,7 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerHostRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec,
       null,
-      [arg_request_uuid],
+      { arg_request_uuid: arg_request_uuid },
       false);
   }
 
@@ -301,7 +301,7 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerHostRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec,
       null,
-      [arg_info, arg_channel_type, arg_channel_name, arg_port_id, arg_port, arg_port_host],
+      { arg_info: arg_info, arg_channel_type: arg_channel_type, arg_channel_name: arg_channel_name, arg_port_id: arg_port_id, arg_port: arg_port, arg_port_host: arg_port_host },
       false);
   }
 
@@ -310,7 +310,7 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerHostRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec,
       null,
-      [arg_native_app_name, arg_port_id, arg_port, arg_port_host],
+      { arg_native_app_name: arg_native_app_name, arg_port_id: arg_port_id, arg_port: arg_port, arg_port_host: arg_port_host },
       false);
   }
 
@@ -319,7 +319,7 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerHostRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec,
       null,
-      [arg_tab_id, arg_frame_id, arg_document_id, arg_channel_type, arg_channel_name, arg_port_id, arg_port, arg_port_host],
+      { arg_tab_id: arg_tab_id, arg_frame_id: arg_frame_id, arg_document_id: arg_document_id, arg_channel_type: arg_channel_type, arg_channel_name: arg_channel_name, arg_port_id: arg_port_id, arg_port: arg_port, arg_port_host: arg_port_host },
       false);
   }
 
@@ -395,33 +395,33 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didInitializeServiceWorkerContext');
-          const result = this.impl.didInitializeServiceWorkerContext(params.arg_arg_extension_id, params.arg_arg_service_worker_version_id, params.arg_arg_worker_thread_id, params.arg_arg_service_worker_token, params.arg_arg_event_dispatcher);
+          const result = this.impl.didInitializeServiceWorkerContext(params.arg_extension_id, params.arg_service_worker_version_id, params.arg_worker_thread_id, params.arg_service_worker_token, params.arg_event_dispatcher);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didStartServiceWorkerContext');
-          const result = this.impl.didStartServiceWorkerContext(params.arg_arg_extension_id, params.arg_arg_activation_token, params.arg_arg_service_worker_scope, params.arg_arg_service_worker_version_id, params.arg_arg_worker_thread_id);
+          const result = this.impl.didStartServiceWorkerContext(params.arg_extension_id, params.arg_activation_token, params.arg_service_worker_scope, params.arg_service_worker_version_id, params.arg_worker_thread_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didStopServiceWorkerContext');
-          const result = this.impl.didStopServiceWorkerContext(params.arg_arg_extension_id, params.arg_arg_activation_token, params.arg_arg_service_worker_scope, params.arg_arg_service_worker_version_id, params.arg_arg_worker_thread_id);
+          const result = this.impl.didStopServiceWorkerContext(params.arg_extension_id, params.arg_activation_token, params.arg_service_worker_scope, params.arg_service_worker_version_id, params.arg_worker_thread_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestWorker');
-          const result = this.impl.requestWorker(params.arg_arg_params);
+          const result = this.impl.requestWorker(params.arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_response_wrapper', 'response.arg_arg_error', 'response.arg_arg_extra_data']);
+              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_response_wrapper': response.arg_response_wrapper, 'arg_error': response.arg_error, 'arg_extra_data': response.arg_extra_data });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestWorker FAILED:', e));
           }
@@ -431,28 +431,28 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.workerResponseAck');
-          const result = this.impl.workerResponseAck(params.arg_arg_request_uuid);
+          const result = this.impl.workerResponseAck(params.arg_request_uuid);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openChannelToExtension');
-          const result = this.impl.openChannelToExtension(params.arg_arg_info, params.arg_arg_channel_type, params.arg_arg_channel_name, params.arg_arg_port_id, params.arg_arg_port, params.arg_arg_port_host);
+          const result = this.impl.openChannelToExtension(params.arg_info, params.arg_channel_type, params.arg_channel_name, params.arg_port_id, params.arg_port, params.arg_port_host);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openChannelToNativeApp');
-          const result = this.impl.openChannelToNativeApp(params.arg_arg_native_app_name, params.arg_arg_port_id, params.arg_arg_port, params.arg_arg_port_host);
+          const result = this.impl.openChannelToNativeApp(params.arg_native_app_name, params.arg_port_id, params.arg_port, params.arg_port_host);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openChannelToTab');
-          const result = this.impl.openChannelToTab(params.arg_arg_tab_id, params.arg_arg_frame_id, params.arg_arg_document_id, params.arg_arg_channel_type, params.arg_arg_channel_name, params.arg_arg_port_id, params.arg_arg_port, params.arg_arg_port_host);
+          const result = this.impl.openChannelToTab(params.arg_tab_id, params.arg_frame_id, params.arg_document_id, params.arg_channel_type, params.arg_channel_name, params.arg_port_id, params.arg_port, params.arg_port_host);
           break;
         }
       }

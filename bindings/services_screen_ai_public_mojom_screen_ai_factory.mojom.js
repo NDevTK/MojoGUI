@@ -200,7 +200,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -338,7 +338,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec,
       mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec,
-      [arg_library_path, arg_model_files, arg_ocr_service_receiver],
+      { arg_library_path: arg_library_path, arg_model_files: arg_model_files, arg_ocr_service_receiver: arg_ocr_service_receiver },
       false);
   }
 
@@ -347,7 +347,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec,
       mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec,
-      [arg_library_path, arg_model_files, arg_main_content_extractor_service],
+      { arg_library_path: arg_library_path, arg_model_files: arg_model_files, arg_main_content_extractor_service: arg_main_content_extractor_service },
       false);
   }
 
@@ -356,7 +356,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec,
       null,
-      [arg_shutdown_handler],
+      { arg_shutdown_handler: arg_shutdown_handler },
       false);
   }
 
@@ -427,13 +427,13 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeOCR');
-          const result = this.impl.initializeOCR(params.arg_arg_library_path, params.arg_arg_model_files, params.arg_arg_ocr_service_receiver);
+          const result = this.impl.initializeOCR(params.arg_library_path, params.arg_model_files, params.arg_ocr_service_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_initialized' in response) ? response.arg_arg_initialized : response;
-              encoder.encodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_initialized' in response) ? response.arg_initialized : response;
+              encoder.encodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec.$.structSpec, { 'arg_initialized': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] initializeOCR FAILED:', e));
           }
@@ -443,13 +443,13 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeMainContentExtraction');
-          const result = this.impl.initializeMainContentExtraction(params.arg_arg_library_path, params.arg_arg_model_files, params.arg_arg_main_content_extractor_service);
+          const result = this.impl.initializeMainContentExtraction(params.arg_library_path, params.arg_model_files, params.arg_main_content_extractor_service);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_initialized' in response) ? response.arg_arg_initialized : response;
-              encoder.encodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_initialized' in response) ? response.arg_initialized : response;
+              encoder.encodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec.$.structSpec, { 'arg_initialized': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] initializeMainContentExtraction FAILED:', e));
           }
@@ -459,7 +459,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindShutdownHandler');
-          const result = this.impl.bindShutdownHandler(params.arg_arg_shutdown_handler);
+          const result = this.impl.bindShutdownHandler(params.arg_shutdown_handler);
           break;
         }
       }

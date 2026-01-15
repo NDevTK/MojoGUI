@@ -255,7 +255,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec,
       null,
-      [arg_client_handler, arg_handler, arg_dialog],
+      { arg_client_handler: arg_client_handler, arg_handler: arg_handler, arg_dialog: arg_dialog },
       false);
   }
 
@@ -324,7 +324,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createComposeSessionUntrustedPageHandler');
-          const result = this.impl.createComposeSessionUntrustedPageHandler(params.arg_arg_client_handler, params.arg_arg_handler, params.arg_arg_dialog);
+          const result = this.impl.createComposeSessionUntrustedPageHandler(params.arg_client_handler, params.arg_handler, params.arg_dialog);
           break;
         }
       }
@@ -449,7 +449,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec,
       null,
-      [arg_input, arg_mode, arg_edited],
+      { arg_input: arg_input, arg_mode: arg_mode, arg_edited: arg_edited },
       false);
   }
 
@@ -467,7 +467,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec,
       null,
-      [arg_style],
+      { arg_style: arg_style },
       false);
   }
 
@@ -476,7 +476,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -485,7 +485,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec,
       null,
-      [arg_webui_state],
+      { arg_webui_state: arg_webui_state },
       false);
   }
 
@@ -494,7 +494,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec,
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -503,7 +503,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec,
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -512,7 +512,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec,
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -521,7 +521,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpec,
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -530,7 +530,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec,
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -539,7 +539,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -548,7 +548,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -557,7 +557,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -566,7 +566,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -575,7 +575,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -584,7 +584,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec,
       null,
-      [arg_feedback],
+      { arg_feedback: arg_feedback },
       false);
   }
 
@@ -593,7 +593,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec,
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec,
-      [arg_new_result],
+      { arg_new_result: arg_new_result },
       false);
   }
 
@@ -685,14 +685,14 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.compose');
-          const result = this.impl.compose(params.arg_arg_input, params.arg_arg_mode, params.arg_arg_edited);
+          const result = this.impl.compose(params.arg_input, params.arg_mode, params.arg_edited);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rewrite');
-          const result = this.impl.rewrite(params.arg_arg_style);
+          const result = this.impl.rewrite(params.arg_style);
           break;
         }
         case 3: {
@@ -706,7 +706,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.saveWebUIState');
-          const result = this.impl.saveWebUIState(params.arg_arg_webui_state);
+          const result = this.impl.saveWebUIState(params.arg_webui_state);
           break;
         }
         case 5: {
@@ -718,8 +718,8 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] acceptComposeResult FAILED:', e));
           }
@@ -734,8 +734,8 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_initial_state' in response) ? response.arg_arg_initial_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_initial_state' in response) ? response.arg_initial_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec.$.structSpec, { 'arg_initial_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestInitialState FAILED:', e));
           }
@@ -750,8 +750,8 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_last_state' in response) ? response.arg_arg_last_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_last_state' in response) ? response.arg_last_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec.$.structSpec, { 'arg_last_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] undo FAILED:', e));
           }
@@ -766,8 +766,8 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_before_error' in response) ? response.arg_arg_state_before_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_before_error' in response) ? response.arg_state_before_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec.$.structSpec, { 'arg_state_before_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] recoverFromErrorState FAILED:', e));
           }
@@ -782,8 +782,8 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_next_state' in response) ? response.arg_arg_next_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_next_state' in response) ? response.arg_next_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec.$.structSpec, { 'arg_next_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] redo FAILED:', e));
           }
@@ -828,20 +828,20 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUserFeedback');
-          const result = this.impl.setUserFeedback(params.arg_arg_feedback);
+          const result = this.impl.setUserFeedback(params.arg_feedback);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.editResult');
-          const result = this.impl.editResult(params.arg_arg_new_result);
+          const result = this.impl.editResult(params.arg_new_result);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_edited' in response) ? response.arg_arg_is_edited : response;
-              encoder.encodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_edited' in response) ? response.arg_is_edited : response;
+              encoder.encodeStructInline(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec.$.structSpec, { 'arg_is_edited': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] editResult FAILED:', e));
           }
@@ -917,7 +917,7 @@ mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -926,7 +926,7 @@ mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec,
       null,
-      [arg_reason],
+      { arg_reason: arg_reason },
       false);
   }
 
@@ -935,7 +935,7 @@ mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -944,7 +944,7 @@ mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerRemoteCall
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1023,7 +1023,7 @@ mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeUI');
-          const result = this.impl.closeUI(params.arg_arg_reason);
+          const result = this.impl.closeUI(params.arg_reason);
           break;
         }
         case 2: {
@@ -1102,7 +1102,7 @@ mojo.internal.bindings.compose.mojom.ComposeUntrustedDialogRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec,
       null,
-      [arg_response],
+      { arg_response: arg_response },
       false);
   }
 
@@ -1111,7 +1111,7 @@ mojo.internal.bindings.compose.mojom.ComposeUntrustedDialogRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec,
       null,
-      [arg_partial_response],
+      { arg_partial_response: arg_partial_response },
       false);
   }
 
@@ -1181,14 +1181,14 @@ mojo.internal.bindings.compose.mojom.ComposeUntrustedDialogReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.responseReceived');
-          const result = this.impl.responseReceived(params.arg_arg_response);
+          const result = this.impl.responseReceived(params.arg_response);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.partialResponseReceived');
-          const result = this.impl.partialResponseReceived(params.arg_arg_partial_response);
+          const result = this.impl.partialResponseReceived(params.arg_partial_response);
           break;
         }
       }

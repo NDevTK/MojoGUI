@@ -182,7 +182,7 @@ mojo.internal.bindings.arc.mojom.MediaSessionInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec,
       null,
-      [arg_service],
+      { arg_service: arg_service },
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.arc.mojom.MediaSessionInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.MediaSessionInstance_DisableAudioFocus_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -261,7 +261,7 @@ mojo.internal.bindings.arc.mojom.MediaSessionInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableAudioFocus');
-          const result = this.impl.enableAudioFocus(params.arg_arg_service);
+          const result = this.impl.enableAudioFocus(params.arg_service);
           break;
         }
         case 1: {

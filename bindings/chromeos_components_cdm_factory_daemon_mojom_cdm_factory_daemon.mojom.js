@@ -244,7 +244,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_ParamsSpec,
       null,
-      [arg_client, arg_storage, arg_cdm, arg_output_protection],
+      { arg_client: arg_client, arg_storage: arg_storage, arg_cdm: arg_cdm, arg_output_protection: arg_output_protection },
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_ParamsSpec,
       null,
-      [arg_client, arg_storage, arg_output_protection, arg_host, arg_cdm],
+      { arg_client: arg_client, arg_storage: arg_storage, arg_output_protection: arg_output_protection, arg_host: arg_host, arg_cdm: arg_cdm },
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdm_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParamsSpec,
-      [arg_client, arg_storage, arg_output_protection, arg_host, arg_cdm],
+      { arg_client: arg_client, arg_storage: arg_storage, arg_output_protection: arg_output_protection, arg_host: arg_host, arg_cdm: arg_cdm },
       false);
   }
 
@@ -333,27 +333,27 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_1');
-          const result = this.impl.dEPRECATED_1(params.arg_arg_client, params.arg_arg_storage, params.arg_arg_cdm, params.arg_arg_output_protection);
+          const result = this.impl.dEPRECATED_1(params.arg_client, params.arg_storage, params.arg_cdm, params.arg_output_protection);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCdmDeprecated');
-          const result = this.impl.createCdmDeprecated(params.arg_arg_client, params.arg_arg_storage, params.arg_arg_output_protection, params.arg_arg_host, params.arg_arg_cdm);
+          const result = this.impl.createCdmDeprecated(params.arg_client, params.arg_storage, params.arg_output_protection, params.arg_host, params.arg_cdm);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdm_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCdm');
-          const result = this.impl.createCdm(params.arg_arg_client, params.arg_arg_storage, params.arg_arg_output_protection, params.arg_arg_host, params.arg_arg_cdm);
+          const result = this.impl.createCdm(params.arg_client, params.arg_storage, params.arg_output_protection, params.arg_host, params.arg_cdm);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createCdm FAILED:', e));
           }
@@ -453,7 +453,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParamsSpec,
-      [arg_key_system],
+      { arg_key_system: arg_key_system },
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod1_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_ParamsSpec,
       null,
-      [arg_oemcryptor, arg_protected_buffer_manager, arg_output_protection],
+      { arg_oemcryptor: arg_oemcryptor, arg_protected_buffer_manager: arg_protected_buffer_manager, arg_output_protection: arg_output_protection },
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod3_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = cl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod5_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -507,7 +507,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = cl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -516,7 +516,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = cl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParamsSpec,
-      [arg_key_id, arg_hw_identifier],
+      { arg_key_id: arg_key_id, arg_hw_identifier: arg_hw_identifier },
       false);
   }
 
@@ -525,7 +525,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = cl
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ResponseParamsSpec,
-      [arg_size],
+      { arg_size: arg_size },
       false);
   }
 
@@ -534,7 +534,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = cl
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParamsSpec,
-      [arg_secure_handle, arg_offset, arg_stream_data],
+      { arg_secure_handle: arg_secure_handle, arg_offset: arg_offset, arg_stream_data: arg_stream_data },
       false);
   }
 
@@ -612,13 +612,13 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createFactory');
-          const result = this.impl.createFactory(params.arg_arg_key_system);
+          const result = this.impl.createFactory(params.arg_key_system);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_factory' in response) ? response.arg_arg_factory : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_factory' in response) ? response.arg_factory : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParamsSpec.$.structSpec, { 'arg_factory': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createFactory FAILED:', e));
           }
@@ -635,7 +635,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectOemCrypto');
-          const result = this.impl.connectOemCrypto(params.arg_arg_oemcryptor, params.arg_arg_protected_buffer_manager, params.arg_arg_output_protection);
+          const result = this.impl.connectOemCrypto(params.arg_oemcryptor, params.arg_protected_buffer_manager, params.arg_output_protection);
           break;
         }
         case 3: {
@@ -654,7 +654,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_config_data']);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_config_data': response.arg_config_data });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getHwConfigData FAILED:', e));
           }
@@ -676,8 +676,8 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_hdcp_key_base64' in response) ? response.arg_arg_hdcp_key_base64 : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_hdcp_key_base64' in response) ? response.arg_hdcp_key_base64 : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParamsSpec.$.structSpec, { 'arg_hdcp_key_base64': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getHdcp14Key FAILED:', e));
           }
@@ -687,12 +687,12 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAndroidHwKeyData');
-          const result = this.impl.getAndroidHwKeyData(params.arg_arg_key_id, params.arg_arg_hw_identifier);
+          const result = this.impl.getAndroidHwKeyData(params.arg_key_id, params.arg_hw_identifier);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_key_data']);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_key_data': response.arg_key_data });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAndroidHwKeyData FAILED:', e));
           }
@@ -702,13 +702,13 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.allocateSecureBuffer');
-          const result = this.impl.allocateSecureBuffer(params.arg_arg_size);
+          const result = this.impl.allocateSecureBuffer(params.arg_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_fd' in response) ? response.arg_arg_fd : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_fd' in response) ? response.arg_fd : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ResponseParamsSpec.$.structSpec, { 'arg_fd': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] allocateSecureBuffer FAILED:', e));
           }
@@ -718,12 +718,12 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseEncryptedSliceHeader');
-          const result = this.impl.parseEncryptedSliceHeader(params.arg_arg_secure_handle, params.arg_arg_offset, params.arg_arg_stream_data);
+          const result = this.impl.parseEncryptedSliceHeader(params.arg_secure_handle, params.arg_offset, params.arg_stream_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_slice_header']);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_slice_header': response.arg_slice_header });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] parseEncryptedSliceHeader FAILED:', e));
           }

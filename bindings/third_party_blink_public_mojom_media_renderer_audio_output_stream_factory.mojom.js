@@ -188,7 +188,7 @@ mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactoryRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec,
       mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec,
-      [arg_stream_provider_receiver, arg_session_id, arg_device_id],
+      { arg_stream_provider_receiver: arg_stream_provider_receiver, arg_session_id: arg_session_id, arg_device_id: arg_device_id },
       false);
   }
 
@@ -257,12 +257,12 @@ mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactoryReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestDeviceAuthorization');
-          const result = this.impl.requestDeviceAuthorization(params.arg_arg_stream_provider_receiver, params.arg_arg_session_id, params.arg_arg_device_id);
+          const result = this.impl.requestDeviceAuthorization(params.arg_stream_provider_receiver, params.arg_session_id, params.arg_device_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec.$.structSpec, ['response.arg_arg_state', 'response.arg_arg_output_params', 'response.arg_arg_matched_device_id']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec.$.structSpec, { 'arg_state': response.arg_state, 'arg_output_params': response.arg_output_params, 'arg_matched_device_id': response.arg_matched_device_id });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestDeviceAuthorization FAILED:', e));
           }

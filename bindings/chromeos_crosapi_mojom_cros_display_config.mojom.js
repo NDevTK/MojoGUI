@@ -317,7 +317,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec,
-      [arg_info],
+      { arg_info: arg_info },
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandle
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec,
-      [arg_single_unified],
+      { arg_single_unified: arg_single_unified },
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandle
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec,
-      [arg_id, arg_properties, arg_source],
+      { arg_id: arg_id, arg_properties: arg_properties, arg_source: arg_source },
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandle
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetUnifiedDesktopEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandle
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec,
-      [arg_display_id, arg_op, arg_delta],
+      { arg_display_id: arg_display_id, arg_op: arg_op, arg_delta: arg_delta },
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandle
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec,
-      [arg_display_id, arg_op, arg_calibration],
+      { arg_display_id: arg_display_id, arg_op: arg_op, arg_calibration: arg_calibration },
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandle
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_HighlightDisplay_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandle
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_DragDisplayDelta_ParamsSpec,
       null,
-      [arg_display_id, arg_delta_x, arg_delta_y],
+      { arg_display_id: arg_display_id, arg_delta_x: arg_delta_x, arg_delta_y: arg_delta_y },
       false);
   }
 
@@ -476,7 +476,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_arg_observer);
+          const result = this.impl.addObserver(params.arg_observer);
           break;
         }
         case 1: {
@@ -488,8 +488,8 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDisplayLayoutInfo FAILED:', e));
           }
@@ -499,13 +499,13 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDisplayLayoutInfo');
-          const result = this.impl.setDisplayLayoutInfo(params.arg_arg_info);
+          const result = this.impl.setDisplayLayoutInfo(params.arg_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setDisplayLayoutInfo FAILED:', e));
           }
@@ -515,13 +515,13 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDisplayUnitInfoList');
-          const result = this.impl.getDisplayUnitInfoList(params.arg_arg_single_unified);
+          const result = this.impl.getDisplayUnitInfoList(params.arg_single_unified);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info_list' in response) ? response.arg_arg_info_list : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info_list' in response) ? response.arg_info_list : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec.$.structSpec, { 'arg_info_list': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDisplayUnitInfoList FAILED:', e));
           }
@@ -531,13 +531,13 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDisplayProperties');
-          const result = this.impl.setDisplayProperties(params.arg_arg_id, params.arg_arg_properties, params.arg_arg_source);
+          const result = this.impl.setDisplayProperties(params.arg_id, params.arg_properties, params.arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setDisplayProperties FAILED:', e));
           }
@@ -547,20 +547,20 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetUnifiedDesktopEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUnifiedDesktopEnabled');
-          const result = this.impl.setUnifiedDesktopEnabled(params.arg_arg_enabled);
+          const result = this.impl.setUnifiedDesktopEnabled(params.arg_enabled);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.overscanCalibration');
-          const result = this.impl.overscanCalibration(params.arg_arg_display_id, params.arg_arg_op, params.arg_arg_delta);
+          const result = this.impl.overscanCalibration(params.arg_display_id, params.arg_op, params.arg_delta);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] overscanCalibration FAILED:', e));
           }
@@ -570,13 +570,13 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.touchCalibration');
-          const result = this.impl.touchCalibration(params.arg_arg_display_id, params.arg_arg_op, params.arg_arg_calibration);
+          const result = this.impl.touchCalibration(params.arg_display_id, params.arg_op, params.arg_calibration);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] touchCalibration FAILED:', e));
           }
@@ -586,14 +586,14 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_HighlightDisplay_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.highlightDisplay');
-          const result = this.impl.highlightDisplay(params.arg_arg_id);
+          const result = this.impl.highlightDisplay(params.arg_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_DragDisplayDelta_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dragDisplayDelta');
-          const result = this.impl.dragDisplayDelta(params.arg_arg_display_id, params.arg_arg_delta_x, params.arg_arg_delta_y);
+          const result = this.impl.dragDisplayDelta(params.arg_display_id, params.arg_delta_x, params.arg_delta_y);
           break;
         }
       }
@@ -654,7 +654,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigObserverRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

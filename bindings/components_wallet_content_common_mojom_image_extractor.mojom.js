@@ -177,7 +177,7 @@ mojo.internal.bindings.wallet.mojom.ImageExtractorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec,
       mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -251,8 +251,8 @@ mojo.internal.bindings.wallet.mojom.ImageExtractorReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_images' in response) ? response.arg_arg_images : response;
-              encoder.encodeStructInline(mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_images' in response) ? response.arg_images : response;
+              encoder.encodeStructInline(mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec.$.structSpec, { 'arg_images': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] extractImages FAILED:', e));
           }

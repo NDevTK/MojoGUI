@@ -183,7 +183,7 @@ mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec,
       null,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCustomHelpBubbleHandler');
-          const result = this.impl.createCustomHelpBubbleHandler(params.arg_arg_handler);
+          const result = this.impl.createCustomHelpBubbleHandler(params.arg_handler);
           break;
         }
       }
@@ -313,7 +313,7 @@ mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec,
       null,
-      [arg_action],
+      { arg_action: arg_action },
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyUserAction');
-          const result = this.impl.notifyUserAction(params.arg_arg_action);
+          const result = this.impl.notifyUserAction(params.arg_action);
           break;
         }
       }

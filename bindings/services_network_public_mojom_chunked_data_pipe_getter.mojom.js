@@ -176,7 +176,7 @@ mojo.internal.bindings.network.mojom.ChunkedDataPipeGetterRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec,
       mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -185,7 +185,7 @@ mojo.internal.bindings.network.mojom.ChunkedDataPipeGetterRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec,
       null,
-      [arg_pipe],
+      { arg_pipe: arg_pipe },
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.network.mojom.ChunkedDataPipeGetterReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_size']);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_size': response.arg_size });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSize FAILED:', e));
           }
@@ -270,7 +270,7 @@ mojo.internal.bindings.network.mojom.ChunkedDataPipeGetterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startReading');
-          const result = this.impl.startReading(params.arg_arg_pipe);
+          const result = this.impl.startReading(params.arg_pipe);
           break;
         }
       }

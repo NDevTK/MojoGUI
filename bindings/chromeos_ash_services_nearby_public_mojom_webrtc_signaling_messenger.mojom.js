@@ -194,7 +194,7 @@ mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -203,7 +203,7 @@ mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec,
       null,
-      [arg_success],
+      { arg_success: arg_success },
       false);
   }
 
@@ -273,14 +273,14 @@ mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessage');
-          const result = this.impl.onMessage(params.arg_arg_message);
+          const result = this.impl.onMessage(params.arg_message);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
-          const result = this.impl.onComplete(params.arg_arg_success);
+          const result = this.impl.onComplete(params.arg_success);
           break;
         }
       }
@@ -341,7 +341,7 @@ mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -475,7 +475,7 @@ mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec,
       mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec,
-      [arg_self_id, arg_peer_id, arg_location_hint, arg_message],
+      { arg_self_id: arg_self_id, arg_peer_id: arg_peer_id, arg_location_hint: arg_location_hint, arg_message: arg_message },
       false);
   }
 
@@ -484,7 +484,7 @@ mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec,
       mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec,
-      [arg_self_id, arg_location_hint, arg_listener],
+      { arg_self_id: arg_self_id, arg_location_hint: arg_location_hint, arg_listener: arg_listener },
       false);
   }
 
@@ -554,13 +554,13 @@ mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendMessage');
-          const result = this.impl.sendMessage(params.arg_arg_self_id, params.arg_arg_peer_id, params.arg_arg_location_hint, params.arg_arg_message);
+          const result = this.impl.sendMessage(params.arg_self_id, params.arg_peer_id, params.arg_location_hint, params.arg_message);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendMessage FAILED:', e));
           }
@@ -570,12 +570,12 @@ mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startReceivingMessages');
-          const result = this.impl.startReceivingMessages(params.arg_arg_self_id, params.arg_arg_location_hint, params.arg_arg_listener);
+          const result = this.impl.startReceivingMessages(params.arg_self_id, params.arg_location_hint, params.arg_listener);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_session']);
+              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_session': response.arg_session });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startReceivingMessages FAILED:', e));
           }

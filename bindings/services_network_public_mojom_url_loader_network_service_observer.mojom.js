@@ -282,7 +282,7 @@ mojo.internal.bindings.network.mojom.ClientCertificateResponderRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec,
       null,
-      [arg_x509_certificate, arg_provider_name, arg_algorithm_preferences, arg_ssl_private_key],
+      { arg_x509_certificate: arg_x509_certificate, arg_provider_name: arg_provider_name, arg_algorithm_preferences: arg_algorithm_preferences, arg_ssl_private_key: arg_ssl_private_key },
       false);
   }
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.network.mojom.ClientCertificateResponderRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -300,7 +300,7 @@ mojo.internal.bindings.network.mojom.ClientCertificateResponderRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.network.mojom.ClientCertificateResponderReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.continueWithCertificate');
-          const result = this.impl.continueWithCertificate(params.arg_arg_x509_certificate, params.arg_arg_provider_name, params.arg_arg_algorithm_preferences, params.arg_arg_ssl_private_key);
+          const result = this.impl.continueWithCertificate(params.arg_x509_certificate, params.arg_provider_name, params.arg_algorithm_preferences, params.arg_ssl_private_key);
           break;
         }
         case 1: {
@@ -446,7 +446,7 @@ mojo.internal.bindings.network.mojom.SSLPrivateKeyRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ParamsSpec,
       mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec,
-      [arg_algorithm, arg_input],
+      { arg_algorithm: arg_algorithm, arg_input: arg_input },
       false);
   }
 
@@ -515,12 +515,12 @@ mojo.internal.bindings.network.mojom.SSLPrivateKeyReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sign');
-          const result = this.impl.sign(params.arg_arg_algorithm, params.arg_arg_input);
+          const result = this.impl.sign(params.arg_algorithm, params.arg_input);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec.$.structSpec, ['response.arg_arg_net_error', 'response.arg_arg_signature']);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec.$.structSpec, { 'arg_net_error': response.arg_net_error, 'arg_signature': response.arg_signature });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sign FAILED:', e));
           }
@@ -584,7 +584,7 @@ mojo.internal.bindings.network.mojom.AuthChallengeResponderRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec,
       null,
-      [arg_credentials],
+      { arg_credentials: arg_credentials },
       false);
   }
 
@@ -653,7 +653,7 @@ mojo.internal.bindings.network.mojom.AuthChallengeResponderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAuthCredentials');
-          const result = this.impl.onAuthCredentials(params.arg_arg_credentials);
+          const result = this.impl.onAuthCredentials(params.arg_credentials);
           break;
         }
       }
@@ -758,7 +758,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec,
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec,
-      [arg_url, arg_net_error, arg_ssl_info, arg_fatal],
+      { arg_url: arg_url, arg_net_error: arg_net_error, arg_ssl_info: arg_ssl_info, arg_fatal: arg_fatal },
       false);
   }
 
@@ -767,7 +767,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec,
       null,
-      [arg_window_id, arg_cert_info, arg_cert_responder],
+      { arg_window_id: arg_window_id, arg_cert_info: arg_cert_info, arg_cert_responder: arg_cert_responder },
       false);
   }
 
@@ -776,7 +776,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec,
       null,
-      [arg_window_id, arg_request_id, arg_url, arg_first_auth_attempt, arg_auth_info, arg_head_headers, arg_auth_challenge_responder],
+      { arg_window_id: arg_window_id, arg_request_id: arg_request_id, arg_url: arg_url, arg_first_auth_attempt: arg_first_auth_attempt, arg_auth_info: arg_auth_info, arg_head_headers: arg_head_headers, arg_auth_challenge_responder: arg_auth_challenge_responder },
       false);
   }
 
@@ -785,7 +785,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec,
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec,
-      [arg_transport_type, arg_ip_address_space],
+      { arg_transport_type: arg_transport_type, arg_ip_address_space: arg_ip_address_space },
       false);
   }
 
@@ -794,7 +794,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec,
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec,
-      [arg_url, arg_header_value, arg_load_flags, arg_cookie_partition_key, arg_partitioned_state_allowed_only],
+      { arg_url: arg_url, arg_header_value: arg_header_value, arg_load_flags: arg_load_flags, arg_cookie_partition_key: arg_cookie_partition_key, arg_partitioned_state_allowed_only: arg_partitioned_state_allowed_only },
       false);
   }
 
@@ -803,7 +803,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec,
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec,
-      [arg_info],
+      { arg_info: arg_info },
       false);
   }
 
@@ -812,7 +812,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec,
       null,
-      [arg_network_traffic_annotation_id_hash, arg_recv_bytes, arg_sent_bytes],
+      { arg_network_traffic_annotation_id_hash: arg_network_traffic_annotation_id_hash, arg_recv_bytes: arg_recv_bytes, arg_sent_bytes: arg_sent_bytes },
       false);
   }
 
@@ -821,7 +821,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec,
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec,
-      [arg_request_origin, arg_methods_with_options, arg_with_lock],
+      { arg_request_origin: arg_request_origin, arg_methods_with_options: arg_methods_with_options, arg_with_lock: arg_with_lock },
       false);
   }
 
@@ -830,7 +830,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec,
       null,
-      [arg_ad_auction_event_record, arg_top_frame_origin],
+      { arg_ad_auction_event_record: arg_ad_auction_event_record, arg_top_frame_origin: arg_top_frame_origin },
       false);
   }
 
@@ -839,7 +839,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec,
       null,
-      [arg_listener],
+      { arg_listener: arg_listener },
       false);
   }
 
@@ -848,7 +848,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec,
       null,
-      [arg_request_url, arg_ip_address_space],
+      { arg_request_url: arg_request_url, arg_ip_address_space: arg_ip_address_space },
       false);
   }
 
@@ -857,7 +857,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec,
       null,
-      [arg_request_url, arg_response_address_space, arg_client_address_space, arg_target_address_space],
+      { arg_request_url: arg_request_url, arg_response_address_space: arg_response_address_space, arg_client_address_space: arg_client_address_space, arg_target_address_space: arg_target_address_space },
       false);
   }
 
@@ -937,13 +937,13 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSSLCertificateError');
-          const result = this.impl.onSSLCertificateError(params.arg_arg_url, params.arg_arg_net_error, params.arg_arg_ssl_info, params.arg_arg_fatal);
+          const result = this.impl.onSSLCertificateError(params.arg_url, params.arg_net_error, params.arg_ssl_info, params.arg_fatal);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_net_error' in response) ? response.arg_arg_net_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_net_error' in response) ? response.arg_net_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec.$.structSpec, { 'arg_net_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onSSLCertificateError FAILED:', e));
           }
@@ -953,27 +953,27 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCertificateRequested');
-          const result = this.impl.onCertificateRequested(params.arg_arg_window_id, params.arg_arg_cert_info, params.arg_arg_cert_responder);
+          const result = this.impl.onCertificateRequested(params.arg_window_id, params.arg_cert_info, params.arg_cert_responder);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAuthRequired');
-          const result = this.impl.onAuthRequired(params.arg_arg_window_id, params.arg_arg_request_id, params.arg_arg_url, params.arg_arg_first_auth_attempt, params.arg_arg_auth_info, params.arg_arg_head_headers, params.arg_arg_auth_challenge_responder);
+          const result = this.impl.onAuthRequired(params.arg_window_id, params.arg_request_id, params.arg_url, params.arg_first_auth_attempt, params.arg_auth_info, params.arg_head_headers, params.arg_auth_challenge_responder);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLocalNetworkAccessPermissionRequired');
-          const result = this.impl.onLocalNetworkAccessPermissionRequired(params.arg_arg_transport_type, params.arg_arg_ip_address_space);
+          const result = this.impl.onLocalNetworkAccessPermissionRequired(params.arg_transport_type, params.arg_ip_address_space);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onLocalNetworkAccessPermissionRequired FAILED:', e));
           }
@@ -983,12 +983,12 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClearSiteData');
-          const result = this.impl.onClearSiteData(params.arg_arg_url, params.arg_arg_header_value, params.arg_arg_load_flags, params.arg_arg_cookie_partition_key, params.arg_arg_partitioned_state_allowed_only);
+          const result = this.impl.onClearSiteData(params.arg_url, params.arg_header_value, params.arg_load_flags, params.arg_cookie_partition_key, params.arg_partitioned_state_allowed_only);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onClearSiteData FAILED:', e));
           }
@@ -998,12 +998,12 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLoadingStateUpdate');
-          const result = this.impl.onLoadingStateUpdate(params.arg_arg_info);
+          const result = this.impl.onLoadingStateUpdate(params.arg_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onLoadingStateUpdate FAILED:', e));
           }
@@ -1013,19 +1013,19 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDataUseUpdate');
-          const result = this.impl.onDataUseUpdate(params.arg_arg_network_traffic_annotation_id_hash, params.arg_arg_recv_bytes, params.arg_arg_sent_bytes);
+          const result = this.impl.onDataUseUpdate(params.arg_network_traffic_annotation_id_hash, params.arg_recv_bytes, params.arg_sent_bytes);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSharedStorageHeaderReceived');
-          const result = this.impl.onSharedStorageHeaderReceived(params.arg_arg_request_origin, params.arg_arg_methods_with_options, params.arg_arg_with_lock);
+          const result = this.impl.onSharedStorageHeaderReceived(params.arg_request_origin, params.arg_methods_with_options, params.arg_with_lock);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onSharedStorageHeaderReceived FAILED:', e));
           }
@@ -1035,28 +1035,28 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAdAuctionEventRecordHeaderReceived');
-          const result = this.impl.onAdAuctionEventRecordHeaderReceived(params.arg_arg_ad_auction_event_record, params.arg_arg_top_frame_origin);
+          const result = this.impl.onAdAuctionEventRecordHeaderReceived(params.arg_ad_auction_event_record, params.arg_top_frame_origin);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_listener);
+          const result = this.impl.clone(params.arg_listener);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWebSocketConnectedToPrivateNetwork');
-          const result = this.impl.onWebSocketConnectedToPrivateNetwork(params.arg_arg_request_url, params.arg_arg_ip_address_space);
+          const result = this.impl.onWebSocketConnectedToPrivateNetwork(params.arg_request_url, params.arg_ip_address_space);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUrlLoaderConnectedToPrivateNetwork');
-          const result = this.impl.onUrlLoaderConnectedToPrivateNetwork(params.arg_arg_request_url, params.arg_arg_response_address_space, params.arg_arg_client_address_space, params.arg_arg_target_address_space);
+          const result = this.impl.onUrlLoaderConnectedToPrivateNetwork(params.arg_request_url, params.arg_response_address_space, params.arg_client_address_space, params.arg_target_address_space);
           break;
         }
       }

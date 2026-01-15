@@ -180,7 +180,7 @@ mojo.internal.bindings.network.mojom.NetworkInterfaceChangeListenerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec,
       null,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.network.mojom.NetworkInterfaceChangeListenerReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkInterfacesChanged');
-          const result = this.impl.onNetworkInterfacesChanged(params.arg_arg_params);
+          const result = this.impl.onNetworkInterfacesChanged(params.arg_params);
           break;
         }
       }

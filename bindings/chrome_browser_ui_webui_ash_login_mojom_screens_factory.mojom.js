@@ -324,7 +324,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec,
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ResponseParamsSpec,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -333,7 +333,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_ParamsSpec,
       null,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -342,7 +342,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsSpec,
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ResponseParamsSpec,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -351,7 +351,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_ParamsSpec,
       null,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -360,7 +360,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec,
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ResponseParamsSpec,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -369,7 +369,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_ParamsSpec,
       null,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -378,7 +378,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSpec,
       null,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -387,7 +387,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ParamsSpec,
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ResponseParamsSpec,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -396,7 +396,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_ParamsSpec,
       null,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -405,7 +405,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ParamsSpec,
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ResponseParamsSpec,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -414,7 +414,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ParamsSpec,
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ResponseParamsSpec,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -423,7 +423,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_ParamsSpec,
       null,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -503,13 +503,13 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishAiIntroScreenPipe');
-          const result = this.impl.establishAiIntroScreenPipe(params.arg_arg_handler);
+          const result = this.impl.establishAiIntroScreenPipe(params.arg_handler);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pending' in response) ? response.arg_arg_pending : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pending' in response) ? response.arg_pending : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ResponseParamsSpec.$.structSpec, { 'arg_pending': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] establishAiIntroScreenPipe FAILED:', e));
           }
@@ -519,20 +519,20 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishAppDownloadingScreenPipe');
-          const result = this.impl.establishAppDownloadingScreenPipe(params.arg_arg_handler);
+          const result = this.impl.establishAppDownloadingScreenPipe(params.arg_handler);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishDrivePinningScreenPipe');
-          const result = this.impl.establishDrivePinningScreenPipe(params.arg_arg_handler);
+          const result = this.impl.establishDrivePinningScreenPipe(params.arg_handler);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pending' in response) ? response.arg_arg_pending : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pending' in response) ? response.arg_pending : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ResponseParamsSpec.$.structSpec, { 'arg_pending': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] establishDrivePinningScreenPipe FAILED:', e));
           }
@@ -542,20 +542,20 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishFjordStationSetupScreenPipe');
-          const result = this.impl.establishFjordStationSetupScreenPipe(params.arg_arg_handler);
+          const result = this.impl.establishFjordStationSetupScreenPipe(params.arg_handler);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishGaiaInfoScreenPipe');
-          const result = this.impl.establishGaiaInfoScreenPipe(params.arg_arg_handler);
+          const result = this.impl.establishGaiaInfoScreenPipe(params.arg_handler);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pending' in response) ? response.arg_arg_pending : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pending' in response) ? response.arg_pending : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ResponseParamsSpec.$.structSpec, { 'arg_pending': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] establishGaiaInfoScreenPipe FAILED:', e));
           }
@@ -565,27 +565,27 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishGestureNavigationScreenPipe');
-          const result = this.impl.establishGestureNavigationScreenPipe(params.arg_arg_handler);
+          const result = this.impl.establishGestureNavigationScreenPipe(params.arg_handler);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishGeminiIntroScreenPipe');
-          const result = this.impl.establishGeminiIntroScreenPipe(params.arg_arg_handler);
+          const result = this.impl.establishGeminiIntroScreenPipe(params.arg_handler);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishConsumerUpdateScreenPipe');
-          const result = this.impl.establishConsumerUpdateScreenPipe(params.arg_arg_handler);
+          const result = this.impl.establishConsumerUpdateScreenPipe(params.arg_handler);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pending' in response) ? response.arg_arg_pending : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pending' in response) ? response.arg_pending : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ResponseParamsSpec.$.structSpec, { 'arg_pending': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] establishConsumerUpdateScreenPipe FAILED:', e));
           }
@@ -595,20 +595,20 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishPackagedLicenseScreenPipe');
-          const result = this.impl.establishPackagedLicenseScreenPipe(params.arg_arg_handler);
+          const result = this.impl.establishPackagedLicenseScreenPipe(params.arg_handler);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishArcVmDataMigrationScreenPipe');
-          const result = this.impl.establishArcVmDataMigrationScreenPipe(params.arg_arg_handler);
+          const result = this.impl.establishArcVmDataMigrationScreenPipe(params.arg_handler);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pending' in response) ? response.arg_arg_pending : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pending' in response) ? response.arg_pending : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ResponseParamsSpec.$.structSpec, { 'arg_pending': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] establishArcVmDataMigrationScreenPipe FAILED:', e));
           }
@@ -618,13 +618,13 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishEncryptionMigrationScreenPipe');
-          const result = this.impl.establishEncryptionMigrationScreenPipe(params.arg_arg_handler);
+          const result = this.impl.establishEncryptionMigrationScreenPipe(params.arg_handler);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pending' in response) ? response.arg_arg_pending : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pending' in response) ? response.arg_pending : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ResponseParamsSpec.$.structSpec, { 'arg_pending': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] establishEncryptionMigrationScreenPipe FAILED:', e));
           }
@@ -634,7 +634,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishLocalDataLossWarningScreenPipe');
-          const result = this.impl.establishLocalDataLossWarningScreenPipe(params.arg_arg_handler);
+          const result = this.impl.establishLocalDataLossWarningScreenPipe(params.arg_handler);
           break;
         }
       }

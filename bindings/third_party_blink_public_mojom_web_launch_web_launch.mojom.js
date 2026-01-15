@@ -188,7 +188,7 @@ mojo.internal.bindings.blink.mojom.WebLaunchServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec,
       null,
-      [arg_files],
+      { arg_files: arg_files },
       false);
   }
 
@@ -197,7 +197,7 @@ mojo.internal.bindings.blink.mojom.WebLaunchServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec,
       null,
-      [arg_launch_url, arg_time_navigation_started_in_browser, arg_navigation_started],
+      { arg_launch_url: arg_launch_url, arg_time_navigation_started_in_browser: arg_time_navigation_started_in_browser, arg_navigation_started: arg_navigation_started },
       false);
   }
 
@@ -267,14 +267,14 @@ mojo.internal.bindings.blink.mojom.WebLaunchServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setLaunchFiles');
-          const result = this.impl.setLaunchFiles(params.arg_arg_files);
+          const result = this.impl.setLaunchFiles(params.arg_files);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enqueueLaunchParams');
-          const result = this.impl.enqueueLaunchParams(params.arg_arg_launch_url, params.arg_arg_time_navigation_started_in_browser, params.arg_arg_navigation_started);
+          const result = this.impl.enqueueLaunchParams(params.arg_launch_url, params.arg_time_navigation_started_in_browser, params.arg_navigation_started);
           break;
         }
       }

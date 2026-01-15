@@ -264,7 +264,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -273,7 +273,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ResponseParamsSpec,
-      [arg_directory_path_components],
+      { arg_directory_path_components: arg_directory_path_components },
       false);
   }
 
@@ -282,7 +282,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessManager_ChooseEntries_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessManager_ChooseEntries_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetFileHandleFromToken_ParamsSpec,
       null,
-      [arg_token, arg_file_handle],
+      { arg_token: arg_token, arg_file_handle: arg_file_handle },
       false);
   }
 
@@ -300,7 +300,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetDirectoryHandleFromToken_ParamsSpec,
       null,
-      [arg_token, arg_directory_handle],
+      { arg_token: arg_token, arg_directory_handle: arg_directory_handle },
       false);
   }
 
@@ -309,7 +309,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerRemoteCallHandler = cl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ResponseParamsSpec,
-      [arg_token],
+      { arg_token: arg_token },
       false);
   }
 
@@ -318,7 +318,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerRemoteCallHandler = cl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessManager_BindObserverHost_ParamsSpec,
       null,
-      [arg_observer_host],
+      { arg_observer_host: arg_observer_host },
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_directory']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_directory': response.arg_directory });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSandboxedFileSystem FAILED:', e));
           }
@@ -408,12 +408,12 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSandboxedFileSystemForDevtools');
-          const result = this.impl.getSandboxedFileSystemForDevtools(params.arg_arg_directory_path_components);
+          const result = this.impl.getSandboxedFileSystemForDevtools(params.arg_directory_path_components);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_directory']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_directory': response.arg_directory });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSandboxedFileSystemForDevtools FAILED:', e));
           }
@@ -423,12 +423,12 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_ChooseEntries_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.chooseEntries');
-          const result = this.impl.chooseEntries(params.arg_arg_options);
+          const result = this.impl.chooseEntries(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_ChooseEntries_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_entries']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_ChooseEntries_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_entries': response.arg_entries });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] chooseEntries FAILED:', e));
           }
@@ -438,26 +438,26 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetFileHandleFromToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFileHandleFromToken');
-          const result = this.impl.getFileHandleFromToken(params.arg_arg_token, params.arg_arg_file_handle);
+          const result = this.impl.getFileHandleFromToken(params.arg_token, params.arg_file_handle);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetDirectoryHandleFromToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDirectoryHandleFromToken');
-          const result = this.impl.getDirectoryHandleFromToken(params.arg_arg_token, params.arg_arg_directory_handle);
+          const result = this.impl.getDirectoryHandleFromToken(params.arg_token, params.arg_directory_handle);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getEntryFromDataTransferToken');
-          const result = this.impl.getEntryFromDataTransferToken(params.arg_arg_token);
+          const result = this.impl.getEntryFromDataTransferToken(params.arg_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_entry']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_entry': response.arg_entry });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getEntryFromDataTransferToken FAILED:', e));
           }
@@ -467,7 +467,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_BindObserverHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindObserverHost');
-          const result = this.impl.bindObserverHost(params.arg_arg_observer_host);
+          const result = this.impl.bindObserverHost(params.arg_observer_host);
           break;
         }
       }

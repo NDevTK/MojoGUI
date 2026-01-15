@@ -183,7 +183,7 @@ mojo.internal.bindings.blink.mojom.FontUniqueNameLookupRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.blink.mojom.FontUniqueNameLookupRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.blink.mojom.FontUniqueNameLookupReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec.$.structSpec, ['response.arg_arg_sync_available', 'response.arg_arg_font_lookup_table']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec.$.structSpec, { 'arg_sync_available': response.arg_sync_available, 'arg_font_lookup_table': response.arg_font_lookup_table });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUniqueNameLookupTableIfAvailable FAILED:', e));
           }
@@ -282,8 +282,8 @@ mojo.internal.bindings.blink.mojom.FontUniqueNameLookupReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_font_lookup_table' in response) ? response.arg_arg_font_lookup_table : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_font_lookup_table' in response) ? response.arg_font_lookup_table : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec.$.structSpec, { 'arg_font_lookup_table': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUniqueNameLookupTable FAILED:', e));
           }

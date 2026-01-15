@@ -189,7 +189,7 @@ mojo.internal.bindings.blink.mojom.AndroidFontLookupRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -198,7 +198,7 @@ mojo.internal.bindings.blink.mojom.AndroidFontLookupRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec,
-      [arg_font_unique_name],
+      { arg_font_unique_name: arg_font_unique_name },
       false);
   }
 
@@ -207,7 +207,7 @@ mojo.internal.bindings.blink.mojom.AndroidFontLookupRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -283,8 +283,8 @@ mojo.internal.bindings.blink.mojom.AndroidFontLookupReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_unique_font_names' in response) ? response.arg_arg_unique_font_names : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_unique_font_names' in response) ? response.arg_unique_font_names : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec.$.structSpec, { 'arg_unique_font_names': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUniqueNameLookupTable FAILED:', e));
           }
@@ -294,13 +294,13 @@ mojo.internal.bindings.blink.mojom.AndroidFontLookupReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.matchLocalFontByUniqueName');
-          const result = this.impl.matchLocalFontByUniqueName(params.arg_arg_font_unique_name);
+          const result = this.impl.matchLocalFontByUniqueName(params.arg_font_unique_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_font_file_handle' in response) ? response.arg_arg_font_file_handle : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_font_file_handle' in response) ? response.arg_font_file_handle : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec.$.structSpec, { 'arg_font_file_handle': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] matchLocalFontByUniqueName FAILED:', e));
           }
@@ -315,8 +315,8 @@ mojo.internal.bindings.blink.mojom.AndroidFontLookupReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_font_files' in response) ? response.arg_arg_font_files : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_font_files' in response) ? response.arg_font_files : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec.$.structSpec, { 'arg_font_files': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fetchAllFontFiles FAILED:', e));
           }

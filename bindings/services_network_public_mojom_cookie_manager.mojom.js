@@ -398,7 +398,7 @@ mojo.internal.bindings.network.mojom.CookieChangeListenerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.CookieChangeListener_OnCookieChange_ParamsSpec,
       null,
-      [arg_change],
+      { arg_change: arg_change },
       false);
   }
 
@@ -467,7 +467,7 @@ mojo.internal.bindings.network.mojom.CookieChangeListenerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieChangeListener_OnCookieChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCookieChange');
-          const result = this.impl.onCookieChange(params.arg_arg_change);
+          const result = this.impl.onCookieChange(params.arg_change);
           break;
         }
       }
@@ -600,7 +600,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_GetAllCookies_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_GetAllCookies_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -609,7 +609,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -618,7 +618,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_GetCookieList_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_GetCookieList_ResponseParamsSpec,
-      [arg_url, arg_cookie_options, arg_cookie_partition_key_collection],
+      { arg_url: arg_url, arg_cookie_options: arg_cookie_options, arg_cookie_partition_key_collection: arg_cookie_partition_key_collection },
       false);
   }
 
@@ -627,7 +627,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_SetCanonicalCookie_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_SetCanonicalCookie_ResponseParamsSpec,
-      [arg_cookie, arg_source_url, arg_cookie_options],
+      { arg_cookie: arg_cookie, arg_source_url: arg_source_url, arg_cookie_options: arg_cookie_options },
       false);
   }
 
@@ -636,7 +636,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_DeleteCanonicalCookie_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_DeleteCanonicalCookie_ResponseParamsSpec,
-      [arg_cookie],
+      { arg_cookie: arg_cookie },
       false);
   }
 
@@ -645,7 +645,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_DeleteCookies_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_DeleteCookies_ResponseParamsSpec,
-      [arg_filter],
+      { arg_filter: arg_filter },
       false);
   }
 
@@ -654,7 +654,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_DeleteSessionOnlyCookies_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_DeleteSessionOnlyCookies_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -663,7 +663,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -672,7 +672,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_AddCookieChangeListener_ParamsSpec,
       null,
-      [arg_url, arg_name, arg_listener],
+      { arg_url: arg_url, arg_name: arg_name, arg_listener: arg_listener },
       false);
   }
 
@@ -681,7 +681,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_AddGlobalChangeListener_ParamsSpec,
       null,
-      [arg_notification_pointer],
+      { arg_notification_pointer: arg_notification_pointer },
       false);
   }
 
@@ -690,7 +690,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_CloneInterface_ParamsSpec,
       null,
-      [arg_new_interface],
+      { arg_new_interface: arg_new_interface },
       false);
   }
 
@@ -699,7 +699,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_FlushCookieStore_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_FlushCookieStore_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -708,7 +708,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_AllowFileSchemeCookies_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_AllowFileSchemeCookies_ResponseParamsSpec,
-      [arg_allow],
+      { arg_allow: arg_allow },
       false);
   }
 
@@ -717,7 +717,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_SetContentSettings_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_SetContentSettings_ResponseParamsSpec,
-      [arg_content_settings_type, arg_settings],
+      { arg_content_settings_type: arg_content_settings_type, arg_settings: arg_settings },
       false);
   }
 
@@ -726,7 +726,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_SetForceKeepSessionState_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -735,7 +735,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_BlockThirdPartyCookies_ParamsSpec,
       null,
-      [arg_block],
+      { arg_block: arg_block },
       false);
   }
 
@@ -744,7 +744,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec,
       null,
-      [arg_enable],
+      { arg_enable: arg_enable },
       false);
   }
 
@@ -753,7 +753,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec,
       null,
-      [arg_enable],
+      { arg_enable: arg_enable },
       false);
   }
 
@@ -762,7 +762,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec,
       null,
-      [arg_delay],
+      { arg_delay: arg_delay },
       false);
   }
 
@@ -854,8 +854,8 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_cookies' in response) ? response.arg_arg_cookies : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_GetAllCookies_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_cookies' in response) ? response.arg_cookies : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_GetAllCookies_ResponseParamsSpec.$.structSpec, { 'arg_cookies': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAllCookies FAILED:', e));
           }
@@ -870,7 +870,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ResponseParamsSpec.$.structSpec, ['response.arg_arg_cookies', 'response.arg_arg_access_semantics_list']);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ResponseParamsSpec.$.structSpec, { 'arg_cookies': response.arg_cookies, 'arg_access_semantics_list': response.arg_access_semantics_list });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAllCookiesWithAccessSemantics FAILED:', e));
           }
@@ -880,12 +880,12 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_GetCookieList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCookieList');
-          const result = this.impl.getCookieList(params.arg_arg_url, params.arg_arg_cookie_options, params.arg_arg_cookie_partition_key_collection);
+          const result = this.impl.getCookieList(params.arg_url, params.arg_cookie_options, params.arg_cookie_partition_key_collection);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_GetCookieList_ResponseParamsSpec.$.structSpec, ['response.arg_arg_cookies', 'response.arg_arg_excluded_cookies']);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_GetCookieList_ResponseParamsSpec.$.structSpec, { 'arg_cookies': response.arg_cookies, 'arg_excluded_cookies': response.arg_excluded_cookies });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCookieList FAILED:', e));
           }
@@ -895,13 +895,13 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetCanonicalCookie_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCanonicalCookie');
-          const result = this.impl.setCanonicalCookie(params.arg_arg_cookie, params.arg_arg_source_url, params.arg_arg_cookie_options);
+          const result = this.impl.setCanonicalCookie(params.arg_cookie, params.arg_source_url, params.arg_cookie_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_access_result' in response) ? response.arg_arg_access_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetCanonicalCookie_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_access_result' in response) ? response.arg_access_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetCanonicalCookie_ResponseParamsSpec.$.structSpec, { 'arg_access_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setCanonicalCookie FAILED:', e));
           }
@@ -911,13 +911,13 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_DeleteCanonicalCookie_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteCanonicalCookie');
-          const result = this.impl.deleteCanonicalCookie(params.arg_arg_cookie);
+          const result = this.impl.deleteCanonicalCookie(params.arg_cookie);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_DeleteCanonicalCookie_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_DeleteCanonicalCookie_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteCanonicalCookie FAILED:', e));
           }
@@ -927,13 +927,13 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_DeleteCookies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteCookies');
-          const result = this.impl.deleteCookies(params.arg_arg_filter);
+          const result = this.impl.deleteCookies(params.arg_filter);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_num_deleted' in response) ? response.arg_arg_num_deleted : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_DeleteCookies_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_num_deleted' in response) ? response.arg_num_deleted : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_DeleteCookies_ResponseParamsSpec.$.structSpec, { 'arg_num_deleted': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteCookies FAILED:', e));
           }
@@ -948,8 +948,8 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_num_deleted' in response) ? response.arg_arg_num_deleted : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_DeleteSessionOnlyCookies_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_num_deleted' in response) ? response.arg_num_deleted : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_DeleteSessionOnlyCookies_ResponseParamsSpec.$.structSpec, { 'arg_num_deleted': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteSessionOnlyCookies FAILED:', e));
           }
@@ -964,8 +964,8 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_num_deleted' in response) ? response.arg_arg_num_deleted : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_num_deleted' in response) ? response.arg_num_deleted : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ResponseParamsSpec.$.structSpec, { 'arg_num_deleted': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteStaleSessionOnlyCookies FAILED:', e));
           }
@@ -975,21 +975,21 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_AddCookieChangeListener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addCookieChangeListener');
-          const result = this.impl.addCookieChangeListener(params.arg_arg_url, params.arg_arg_name, params.arg_arg_listener);
+          const result = this.impl.addCookieChangeListener(params.arg_url, params.arg_name, params.arg_listener);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_AddGlobalChangeListener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addGlobalChangeListener');
-          const result = this.impl.addGlobalChangeListener(params.arg_arg_notification_pointer);
+          const result = this.impl.addGlobalChangeListener(params.arg_notification_pointer);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_CloneInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cloneInterface');
-          const result = this.impl.cloneInterface(params.arg_arg_new_interface);
+          const result = this.impl.cloneInterface(params.arg_new_interface);
           break;
         }
         case 11: {
@@ -1001,7 +1001,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_FlushCookieStore_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_FlushCookieStore_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] flushCookieStore FAILED:', e));
           }
@@ -1011,13 +1011,13 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_AllowFileSchemeCookies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.allowFileSchemeCookies');
-          const result = this.impl.allowFileSchemeCookies(params.arg_arg_allow);
+          const result = this.impl.allowFileSchemeCookies(params.arg_allow);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_AllowFileSchemeCookies_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_AllowFileSchemeCookies_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] allowFileSchemeCookies FAILED:', e));
           }
@@ -1027,12 +1027,12 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetContentSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setContentSettings');
-          const result = this.impl.setContentSettings(params.arg_arg_content_settings_type, params.arg_arg_settings);
+          const result = this.impl.setContentSettings(params.arg_content_settings_type, params.arg_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetContentSettings_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetContentSettings_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setContentSettings FAILED:', e));
           }
@@ -1049,28 +1049,28 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_BlockThirdPartyCookies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.blockThirdPartyCookies');
-          const result = this.impl.blockThirdPartyCookies(params.arg_arg_block);
+          const result = this.impl.blockThirdPartyCookies(params.arg_block);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMitigationsEnabledFor3pcd');
-          const result = this.impl.setMitigationsEnabledFor3pcd(params.arg_arg_enable);
+          const result = this.impl.setMitigationsEnabledFor3pcd(params.arg_enable);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTrackingProtectionEnabledFor3pcd');
-          const result = this.impl.setTrackingProtectionEnabledFor3pcd(params.arg_arg_enable);
+          const result = this.impl.setTrackingProtectionEnabledFor3pcd(params.arg_enable);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPreCommitCallbackDelayForTesting');
-          const result = this.impl.setPreCommitCallbackDelayForTesting(params.arg_arg_delay);
+          const result = this.impl.setPreCommitCallbackDelayForTesting(params.arg_delay);
           break;
         }
       }

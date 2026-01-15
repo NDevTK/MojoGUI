@@ -251,7 +251,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -269,7 +269,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -278,7 +278,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRemoteCall
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRemoteCall
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec,
-      [arg_settings],
+      { arg_settings: arg_settings },
       false);
   }
 
@@ -296,7 +296,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRemoteCall
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -305,7 +305,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRemoteCall
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -314,7 +314,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRemoteCall
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec,
       null,
-      [arg_feedback],
+      { arg_feedback: arg_feedback },
       false);
   }
 
@@ -402,7 +402,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] suspend FAILED:', e));
           }
@@ -424,8 +424,8 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_capabilities' in response) ? response.arg_arg_capabilities : response;
-              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_capabilities' in response) ? response.arg_capabilities : response;
+              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec.$.structSpec, { 'arg_capabilities': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPhotoState FAILED:', e));
           }
@@ -435,13 +435,13 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPhotoOptions');
-          const result = this.impl.setPhotoOptions(params.arg_arg_settings);
+          const result = this.impl.setPhotoOptions(params.arg_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setPhotoOptions FAILED:', e));
           }
@@ -456,8 +456,8 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_blob' in response) ? response.arg_arg_blob : response;
-              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_blob' in response) ? response.arg_blob : response;
+              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec.$.structSpec, { 'arg_blob': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] takePhoto FAILED:', e));
           }
@@ -472,7 +472,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] close FAILED:', e));
           }
@@ -482,7 +482,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.processFeedback');
-          const result = this.impl.processFeedback(params.arg_arg_feedback);
+          const result = this.impl.processFeedback(params.arg_feedback);
           break;
         }
       }
@@ -543,7 +543,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec,
-      [arg_subscriber, arg_requested_settings, arg_force_reopen_with_new_settings, arg_subscription],
+      { arg_subscriber: arg_subscriber, arg_requested_settings: arg_requested_settings, arg_force_reopen_with_new_settings: arg_force_reopen_with_new_settings, arg_subscription: arg_subscription },
       false);
   }
 
@@ -612,12 +612,12 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPushSubscription');
-          const result = this.impl.createPushSubscription(params.arg_arg_subscriber, params.arg_arg_requested_settings, params.arg_arg_force_reopen_with_new_settings, params.arg_arg_subscription);
+          const result = this.impl.createPushSubscription(params.arg_subscriber, params.arg_requested_settings, params.arg_force_reopen_with_new_settings, params.arg_subscription);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result_code', 'response.arg_arg_settings_source_was_opened_with']);
+              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec.$.structSpec, { 'arg_result_code': response.arg_result_code, 'arg_settings_source_was_opened_with': response.arg_settings_source_was_opened_with });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createPushSubscription FAILED:', e));
           }

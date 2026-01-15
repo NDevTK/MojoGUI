@@ -280,7 +280,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec,
       null,
-      [arg_succeeded, arg_error_msg],
+      { arg_succeeded: arg_succeeded, arg_error_msg: arg_error_msg },
       false);
   }
 
@@ -298,7 +298,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec,
       null,
-      [arg_item],
+      { arg_item: arg_item },
       false);
   }
 
@@ -307,7 +307,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec,
       null,
-      [arg_item],
+      { arg_item: arg_item },
       false);
   }
 
@@ -316,7 +316,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec,
       null,
-      [arg_total_history_rows_count],
+      { arg_total_history_rows_count: arg_total_history_rows_count },
       false);
   }
 
@@ -325,7 +325,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec,
       null,
-      [arg_history_rows_group, arg_visit_source],
+      { arg_history_rows_group: arg_history_rows_group, arg_visit_source: arg_visit_source },
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec,
       null,
-      [arg_home_page],
+      { arg_home_page: arg_home_page },
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec,
       null,
-      [arg_first_folder_name, arg_total_bookmarks_count],
+      { arg_first_folder_name: arg_first_folder_name, arg_total_bookmarks_count: arg_total_bookmarks_count },
       false);
   }
 
@@ -352,7 +352,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec,
       null,
-      [arg_bookmarks_group],
+      { arg_bookmarks_group: arg_bookmarks_group },
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec,
       null,
-      [arg_total_favicons_count],
+      { arg_total_favicons_count: arg_total_favicons_count },
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec,
       null,
-      [arg_favicons_group],
+      { arg_favicons_group: arg_favicons_group },
       false);
   }
 
@@ -379,7 +379,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec,
       null,
-      [arg_form],
+      { arg_form: arg_form },
       false);
   }
 
@@ -388,7 +388,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec,
       null,
-      [arg_search_engines, arg_unique_on_host_and_path],
+      { arg_search_engines: arg_search_engines, arg_unique_on_host_and_path: arg_unique_on_host_and_path },
       false);
   }
 
@@ -397,7 +397,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec,
       null,
-      [arg_total_autofill_form_data_entry_count],
+      { arg_total_autofill_form_data_entry_count: arg_total_autofill_form_data_entry_count },
       false);
   }
 
@@ -406,7 +406,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec,
       null,
-      [arg_autofill_form_data_entry_group],
+      { arg_autofill_form_data_entry_group: arg_autofill_form_data_entry_group },
       false);
   }
 
@@ -496,98 +496,98 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onImportFinished');
-          const result = this.impl.onImportFinished(params.arg_arg_succeeded, params.arg_arg_error_msg);
+          const result = this.impl.onImportFinished(params.arg_succeeded, params.arg_error_msg);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onImportItemStart');
-          const result = this.impl.onImportItemStart(params.arg_arg_item);
+          const result = this.impl.onImportItemStart(params.arg_item);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onImportItemFinished');
-          const result = this.impl.onImportItemFinished(params.arg_arg_item);
+          const result = this.impl.onImportItemFinished(params.arg_item);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHistoryImportStart');
-          const result = this.impl.onHistoryImportStart(params.arg_arg_total_history_rows_count);
+          const result = this.impl.onHistoryImportStart(params.arg_total_history_rows_count);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHistoryImportGroup');
-          const result = this.impl.onHistoryImportGroup(params.arg_arg_history_rows_group, params.arg_arg_visit_source);
+          const result = this.impl.onHistoryImportGroup(params.arg_history_rows_group, params.arg_visit_source);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHomePageImportReady');
-          const result = this.impl.onHomePageImportReady(params.arg_arg_home_page);
+          const result = this.impl.onHomePageImportReady(params.arg_home_page);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBookmarksImportStart');
-          const result = this.impl.onBookmarksImportStart(params.arg_arg_first_folder_name, params.arg_arg_total_bookmarks_count);
+          const result = this.impl.onBookmarksImportStart(params.arg_first_folder_name, params.arg_total_bookmarks_count);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBookmarksImportGroup');
-          const result = this.impl.onBookmarksImportGroup(params.arg_arg_bookmarks_group);
+          const result = this.impl.onBookmarksImportGroup(params.arg_bookmarks_group);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFaviconsImportStart');
-          const result = this.impl.onFaviconsImportStart(params.arg_arg_total_favicons_count);
+          const result = this.impl.onFaviconsImportStart(params.arg_total_favicons_count);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFaviconsImportGroup');
-          const result = this.impl.onFaviconsImportGroup(params.arg_arg_favicons_group);
+          const result = this.impl.onFaviconsImportGroup(params.arg_favicons_group);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPasswordFormImportReady');
-          const result = this.impl.onPasswordFormImportReady(params.arg_arg_form);
+          const result = this.impl.onPasswordFormImportReady(params.arg_form);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onKeywordsImportReady');
-          const result = this.impl.onKeywordsImportReady(params.arg_arg_search_engines, params.arg_arg_unique_on_host_and_path);
+          const result = this.impl.onKeywordsImportReady(params.arg_search_engines, params.arg_unique_on_host_and_path);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAutofillFormDataImportStart');
-          const result = this.impl.onAutofillFormDataImportStart(params.arg_arg_total_autofill_form_data_entry_count);
+          const result = this.impl.onAutofillFormDataImportStart(params.arg_total_autofill_form_data_entry_count);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAutofillFormDataImportGroup');
-          const result = this.impl.onAutofillFormDataImportGroup(params.arg_arg_autofill_form_data_entry_group);
+          const result = this.impl.onAutofillFormDataImportGroup(params.arg_autofill_form_data_entry_group);
           break;
         }
       }
@@ -656,7 +656,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImport_StartImport_ParamsSpec,
       null,
-      [arg_source_profile, arg_items, arg_localized_strings, arg_observer],
+      { arg_source_profile: arg_source_profile, arg_items: arg_items, arg_localized_strings: arg_localized_strings, arg_observer: arg_observer },
       false);
   }
 
@@ -665,7 +665,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImport_CancelImport_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -674,7 +674,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec,
       null,
-      [arg_item],
+      { arg_item: arg_item },
       false);
   }
 
@@ -745,7 +745,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImport_StartImport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startImport');
-          const result = this.impl.startImport(params.arg_arg_source_profile, params.arg_arg_items, params.arg_arg_localized_strings, params.arg_arg_observer);
+          const result = this.impl.startImport(params.arg_source_profile, params.arg_items, params.arg_localized_strings, params.arg_observer);
           break;
         }
         case 1: {
@@ -759,7 +759,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportImportItemFinished');
-          const result = this.impl.reportImportItemFinished(params.arg_arg_item);
+          const result = this.impl.reportImportItemFinished(params.arg_item);
           break;
         }
       }

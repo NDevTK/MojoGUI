@@ -170,7 +170,7 @@ mojo.internal.bindings.service_manager.mojom.InterfaceProviderRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.service_manager.mojom.InterfaceProvider_GetInterface_ParamsSpec,
       null,
-      [arg_interface_name, arg_pipe],
+      { arg_interface_name: arg_interface_name, arg_pipe: arg_pipe },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.service_manager.mojom.InterfaceProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.InterfaceProvider_GetInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInterface');
-          const result = this.impl.getInterface(params.arg_arg_interface_name, params.arg_arg_pipe);
+          const result = this.impl.getInterface(params.arg_interface_name, params.arg_pipe);
           break;
         }
       }

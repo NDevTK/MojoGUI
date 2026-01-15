@@ -175,7 +175,7 @@ mojo.internal.bindings.chrome.mojom.NetErrorPageSupportRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -184,7 +184,7 @@ mojo.internal.bindings.chrome.mojom.NetErrorPageSupportRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec,
       null,
-      [arg_showing_download_button],
+      { arg_showing_download_button: arg_showing_download_button },
       false);
   }
 
@@ -261,7 +261,7 @@ mojo.internal.bindings.chrome.mojom.NetErrorPageSupportReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsShowingDownloadButtonInErrorPage');
-          const result = this.impl.setIsShowingDownloadButtonInErrorPage(params.arg_arg_showing_download_button);
+          const result = this.impl.setIsShowingDownloadButtonInErrorPage(params.arg_showing_download_button);
           break;
         }
       }

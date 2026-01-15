@@ -183,7 +183,7 @@ mojo.internal.bindings.chromecast.mojom.ApiBindingsRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ParamsSpec,
       mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.chromecast.mojom.ApiBindingsRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.ApiBindings_Connect_ParamsSpec,
       null,
-      [arg_port_name, arg_port],
+      { arg_port_name: arg_port_name, arg_port: arg_port },
       false);
   }
 
@@ -267,8 +267,8 @@ mojo.internal.bindings.chromecast.mojom.ApiBindingsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_bindings' in response) ? response.arg_arg_bindings : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_bindings' in response) ? response.arg_bindings : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec.$.structSpec, { 'arg_bindings': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAll FAILED:', e));
           }
@@ -278,7 +278,7 @@ mojo.internal.bindings.chromecast.mojom.ApiBindingsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.ApiBindings_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_arg_port_name, params.arg_arg_port);
+          const result = this.impl.connect(params.arg_port_name, params.arg_port);
           break;
         }
       }

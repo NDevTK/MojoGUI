@@ -290,7 +290,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec,
-      [arg_state, arg_page_restore_params],
+      { arg_state: arg_state, arg_page_restore_params: arg_page_restore_params },
       false);
   }
 
@@ -299,7 +299,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec,
       null,
-      [arg_is_audio_playing],
+      { arg_is_audio_playing: arg_is_audio_playing },
       false);
   }
 
@@ -308,7 +308,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec,
-      [arg_prerender_page_activation_params],
+      { arg_prerender_page_activation_params: arg_prerender_page_activation_params },
       false);
   }
 
@@ -317,7 +317,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec,
       null,
-      [arg_preferences],
+      { arg_preferences: arg_preferences },
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec,
       null,
-      [arg_preferences],
+      { arg_preferences: arg_preferences },
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec,
       null,
-      [arg_index, arg_length],
+      { arg_index: arg_index, arg_length: arg_length },
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec,
       null,
-      [arg_color],
+      { arg_color: arg_color },
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec,
       null,
-      [arg_token, arg_opener_frame_token, arg_replication_state, arg_is_loading, arg_devtools_frame_token, arg_navigation_metrics_token, arg_remote_frame_interfaces, arg_remote_main_frame_interfaces],
+      { arg_token: arg_token, arg_opener_frame_token: arg_opener_frame_token, arg_replication_state: arg_replication_state, arg_is_loading: arg_is_loading, arg_devtools_frame_token: arg_devtools_frame_token, arg_navigation_metrics_token: arg_navigation_metrics_token, arg_remote_frame_interfaces: arg_remote_frame_interfaces, arg_remote_main_frame_interfaces: arg_remote_main_frame_interfaces },
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec,
       null,
-      [arg_browsing_context_group_token],
+      { arg_browsing_context_group_token: arg_browsing_context_group_token },
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec,
       null,
-      [arg_support],
+      { arg_support: arg_support },
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec,
       null,
-      [arg_color_provider_colors],
+      { arg_color_provider_colors: arg_color_provider_colors },
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec,
       null,
-      [arg_supports_draggable_regions],
+      { arg_supports_draggable_regions: arg_supports_draggable_regions },
       false);
   }
 
@@ -469,12 +469,12 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPageLifecycleState');
-          const result = this.impl.setPageLifecycleState(params.arg_arg_state, params.arg_arg_page_restore_params);
+          const result = this.impl.setPageLifecycleState(params.arg_state, params.arg_page_restore_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setPageLifecycleState FAILED:', e));
           }
@@ -484,19 +484,19 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.audioStateChanged');
-          const result = this.impl.audioStateChanged(params.arg_arg_is_audio_playing);
+          const result = this.impl.audioStateChanged(params.arg_is_audio_playing);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.activatePrerenderedPage');
-          const result = this.impl.activatePrerenderedPage(params.arg_arg_prerender_page_activation_params);
+          const result = this.impl.activatePrerenderedPage(params.arg_prerender_page_activation_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] activatePrerenderedPage FAILED:', e));
           }
@@ -506,63 +506,63 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateWebPreferences');
-          const result = this.impl.updateWebPreferences(params.arg_arg_preferences);
+          const result = this.impl.updateWebPreferences(params.arg_preferences);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateRendererPreferences');
-          const result = this.impl.updateRendererPreferences(params.arg_arg_preferences);
+          const result = this.impl.updateRendererPreferences(params.arg_preferences);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHistoryIndexAndLength');
-          const result = this.impl.setHistoryIndexAndLength(params.arg_arg_index, params.arg_arg_length);
+          const result = this.impl.setHistoryIndexAndLength(params.arg_index, params.arg_length);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPageBaseBackgroundColor');
-          const result = this.impl.setPageBaseBackgroundColor(params.arg_arg_color);
+          const result = this.impl.setPageBaseBackgroundColor(params.arg_color);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createRemoteMainFrame');
-          const result = this.impl.createRemoteMainFrame(params.arg_arg_token, params.arg_arg_opener_frame_token, params.arg_arg_replication_state, params.arg_arg_is_loading, params.arg_arg_devtools_frame_token, params.arg_arg_navigation_metrics_token, params.arg_arg_remote_frame_interfaces, params.arg_arg_remote_main_frame_interfaces);
+          const result = this.impl.createRemoteMainFrame(params.arg_token, params.arg_opener_frame_token, params.arg_replication_state, params.arg_is_loading, params.arg_devtools_frame_token, params.arg_navigation_metrics_token, params.arg_remote_frame_interfaces, params.arg_remote_main_frame_interfaces);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePageBrowsingContextGroup');
-          const result = this.impl.updatePageBrowsingContextGroup(params.arg_arg_browsing_context_group_token);
+          const result = this.impl.updatePageBrowsingContextGroup(params.arg_browsing_context_group_token);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPageAttributionSupport');
-          const result = this.impl.setPageAttributionSupport(params.arg_arg_support);
+          const result = this.impl.setPageAttributionSupport(params.arg_support);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateColorProviders');
-          const result = this.impl.updateColorProviders(params.arg_arg_color_provider_colors);
+          const result = this.impl.updateColorProviders(params.arg_color_provider_colors);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSupportsDraggableRegions');
-          const result = this.impl.setSupportsDraggableRegions(params.arg_arg_supports_draggable_regions);
+          const result = this.impl.setSupportsDraggableRegions(params.arg_supports_draggable_regions);
           break;
         }
       }

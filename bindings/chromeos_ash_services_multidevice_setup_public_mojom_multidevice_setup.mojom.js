@@ -298,7 +298,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegateRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnPotentialHostExistsForNewUser_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -307,7 +307,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegateRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNoLongerNewUser_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -316,7 +316,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegateRe
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedForExistingUser_ParamsSpec,
       null,
-      [arg_new_host_device_name],
+      { arg_new_host_device_name: arg_new_host_device_name },
       false);
   }
 
@@ -325,7 +325,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegateRe
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForExistingUser_ParamsSpec,
       null,
-      [arg_new_host_device_name],
+      { arg_new_host_device_name: arg_new_host_device_name },
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegateRe
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnBecameEligibleForWifiSync_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -421,14 +421,14 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegateRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedForExistingUser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnectedHostSwitchedForExistingUser');
-          const result = this.impl.onConnectedHostSwitchedForExistingUser(params.arg_arg_new_host_device_name);
+          const result = this.impl.onConnectedHostSwitchedForExistingUser(params.arg_new_host_device_name);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForExistingUser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewChromebookAddedForExistingUser');
-          const result = this.impl.onNewChromebookAddedForExistingUser(params.arg_arg_new_host_device_name);
+          const result = this.impl.onNewChromebookAddedForExistingUser(params.arg_new_host_device_name);
           break;
         }
         case 4: {
@@ -496,7 +496,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.HostStatusObserverRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec,
       null,
-      [arg_host_status, arg_host_device],
+      { arg_host_status: arg_host_status, arg_host_device: arg_host_device },
       false);
   }
 
@@ -565,7 +565,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.HostStatusObserverReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHostStatusChanged');
-          const result = this.impl.onHostStatusChanged(params.arg_arg_host_status, params.arg_arg_host_device);
+          const result = this.impl.onHostStatusChanged(params.arg_host_status, params.arg_host_device);
           break;
         }
       }
@@ -626,7 +626,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureStateObserverRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSpec,
       null,
-      [arg_feature_states_map],
+      { arg_feature_states_map: arg_feature_states_map },
       false);
   }
 
@@ -695,7 +695,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureStateObserverReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFeatureStatesChanged');
-          const result = this.impl.onFeatureStatesChanged(params.arg_arg_feature_states_map);
+          const result = this.impl.onFeatureStatesChanged(params.arg_feature_states_map);
           break;
         }
       }
@@ -808,7 +808,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_ParamsSpec,
       null,
-      [arg_delegate],
+      { arg_delegate: arg_delegate },
       false);
   }
 
@@ -817,7 +817,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -826,7 +826,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -835,7 +835,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec,
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -844,7 +844,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ParamsSpec,
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -853,7 +853,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec,
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ResponseParamsSpec,
-      [arg_instance_id_or_legacy_device_id, arg_auth_token],
+      { arg_instance_id_or_legacy_device_id: arg_instance_id_or_legacy_device_id, arg_auth_token: arg_auth_token },
       false);
   }
 
@@ -862,7 +862,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_RemoveHostDevice_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -871,7 +871,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec,
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -880,7 +880,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec,
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponseParamsSpec,
-      [arg_feature, arg_enabled, arg_auth_token],
+      { arg_feature: arg_feature, arg_enabled: arg_enabled, arg_auth_token: arg_auth_token },
       false);
   }
 
@@ -889,7 +889,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec,
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -898,7 +898,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec,
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -907,7 +907,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec,
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ResponseParamsSpec,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -916,7 +916,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_ParamsSpec,
       null,
-      [arg_qs_phone_instance_id],
+      { arg_qs_phone_instance_id: arg_qs_phone_instance_id },
       false);
   }
 
@@ -925,7 +925,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ParamsSpec,
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1007,21 +1007,21 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAccountStatusChangeDelegate');
-          const result = this.impl.setAccountStatusChangeDelegate(params.arg_arg_delegate);
+          const result = this.impl.setAccountStatusChangeDelegate(params.arg_delegate);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addHostStatusObserver');
-          const result = this.impl.addHostStatusObserver(params.arg_arg_observer);
+          const result = this.impl.addHostStatusObserver(params.arg_observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addFeatureStateObserver');
-          const result = this.impl.addFeatureStateObserver(params.arg_arg_observer);
+          const result = this.impl.addFeatureStateObserver(params.arg_observer);
           break;
         }
         case 3: {
@@ -1033,8 +1033,8 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_eligible_host_devices' in response) ? response.arg_arg_eligible_host_devices : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_eligible_host_devices' in response) ? response.arg_eligible_host_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponseParamsSpec.$.structSpec, { 'arg_eligible_host_devices': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getEligibleHostDevices FAILED:', e));
           }
@@ -1049,8 +1049,8 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_eligible_host_devices' in response) ? response.arg_arg_eligible_host_devices : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_eligible_host_devices' in response) ? response.arg_eligible_host_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParamsSpec.$.structSpec, { 'arg_eligible_host_devices': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getEligibleActiveHostDevices FAILED:', e));
           }
@@ -1060,13 +1060,13 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHostDevice');
-          const result = this.impl.setHostDevice(params.arg_arg_instance_id_or_legacy_device_id, params.arg_arg_auth_token);
+          const result = this.impl.setHostDevice(params.arg_instance_id_or_legacy_device_id, params.arg_auth_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setHostDevice FAILED:', e));
           }
@@ -1088,7 +1088,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec.$.structSpec, ['response.arg_arg_host_status', 'response.arg_arg_host_device']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec.$.structSpec, { 'arg_host_status': response.arg_host_status, 'arg_host_device': response.arg_host_device });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getHostStatus FAILED:', e));
           }
@@ -1098,13 +1098,13 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFeatureEnabledState');
-          const result = this.impl.setFeatureEnabledState(params.arg_arg_feature, params.arg_arg_enabled, params.arg_arg_auth_token);
+          const result = this.impl.setFeatureEnabledState(params.arg_feature, params.arg_enabled, params.arg_auth_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setFeatureEnabledState FAILED:', e));
           }
@@ -1119,8 +1119,8 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_feature_states_map' in response) ? response.arg_arg_feature_states_map : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_feature_states_map' in response) ? response.arg_feature_states_map : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec.$.structSpec, { 'arg_feature_states_map': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFeatureStates FAILED:', e));
           }
@@ -1135,8 +1135,8 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] retrySetHostNow FAILED:', e));
           }
@@ -1146,13 +1146,13 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.triggerEventForDebugging');
-          const result = this.impl.triggerEventForDebugging(params.arg_arg_type);
+          const result = this.impl.triggerEventForDebugging(params.arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] triggerEventForDebugging FAILED:', e));
           }
@@ -1162,7 +1162,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setQuickStartPhoneInstanceID');
-          const result = this.impl.setQuickStartPhoneInstanceID(params.arg_arg_qs_phone_instance_id);
+          const result = this.impl.setQuickStartPhoneInstanceID(params.arg_qs_phone_instance_id);
           break;
         }
         case 13: {
@@ -1174,8 +1174,8 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_qs_phone_instance_id' in response) ? response.arg_arg_qs_phone_instance_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_qs_phone_instance_id' in response) ? response.arg_qs_phone_instance_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ResponseParamsSpec.$.structSpec, { 'arg_qs_phone_instance_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getQuickStartPhoneInstanceID FAILED:', e));
           }
@@ -1239,7 +1239,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec,
       mojo.internal.bindings.ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ResponseParamsSpec,
-      [arg_instance_id_or_legacy_device_id],
+      { arg_instance_id_or_legacy_device_id: arg_instance_id_or_legacy_device_id },
       false);
   }
 
@@ -1308,13 +1308,13 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHostDevice');
-          const result = this.impl.setHostDevice(params.arg_arg_instance_id_or_legacy_device_id);
+          const result = this.impl.setHostDevice(params.arg_instance_id_or_legacy_device_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setHostDevice FAILED:', e));
           }

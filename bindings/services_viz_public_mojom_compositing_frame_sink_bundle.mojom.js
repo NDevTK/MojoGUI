@@ -213,7 +213,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec,
       null,
-      [arg_sink_id, arg_needs_begin_frame],
+      { arg_sink_id: arg_sink_id, arg_needs_begin_frame: arg_needs_begin_frame },
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkBundle_Submit_ParamsSpec,
       null,
-      [arg_submissions],
+      { arg_submissions: arg_submissions },
       false);
   }
 
@@ -292,14 +292,14 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNeedsBeginFrame');
-          const result = this.impl.setNeedsBeginFrame(params.arg_arg_sink_id, params.arg_arg_needs_begin_frame);
+          const result = this.impl.setNeedsBeginFrame(params.arg_sink_id, params.arg_needs_begin_frame);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkBundle_Submit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submit');
-          const result = this.impl.submit(params.arg_arg_submissions);
+          const result = this.impl.submit(params.arg_submissions);
           break;
         }
       }
@@ -368,7 +368,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleClientRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec,
       null,
-      [arg_acks, arg_begin_frames, arg_reclaimed_resources],
+      { arg_acks: arg_acks, arg_begin_frames: arg_begin_frames, arg_reclaimed_resources: arg_reclaimed_resources },
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleClientRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec,
       null,
-      [arg_sink_id, arg_paused],
+      { arg_sink_id: arg_sink_id, arg_paused: arg_paused },
       false);
   }
 
@@ -386,7 +386,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleClientRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec,
       null,
-      [arg_sink_id, arg_sequence_id],
+      { arg_sink_id: arg_sink_id, arg_sequence_id: arg_sequence_id },
       false);
   }
 
@@ -457,21 +457,21 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flushNotifications');
-          const result = this.impl.flushNotifications(params.arg_arg_acks, params.arg_arg_begin_frames, params.arg_arg_reclaimed_resources);
+          const result = this.impl.flushNotifications(params.arg_acks, params.arg_begin_frames, params.arg_reclaimed_resources);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBeginFramePausedChanged');
-          const result = this.impl.onBeginFramePausedChanged(params.arg_arg_sink_id, params.arg_arg_paused);
+          const result = this.impl.onBeginFramePausedChanged(params.arg_sink_id, params.arg_paused);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCompositorFrameTransitionDirectiveProcessed');
-          const result = this.impl.onCompositorFrameTransitionDirectiveProcessed(params.arg_arg_sink_id, params.arg_arg_sequence_id);
+          const result = this.impl.onCompositorFrameTransitionDirectiveProcessed(params.arg_sink_id, params.arg_sequence_id);
           break;
         }
       }

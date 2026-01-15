@@ -179,7 +179,7 @@ mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitializationRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec,
       mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec,
-      [arg_uffd_error, arg_uffd_handle, arg_mmap_error, arg_swap_area],
+      { arg_uffd_error: arg_uffd_error, arg_uffd_handle: arg_uffd_handle, arg_mmap_error: arg_mmap_error, arg_swap_area: arg_swap_area },
       false);
   }
 
@@ -248,12 +248,12 @@ mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitializationReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.transferUserfaultFD');
-          const result = this.impl.transferUserfaultFD(params.arg_arg_uffd_error, params.arg_arg_uffd_handle, params.arg_arg_mmap_error, params.arg_arg_swap_area);
+          const result = this.impl.transferUserfaultFD(params.arg_uffd_error, params.arg_uffd_handle, params.arg_mmap_error, params.arg_swap_area);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] transferUserfaultFD FAILED:', e));
           }
@@ -325,7 +325,7 @@ mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec,
       null,
-      [arg_src, arg_dest],
+      { arg_src: arg_src, arg_dest: arg_dest },
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec,
       null,
-      [arg_area],
+      { arg_area: arg_area },
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec,
       mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec,
-      [arg_max_superpages],
+      { arg_max_superpages: arg_max_superpages },
       false);
   }
 
@@ -414,27 +414,27 @@ mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.movePTEsLeavingMapping');
-          const result = this.impl.movePTEsLeavingMapping(params.arg_arg_src, params.arg_arg_dest);
+          const result = this.impl.movePTEsLeavingMapping(params.arg_src, params.arg_dest);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mapArea');
-          const result = this.impl.mapArea(params.arg_arg_area);
+          const result = this.impl.mapArea(params.arg_area);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPartitionAllocSuperPagesUsed');
-          const result = this.impl.getPartitionAllocSuperPagesUsed(params.arg_arg_max_superpages);
+          const result = this.impl.getPartitionAllocSuperPagesUsed(params.arg_max_superpages);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_superpages' in response) ? response.arg_arg_superpages : response;
-              encoder.encodeStructInline(mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_superpages' in response) ? response.arg_superpages : response;
+              encoder.encodeStructInline(mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec.$.structSpec, { 'arg_superpages': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPartitionAllocSuperPagesUsed FAILED:', e));
           }

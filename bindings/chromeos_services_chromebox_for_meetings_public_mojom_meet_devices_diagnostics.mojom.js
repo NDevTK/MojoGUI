@@ -189,7 +189,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnosticsRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -198,7 +198,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnosticsRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec,
-      [arg_pid],
+      { arg_pid: arg_pid },
       false);
   }
 
@@ -273,8 +273,8 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnosticsReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_telemetry' in response) ? response.arg_arg_telemetry : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_telemetry' in response) ? response.arg_telemetry : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec.$.structSpec, { 'arg_telemetry': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCrosHealthdTelemetry FAILED:', e));
           }
@@ -284,13 +284,13 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnosticsReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCrosHealthdProcessInfo');
-          const result = this.impl.getCrosHealthdProcessInfo(params.arg_arg_pid);
+          const result = this.impl.getCrosHealthdProcessInfo(params.arg_pid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_process_info' in response) ? response.arg_arg_process_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_process_info' in response) ? response.arg_process_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec.$.structSpec, { 'arg_process_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCrosHealthdProcessInfo FAILED:', e));
           }

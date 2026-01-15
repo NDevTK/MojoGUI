@@ -198,7 +198,7 @@ mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec,
       mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -267,13 +267,13 @@ mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTtsReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAudioData');
-          const result = this.impl.getAudioData(params.arg_arg_request);
+          const result = this.impl.getAudioData(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_observer' in response) ? response.arg_arg_observer : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_observer' in response) ? response.arg_observer : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec.$.structSpec, { 'arg_observer': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAudioData FAILED:', e));
           }
@@ -337,7 +337,7 @@ mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec,
       null,
-      [arg_response],
+      { arg_response: arg_response },
       false);
   }
 
@@ -406,7 +406,7 @@ mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAudioDataReceived');
-          const result = this.impl.onAudioDataReceived(params.arg_arg_response);
+          const result = this.impl.onAudioDataReceived(params.arg_response);
           break;
         }
       }

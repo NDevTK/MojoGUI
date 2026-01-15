@@ -287,7 +287,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorsUpdatedObser
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdated_ParamsSpec,
       null,
-      [arg_config],
+      { arg_config: arg_config },
       false);
   }
 
@@ -356,7 +356,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorsUpdatedObser
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAcceleratorsUpdated');
-          const result = this.impl.onAcceleratorsUpdated(params.arg_arg_config);
+          const result = this.impl.onAcceleratorsUpdated(params.arg_config);
           break;
         }
       }
@@ -417,7 +417,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.PolicyUpdatedObserverRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpdated_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -623,7 +623,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ResponseParamsSpec,
-      [arg_source],
+      { arg_source: arg_source },
       false);
   }
 
@@ -632,7 +632,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -641,7 +641,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -650,7 +650,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ResponseParamsSpec,
-      [arg_source, arg_action_id, arg_accelerator],
+      { arg_source: arg_source, arg_action_id: arg_action_id, arg_accelerator: arg_accelerator },
       false);
   }
 
@@ -659,7 +659,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ResponseParamsSpec,
-      [arg_action_id],
+      { arg_action_id: arg_action_id },
       false);
   }
 
@@ -668,7 +668,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -677,7 +677,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -686,7 +686,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -695,7 +695,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -704,7 +704,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ResponseParamsSpec,
-      [arg_prevent_processing_accelerators],
+      { arg_prevent_processing_accelerators: arg_prevent_processing_accelerators },
       false);
   }
 
@@ -713,7 +713,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ResponseParamsSpec,
-      [arg_source, arg_action_id, arg_accelerator],
+      { arg_source: arg_source, arg_action_id: arg_action_id, arg_accelerator: arg_accelerator },
       false);
   }
 
@@ -722,7 +722,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ResponseParamsSpec,
-      [arg_source, arg_action_id, arg_accelerator],
+      { arg_source: arg_source, arg_action_id: arg_action_id, arg_accelerator: arg_accelerator },
       false);
   }
 
@@ -731,7 +731,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ResponseParamsSpec,
-      [arg_source, arg_action_id, arg_old_accelerator, arg_new_accelerator],
+      { arg_source: arg_source, arg_action_id: arg_action_id, arg_old_accelerator: arg_old_accelerator, arg_new_accelerator: arg_new_accelerator },
       false);
   }
 
@@ -740,7 +740,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ResponseParamsSpec,
-      [arg_source, arg_action_id],
+      { arg_source: arg_source, arg_action_id: arg_action_id },
       false);
   }
 
@@ -749,7 +749,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -758,7 +758,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserAction_ParamsSpec,
       null,
-      [arg_user_action],
+      { arg_user_action: arg_user_action },
       false);
   }
 
@@ -767,7 +767,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCategoryNavigation_ParamsSpec,
       null,
-      [arg_category],
+      { arg_category: arg_category },
       false);
   }
 
@@ -776,7 +776,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDialogCompletedActions_ParamsSpec,
       null,
-      [arg_completed_actions],
+      { arg_completed_actions: arg_completed_actions },
       false);
   }
 
@@ -785,7 +785,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_ParamsSpec,
       null,
-      [arg_is_add, arg_subactions],
+      { arg_is_add: arg_is_add, arg_subactions: arg_subactions },
       false);
   }
 
@@ -794,7 +794,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -882,13 +882,13 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isMutable');
-          const result = this.impl.isMutable(params.arg_arg_source);
+          const result = this.impl.isMutable(params.arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_mutable' in response) ? response.arg_arg_is_mutable : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_mutable' in response) ? response.arg_is_mutable : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ResponseParamsSpec.$.structSpec, { 'arg_is_mutable': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isMutable FAILED:', e));
           }
@@ -903,8 +903,8 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_customization_allowed_by_policy' in response) ? response.arg_arg_is_customization_allowed_by_policy : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_customization_allowed_by_policy' in response) ? response.arg_is_customization_allowed_by_policy : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ResponseParamsSpec.$.structSpec, { 'arg_is_customization_allowed_by_policy': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isCustomizationAllowedByPolicy FAILED:', e));
           }
@@ -919,8 +919,8 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_meta_key' in response) ? response.arg_arg_meta_key : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_meta_key' in response) ? response.arg_meta_key : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ResponseParamsSpec.$.structSpec, { 'arg_meta_key': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMetaKeyToDisplay FAILED:', e));
           }
@@ -930,13 +930,13 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getConflictAccelerator');
-          const result = this.impl.getConflictAccelerator(params.arg_arg_source, params.arg_arg_action_id, params.arg_arg_accelerator);
+          const result = this.impl.getConflictAccelerator(params.arg_source, params.arg_action_id, params.arg_accelerator);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getConflictAccelerator FAILED:', e));
           }
@@ -946,13 +946,13 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDefaultAcceleratorsForId');
-          const result = this.impl.getDefaultAcceleratorsForId(params.arg_arg_action_id);
+          const result = this.impl.getDefaultAcceleratorsForId(params.arg_action_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_accelerators' in response) ? response.arg_arg_accelerators : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_accelerators' in response) ? response.arg_accelerators : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ResponseParamsSpec.$.structSpec, { 'arg_accelerators': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDefaultAcceleratorsForId FAILED:', e));
           }
@@ -967,8 +967,8 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_config' in response) ? response.arg_arg_config : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_config' in response) ? response.arg_config : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ResponseParamsSpec.$.structSpec, { 'arg_config': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAccelerators FAILED:', e));
           }
@@ -978,14 +978,14 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_arg_observer);
+          const result = this.impl.addObserver(params.arg_observer);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPolicyObserver');
-          const result = this.impl.addPolicyObserver(params.arg_arg_observer);
+          const result = this.impl.addPolicyObserver(params.arg_observer);
           break;
         }
         case 8: {
@@ -997,8 +997,8 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_layout_infos' in response) ? response.arg_arg_layout_infos : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_layout_infos' in response) ? response.arg_layout_infos : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ResponseParamsSpec.$.structSpec, { 'arg_layout_infos': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAcceleratorLayoutInfos FAILED:', e));
           }
@@ -1008,12 +1008,12 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.preventProcessingAccelerators');
-          const result = this.impl.preventProcessingAccelerators(params.arg_arg_prevent_processing_accelerators);
+          const result = this.impl.preventProcessingAccelerators(params.arg_prevent_processing_accelerators);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] preventProcessingAccelerators FAILED:', e));
           }
@@ -1023,13 +1023,13 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addAccelerator');
-          const result = this.impl.addAccelerator(params.arg_arg_source, params.arg_arg_action_id, params.arg_arg_accelerator);
+          const result = this.impl.addAccelerator(params.arg_source, params.arg_action_id, params.arg_accelerator);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addAccelerator FAILED:', e));
           }
@@ -1039,13 +1039,13 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeAccelerator');
-          const result = this.impl.removeAccelerator(params.arg_arg_source, params.arg_arg_action_id, params.arg_arg_accelerator);
+          const result = this.impl.removeAccelerator(params.arg_source, params.arg_action_id, params.arg_accelerator);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] removeAccelerator FAILED:', e));
           }
@@ -1055,13 +1055,13 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.replaceAccelerator');
-          const result = this.impl.replaceAccelerator(params.arg_arg_source, params.arg_arg_action_id, params.arg_arg_old_accelerator, params.arg_arg_new_accelerator);
+          const result = this.impl.replaceAccelerator(params.arg_source, params.arg_action_id, params.arg_old_accelerator, params.arg_new_accelerator);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] replaceAccelerator FAILED:', e));
           }
@@ -1071,13 +1071,13 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restoreDefault');
-          const result = this.impl.restoreDefault(params.arg_arg_source, params.arg_arg_action_id);
+          const result = this.impl.restoreDefault(params.arg_source, params.arg_action_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] restoreDefault FAILED:', e));
           }
@@ -1092,8 +1092,8 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] restoreAllDefaults FAILED:', e));
           }
@@ -1103,28 +1103,28 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordUserAction');
-          const result = this.impl.recordUserAction(params.arg_arg_user_action);
+          const result = this.impl.recordUserAction(params.arg_user_action);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCategoryNavigation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordMainCategoryNavigation');
-          const result = this.impl.recordMainCategoryNavigation(params.arg_arg_category);
+          const result = this.impl.recordMainCategoryNavigation(params.arg_category);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDialogCompletedActions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordEditDialogCompletedActions');
-          const result = this.impl.recordEditDialogCompletedActions(params.arg_arg_completed_actions);
+          const result = this.impl.recordEditDialogCompletedActions(params.arg_completed_actions);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordAddOrEditSubactions');
-          const result = this.impl.recordAddOrEditSubactions(params.arg_arg_is_add, params.arg_arg_subactions);
+          const result = this.impl.recordAddOrEditSubactions(params.arg_is_add, params.arg_subactions);
           break;
         }
         case 19: {
@@ -1136,8 +1136,8 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_has_custom_accelerators' in response) ? response.arg_arg_has_custom_accelerators : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_has_custom_accelerators' in response) ? response.arg_has_custom_accelerators : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ResponseParamsSpec.$.structSpec, { 'arg_has_custom_accelerators': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] hasCustomAccelerators FAILED:', e));
           }

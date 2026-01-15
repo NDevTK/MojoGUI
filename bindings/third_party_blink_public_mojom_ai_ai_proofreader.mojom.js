@@ -185,7 +185,7 @@ mojo.internal.bindings.blink.mojom.AIProofreaderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIProofreader_Proofread_ParamsSpec,
       null,
-      [arg_input, arg_pending_responder],
+      { arg_input: arg_input, arg_pending_responder: arg_pending_responder },
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.AIProofreaderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec,
       null,
-      [arg_input, arg_corrected_input, arg_correction_instruction, arg_pending_responder],
+      { arg_input: arg_input, arg_corrected_input: arg_corrected_input, arg_correction_instruction: arg_correction_instruction, arg_pending_responder: arg_pending_responder },
       false);
   }
 
@@ -264,14 +264,14 @@ mojo.internal.bindings.blink.mojom.AIProofreaderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIProofreader_Proofread_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.proofread');
-          const result = this.impl.proofread(params.arg_arg_input, params.arg_arg_pending_responder);
+          const result = this.impl.proofread(params.arg_input, params.arg_pending_responder);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCorrectionType');
-          const result = this.impl.getCorrectionType(params.arg_arg_input, params.arg_arg_corrected_input, params.arg_arg_correction_instruction, params.arg_arg_pending_responder);
+          const result = this.impl.getCorrectionType(params.arg_input, params.arg_corrected_input, params.arg_correction_instruction, params.arg_pending_responder);
           break;
         }
       }

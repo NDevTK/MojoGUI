@@ -287,7 +287,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec,
       null,
-      [arg_writer],
+      { arg_writer: arg_writer },
       false);
   }
 
@@ -296,7 +296,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec,
       null,
-      [arg_error, arg_quota_error_info],
+      { arg_error: arg_error, arg_quota_error_info: arg_quota_error_info },
       false);
   }
 
@@ -366,14 +366,14 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResult');
-          const result = this.impl.onResult(params.arg_arg_writer);
+          const result = this.impl.onResult(params.arg_writer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_error, params.arg_arg_quota_error_info);
+          const result = this.impl.onError(params.arg_error, params.arg_quota_error_info);
           break;
         }
       }
@@ -438,7 +438,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec,
       null,
-      [arg_rewriter],
+      { arg_rewriter: arg_rewriter },
       false);
   }
 
@@ -447,7 +447,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec,
       null,
-      [arg_error, arg_quota_error_info],
+      { arg_error: arg_error, arg_quota_error_info: arg_quota_error_info },
       false);
   }
 
@@ -517,14 +517,14 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResult');
-          const result = this.impl.onResult(params.arg_arg_rewriter);
+          const result = this.impl.onResult(params.arg_rewriter);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_error, params.arg_arg_quota_error_info);
+          const result = this.impl.onError(params.arg_error, params.arg_quota_error_info);
           break;
         }
       }
@@ -589,7 +589,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec,
       null,
-      [arg_summarizer],
+      { arg_summarizer: arg_summarizer },
       false);
   }
 
@@ -598,7 +598,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec,
       null,
-      [arg_error, arg_quota_error_info],
+      { arg_error: arg_error, arg_quota_error_info: arg_quota_error_info },
       false);
   }
 
@@ -668,14 +668,14 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResult');
-          const result = this.impl.onResult(params.arg_arg_summarizer);
+          const result = this.impl.onResult(params.arg_summarizer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_error, params.arg_arg_quota_error_info);
+          const result = this.impl.onError(params.arg_error, params.arg_quota_error_info);
           break;
         }
       }
@@ -740,7 +740,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec,
       null,
-      [arg_proofreader],
+      { arg_proofreader: arg_proofreader },
       false);
   }
 
@@ -749,7 +749,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec,
       null,
-      [arg_error, arg_quota_error_info],
+      { arg_error: arg_error, arg_quota_error_info: arg_quota_error_info },
       false);
   }
 
@@ -819,14 +819,14 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResult');
-          const result = this.impl.onResult(params.arg_arg_proofreader);
+          const result = this.impl.onResult(params.arg_proofreader);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_error, params.arg_arg_quota_error_info);
+          const result = this.impl.onError(params.arg_error, params.arg_quota_error_info);
           break;
         }
       }
@@ -931,7 +931,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -940,7 +940,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CreateLanguageModel_ParamsSpec,
       null,
-      [arg_client, arg_options],
+      { arg_client: arg_client, arg_options: arg_options },
       false);
   }
 
@@ -949,7 +949,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -958,7 +958,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CreateSummarizer_ParamsSpec,
       null,
-      [arg_client, arg_options],
+      { arg_client: arg_client, arg_options: arg_options },
       false);
   }
 
@@ -967,7 +967,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -976,7 +976,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -985,7 +985,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CreateWriter_ParamsSpec,
       null,
-      [arg_client, arg_options],
+      { arg_client: arg_client, arg_options: arg_options },
       false);
   }
 
@@ -994,7 +994,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -1003,7 +1003,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CreateRewriter_ParamsSpec,
       null,
-      [arg_client, arg_options],
+      { arg_client: arg_client, arg_options: arg_options },
       false);
   }
 
@@ -1012,7 +1012,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -1021,7 +1021,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CreateProofreader_ParamsSpec,
       null,
-      [arg_client, arg_options],
+      { arg_client: arg_client, arg_options: arg_options },
       false);
   }
 
@@ -1030,7 +1030,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec,
       null,
-      [arg_observer_remote],
+      { arg_observer_remote: arg_observer_remote },
       false);
   }
 
@@ -1110,13 +1110,13 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canCreateLanguageModel');
-          const result = this.impl.canCreateLanguageModel(params.arg_arg_options);
+          const result = this.impl.canCreateLanguageModel(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] canCreateLanguageModel FAILED:', e));
           }
@@ -1126,20 +1126,20 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CreateLanguageModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createLanguageModel');
-          const result = this.impl.createLanguageModel(params.arg_arg_client, params.arg_arg_options);
+          const result = this.impl.createLanguageModel(params.arg_client, params.arg_options);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canCreateSummarizer');
-          const result = this.impl.canCreateSummarizer(params.arg_arg_options);
+          const result = this.impl.canCreateSummarizer(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] canCreateSummarizer FAILED:', e));
           }
@@ -1149,7 +1149,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CreateSummarizer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSummarizer');
-          const result = this.impl.createSummarizer(params.arg_arg_client, params.arg_arg_options);
+          const result = this.impl.createSummarizer(params.arg_client, params.arg_options);
           break;
         }
         case 4: {
@@ -1161,8 +1161,8 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_language_model_params' in response) ? response.arg_arg_language_model_params : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_language_model_params' in response) ? response.arg_language_model_params : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec.$.structSpec, { 'arg_language_model_params': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getLanguageModelParams FAILED:', e));
           }
@@ -1172,13 +1172,13 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canCreateWriter');
-          const result = this.impl.canCreateWriter(params.arg_arg_options);
+          const result = this.impl.canCreateWriter(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] canCreateWriter FAILED:', e));
           }
@@ -1188,20 +1188,20 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CreateWriter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWriter');
-          const result = this.impl.createWriter(params.arg_arg_client, params.arg_arg_options);
+          const result = this.impl.createWriter(params.arg_client, params.arg_options);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canCreateRewriter');
-          const result = this.impl.canCreateRewriter(params.arg_arg_options);
+          const result = this.impl.canCreateRewriter(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] canCreateRewriter FAILED:', e));
           }
@@ -1211,20 +1211,20 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CreateRewriter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createRewriter');
-          const result = this.impl.createRewriter(params.arg_arg_client, params.arg_arg_options);
+          const result = this.impl.createRewriter(params.arg_client, params.arg_options);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canCreateProofreader');
-          const result = this.impl.canCreateProofreader(params.arg_arg_options);
+          const result = this.impl.canCreateProofreader(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] canCreateProofreader FAILED:', e));
           }
@@ -1234,14 +1234,14 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CreateProofreader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createProofreader');
-          const result = this.impl.createProofreader(params.arg_arg_client, params.arg_arg_options);
+          const result = this.impl.createProofreader(params.arg_client, params.arg_options);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addModelDownloadProgressObserver');
-          const result = this.impl.addModelDownloadProgressObserver(params.arg_arg_observer_remote);
+          const result = this.impl.addModelDownloadProgressObserver(params.arg_observer_remote);
           break;
         }
       }

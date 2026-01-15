@@ -301,7 +301,7 @@ mojo.internal.bindings.printing.mojom.PrintRendererRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderer_CreatePreviewDocument_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec,
-      [arg_job_settings],
+      { arg_job_settings: arg_job_settings },
       false);
   }
 
@@ -370,13 +370,13 @@ mojo.internal.bindings.printing.mojom.PrintRendererReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderer_CreatePreviewDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPreviewDocument');
-          const result = this.impl.createPreviewDocument(params.arg_arg_job_settings);
+          const result = this.impl.createPreviewDocument(params.arg_job_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_preview_document_region' in response) ? response.arg_arg_preview_document_region : response;
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_preview_document_region' in response) ? response.arg_preview_document_region : response;
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec.$.structSpec, { 'arg_preview_document_region': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createPreviewDocument FAILED:', e));
           }
@@ -472,7 +472,7 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintPreviewUI_SetOptionsFromDocument_ParamsSpec,
       null,
-      [arg_params, arg_request_id],
+      { arg_params: arg_params, arg_request_id: arg_request_id },
       false);
   }
 
@@ -481,7 +481,7 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidPrepareDocumentForPreview_ParamsSpec,
       null,
-      [arg_document_cookie, arg_request_id],
+      { arg_document_cookie: arg_document_cookie, arg_request_id: arg_request_id },
       false);
   }
 
@@ -490,7 +490,7 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidPreviewPage_ParamsSpec,
       null,
-      [arg_params, arg_request_id],
+      { arg_params: arg_params, arg_request_id: arg_request_id },
       false);
   }
 
@@ -499,7 +499,7 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintPreviewUI_MetafileReadyForPrinting_ParamsSpec,
       null,
-      [arg_params, arg_request_id],
+      { arg_params: arg_params, arg_request_id: arg_request_id },
       false);
   }
 
@@ -508,7 +508,7 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintPreviewUI_PrintPreviewFailed_ParamsSpec,
       null,
-      [arg_document_cookie, arg_request_id],
+      { arg_document_cookie: arg_document_cookie, arg_request_id: arg_request_id },
       false);
   }
 
@@ -517,7 +517,7 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintPreviewUI_PrintPreviewCancelled_ParamsSpec,
       null,
-      [arg_document_cookie, arg_request_id],
+      { arg_document_cookie: arg_document_cookie, arg_request_id: arg_request_id },
       false);
   }
 
@@ -526,7 +526,7 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintPreviewUI_PrinterSettingsInvalid_ParamsSpec,
       null,
-      [arg_document_cookie, arg_request_id],
+      { arg_document_cookie: arg_document_cookie, arg_request_id: arg_request_id },
       false);
   }
 
@@ -535,7 +535,7 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidGetDefaultPageLayout_ParamsSpec,
       null,
-      [arg_page_layout_in_points, arg_printable_area_in_points, arg_all_pages_have_custom_size, arg_all_pages_have_custom_orientation, arg_request_id],
+      { arg_page_layout_in_points: arg_page_layout_in_points, arg_printable_area_in_points: arg_printable_area_in_points, arg_all_pages_have_custom_size: arg_all_pages_have_custom_size, arg_all_pages_have_custom_orientation: arg_all_pages_have_custom_orientation, arg_request_id: arg_request_id },
       false);
   }
 
@@ -544,7 +544,7 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidStartPreview_ParamsSpec,
       null,
-      [arg_params, arg_request_id],
+      { arg_params: arg_params, arg_request_id: arg_request_id },
       false);
   }
 
@@ -621,63 +621,63 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintPreviewUI_SetOptionsFromDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOptionsFromDocument');
-          const result = this.impl.setOptionsFromDocument(params.arg_arg_params, params.arg_arg_request_id);
+          const result = this.impl.setOptionsFromDocument(params.arg_params, params.arg_request_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidPrepareDocumentForPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didPrepareDocumentForPreview');
-          const result = this.impl.didPrepareDocumentForPreview(params.arg_arg_document_cookie, params.arg_arg_request_id);
+          const result = this.impl.didPrepareDocumentForPreview(params.arg_document_cookie, params.arg_request_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidPreviewPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didPreviewPage');
-          const result = this.impl.didPreviewPage(params.arg_arg_params, params.arg_arg_request_id);
+          const result = this.impl.didPreviewPage(params.arg_params, params.arg_request_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintPreviewUI_MetafileReadyForPrinting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.metafileReadyForPrinting');
-          const result = this.impl.metafileReadyForPrinting(params.arg_arg_params, params.arg_arg_request_id);
+          const result = this.impl.metafileReadyForPrinting(params.arg_params, params.arg_request_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintPreviewUI_PrintPreviewFailed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printPreviewFailed');
-          const result = this.impl.printPreviewFailed(params.arg_arg_document_cookie, params.arg_arg_request_id);
+          const result = this.impl.printPreviewFailed(params.arg_document_cookie, params.arg_request_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintPreviewUI_PrintPreviewCancelled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printPreviewCancelled');
-          const result = this.impl.printPreviewCancelled(params.arg_arg_document_cookie, params.arg_arg_request_id);
+          const result = this.impl.printPreviewCancelled(params.arg_document_cookie, params.arg_request_id);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintPreviewUI_PrinterSettingsInvalid_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printerSettingsInvalid');
-          const result = this.impl.printerSettingsInvalid(params.arg_arg_document_cookie, params.arg_arg_request_id);
+          const result = this.impl.printerSettingsInvalid(params.arg_document_cookie, params.arg_request_id);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidGetDefaultPageLayout_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didGetDefaultPageLayout');
-          const result = this.impl.didGetDefaultPageLayout(params.arg_arg_page_layout_in_points, params.arg_arg_printable_area_in_points, params.arg_arg_all_pages_have_custom_size, params.arg_arg_all_pages_have_custom_orientation, params.arg_arg_request_id);
+          const result = this.impl.didGetDefaultPageLayout(params.arg_page_layout_in_points, params.arg_printable_area_in_points, params.arg_all_pages_have_custom_size, params.arg_all_pages_have_custom_orientation, params.arg_request_id);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidStartPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didStartPreview');
-          const result = this.impl.didStartPreview(params.arg_arg_params, params.arg_arg_request_id);
+          const result = this.impl.didStartPreview(params.arg_params, params.arg_request_id);
           break;
         }
       }
@@ -778,7 +778,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintRequestedPages_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -787,7 +787,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintWithParams_ParamsSpec,
       null,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -796,7 +796,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintForSystemDialog_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -805,7 +805,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_InitiatePrintPreview_ParamsSpec,
       null,
-      [arg_print_renderer, arg_has_selection],
+      { arg_print_renderer: arg_print_renderer, arg_has_selection: arg_has_selection },
       false);
   }
 
@@ -814,7 +814,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_SetPrintPreviewUI_ParamsSpec,
       null,
-      [arg_preview],
+      { arg_preview: arg_preview },
       false);
   }
 
@@ -823,7 +823,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintPreview_ParamsSpec,
       null,
-      [arg_settings],
+      { arg_settings: arg_settings },
       false);
   }
 
@@ -832,7 +832,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_OnPrintPreviewDialogClosed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -841,7 +841,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintFrameContent_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -850,7 +850,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_ConnectToPdfRenderer_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -859,7 +859,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintingDone_ParamsSpec,
       null,
-      [arg_success],
+      { arg_success: arg_success },
       false);
   }
 
@@ -868,7 +868,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintNodeUnderContextMenu_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -954,7 +954,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintWithParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printWithParams');
-          const result = this.impl.printWithParams(params.arg_arg_params);
+          const result = this.impl.printWithParams(params.arg_params);
           break;
         }
         case 2: {
@@ -968,21 +968,21 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderFrame_InitiatePrintPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initiatePrintPreview');
-          const result = this.impl.initiatePrintPreview(params.arg_arg_print_renderer, params.arg_arg_has_selection);
+          const result = this.impl.initiatePrintPreview(params.arg_print_renderer, params.arg_has_selection);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderFrame_SetPrintPreviewUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPrintPreviewUI');
-          const result = this.impl.setPrintPreviewUI(params.arg_arg_preview);
+          const result = this.impl.setPrintPreviewUI(params.arg_preview);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printPreview');
-          const result = this.impl.printPreview(params.arg_arg_settings);
+          const result = this.impl.printPreview(params.arg_settings);
           break;
         }
         case 6: {
@@ -996,12 +996,12 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintFrameContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printFrameContent');
-          const result = this.impl.printFrameContent(params.arg_arg_params);
+          const result = this.impl.printFrameContent(params.arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec.$.structSpec, ['response.arg_arg_document_cookie', 'response.arg_arg_params']);
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec.$.structSpec, { 'arg_document_cookie': response.arg_document_cookie, 'arg_params': response.arg_params });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] printFrameContent FAILED:', e));
           }
@@ -1018,7 +1018,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintingDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printingDone');
-          const result = this.impl.printingDone(params.arg_arg_success);
+          const result = this.impl.printingDone(params.arg_success);
           break;
         }
         case 10: {
@@ -1134,7 +1134,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_DidGetPrintedPagesCount_ParamsSpec,
       null,
-      [arg_cookie, arg_number_pages],
+      { arg_cookie: arg_cookie, arg_number_pages: arg_number_pages },
       false);
   }
 
@@ -1143,7 +1143,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1152,7 +1152,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_DidShowPrintDialog_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1161,7 +1161,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_DidPrintDocument_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -1170,7 +1170,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_IsPrintingEnabled_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1179,7 +1179,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_ScriptedPrint_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -1188,7 +1188,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_PrintingFailed_ParamsSpec,
       null,
-      [arg_cookie, arg_reason],
+      { arg_cookie: arg_cookie, arg_reason: arg_reason },
       false);
   }
 
@@ -1197,7 +1197,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_UpdatePrintSettings_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec,
-      [arg_job_settings],
+      { arg_job_settings: arg_job_settings },
       false);
   }
 
@@ -1206,7 +1206,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1215,7 +1215,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_ShowScriptedPrintPreview_ParamsSpec,
       null,
-      [arg_is_modifiable],
+      { arg_is_modifiable: arg_is_modifiable },
       false);
   }
 
@@ -1224,7 +1224,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_RequestPrintPreview_ParamsSpec,
       null,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -1233,7 +1233,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_CheckForCancel_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec,
-      [arg_preview_ui_id, arg_request_id],
+      { arg_preview_ui_id: arg_preview_ui_id, arg_request_id: arg_request_id },
       false);
   }
 
@@ -1242,7 +1242,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_SetAccessibilityTree_ParamsSpec,
       null,
-      [arg_cookie, arg_accessibility_tree],
+      { arg_cookie: arg_cookie, arg_accessibility_tree: arg_accessibility_tree },
       false);
   }
 
@@ -1323,7 +1323,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_DidGetPrintedPagesCount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didGetPrintedPagesCount');
-          const result = this.impl.didGetPrintedPagesCount(params.arg_arg_cookie, params.arg_arg_number_pages);
+          const result = this.impl.didGetPrintedPagesCount(params.arg_cookie, params.arg_number_pages);
           break;
         }
         case 1: {
@@ -1335,8 +1335,8 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_default_settings' in response) ? response.arg_arg_default_settings : response;
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_default_settings' in response) ? response.arg_default_settings : response;
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec.$.structSpec, { 'arg_default_settings': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDefaultPrintSettings FAILED:', e));
           }
@@ -1353,13 +1353,13 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_DidPrintDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didPrintDocument');
-          const result = this.impl.didPrintDocument(params.arg_arg_params);
+          const result = this.impl.didPrintDocument(params.arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_completed' in response) ? response.arg_arg_completed : response;
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_completed' in response) ? response.arg_completed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec.$.structSpec, { 'arg_completed': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] didPrintDocument FAILED:', e));
           }
@@ -1374,8 +1374,8 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_printing_enabled' in response) ? response.arg_arg_printing_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_printing_enabled' in response) ? response.arg_printing_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec.$.structSpec, { 'arg_printing_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isPrintingEnabled FAILED:', e));
           }
@@ -1385,13 +1385,13 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_ScriptedPrint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.scriptedPrint');
-          const result = this.impl.scriptedPrint(params.arg_arg_params);
+          const result = this.impl.scriptedPrint(params.arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_settings' in response) ? response.arg_arg_settings : response;
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_settings' in response) ? response.arg_settings : response;
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec.$.structSpec, { 'arg_settings': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] scriptedPrint FAILED:', e));
           }
@@ -1401,20 +1401,20 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_PrintingFailed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printingFailed');
-          const result = this.impl.printingFailed(params.arg_arg_cookie, params.arg_arg_reason);
+          const result = this.impl.printingFailed(params.arg_cookie, params.arg_reason);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_UpdatePrintSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePrintSettings');
-          const result = this.impl.updatePrintSettings(params.arg_arg_job_settings);
+          const result = this.impl.updatePrintSettings(params.arg_job_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_current_settings' in response) ? response.arg_arg_current_settings : response;
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_current_settings' in response) ? response.arg_current_settings : response;
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec.$.structSpec, { 'arg_current_settings': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updatePrintSettings FAILED:', e));
           }
@@ -1429,7 +1429,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setupScriptedPrintPreview FAILED:', e));
           }
@@ -1439,27 +1439,27 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_ShowScriptedPrintPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showScriptedPrintPreview');
-          const result = this.impl.showScriptedPrintPreview(params.arg_arg_is_modifiable);
+          const result = this.impl.showScriptedPrintPreview(params.arg_is_modifiable);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_RequestPrintPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPrintPreview');
-          const result = this.impl.requestPrintPreview(params.arg_arg_params);
+          const result = this.impl.requestPrintPreview(params.arg_params);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_CheckForCancel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkForCancel');
-          const result = this.impl.checkForCancel(params.arg_arg_preview_ui_id, params.arg_arg_request_id);
+          const result = this.impl.checkForCancel(params.arg_preview_ui_id, params.arg_request_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_cancel' in response) ? response.arg_arg_cancel : response;
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_cancel' in response) ? response.arg_cancel : response;
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec.$.structSpec, { 'arg_cancel': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] checkForCancel FAILED:', e));
           }
@@ -1469,7 +1469,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_SetAccessibilityTree_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAccessibilityTree');
-          const result = this.impl.setAccessibilityTree(params.arg_arg_cookie, params.arg_arg_accessibility_tree);
+          const result = this.impl.setAccessibilityTree(params.arg_cookie, params.arg_accessibility_tree);
           break;
         }
       }

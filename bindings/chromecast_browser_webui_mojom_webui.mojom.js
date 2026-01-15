@@ -194,7 +194,7 @@ mojo.internal.bindings.chromecast.mojom.MessageCallbackRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.MessageCallback_OnMessage_ParamsSpec,
       null,
-      [arg_list],
+      { arg_list: arg_list },
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.chromecast.mojom.MessageCallbackReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.MessageCallback_OnMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessage');
-          const result = this.impl.onMessage(params.arg_arg_list);
+          const result = this.impl.onMessage(params.arg_list);
           break;
         }
       }
@@ -328,7 +328,7 @@ mojo.internal.bindings.chromecast.mojom.WebUiRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec,
       null,
-      [arg_message, arg_cb],
+      { arg_message: arg_message, arg_cb: arg_cb },
       false);
   }
 
@@ -337,7 +337,7 @@ mojo.internal.bindings.chromecast.mojom.WebUiRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec,
       null,
-      [arg_function, arg_args],
+      { arg_function: arg_function, arg_args: arg_args },
       false);
   }
 
@@ -407,14 +407,14 @@ mojo.internal.bindings.chromecast.mojom.WebUiReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerMessageCallback');
-          const result = this.impl.registerMessageCallback(params.arg_arg_message, params.arg_arg_cb);
+          const result = this.impl.registerMessageCallback(params.arg_message, params.arg_cb);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.callJavascriptFunction');
-          const result = this.impl.callJavascriptFunction(params.arg_arg_function, params.arg_arg_args);
+          const result = this.impl.callJavascriptFunction(params.arg_function, params.arg_args);
           break;
         }
       }
@@ -475,7 +475,7 @@ mojo.internal.bindings.chromecast.mojom.ResourcesRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec,
       mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -544,13 +544,13 @@ mojo.internal.bindings.chromecast.mojom.ResourcesReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestResourceBytes');
-          const result = this.impl.requestResourceBytes(params.arg_arg_path);
+          const result = this.impl.requestResourceBytes(params.arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_bytes' in response) ? response.arg_arg_bytes : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_bytes' in response) ? response.arg_bytes : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec.$.structSpec, { 'arg_bytes': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestResourceBytes FAILED:', e));
           }
@@ -618,7 +618,7 @@ mojo.internal.bindings.chromecast.mojom.WebUiClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateController_ParamsSpec,
       null,
-      [arg_host, arg_web_ui, arg_resources],
+      { arg_host: arg_host, arg_web_ui: arg_web_ui, arg_resources: arg_resources },
       false);
   }
 
@@ -627,7 +627,7 @@ mojo.internal.bindings.chromecast.mojom.WebUiClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateResources_ParamsSpec,
       null,
-      [arg_host, arg_resources],
+      { arg_host: arg_host, arg_resources: arg_resources },
       false);
   }
 
@@ -697,14 +697,14 @@ mojo.internal.bindings.chromecast.mojom.WebUiClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createController');
-          const result = this.impl.createController(params.arg_arg_host, params.arg_arg_web_ui, params.arg_arg_resources);
+          const result = this.impl.createController(params.arg_host, params.arg_web_ui, params.arg_resources);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateResources_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createResources');
-          const result = this.impl.createResources(params.arg_arg_host, params.arg_arg_resources);
+          const result = this.impl.createResources(params.arg_host, params.arg_resources);
           break;
         }
       }

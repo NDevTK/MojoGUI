@@ -198,7 +198,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec,
       null,
-      [arg_page],
+      { arg_page: arg_page },
       false);
   }
 
@@ -207,7 +207,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec,
       mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec,
-      [arg_name],
+      { arg_name: arg_name },
       false);
   }
 
@@ -216,7 +216,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec,
       null,
-      [arg_name],
+      { arg_name: arg_name },
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec,
       null,
-      [arg_name, arg_time],
+      { arg_name: arg_name, arg_time: arg_time },
       false);
   }
 
@@ -297,20 +297,20 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPageRemoteCreated');
-          const result = this.impl.onPageRemoteCreated(params.arg_arg_page);
+          const result = this.impl.onPageRemoteCreated(params.arg_page);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGetMark');
-          const result = this.impl.onGetMark(params.arg_arg_name);
+          const result = this.impl.onGetMark(params.arg_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_marked_time' in response) ? response.arg_arg_marked_time : response;
-              encoder.encodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_marked_time' in response) ? response.arg_marked_time : response;
+              encoder.encodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec.$.structSpec, { 'arg_marked_time': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onGetMark FAILED:', e));
           }
@@ -320,14 +320,14 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClearMark');
-          const result = this.impl.onClearMark(params.arg_arg_name);
+          const result = this.impl.onClearMark(params.arg_name);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUmaReportTime');
-          const result = this.impl.onUmaReportTime(params.arg_arg_name, params.arg_arg_time);
+          const result = this.impl.onUmaReportTime(params.arg_name, params.arg_time);
           break;
         }
       }
@@ -392,7 +392,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec,
       mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec,
-      [arg_name],
+      { arg_name: arg_name },
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec,
       null,
-      [arg_name],
+      { arg_name: arg_name },
       false);
   }
 
@@ -471,13 +471,13 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGetMark');
-          const result = this.impl.onGetMark(params.arg_arg_name);
+          const result = this.impl.onGetMark(params.arg_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_marked_time' in response) ? response.arg_arg_marked_time : response;
-              encoder.encodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_marked_time' in response) ? response.arg_marked_time : response;
+              encoder.encodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec.$.structSpec, { 'arg_marked_time': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onGetMark FAILED:', e));
           }
@@ -487,7 +487,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClearMark');
-          const result = this.impl.onClearMark(params.arg_arg_name);
+          const result = this.impl.onClearMark(params.arg_name);
           break;
         }
       }

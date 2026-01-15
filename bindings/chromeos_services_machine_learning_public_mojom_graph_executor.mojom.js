@@ -193,7 +193,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor_Execute_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParamsSpec,
-      [arg_inputs, arg_output_names],
+      { arg_inputs: arg_inputs, arg_output_names: arg_output_names },
       false);
   }
 
@@ -262,12 +262,12 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor_Execute_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.execute');
-          const result = this.impl.execute(params.arg_arg_inputs, params.arg_arg_output_names);
+          const result = this.impl.execute(params.arg_inputs, params.arg_output_names);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_outputs']);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_outputs': response.arg_outputs });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] execute FAILED:', e));
           }

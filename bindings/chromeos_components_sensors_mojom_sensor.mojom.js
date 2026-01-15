@@ -290,7 +290,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec,
       mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -299,7 +299,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec,
       mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -308,7 +308,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec,
       null,
-      [arg_iio_device_id, arg_device_request],
+      { arg_iio_device_id: arg_iio_device_id, arg_device_request: arg_device_request },
       false);
   }
 
@@ -379,13 +379,13 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeviceIds');
-          const result = this.impl.getDeviceIds(params.arg_arg_type);
+          const result = this.impl.getDeviceIds(params.arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_iio_device_ids' in response) ? response.arg_arg_iio_device_ids : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_iio_device_ids' in response) ? response.arg_iio_device_ids : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec.$.structSpec, { 'arg_iio_device_ids': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDeviceIds FAILED:', e));
           }
@@ -400,8 +400,8 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_iio_device_ids_types' in response) ? response.arg_arg_iio_device_ids_types : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_iio_device_ids_types' in response) ? response.arg_iio_device_ids_types : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec.$.structSpec, { 'arg_iio_device_ids_types': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAllDeviceIds FAILED:', e));
           }
@@ -411,7 +411,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDevice');
-          const result = this.impl.getDevice(params.arg_arg_iio_device_id, params.arg_arg_device_request);
+          const result = this.impl.getDevice(params.arg_iio_device_id, params.arg_device_request);
           break;
         }
       }
@@ -500,7 +500,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec,
       null,
-      [arg_timeout],
+      { arg_timeout: arg_timeout },
       false);
   }
 
@@ -509,7 +509,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec,
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec,
-      [arg_attr_names],
+      { arg_attr_names: arg_attr_names },
       false);
   }
 
@@ -518,7 +518,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec,
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec,
-      [arg_frequency],
+      { arg_frequency: arg_frequency },
       false);
   }
 
@@ -527,7 +527,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -536,7 +536,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -545,7 +545,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = cl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec,
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -554,7 +554,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = cl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec,
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec,
-      [arg_iio_chn_indices],
+      { arg_iio_chn_indices: arg_iio_chn_indices },
       false);
   }
 
@@ -563,7 +563,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = cl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec,
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec,
-      [arg_iio_chn_indices, arg_attr_name],
+      { arg_iio_chn_indices: arg_iio_chn_indices, arg_attr_name: arg_attr_name },
       false);
   }
 
@@ -639,20 +639,20 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTimeout');
-          const result = this.impl.setTimeout(params.arg_arg_timeout);
+          const result = this.impl.setTimeout(params.arg_timeout);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAttributes');
-          const result = this.impl.getAttributes(params.arg_arg_attr_names);
+          const result = this.impl.getAttributes(params.arg_attr_names);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_values' in response) ? response.arg_arg_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_values' in response) ? response.arg_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec.$.structSpec, { 'arg_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAttributes FAILED:', e));
           }
@@ -662,13 +662,13 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFrequency');
-          const result = this.impl.setFrequency(params.arg_arg_frequency);
+          const result = this.impl.setFrequency(params.arg_frequency);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result_freq' in response) ? response.arg_arg_result_freq : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result_freq' in response) ? response.arg_result_freq : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec.$.structSpec, { 'arg_result_freq': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setFrequency FAILED:', e));
           }
@@ -678,7 +678,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startReadingSamples');
-          const result = this.impl.startReadingSamples(params.arg_arg_observer);
+          const result = this.impl.startReadingSamples(params.arg_observer);
           break;
         }
         case 4: {
@@ -697,8 +697,8 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_iio_chn_ids' in response) ? response.arg_arg_iio_chn_ids : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_iio_chn_ids' in response) ? response.arg_iio_chn_ids : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec.$.structSpec, { 'arg_iio_chn_ids': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAllChannelIds FAILED:', e));
           }
@@ -708,13 +708,13 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getChannelsEnabled');
-          const result = this.impl.getChannelsEnabled(params.arg_arg_iio_chn_indices);
+          const result = this.impl.getChannelsEnabled(params.arg_iio_chn_indices);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_enabled' in response) ? response.arg_arg_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_enabled' in response) ? response.arg_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec.$.structSpec, { 'arg_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getChannelsEnabled FAILED:', e));
           }
@@ -724,13 +724,13 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getChannelsAttributes');
-          const result = this.impl.getChannelsAttributes(params.arg_arg_iio_chn_indices, params.arg_arg_attr_name);
+          const result = this.impl.getChannelsAttributes(params.arg_iio_chn_indices, params.arg_attr_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_values' in response) ? response.arg_arg_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_values' in response) ? response.arg_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec.$.structSpec, { 'arg_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getChannelsAttributes FAILED:', e));
           }
@@ -798,7 +798,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec,
       null,
-      [arg_sample],
+      { arg_sample: arg_sample },
       false);
   }
 
@@ -807,7 +807,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverRemoteC
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec,
       null,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -877,14 +877,14 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSampleUpdated');
-          const result = this.impl.onSampleUpdated(params.arg_arg_sample);
+          const result = this.impl.onSampleUpdated(params.arg_sample);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onErrorOccurred');
-          const result = this.impl.onErrorOccurred(params.arg_arg_type);
+          const result = this.impl.onErrorOccurred(params.arg_type);
           break;
         }
       }
@@ -945,7 +945,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserverRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec,
       null,
-      [arg_iio_device_id, arg_types],
+      { arg_iio_device_id: arg_iio_device_id, arg_types: arg_types },
       false);
   }
 
@@ -1014,7 +1014,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserverRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewDeviceAdded');
-          const result = this.impl.onNewDeviceAdded(params.arg_arg_iio_device_id, params.arg_arg_types);
+          const result = this.impl.onNewDeviceAdded(params.arg_iio_device_id, params.arg_types);
           break;
         }
       }

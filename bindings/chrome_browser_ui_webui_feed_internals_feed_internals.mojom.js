@@ -254,7 +254,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec,
       mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec,
       mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -290,7 +290,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -299,7 +299,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec,
       mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -308,7 +308,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec,
       mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -317,7 +317,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec,
       null,
-      [arg_host],
+      { arg_host: arg_host },
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec,
       null,
-      [arg_endpoint_url],
+      { arg_endpoint_url: arg_endpoint_url },
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec,
       null,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec,
       null,
-      [arg_use_legacy],
+      { arg_use_legacy: arg_use_legacy },
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec,
       null,
-      [arg_order],
+      { arg_order: arg_order },
       false);
   }
 
@@ -448,8 +448,8 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_properties' in response) ? response.arg_arg_properties : response;
-              encoder.encodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_properties' in response) ? response.arg_properties : response;
+              encoder.encodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec.$.structSpec, { 'arg_properties': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getGeneralProperties FAILED:', e));
           }
@@ -464,8 +464,8 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_properties' in response) ? response.arg_arg_properties : response;
-              encoder.encodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_properties' in response) ? response.arg_properties : response;
+              encoder.encodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec.$.structSpec, { 'arg_properties': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getLastFetchProperties FAILED:', e));
           }
@@ -501,8 +501,8 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_dump' in response) ? response.arg_arg_dump : response;
-              encoder.encodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_dump' in response) ? response.arg_dump : response;
+              encoder.encodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec.$.structSpec, { 'arg_dump': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFeedProcessScopeDump FAILED:', e));
           }
@@ -517,8 +517,8 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_log' in response) ? response.arg_arg_log : response;
-              encoder.encodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_log' in response) ? response.arg_log : response;
+              encoder.encodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec.$.structSpec, { 'arg_log': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFeedHistograms FAILED:', e));
           }
@@ -528,42 +528,42 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.overrideFeedHost');
-          const result = this.impl.overrideFeedHost(params.arg_arg_host);
+          const result = this.impl.overrideFeedHost(params.arg_host);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.overrideDiscoverApiEndpoint');
-          const result = this.impl.overrideDiscoverApiEndpoint(params.arg_arg_endpoint_url);
+          const result = this.impl.overrideDiscoverApiEndpoint(params.arg_endpoint_url);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.overrideFeedStreamData');
-          const result = this.impl.overrideFeedStreamData(params.arg_arg_data);
+          const result = this.impl.overrideFeedStreamData(params.arg_data);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWebFeedFollowIntroDebugEnabled');
-          const result = this.impl.setWebFeedFollowIntroDebugEnabled(params.arg_arg_enabled);
+          const result = this.impl.setWebFeedFollowIntroDebugEnabled(params.arg_enabled);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUseFeedQueryRequests');
-          const result = this.impl.setUseFeedQueryRequests(params.arg_arg_use_legacy);
+          const result = this.impl.setUseFeedQueryRequests(params.arg_use_legacy);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFollowingFeedOrder');
-          const result = this.impl.setFollowingFeedOrder(params.arg_arg_order);
+          const result = this.impl.setFollowingFeedOrder(params.arg_order);
           break;
         }
       }

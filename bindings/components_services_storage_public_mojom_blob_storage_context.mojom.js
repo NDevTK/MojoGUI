@@ -222,7 +222,7 @@ mojo.internal.bindings.storage.mojom.BlobDataItemReaderRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ParamsSpec,
       mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec,
-      [arg_offset, arg_length, arg_pipe],
+      { arg_offset: arg_offset, arg_length: arg_length, arg_pipe: arg_pipe },
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.storage.mojom.BlobDataItemReaderRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -301,13 +301,13 @@ mojo.internal.bindings.storage.mojom.BlobDataItemReaderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.read');
-          const result = this.impl.read(params.arg_arg_offset, params.arg_arg_length, params.arg_arg_pipe);
+          const result = this.impl.read(params.arg_offset, params.arg_length, params.arg_pipe);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] read FAILED:', e));
           }
@@ -322,7 +322,7 @@ mojo.internal.bindings.storage.mojom.BlobDataItemReaderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_data']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_data': response.arg_data });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readSideData FAILED:', e));
           }
@@ -398,7 +398,7 @@ mojo.internal.bindings.storage.mojom.BlobStorageContextRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec,
       null,
-      [arg_blob, arg_uuid, arg_item],
+      { arg_blob: arg_blob, arg_uuid: arg_uuid, arg_item: arg_item },
       false);
   }
 
@@ -407,7 +407,7 @@ mojo.internal.bindings.storage.mojom.BlobStorageContextRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec,
       null,
-      [arg_blob, arg_uuid, arg_data],
+      { arg_blob: arg_blob, arg_uuid: arg_uuid, arg_data: arg_data },
       false);
   }
 
@@ -416,7 +416,7 @@ mojo.internal.bindings.storage.mojom.BlobStorageContextRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec,
       mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec,
-      [arg_blob, arg_path, arg_flush_on_write, arg_last_modified],
+      { arg_blob: arg_blob, arg_path: arg_path, arg_flush_on_write: arg_flush_on_write, arg_last_modified: arg_last_modified },
       false);
   }
 
@@ -425,7 +425,7 @@ mojo.internal.bindings.storage.mojom.BlobStorageContextRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.BlobStorageContext_Clone_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -497,27 +497,27 @@ mojo.internal.bindings.storage.mojom.BlobStorageContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerFromDataItem');
-          const result = this.impl.registerFromDataItem(params.arg_arg_blob, params.arg_arg_uuid, params.arg_arg_item);
+          const result = this.impl.registerFromDataItem(params.arg_blob, params.arg_uuid, params.arg_item);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerFromMemory');
-          const result = this.impl.registerFromMemory(params.arg_arg_blob, params.arg_arg_uuid, params.arg_arg_data);
+          const result = this.impl.registerFromMemory(params.arg_blob, params.arg_uuid, params.arg_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeBlobToFile');
-          const result = this.impl.writeBlobToFile(params.arg_arg_blob, params.arg_arg_path, params.arg_arg_flush_on_write, params.arg_arg_last_modified);
+          const result = this.impl.writeBlobToFile(params.arg_blob, params.arg_path, params.arg_flush_on_write, params.arg_last_modified);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] writeBlobToFile FAILED:', e));
           }
@@ -527,7 +527,7 @@ mojo.internal.bindings.storage.mojom.BlobStorageContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.BlobStorageContext_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_receiver);
+          const result = this.impl.clone(params.arg_receiver);
           break;
         }
       }

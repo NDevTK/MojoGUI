@@ -245,7 +245,7 @@ mojo.internal.bindings.sharing.mojom.SharingRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sharing.mojom.Sharing_Connect_ParamsSpec,
       null,
-      [arg_deps, arg_nearby_connections, arg_nearby_presence, arg_decoder, arg_quick_start_decoder],
+      { arg_deps: arg_deps, arg_nearby_connections: arg_nearby_connections, arg_nearby_presence: arg_nearby_presence, arg_decoder: arg_decoder, arg_quick_start_decoder: arg_quick_start_decoder },
       false);
   }
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.sharing.mojom.SharingRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ParamsSpec,
       mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -324,7 +324,7 @@ mojo.internal.bindings.sharing.mojom.SharingReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.Sharing_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_arg_deps, params.arg_arg_nearby_connections, params.arg_arg_nearby_presence, params.arg_arg_decoder, params.arg_arg_quick_start_decoder);
+          const result = this.impl.connect(params.arg_deps, params.arg_nearby_connections, params.arg_nearby_presence, params.arg_decoder, params.arg_quick_start_decoder);
           break;
         }
         case 1: {
@@ -336,7 +336,7 @@ mojo.internal.bindings.sharing.mojom.SharingReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] shutDown FAILED:', e));
           }

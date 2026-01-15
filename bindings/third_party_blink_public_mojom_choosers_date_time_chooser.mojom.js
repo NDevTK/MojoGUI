@@ -188,7 +188,7 @@ mojo.internal.bindings.blink.mojom.DateTimeChooserRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -197,7 +197,7 @@ mojo.internal.bindings.blink.mojom.DateTimeChooserRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -267,12 +267,12 @@ mojo.internal.bindings.blink.mojom.DateTimeChooserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openDateTimeDialog');
-          const result = this.impl.openDateTimeDialog(params.arg_arg_value);
+          const result = this.impl.openDateTimeDialog(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_dialog_value']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_dialog_value': response.arg_dialog_value });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openDateTimeDialog FAILED:', e));
           }

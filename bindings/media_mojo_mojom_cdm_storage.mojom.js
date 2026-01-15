@@ -193,7 +193,7 @@ mojo.internal.bindings.media.mojom.CdmStorageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.CdmStorage_Open_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmStorage_Open_ResponseParamsSpec,
-      [arg_file_name],
+      { arg_file_name: arg_file_name },
       false);
   }
 
@@ -262,12 +262,12 @@ mojo.internal.bindings.media.mojom.CdmStorageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmStorage_Open_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.open');
-          const result = this.impl.open(params.arg_arg_file_name);
+          const result = this.impl.open(params.arg_file_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmStorage_Open_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_cdm_file']);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmStorage_Open_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_cdm_file': response.arg_cdm_file });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] open FAILED:', e));
           }
@@ -335,7 +335,7 @@ mojo.internal.bindings.media.mojom.CdmFileRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.CdmFile_Read_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmFile_Read_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.media.mojom.CdmFileRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.CdmFile_Write_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmFile_Write_ResponseParamsSpec,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.media.mojom.CdmFileReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmFile_Read_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_data']);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmFile_Read_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_data': response.arg_data });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] read FAILED:', e));
           }
@@ -429,13 +429,13 @@ mojo.internal.bindings.media.mojom.CdmFileReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmFile_Write_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.write');
-          const result = this.impl.write(params.arg_arg_data);
+          const result = this.impl.write(params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmFile_Write_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmFile_Write_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] write FAILED:', e));
           }

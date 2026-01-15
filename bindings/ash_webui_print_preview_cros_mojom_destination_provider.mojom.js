@@ -184,7 +184,7 @@ mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProviderRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec,
       mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec,
-      [arg_destination_id, arg_printer_type],
+      { arg_destination_id: arg_destination_id, arg_printer_type: arg_printer_type },
       false);
   }
 
@@ -253,13 +253,13 @@ mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProviderRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchCapabilities');
-          const result = this.impl.fetchCapabilities(params.arg_arg_destination_id, params.arg_arg_printer_type);
+          const result = this.impl.fetchCapabilities(params.arg_destination_id, params.arg_printer_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_capabilities' in response) ? response.arg_arg_capabilities : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_capabilities' in response) ? response.arg_capabilities : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec.$.structSpec, { 'arg_capabilities': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fetchCapabilities FAILED:', e));
           }

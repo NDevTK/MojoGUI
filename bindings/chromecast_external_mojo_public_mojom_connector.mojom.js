@@ -188,7 +188,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec,
       null,
-      [arg_interface_name, arg_interface_pipe],
+      { arg_interface_name: arg_interface_name, arg_interface_pipe: arg_interface_pipe },
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBindInterface');
-          const result = this.impl.onBindInterface(params.arg_arg_interface_name, params.arg_arg_interface_pipe);
+          const result = this.impl.onBindInterface(params.arg_interface_name, params.arg_interface_pipe);
           break;
         }
       }
@@ -334,7 +334,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec,
       null,
-      [arg_instances_info],
+      { arg_instances_info: arg_instances_info },
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec,
       null,
-      [arg_service_name, arg_interface_name, arg_interface_pipe],
+      { arg_service_name: arg_service_name, arg_interface_name: arg_interface_name, arg_interface_pipe: arg_interface_pipe },
       false);
   }
 
@@ -352,7 +352,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorRemoteCal
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorRemoteCal
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec,
       null,
-      [arg_interface_pipe],
+      { arg_interface_pipe: arg_interface_pipe },
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorRemoteCal
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec,
       mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -443,28 +443,28 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerServiceInstances');
-          const result = this.impl.registerServiceInstances(params.arg_arg_instances_info);
+          const result = this.impl.registerServiceInstances(params.arg_instances_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindInterface');
-          const result = this.impl.bindInterface(params.arg_arg_service_name, params.arg_arg_interface_name, params.arg_arg_interface_pipe);
+          const result = this.impl.bindInterface(params.arg_service_name, params.arg_interface_name, params.arg_interface_pipe);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_receiver);
+          const result = this.impl.clone(params.arg_receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindChromiumConnector');
-          const result = this.impl.bindChromiumConnector(params.arg_arg_interface_pipe);
+          const result = this.impl.bindChromiumConnector(params.arg_interface_pipe);
           break;
         }
         case 4: {
@@ -476,8 +476,8 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorReceiver 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_services' in response) ? response.arg_arg_services : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_services' in response) ? response.arg_services : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec.$.structSpec, { 'arg_services': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] queryServiceList FAILED:', e));
           }

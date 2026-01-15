@@ -170,7 +170,7 @@ mojo.internal.bindings.arc.mojom.BackupSettingsInstanceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.BackupSettingsInstance_SetBackupEnabled_ParamsSpec,
       null,
-      [arg_enabled, arg_managed],
+      { arg_enabled: arg_enabled, arg_managed: arg_managed },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.arc.mojom.BackupSettingsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.BackupSettingsInstance_SetBackupEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBackupEnabled');
-          const result = this.impl.setBackupEnabled(params.arg_arg_enabled, params.arg_arg_managed);
+          const result = this.impl.setBackupEnabled(params.arg_enabled, params.arg_managed);
           break;
         }
       }

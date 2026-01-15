@@ -180,7 +180,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ParamsSpec,
       mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -249,13 +249,13 @@ mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.load');
-          const result = this.impl.load(params.arg_arg_path);
+          const result = this.impl.load(params.arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_file' in response) ? response.arg_arg_file : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_file' in response) ? response.arg_file : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec.$.structSpec, { 'arg_file': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] load FAILED:', e));
           }

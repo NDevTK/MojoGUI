@@ -240,7 +240,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTabs_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTab_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec,
       null,
-      [arg_pos, arg_url],
+      { arg_pos: arg_pos, arg_url: arg_url },
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec,
       null,
-      [arg_selection, arg_tab_to_activate],
+      { arg_selection: arg_selection, arg_tab_to_activate: arg_tab_to_activate },
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.tabs_api.mojom.TabStripService_MoveNode_ParamsSpec,
       null,
-      [arg_id, arg_position],
+      { arg_id: arg_id, arg_position: arg_position },
       false);
   }
 
@@ -376,42 +376,42 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTab');
-          const result = this.impl.getTab(params.arg_arg_id);
+          const result = this.impl.getTab(params.arg_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTabAt');
-          const result = this.impl.createTabAt(params.arg_arg_pos, params.arg_arg_url);
+          const result = this.impl.createTabAt(params.arg_pos, params.arg_url);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeTabs');
-          const result = this.impl.closeTabs(params.arg_arg_id);
+          const result = this.impl.closeTabs(params.arg_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.activateTab');
-          const result = this.impl.activateTab(params.arg_arg_id);
+          const result = this.impl.activateTab(params.arg_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSelectedTabs');
-          const result = this.impl.setSelectedTabs(params.arg_arg_selection, params.arg_arg_tab_to_activate);
+          const result = this.impl.setSelectedTabs(params.arg_selection, params.arg_tab_to_activate);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_MoveNode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.moveNode');
-          const result = this.impl.moveNode(params.arg_arg_id, params.arg_arg_position);
+          const result = this.impl.moveNode(params.arg_id, params.arg_position);
           break;
         }
       }
@@ -472,7 +472,7 @@ mojo.internal.bindings.tabs_api.mojom.TabsObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec,
       null,
-      [arg_events],
+      { arg_events: arg_events },
       false);
   }
 
@@ -541,7 +541,7 @@ mojo.internal.bindings.tabs_api.mojom.TabsObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTabEvents');
-          const result = this.impl.onTabEvents(params.arg_arg_events);
+          const result = this.impl.onTabEvents(params.arg_events);
           break;
         }
       }

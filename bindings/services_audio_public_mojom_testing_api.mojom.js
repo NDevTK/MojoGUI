@@ -170,7 +170,7 @@ mojo.internal.bindings.audio.mojom.TestingApiRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.audio.mojom.TestingApi_Crash_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

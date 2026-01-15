@@ -191,7 +191,7 @@ mojo.internal.bindings.blink.mojom.FencedFrameOwnerHostRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec,
       null,
-      [arg_url, arg_navigation_start_time, arg_embedder_shared_storage_context],
+      { arg_url: arg_url, arg_navigation_start_time: arg_navigation_start_time, arg_embedder_shared_storage_context: arg_embedder_shared_storage_context },
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.blink.mojom.FencedFrameOwnerHostRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec,
       null,
-      [arg_frame_policy],
+      { arg_frame_policy: arg_frame_policy },
       false);
   }
 
@@ -270,14 +270,14 @@ mojo.internal.bindings.blink.mojom.FencedFrameOwnerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.navigate');
-          const result = this.impl.navigate(params.arg_arg_url, params.arg_arg_navigation_start_time, params.arg_arg_embedder_shared_storage_context);
+          const result = this.impl.navigate(params.arg_url, params.arg_navigation_start_time, params.arg_embedder_shared_storage_context);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didChangeFramePolicy');
-          const result = this.impl.didChangeFramePolicy(params.arg_arg_frame_policy);
+          const result = this.impl.didChangeFramePolicy(params.arg_frame_policy);
           break;
         }
       }

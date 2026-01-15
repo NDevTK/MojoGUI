@@ -181,7 +181,7 @@ mojo.internal.bindings.blink.mojom.GeolocationServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec,
       mojo.internal.bindings.blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec,
-      [arg_receiver, arg_user_gesture],
+      { arg_receiver: arg_receiver, arg_user_gesture: arg_user_gesture },
       false);
   }
 
@@ -250,13 +250,13 @@ mojo.internal.bindings.blink.mojom.GeolocationServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createGeolocation');
-          const result = this.impl.createGeolocation(params.arg_arg_receiver, params.arg_arg_user_gesture);
+          const result = this.impl.createGeolocation(params.arg_receiver, params.arg_user_gesture);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createGeolocation FAILED:', e));
           }

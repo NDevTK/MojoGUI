@@ -198,7 +198,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactoryRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactoryReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -336,7 +336,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec,
       mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_Close_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_cloud_provider', 'response.arg_arg_remaining_time', 'response.arg_arg_start_date_and_time']);
+              encoder.encodeStructInline(mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec.$.structSpec, { 'arg_cloud_provider': response.arg_cloud_provider, 'arg_remaining_time': response.arg_remaining_time, 'arg_start_date_and_time': response.arg_start_date_and_time });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getInitialDialogInfo FAILED:', e));
           }
@@ -508,7 +508,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec,
       null,
-      [arg_remaining_time],
+      { arg_remaining_time: arg_remaining_time },
       false);
   }
 
@@ -577,7 +577,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateRemainingTime');
-          const result = this.impl.updateRemainingTime(params.arg_arg_remaining_time);
+          const result = this.impl.updateRemainingTime(params.arg_remaining_time);
           break;
         }
       }

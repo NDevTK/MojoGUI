@@ -183,7 +183,7 @@ mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorderRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec,
       null,
-      [arg_features],
+      { arg_features: arg_features },
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorderRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec,
       null,
-      [arg_targets],
+      { arg_targets: arg_targets },
       false);
   }
 
@@ -262,14 +262,14 @@ mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startNewRecord');
-          const result = this.impl.startNewRecord(params.arg_arg_features);
+          const result = this.impl.startNewRecord(params.arg_features);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateRecord');
-          const result = this.impl.updateRecord(params.arg_arg_targets);
+          const result = this.impl.updateRecord(params.arg_targets);
           break;
         }
       }

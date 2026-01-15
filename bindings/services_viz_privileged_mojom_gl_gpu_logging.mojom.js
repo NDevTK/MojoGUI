@@ -170,7 +170,7 @@ mojo.internal.bindings.viz.mojom.GpuLoggingRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec,
       null,
-      [arg_severity, arg_header, arg_message],
+      { arg_severity: arg_severity, arg_header: arg_header, arg_message: arg_message },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.viz.mojom.GpuLoggingReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordLogMessage');
-          const result = this.impl.recordLogMessage(params.arg_arg_severity, params.arg_arg_header, params.arg_arg_message);
+          const result = this.impl.recordLogMessage(params.arg_severity, params.arg_header, params.arg_message);
           break;
         }
       }

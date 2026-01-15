@@ -221,7 +221,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioOutputStream_Play_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.AudioOutputStream_Pause_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.AudioOutputStream_Flush_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.AudioOutputStream_SetVolume_ParamsSpec,
       null,
-      [arg_volume],
+      { arg_volume: arg_volume },
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioOutputStream_SetVolume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVolume');
-          const result = this.impl.setVolume(params.arg_arg_volume);
+          const result = this.impl.setVolume(params.arg_volume);
           break;
         }
       }
@@ -410,7 +410,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamObserverRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamObserverRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -428,7 +428,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamObserverRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec,
       null,
-      [arg_is_audible],
+      { arg_is_audible: arg_is_audible },
       false);
   }
 
@@ -513,7 +513,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didChangeAudibleState');
-          const result = this.impl.didChangeAudibleState(params.arg_arg_is_audible);
+          const result = this.impl.didChangeAudibleState(params.arg_is_audible);
           break;
         }
       }
@@ -574,7 +574,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamProviderRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec,
       null,
-      [arg_params, arg_client],
+      { arg_params: arg_params, arg_client: arg_client },
       false);
   }
 
@@ -643,7 +643,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.acquire');
-          const result = this.impl.acquire(params.arg_arg_params, params.arg_arg_client);
+          const result = this.impl.acquire(params.arg_params, params.arg_client);
           break;
         }
       }
@@ -704,7 +704,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClientRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec,
       null,
-      [arg_stream, arg_data_pipe],
+      { arg_stream: arg_stream, arg_data_pipe: arg_data_pipe },
       false);
   }
 
@@ -773,7 +773,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClientReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.created');
-          const result = this.impl.created(params.arg_arg_stream, params.arg_arg_data_pipe);
+          const result = this.impl.created(params.arg_stream, params.arg_data_pipe);
           break;
         }
       }
@@ -834,7 +834,7 @@ mojo.internal.bindings.media.mojom.DeviceSwitchInterfaceRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec,
       null,
-      [arg_output_device_id],
+      { arg_output_device_id: arg_output_device_id },
       false);
   }
 
@@ -903,7 +903,7 @@ mojo.internal.bindings.media.mojom.DeviceSwitchInterfaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.switchAudioOutputDeviceId');
-          const result = this.impl.switchAudioOutputDeviceId(params.arg_arg_output_device_id);
+          const result = this.impl.switchAudioOutputDeviceId(params.arg_output_device_id);
           break;
         }
       }

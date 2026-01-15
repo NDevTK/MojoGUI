@@ -215,7 +215,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellChecker_Initialize_ParamsSpec,
       null,
-      [arg_dictionaries, arg_custom_words, arg_enable],
+      { arg_dictionaries: arg_dictionaries, arg_custom_words: arg_custom_words, arg_enable: arg_enable },
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec,
       null,
-      [arg_words_added, arg_words_removed],
+      { arg_words_added: arg_words_added, arg_words_removed: arg_words_removed },
       false);
   }
 
@@ -294,14 +294,14 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellChecker_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_arg_dictionaries, params.arg_arg_custom_words, params.arg_arg_enable);
+          const result = this.impl.initialize(params.arg_dictionaries, params.arg_custom_words, params.arg_enable);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.customDictionaryChanged');
-          const result = this.impl.customDictionaryChanged(params.arg_arg_words_added, params.arg_arg_words_removed);
+          const result = this.impl.customDictionaryChanged(params.arg_words_added, params.arg_words_removed);
           break;
         }
       }
@@ -362,7 +362,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHostRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -512,7 +512,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec,
       null,
-      [arg_word, arg_misspelled],
+      { arg_word: arg_word, arg_misspelled: arg_misspelled },
       false);
   }
 
@@ -521,7 +521,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec,
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec,
-      [arg_text],
+      { arg_text: arg_text },
       false);
   }
 
@@ -530,7 +530,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec,
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec,
-      [arg_text, arg_spelling_markers],
+      { arg_text: arg_text, arg_spelling_markers: arg_spelling_markers },
       false);
   }
 
@@ -539,7 +539,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec,
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec,
-      [arg_word],
+      { arg_word: arg_word },
       false);
   }
 
@@ -548,7 +548,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec,
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec,
-      [arg_word],
+      { arg_word: arg_word },
       false);
   }
 
@@ -557,7 +557,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec,
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -631,19 +631,19 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyChecked');
-          const result = this.impl.notifyChecked(params.arg_arg_word, params.arg_arg_misspelled);
+          const result = this.impl.notifyChecked(params.arg_word, params.arg_misspelled);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.callSpellingService');
-          const result = this.impl.callSpellingService(params.arg_arg_text);
+          const result = this.impl.callSpellingService(params.arg_text);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_results']);
+              encoder.encodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_results': response.arg_results });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] callSpellingService FAILED:', e));
           }
@@ -653,13 +653,13 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestTextCheck');
-          const result = this.impl.requestTextCheck(params.arg_arg_text, params.arg_arg_spelling_markers);
+          const result = this.impl.requestTextCheck(params.arg_text, params.arg_spelling_markers);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
-              encoder.encodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_results' in response) ? response.arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec.$.structSpec, { 'arg_results': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestTextCheck FAILED:', e));
           }
@@ -669,13 +669,13 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkSpelling');
-          const result = this.impl.checkSpelling(params.arg_arg_word);
+          const result = this.impl.checkSpelling(params.arg_word);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_correct' in response) ? response.arg_arg_correct : response;
-              encoder.encodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_correct' in response) ? response.arg_correct : response;
+              encoder.encodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec.$.structSpec, { 'arg_correct': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] checkSpelling FAILED:', e));
           }
@@ -685,13 +685,13 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fillSuggestionList');
-          const result = this.impl.fillSuggestionList(params.arg_arg_word);
+          const result = this.impl.fillSuggestionList(params.arg_word);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_suggestions' in response) ? response.arg_arg_suggestions : response;
-              encoder.encodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_suggestions' in response) ? response.arg_suggestions : response;
+              encoder.encodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec.$.structSpec, { 'arg_suggestions': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fillSuggestionList FAILED:', e));
           }
@@ -706,7 +706,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec.$.structSpec, ['response.arg_arg_dictionaries', 'response.arg_arg_custom_words', 'response.arg_arg_enable']);
+              encoder.encodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec.$.structSpec, { 'arg_dictionaries': response.arg_dictionaries, 'arg_custom_words': response.arg_custom_words, 'arg_enable': response.arg_enable });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] initializeDictionaries FAILED:', e));
           }

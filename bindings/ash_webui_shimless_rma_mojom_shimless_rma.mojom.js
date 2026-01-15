@@ -644,7 +644,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ErrorObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec,
       null,
-      [arg_error],
+      { arg_error: arg_error },
       false);
   }
 
@@ -713,7 +713,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ErrorObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_error);
+          const result = this.impl.onError(params.arg_error);
           break;
         }
       }
@@ -774,7 +774,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.OsUpdateObserverRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec,
       null,
-      [arg_operation, arg_progress, arg_update_error_code],
+      { arg_operation: arg_operation, arg_progress: arg_progress, arg_update_error_code: arg_update_error_code },
       false);
   }
 
@@ -843,7 +843,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.OsUpdateObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOsUpdateProgressUpdated');
-          const result = this.impl.onOsUpdateProgressUpdated(params.arg_arg_operation, params.arg_arg_progress, params.arg_arg_update_error_code);
+          const result = this.impl.onOsUpdateProgressUpdated(params.arg_operation, params.arg_progress, params.arg_update_error_code);
           break;
         }
       }
@@ -908,7 +908,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.CalibrationObserverRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec,
       null,
-      [arg_componentStatus],
+      { arg_componentStatus: arg_componentStatus },
       false);
   }
 
@@ -917,7 +917,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.CalibrationObserverRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -987,14 +987,14 @@ mojo.internal.bindings.ash.shimless_rma.mojom.CalibrationObserverReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCalibrationUpdated');
-          const result = this.impl.onCalibrationUpdated(params.arg_arg_componentStatus);
+          const result = this.impl.onCalibrationUpdated(params.arg_componentStatus);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCalibrationStepComplete');
-          const result = this.impl.onCalibrationStepComplete(params.arg_arg_status);
+          const result = this.impl.onCalibrationStepComplete(params.arg_status);
           break;
         }
       }
@@ -1055,7 +1055,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ProvisioningObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec,
       null,
-      [arg_status, arg_progress, arg_error],
+      { arg_status: arg_status, arg_progress: arg_progress, arg_error: arg_error },
       false);
   }
 
@@ -1124,7 +1124,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ProvisioningObserverReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProvisioningUpdated');
-          const result = this.impl.onProvisioningUpdated(params.arg_arg_status, params.arg_arg_progress, params.arg_arg_error);
+          const result = this.impl.onProvisioningUpdated(params.arg_status, params.arg_progress, params.arg_error);
           break;
         }
       }
@@ -1185,7 +1185,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.HardwareWriteProtectionStateObserv
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -1254,7 +1254,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.HardwareWriteProtectionStateObserv
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHardwareWriteProtectionStateChanged');
-          const result = this.impl.onHardwareWriteProtectionStateChanged(params.arg_arg_enabled);
+          const result = this.impl.onHardwareWriteProtectionStateChanged(params.arg_enabled);
           break;
         }
       }
@@ -1315,7 +1315,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.PowerCableStateObserverRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSpec,
       null,
-      [arg_plugged_in],
+      { arg_plugged_in: arg_plugged_in },
       false);
   }
 
@@ -1384,7 +1384,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.PowerCableStateObserverReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPowerCableStateChanged');
-          const result = this.impl.onPowerCableStateChanged(params.arg_arg_plugged_in);
+          const result = this.impl.onPowerCableStateChanged(params.arg_plugged_in);
           break;
         }
       }
@@ -1445,7 +1445,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ExternalDiskStateObserverRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_ParamsSpec,
       null,
-      [arg_detected],
+      { arg_detected: arg_detected },
       false);
   }
 
@@ -1514,7 +1514,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ExternalDiskStateObserverReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onExternalDiskStateChanged');
-          const result = this.impl.onExternalDiskStateChanged(params.arg_arg_detected);
+          const result = this.impl.onExternalDiskStateChanged(params.arg_detected);
           break;
         }
       }
@@ -1575,7 +1575,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.HardwareVerificationStatusObserver
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec,
       null,
-      [arg_result],
+      { arg_result: arg_result },
       false);
   }
 
@@ -1644,7 +1644,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.HardwareVerificationStatusObserver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHardwareVerificationResult');
-          const result = this.impl.onHardwareVerificationResult(params.arg_arg_result);
+          const result = this.impl.onHardwareVerificationResult(params.arg_result);
           break;
         }
       }
@@ -1705,7 +1705,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.FinalizationObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec,
       null,
-      [arg_status, arg_progress, arg_error],
+      { arg_status: arg_status, arg_progress: arg_progress, arg_error: arg_error },
       false);
   }
 
@@ -1774,7 +1774,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.FinalizationObserverReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFinalizationUpdated');
-          const result = this.impl.onFinalizationUpdated(params.arg_arg_status, params.arg_arg_progress, params.arg_arg_error);
+          const result = this.impl.onFinalizationUpdated(params.arg_status, params.arg_progress, params.arg_error);
           break;
         }
       }
@@ -1835,7 +1835,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.UpdateRoFirmwareObserverRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -1904,7 +1904,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.UpdateRoFirmwareObserverReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUpdateRoFirmwareStatusChanged');
-          const result = this.impl.onUpdateRoFirmwareStatusChanged(params.arg_arg_status);
+          const result = this.impl.onUpdateRoFirmwareStatusChanged(params.arg_status);
           break;
         }
       }
@@ -2257,7 +2257,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2266,7 +2266,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2275,7 +2275,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2284,7 +2284,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2293,7 +2293,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2302,7 +2302,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -2311,7 +2311,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2320,7 +2320,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2329,7 +2329,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2338,7 +2338,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2347,7 +2347,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2356,7 +2356,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2365,7 +2365,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2374,7 +2374,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec,
-      [arg_should_wipe_device],
+      { arg_should_wipe_device: arg_should_wipe_device },
       false);
   }
 
@@ -2383,7 +2383,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2392,7 +2392,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2401,7 +2401,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2410,7 +2410,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2419,7 +2419,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2428,7 +2428,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParamsSpec,
-      [arg_code],
+      { arg_code: arg_code },
       false);
   }
 
@@ -2437,7 +2437,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2446,7 +2446,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2455,7 +2455,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2464,7 +2464,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2473,7 +2473,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec,
-      [arg_components],
+      { arg_components: arg_components },
       false);
   }
 
@@ -2482,7 +2482,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2491,7 +2491,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2500,7 +2500,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2509,7 +2509,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2518,7 +2518,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2527,7 +2527,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2536,7 +2536,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2545,7 +2545,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2554,7 +2554,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2563,7 +2563,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2572,7 +2572,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2581,7 +2581,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2590,7 +2590,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[37],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2599,7 +2599,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[38],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2608,7 +2608,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[39],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpec,
-      [arg_serial_number, arg_region_index, arg_sku_index, arg_custom_label_index, arg_dram_part_number, arg_is_chassis_branded, arg_hw_compliance_version],
+      { arg_serial_number: arg_serial_number, arg_region_index: arg_region_index, arg_sku_index: arg_sku_index, arg_custom_label_index: arg_custom_label_index, arg_dram_part_number: arg_dram_part_number, arg_is_chassis_branded: arg_is_chassis_branded, arg_hw_compliance_version: arg_hw_compliance_version },
       false);
   }
 
@@ -2617,7 +2617,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[40],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2626,7 +2626,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[41],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2635,7 +2635,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[42],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec,
-      [arg_components],
+      { arg_components: arg_components },
       false);
   }
 
@@ -2644,7 +2644,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[43],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2653,7 +2653,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[44],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2662,7 +2662,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[45],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2671,7 +2671,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[46],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2680,7 +2680,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[47],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2689,7 +2689,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[48],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2698,7 +2698,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[49],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2707,7 +2707,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[50],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2716,7 +2716,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[51],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2725,7 +2725,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[52],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2734,7 +2734,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[53],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2743,7 +2743,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[54],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -2752,7 +2752,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[55],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec,
-      [arg_shutdown_method],
+      { arg_shutdown_method: arg_shutdown_method },
       false);
   }
 
@@ -2761,7 +2761,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[56],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -2770,7 +2770,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[57],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2779,7 +2779,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[58],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2788,7 +2788,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[59],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2797,7 +2797,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[60],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2806,7 +2806,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[61],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2815,7 +2815,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[62],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ResponseParamsSpec,
-      [arg_is_approved],
+      { arg_is_approved: arg_is_approved },
       false);
   }
 
@@ -2824,7 +2824,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[63],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2833,7 +2833,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[64],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -2842,7 +2842,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[65],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -2851,7 +2851,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[66],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -2860,7 +2860,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[67],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -2869,7 +2869,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[68],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -2878,7 +2878,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[69],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -2887,7 +2887,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[70],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -2896,7 +2896,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[71],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -2905,7 +2905,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[72],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -2914,7 +2914,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[73],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -3061,8 +3061,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCurrentState FAILED:', e));
           }
@@ -3077,8 +3077,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_property_result' in response) ? response.arg_arg_state_property_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_property_result' in response) ? response.arg_state_property_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec.$.structSpec, { 'arg_state_property_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getStateProperties FAILED:', e));
           }
@@ -3093,8 +3093,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] transitionPreviousState FAILED:', e));
           }
@@ -3109,8 +3109,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] abortRma FAILED:', e));
           }
@@ -3125,8 +3125,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] beginFinalization FAILED:', e));
           }
@@ -3148,8 +3148,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] networkSelectionComplete FAILED:', e));
           }
@@ -3164,8 +3164,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_version' in response) ? response.arg_arg_version : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_version' in response) ? response.arg_version : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec.$.structSpec, { 'arg_version': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCurrentOsVersion FAILED:', e));
           }
@@ -3180,7 +3180,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec.$.structSpec, ['response.arg_arg_update_available', 'response.arg_arg_version']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec.$.structSpec, { 'arg_update_available': response.arg_update_available, 'arg_version': response.arg_version });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] checkForOsUpdates FAILED:', e));
           }
@@ -3195,8 +3195,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_update_started' in response) ? response.arg_arg_update_started : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_update_started' in response) ? response.arg_update_started : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec.$.structSpec, { 'arg_update_started': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateOs FAILED:', e));
           }
@@ -3211,8 +3211,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateOsSkipped FAILED:', e));
           }
@@ -3227,8 +3227,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setSameOwner FAILED:', e));
           }
@@ -3243,8 +3243,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setDifferentOwner FAILED:', e));
           }
@@ -3254,13 +3254,13 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWipeDevice');
-          const result = this.impl.setWipeDevice(params.arg_arg_should_wipe_device);
+          const result = this.impl.setWipeDevice(params.arg_should_wipe_device);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setWipeDevice FAILED:', e));
           }
@@ -3275,8 +3275,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setManuallyDisableWriteProtect FAILED:', e));
           }
@@ -3291,8 +3291,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setRsuDisableWriteProtect FAILED:', e));
           }
@@ -3307,8 +3307,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_challenge' in response) ? response.arg_arg_challenge : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_challenge' in response) ? response.arg_challenge : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParamsSpec.$.structSpec, { 'arg_challenge': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRsuDisableWriteProtectChallenge FAILED:', e));
           }
@@ -3323,8 +3323,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_hwid' in response) ? response.arg_arg_hwid : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_hwid' in response) ? response.arg_hwid : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParamsSpec.$.structSpec, { 'arg_hwid': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRsuDisableWriteProtectHwid FAILED:', e));
           }
@@ -3339,8 +3339,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_qr_code_data' in response) ? response.arg_arg_qr_code_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_qr_code_data' in response) ? response.arg_qr_code_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParamsSpec.$.structSpec, { 'arg_qr_code_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRsuDisableWriteProtectChallengeQrCode FAILED:', e));
           }
@@ -3350,13 +3350,13 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRsuDisableWriteProtectCode');
-          const result = this.impl.setRsuDisableWriteProtectCode(params.arg_arg_code);
+          const result = this.impl.setRsuDisableWriteProtectCode(params.arg_code);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setRsuDisableWriteProtectCode FAILED:', e));
           }
@@ -3371,8 +3371,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] writeProtectManuallyDisabled FAILED:', e));
           }
@@ -3387,8 +3387,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_action' in response) ? response.arg_arg_action : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_action' in response) ? response.arg_action : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec.$.structSpec, { 'arg_action': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getWriteProtectDisableCompleteAction FAILED:', e));
           }
@@ -3403,8 +3403,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] confirmManualWpDisableComplete FAILED:', e));
           }
@@ -3419,8 +3419,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_components' in response) ? response.arg_arg_components : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_components' in response) ? response.arg_components : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec.$.structSpec, { 'arg_components': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getComponentList FAILED:', e));
           }
@@ -3430,13 +3430,13 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setComponentList');
-          const result = this.impl.setComponentList(params.arg_arg_components);
+          const result = this.impl.setComponentList(params.arg_components);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setComponentList FAILED:', e));
           }
@@ -3451,8 +3451,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] reworkMainboard FAILED:', e));
           }
@@ -3467,8 +3467,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] roFirmwareUpdateComplete FAILED:', e));
           }
@@ -3483,8 +3483,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] shutdownForRestock FAILED:', e));
           }
@@ -3499,8 +3499,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] continueFinalizationAfterRestock FAILED:', e));
           }
@@ -3515,8 +3515,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_regions' in response) ? response.arg_arg_regions : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_regions' in response) ? response.arg_regions : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec.$.structSpec, { 'arg_regions': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRegionList FAILED:', e));
           }
@@ -3531,8 +3531,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_skus' in response) ? response.arg_arg_skus : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_skus' in response) ? response.arg_skus : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec.$.structSpec, { 'arg_skus': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSkuList FAILED:', e));
           }
@@ -3547,8 +3547,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_custom_labels' in response) ? response.arg_arg_custom_labels : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_custom_labels' in response) ? response.arg_custom_labels : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec.$.structSpec, { 'arg_custom_labels': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCustomLabelList FAILED:', e));
           }
@@ -3563,8 +3563,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_sku_descriptions' in response) ? response.arg_arg_sku_descriptions : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_sku_descriptions' in response) ? response.arg_sku_descriptions : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSpec.$.structSpec, { 'arg_sku_descriptions': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSkuDescriptionList FAILED:', e));
           }
@@ -3579,8 +3579,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_serial_number' in response) ? response.arg_arg_serial_number : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_serial_number' in response) ? response.arg_serial_number : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParamsSpec.$.structSpec, { 'arg_serial_number': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOriginalSerialNumber FAILED:', e));
           }
@@ -3595,8 +3595,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_region_index' in response) ? response.arg_arg_region_index : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_region_index' in response) ? response.arg_region_index : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec.$.structSpec, { 'arg_region_index': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOriginalRegion FAILED:', e));
           }
@@ -3611,8 +3611,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_sku_index' in response) ? response.arg_arg_sku_index : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_sku_index' in response) ? response.arg_sku_index : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec.$.structSpec, { 'arg_sku_index': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOriginalSku FAILED:', e));
           }
@@ -3627,8 +3627,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_custom_label_index' in response) ? response.arg_arg_custom_label_index : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_custom_label_index' in response) ? response.arg_custom_label_index : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsSpec.$.structSpec, { 'arg_custom_label_index': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOriginalCustomLabel FAILED:', e));
           }
@@ -3643,8 +3643,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_dram_part_number' in response) ? response.arg_arg_dram_part_number : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_dram_part_number' in response) ? response.arg_dram_part_number : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParamsSpec.$.structSpec, { 'arg_dram_part_number': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOriginalDramPartNumber FAILED:', e));
           }
@@ -3659,8 +3659,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_original_feature_level' in response) ? response.arg_arg_original_feature_level : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_original_feature_level' in response) ? response.arg_original_feature_level : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec.$.structSpec, { 'arg_original_feature_level': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOriginalFeatureLevel FAILED:', e));
           }
@@ -3670,13 +3670,13 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDeviceInformation');
-          const result = this.impl.setDeviceInformation(params.arg_arg_serial_number, params.arg_arg_region_index, params.arg_arg_sku_index, params.arg_arg_custom_label_index, params.arg_arg_dram_part_number, params.arg_arg_is_chassis_branded, params.arg_arg_hw_compliance_version);
+          const result = this.impl.setDeviceInformation(params.arg_serial_number, params.arg_region_index, params.arg_sku_index, params.arg_custom_label_index, params.arg_dram_part_number, params.arg_is_chassis_branded, params.arg_hw_compliance_version);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setDeviceInformation FAILED:', e));
           }
@@ -3691,8 +3691,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_components' in response) ? response.arg_arg_components : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_components' in response) ? response.arg_components : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec.$.structSpec, { 'arg_components': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCalibrationComponentList FAILED:', e));
           }
@@ -3707,8 +3707,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_instructions' in response) ? response.arg_arg_instructions : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_instructions' in response) ? response.arg_instructions : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec.$.structSpec, { 'arg_instructions': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCalibrationSetupInstructions FAILED:', e));
           }
@@ -3718,13 +3718,13 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startCalibration');
-          const result = this.impl.startCalibration(params.arg_arg_components);
+          const result = this.impl.startCalibration(params.arg_components);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startCalibration FAILED:', e));
           }
@@ -3739,8 +3739,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runCalibrationStep FAILED:', e));
           }
@@ -3755,8 +3755,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] continueCalibration FAILED:', e));
           }
@@ -3771,8 +3771,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] calibrationComplete FAILED:', e));
           }
@@ -3787,8 +3787,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] retryProvisioning FAILED:', e));
           }
@@ -3803,8 +3803,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] provisioningComplete FAILED:', e));
           }
@@ -3819,8 +3819,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] retryFinalization FAILED:', e));
           }
@@ -3835,8 +3835,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] finalizationComplete FAILED:', e));
           }
@@ -3851,8 +3851,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] writeProtectManuallyEnabled FAILED:', e));
           }
@@ -3867,7 +3867,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec.$.structSpec, ['response.arg_arg_log', 'response.arg_arg_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec.$.structSpec, { 'arg_log': response.arg_log, 'arg_error': response.arg_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getLog FAILED:', e));
           }
@@ -3882,7 +3882,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec.$.structSpec, ['response.arg_arg_save_path', 'response.arg_arg_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec.$.structSpec, { 'arg_save_path': response.arg_save_path, 'arg_error': response.arg_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] saveLog FAILED:', e));
           }
@@ -3897,8 +3897,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_powerwash_required' in response) ? response.arg_arg_powerwash_required : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_powerwash_required' in response) ? response.arg_powerwash_required : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpec.$.structSpec, { 'arg_powerwash_required': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPowerwashRequired FAILED:', e));
           }
@@ -3915,13 +3915,13 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.endRma');
-          const result = this.impl.endRma(params.arg_arg_shutdown_method);
+          const result = this.impl.endRma(params.arg_shutdown_method);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state_result' in response) ? response.arg_arg_state_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state_result' in response) ? response.arg_state_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec.$.structSpec, { 'arg_state_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] endRma FAILED:', e));
           }
@@ -3943,8 +3943,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] criticalErrorExitToLogin FAILED:', e));
           }
@@ -3959,8 +3959,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] criticalErrorReboot FAILED:', e));
           }
@@ -3975,8 +3975,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_provider' in response) ? response.arg_arg_provider : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_provider' in response) ? response.arg_provider : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParamsSpec.$.structSpec, { 'arg_provider': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] get3pDiagnosticsProvider FAILED:', e));
           }
@@ -3991,8 +3991,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_app_path' in response) ? response.arg_arg_app_path : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_app_path' in response) ? response.arg_app_path : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec.$.structSpec, { 'arg_app_path': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getInstallable3pDiagnosticsAppPath FAILED:', e));
           }
@@ -4007,8 +4007,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_app_info' in response) ? response.arg_arg_app_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_app_info' in response) ? response.arg_app_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec.$.structSpec, { 'arg_app_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] installLastFound3pDiagnosticsApp FAILED:', e));
           }
@@ -4018,12 +4018,12 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.completeLast3pDiagnosticsInstallation');
-          const result = this.impl.completeLast3pDiagnosticsInstallation(params.arg_arg_is_approved);
+          const result = this.impl.completeLast3pDiagnosticsInstallation(params.arg_is_approved);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] completeLast3pDiagnosticsInstallation FAILED:', e));
           }
@@ -4038,8 +4038,8 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] show3pDiagnosticsApp FAILED:', e));
           }
@@ -4049,70 +4049,70 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeError');
-          const result = this.impl.observeError(params.arg_arg_observer);
+          const result = this.impl.observeError(params.arg_observer);
           break;
         }
         case 65: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeOsUpdateProgress');
-          const result = this.impl.observeOsUpdateProgress(params.arg_arg_observer);
+          const result = this.impl.observeOsUpdateProgress(params.arg_observer);
           break;
         }
         case 66: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeCalibrationProgress');
-          const result = this.impl.observeCalibrationProgress(params.arg_arg_observer);
+          const result = this.impl.observeCalibrationProgress(params.arg_observer);
           break;
         }
         case 67: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeProvisioningProgress');
-          const result = this.impl.observeProvisioningProgress(params.arg_arg_observer);
+          const result = this.impl.observeProvisioningProgress(params.arg_observer);
           break;
         }
         case 68: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeHardwareWriteProtectionState');
-          const result = this.impl.observeHardwareWriteProtectionState(params.arg_arg_observer);
+          const result = this.impl.observeHardwareWriteProtectionState(params.arg_observer);
           break;
         }
         case 69: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observePowerCableState');
-          const result = this.impl.observePowerCableState(params.arg_arg_observer);
+          const result = this.impl.observePowerCableState(params.arg_observer);
           break;
         }
         case 70: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeExternalDiskState');
-          const result = this.impl.observeExternalDiskState(params.arg_arg_observer);
+          const result = this.impl.observeExternalDiskState(params.arg_observer);
           break;
         }
         case 71: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeHardwareVerificationStatus');
-          const result = this.impl.observeHardwareVerificationStatus(params.arg_arg_observer);
+          const result = this.impl.observeHardwareVerificationStatus(params.arg_observer);
           break;
         }
         case 72: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeFinalizationStatus');
-          const result = this.impl.observeFinalizationStatus(params.arg_arg_observer);
+          const result = this.impl.observeFinalizationStatus(params.arg_observer);
           break;
         }
         case 73: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeRoFirmwareUpdateProgress');
-          const result = this.impl.observeRoFirmwareUpdateProgress(params.arg_arg_observer);
+          const result = this.impl.observeRoFirmwareUpdateProgress(params.arg_observer);
           break;
         }
       }

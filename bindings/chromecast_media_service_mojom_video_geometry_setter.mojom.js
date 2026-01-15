@@ -193,7 +193,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec,
       null,
-      [arg_rect_f, arg_transform],
+      { arg_rect_f: arg_rect_f, arg_transform: arg_transform },
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVideoGeometryChange');
-          const result = this.impl.onVideoGeometryChange(params.arg_arg_rect_f, params.arg_arg_transform);
+          const result = this.impl.onVideoGeometryChange(params.arg_rect_f, params.arg_transform);
           break;
         }
       }
@@ -323,7 +323,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriberRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec,
       mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec,
-      [arg_overlay_plane_id, arg_client_pending_remote],
+      { arg_overlay_plane_id: arg_overlay_plane_id, arg_client_pending_remote: arg_client_pending_remote },
       false);
   }
 
@@ -392,12 +392,12 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriberRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToVideoGeometryChange');
-          const result = this.impl.subscribeToVideoGeometryChange(params.arg_arg_overlay_plane_id, params.arg_arg_client_pending_remote);
+          const result = this.impl.subscribeToVideoGeometryChange(params.arg_overlay_plane_id, params.arg_client_pending_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] subscribeToVideoGeometryChange FAILED:', e));
           }
@@ -461,7 +461,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec,
       null,
-      [arg_rect_f, arg_transform, arg_overlay_plane_id],
+      { arg_rect_f: arg_rect_f, arg_transform: arg_transform, arg_overlay_plane_id: arg_overlay_plane_id },
       false);
   }
 
@@ -530,7 +530,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVideoGeometry');
-          const result = this.impl.setVideoGeometry(params.arg_arg_rect_f, params.arg_arg_transform, params.arg_arg_overlay_plane_id);
+          const result = this.impl.setVideoGeometry(params.arg_rect_f, params.arg_transform, params.arg_overlay_plane_id);
           break;
         }
       }

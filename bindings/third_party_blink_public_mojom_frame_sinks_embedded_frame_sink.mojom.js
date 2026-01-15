@@ -218,7 +218,7 @@ mojo.internal.bindings.blink.mojom.SurfaceEmbedderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec,
       null,
-      [arg_local_surface_id],
+      { arg_local_surface_id: arg_local_surface_id },
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.blink.mojom.SurfaceEmbedderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec,
       null,
-      [arg_is_opaque],
+      { arg_is_opaque: arg_is_opaque },
       false);
   }
 
@@ -297,14 +297,14 @@ mojo.internal.bindings.blink.mojom.SurfaceEmbedderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setLocalSurfaceId');
-          const result = this.impl.setLocalSurfaceId(params.arg_arg_local_surface_id);
+          const result = this.impl.setLocalSurfaceId(params.arg_local_surface_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOpacityChanged');
-          const result = this.impl.onOpacityChanged(params.arg_arg_is_opaque);
+          const result = this.impl.onOpacityChanged(params.arg_is_opaque);
           break;
         }
       }
@@ -365,7 +365,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClientRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec,
       null,
-      [arg_embedder],
+      { arg_embedder: arg_embedder },
       false);
   }
 
@@ -434,7 +434,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSurfaceEmbedder');
-          const result = this.impl.bindSurfaceEmbedder(params.arg_arg_embedder);
+          const result = this.impl.bindSurfaceEmbedder(params.arg_embedder);
           break;
         }
       }
@@ -523,7 +523,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec,
       null,
-      [arg_parent_frame_sink_id, arg_frame_sink_id, arg_client],
+      { arg_parent_frame_sink_id: arg_parent_frame_sink_id, arg_frame_sink_id: arg_frame_sink_id, arg_client: arg_client },
       false);
   }
 
@@ -532,7 +532,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec,
       null,
-      [arg_bundle_id, arg_receiver, arg_client],
+      { arg_bundle_id: arg_bundle_id, arg_receiver: arg_receiver, arg_client: arg_client },
       false);
   }
 
@@ -541,7 +541,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec,
       null,
-      [arg_frame_sink_id, arg_client, arg_sink],
+      { arg_frame_sink_id: arg_frame_sink_id, arg_client: arg_client, arg_sink: arg_sink },
       false);
   }
 
@@ -550,7 +550,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec,
       null,
-      [arg_frame_sink_id, arg_bundle_id, arg_client, arg_sink],
+      { arg_frame_sink_id: arg_frame_sink_id, arg_bundle_id: arg_bundle_id, arg_client: arg_client, arg_sink: arg_sink },
       false);
   }
 
@@ -559,7 +559,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec,
       null,
-      [arg_parent_frame_sink_id, arg_frame_sink_id, arg_surface_client, arg_client, arg_sink],
+      { arg_parent_frame_sink_id: arg_parent_frame_sink_id, arg_frame_sink_id: arg_frame_sink_id, arg_surface_client: arg_surface_client, arg_client: arg_client, arg_sink: arg_sink },
       false);
   }
 
@@ -568,7 +568,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec,
       null,
-      [arg_frame_sink_id, arg_embedder],
+      { arg_frame_sink_id: arg_frame_sink_id, arg_embedder: arg_embedder },
       false);
   }
 
@@ -577,7 +577,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec,
       null,
-      [arg_frame_sink_id],
+      { arg_frame_sink_id: arg_frame_sink_id },
       false);
   }
 
@@ -586,7 +586,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec,
       null,
-      [arg_frame_sink_id],
+      { arg_frame_sink_id: arg_frame_sink_id },
       false);
   }
 
@@ -662,56 +662,56 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerEmbeddedFrameSink');
-          const result = this.impl.registerEmbeddedFrameSink(params.arg_arg_parent_frame_sink_id, params.arg_arg_frame_sink_id, params.arg_arg_client);
+          const result = this.impl.registerEmbeddedFrameSink(params.arg_parent_frame_sink_id, params.arg_frame_sink_id, params.arg_client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerEmbeddedFrameSinkBundle');
-          const result = this.impl.registerEmbeddedFrameSinkBundle(params.arg_arg_bundle_id, params.arg_arg_receiver, params.arg_arg_client);
+          const result = this.impl.registerEmbeddedFrameSinkBundle(params.arg_bundle_id, params.arg_receiver, params.arg_client);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCompositorFrameSink');
-          const result = this.impl.createCompositorFrameSink(params.arg_arg_frame_sink_id, params.arg_arg_client, params.arg_arg_sink);
+          const result = this.impl.createCompositorFrameSink(params.arg_frame_sink_id, params.arg_client, params.arg_sink);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createBundledCompositorFrameSink');
-          const result = this.impl.createBundledCompositorFrameSink(params.arg_arg_frame_sink_id, params.arg_arg_bundle_id, params.arg_arg_client, params.arg_arg_sink);
+          const result = this.impl.createBundledCompositorFrameSink(params.arg_frame_sink_id, params.arg_bundle_id, params.arg_client, params.arg_sink);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSimpleCompositorFrameSink');
-          const result = this.impl.createSimpleCompositorFrameSink(params.arg_arg_parent_frame_sink_id, params.arg_arg_frame_sink_id, params.arg_arg_surface_client, params.arg_arg_client, params.arg_arg_sink);
+          const result = this.impl.createSimpleCompositorFrameSink(params.arg_parent_frame_sink_id, params.arg_frame_sink_id, params.arg_surface_client, params.arg_client, params.arg_sink);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToEmbedder');
-          const result = this.impl.connectToEmbedder(params.arg_arg_frame_sink_id, params.arg_arg_embedder);
+          const result = this.impl.connectToEmbedder(params.arg_frame_sink_id, params.arg_embedder);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerFrameSinkHierarchy');
-          const result = this.impl.registerFrameSinkHierarchy(params.arg_arg_frame_sink_id);
+          const result = this.impl.registerFrameSinkHierarchy(params.arg_frame_sink_id);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unregisterFrameSinkHierarchy');
-          const result = this.impl.unregisterFrameSinkHierarchy(params.arg_arg_frame_sink_id);
+          const result = this.impl.unregisterFrameSinkHierarchy(params.arg_frame_sink_id);
           break;
         }
       }

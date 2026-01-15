@@ -235,7 +235,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.CameraService_Connect_ParamsSpec,
       mojo.internal.bindings.arc.mojom.CameraService_Connect_ResponseParamsSpec,
-      [arg_device_path],
+      { arg_device_path: arg_device_path },
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.CameraService_Disconnect_ParamsSpec,
       mojo.internal.bindings.arc.mojom.CameraService_Disconnect_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ParamsSpec,
       mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ResponseParamsSpec,
-      [arg_width, arg_height, arg_pixel_format, arg_frame_rate],
+      { arg_width: arg_width, arg_height: arg_height, arg_pixel_format: arg_pixel_format, arg_frame_rate: arg_frame_rate },
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.CameraService_StreamOff_ParamsSpec,
       mojo.internal.bindings.arc.mojom.CameraService_StreamOff_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.CameraService_GetNextFrameBuffer_ParamsSpec,
       mojo.internal.bindings.arc.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ParamsSpec,
       mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec,
-      [arg_buffer_id],
+      { arg_buffer_id: arg_buffer_id },
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec,
       mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec,
-      [arg_device_path],
+      { arg_device_path: arg_device_path },
       false);
   }
 
@@ -298,7 +298,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec,
       mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -374,13 +374,13 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_arg_device_path);
+          const result = this.impl.connect(params.arg_device_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_Connect_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_Connect_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] connect FAILED:', e));
           }
@@ -395,7 +395,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_Disconnect_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_Disconnect_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] disconnect FAILED:', e));
           }
@@ -405,12 +405,12 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.streamOn');
-          const result = this.impl.streamOn(params.arg_arg_width, params.arg_arg_height, params.arg_arg_pixel_format, params.arg_arg_frame_rate);
+          const result = this.impl.streamOn(params.arg_width, params.arg_height, params.arg_pixel_format, params.arg_frame_rate);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ResponseParamsSpec.$.structSpec, ['response.arg_arg_fds', 'response.arg_arg_buffer_size', 'response.arg_arg_result']);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ResponseParamsSpec.$.structSpec, { 'arg_fds': response.arg_fds, 'arg_buffer_size': response.arg_buffer_size, 'arg_result': response.arg_result });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] streamOn FAILED:', e));
           }
@@ -425,8 +425,8 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_StreamOff_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_StreamOff_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] streamOff FAILED:', e));
           }
@@ -441,7 +441,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec.$.structSpec, ['response.arg_arg_buffer_id', 'response.arg_arg_data_size', 'response.arg_arg_result']);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec.$.structSpec, { 'arg_buffer_id': response.arg_buffer_id, 'arg_data_size': response.arg_data_size, 'arg_result': response.arg_result });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNextFrameBuffer FAILED:', e));
           }
@@ -451,13 +451,13 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reuseFrameBuffer');
-          const result = this.impl.reuseFrameBuffer(params.arg_arg_buffer_id);
+          const result = this.impl.reuseFrameBuffer(params.arg_buffer_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] reuseFrameBuffer FAILED:', e));
           }
@@ -467,13 +467,13 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeviceSupportedFormats');
-          const result = this.impl.getDeviceSupportedFormats(params.arg_arg_device_path);
+          const result = this.impl.getDeviceSupportedFormats(params.arg_device_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_supported_formats' in response) ? response.arg_arg_supported_formats : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_supported_formats' in response) ? response.arg_supported_formats : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec.$.structSpec, { 'arg_supported_formats': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDeviceSupportedFormats FAILED:', e));
           }
@@ -488,8 +488,8 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_device_infos' in response) ? response.arg_arg_device_infos : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_device_infos' in response) ? response.arg_device_infos : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec.$.structSpec, { 'arg_device_infos': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCameraDeviceInfos FAILED:', e));
           }
@@ -561,7 +561,7 @@ mojo.internal.bindings.arc.mojom.CameraHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ParamsSpec,
       mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -570,7 +570,7 @@ mojo.internal.bindings.arc.mojom.CameraHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec,
       null,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -579,7 +579,7 @@ mojo.internal.bindings.arc.mojom.CameraHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec,
       mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -655,8 +655,8 @@ mojo.internal.bindings.arc.mojom.CameraHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_service' in response) ? response.arg_arg_service : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_service' in response) ? response.arg_service : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec.$.structSpec, { 'arg_service': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startCameraService FAILED:', e));
           }
@@ -666,20 +666,20 @@ mojo.internal.bindings.arc.mojom.CameraHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerCameraHalClientLegacy');
-          const result = this.impl.registerCameraHalClientLegacy(params.arg_arg_client);
+          const result = this.impl.registerCameraHalClientLegacy(params.arg_client);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerCameraHalClient');
-          const result = this.impl.registerCameraHalClient(params.arg_arg_client);
+          const result = this.impl.registerCameraHalClient(params.arg_client);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] registerCameraHalClient FAILED:', e));
           }
@@ -743,7 +743,7 @@ mojo.internal.bindings.arc.mojom.CameraInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.CameraInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.CameraInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -812,12 +812,12 @@ mojo.internal.bindings.arc.mojom.CameraInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CameraInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CameraInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }

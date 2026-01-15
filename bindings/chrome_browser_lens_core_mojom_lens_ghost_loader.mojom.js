@@ -174,7 +174,7 @@ mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactoryRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec,
       null,
-      [arg_page],
+      { arg_page: arg_page },
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactoryReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createGhostLoaderPage');
-          const result = this.impl.createGhostLoaderPage(params.arg_arg_page);
+          const result = this.impl.createGhostLoaderPage(params.arg_page);
           break;
         }
       }
@@ -304,7 +304,7 @@ mojo.internal.bindings.lens.mojom.LensGhostLoaderPageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

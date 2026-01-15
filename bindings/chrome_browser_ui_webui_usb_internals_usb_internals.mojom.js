@@ -185,7 +185,7 @@ mojo.internal.bindings.mojom.UsbInternalsPageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.mojom.UsbInternalsPageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -264,14 +264,14 @@ mojo.internal.bindings.mojom.UsbInternalsPageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindUsbDeviceManagerInterface');
-          const result = this.impl.bindUsbDeviceManagerInterface(params.arg_arg_receiver);
+          const result = this.impl.bindUsbDeviceManagerInterface(params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTestInterface');
-          const result = this.impl.bindTestInterface(params.arg_arg_receiver);
+          const result = this.impl.bindTestInterface(params.arg_receiver);
           break;
         }
       }

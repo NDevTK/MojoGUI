@@ -440,7 +440,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReaderRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReaderRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec,
-      [arg_size],
+      { arg_size: arg_size },
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReaderRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_ReadData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -534,7 +534,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReaderReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_response_head', 'response.arg_arg_metadata']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_response_head': response.arg_response_head, 'arg_metadata': response.arg_metadata });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readResponseHead FAILED:', e));
           }
@@ -544,13 +544,13 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReaderReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prepareReadData');
-          const result = this.impl.prepareReadData(params.arg_arg_size);
+          const result = this.impl.prepareReadData(params.arg_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pipe' in response) ? response.arg_arg_pipe : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pipe' in response) ? response.arg_pipe : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec.$.structSpec, { 'arg_pipe': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] prepareReadData FAILED:', e));
           }
@@ -565,8 +565,8 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReaderReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readData FAILED:', e));
           }
@@ -634,7 +634,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriterRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec,
-      [arg_response_head],
+      { arg_response_head: arg_response_head },
       false);
   }
 
@@ -643,7 +643,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriterRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -713,13 +713,13 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriterReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeResponseHead');
-          const result = this.impl.writeResponseHead(params.arg_arg_response_head);
+          const result = this.impl.writeResponseHead(params.arg_response_head);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] writeResponseHead FAILED:', e));
           }
@@ -729,13 +729,13 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriterReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeData');
-          const result = this.impl.writeData(params.arg_arg_data);
+          const result = this.impl.writeData(params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] writeData FAILED:', e));
           }
@@ -799,7 +799,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceMetadataWriterRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -868,13 +868,13 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceMetadataWriterReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeMetadata');
-          const result = this.impl.writeMetadata(params.arg_arg_data);
+          const result = this.impl.writeMetadata(params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] writeMetadata FAILED:', e));
           }
@@ -1102,7 +1102,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Disable_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Disable_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1111,7 +1111,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Delete_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1120,7 +1120,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Recover_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Recover_ResponseParamsSpec,
-      [arg_versions],
+      { arg_versions: arg_versions },
       false);
   }
 
@@ -1129,7 +1129,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1138,7 +1138,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec,
-      [arg_client_url, arg_key],
+      { arg_client_url: arg_client_url, arg_key: arg_key },
       false);
   }
 
@@ -1147,7 +1147,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec,
-      [arg_scope, arg_key],
+      { arg_scope: arg_scope, arg_key: arg_key },
       false);
   }
 
@@ -1156,7 +1156,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec,
-      [arg_registration_id, arg_key],
+      { arg_registration_id: arg_registration_id, arg_key: arg_key },
       false);
   }
 
@@ -1165,7 +1165,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec,
-      [arg_key],
+      { arg_key: arg_key },
       false);
   }
 
@@ -1174,7 +1174,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec,
-      [arg_key],
+      { arg_key: arg_key },
       false);
   }
 
@@ -1183,7 +1183,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1192,7 +1192,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec,
-      [arg_registration, arg_resources],
+      { arg_registration: arg_registration, arg_resources: arg_resources },
       false);
   }
 
@@ -1201,7 +1201,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec,
-      [arg_registration_id, arg_key],
+      { arg_registration_id: arg_registration_id, arg_key: arg_key },
       false);
   }
 
@@ -1210,7 +1210,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec,
-      [arg_registration_id, arg_key],
+      { arg_registration_id: arg_registration_id, arg_key: arg_key },
       false);
   }
 
@@ -1219,7 +1219,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec,
-      [arg_registration_id, arg_key, arg_last_update_check_time],
+      { arg_registration_id: arg_registration_id, arg_key: arg_key, arg_last_update_check_time: arg_last_update_check_time },
       false);
   }
 
@@ -1228,7 +1228,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec,
-      [arg_registration_id, arg_key, arg_enable],
+      { arg_registration_id: arg_registration_id, arg_key: arg_key, arg_enable: arg_enable },
       false);
   }
 
@@ -1237,7 +1237,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec,
-      [arg_registration_id, arg_key, arg_value],
+      { arg_registration_id: arg_registration_id, arg_key: arg_key, arg_value: arg_value },
       false);
   }
 
@@ -1246,7 +1246,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec,
-      [arg_registration_id, arg_key, arg_type],
+      { arg_registration_id: arg_registration_id, arg_key: arg_key, arg_type: arg_type },
       false);
   }
 
@@ -1255,7 +1255,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec,
-      [arg_registratation_id, arg_key, arg_updated_sha256_checksums],
+      { arg_registratation_id: arg_registratation_id, arg_key: arg_key, arg_updated_sha256_checksums: arg_updated_sha256_checksums },
       false);
   }
 
@@ -1264,7 +1264,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1273,7 +1273,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1282,7 +1282,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1291,7 +1291,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec,
       null,
-      [arg_resource_id, arg_reader],
+      { arg_resource_id: arg_resource_id, arg_reader: arg_reader },
       false);
   }
 
@@ -1300,7 +1300,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec,
       null,
-      [arg_resource_id, arg_writer],
+      { arg_resource_id: arg_resource_id, arg_writer: arg_writer },
       false);
   }
 
@@ -1309,7 +1309,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpec,
       null,
-      [arg_resource_id, arg_writer],
+      { arg_resource_id: arg_resource_id, arg_writer: arg_writer },
       false);
   }
 
@@ -1318,7 +1318,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec,
-      [arg_resource_id],
+      { arg_resource_id: arg_resource_id },
       false);
   }
 
@@ -1327,7 +1327,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec,
-      [arg_resource_ids],
+      { arg_resource_ids: arg_resource_ids },
       false);
   }
 
@@ -1336,7 +1336,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec,
-      [arg_registration_id, arg_keys],
+      { arg_registration_id: arg_registration_id, arg_keys: arg_keys },
       false);
   }
 
@@ -1345,7 +1345,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec,
-      [arg_registration_id, arg_key, arg_user_data],
+      { arg_registration_id: arg_registration_id, arg_key: arg_key, arg_user_data: arg_user_data },
       false);
   }
 
@@ -1354,7 +1354,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec,
-      [arg_registration_id, arg_keys],
+      { arg_registration_id: arg_registration_id, arg_keys: arg_keys },
       false);
   }
 
@@ -1363,7 +1363,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec,
-      [arg_registration_id, arg_key_prefix],
+      { arg_registration_id: arg_registration_id, arg_key_prefix: arg_key_prefix },
       false);
   }
 
@@ -1372,7 +1372,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec,
-      [arg_registration_id, arg_key_prefix],
+      { arg_registration_id: arg_registration_id, arg_key_prefix: arg_key_prefix },
       false);
   }
 
@@ -1381,7 +1381,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec,
-      [arg_registratation_id, arg_key_prefixes],
+      { arg_registratation_id: arg_registratation_id, arg_key_prefixes: arg_key_prefixes },
       false);
   }
 
@@ -1390,7 +1390,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec,
-      [arg_key],
+      { arg_key: arg_key },
       false);
   }
 
@@ -1399,7 +1399,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec,
-      [arg_key_prefix],
+      { arg_key_prefix: arg_key_prefix },
       false);
   }
 
@@ -1408,7 +1408,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec,
-      [arg_key_prefix],
+      { arg_key_prefix: arg_key_prefix },
       false);
   }
 
@@ -1417,7 +1417,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1426,7 +1426,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec,
-      [arg_policy_updates],
+      { arg_policy_updates: arg_policy_updates },
       false);
   }
 
@@ -1435,7 +1435,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[37],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1444,7 +1444,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[38],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec,
-      [arg_version_id],
+      { arg_version_id: arg_version_id },
       false);
   }
 
@@ -1453,7 +1453,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[39],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1462,7 +1462,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[40],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1471,7 +1471,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[41],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1586,7 +1586,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Disable_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Disable_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] disable FAILED:', e));
           }
@@ -1601,8 +1601,8 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] delete FAILED:', e));
           }
@@ -1612,12 +1612,12 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Recover_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recover');
-          const result = this.impl.recover(params.arg_arg_versions);
+          const result = this.impl.recover(params.arg_versions);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Recover_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Recover_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] recover FAILED:', e));
           }
@@ -1632,8 +1632,8 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_keys' in response) ? response.arg_arg_keys : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_keys' in response) ? response.arg_keys : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec.$.structSpec, { 'arg_keys': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRegisteredStorageKeys FAILED:', e));
           }
@@ -1643,12 +1643,12 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.findRegistrationForClientUrl');
-          const result = this.impl.findRegistrationForClientUrl(params.arg_arg_client_url, params.arg_arg_key);
+          const result = this.impl.findRegistrationForClientUrl(params.arg_client_url, params.arg_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_result', 'response.arg_arg_scopes']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_result': response.arg_result, 'arg_scopes': response.arg_scopes });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] findRegistrationForClientUrl FAILED:', e));
           }
@@ -1658,12 +1658,12 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.findRegistrationForScope');
-          const result = this.impl.findRegistrationForScope(params.arg_arg_scope, params.arg_arg_key);
+          const result = this.impl.findRegistrationForScope(params.arg_scope, params.arg_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_result']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_result': response.arg_result });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] findRegistrationForScope FAILED:', e));
           }
@@ -1673,12 +1673,12 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.findRegistrationForId');
-          const result = this.impl.findRegistrationForId(params.arg_arg_registration_id, params.arg_arg_key);
+          const result = this.impl.findRegistrationForId(params.arg_registration_id, params.arg_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_result']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_result': response.arg_result });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] findRegistrationForId FAILED:', e));
           }
@@ -1688,12 +1688,12 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRegistrationsForStorageKey');
-          const result = this.impl.getRegistrationsForStorageKey(params.arg_arg_key);
+          const result = this.impl.getRegistrationsForStorageKey(params.arg_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_registrations']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_registrations': response.arg_registrations });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRegistrationsForStorageKey FAILED:', e));
           }
@@ -1703,12 +1703,12 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUsageForStorageKey');
-          const result = this.impl.getUsageForStorageKey(params.arg_arg_key);
+          const result = this.impl.getUsageForStorageKey(params.arg_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_usage']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_usage': response.arg_usage });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUsageForStorageKey FAILED:', e));
           }
@@ -1723,7 +1723,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_registrations']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_registrations': response.arg_registrations });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAllRegistrationsDeprecated FAILED:', e));
           }
@@ -1733,12 +1733,12 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.storeRegistration');
-          const result = this.impl.storeRegistration(params.arg_arg_registration, params.arg_arg_resources);
+          const result = this.impl.storeRegistration(params.arg_registration, params.arg_resources);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_deleted_resources_size']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_deleted_resources_size': response.arg_deleted_resources_size });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] storeRegistration FAILED:', e));
           }
@@ -1748,12 +1748,12 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteRegistration');
-          const result = this.impl.deleteRegistration(params.arg_arg_registration_id, params.arg_arg_key);
+          const result = this.impl.deleteRegistration(params.arg_registration_id, params.arg_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_deleted_resources_size', 'response.arg_arg_storage_key_state']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_deleted_resources_size': response.arg_deleted_resources_size, 'arg_storage_key_state': response.arg_storage_key_state });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteRegistration FAILED:', e));
           }
@@ -1763,13 +1763,13 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateToActiveState');
-          const result = this.impl.updateToActiveState(params.arg_arg_registration_id, params.arg_arg_key);
+          const result = this.impl.updateToActiveState(params.arg_registration_id, params.arg_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateToActiveState FAILED:', e));
           }
@@ -1779,13 +1779,13 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateLastUpdateCheckTime');
-          const result = this.impl.updateLastUpdateCheckTime(params.arg_arg_registration_id, params.arg_arg_key, params.arg_arg_last_update_check_time);
+          const result = this.impl.updateLastUpdateCheckTime(params.arg_registration_id, params.arg_key, params.arg_last_update_check_time);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateLastUpdateCheckTime FAILED:', e));
           }
@@ -1795,13 +1795,13 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateNavigationPreloadEnabled');
-          const result = this.impl.updateNavigationPreloadEnabled(params.arg_arg_registration_id, params.arg_arg_key, params.arg_arg_enable);
+          const result = this.impl.updateNavigationPreloadEnabled(params.arg_registration_id, params.arg_key, params.arg_enable);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateNavigationPreloadEnabled FAILED:', e));
           }
@@ -1811,13 +1811,13 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateNavigationPreloadHeader');
-          const result = this.impl.updateNavigationPreloadHeader(params.arg_arg_registration_id, params.arg_arg_key, params.arg_arg_value);
+          const result = this.impl.updateNavigationPreloadHeader(params.arg_registration_id, params.arg_key, params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateNavigationPreloadHeader FAILED:', e));
           }
@@ -1827,13 +1827,13 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateFetchHandlerType');
-          const result = this.impl.updateFetchHandlerType(params.arg_arg_registration_id, params.arg_arg_key, params.arg_arg_type);
+          const result = this.impl.updateFetchHandlerType(params.arg_registration_id, params.arg_key, params.arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateFetchHandlerType FAILED:', e));
           }
@@ -1843,13 +1843,13 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateResourceSha256Checksums');
-          const result = this.impl.updateResourceSha256Checksums(params.arg_arg_registratation_id, params.arg_arg_key, params.arg_arg_updated_sha256_checksums);
+          const result = this.impl.updateResourceSha256Checksums(params.arg_registratation_id, params.arg_key, params.arg_updated_sha256_checksums);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateResourceSha256Checksums FAILED:', e));
           }
@@ -1864,8 +1864,8 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_registration_id' in response) ? response.arg_arg_registration_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_registration_id' in response) ? response.arg_registration_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec.$.structSpec, { 'arg_registration_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNewRegistrationId FAILED:', e));
           }
@@ -1880,7 +1880,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec.$.structSpec, ['response.arg_arg_version_id', 'response.arg_arg_version_reference']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec.$.structSpec, { 'arg_version_id': response.arg_version_id, 'arg_version_reference': response.arg_version_reference });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNewVersionId FAILED:', e));
           }
@@ -1895,8 +1895,8 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_resource_id' in response) ? response.arg_arg_resource_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_resource_id' in response) ? response.arg_resource_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec.$.structSpec, { 'arg_resource_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNewResourceId FAILED:', e));
           }
@@ -1906,34 +1906,34 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createResourceReader');
-          const result = this.impl.createResourceReader(params.arg_arg_resource_id, params.arg_arg_reader);
+          const result = this.impl.createResourceReader(params.arg_resource_id, params.arg_reader);
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createResourceWriter');
-          const result = this.impl.createResourceWriter(params.arg_arg_resource_id, params.arg_arg_writer);
+          const result = this.impl.createResourceWriter(params.arg_resource_id, params.arg_writer);
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createResourceMetadataWriter');
-          const result = this.impl.createResourceMetadataWriter(params.arg_arg_resource_id, params.arg_arg_writer);
+          const result = this.impl.createResourceMetadataWriter(params.arg_resource_id, params.arg_writer);
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.storeUncommittedResourceId');
-          const result = this.impl.storeUncommittedResourceId(params.arg_arg_resource_id);
+          const result = this.impl.storeUncommittedResourceId(params.arg_resource_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] storeUncommittedResourceId FAILED:', e));
           }
@@ -1943,13 +1943,13 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.doomUncommittedResources');
-          const result = this.impl.doomUncommittedResources(params.arg_arg_resource_ids);
+          const result = this.impl.doomUncommittedResources(params.arg_resource_ids);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] doomUncommittedResources FAILED:', e));
           }
@@ -1959,12 +1959,12 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserData');
-          const result = this.impl.getUserData(params.arg_arg_registration_id, params.arg_arg_keys);
+          const result = this.impl.getUserData(params.arg_registration_id, params.arg_keys);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_values']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_values': response.arg_values });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUserData FAILED:', e));
           }
@@ -1974,13 +1974,13 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.storeUserData');
-          const result = this.impl.storeUserData(params.arg_arg_registration_id, params.arg_arg_key, params.arg_arg_user_data);
+          const result = this.impl.storeUserData(params.arg_registration_id, params.arg_key, params.arg_user_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] storeUserData FAILED:', e));
           }
@@ -1990,13 +1990,13 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearUserData');
-          const result = this.impl.clearUserData(params.arg_arg_registration_id, params.arg_arg_keys);
+          const result = this.impl.clearUserData(params.arg_registration_id, params.arg_keys);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] clearUserData FAILED:', e));
           }
@@ -2006,12 +2006,12 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserDataByKeyPrefix');
-          const result = this.impl.getUserDataByKeyPrefix(params.arg_arg_registration_id, params.arg_arg_key_prefix);
+          const result = this.impl.getUserDataByKeyPrefix(params.arg_registration_id, params.arg_key_prefix);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_values']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_values': response.arg_values });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUserDataByKeyPrefix FAILED:', e));
           }
@@ -2021,12 +2021,12 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserKeysAndDataByKeyPrefix');
-          const result = this.impl.getUserKeysAndDataByKeyPrefix(params.arg_arg_registration_id, params.arg_arg_key_prefix);
+          const result = this.impl.getUserKeysAndDataByKeyPrefix(params.arg_registration_id, params.arg_key_prefix);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_user_data']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_user_data': response.arg_user_data });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUserKeysAndDataByKeyPrefix FAILED:', e));
           }
@@ -2036,13 +2036,13 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearUserDataByKeyPrefixes');
-          const result = this.impl.clearUserDataByKeyPrefixes(params.arg_arg_registratation_id, params.arg_arg_key_prefixes);
+          const result = this.impl.clearUserDataByKeyPrefixes(params.arg_registratation_id, params.arg_key_prefixes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] clearUserDataByKeyPrefixes FAILED:', e));
           }
@@ -2052,12 +2052,12 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserDataForAllRegistrations');
-          const result = this.impl.getUserDataForAllRegistrations(params.arg_arg_key);
+          const result = this.impl.getUserDataForAllRegistrations(params.arg_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_values']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_values': response.arg_values });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUserDataForAllRegistrations FAILED:', e));
           }
@@ -2067,12 +2067,12 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserDataForAllRegistrationsByKeyPrefix');
-          const result = this.impl.getUserDataForAllRegistrationsByKeyPrefix(params.arg_arg_key_prefix);
+          const result = this.impl.getUserDataForAllRegistrationsByKeyPrefix(params.arg_key_prefix);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_values']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_values': response.arg_values });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUserDataForAllRegistrationsByKeyPrefix FAILED:', e));
           }
@@ -2082,13 +2082,13 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearUserDataForAllRegistrationsByKeyPrefix');
-          const result = this.impl.clearUserDataForAllRegistrationsByKeyPrefix(params.arg_arg_key_prefix);
+          const result = this.impl.clearUserDataForAllRegistrationsByKeyPrefix(params.arg_key_prefix);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] clearUserDataForAllRegistrationsByKeyPrefix FAILED:', e));
           }
@@ -2103,7 +2103,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] performStorageCleanup FAILED:', e));
           }
@@ -2113,13 +2113,13 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyPolicyUpdates');
-          const result = this.impl.applyPolicyUpdates(params.arg_arg_policy_updates);
+          const result = this.impl.applyPolicyUpdates(params.arg_policy_updates);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] applyPolicyUpdates FAILED:', e));
           }
@@ -2134,7 +2134,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_resource_ids']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_resource_ids': response.arg_resource_ids });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPurgingResourceIdsForTest FAILED:', e));
           }
@@ -2144,12 +2144,12 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPurgingResourceIdsForLiveVersionForTest');
-          const result = this.impl.getPurgingResourceIdsForLiveVersionForTest(params.arg_arg_version_id);
+          const result = this.impl.getPurgingResourceIdsForLiveVersionForTest(params.arg_version_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_resource_ids']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_resource_ids': response.arg_resource_ids });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPurgingResourceIdsForLiveVersionForTest FAILED:', e));
           }
@@ -2164,7 +2164,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_resource_ids']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_resource_ids': response.arg_resource_ids });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPurgeableResourceIdsForTest FAILED:', e));
           }
@@ -2179,7 +2179,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_resource_ids']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_resource_ids': response.arg_resource_ids });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUncommittedResourceIdsForTest FAILED:', e));
           }
@@ -2194,7 +2194,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setPurgingCompleteCallbackForTest FAILED:', e));
           }

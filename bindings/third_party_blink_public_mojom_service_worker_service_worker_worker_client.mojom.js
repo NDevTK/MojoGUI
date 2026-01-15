@@ -175,7 +175,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec,
       null,
-      [arg_mode],
+      { arg_mode: arg_mode },
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onControllerChanged');
-          const result = this.impl.onControllerChanged(params.arg_arg_mode);
+          const result = this.impl.onControllerChanged(params.arg_mode);
           break;
         }
       }

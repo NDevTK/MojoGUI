@@ -612,7 +612,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec,
       null,
-      [arg_input_field_info, arg_settings],
+      { arg_input_field_info: arg_input_field_info, arg_settings: arg_settings },
       false);
   }
 
@@ -621,7 +621,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec,
-      [arg_input_field_info, arg_deprecated_settings],
+      { arg_input_field_info: arg_input_field_info, arg_deprecated_settings: arg_deprecated_settings },
       false);
   }
 
@@ -630,7 +630,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethod_OnBlur_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -639,7 +639,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec,
-      [arg_event],
+      { arg_event: arg_event },
       false);
   }
 
@@ -648,7 +648,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec,
       null,
-      [arg_text, arg_offset, arg_selection_range],
+      { arg_text: arg_text, arg_offset: arg_offset, arg_selection_range: arg_selection_range },
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec,
       null,
-      [arg_selected_candidate_index],
+      { arg_selected_candidate_index: arg_selected_candidate_index },
       false);
   }
 
@@ -675,7 +675,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec,
       null,
-      [arg_settings],
+      { arg_settings: arg_settings },
       false);
   }
 
@@ -684,7 +684,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -693,7 +693,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec,
       null,
-      [arg_window],
+      { arg_window: arg_window },
       false);
   }
 
@@ -771,19 +771,19 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFocusDeprecated');
-          const result = this.impl.onFocusDeprecated(params.arg_arg_input_field_info, params.arg_arg_settings);
+          const result = this.impl.onFocusDeprecated(params.arg_input_field_info, params.arg_settings);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFocus');
-          const result = this.impl.onFocus(params.arg_arg_input_field_info, params.arg_arg_deprecated_settings);
+          const result = this.impl.onFocus(params.arg_input_field_info, params.arg_deprecated_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_metadata']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_metadata': response.arg_metadata });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onFocus FAILED:', e));
           }
@@ -800,13 +800,13 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.processKeyEvent');
-          const result = this.impl.processKeyEvent(params.arg_arg_event);
+          const result = this.impl.processKeyEvent(params.arg_event);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] processKeyEvent FAILED:', e));
           }
@@ -816,7 +816,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSurroundingTextChanged');
-          const result = this.impl.onSurroundingTextChanged(params.arg_arg_text, params.arg_arg_offset, params.arg_arg_selection_range);
+          const result = this.impl.onSurroundingTextChanged(params.arg_text, params.arg_offset, params.arg_selection_range);
           break;
         }
         case 5: {
@@ -830,14 +830,14 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCandidateSelected');
-          const result = this.impl.onCandidateSelected(params.arg_arg_selected_candidate_index);
+          const result = this.impl.onCandidateSelected(params.arg_selected_candidate_index);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onQuickSettingsUpdated');
-          const result = this.impl.onQuickSettingsUpdated(params.arg_arg_settings);
+          const result = this.impl.onQuickSettingsUpdated(params.arg_settings);
           break;
         }
         case 8: {
@@ -849,8 +849,8 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_ready' in response) ? response.arg_arg_ready : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_ready' in response) ? response.arg_ready : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec.$.structSpec, { 'arg_ready': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isReadyForTesting FAILED:', e));
           }
@@ -860,7 +860,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAssistiveWindowChanged');
-          const result = this.impl.onAssistiveWindowChanged(params.arg_arg_window);
+          const result = this.impl.onAssistiveWindowChanged(params.arg_window);
           break;
         }
       }

@@ -177,7 +177,7 @@ mojo.internal.bindings.blink.mojom.GpuDataManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ParamsSpec,
       mojo.internal.bindings.blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -246,13 +246,13 @@ mojo.internal.bindings.blink.mojom.GpuDataManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.are3DAPIsBlockedForUrl');
-          const result = this.impl.are3DAPIsBlockedForUrl(params.arg_arg_url);
+          const result = this.impl.are3DAPIsBlockedForUrl(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_blocked' in response) ? response.arg_arg_blocked : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_blocked' in response) ? response.arg_blocked : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ResponseParamsSpec.$.structSpec, { 'arg_blocked': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] are3DAPIsBlockedForUrl FAILED:', e));
           }

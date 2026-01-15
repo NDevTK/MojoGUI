@@ -187,7 +187,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListenerRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec,
       null,
-      [arg_subscription],
+      { arg_subscription: arg_subscription },
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListenerRemote
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec,
       null,
-      [arg_subscription],
+      { arg_subscription: arg_subscription },
       false);
   }
 
@@ -266,14 +266,14 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListenerReceiv
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPasspointSubscriptionAdded');
-          const result = this.impl.onPasspointSubscriptionAdded(params.arg_arg_subscription);
+          const result = this.impl.onPasspointSubscriptionAdded(params.arg_subscription);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPasspointSubscriptionRemoved');
-          const result = this.impl.onPasspointSubscriptionRemoved(params.arg_arg_subscription);
+          const result = this.impl.onPasspointSubscriptionRemoved(params.arg_subscription);
           break;
         }
       }
@@ -346,7 +346,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec,
       mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -355,7 +355,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec,
       mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -364,7 +364,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec,
       mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec,
       null,
-      [arg_listener],
+      { arg_listener: arg_listener },
       false);
   }
 
@@ -445,13 +445,13 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPasspointSubscription');
-          const result = this.impl.getPasspointSubscription(params.arg_arg_id);
+          const result = this.impl.getPasspointSubscription(params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPasspointSubscription FAILED:', e));
           }
@@ -466,8 +466,8 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] listPasspointSubscriptions FAILED:', e));
           }
@@ -477,13 +477,13 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deletePasspointSubscription');
-          const result = this.impl.deletePasspointSubscription(params.arg_arg_id);
+          const result = this.impl.deletePasspointSubscription(params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deletePasspointSubscription FAILED:', e));
           }
@@ -493,7 +493,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerPasspointListener');
-          const result = this.impl.registerPasspointListener(params.arg_arg_listener);
+          const result = this.impl.registerPasspointListener(params.arg_listener);
           break;
         }
       }

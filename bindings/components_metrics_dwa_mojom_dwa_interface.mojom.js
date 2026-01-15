@@ -288,7 +288,7 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec,
       null,
-      [arg_entry],
+      { arg_entry: arg_entry },
       false);
   }
 
@@ -357,7 +357,7 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addEntry');
-          const result = this.impl.addEntry(params.arg_arg_entry);
+          const result = this.impl.addEntry(params.arg_entry);
           break;
         }
       }
@@ -418,7 +418,7 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactoryRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec,
       null,
-      [arg_receiver, arg_client_remote],
+      { arg_receiver: arg_receiver, arg_client_remote: arg_client_remote },
       false);
   }
 
@@ -487,7 +487,7 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDwaRecorder');
-          const result = this.impl.createDwaRecorder(params.arg_arg_receiver, params.arg_arg_client_remote);
+          const result = this.impl.createDwaRecorder(params.arg_receiver, params.arg_client_remote);
           break;
         }
       }

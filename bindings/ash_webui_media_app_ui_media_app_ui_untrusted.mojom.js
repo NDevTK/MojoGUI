@@ -269,7 +269,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsSpec,
       null,
-      [arg_receiver, arg_page],
+      { arg_receiver: arg_receiver, arg_page: arg_page },
       false);
   }
 
@@ -278,7 +278,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_ParamsSpec,
       null,
-      [arg_receiver, arg_page, arg_file_name],
+      { arg_receiver: arg_receiver, arg_page: arg_page, arg_file_name: arg_file_name },
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -296,7 +296,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallH
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec,
-      [arg_page, arg_dlc_uuid],
+      { arg_page: arg_page, arg_dlc_uuid: arg_dlc_uuid },
       false);
   }
 
@@ -368,14 +368,14 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createOcrUntrustedService');
-          const result = this.impl.createOcrUntrustedService(params.arg_arg_receiver, params.arg_arg_page);
+          const result = this.impl.createOcrUntrustedService(params.arg_receiver, params.arg_page);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createMahiUntrustedService');
-          const result = this.impl.createMahiUntrustedService(params.arg_arg_receiver, params.arg_arg_page, params.arg_arg_file_name);
+          const result = this.impl.createMahiUntrustedService(params.arg_receiver, params.arg_page, params.arg_file_name);
           break;
         }
         case 2: {
@@ -387,8 +387,8 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isMantisAvailable FAILED:', e));
           }
@@ -398,13 +398,13 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createMantisUntrustedService');
-          const result = this.impl.createMantisUntrustedService(params.arg_arg_page, params.arg_arg_dlc_uuid);
+          const result = this.impl.createMantisUntrustedService(params.arg_page, params.arg_dlc_uuid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createMantisUntrustedService FAILED:', e));
           }
@@ -476,7 +476,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedServiceRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec,
       null,
-      [arg_page_metadata],
+      { arg_page_metadata: arg_page_metadata },
       false);
   }
 
@@ -485,7 +485,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedServiceRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_PageContentsUpdated_ParamsSpec,
       null,
-      [arg_dirty_page_id],
+      { arg_dirty_page_id: arg_dirty_page_id },
       false);
   }
 
@@ -494,7 +494,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedServiceRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec,
       null,
-      [arg_viewport_box, arg_scale_factor],
+      { arg_viewport_box: arg_viewport_box, arg_scale_factor: arg_scale_factor },
       false);
   }
 
@@ -565,21 +565,21 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedServiceReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pageMetadataUpdated');
-          const result = this.impl.pageMetadataUpdated(params.arg_arg_page_metadata);
+          const result = this.impl.pageMetadataUpdated(params.arg_page_metadata);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_PageContentsUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pageContentsUpdated');
-          const result = this.impl.pageContentsUpdated(params.arg_arg_dirty_page_id);
+          const result = this.impl.pageContentsUpdated(params.arg_dirty_page_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.viewportUpdated');
-          const result = this.impl.viewportUpdated(params.arg_arg_viewport_box, params.arg_arg_scale_factor);
+          const result = this.impl.viewportUpdated(params.arg_viewport_box, params.arg_scale_factor);
           break;
         }
       }
@@ -648,7 +648,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPageRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec,
-      [arg_requestedPageId],
+      { arg_requestedPageId: arg_requestedPageId },
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPageRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec,
       null,
-      [arg_viewport_box],
+      { arg_viewport_box: arg_viewport_box },
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPageRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_SetPdfOcrEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -737,13 +737,13 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestBitmap');
-          const result = this.impl.requestBitmap(params.arg_arg_requestedPageId);
+          const result = this.impl.requestBitmap(params.arg_requestedPageId);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_page' in response) ? response.arg_arg_page : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_page' in response) ? response.arg_page : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec.$.structSpec, { 'arg_page': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestBitmap FAILED:', e));
           }
@@ -753,14 +753,14 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setViewport');
-          const result = this.impl.setViewport(params.arg_arg_viewport_box);
+          const result = this.impl.setViewport(params.arg_viewport_box);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_SetPdfOcrEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPdfOcrEnabled');
-          const result = this.impl.setPdfOcrEnabled(params.arg_arg_enabled);
+          const result = this.impl.setPdfOcrEnabled(params.arg_enabled);
           break;
         }
       }
@@ -833,7 +833,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfLoaded_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -842,7 +842,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfFileNameUpdated_ParamsSpec,
       null,
-      [arg_new_name],
+      { arg_new_name: arg_new_name },
       false);
   }
 
@@ -851,7 +851,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec,
       null,
-      [arg_anchor, arg_selected_text],
+      { arg_anchor: arg_anchor, arg_selected_text: arg_selected_text },
       false);
   }
 
@@ -860,7 +860,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuHide_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -939,14 +939,14 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServiceReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfFileNameUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPdfFileNameUpdated');
-          const result = this.impl.onPdfFileNameUpdated(params.arg_arg_new_name);
+          const result = this.impl.onPdfFileNameUpdated(params.arg_new_name);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPdfContextMenuShow');
-          const result = this.impl.onPdfContextMenuShow(params.arg_arg_anchor, params.arg_arg_selected_text);
+          const result = this.impl.onPdfContextMenuShow(params.arg_anchor, params.arg_selected_text);
           break;
         }
         case 3: {
@@ -1018,7 +1018,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPageRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage_HidePdfContextMenu_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1027,7 +1027,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPageRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec,
-      [arg_limit],
+      { arg_limit: arg_limit },
       false);
   }
 
@@ -1104,13 +1104,13 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPageReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPdfContent');
-          const result = this.impl.getPdfContent(params.arg_arg_limit);
+          const result = this.impl.getPdfContent(params.arg_limit);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_content' in response) ? response.arg_arg_content : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_content' in response) ? response.arg_content : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec.$.structSpec, { 'arg_content': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPdfContent FAILED:', e));
           }
@@ -1194,7 +1194,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec,
-      [arg_image, arg_selection],
+      { arg_image: arg_image, arg_selection: arg_selection },
       false);
   }
 
@@ -1203,7 +1203,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParamsSpec,
-      [arg_image, arg_mask, arg_text, arg_seed],
+      { arg_image: arg_image, arg_mask: arg_mask, arg_text: arg_text, arg_seed: arg_seed },
       false);
   }
 
@@ -1212,7 +1212,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec,
-      [arg_image, arg_mask, arg_seed],
+      { arg_image: arg_image, arg_mask: arg_mask, arg_seed: arg_seed },
       false);
   }
 
@@ -1221,7 +1221,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec,
-      [arg_image, arg_mask, arg_seed],
+      { arg_image: arg_image, arg_mask: arg_mask, arg_seed: arg_seed },
       false);
   }
 
@@ -1230,7 +1230,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHa
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParamsSpec,
-      [arg_image],
+      { arg_image: arg_image },
       false);
   }
 
@@ -1239,7 +1239,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHa
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec,
-      [arg_gesture],
+      { arg_gesture: arg_gesture },
       false);
   }
 
@@ -1313,13 +1313,13 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.segmentImage');
-          const result = this.impl.segmentImage(params.arg_arg_image, params.arg_arg_selection);
+          const result = this.impl.segmentImage(params.arg_image, params.arg_selection);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] segmentImage FAILED:', e));
           }
@@ -1329,13 +1329,13 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generativeFillImage');
-          const result = this.impl.generativeFillImage(params.arg_arg_image, params.arg_arg_mask, params.arg_arg_text, params.arg_arg_seed);
+          const result = this.impl.generativeFillImage(params.arg_image, params.arg_mask, params.arg_text, params.arg_seed);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] generativeFillImage FAILED:', e));
           }
@@ -1345,13 +1345,13 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.inpaintImage');
-          const result = this.impl.inpaintImage(params.arg_arg_image, params.arg_arg_mask, params.arg_arg_seed);
+          const result = this.impl.inpaintImage(params.arg_image, params.arg_mask, params.arg_seed);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] inpaintImage FAILED:', e));
           }
@@ -1361,13 +1361,13 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.outpaintImage');
-          const result = this.impl.outpaintImage(params.arg_arg_image, params.arg_arg_mask, params.arg_arg_seed);
+          const result = this.impl.outpaintImage(params.arg_image, params.arg_mask, params.arg_seed);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] outpaintImage FAILED:', e));
           }
@@ -1377,13 +1377,13 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.classifyImageSafety');
-          const result = this.impl.classifyImageSafety(params.arg_arg_image);
+          const result = this.impl.classifyImageSafety(params.arg_image);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_verdict' in response) ? response.arg_arg_verdict : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_verdict' in response) ? response.arg_verdict : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParamsSpec.$.structSpec, { 'arg_verdict': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] classifyImageSafety FAILED:', e));
           }
@@ -1393,13 +1393,13 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.inferSegmentationMode');
-          const result = this.impl.inferSegmentationMode(params.arg_arg_gesture);
+          const result = this.impl.inferSegmentationMode(params.arg_gesture);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_mode' in response) ? response.arg_arg_mode : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_mode' in response) ? response.arg_mode : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec.$.structSpec, { 'arg_mode': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] inferSegmentationMode FAILED:', e));
           }
@@ -1463,7 +1463,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPageRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPage_ReportMantisProgress_ParamsSpec,
       null,
-      [arg_progress],
+      { arg_progress: arg_progress },
       false);
   }
 
@@ -1532,7 +1532,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPageReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPage_ReportMantisProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportMantisProgress');
-          const result = this.impl.reportMantisProgress(params.arg_arg_progress);
+          const result = this.impl.reportMantisProgress(params.arg_progress);
           break;
         }
       }

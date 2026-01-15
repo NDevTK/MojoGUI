@@ -177,7 +177,7 @@ mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec,
       mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec,
-      [arg_device_path],
+      { arg_device_path: arg_device_path },
       false);
   }
 
@@ -246,13 +246,13 @@ mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openDevice');
-          const result = this.impl.openDevice(params.arg_arg_device_path);
+          const result = this.impl.openDevice(params.arg_device_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_out_handle' in response) ? response.arg_arg_out_handle : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_out_handle' in response) ? response.arg_out_handle : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec.$.structSpec, { 'arg_out_handle': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openDevice FAILED:', e));
           }

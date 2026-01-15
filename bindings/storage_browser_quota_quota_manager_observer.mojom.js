@@ -183,7 +183,7 @@ mojo.internal.bindings.storage.mojom.QuotaManagerObserverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec,
       null,
-      [arg_bucket_info],
+      { arg_bucket_info: arg_bucket_info },
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.storage.mojom.QuotaManagerObserverRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec,
       null,
-      [arg_bucket_locator],
+      { arg_bucket_locator: arg_bucket_locator },
       false);
   }
 
@@ -262,14 +262,14 @@ mojo.internal.bindings.storage.mojom.QuotaManagerObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCreateOrUpdateBucket');
-          const result = this.impl.onCreateOrUpdateBucket(params.arg_arg_bucket_info);
+          const result = this.impl.onCreateOrUpdateBucket(params.arg_bucket_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeleteBucket');
-          const result = this.impl.onDeleteBucket(params.arg_arg_bucket_locator);
+          const result = this.impl.onDeleteBucket(params.arg_bucket_locator);
           break;
         }
       }

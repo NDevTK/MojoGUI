@@ -201,7 +201,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcWifiHost_StartScan_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -228,7 +228,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -305,8 +305,8 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_enabled' in response) ? response.arg_arg_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_enabled' in response) ? response.arg_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec.$.structSpec, { 'arg_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getWifiEnabledState FAILED:', e));
           }
@@ -316,13 +316,13 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWifiEnabledState');
-          const result = this.impl.setWifiEnabledState(params.arg_arg_enabled);
+          const result = this.impl.setWifiEnabledState(params.arg_enabled);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_enabled_state' in response) ? response.arg_arg_enabled_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_enabled_state' in response) ? response.arg_enabled_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec.$.structSpec, { 'arg_enabled_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setWifiEnabledState FAILED:', e));
           }
@@ -344,8 +344,8 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getScanResults FAILED:', e));
           }
@@ -417,7 +417,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -426,7 +426,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -506,12 +506,12 @@ mojo.internal.bindings.arc.mojom.ArcWifiInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -521,7 +521,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.wifiEnabledStateChanged');
-          const result = this.impl.wifiEnabledStateChanged(params.arg_arg_enabled);
+          const result = this.impl.wifiEnabledStateChanged(params.arg_enabled);
           break;
         }
         case 2: {

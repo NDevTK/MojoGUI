@@ -184,7 +184,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendMessage');
-          const result = this.impl.sendMessage(params.arg_arg_message);
+          const result = this.impl.sendMessage(params.arg_message);
           break;
         }
       }
@@ -314,7 +314,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessageClientRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessageClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessage');
-          const result = this.impl.onMessage(params.arg_arg_message);
+          const result = this.impl.onMessage(params.arg_message);
           break;
         }
       }
@@ -444,7 +444,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessageServiceRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec,
       null,
-      [arg_client_id, arg_client, arg_pipe],
+      { arg_client_id: arg_client_id, arg_client: arg_client, arg_pipe: arg_pipe },
       false);
   }
 
@@ -513,7 +513,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessageServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createMessagePipe');
-          const result = this.impl.createMessagePipe(params.arg_arg_client_id, params.arg_arg_client, params.arg_arg_pipe);
+          const result = this.impl.createMessagePipe(params.arg_client_id, params.arg_client, params.arg_pipe);
           break;
         }
       }

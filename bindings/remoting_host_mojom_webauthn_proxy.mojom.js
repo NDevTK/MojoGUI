@@ -191,7 +191,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec,
       mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -265,8 +265,8 @@ mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_was_canceled' in response) ? response.arg_arg_was_canceled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_was_canceled' in response) ? response.arg_was_canceled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec.$.structSpec, { 'arg_was_canceled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] cancel FAILED:', e));
           }
@@ -338,7 +338,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec,
       mojo.internal.bindings.remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -347,7 +347,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ParamsSpec,
       mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec,
-      [arg_request_data, arg_request_canceller],
+      { arg_request_data: arg_request_data, arg_request_canceller: arg_request_canceller },
       false);
   }
 
@@ -356,7 +356,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ParamsSpec,
       mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec,
-      [arg_request_data, arg_request_canceller],
+      { arg_request_data: arg_request_data, arg_request_canceller: arg_request_canceller },
       false);
   }
 
@@ -432,8 +432,8 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_available' in response) ? response.arg_arg_is_available : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_available' in response) ? response.arg_is_available : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec.$.structSpec, { 'arg_is_available': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isUserVerifyingPlatformAuthenticatorAvailable FAILED:', e));
           }
@@ -443,13 +443,13 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
-          const result = this.impl.create(params.arg_arg_request_data, params.arg_arg_request_canceller);
+          const result = this.impl.create(params.arg_request_data, params.arg_request_canceller);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] create FAILED:', e));
           }
@@ -459,13 +459,13 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.get');
-          const result = this.impl.get(params.arg_arg_request_data, params.arg_arg_request_canceller);
+          const result = this.impl.get(params.arg_request_data, params.arg_request_canceller);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] get FAILED:', e));
           }

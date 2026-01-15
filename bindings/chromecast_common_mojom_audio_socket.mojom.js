@@ -171,7 +171,7 @@ mojo.internal.bindings.chromecast.mojom.AudioSocketBrokerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec,
       mojo.internal.bindings.chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -245,8 +245,8 @@ mojo.internal.bindings.chromecast.mojom.AudioSocketBrokerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_fd' in response) ? response.arg_arg_fd : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_fd' in response) ? response.arg_fd : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec.$.structSpec, { 'arg_fd': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSocketDescriptor FAILED:', e));
           }

@@ -179,7 +179,7 @@ mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstanceRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec,
       null,
-      [arg_flags],
+      { arg_flags: arg_flags },
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyFeatureFlags');
-          const result = this.impl.notifyFeatureFlags(params.arg_arg_flags);
+          const result = this.impl.notifyFeatureFlags(params.arg_flags);
           break;
         }
       }

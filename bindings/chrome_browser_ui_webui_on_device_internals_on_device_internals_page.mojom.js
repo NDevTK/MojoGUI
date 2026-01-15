@@ -234,7 +234,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactoryRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactoryReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -396,7 +396,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec,
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec,
-      [arg_model_path, arg_performance_hint, arg_model],
+      { arg_model_path: arg_model_path, arg_performance_hint: arg_performance_hint, arg_model: arg_model },
       false);
   }
 
@@ -405,7 +405,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec,
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec,
-      [arg_model_path, arg_model],
+      { arg_model_path: arg_model_path, arg_model: arg_model },
       false);
   }
 
@@ -414,7 +414,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec,
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -423,7 +423,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec,
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -432,7 +432,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -441,7 +441,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec,
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -450,7 +450,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec,
       null,
-      [arg_feature_key, arg_is_recently_used],
+      { arg_feature_key: arg_feature_key, arg_is_recently_used: arg_is_recently_used },
       false);
   }
 
@@ -459,7 +459,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec,
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec,
-      [arg_image_buffer],
+      { arg_image_buffer: arg_image_buffer },
       false);
   }
 
@@ -468,7 +468,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -545,12 +545,12 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadModel');
-          const result = this.impl.loadModel(params.arg_arg_model_path, params.arg_arg_performance_hint, params.arg_arg_model);
+          const result = this.impl.loadModel(params.arg_model_path, params.arg_performance_hint, params.arg_model);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_capabilities']);
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_capabilities': response.arg_capabilities });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] loadModel FAILED:', e));
           }
@@ -560,13 +560,13 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadPlatformModel');
-          const result = this.impl.loadPlatformModel(params.arg_arg_model_path, params.arg_arg_model);
+          const result = this.impl.loadPlatformModel(params.arg_model_path, params.arg_model);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] loadPlatformModel FAILED:', e));
           }
@@ -581,7 +581,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_performance_info', 'response.arg_arg_device_info']);
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec.$.structSpec, { 'arg_performance_info': response.arg_performance_info, 'arg_device_info': response.arg_device_info });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDeviceAndPerformanceInfo FAILED:', e));
           }
@@ -596,8 +596,8 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_model_path' in response) ? response.arg_arg_model_path : response;
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_model_path' in response) ? response.arg_model_path : response;
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec.$.structSpec, { 'arg_model_path': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDefaultModelPath FAILED:', e));
           }
@@ -619,8 +619,8 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_page_data' in response) ? response.arg_arg_page_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_page_data' in response) ? response.arg_page_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec.$.structSpec, { 'arg_page_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPageData FAILED:', e));
           }
@@ -630,20 +630,20 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFeatureRecentlyUsedState');
-          const result = this.impl.setFeatureRecentlyUsedState(params.arg_arg_feature_key, params.arg_arg_is_recently_used);
+          const result = this.impl.setFeatureRecentlyUsedState(params.arg_feature_key, params.arg_is_recently_used);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeBitmap');
-          const result = this.impl.decodeBitmap(params.arg_arg_image_buffer);
+          const result = this.impl.decodeBitmap(params.arg_image_buffer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_bitmap' in response) ? response.arg_arg_bitmap : response;
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_bitmap' in response) ? response.arg_bitmap : response;
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec.$.structSpec, { 'arg_bitmap': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] decodeBitmap FAILED:', e));
           }
@@ -718,7 +718,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec,
       null,
-      [arg_event_time, arg_source_file, arg_source_line, arg_message],
+      { arg_event_time: arg_event_time, arg_source_file: arg_source_file, arg_source_line: arg_source_line, arg_message: arg_message },
       false);
   }
 
@@ -727,7 +727,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec,
       null,
-      [arg_downloaded_bytes, arg_total_bytes],
+      { arg_downloaded_bytes: arg_downloaded_bytes, arg_total_bytes: arg_total_bytes },
       false);
   }
 
@@ -797,14 +797,14 @@ mojo.internal.bindings.on_device_internals.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLogMessageAdded');
-          const result = this.impl.onLogMessageAdded(params.arg_arg_event_time, params.arg_arg_source_file, params.arg_arg_source_line, params.arg_arg_message);
+          const result = this.impl.onLogMessageAdded(params.arg_event_time, params.arg_source_file, params.arg_source_line, params.arg_message);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDownloadProgressUpdate');
-          const result = this.impl.onDownloadProgressUpdate(params.arg_arg_downloaded_bytes, params.arg_arg_total_bytes);
+          const result = this.impl.onDownloadProgressUpdate(params.arg_downloaded_bytes, params.arg_total_bytes);
           break;
         }
       }

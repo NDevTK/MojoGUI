@@ -306,7 +306,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContextRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec,
-      [arg_interface_name, arg_adaptor_remote],
+      { arg_interface_name: arg_interface_name, arg_adaptor_remote: arg_adaptor_remote },
       false);
   }
 
@@ -315,7 +315,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContextRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec,
-      [arg_interface_name, arg_receiver_pipe],
+      { arg_interface_name: arg_interface_name, arg_receiver_pipe: arg_receiver_pipe },
       false);
   }
 
@@ -385,13 +385,13 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.provideAdaptor');
-          const result = this.impl.provideAdaptor(params.arg_arg_interface_name, params.arg_arg_adaptor_remote);
+          const result = this.impl.provideAdaptor(params.arg_interface_name, params.arg_adaptor_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] provideAdaptor FAILED:', e));
           }
@@ -401,13 +401,13 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestBindService');
-          const result = this.impl.requestBindService(params.arg_arg_interface_name, params.arg_arg_receiver_pipe);
+          const result = this.impl.requestBindService(params.arg_interface_name, params.arg_receiver_pipe);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestBindService FAILED:', e));
           }
@@ -471,7 +471,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptorRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec,
       null,
-      [arg_receiver_pipe],
+      { arg_receiver_pipe: arg_receiver_pipe },
       false);
   }
 
@@ -540,7 +540,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBindService');
-          const result = this.impl.onBindService(params.arg_arg_receiver_pipe);
+          const result = this.impl.onBindService(params.arg_receiver_pipe);
           break;
         }
       }

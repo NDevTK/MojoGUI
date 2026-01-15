@@ -211,7 +211,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec,
-      [arg_nv12_image],
+      { arg_nv12_image: arg_nv12_image },
       false);
   }
 
@@ -220,7 +220,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ResponseParamsSpec,
-      [arg_jpeg_image],
+      { arg_jpeg_image: arg_jpeg_image },
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ResponseParamsSpec,
-      [arg_jpeg_image, arg_corners, arg_rotation],
+      { arg_jpeg_image: arg_jpeg_image, arg_corners: arg_corners, arg_rotation: arg_rotation },
       false);
   }
 
@@ -300,13 +300,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.detectCornersFromNV12Image');
-          const result = this.impl.detectCornersFromNV12Image(params.arg_arg_nv12_image);
+          const result = this.impl.detectCornersFromNV12Image(params.arg_nv12_image);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] detectCornersFromNV12Image FAILED:', e));
           }
@@ -316,13 +316,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.detectCornersFromJPEGImage');
-          const result = this.impl.detectCornersFromJPEGImage(params.arg_arg_jpeg_image);
+          const result = this.impl.detectCornersFromJPEGImage(params.arg_jpeg_image);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] detectCornersFromJPEGImage FAILED:', e));
           }
@@ -332,13 +332,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.doPostProcessing');
-          const result = this.impl.doPostProcessing(params.arg_arg_jpeg_image, params.arg_arg_corners, params.arg_arg_rotation);
+          const result = this.impl.doPostProcessing(params.arg_jpeg_image, params.arg_corners, params.arg_rotation);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] doPostProcessing FAILED:', e));
           }

@@ -313,7 +313,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec,
       null,
-      [arg_url, arg_click_modifiers],
+      { arg_url: arg_url, arg_click_modifiers: arg_click_modifiers },
       false);
   }
 
@@ -322,7 +322,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      [arg_page],
+      { arg_page: arg_page },
       false);
   }
 
@@ -331,7 +331,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec,
       null,
-      [arg_query, arg_point],
+      { arg_query: arg_query, arg_point: arg_point },
       false);
   }
 
@@ -340,7 +340,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec,
       null,
-      [arg_url, arg_point],
+      { arg_url: arg_url, arg_point: arg_point },
       false);
   }
 
@@ -349,7 +349,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowSidePanelUI_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -358,7 +358,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec,
       mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec,
-      [arg_visible],
+      { arg_visible: arg_visible },
       false);
   }
 
@@ -367,7 +367,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec,
       null,
-      [arg_query, arg_begin_time, arg_recluster],
+      { arg_query: arg_query, arg_begin_time: arg_begin_time, arg_recluster: arg_recluster },
       false);
   }
 
@@ -376,7 +376,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec,
       null,
-      [arg_query],
+      { arg_query: arg_query },
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ParamsSpec,
       mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec,
-      [arg_visits],
+      { arg_visits: arg_visits },
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec,
       mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec,
-      [arg_visits],
+      { arg_visits: arg_visits },
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec,
       mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec,
-      [arg_url, arg_timestamp],
+      { arg_url: arg_url, arg_timestamp: arg_timestamp },
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec,
       null,
-      [arg_visits, arg_tab_group_name],
+      { arg_visits: arg_visits, arg_tab_group_name: arg_tab_group_name },
       false);
   }
 
@@ -421,7 +421,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec,
       null,
-      [arg_visit_action, arg_visit_index, arg_visit_type],
+      { arg_visit_action: arg_visit_action, arg_visit_index: arg_visit_index, arg_visit_type: arg_visit_type },
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec,
       null,
-      [arg_action, arg_visit_index],
+      { arg_action: arg_action, arg_visit_index: arg_visit_index },
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec,
       null,
-      [arg_cluster_action, arg_cluster_index],
+      { arg_cluster_action: arg_cluster_action, arg_cluster_index: arg_cluster_index },
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec,
       null,
-      [arg_visible],
+      { arg_visible: arg_visible },
       false);
   }
 
@@ -532,28 +532,28 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openHistoryUrl');
-          const result = this.impl.openHistoryUrl(params.arg_arg_url, params.arg_arg_click_modifiers);
+          const result = this.impl.openHistoryUrl(params.arg_url, params.arg_click_modifiers);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPage');
-          const result = this.impl.setPage(params.arg_arg_page);
+          const result = this.impl.setPage(params.arg_page);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenuForSearchbox');
-          const result = this.impl.showContextMenuForSearchbox(params.arg_arg_query, params.arg_arg_point);
+          const result = this.impl.showContextMenuForSearchbox(params.arg_query, params.arg_point);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenuForURL');
-          const result = this.impl.showContextMenuForURL(params.arg_arg_url, params.arg_arg_point);
+          const result = this.impl.showContextMenuForURL(params.arg_url, params.arg_point);
           break;
         }
         case 4: {
@@ -567,13 +567,13 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleVisibility');
-          const result = this.impl.toggleVisibility(params.arg_arg_visible);
+          const result = this.impl.toggleVisibility(params.arg_visible);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_visible' in response) ? response.arg_arg_visible : response;
-              encoder.encodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_visible' in response) ? response.arg_visible : response;
+              encoder.encodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec.$.structSpec, { 'arg_visible': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] toggleVisibility FAILED:', e));
           }
@@ -583,27 +583,27 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startQueryClusters');
-          const result = this.impl.startQueryClusters(params.arg_arg_query, params.arg_arg_begin_time, params.arg_arg_recluster);
+          const result = this.impl.startQueryClusters(params.arg_query, params.arg_begin_time, params.arg_recluster);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadMoreClusters');
-          const result = this.impl.loadMoreClusters(params.arg_arg_query);
+          const result = this.impl.loadMoreClusters(params.arg_query);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hideVisits');
-          const result = this.impl.hideVisits(params.arg_arg_visits);
+          const result = this.impl.hideVisits(params.arg_visits);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] hideVisits FAILED:', e));
           }
@@ -613,13 +613,13 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeVisits');
-          const result = this.impl.removeVisits(params.arg_arg_visits);
+          const result = this.impl.removeVisits(params.arg_visits);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] removeVisits FAILED:', e));
           }
@@ -629,13 +629,13 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeVisitByUrlAndTime');
-          const result = this.impl.removeVisitByUrlAndTime(params.arg_arg_url, params.arg_arg_timestamp);
+          const result = this.impl.removeVisitByUrlAndTime(params.arg_url, params.arg_timestamp);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] removeVisitByUrlAndTime FAILED:', e));
           }
@@ -645,35 +645,35 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openVisitUrlsInTabGroup');
-          const result = this.impl.openVisitUrlsInTabGroup(params.arg_arg_visits, params.arg_arg_tab_group_name);
+          const result = this.impl.openVisitUrlsInTabGroup(params.arg_visits, params.arg_tab_group_name);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordVisitAction');
-          const result = this.impl.recordVisitAction(params.arg_arg_visit_action, params.arg_arg_visit_index, params.arg_arg_visit_type);
+          const result = this.impl.recordVisitAction(params.arg_visit_action, params.arg_visit_index, params.arg_visit_type);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordRelatedSearchAction');
-          const result = this.impl.recordRelatedSearchAction(params.arg_arg_action, params.arg_arg_visit_index);
+          const result = this.impl.recordRelatedSearchAction(params.arg_action, params.arg_visit_index);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordClusterAction');
-          const result = this.impl.recordClusterAction(params.arg_arg_cluster_action, params.arg_arg_cluster_index);
+          const result = this.impl.recordClusterAction(params.arg_cluster_action, params.arg_cluster_index);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordToggledVisibility');
-          const result = this.impl.recordToggledVisibility(params.arg_arg_visible);
+          const result = this.impl.recordToggledVisibility(params.arg_visible);
           break;
         }
       }
@@ -754,7 +754,7 @@ mojo.internal.bindings.history_clusters.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec,
       null,
-      [arg_result],
+      { arg_result: arg_result },
       false);
   }
 
@@ -763,7 +763,7 @@ mojo.internal.bindings.history_clusters.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec,
       null,
-      [arg_cluster_index, arg_image_url],
+      { arg_cluster_index: arg_cluster_index, arg_image_url: arg_image_url },
       false);
   }
 
@@ -772,7 +772,7 @@ mojo.internal.bindings.history_clusters.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec,
       null,
-      [arg_hidden_visits],
+      { arg_hidden_visits: arg_hidden_visits },
       false);
   }
 
@@ -781,7 +781,7 @@ mojo.internal.bindings.history_clusters.mojom.PageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec,
       null,
-      [arg_removed_visits],
+      { arg_removed_visits: arg_removed_visits },
       false);
   }
 
@@ -790,7 +790,7 @@ mojo.internal.bindings.history_clusters.mojom.PageRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.Page_OnHistoryDeleted_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -799,7 +799,7 @@ mojo.internal.bindings.history_clusters.mojom.PageRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec,
       null,
-      [arg_query],
+      { arg_query: arg_query },
       false);
   }
 
@@ -873,28 +873,28 @@ mojo.internal.bindings.history_clusters.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClustersQueryResult');
-          const result = this.impl.onClustersQueryResult(params.arg_arg_result);
+          const result = this.impl.onClustersQueryResult(params.arg_result);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClusterImageUpdated');
-          const result = this.impl.onClusterImageUpdated(params.arg_arg_cluster_index, params.arg_arg_image_url);
+          const result = this.impl.onClusterImageUpdated(params.arg_cluster_index, params.arg_image_url);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVisitsHidden');
-          const result = this.impl.onVisitsHidden(params.arg_arg_hidden_visits);
+          const result = this.impl.onVisitsHidden(params.arg_hidden_visits);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVisitsRemoved');
-          const result = this.impl.onVisitsRemoved(params.arg_arg_removed_visits);
+          const result = this.impl.onVisitsRemoved(params.arg_removed_visits);
           break;
         }
         case 4: {
@@ -908,7 +908,7 @@ mojo.internal.bindings.history_clusters.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onQueryChangedByUser');
-          const result = this.impl.onQueryChangedByUser(params.arg_arg_query);
+          const result = this.impl.onQueryChangedByUser(params.arg_query);
           break;
         }
       }

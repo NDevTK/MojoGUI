@@ -178,7 +178,7 @@ mojo.internal.bindings.tracing.mojom.TracedProcessRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -247,12 +247,12 @@ mojo.internal.bindings.tracing.mojom.TracedProcessReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToTracingService');
-          const result = this.impl.connectToTracingService(params.arg_arg_request);
+          const result = this.impl.connectToTracingService(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] connectToTracingService FAILED:', e));
           }

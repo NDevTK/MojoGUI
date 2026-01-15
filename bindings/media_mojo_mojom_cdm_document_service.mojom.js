@@ -206,7 +206,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec,
-      [arg_service_id, arg_challenge],
+      { arg_service_id: arg_service_id, arg_challenge: arg_challenge },
       false);
   }
 
@@ -215,7 +215,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec,
-      [arg_version],
+      { arg_version: arg_version },
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec,
       null,
-      [arg_client_token],
+      { arg_client_token: arg_client_token },
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec,
       null,
-      [arg_event, arg_hresult],
+      { arg_event: arg_event, arg_hresult: arg_hresult },
       false);
   }
 
@@ -315,12 +315,12 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.challengePlatform');
-          const result = this.impl.challengePlatform(params.arg_arg_service_id, params.arg_arg_challenge);
+          const result = this.impl.challengePlatform(params.arg_service_id, params.arg_challenge);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_signed_data', 'response.arg_arg_signed_data_signature', 'response.arg_arg_platform_key_certificate']);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_signed_data': response.arg_signed_data, 'arg_signed_data_signature': response.arg_signed_data_signature, 'arg_platform_key_certificate': response.arg_platform_key_certificate });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] challengePlatform FAILED:', e));
           }
@@ -330,12 +330,12 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStorageId');
-          const result = this.impl.getStorageId(params.arg_arg_version);
+          const result = this.impl.getStorageId(params.arg_version);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec.$.structSpec, ['response.arg_arg_version', 'response.arg_arg_storage_id']);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec.$.structSpec, { 'arg_version': response.arg_version, 'arg_storage_id': response.arg_storage_id });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getStorageId FAILED:', e));
           }
@@ -350,8 +350,8 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_cdm_data' in response) ? response.arg_arg_cdm_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_cdm_data' in response) ? response.arg_cdm_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec.$.structSpec, { 'arg_cdm_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMediaFoundationCdmData FAILED:', e));
           }
@@ -361,14 +361,14 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCdmClientToken');
-          const result = this.impl.setCdmClientToken(params.arg_arg_client_token);
+          const result = this.impl.setCdmClientToken(params.arg_client_token);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCdmEvent');
-          const result = this.impl.onCdmEvent(params.arg_arg_event, params.arg_arg_hresult);
+          const result = this.impl.onCdmEvent(params.arg_event, params.arg_hresult);
           break;
         }
       }

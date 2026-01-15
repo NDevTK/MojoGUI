@@ -212,7 +212,7 @@ mojo.internal.bindings.blink.mojom.FindInPageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FindInPage_Find_ParamsSpec,
       null,
-      [arg_request_id, arg_search_text, arg_options],
+      { arg_request_id: arg_request_id, arg_search_text: arg_search_text, arg_options: arg_options },
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.blink.mojom.FindInPageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FindInPage_StopFinding_ParamsSpec,
       null,
-      [arg_action],
+      { arg_action: arg_action },
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.blink.mojom.FindInPageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.blink.mojom.FindInPageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.FindInPage_SetClient_ParamsSpec,
       null,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -311,14 +311,14 @@ mojo.internal.bindings.blink.mojom.FindInPageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_Find_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.find');
-          const result = this.impl.find(params.arg_arg_request_id, params.arg_arg_search_text, params.arg_arg_options);
+          const result = this.impl.find(params.arg_request_id, params.arg_search_text, params.arg_options);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_StopFinding_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopFinding');
-          const result = this.impl.stopFinding(params.arg_arg_action);
+          const result = this.impl.stopFinding(params.arg_action);
           break;
         }
         case 2: {
@@ -332,7 +332,7 @@ mojo.internal.bindings.blink.mojom.FindInPageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
-          const result = this.impl.setClient(params.arg_arg_client);
+          const result = this.impl.setClient(params.arg_client);
           break;
         }
       }
@@ -397,7 +397,7 @@ mojo.internal.bindings.blink.mojom.FindInPageClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec,
       null,
-      [arg_request_id, arg_number_of_matches, arg_update_type],
+      { arg_request_id: arg_request_id, arg_number_of_matches: arg_number_of_matches, arg_update_type: arg_update_type },
       false);
   }
 
@@ -406,7 +406,7 @@ mojo.internal.bindings.blink.mojom.FindInPageClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec,
       null,
-      [arg_request_id, arg_active_match_rect, arg_active_match_ordinal, arg_update_type],
+      { arg_request_id: arg_request_id, arg_active_match_rect: arg_active_match_rect, arg_active_match_ordinal: arg_active_match_ordinal, arg_update_type: arg_update_type },
       false);
   }
 
@@ -476,14 +476,14 @@ mojo.internal.bindings.blink.mojom.FindInPageClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNumberOfMatches');
-          const result = this.impl.setNumberOfMatches(params.arg_arg_request_id, params.arg_arg_number_of_matches, params.arg_arg_update_type);
+          const result = this.impl.setNumberOfMatches(params.arg_request_id, params.arg_number_of_matches, params.arg_update_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setActiveMatch');
-          const result = this.impl.setActiveMatch(params.arg_arg_request_id, params.arg_arg_active_match_rect, params.arg_arg_active_match_ordinal, params.arg_arg_update_type);
+          const result = this.impl.setActiveMatch(params.arg_request_id, params.arg_active_match_rect, params.arg_active_match_ordinal, params.arg_update_type);
           break;
         }
       }

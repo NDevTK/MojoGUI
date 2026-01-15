@@ -203,7 +203,7 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemo
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemo
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemo
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemo
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec,
-      [arg_mute_on],
+      { arg_mute_on: arg_mute_on },
       false);
   }
 
@@ -307,8 +307,8 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRece
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_devices' in response) ? response.arg_arg_devices : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_devices' in response) ? response.arg_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec.$.structSpec, { 'arg_devices': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getTouchscreenDevices FAILED:', e));
           }
@@ -323,8 +323,8 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRece
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_library_name' in response) ? response.arg_arg_library_name : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_library_name' in response) ? response.arg_library_name : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec.$.structSpec, { 'arg_library_name': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getTouchpadLibraryName FAILED:', e));
           }
@@ -334,13 +334,13 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRece
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPrivacyScreenState');
-          const result = this.impl.setPrivacyScreenState(params.arg_arg_state);
+          const result = this.impl.setPrivacyScreenState(params.arg_state);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setPrivacyScreenState FAILED:', e));
           }
@@ -350,13 +350,13 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRece
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_SetAudioOutputMute');
-          const result = this.impl.dEPRECATED_SetAudioOutputMute(params.arg_arg_mute_on);
+          const result = this.impl.dEPRECATED_SetAudioOutputMute(params.arg_mute_on);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_SetAudioOutputMute FAILED:', e));
           }

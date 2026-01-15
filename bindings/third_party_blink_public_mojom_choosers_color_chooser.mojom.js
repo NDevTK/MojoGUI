@@ -292,7 +292,7 @@ mojo.internal.bindings.blink.mojom.ColorChooserRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec,
       null,
-      [arg_color],
+      { arg_color: arg_color },
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.blink.mojom.ColorChooserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSelectedColor');
-          const result = this.impl.setSelectedColor(params.arg_arg_color);
+          const result = this.impl.setSelectedColor(params.arg_color);
           break;
         }
       }
@@ -422,7 +422,7 @@ mojo.internal.bindings.blink.mojom.ColorChooserClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec,
       null,
-      [arg_color],
+      { arg_color: arg_color },
       false);
   }
 
@@ -491,7 +491,7 @@ mojo.internal.bindings.blink.mojom.ColorChooserClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didChooseColor');
-          const result = this.impl.didChooseColor(params.arg_arg_color);
+          const result = this.impl.didChooseColor(params.arg_color);
           break;
         }
       }
@@ -552,7 +552,7 @@ mojo.internal.bindings.blink.mojom.EyeDropperChooserRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ParamsSpec,
       mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -626,7 +626,7 @@ mojo.internal.bindings.blink.mojom.EyeDropperChooserReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_color']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_color': response.arg_color });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] choose FAILED:', e));
           }

@@ -205,7 +205,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactoryRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -274,7 +274,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactoryReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createHistorySyncOptinHandler');
-          const result = this.impl.createHistorySyncOptinHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createHistorySyncOptinHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -347,7 +347,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Accept_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -356,7 +356,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Reject_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec,
       null,
-      [arg_height],
+      { arg_height: arg_height },
       false);
   }
 
@@ -467,7 +467,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateDialogHeight');
-          const result = this.impl.updateDialogHeight(params.arg_arg_height);
+          const result = this.impl.updateDialogHeight(params.arg_height);
           break;
         }
       }
@@ -532,7 +532,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec,
       null,
-      [arg_account_info],
+      { arg_account_info: arg_account_info },
       false);
   }
 
@@ -541,7 +541,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec,
       null,
-      [arg_screen_mode],
+      { arg_screen_mode: arg_screen_mode },
       false);
   }
 
@@ -611,14 +611,14 @@ mojo.internal.bindings.history_sync_optin.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendAccountInfo');
-          const result = this.impl.sendAccountInfo(params.arg_arg_account_info);
+          const result = this.impl.sendAccountInfo(params.arg_account_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendScreenMode');
-          const result = this.impl.sendScreenMode(params.arg_arg_screen_mode);
+          const result = this.impl.sendScreenMode(params.arg_screen_mode);
           break;
         }
       }

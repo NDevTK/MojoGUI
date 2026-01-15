@@ -175,7 +175,7 @@ mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec,
       null,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestDeviceAccess');
-          const result = this.impl.requestDeviceAccess(params.arg_arg_client);
+          const result = this.impl.requestDeviceAccess(params.arg_client);
           break;
         }
       }
@@ -309,7 +309,7 @@ mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClientRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec,
       null,
-      [arg_address],
+      { arg_address: arg_address },
       false);
   }
 
@@ -318,7 +318,7 @@ mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClientRemot
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -388,7 +388,7 @@ mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClientRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.grantAccess');
-          const result = this.impl.grantAccess(params.arg_arg_address);
+          const result = this.impl.grantAccess(params.arg_address);
           break;
         }
         case 1: {

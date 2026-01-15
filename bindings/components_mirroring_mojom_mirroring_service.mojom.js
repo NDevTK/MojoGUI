@@ -213,7 +213,7 @@ mojo.internal.bindings.mirroring.mojom.MirroringServiceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mirroring.mojom.MirroringService_Start_ParamsSpec,
       null,
-      [arg_params, arg_max_resolution, arg_observer, arg_resource_provider, arg_outbound_channel, arg_inbound_channel],
+      { arg_params: arg_params, arg_max_resolution: arg_max_resolution, arg_observer: arg_observer, arg_resource_provider: arg_resource_provider, arg_outbound_channel: arg_outbound_channel, arg_inbound_channel: arg_inbound_channel },
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.mirroring.mojom.MirroringServiceRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.mirroring.mojom.MirroringServiceRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec,
       mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -302,7 +302,7 @@ mojo.internal.bindings.mirroring.mojom.MirroringServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.MirroringService_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start(params.arg_arg_params, params.arg_arg_max_resolution, params.arg_arg_observer, params.arg_arg_resource_provider, params.arg_arg_outbound_channel, params.arg_arg_inbound_channel);
+          const result = this.impl.start(params.arg_params, params.arg_max_resolution, params.arg_observer, params.arg_resource_provider, params.arg_outbound_channel, params.arg_inbound_channel);
           break;
         }
         case 1: {
@@ -321,8 +321,8 @@ mojo.internal.bindings.mirroring.mojom.MirroringServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_json_stats' in response) ? response.arg_arg_json_stats : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_json_stats' in response) ? response.arg_json_stats : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec.$.structSpec, { 'arg_json_stats': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMirroringStats FAILED:', e));
           }

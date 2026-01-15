@@ -303,7 +303,7 @@ mojo.internal.bindings.arc.mojom.PrintSessionInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.arc.mojom.PrintSessionInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -389,12 +389,12 @@ mojo.internal.bindings.arc.mojom.PrintSessionInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPreviewDocument');
-          const result = this.impl.createPreviewDocument(params.arg_arg_request);
+          const result = this.impl.createPreviewDocument(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec.$.structSpec, ['response.arg_arg_preview_document', 'response.arg_arg_data_size']);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec.$.structSpec, { 'arg_preview_document': response.arg_preview_document, 'arg_data_size': response.arg_data_size });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createPreviewDocument FAILED:', e));
           }
@@ -458,7 +458,7 @@ mojo.internal.bindings.arc.mojom.PrintSpoolerHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec,
-      [arg_scoped_handle, arg_task_id, arg_instance],
+      { arg_scoped_handle: arg_scoped_handle, arg_task_id: arg_task_id, arg_instance: arg_instance },
       false);
   }
 
@@ -527,13 +527,13 @@ mojo.internal.bindings.arc.mojom.PrintSpoolerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startPrintInCustomTab');
-          const result = this.impl.startPrintInCustomTab(params.arg_arg_scoped_handle, params.arg_arg_task_id, params.arg_arg_instance);
+          const result = this.impl.startPrintInCustomTab(params.arg_scoped_handle, params.arg_task_id, params.arg_instance);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_host' in response) ? response.arg_arg_host : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_host' in response) ? response.arg_host : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec.$.structSpec, { 'arg_host': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startPrintInCustomTab FAILED:', e));
           }
@@ -597,7 +597,7 @@ mojo.internal.bindings.arc.mojom.PrintSpoolerInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -666,12 +666,12 @@ mojo.internal.bindings.arc.mojom.PrintSpoolerInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }

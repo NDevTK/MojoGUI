@@ -176,7 +176,7 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactoryReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_handler);
           break;
         }
       }
@@ -310,7 +310,7 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -319,7 +319,7 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec,
       null,
-      [arg_app_id],
+      { arg_app_id: arg_app_id },
       false);
   }
 
@@ -396,7 +396,7 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchApp');
-          const result = this.impl.launchApp(params.arg_arg_app_id);
+          const result = this.impl.launchApp(params.arg_app_id);
           break;
         }
       }

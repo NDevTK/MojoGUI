@@ -342,7 +342,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.Application_CreateAlert_ParamsSpec,
       null,
-      [arg_alert_bridge_receiver],
+      { arg_alert_bridge_receiver: arg_alert_bridge_receiver },
       false);
   }
 
@@ -351,7 +351,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec,
       null,
-      [arg_bridge_id, arg_window_receiver, arg_host, arg_text_input_host],
+      { arg_bridge_id: arg_bridge_id, arg_window_receiver: arg_window_receiver, arg_host: arg_host, arg_text_input_host: arg_text_input_host },
       false);
   }
 
@@ -360,7 +360,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec,
       null,
-      [arg_view_id, arg_host, arg_view_receiver],
+      { arg_view_id: arg_view_id, arg_host: arg_host, arg_view_receiver: arg_view_receiver },
       false);
   }
 
@@ -369,7 +369,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec,
       null,
-      [arg_receiver, arg_host],
+      { arg_receiver: arg_receiver, arg_host: arg_host },
       false);
   }
 
@@ -378,7 +378,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec,
       null,
-      [arg_view_id, arg_host, arg_view_receiver],
+      { arg_view_id: arg_view_id, arg_host: arg_host, arg_view_receiver: arg_view_receiver },
       false);
   }
 
@@ -387,7 +387,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec,
       null,
-      [arg_command],
+      { arg_command: arg_command },
       false);
   }
 
@@ -461,42 +461,42 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_CreateAlert_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAlert');
-          const result = this.impl.createAlert(params.arg_arg_alert_bridge_receiver);
+          const result = this.impl.createAlert(params.arg_alert_bridge_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createNativeWidgetNSWindow');
-          const result = this.impl.createNativeWidgetNSWindow(params.arg_arg_bridge_id, params.arg_arg_window_receiver, params.arg_arg_host, params.arg_arg_text_input_host);
+          const result = this.impl.createNativeWidgetNSWindow(params.arg_bridge_id, params.arg_window_receiver, params.arg_host, params.arg_text_input_host);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createRenderWidgetHostNSView');
-          const result = this.impl.createRenderWidgetHostNSView(params.arg_arg_view_id, params.arg_arg_host, params.arg_arg_view_receiver);
+          const result = this.impl.createRenderWidgetHostNSView(params.arg_view_id, params.arg_host, params.arg_view_receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSystemMediaControlsBridge');
-          const result = this.impl.createSystemMediaControlsBridge(params.arg_arg_receiver, params.arg_arg_host);
+          const result = this.impl.createSystemMediaControlsBridge(params.arg_receiver, params.arg_host);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWebContentsNSView');
-          const result = this.impl.createWebContentsNSView(params.arg_arg_view_id, params.arg_arg_host, params.arg_arg_view_receiver);
+          const result = this.impl.createWebContentsNSView(params.arg_view_id, params.arg_host, params.arg_view_receiver);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forwardCutCopyPaste');
-          const result = this.impl.forwardCutCopyPaste(params.arg_arg_command);
+          const result = this.impl.forwardCutCopyPaste(params.arg_command);
           break;
         }
       }

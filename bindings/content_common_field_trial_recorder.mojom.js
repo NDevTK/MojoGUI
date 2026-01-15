@@ -170,7 +170,7 @@ mojo.internal.bindings.content.mojom.FieldTrialRecorderRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec,
       null,
-      [arg_trial_name],
+      { arg_trial_name: arg_trial_name },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.content.mojom.FieldTrialRecorderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fieldTrialActivated');
-          const result = this.impl.fieldTrialActivated(params.arg_arg_trial_name);
+          const result = this.impl.fieldTrialActivated(params.arg_trial_name);
           break;
         }
       }

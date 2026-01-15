@@ -496,7 +496,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_GetWifiEnabledState_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -505,7 +505,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_StartScan_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -514,7 +514,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_SetWifiEnabledState_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetHost_SetWifiEnabledState_ResponseParamsSpec,
-      [arg_is_enabled],
+      { arg_is_enabled: arg_is_enabled },
       false);
   }
 
@@ -523,7 +523,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_CreateNetwork_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetHost_CreateNetwork_ResponseParamsSpec,
-      [arg_cfg],
+      { arg_cfg: arg_cfg },
       false);
   }
 
@@ -532,7 +532,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_ForgetNetwork_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetHost_ForgetNetwork_ResponseParamsSpec,
-      [arg_guid],
+      { arg_guid: arg_guid },
       false);
   }
 
@@ -541,7 +541,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_UpdateWifiNetwork_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetHost_UpdateWifiNetwork_ResponseParamsSpec,
-      [arg_guid, arg_cfg],
+      { arg_guid: arg_guid, arg_cfg: arg_cfg },
       false);
   }
 
@@ -550,7 +550,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_StartConnect_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetHost_StartConnect_ResponseParamsSpec,
-      [arg_guid],
+      { arg_guid: arg_guid },
       false);
   }
 
@@ -559,7 +559,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_StartDisconnect_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetHost_StartDisconnect_ResponseParamsSpec,
-      [arg_guid],
+      { arg_guid: arg_guid },
       false);
   }
 
@@ -568,7 +568,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_GetNetworks_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetHost_GetNetworks_ResponseParamsSpec,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -577,7 +577,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnConnected_ParamsSpec,
       null,
-      [arg_cfg],
+      { arg_cfg: arg_cfg },
       false);
   }
 
@@ -586,7 +586,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnUpdated_ParamsSpec,
       null,
-      [arg_cfg],
+      { arg_cfg: arg_cfg },
       false);
   }
 
@@ -595,7 +595,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -604,7 +604,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnDisconnected_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -613,7 +613,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec,
       null,
-      [arg_vpnPackage, arg_lockdown],
+      { arg_vpnPackage: arg_vpnPackage, arg_lockdown: arg_lockdown },
       false);
   }
 
@@ -622,7 +622,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetHost_RequestPasspointAppApproval_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -631,7 +631,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_AddPasspointCredentials_ParamsSpec,
       null,
-      [arg_credentials],
+      { arg_credentials: arg_credentials },
       false);
   }
 
@@ -640,7 +640,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_RemovePasspointCredentials_ParamsSpec,
       null,
-      [arg_properties],
+      { arg_properties: arg_properties },
       false);
   }
 
@@ -649,7 +649,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_DisconnectHostVpn_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -658,7 +658,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_StartLohs_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetHost_StartLohs_ResponseParamsSpec,
-      [arg_config],
+      { arg_config: arg_config },
       false);
   }
 
@@ -667,7 +667,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_StopLohs_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -676,7 +676,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec,
       null,
-      [arg_is_held],
+      { arg_is_held: arg_is_held },
       false);
   }
 
@@ -685,7 +685,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec,
       null,
-      [arg_msg],
+      { arg_msg: arg_msg },
       false);
   }
 
@@ -694,7 +694,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec,
       null,
-      [arg_msg],
+      { arg_msg: arg_msg },
       false);
   }
 
@@ -790,8 +790,8 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_enabled' in response) ? response.arg_arg_is_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_enabled' in response) ? response.arg_is_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec.$.structSpec, { 'arg_is_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getWifiEnabledState FAILED:', e));
           }
@@ -808,13 +808,13 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_SetWifiEnabledState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWifiEnabledState');
-          const result = this.impl.setWifiEnabledState(params.arg_arg_is_enabled);
+          const result = this.impl.setWifiEnabledState(params.arg_is_enabled);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_SetWifiEnabledState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_SetWifiEnabledState_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setWifiEnabledState FAILED:', e));
           }
@@ -824,13 +824,13 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_CreateNetwork_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createNetwork');
-          const result = this.impl.createNetwork(params.arg_arg_cfg);
+          const result = this.impl.createNetwork(params.arg_cfg);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_guid' in response) ? response.arg_arg_guid : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_CreateNetwork_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_guid' in response) ? response.arg_guid : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_CreateNetwork_ResponseParamsSpec.$.structSpec, { 'arg_guid': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createNetwork FAILED:', e));
           }
@@ -840,13 +840,13 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_ForgetNetwork_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forgetNetwork');
-          const result = this.impl.forgetNetwork(params.arg_arg_guid);
+          const result = this.impl.forgetNetwork(params.arg_guid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_ForgetNetwork_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_ForgetNetwork_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] forgetNetwork FAILED:', e));
           }
@@ -856,13 +856,13 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_UpdateWifiNetwork_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateWifiNetwork');
-          const result = this.impl.updateWifiNetwork(params.arg_arg_guid, params.arg_arg_cfg);
+          const result = this.impl.updateWifiNetwork(params.arg_guid, params.arg_cfg);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_UpdateWifiNetwork_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_UpdateWifiNetwork_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateWifiNetwork FAILED:', e));
           }
@@ -872,13 +872,13 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartConnect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startConnect');
-          const result = this.impl.startConnect(params.arg_arg_guid);
+          const result = this.impl.startConnect(params.arg_guid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartConnect_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartConnect_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startConnect FAILED:', e));
           }
@@ -888,13 +888,13 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartDisconnect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDisconnect');
-          const result = this.impl.startDisconnect(params.arg_arg_guid);
+          const result = this.impl.startDisconnect(params.arg_guid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartDisconnect_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartDisconnect_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startDisconnect FAILED:', e));
           }
@@ -904,13 +904,13 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_GetNetworks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNetworks');
-          const result = this.impl.getNetworks(params.arg_arg_type);
+          const result = this.impl.getNetworks(params.arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_GetNetworks_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_GetNetworks_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNetworks FAILED:', e));
           }
@@ -920,21 +920,21 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnConnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.androidVpnConnected');
-          const result = this.impl.androidVpnConnected(params.arg_arg_cfg);
+          const result = this.impl.androidVpnConnected(params.arg_cfg);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.androidVpnUpdated');
-          const result = this.impl.androidVpnUpdated(params.arg_arg_cfg);
+          const result = this.impl.androidVpnUpdated(params.arg_cfg);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AndroidVpnStateChanged');
-          const result = this.impl.dEPRECATED_AndroidVpnStateChanged(params.arg_arg_state);
+          const result = this.impl.dEPRECATED_AndroidVpnStateChanged(params.arg_state);
           break;
         }
         case 12: {
@@ -948,20 +948,20 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAlwaysOnVpn');
-          const result = this.impl.setAlwaysOnVpn(params.arg_arg_vpnPackage, params.arg_arg_lockdown);
+          const result = this.impl.setAlwaysOnVpn(params.arg_vpnPackage, params.arg_lockdown);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPasspointAppApproval');
-          const result = this.impl.requestPasspointAppApproval(params.arg_arg_request);
+          const result = this.impl.requestPasspointAppApproval(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_RequestPasspointAppApproval_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_RequestPasspointAppApproval_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestPasspointAppApproval FAILED:', e));
           }
@@ -971,14 +971,14 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_AddPasspointCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPasspointCredentials');
-          const result = this.impl.addPasspointCredentials(params.arg_arg_credentials);
+          const result = this.impl.addPasspointCredentials(params.arg_credentials);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_RemovePasspointCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removePasspointCredentials');
-          const result = this.impl.removePasspointCredentials(params.arg_arg_properties);
+          const result = this.impl.removePasspointCredentials(params.arg_properties);
           break;
         }
         case 17: {
@@ -992,13 +992,13 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartLohs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startLohs');
-          const result = this.impl.startLohs(params.arg_arg_config);
+          const result = this.impl.startLohs(params.arg_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartLohs_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartLohs_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startLohs FAILED:', e));
           }
@@ -1015,21 +1015,21 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyAndroidWifiMulticastLockChange');
-          const result = this.impl.notifyAndroidWifiMulticastLockChange(params.arg_arg_is_held);
+          const result = this.impl.notifyAndroidWifiMulticastLockChange(params.arg_is_held);
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifySocketConnectionEvent');
-          const result = this.impl.notifySocketConnectionEvent(params.arg_arg_msg);
+          const result = this.impl.notifySocketConnectionEvent(params.arg_msg);
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyARCVPNSocketConnectionEvent');
-          const result = this.impl.notifyARCVPNSocketConnectionEvent(params.arg_arg_msg);
+          const result = this.impl.notifyARCVPNSocketConnectionEvent(params.arg_msg);
           break;
         }
       }
@@ -1126,7 +1126,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.NetInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -1135,7 +1135,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.NetInstance_ScanCompleted_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1144,7 +1144,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec,
       null,
-      [arg_is_enabled],
+      { arg_is_enabled: arg_is_enabled },
       false);
   }
 
@@ -1153,7 +1153,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.NetInstance_DisconnectAndroidVpn_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1162,7 +1162,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.NetInstance_ConfigureAndroidVpn_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1171,7 +1171,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec,
       null,
-      [arg_network],
+      { arg_network: arg_network },
       false);
   }
 
@@ -1180,7 +1180,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.NetInstance_DnsResolutionTest_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetInstance_DnsResolutionTest_ResponseParamsSpec,
-      [arg_transport_name, arg_host_name],
+      { arg_transport_name: arg_transport_name, arg_host_name: arg_host_name },
       false);
   }
 
@@ -1189,7 +1189,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.NetInstance_HttpTest_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetInstance_HttpTest_ResponseParamsSpec,
-      [arg_transport_name, arg_url],
+      { arg_transport_name: arg_transport_name, arg_url: arg_url },
       false);
   }
 
@@ -1198,7 +1198,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.NetInstance_PingTest_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetInstance_PingTest_ResponseParamsSpec,
-      [arg_transport_name, arg_ip_address],
+      { arg_transport_name: arg_transport_name, arg_ip_address: arg_ip_address },
       false);
   }
 
@@ -1207,7 +1207,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.NetInstance_SetUpFlag_ParamsSpec,
       null,
-      [arg_flag, arg_value],
+      { arg_flag: arg_flag, arg_value: arg_value },
       false);
   }
 
@@ -1285,12 +1285,12 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -1307,7 +1307,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.wifiEnabledStateChanged');
-          const result = this.impl.wifiEnabledStateChanged(params.arg_arg_is_enabled);
+          const result = this.impl.wifiEnabledStateChanged(params.arg_is_enabled);
           break;
         }
         case 3: {
@@ -1328,20 +1328,20 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.activeNetworksChanged');
-          const result = this.impl.activeNetworksChanged(params.arg_arg_network);
+          const result = this.impl.activeNetworksChanged(params.arg_network);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_DnsResolutionTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dnsResolutionTest');
-          const result = this.impl.dnsResolutionTest(params.arg_arg_transport_name, params.arg_arg_host_name);
+          const result = this.impl.dnsResolutionTest(params.arg_transport_name, params.arg_host_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_DnsResolutionTest_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_DnsResolutionTest_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dnsResolutionTest FAILED:', e));
           }
@@ -1351,13 +1351,13 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_HttpTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.httpTest');
-          const result = this.impl.httpTest(params.arg_arg_transport_name, params.arg_arg_url);
+          const result = this.impl.httpTest(params.arg_transport_name, params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_HttpTest_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_HttpTest_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] httpTest FAILED:', e));
           }
@@ -1367,13 +1367,13 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_PingTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pingTest');
-          const result = this.impl.pingTest(params.arg_arg_transport_name, params.arg_arg_ip_address);
+          const result = this.impl.pingTest(params.arg_transport_name, params.arg_ip_address);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_PingTest_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_PingTest_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] pingTest FAILED:', e));
           }
@@ -1383,7 +1383,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_SetUpFlag_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUpFlag');
-          const result = this.impl.setUpFlag(params.arg_arg_flag, params.arg_arg_value);
+          const result = this.impl.setUpFlag(params.arg_flag, params.arg_value);
           break;
         }
       }

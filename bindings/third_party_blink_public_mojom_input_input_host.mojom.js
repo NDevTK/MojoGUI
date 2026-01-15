@@ -182,7 +182,7 @@ mojo.internal.bindings.blink.mojom.TextSuggestionHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.blink.mojom.TextSuggestionHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec,
       null,
-      [arg_caret_x, arg_caret_y, arg_marked_text, arg_suggestions],
+      { arg_caret_x: arg_caret_x, arg_caret_y: arg_caret_y, arg_marked_text: arg_marked_text, arg_suggestions: arg_suggestions },
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.blink.mojom.TextSuggestionHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec,
       null,
-      [arg_caret_x, arg_caret_y, arg_marked_text, arg_suggestions],
+      { arg_caret_x: arg_caret_x, arg_caret_y: arg_caret_y, arg_marked_text: arg_marked_text, arg_suggestions: arg_suggestions },
       false);
   }
 
@@ -278,14 +278,14 @@ mojo.internal.bindings.blink.mojom.TextSuggestionHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showSpellCheckSuggestionMenu');
-          const result = this.impl.showSpellCheckSuggestionMenu(params.arg_arg_caret_x, params.arg_arg_caret_y, params.arg_arg_marked_text, params.arg_arg_suggestions);
+          const result = this.impl.showSpellCheckSuggestionMenu(params.arg_caret_x, params.arg_caret_y, params.arg_marked_text, params.arg_suggestions);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showTextSuggestionMenu');
-          const result = this.impl.showTextSuggestionMenu(params.arg_arg_caret_x, params.arg_arg_caret_y, params.arg_arg_marked_text, params.arg_arg_suggestions);
+          const result = this.impl.showTextSuggestionMenu(params.arg_caret_x, params.arg_caret_y, params.arg_marked_text, params.arg_suggestions);
           break;
         }
       }

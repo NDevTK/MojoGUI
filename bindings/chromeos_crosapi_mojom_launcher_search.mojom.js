@@ -282,7 +282,7 @@ mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec,
       null,
-      [arg_status, arg_result],
+      { arg_status: arg_status, arg_result: arg_result },
       false);
   }
 
@@ -351,7 +351,7 @@ mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSearchResultsReceived');
-          const result = this.impl.onSearchResultsReceived(params.arg_arg_status, params.arg_arg_result);
+          const result = this.impl.onSearchResultsReceived(params.arg_status, params.arg_result);
           break;
         }
       }
@@ -412,7 +412,7 @@ mojo.internal.bindings.crosapi.mojom.SearchControllerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.SearchController_Search_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.SearchController_Search_ResponseParamsSpec,
-      [arg_query],
+      { arg_query: arg_query },
       false);
   }
 
@@ -481,13 +481,13 @@ mojo.internal.bindings.crosapi.mojom.SearchControllerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.SearchController_Search_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.search');
-          const result = this.impl.search(params.arg_arg_query);
+          const result = this.impl.search(params.arg_query);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_publisher' in response) ? response.arg_arg_publisher : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.SearchController_Search_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_publisher' in response) ? response.arg_publisher : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.SearchController_Search_ResponseParamsSpec.$.structSpec, { 'arg_publisher': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] search FAILED:', e));
           }
@@ -551,7 +551,7 @@ mojo.internal.bindings.crosapi.mojom.SearchResultConsumerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec,
       null,
-      [arg_favicon],
+      { arg_favicon: arg_favicon },
       false);
   }
 
@@ -620,7 +620,7 @@ mojo.internal.bindings.crosapi.mojom.SearchResultConsumerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFaviconReceived');
-          const result = this.impl.onFaviconReceived(params.arg_arg_favicon);
+          const result = this.impl.onFaviconReceived(params.arg_favicon);
           break;
         }
       }

@@ -171,7 +171,7 @@ mojo.internal.bindings.blink.mojom.MimeRegistryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec,
       mojo.internal.bindings.blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec,
-      [arg_extension],
+      { arg_extension: arg_extension },
       false);
   }
 
@@ -240,13 +240,13 @@ mojo.internal.bindings.blink.mojom.MimeRegistryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMimeTypeFromExtension');
-          const result = this.impl.getMimeTypeFromExtension(params.arg_arg_extension);
+          const result = this.impl.getMimeTypeFromExtension(params.arg_extension);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_mime_type' in response) ? response.arg_arg_mime_type : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_mime_type' in response) ? response.arg_mime_type : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec.$.structSpec, { 'arg_mime_type': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMimeTypeFromExtension FAILED:', e));
           }

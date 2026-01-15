@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityServiceRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec,
-      [arg_provider_receiver, arg_cloud_project_number],
+      { arg_provider_receiver: arg_provider_receiver, arg_cloud_project_number: arg_cloud_project_number },
       false);
   }
 
@@ -263,13 +263,13 @@ mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getIntegrityProvider');
-          const result = this.impl.getIntegrityProvider(params.arg_arg_provider_receiver, params.arg_arg_cloud_project_number);
+          const result = this.impl.getIntegrityProvider(params.arg_provider_receiver, params.arg_cloud_project_number);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getIntegrityProvider FAILED:', e));
           }
@@ -333,7 +333,7 @@ mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProviderRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec,
-      [arg_content_binding],
+      { arg_content_binding: arg_content_binding },
       false);
   }
 
@@ -402,13 +402,13 @@ mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProviderReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestToken');
-          const result = this.impl.requestToken(params.arg_arg_content_binding);
+          const result = this.impl.requestToken(params.arg_content_binding);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestToken FAILED:', e));
           }

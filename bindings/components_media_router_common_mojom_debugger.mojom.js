@@ -187,7 +187,7 @@ mojo.internal.bindings.media_router.mojom.DebuggerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec,
       mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.media_router.mojom.DebuggerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_router.mojom.Debugger_OnMirroringStats_ParamsSpec,
       null,
-      [arg_json_stats],
+      { arg_json_stats: arg_json_stats },
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.media_router.mojom.DebuggerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_router.mojom.Debugger_BindReceiver_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -281,8 +281,8 @@ mojo.internal.bindings.media_router.mojom.DebuggerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_should_fetch' in response) ? response.arg_arg_should_fetch : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_should_fetch' in response) ? response.arg_should_fetch : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec.$.structSpec, { 'arg_should_fetch': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] shouldFetchMirroringStats FAILED:', e));
           }
@@ -292,14 +292,14 @@ mojo.internal.bindings.media_router.mojom.DebuggerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Debugger_OnMirroringStats_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMirroringStats');
-          const result = this.impl.onMirroringStats(params.arg_arg_json_stats);
+          const result = this.impl.onMirroringStats(params.arg_json_stats);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Debugger_BindReceiver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindReceiver');
-          const result = this.impl.bindReceiver(params.arg_arg_receiver);
+          const result = this.impl.bindReceiver(params.arg_receiver);
           break;
         }
       }

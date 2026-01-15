@@ -276,7 +276,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParamsSpec,
-      [arg_frame_data],
+      { arg_frame_data: arg_frame_data },
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec,
-      [arg_index],
+      { arg_index: arg_index },
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec,
-      [arg_index],
+      { arg_index: arg_index },
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec,
-      [arg_view_index],
+      { arg_view_index: arg_view_index },
       false);
   }
 
@@ -425,12 +425,12 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameSubmitted');
-          const result = this.impl.onFrameSubmitted(params.arg_arg_frame_data);
+          const result = this.impl.onFrameSubmitted(params.arg_frame_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onFrameSubmitted FAILED:', e));
           }
@@ -445,8 +445,8 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_config' in response) ? response.arg_arg_config : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_config' in response) ? response.arg_config : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec.$.structSpec, { 'arg_config': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] waitGetDeviceConfig FAILED:', e));
           }
@@ -461,8 +461,8 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] waitGetPresentingPose FAILED:', e));
           }
@@ -477,8 +477,8 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] waitGetMagicWindowPose FAILED:', e));
           }
@@ -488,13 +488,13 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.waitGetControllerRoleForTrackedDeviceIndex');
-          const result = this.impl.waitGetControllerRoleForTrackedDeviceIndex(params.arg_arg_index);
+          const result = this.impl.waitGetControllerRoleForTrackedDeviceIndex(params.arg_index);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_role' in response) ? response.arg_arg_role : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_role' in response) ? response.arg_role : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec.$.structSpec, { 'arg_role': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] waitGetControllerRoleForTrackedDeviceIndex FAILED:', e));
           }
@@ -504,13 +504,13 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.waitGetControllerData');
-          const result = this.impl.waitGetControllerData(params.arg_arg_index);
+          const result = this.impl.waitGetControllerData(params.arg_index);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] waitGetControllerData FAILED:', e));
           }
@@ -525,8 +525,8 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] waitGetEventData FAILED:', e));
           }
@@ -541,8 +541,8 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_can_create_session' in response) ? response.arg_arg_can_create_session : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_can_create_session' in response) ? response.arg_can_create_session : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec.$.structSpec, { 'arg_can_create_session': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] waitGetCanCreateSession FAILED:', e));
           }
@@ -552,13 +552,13 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.waitGetVisibilityMask');
-          const result = this.impl.waitGetVisibilityMask(params.arg_arg_view_index);
+          const result = this.impl.waitGetVisibilityMask(params.arg_view_index);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_mask' in response) ? response.arg_arg_mask : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_mask' in response) ? response.arg_mask : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec.$.structSpec, { 'arg_mask': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] waitGetVisibilityMask FAILED:', e));
           }
@@ -626,7 +626,7 @@ mojo.internal.bindings.device_test.mojom.XRServiceTestHookRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParamsSpec,
-      [arg_hook],
+      { arg_hook: arg_hook },
       false);
   }
 
@@ -635,7 +635,7 @@ mojo.internal.bindings.device_test.mojom.XRServiceTestHookRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -705,12 +705,12 @@ mojo.internal.bindings.device_test.mojom.XRServiceTestHookReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTestHook');
-          const result = this.impl.setTestHook(params.arg_arg_hook);
+          const result = this.impl.setTestHook(params.arg_hook);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setTestHook FAILED:', e));
           }
@@ -725,7 +725,7 @@ mojo.internal.bindings.device_test.mojom.XRServiceTestHookReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] terminateDeviceServiceProcessForTesting FAILED:', e));
           }

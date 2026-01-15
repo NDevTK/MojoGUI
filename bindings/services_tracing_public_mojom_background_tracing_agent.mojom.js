@@ -185,7 +185,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec,
       null,
-      [arg_rule, arg_histogram_value, arg_flow_id],
+      { arg_rule: arg_rule, arg_histogram_value: arg_histogram_value, arg_flow_id: arg_flow_id },
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTriggerBackgroundTrace');
-          const result = this.impl.onTriggerBackgroundTrace(params.arg_arg_rule, params.arg_arg_histogram_value, params.arg_arg_flow_id);
+          const result = this.impl.onTriggerBackgroundTrace(params.arg_rule, params.arg_histogram_value, params.arg_flow_id);
           break;
         }
       }
@@ -336,7 +336,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec,
       null,
-      [arg_rule, arg_histogram_name, arg_histogram_lower_value, arg_histogram_upper_value],
+      { arg_rule: arg_rule, arg_histogram_name: arg_histogram_name, arg_histogram_lower_value: arg_histogram_lower_value, arg_histogram_upper_value: arg_histogram_upper_value },
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec,
       null,
-      [arg_rule],
+      { arg_rule: arg_rule },
       false);
   }
 
@@ -415,14 +415,14 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUMACallback');
-          const result = this.impl.setUMACallback(params.arg_arg_rule, params.arg_arg_histogram_name, params.arg_arg_histogram_lower_value, params.arg_arg_histogram_upper_value);
+          const result = this.impl.setUMACallback(params.arg_rule, params.arg_histogram_name, params.arg_histogram_lower_value, params.arg_histogram_upper_value);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearUMACallback');
-          const result = this.impl.clearUMACallback(params.arg_arg_rule);
+          const result = this.impl.clearUMACallback(params.arg_rule);
           break;
         }
       }
@@ -483,7 +483,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec,
       null,
-      [arg_tracing_process_id, arg_client, arg_agent],
+      { arg_tracing_process_id: arg_tracing_process_id, arg_client: arg_client, arg_agent: arg_agent },
       false);
   }
 
@@ -552,7 +552,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
-          const result = this.impl.create(params.arg_arg_tracing_process_id, params.arg_arg_client, params.arg_arg_agent);
+          const result = this.impl.create(params.arg_tracing_process_id, params.arg_client, params.arg_agent);
           break;
         }
       }

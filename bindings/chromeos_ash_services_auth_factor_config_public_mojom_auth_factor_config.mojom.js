@@ -277,7 +277,7 @@ mojo.internal.bindings.ash.auth.mojom.FactorObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec,
       null,
-      [arg_factor],
+      { arg_factor: arg_factor },
       false);
   }
 
@@ -346,7 +346,7 @@ mojo.internal.bindings.ash.auth.mojom.FactorObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFactorChanged');
-          const result = this.impl.onFactorChanged(params.arg_arg_factor);
+          const result = this.impl.onFactorChanged(params.arg_factor);
           break;
         }
       }
@@ -427,7 +427,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -436,7 +436,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec,
-      [arg_auth_token, arg_factor],
+      { arg_auth_token: arg_auth_token, arg_factor: arg_factor },
       false);
   }
 
@@ -445,7 +445,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec,
-      [arg_auth_token, arg_factor],
+      { arg_auth_token: arg_auth_token, arg_factor: arg_factor },
       false);
   }
 
@@ -454,7 +454,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec,
-      [arg_auth_token, arg_factor],
+      { arg_auth_token: arg_auth_token, arg_factor: arg_factor },
       false);
   }
 
@@ -463,7 +463,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec,
-      [arg_auth_token, arg_factor],
+      { arg_auth_token: arg_auth_token, arg_factor: arg_factor },
       false);
   }
 
@@ -472,7 +472,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec,
       null,
-      [arg_auth_token],
+      { arg_auth_token: arg_auth_token },
       false);
   }
 
@@ -546,20 +546,20 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeFactorChanges');
-          const result = this.impl.observeFactorChanges(params.arg_arg_observer);
+          const result = this.impl.observeFactorChanges(params.arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isSupported');
-          const result = this.impl.isSupported(params.arg_arg_auth_token, params.arg_arg_factor);
+          const result = this.impl.isSupported(params.arg_auth_token, params.arg_factor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_supported' in response) ? response.arg_arg_supported : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_supported' in response) ? response.arg_supported : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec.$.structSpec, { 'arg_supported': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isSupported FAILED:', e));
           }
@@ -569,13 +569,13 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isConfigured');
-          const result = this.impl.isConfigured(params.arg_arg_auth_token, params.arg_arg_factor);
+          const result = this.impl.isConfigured(params.arg_auth_token, params.arg_factor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_configured' in response) ? response.arg_arg_configured : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_configured' in response) ? response.arg_configured : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec.$.structSpec, { 'arg_configured': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isConfigured FAILED:', e));
           }
@@ -585,13 +585,13 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getManagementType');
-          const result = this.impl.getManagementType(params.arg_arg_auth_token, params.arg_arg_factor);
+          const result = this.impl.getManagementType(params.arg_auth_token, params.arg_factor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_management' in response) ? response.arg_arg_management : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_management' in response) ? response.arg_management : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec.$.structSpec, { 'arg_management': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getManagementType FAILED:', e));
           }
@@ -601,13 +601,13 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isEditable');
-          const result = this.impl.isEditable(params.arg_arg_auth_token, params.arg_arg_factor);
+          const result = this.impl.isEditable(params.arg_auth_token, params.arg_factor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_editable' in response) ? response.arg_arg_editable : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_editable' in response) ? response.arg_editable : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec.$.structSpec, { 'arg_editable': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isEditable FAILED:', e));
           }
@@ -617,7 +617,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getLocalAuthFactorsComplexity');
-          const result = this.impl.getLocalAuthFactorsComplexity(params.arg_arg_auth_token);
+          const result = this.impl.getLocalAuthFactorsComplexity(params.arg_auth_token);
           break;
         }
       }
@@ -678,7 +678,7 @@ mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditorRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec,
-      [arg_auth_token, arg_enabled],
+      { arg_auth_token: arg_auth_token, arg_enabled: arg_enabled },
       false);
   }
 
@@ -747,13 +747,13 @@ mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.configure');
-          const result = this.impl.configure(params.arg_arg_auth_token, params.arg_arg_enabled);
+          const result = this.impl.configure(params.arg_auth_token, params.arg_enabled);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] configure FAILED:', e));
           }
@@ -833,7 +833,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec,
-      [arg_auth_token, arg_pin],
+      { arg_auth_token: arg_auth_token, arg_pin: arg_pin },
       false);
   }
 
@@ -842,7 +842,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec,
-      [arg_auth_token, arg_pin],
+      { arg_auth_token: arg_auth_token, arg_pin: arg_pin },
       false);
   }
 
@@ -851,7 +851,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec,
-      [arg_auth_token],
+      { arg_auth_token: arg_auth_token },
       false);
   }
 
@@ -860,7 +860,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec,
-      [arg_auth_token],
+      { arg_auth_token: arg_auth_token },
       false);
   }
 
@@ -869,7 +869,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec,
-      [arg_auth_token, arg_pin],
+      { arg_auth_token: arg_auth_token, arg_pin: arg_pin },
       false);
   }
 
@@ -942,13 +942,13 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPin');
-          const result = this.impl.setPin(params.arg_arg_auth_token, params.arg_arg_pin);
+          const result = this.impl.setPin(params.arg_auth_token, params.arg_pin);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setPin FAILED:', e));
           }
@@ -958,13 +958,13 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePin');
-          const result = this.impl.updatePin(params.arg_arg_auth_token, params.arg_arg_pin);
+          const result = this.impl.updatePin(params.arg_auth_token, params.arg_pin);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updatePin FAILED:', e));
           }
@@ -974,13 +974,13 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removePin');
-          const result = this.impl.removePin(params.arg_arg_auth_token);
+          const result = this.impl.removePin(params.arg_auth_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] removePin FAILED:', e));
           }
@@ -990,13 +990,13 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getConfiguredPinFactor');
-          const result = this.impl.getConfiguredPinFactor(params.arg_arg_auth_token);
+          const result = this.impl.getConfiguredPinFactor(params.arg_auth_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pin_factor' in response) ? response.arg_arg_pin_factor : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pin_factor' in response) ? response.arg_pin_factor : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec.$.structSpec, { 'arg_pin_factor': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getConfiguredPinFactor FAILED:', e));
           }
@@ -1006,13 +1006,13 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkPinComplexity');
-          const result = this.impl.checkPinComplexity(params.arg_arg_auth_token, params.arg_arg_pin);
+          const result = this.impl.checkPinComplexity(params.arg_auth_token, params.arg_pin);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_complexity' in response) ? response.arg_arg_complexity : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_complexity' in response) ? response.arg_complexity : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec.$.structSpec, { 'arg_complexity': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] checkPinComplexity FAILED:', e));
           }
@@ -1096,7 +1096,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec,
-      [arg_auth_token, arg_new_password],
+      { arg_auth_token: arg_auth_token, arg_new_password: arg_new_password },
       false);
   }
 
@@ -1105,7 +1105,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec,
-      [arg_auth_token, arg_new_password],
+      { arg_auth_token: arg_auth_token, arg_new_password: arg_new_password },
       false);
   }
 
@@ -1114,7 +1114,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec,
-      [arg_auth_token, arg_new_password],
+      { arg_auth_token: arg_auth_token, arg_new_password: arg_new_password },
       false);
   }
 
@@ -1123,7 +1123,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec,
-      [arg_auth_token, arg_new_password],
+      { arg_auth_token: arg_auth_token, arg_new_password: arg_new_password },
       false);
   }
 
@@ -1132,7 +1132,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec,
-      [arg_password],
+      { arg_password: arg_password },
       false);
   }
 
@@ -1141,7 +1141,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = cl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec,
-      [arg_auth_token],
+      { arg_auth_token: arg_auth_token },
       false);
   }
 
@@ -1215,13 +1215,13 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateOrSetLocalPassword');
-          const result = this.impl.updateOrSetLocalPassword(params.arg_arg_auth_token, params.arg_arg_new_password);
+          const result = this.impl.updateOrSetLocalPassword(params.arg_auth_token, params.arg_new_password);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateOrSetLocalPassword FAILED:', e));
           }
@@ -1231,13 +1231,13 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateOrSetOnlinePassword');
-          const result = this.impl.updateOrSetOnlinePassword(params.arg_arg_auth_token, params.arg_arg_new_password);
+          const result = this.impl.updateOrSetOnlinePassword(params.arg_auth_token, params.arg_new_password);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateOrSetOnlinePassword FAILED:', e));
           }
@@ -1247,13 +1247,13 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setLocalPassword');
-          const result = this.impl.setLocalPassword(params.arg_arg_auth_token, params.arg_arg_new_password);
+          const result = this.impl.setLocalPassword(params.arg_auth_token, params.arg_new_password);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setLocalPassword FAILED:', e));
           }
@@ -1263,13 +1263,13 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOnlinePassword');
-          const result = this.impl.setOnlinePassword(params.arg_arg_auth_token, params.arg_arg_new_password);
+          const result = this.impl.setOnlinePassword(params.arg_auth_token, params.arg_new_password);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setOnlinePassword FAILED:', e));
           }
@@ -1279,13 +1279,13 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkLocalPasswordComplexity');
-          const result = this.impl.checkLocalPasswordComplexity(params.arg_arg_password);
+          const result = this.impl.checkLocalPasswordComplexity(params.arg_password);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_complexity' in response) ? response.arg_arg_complexity : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_complexity' in response) ? response.arg_complexity : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec.$.structSpec, { 'arg_complexity': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] checkLocalPasswordComplexity FAILED:', e));
           }
@@ -1295,13 +1295,13 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removePassword');
-          const result = this.impl.removePassword(params.arg_arg_auth_token);
+          const result = this.impl.removePassword(params.arg_auth_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] removePassword FAILED:', e));
           }

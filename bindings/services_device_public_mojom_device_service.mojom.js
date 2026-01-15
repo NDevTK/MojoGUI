@@ -333,7 +333,7 @@ mojo.internal.bindings.device.mojom.DeviceServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.DeviceService_BindFingerprint_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -342,7 +342,7 @@ mojo.internal.bindings.device.mojom.DeviceServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationContext_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -351,7 +351,7 @@ mojo.internal.bindings.device.mojom.DeviceServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationControl_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -360,7 +360,7 @@ mojo.internal.bindings.device.mojom.DeviceServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -369,7 +369,7 @@ mojo.internal.bindings.device.mojom.DeviceServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -378,7 +378,7 @@ mojo.internal.bindings.device.mojom.DeviceServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -387,7 +387,7 @@ mojo.internal.bindings.device.mojom.DeviceServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.device.mojom.DeviceService_BindPressureManager_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -396,7 +396,7 @@ mojo.internal.bindings.device.mojom.DeviceServiceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.device.mojom.DeviceService_BindVibrationManager_ParamsSpec,
       null,
-      [arg_receiver, arg_listener],
+      { arg_receiver: arg_receiver, arg_listener: arg_listener },
       false);
   }
 
@@ -405,7 +405,7 @@ mojo.internal.bindings.device.mojom.DeviceServiceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.device.mojom.DeviceService_BindHidManager_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -414,7 +414,7 @@ mojo.internal.bindings.device.mojom.DeviceServiceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.device.mojom.DeviceService_BindPowerMonitor_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -423,7 +423,7 @@ mojo.internal.bindings.device.mojom.DeviceServiceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -432,7 +432,7 @@ mojo.internal.bindings.device.mojom.DeviceServiceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -441,7 +441,7 @@ mojo.internal.bindings.device.mojom.DeviceServiceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.device.mojom.DeviceService_BindSensorProvider_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -450,7 +450,7 @@ mojo.internal.bindings.device.mojom.DeviceServiceRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.device.mojom.DeviceService_BindSerialPortManager_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -459,7 +459,7 @@ mojo.internal.bindings.device.mojom.DeviceServiceRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -468,7 +468,7 @@ mojo.internal.bindings.device.mojom.DeviceServiceRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -477,7 +477,7 @@ mojo.internal.bindings.device.mojom.DeviceServiceRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -486,7 +486,7 @@ mojo.internal.bindings.device.mojom.DeviceServiceRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -572,126 +572,126 @@ mojo.internal.bindings.device.mojom.DeviceServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.DeviceService_BindFingerprint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindFingerprint');
-          const result = this.impl.bindFingerprint(params.arg_arg_receiver);
+          const result = this.impl.bindFingerprint(params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindGeolocationContext');
-          const result = this.impl.bindGeolocationContext(params.arg_arg_receiver);
+          const result = this.impl.bindGeolocationContext(params.arg_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationControl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindGeolocationControl');
-          const result = this.impl.bindGeolocationControl(params.arg_arg_receiver);
+          const result = this.impl.bindGeolocationControl(params.arg_receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindGeolocationInternals');
-          const result = this.impl.bindGeolocationInternals(params.arg_arg_receiver);
+          const result = this.impl.bindGeolocationInternals(params.arg_receiver);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindInputDeviceManager');
-          const result = this.impl.bindInputDeviceManager(params.arg_arg_receiver);
+          const result = this.impl.bindInputDeviceManager(params.arg_receiver);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindBatteryMonitor');
-          const result = this.impl.bindBatteryMonitor(params.arg_arg_receiver);
+          const result = this.impl.bindBatteryMonitor(params.arg_receiver);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.DeviceService_BindPressureManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindPressureManager');
-          const result = this.impl.bindPressureManager(params.arg_arg_receiver);
+          const result = this.impl.bindPressureManager(params.arg_receiver);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.DeviceService_BindVibrationManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindVibrationManager');
-          const result = this.impl.bindVibrationManager(params.arg_arg_receiver, params.arg_arg_listener);
+          const result = this.impl.bindVibrationManager(params.arg_receiver, params.arg_listener);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.DeviceService_BindHidManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindHidManager');
-          const result = this.impl.bindHidManager(params.arg_arg_receiver);
+          const result = this.impl.bindHidManager(params.arg_receiver);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.DeviceService_BindPowerMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindPowerMonitor');
-          const result = this.impl.bindPowerMonitor(params.arg_arg_receiver);
+          const result = this.impl.bindPowerMonitor(params.arg_receiver);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindPublicIpAddressGeolocationProvider');
-          const result = this.impl.bindPublicIpAddressGeolocationProvider(params.arg_arg_receiver);
+          const result = this.impl.bindPublicIpAddressGeolocationProvider(params.arg_receiver);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindScreenOrientationListener');
-          const result = this.impl.bindScreenOrientationListener(params.arg_arg_receiver);
+          const result = this.impl.bindScreenOrientationListener(params.arg_receiver);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.DeviceService_BindSensorProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSensorProvider');
-          const result = this.impl.bindSensorProvider(params.arg_arg_receiver);
+          const result = this.impl.bindSensorProvider(params.arg_receiver);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.DeviceService_BindSerialPortManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSerialPortManager');
-          const result = this.impl.bindSerialPortManager(params.arg_arg_receiver);
+          const result = this.impl.bindSerialPortManager(params.arg_receiver);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTimeZoneMonitor');
-          const result = this.impl.bindTimeZoneMonitor(params.arg_arg_receiver);
+          const result = this.impl.bindTimeZoneMonitor(params.arg_receiver);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindWakeLockProvider');
-          const result = this.impl.bindWakeLockProvider(params.arg_arg_receiver);
+          const result = this.impl.bindWakeLockProvider(params.arg_receiver);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindUsbDeviceManager');
-          const result = this.impl.bindUsbDeviceManager(params.arg_arg_receiver);
+          const result = this.impl.bindUsbDeviceManager(params.arg_receiver);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindUsbDeviceManagerTest');
-          const result = this.impl.bindUsbDeviceManagerTest(params.arg_arg_receiver);
+          const result = this.impl.bindUsbDeviceManagerTest(params.arg_receiver);
           break;
         }
       }

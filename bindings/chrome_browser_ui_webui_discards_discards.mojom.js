@@ -270,7 +270,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec,
       mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -279,7 +279,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec,
       mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec,
-      [arg_tab_id, arg_is_auto_discardable],
+      { arg_tab_id: arg_tab_id, arg_is_auto_discardable: arg_is_auto_discardable },
       false);
   }
 
@@ -288,7 +288,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ParamsSpec,
       mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec,
-      [arg_tab_id, arg_reason],
+      { arg_tab_id: arg_tab_id, arg_reason: arg_reason },
       false);
   }
 
@@ -297,7 +297,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.discards.mojom.DetailsProvider_FreezeById_ParamsSpec,
       null,
-      [arg_tab_id],
+      { arg_tab_id: arg_tab_id },
       false);
   }
 
@@ -306,7 +306,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.discards.mojom.DetailsProvider_LoadById_ParamsSpec,
       null,
-      [arg_tab_id],
+      { arg_tab_id: arg_tab_id },
       false);
   }
 
@@ -315,7 +315,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ParamsSpec,
       mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -324,7 +324,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -333,7 +333,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -414,8 +414,8 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_infos' in response) ? response.arg_arg_infos : response;
-              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_infos' in response) ? response.arg_infos : response;
+              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec.$.structSpec, { 'arg_infos': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getTabDiscardsInfo FAILED:', e));
           }
@@ -425,12 +425,12 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAutoDiscardable');
-          const result = this.impl.setAutoDiscardable(params.arg_arg_tab_id, params.arg_arg_is_auto_discardable);
+          const result = this.impl.setAutoDiscardable(params.arg_tab_id, params.arg_is_auto_discardable);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setAutoDiscardable FAILED:', e));
           }
@@ -440,12 +440,12 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.discardById');
-          const result = this.impl.discardById(params.arg_arg_tab_id, params.arg_arg_reason);
+          const result = this.impl.discardById(params.arg_tab_id, params.arg_reason);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] discardById FAILED:', e));
           }
@@ -455,14 +455,14 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_FreezeById_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.freezeById');
-          const result = this.impl.freezeById(params.arg_arg_tab_id);
+          const result = this.impl.freezeById(params.arg_tab_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_LoadById_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadById');
-          const result = this.impl.loadById(params.arg_arg_tab_id);
+          const result = this.impl.loadById(params.arg_tab_id);
           break;
         }
         case 5: {
@@ -474,7 +474,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] discard FAILED:', e));
           }
@@ -588,7 +588,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec,
       null,
-      [arg_frame],
+      { arg_frame: arg_frame },
       false);
   }
 
@@ -597,7 +597,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphChangeStream_PageCreated_ParamsSpec,
       null,
-      [arg_pages],
+      { arg_pages: arg_pages },
       false);
   }
 
@@ -606,7 +606,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec,
       null,
-      [arg_process],
+      { arg_process: arg_process },
       false);
   }
 
@@ -615,7 +615,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec,
       null,
-      [arg_worker],
+      { arg_worker: arg_worker },
       false);
   }
 
@@ -624,7 +624,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec,
       null,
-      [arg_frame],
+      { arg_frame: arg_frame },
       false);
   }
 
@@ -633,7 +633,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphChangeStream_PageChanged_ParamsSpec,
       null,
-      [arg_page],
+      { arg_page: arg_page },
       false);
   }
 
@@ -642,7 +642,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec,
       null,
-      [arg_process],
+      { arg_process: arg_process },
       false);
   }
 
@@ -651,7 +651,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec,
       null,
-      [arg_worker],
+      { arg_worker: arg_worker },
       false);
   }
 
@@ -660,7 +660,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec,
       null,
-      [arg_favicon],
+      { arg_favicon: arg_favicon },
       false);
   }
 
@@ -669,7 +669,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec,
       null,
-      [arg_node_id],
+      { arg_node_id: arg_node_id },
       false);
   }
 
@@ -747,70 +747,70 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.frameCreated');
-          const result = this.impl.frameCreated(params.arg_arg_frame);
+          const result = this.impl.frameCreated(params.arg_frame);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_PageCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pageCreated');
-          const result = this.impl.pageCreated(params.arg_arg_pages);
+          const result = this.impl.pageCreated(params.arg_pages);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.processCreated');
-          const result = this.impl.processCreated(params.arg_arg_process);
+          const result = this.impl.processCreated(params.arg_process);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.workerCreated');
-          const result = this.impl.workerCreated(params.arg_arg_worker);
+          const result = this.impl.workerCreated(params.arg_worker);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.frameChanged');
-          const result = this.impl.frameChanged(params.arg_arg_frame);
+          const result = this.impl.frameChanged(params.arg_frame);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_PageChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pageChanged');
-          const result = this.impl.pageChanged(params.arg_arg_page);
+          const result = this.impl.pageChanged(params.arg_page);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.processChanged');
-          const result = this.impl.processChanged(params.arg_arg_process);
+          const result = this.impl.processChanged(params.arg_process);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.workerChanged');
-          const result = this.impl.workerChanged(params.arg_arg_worker);
+          const result = this.impl.workerChanged(params.arg_worker);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.favIconDataAvailable');
-          const result = this.impl.favIconDataAvailable(params.arg_arg_favicon);
+          const result = this.impl.favIconDataAvailable(params.arg_favicon);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.nodeDeleted');
-          const result = this.impl.nodeDeleted(params.arg_arg_node_id);
+          const result = this.impl.nodeDeleted(params.arg_node_id);
           break;
         }
       }
@@ -875,7 +875,7 @@ mojo.internal.bindings.discards.mojom.GraphDumpRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec,
       null,
-      [arg_change_subscriber],
+      { arg_change_subscriber: arg_change_subscriber },
       false);
   }
 
@@ -884,7 +884,7 @@ mojo.internal.bindings.discards.mojom.GraphDumpRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec,
       mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec,
-      [arg_node_ids],
+      { arg_node_ids: arg_node_ids },
       false);
   }
 
@@ -954,20 +954,20 @@ mojo.internal.bindings.discards.mojom.GraphDumpReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToChanges');
-          const result = this.impl.subscribeToChanges(params.arg_arg_change_subscriber);
+          const result = this.impl.subscribeToChanges(params.arg_change_subscriber);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestNodeDescriptions');
-          const result = this.impl.requestNodeDescriptions(params.arg_arg_node_ids);
+          const result = this.impl.requestNodeDescriptions(params.arg_node_ids);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_node_descriptions_json' in response) ? response.arg_arg_node_descriptions_json : response;
-              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_node_descriptions_json' in response) ? response.arg_node_descriptions_json : response;
+              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec.$.structSpec, { 'arg_node_descriptions_json': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestNodeDescriptions FAILED:', e));
           }

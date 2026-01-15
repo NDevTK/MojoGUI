@@ -239,7 +239,7 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec,
       mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec,
       mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec,
       mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec,
       mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -343,8 +343,8 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response.arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec.$.structSpec, { 'arg_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDeviceTrustState FAILED:', e));
           }
@@ -359,7 +359,7 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteDeviceTrustKey FAILED:', e));
           }
@@ -374,8 +374,8 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response.arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec.$.structSpec, { 'arg_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getClientCertificateState FAILED:', e));
           }
@@ -390,8 +390,8 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response.arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec.$.structSpec, { 'arg_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSignalsReportingState FAILED:', e));
           }

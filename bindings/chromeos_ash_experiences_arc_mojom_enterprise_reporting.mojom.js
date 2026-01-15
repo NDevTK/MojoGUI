@@ -197,7 +197,7 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingHostRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec,
       null,
-      [arg_time_ms, arg_op, arg_success],
+      { arg_time_ms: arg_time_ms, arg_op: arg_op, arg_success: arg_success },
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportCloudDpcOperationTime');
-          const result = this.impl.reportCloudDpcOperationTime(params.arg_arg_time_ms, params.arg_arg_op, params.arg_arg_success);
+          const result = this.impl.reportCloudDpcOperationTime(params.arg_time_ms, params.arg_op, params.arg_success);
           break;
         }
       }
@@ -331,7 +331,7 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -340,7 +340,7 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec,
       mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -410,12 +410,12 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -430,7 +430,7 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_droid_guard_info']);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_droid_guard_info': response.arg_droid_guard_info });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getStatus FAILED:', e));
           }

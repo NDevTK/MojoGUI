@@ -257,7 +257,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserverRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserverRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpec,
       null,
-      [arg_entries],
+      { arg_entries: arg_entries },
       false);
   }
 
@@ -336,14 +336,14 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserverReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSelectedSeaPenImageChanged');
-          const result = this.impl.onSelectedSeaPenImageChanged(params.arg_arg_id);
+          const result = this.impl.onSelectedSeaPenImageChanged(params.arg_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTextQueryHistoryChanged');
-          const result = this.impl.onTextQueryHistoryChanged(params.arg_arg_entries);
+          const result = this.impl.onTextQueryHistoryChanged(params.arg_entries);
           break;
         }
       }
@@ -456,7 +456,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -465,7 +465,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ResponseParamsSpec,
-      [arg_query],
+      { arg_query: arg_query },
       false);
   }
 
@@ -474,7 +474,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ResponseParamsSpec,
-      [arg_id, arg_preview_mode],
+      { arg_id: arg_id, arg_preview_mode: arg_preview_mode },
       false);
   }
 
@@ -483,7 +483,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -492,7 +492,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ResponseParamsSpec,
-      [arg_id, arg_preview_mode],
+      { arg_id: arg_id, arg_preview_mode: arg_preview_mode },
       false);
   }
 
@@ -501,7 +501,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ResponseParamsSpec,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -510,7 +510,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ResponseParamsSpec,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -519,7 +519,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec,
       null,
-      [arg_metadata],
+      { arg_metadata: arg_metadata },
       false);
   }
 
@@ -528,7 +528,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -537,7 +537,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClosed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -546,7 +546,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -555,7 +555,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDialogClosed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -564,7 +564,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -573,7 +573,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -655,19 +655,19 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSeaPenObserver');
-          const result = this.impl.setSeaPenObserver(params.arg_arg_observer);
+          const result = this.impl.setSeaPenObserver(params.arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSeaPenThumbnails');
-          const result = this.impl.getSeaPenThumbnails(params.arg_arg_query);
+          const result = this.impl.getSeaPenThumbnails(params.arg_query);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ResponseParamsSpec.$.structSpec, ['response.arg_arg_thumbnails', 'response.arg_arg_statusCode']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ResponseParamsSpec.$.structSpec, { 'arg_thumbnails': response.arg_thumbnails, 'arg_statusCode': response.arg_statusCode });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSeaPenThumbnails FAILED:', e));
           }
@@ -677,13 +677,13 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectSeaPenThumbnail');
-          const result = this.impl.selectSeaPenThumbnail(params.arg_arg_id, params.arg_arg_preview_mode);
+          const result = this.impl.selectSeaPenThumbnail(params.arg_id, params.arg_preview_mode);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] selectSeaPenThumbnail FAILED:', e));
           }
@@ -698,8 +698,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_ids' in response) ? response.arg_arg_ids : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_ids' in response) ? response.arg_ids : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ResponseParamsSpec.$.structSpec, { 'arg_ids': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRecentSeaPenImageIds FAILED:', e));
           }
@@ -709,13 +709,13 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectRecentSeaPenImage');
-          const result = this.impl.selectRecentSeaPenImage(params.arg_arg_id, params.arg_arg_preview_mode);
+          const result = this.impl.selectRecentSeaPenImage(params.arg_id, params.arg_preview_mode);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] selectRecentSeaPenImage FAILED:', e));
           }
@@ -725,13 +725,13 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRecentSeaPenImageThumbnail');
-          const result = this.impl.getRecentSeaPenImageThumbnail(params.arg_arg_id);
+          const result = this.impl.getRecentSeaPenImageThumbnail(params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_thumbnail_data' in response) ? response.arg_arg_thumbnail_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_thumbnail_data' in response) ? response.arg_thumbnail_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ResponseParamsSpec.$.structSpec, { 'arg_thumbnail_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRecentSeaPenImageThumbnail FAILED:', e));
           }
@@ -741,13 +741,13 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteRecentSeaPenImage');
-          const result = this.impl.deleteRecentSeaPenImage(params.arg_arg_id);
+          const result = this.impl.deleteRecentSeaPenImage(params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteRecentSeaPenImage FAILED:', e));
           }
@@ -757,7 +757,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFeedbackDialog');
-          const result = this.impl.openFeedbackDialog(params.arg_arg_metadata);
+          const result = this.impl.openFeedbackDialog(params.arg_metadata);
           break;
         }
         case 8: {
@@ -769,8 +769,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_should_show_dialog' in response) ? response.arg_arg_should_show_dialog : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_should_show_dialog' in response) ? response.arg_should_show_dialog : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ResponseParamsSpec.$.structSpec, { 'arg_should_show_dialog': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] shouldShowSeaPenIntroductionDialog FAILED:', e));
           }
@@ -792,8 +792,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_should_show_freeform_dialog' in response) ? response.arg_arg_should_show_freeform_dialog : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_should_show_freeform_dialog' in response) ? response.arg_should_show_freeform_dialog : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ResponseParamsSpec.$.structSpec, { 'arg_should_show_freeform_dialog': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] shouldShowSeaPenFreeformIntroductionDialog FAILED:', e));
           }
@@ -815,8 +815,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_tablet_mode' in response) ? response.arg_arg_tablet_mode : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_tablet_mode' in response) ? response.arg_tablet_mode : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ResponseParamsSpec.$.structSpec, { 'arg_tablet_mode': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isInTabletMode FAILED:', e));
           }

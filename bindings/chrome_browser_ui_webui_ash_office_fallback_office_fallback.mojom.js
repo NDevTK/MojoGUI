@@ -184,7 +184,7 @@ mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactoryRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactoryReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_handler);
           break;
         }
       }
@@ -314,7 +314,7 @@ mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.office_fallback.mojom.PageHandler_Close_ParamsSpec,
       null,
-      [arg_choice],
+      { arg_choice: arg_choice },
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.office_fallback.mojom.PageHandler_Close_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.close');
-          const result = this.impl.close(params.arg_arg_choice);
+          const result = this.impl.close(params.arg_choice);
           break;
         }
       }

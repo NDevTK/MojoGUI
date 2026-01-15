@@ -197,7 +197,7 @@ mojo.internal.bindings.quarantine.mojom.QuarantineRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec,
       mojo.internal.bindings.quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec,
-      [arg_full_path, arg_source_url, arg_referrer_url, arg_request_initiator, arg_client_guid],
+      { arg_full_path: arg_full_path, arg_source_url: arg_source_url, arg_referrer_url: arg_referrer_url, arg_request_initiator: arg_request_initiator, arg_client_guid: arg_client_guid },
       false);
   }
 
@@ -266,13 +266,13 @@ mojo.internal.bindings.quarantine.mojom.QuarantineReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.quarantineFile');
-          const result = this.impl.quarantineFile(params.arg_arg_full_path, params.arg_arg_source_url, params.arg_arg_referrer_url, params.arg_arg_request_initiator, params.arg_arg_client_guid);
+          const result = this.impl.quarantineFile(params.arg_full_path, params.arg_source_url, params.arg_referrer_url, params.arg_request_initiator, params.arg_client_guid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] quarantineFile FAILED:', e));
           }

@@ -199,7 +199,7 @@ mojo.internal.bindings.chrome.mojom.RemovableStorageWriterRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Write_ParamsSpec,
       null,
-      [arg_source, arg_target, arg_client],
+      { arg_source: arg_source, arg_target: arg_target, arg_client: arg_client },
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.chrome.mojom.RemovableStorageWriterRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec,
       null,
-      [arg_source, arg_target, arg_client],
+      { arg_source: arg_source, arg_target: arg_target, arg_client: arg_client },
       false);
   }
 
@@ -278,14 +278,14 @@ mojo.internal.bindings.chrome.mojom.RemovableStorageWriterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Write_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.write');
-          const result = this.impl.write(params.arg_arg_source, params.arg_arg_target, params.arg_arg_client);
+          const result = this.impl.write(params.arg_source, params.arg_target, params.arg_client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.verify');
-          const result = this.impl.verify(params.arg_arg_source, params.arg_arg_target, params.arg_arg_client);
+          const result = this.impl.verify(params.arg_source, params.arg_target, params.arg_client);
           break;
         }
       }
@@ -350,7 +350,7 @@ mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec,
       null,
-      [arg_progress],
+      { arg_progress: arg_progress },
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec,
       null,
-      [arg_error],
+      { arg_error: arg_error },
       false);
   }
 
@@ -429,14 +429,14 @@ mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.progress');
-          const result = this.impl.progress(params.arg_arg_progress);
+          const result = this.impl.progress(params.arg_progress);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.complete');
-          const result = this.impl.complete(params.arg_arg_error);
+          const result = this.impl.complete(params.arg_error);
           break;
         }
       }

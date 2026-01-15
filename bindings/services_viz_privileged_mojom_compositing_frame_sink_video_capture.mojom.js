@@ -264,7 +264,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -273,7 +273,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec,
       null,
-      [arg_feedback],
+      { arg_feedback: arg_feedback },
       false);
   }
 
@@ -350,7 +350,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacksReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.provideFeedback');
-          const result = this.impl.provideFeedback(params.arg_arg_feedback);
+          const result = this.impl.provideFeedback(params.arg_feedback);
           break;
         }
       }
@@ -427,7 +427,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec,
       null,
-      [arg_data, arg_info, arg_content_rect, arg_callbacks],
+      { arg_data: arg_data, arg_info: arg_info, arg_content_rect: arg_content_rect, arg_callbacks: arg_callbacks },
       false);
   }
 
@@ -436,7 +436,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec,
       null,
-      [arg_capture_version],
+      { arg_capture_version: arg_capture_version },
       false);
   }
 
@@ -445,7 +445,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -454,7 +454,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -463,7 +463,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -536,14 +536,14 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameCaptured');
-          const result = this.impl.onFrameCaptured(params.arg_arg_data, params.arg_arg_info, params.arg_arg_content_rect, params.arg_arg_callbacks);
+          const result = this.impl.onFrameCaptured(params.arg_data, params.arg_info, params.arg_content_rect, params.arg_callbacks);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewCaptureVersion');
-          const result = this.impl.onNewCaptureVersion(params.arg_arg_capture_version);
+          const result = this.impl.onNewCaptureVersion(params.arg_capture_version);
           break;
         }
         case 2: {
@@ -564,7 +564,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLog');
-          const result = this.impl.onLog(params.arg_arg_message);
+          const result = this.impl.onLog(params.arg_message);
           break;
         }
       }
@@ -665,7 +665,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec,
       null,
-      [arg_format],
+      { arg_format: arg_format },
       false);
   }
 
@@ -674,7 +674,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec,
       null,
-      [arg_min_period],
+      { arg_min_period: arg_min_period },
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec,
       null,
-      [arg_min_period],
+      { arg_min_period: arg_min_period },
       false);
   }
 
@@ -692,7 +692,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec,
       null,
-      [arg_min_size, arg_max_size, arg_use_fixed_aspect_ratio],
+      { arg_min_size: arg_min_size, arg_max_size: arg_max_size, arg_use_fixed_aspect_ratio: arg_use_fixed_aspect_ratio },
       false);
   }
 
@@ -701,7 +701,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -710,7 +710,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec,
       null,
-      [arg_enabled, arg_majority_damaged_pixel_min_ratio],
+      { arg_enabled: arg_enabled, arg_majority_damaged_pixel_min_ratio: arg_majority_damaged_pixel_min_ratio },
       false);
   }
 
@@ -719,7 +719,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec,
       null,
-      [arg_target, arg_sub_capture_version],
+      { arg_target: arg_target, arg_sub_capture_version: arg_sub_capture_version },
       false);
   }
 
@@ -728,7 +728,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec,
       null,
-      [arg_consumer, arg_buffer_format_preference],
+      { arg_consumer: arg_consumer, arg_buffer_format_preference: arg_buffer_format_preference },
       false);
   }
 
@@ -737,7 +737,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -746,7 +746,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -755,7 +755,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec,
       null,
-      [arg_stacking_index, arg_receiver],
+      { arg_stacking_index: arg_stacking_index, arg_receiver: arg_receiver },
       false);
   }
 
@@ -834,56 +834,56 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFormat');
-          const result = this.impl.setFormat(params.arg_arg_format);
+          const result = this.impl.setFormat(params.arg_format);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMinCapturePeriod');
-          const result = this.impl.setMinCapturePeriod(params.arg_arg_min_period);
+          const result = this.impl.setMinCapturePeriod(params.arg_min_period);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMinSizeChangePeriod');
-          const result = this.impl.setMinSizeChangePeriod(params.arg_arg_min_period);
+          const result = this.impl.setMinSizeChangePeriod(params.arg_min_period);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setResolutionConstraints');
-          const result = this.impl.setResolutionConstraints(params.arg_arg_min_size, params.arg_arg_max_size, params.arg_arg_use_fixed_aspect_ratio);
+          const result = this.impl.setResolutionConstraints(params.arg_min_size, params.arg_max_size, params.arg_use_fixed_aspect_ratio);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAutoThrottlingEnabled');
-          const result = this.impl.setAutoThrottlingEnabled(params.arg_arg_enabled);
+          const result = this.impl.setAutoThrottlingEnabled(params.arg_enabled);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAnimationFpsLockIn');
-          const result = this.impl.setAnimationFpsLockIn(params.arg_arg_enabled, params.arg_arg_majority_damaged_pixel_min_ratio);
+          const result = this.impl.setAnimationFpsLockIn(params.arg_enabled, params.arg_majority_damaged_pixel_min_ratio);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.changeTarget');
-          const result = this.impl.changeTarget(params.arg_arg_target, params.arg_arg_sub_capture_version);
+          const result = this.impl.changeTarget(params.arg_target, params.arg_sub_capture_version);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start(params.arg_arg_consumer, params.arg_arg_buffer_format_preference);
+          const result = this.impl.start(params.arg_consumer, params.arg_buffer_format_preference);
           break;
         }
         case 8: {
@@ -904,7 +904,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createOverlay');
-          const result = this.impl.createOverlay(params.arg_arg_stacking_index, params.arg_arg_receiver);
+          const result = this.impl.createOverlay(params.arg_stacking_index, params.arg_receiver);
           break;
         }
       }
@@ -973,7 +973,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec,
       null,
-      [arg_image, arg_bounds],
+      { arg_image: arg_image, arg_bounds: arg_bounds },
       false);
   }
 
@@ -982,7 +982,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec,
       null,
-      [arg_bounds],
+      { arg_bounds: arg_bounds },
       false);
   }
 
@@ -991,7 +991,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec,
       null,
-      [arg_coordinates],
+      { arg_coordinates: arg_coordinates },
       false);
   }
 
@@ -1062,21 +1062,21 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlayReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setImageAndBounds');
-          const result = this.impl.setImageAndBounds(params.arg_arg_image, params.arg_arg_bounds);
+          const result = this.impl.setImageAndBounds(params.arg_image, params.arg_bounds);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBounds');
-          const result = this.impl.setBounds(params.arg_arg_bounds);
+          const result = this.impl.setBounds(params.arg_bounds);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCapturedMouseEvent');
-          const result = this.impl.onCapturedMouseEvent(params.arg_arg_coordinates);
+          const result = this.impl.onCapturedMouseEvent(params.arg_coordinates);
           break;
         }
       }

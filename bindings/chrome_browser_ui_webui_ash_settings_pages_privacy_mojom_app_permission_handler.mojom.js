@@ -223,7 +223,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec,
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -241,7 +241,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec,
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -250,7 +250,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec,
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -259,7 +259,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec,
       null,
-      [arg_permission_type],
+      { arg_permission_type: arg_permission_type },
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec,
       null,
-      [arg_app_id],
+      { arg_app_id: arg_app_id },
       false);
   }
 
@@ -277,7 +277,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec,
       null,
-      [arg_app_id, arg_permission],
+      { arg_app_id: arg_app_id, arg_permission: arg_permission },
       false);
   }
 
@@ -352,7 +352,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_arg_observer);
+          const result = this.impl.addObserver(params.arg_observer);
           break;
         }
         case 1: {
@@ -364,8 +364,8 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_apps' in response) ? response.arg_arg_apps : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_apps' in response) ? response.arg_apps : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec.$.structSpec, { 'arg_apps': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getApps FAILED:', e));
           }
@@ -380,8 +380,8 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_apps' in response) ? response.arg_arg_apps : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_apps' in response) ? response.arg_apps : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec.$.structSpec, { 'arg_apps': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSystemAppsThatUseCamera FAILED:', e));
           }
@@ -396,8 +396,8 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_apps' in response) ? response.arg_arg_apps : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_apps' in response) ? response.arg_apps : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec.$.structSpec, { 'arg_apps': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSystemAppsThatUseMicrophone FAILED:', e));
           }
@@ -407,21 +407,21 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openBrowserPermissionSettings');
-          const result = this.impl.openBrowserPermissionSettings(params.arg_arg_permission_type);
+          const result = this.impl.openBrowserPermissionSettings(params.arg_permission_type);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openNativeSettings');
-          const result = this.impl.openNativeSettings(params.arg_arg_app_id);
+          const result = this.impl.openNativeSettings(params.arg_app_id);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPermission');
-          const result = this.impl.setPermission(params.arg_arg_app_id, params.arg_arg_permission);
+          const result = this.impl.setPermission(params.arg_app_id, params.arg_permission);
           break;
         }
       }
@@ -486,7 +486,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserverR
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec,
       null,
-      [arg_app_id],
+      { arg_app_id: arg_app_id },
       false);
   }
 
@@ -495,7 +495,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserverR
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec,
       null,
-      [arg_app],
+      { arg_app: arg_app },
       false);
   }
 
@@ -565,14 +565,14 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserverR
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAppRemoved');
-          const result = this.impl.onAppRemoved(params.arg_arg_app_id);
+          const result = this.impl.onAppRemoved(params.arg_app_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAppUpdated');
-          const result = this.impl.onAppUpdated(params.arg_arg_app);
+          const result = this.impl.onAppUpdated(params.arg_app);
           break;
         }
       }

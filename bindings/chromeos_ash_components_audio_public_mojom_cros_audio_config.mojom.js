@@ -239,7 +239,7 @@ mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec,
       null,
-      [arg_properties],
+      { arg_properties: arg_properties },
       false);
   }
 
@@ -308,7 +308,7 @@ mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPropertiesUpdated');
-          const result = this.impl.onPropertiesUpdated(params.arg_arg_properties);
+          const result = this.impl.onPropertiesUpdated(params.arg_properties);
           break;
         }
       }
@@ -417,7 +417,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -426,7 +426,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec,
       null,
-      [arg_muted],
+      { arg_muted: arg_muted },
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec,
       null,
-      [arg_volume],
+      { arg_volume: arg_volume },
       false);
   }
 
@@ -444,7 +444,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec,
       null,
-      [arg_gain],
+      { arg_gain: arg_gain },
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec,
       null,
-      [arg_device],
+      { arg_device: arg_device },
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec,
       null,
-      [arg_muted],
+      { arg_muted: arg_muted },
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec,
       null,
-      [arg_preferred_effect],
+      { arg_preferred_effect: arg_preferred_effect },
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -507,7 +507,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -516,7 +516,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -525,7 +525,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -606,42 +606,42 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeAudioSystemProperties');
-          const result = this.impl.observeAudioSystemProperties(params.arg_arg_observer);
+          const result = this.impl.observeAudioSystemProperties(params.arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOutputMuted');
-          const result = this.impl.setOutputMuted(params.arg_arg_muted);
+          const result = this.impl.setOutputMuted(params.arg_muted);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOutputVolumePercent');
-          const result = this.impl.setOutputVolumePercent(params.arg_arg_volume);
+          const result = this.impl.setOutputVolumePercent(params.arg_volume);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInputGainPercent');
-          const result = this.impl.setInputGainPercent(params.arg_arg_gain);
+          const result = this.impl.setInputGainPercent(params.arg_gain);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setActiveDevice');
-          const result = this.impl.setActiveDevice(params.arg_arg_device);
+          const result = this.impl.setActiveDevice(params.arg_device);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInputMuted');
-          const result = this.impl.setInputMuted(params.arg_arg_muted);
+          const result = this.impl.setInputMuted(params.arg_muted);
           break;
         }
         case 6: {
@@ -655,42 +655,42 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordVoiceIsolationPreferredEffectChange');
-          const result = this.impl.recordVoiceIsolationPreferredEffectChange(params.arg_arg_preferred_effect);
+          const result = this.impl.recordVoiceIsolationPreferredEffectChange(params.arg_preferred_effect);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNoiseCancellationEnabled');
-          const result = this.impl.setNoiseCancellationEnabled(params.arg_arg_enabled);
+          const result = this.impl.setNoiseCancellationEnabled(params.arg_enabled);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setStyleTransferEnabled');
-          const result = this.impl.setStyleTransferEnabled(params.arg_arg_enabled);
+          const result = this.impl.setStyleTransferEnabled(params.arg_enabled);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setForceRespectUiGainsEnabled');
-          const result = this.impl.setForceRespectUiGainsEnabled(params.arg_arg_enabled);
+          const result = this.impl.setForceRespectUiGainsEnabled(params.arg_enabled);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHfpMicSrEnabled');
-          const result = this.impl.setHfpMicSrEnabled(params.arg_arg_enabled);
+          const result = this.impl.setHfpMicSrEnabled(params.arg_enabled);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSpatialAudioEnabled');
-          const result = this.impl.setSpatialAudioEnabled(params.arg_arg_enabled);
+          const result = this.impl.setSpatialAudioEnabled(params.arg_enabled);
           break;
         }
       }

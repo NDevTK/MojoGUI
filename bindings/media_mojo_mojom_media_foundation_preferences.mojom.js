@@ -171,7 +171,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationPreferencesRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -245,8 +245,8 @@ mojo.internal.bindings.media.mojom.MediaFoundationPreferencesReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_allowed' in response) ? response.arg_arg_allowed : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_allowed' in response) ? response.arg_allowed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParamsSpec.$.structSpec, { 'arg_allowed': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isHardwareSecureDecryptionAllowed FAILED:', e));
           }

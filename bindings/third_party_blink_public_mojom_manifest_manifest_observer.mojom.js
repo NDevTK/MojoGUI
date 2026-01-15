@@ -176,7 +176,7 @@ mojo.internal.bindings.blink.mojom.ManifestUrlChangeObserverRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec,
       null,
-      [arg_manifest_url],
+      { arg_manifest_url: arg_manifest_url },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.blink.mojom.ManifestUrlChangeObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.manifestUrlChanged');
-          const result = this.impl.manifestUrlChanged(params.arg_arg_manifest_url);
+          const result = this.impl.manifestUrlChanged(params.arg_manifest_url);
           break;
         }
       }

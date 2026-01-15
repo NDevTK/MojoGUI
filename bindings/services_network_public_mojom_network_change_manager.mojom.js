@@ -250,7 +250,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerClientRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec,
       null,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -259,7 +259,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerClientRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec,
       null,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -329,14 +329,14 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerClientReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInitialConnectionType');
-          const result = this.impl.onInitialConnectionType(params.arg_arg_type);
+          const result = this.impl.onInitialConnectionType(params.arg_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkChanged');
-          const result = this.impl.onNetworkChanged(params.arg_arg_type);
+          const result = this.impl.onNetworkChanged(params.arg_type);
           break;
         }
       }
@@ -405,7 +405,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec,
       null,
-      [arg_client_remote],
+      { arg_client_remote: arg_client_remote },
       false);
   }
 
@@ -414,7 +414,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec,
       null,
-      [arg_dns_changed, arg_ip_address_change_type, arg_connection_type_changed, arg_new_connection_type, arg_connection_subtype_changed, arg_new_connection_subtype],
+      { arg_dns_changed: arg_dns_changed, arg_ip_address_change_type: arg_ip_address_change_type, arg_connection_type_changed: arg_connection_type_changed, arg_new_connection_type: arg_new_connection_type, arg_connection_subtype_changed: arg_connection_subtype_changed, arg_new_connection_subtype: arg_new_connection_subtype },
       false);
   }
 
@@ -423,7 +423,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec,
       null,
-      [arg_notifier],
+      { arg_notifier: arg_notifier },
       false);
   }
 
@@ -494,21 +494,21 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestNotifications');
-          const result = this.impl.requestNotifications(params.arg_arg_client_remote);
+          const result = this.impl.requestNotifications(params.arg_client_remote);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkChanged');
-          const result = this.impl.onNetworkChanged(params.arg_arg_dns_changed, params.arg_arg_ip_address_change_type, params.arg_arg_connection_type_changed, params.arg_arg_new_connection_type, params.arg_arg_connection_subtype_changed, params.arg_arg_new_connection_subtype);
+          const result = this.impl.onNetworkChanged(params.arg_dns_changed, params.arg_ip_address_change_type, params.arg_connection_type_changed, params.arg_new_connection_type, params.arg_connection_subtype_changed, params.arg_new_connection_subtype);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindNetworkInterfaceChangeListener');
-          const result = this.impl.bindNetworkInterfaceChangeListener(params.arg_arg_notifier);
+          const result = this.impl.bindNetworkInterfaceChangeListener(params.arg_notifier);
           break;
         }
       }

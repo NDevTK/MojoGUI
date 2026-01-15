@@ -191,7 +191,7 @@ mojo.internal.bindings.chrome.mojom.FileUtilServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.chrome.mojom.FileUtilServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -209,7 +209,7 @@ mojo.internal.bindings.chrome.mojom.FileUtilServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -280,21 +280,21 @@ mojo.internal.bindings.chrome.mojom.FileUtilServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSafeArchiveAnalyzer');
-          const result = this.impl.bindSafeArchiveAnalyzer(params.arg_arg_receiver);
+          const result = this.impl.bindSafeArchiveAnalyzer(params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSingleFileTarFileExtractor');
-          const result = this.impl.bindSingleFileTarFileExtractor(params.arg_arg_receiver);
+          const result = this.impl.bindSingleFileTarFileExtractor(params.arg_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSingleFileTarXzFileExtractor');
-          const result = this.impl.bindSingleFileTarXzFileExtractor(params.arg_arg_receiver);
+          const result = this.impl.bindSingleFileTarXzFileExtractor(params.arg_receiver);
           break;
         }
       }

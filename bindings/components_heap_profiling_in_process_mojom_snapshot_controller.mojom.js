@@ -175,7 +175,7 @@ mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec,
       null,
-      [arg_process_probability_pct, arg_process_index],
+      { arg_process_probability_pct: arg_process_probability_pct, arg_process_index: arg_process_index },
       false);
   }
 
@@ -184,7 +184,7 @@ mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.takeSnapshot');
-          const result = this.impl.takeSnapshot(params.arg_arg_process_probability_pct, params.arg_arg_process_index);
+          const result = this.impl.takeSnapshot(params.arg_process_probability_pct, params.arg_process_index);
           break;
         }
         case 1: {

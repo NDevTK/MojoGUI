@@ -202,7 +202,7 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec,
       null,
-      [arg_start_time, arg_bucket_size],
+      { arg_start_time: arg_start_time, arg_bucket_size: arg_bucket_size },
       false);
   }
 
@@ -211,7 +211,7 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec,
       mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -220,7 +220,7 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec,
       null,
-      [arg_root_frame_sink_id, arg_bucket_size],
+      { arg_root_frame_sink_id: arg_root_frame_sink_id, arg_bucket_size: arg_bucket_size },
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec,
       mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec,
-      [arg_root_frame_sink_id],
+      { arg_root_frame_sink_id: arg_root_frame_sink_id },
       false);
   }
 
@@ -301,7 +301,7 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startFrameCounting');
-          const result = this.impl.startFrameCounting(params.arg_arg_start_time, params.arg_arg_bucket_size);
+          const result = this.impl.startFrameCounting(params.arg_start_time, params.arg_bucket_size);
           break;
         }
         case 1: {
@@ -313,8 +313,8 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] stopFrameCounting FAILED:', e));
           }
@@ -324,20 +324,20 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startOverdrawTracking');
-          const result = this.impl.startOverdrawTracking(params.arg_arg_root_frame_sink_id, params.arg_arg_bucket_size);
+          const result = this.impl.startOverdrawTracking(params.arg_root_frame_sink_id, params.arg_bucket_size);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopOverdrawTracking');
-          const result = this.impl.stopOverdrawTracking(params.arg_arg_root_frame_sink_id);
+          const result = this.impl.stopOverdrawTracking(params.arg_root_frame_sink_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] stopOverdrawTracking FAILED:', e));
           }

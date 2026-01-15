@@ -170,7 +170,7 @@ mojo.internal.bindings.blink.mojom.CloseListenerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.CloseListener_Signal_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

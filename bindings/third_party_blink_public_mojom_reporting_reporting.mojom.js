@@ -215,7 +215,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec,
       null,
-      [arg_url, arg_id, arg_message, arg_source_file, arg_line_number, arg_column_number],
+      { arg_url: arg_url, arg_id: arg_id, arg_message: arg_message, arg_source_file: arg_source_file, arg_line_number: arg_line_number, arg_column_number: arg_column_number },
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec,
       null,
-      [arg_url, arg_id, arg_anticipatedRemoval, arg_message, arg_source_file, arg_line_number, arg_column_number],
+      { arg_url: arg_url, arg_id: arg_id, arg_anticipatedRemoval: arg_anticipatedRemoval, arg_message: arg_message, arg_source_file: arg_source_file, arg_line_number: arg_line_number, arg_column_number: arg_column_number },
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec,
       null,
-      [arg_url, arg_group, arg_document_url, arg_referrer, arg_blocked_url, arg_effective_directive, arg_original_policy, arg_source_file, arg_script_sample, arg_disposition, arg_status_code, arg_line_number, arg_column_number],
+      { arg_url: arg_url, arg_group: arg_group, arg_document_url: arg_document_url, arg_referrer: arg_referrer, arg_blocked_url: arg_blocked_url, arg_effective_directive: arg_effective_directive, arg_original_policy: arg_original_policy, arg_source_file: arg_source_file, arg_script_sample: arg_script_sample, arg_disposition: arg_disposition, arg_status_code: arg_status_code, arg_line_number: arg_line_number, arg_column_number: arg_column_number },
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec,
       null,
-      [arg_url, arg_endpoint, arg_document_url, arg_blocked_url, arg_destination, arg_report_only],
+      { arg_url: arg_url, arg_endpoint: arg_endpoint, arg_document_url: arg_document_url, arg_blocked_url: arg_blocked_url, arg_destination: arg_destination, arg_report_only: arg_report_only },
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSpec,
       null,
-      [arg_url, arg_endpoint, arg_policy_id, arg_disposition, arg_message, arg_source_file, arg_line_number, arg_column_number],
+      { arg_url: arg_url, arg_endpoint: arg_endpoint, arg_policy_id: arg_policy_id, arg_disposition: arg_disposition, arg_message: arg_message, arg_source_file: arg_source_file, arg_line_number: arg_line_number, arg_column_number: arg_column_number },
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyRemoteCallHandler = clas
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_ParamsSpec,
       null,
-      [arg_url, arg_endpoint, arg_policy_id, arg_disposition, arg_message, arg_allow_attribute, arg_src_attribute, arg_source_file, arg_line_number, arg_column_number],
+      { arg_url: arg_url, arg_endpoint: arg_endpoint, arg_policy_id: arg_policy_id, arg_disposition: arg_disposition, arg_message: arg_message, arg_allow_attribute: arg_allow_attribute, arg_src_attribute: arg_src_attribute, arg_source_file: arg_source_file, arg_line_number: arg_line_number, arg_column_number: arg_column_number },
       false);
   }
 
@@ -269,7 +269,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyRemoteCallHandler = clas
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec,
       null,
-      [arg_url, arg_group, arg_policy_id, arg_disposition, arg_message, arg_source_file, arg_line_number, arg_column_number],
+      { arg_url: arg_url, arg_group: arg_group, arg_policy_id: arg_policy_id, arg_disposition: arg_disposition, arg_message: arg_message, arg_source_file: arg_source_file, arg_line_number: arg_line_number, arg_column_number: arg_column_number },
       false);
   }
 
@@ -278,7 +278,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyRemoteCallHandler = clas
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec,
       null,
-      [arg_url, arg_endpoint, arg_subresource_url, arg_integrity_hash, arg_type, arg_destination],
+      { arg_url: arg_url, arg_endpoint: arg_endpoint, arg_subresource_url: arg_subresource_url, arg_integrity_hash: arg_integrity_hash, arg_type: arg_type, arg_destination: arg_destination },
       false);
   }
 
@@ -354,56 +354,56 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueInterventionReport');
-          const result = this.impl.queueInterventionReport(params.arg_arg_url, params.arg_arg_id, params.arg_arg_message, params.arg_arg_source_file, params.arg_arg_line_number, params.arg_arg_column_number);
+          const result = this.impl.queueInterventionReport(params.arg_url, params.arg_id, params.arg_message, params.arg_source_file, params.arg_line_number, params.arg_column_number);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueDeprecationReport');
-          const result = this.impl.queueDeprecationReport(params.arg_arg_url, params.arg_arg_id, params.arg_arg_anticipatedRemoval, params.arg_arg_message, params.arg_arg_source_file, params.arg_arg_line_number, params.arg_arg_column_number);
+          const result = this.impl.queueDeprecationReport(params.arg_url, params.arg_id, params.arg_anticipatedRemoval, params.arg_message, params.arg_source_file, params.arg_line_number, params.arg_column_number);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueCspViolationReport');
-          const result = this.impl.queueCspViolationReport(params.arg_arg_url, params.arg_arg_group, params.arg_arg_document_url, params.arg_arg_referrer, params.arg_arg_blocked_url, params.arg_arg_effective_directive, params.arg_arg_original_policy, params.arg_arg_source_file, params.arg_arg_script_sample, params.arg_arg_disposition, params.arg_arg_status_code, params.arg_arg_line_number, params.arg_arg_column_number);
+          const result = this.impl.queueCspViolationReport(params.arg_url, params.arg_group, params.arg_document_url, params.arg_referrer, params.arg_blocked_url, params.arg_effective_directive, params.arg_original_policy, params.arg_source_file, params.arg_script_sample, params.arg_disposition, params.arg_status_code, params.arg_line_number, params.arg_column_number);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueIntegrityViolationReport');
-          const result = this.impl.queueIntegrityViolationReport(params.arg_arg_url, params.arg_arg_endpoint, params.arg_arg_document_url, params.arg_arg_blocked_url, params.arg_arg_destination, params.arg_arg_report_only);
+          const result = this.impl.queueIntegrityViolationReport(params.arg_url, params.arg_endpoint, params.arg_document_url, params.arg_blocked_url, params.arg_destination, params.arg_report_only);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queuePermissionsPolicyViolationReport');
-          const result = this.impl.queuePermissionsPolicyViolationReport(params.arg_arg_url, params.arg_arg_endpoint, params.arg_arg_policy_id, params.arg_arg_disposition, params.arg_arg_message, params.arg_arg_source_file, params.arg_arg_line_number, params.arg_arg_column_number);
+          const result = this.impl.queuePermissionsPolicyViolationReport(params.arg_url, params.arg_endpoint, params.arg_policy_id, params.arg_disposition, params.arg_message, params.arg_source_file, params.arg_line_number, params.arg_column_number);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queuePotentialPermissionsPolicyViolationReport');
-          const result = this.impl.queuePotentialPermissionsPolicyViolationReport(params.arg_arg_url, params.arg_arg_endpoint, params.arg_arg_policy_id, params.arg_arg_disposition, params.arg_arg_message, params.arg_arg_allow_attribute, params.arg_arg_src_attribute, params.arg_arg_source_file, params.arg_arg_line_number, params.arg_arg_column_number);
+          const result = this.impl.queuePotentialPermissionsPolicyViolationReport(params.arg_url, params.arg_endpoint, params.arg_policy_id, params.arg_disposition, params.arg_message, params.arg_allow_attribute, params.arg_src_attribute, params.arg_source_file, params.arg_line_number, params.arg_column_number);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueDocumentPolicyViolationReport');
-          const result = this.impl.queueDocumentPolicyViolationReport(params.arg_arg_url, params.arg_arg_group, params.arg_arg_policy_id, params.arg_arg_disposition, params.arg_arg_message, params.arg_arg_source_file, params.arg_arg_line_number, params.arg_arg_column_number);
+          const result = this.impl.queueDocumentPolicyViolationReport(params.arg_url, params.arg_group, params.arg_policy_id, params.arg_disposition, params.arg_message, params.arg_source_file, params.arg_line_number, params.arg_column_number);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueCSPHashReport');
-          const result = this.impl.queueCSPHashReport(params.arg_arg_url, params.arg_arg_endpoint, params.arg_arg_subresource_url, params.arg_arg_integrity_hash, params.arg_arg_type, params.arg_arg_destination);
+          const result = this.impl.queueCSPHashReport(params.arg_url, params.arg_endpoint, params.arg_subresource_url, params.arg_integrity_hash, params.arg_type, params.arg_destination);
           break;
         }
       }

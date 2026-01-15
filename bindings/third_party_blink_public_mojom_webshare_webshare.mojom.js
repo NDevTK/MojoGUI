@@ -188,7 +188,7 @@ mojo.internal.bindings.blink.mojom.ShareServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ShareService_Share_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ShareService_Share_ResponseParamsSpec,
-      [arg_title, arg_text, arg_url, arg_files],
+      { arg_title: arg_title, arg_text: arg_text, arg_url: arg_url, arg_files: arg_files },
       false);
   }
 
@@ -257,13 +257,13 @@ mojo.internal.bindings.blink.mojom.ShareServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ShareService_Share_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.share');
-          const result = this.impl.share(params.arg_arg_title, params.arg_arg_text, params.arg_arg_url, params.arg_arg_files);
+          const result = this.impl.share(params.arg_title, params.arg_text, params.arg_url, params.arg_files);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ShareService_Share_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ShareService_Share_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] share FAILED:', e));
           }

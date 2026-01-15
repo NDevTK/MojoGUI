@@ -208,7 +208,7 @@ mojo.internal.bindings.device.mojom.WakeLockRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.WakeLock_RequestWakeLock_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.device.mojom.WakeLockRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.WakeLock_CancelWakeLock_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.device.mojom.WakeLockRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.WakeLock_AddClient_ParamsSpec,
       null,
-      [arg_wake_lock],
+      { arg_wake_lock: arg_wake_lock },
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.device.mojom.WakeLockRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.WakeLock_ChangeType_ParamsSpec,
       mojo.internal.bindings.device.mojom.WakeLock_ChangeType_ResponseParamsSpec,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.device.mojom.WakeLockRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.WakeLock_HasWakeLockForTests_ParamsSpec,
       mojo.internal.bindings.device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -331,20 +331,20 @@ mojo.internal.bindings.device.mojom.WakeLockReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.WakeLock_AddClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addClient');
-          const result = this.impl.addClient(params.arg_arg_wake_lock);
+          const result = this.impl.addClient(params.arg_wake_lock);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.WakeLock_ChangeType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.changeType');
-          const result = this.impl.changeType(params.arg_arg_type);
+          const result = this.impl.changeType(params.arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.WakeLock_ChangeType_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.WakeLock_ChangeType_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] changeType FAILED:', e));
           }
@@ -359,8 +359,8 @@ mojo.internal.bindings.device.mojom.WakeLockReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] hasWakeLockForTests FAILED:', e));
           }

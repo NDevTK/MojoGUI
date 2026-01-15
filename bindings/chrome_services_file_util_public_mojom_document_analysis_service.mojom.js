@@ -177,7 +177,7 @@ mojo.internal.bindings.chrome.mojom.DocumentAnalysisServiceRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -246,7 +246,7 @@ mojo.internal.bindings.chrome.mojom.DocumentAnalysisServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSafeDocumentAnalyzer');
-          const result = this.impl.bindSafeDocumentAnalyzer(params.arg_arg_receiver);
+          const result = this.impl.bindSafeDocumentAnalyzer(params.arg_receiver);
           break;
         }
       }

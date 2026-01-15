@@ -392,7 +392,7 @@ mojo.internal.bindings.crosapi.mojom.PrintServerObserverRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.PrintServerObserver_OnPrintServersChanged_ParamsSpec,
       null,
-      [arg_config],
+      { arg_config: arg_config },
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.crosapi.mojom.PrintServerObserverRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.PrintServerObserver_OnServerPrintersChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.crosapi.mojom.PrintServerObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintServerObserver_OnPrintServersChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPrintServersChanged');
-          const result = this.impl.onPrintServersChanged(params.arg_arg_config);
+          const result = this.impl.onPrintServersChanged(params.arg_config);
           break;
         }
         case 1: {
@@ -543,7 +543,7 @@ mojo.internal.bindings.crosapi.mojom.PrintJobObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.PrintJobObserver_OnPrintJobUpdateDeprecated_ParamsSpec,
       null,
-      [arg_printer_id, arg_job_id, arg_status],
+      { arg_printer_id: arg_printer_id, arg_job_id: arg_job_id, arg_status: arg_status },
       false);
   }
 
@@ -552,7 +552,7 @@ mojo.internal.bindings.crosapi.mojom.PrintJobObserverRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.PrintJobObserver_OnPrintJobUpdate_ParamsSpec,
       null,
-      [arg_printer_id, arg_job_id, arg_update],
+      { arg_printer_id: arg_printer_id, arg_job_id: arg_job_id, arg_update: arg_update },
       false);
   }
 
@@ -622,14 +622,14 @@ mojo.internal.bindings.crosapi.mojom.PrintJobObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintJobObserver_OnPrintJobUpdateDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPrintJobUpdateDeprecated');
-          const result = this.impl.onPrintJobUpdateDeprecated(params.arg_arg_printer_id, params.arg_arg_job_id, params.arg_arg_status);
+          const result = this.impl.onPrintJobUpdateDeprecated(params.arg_printer_id, params.arg_job_id, params.arg_status);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PrintJobObserver_OnPrintJobUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPrintJobUpdate');
-          const result = this.impl.onPrintJobUpdate(params.arg_arg_printer_id, params.arg_arg_job_id, params.arg_arg_update);
+          const result = this.impl.onPrintJobUpdate(params.arg_printer_id, params.arg_job_id, params.arg_update);
           break;
         }
       }
@@ -690,7 +690,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrintersObserverRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrintersObserver_OnLocalPrintersUpdated_ParamsSpec,
       null,
-      [arg_printers],
+      { arg_printers: arg_printers },
       false);
   }
 
@@ -759,7 +759,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrintersObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrintersObserver_OnLocalPrintersUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLocalPrintersUpdated');
-          const result = this.impl.onLocalPrintersUpdated(params.arg_arg_printers);
+          const result = this.impl.onLocalPrintersUpdated(params.arg_printers);
           break;
         }
       }
@@ -884,7 +884,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinters_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinters_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -893,7 +893,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetCapability_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetCapability_ResponseParamsSpec,
-      [arg_printer_id],
+      { arg_printer_id: arg_printer_id },
       false);
   }
 
@@ -902,7 +902,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParamsSpec,
-      [arg_printer_id],
+      { arg_printer_id: arg_printer_id },
       false);
   }
 
@@ -911,7 +911,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetStatus_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetStatus_ResponseParamsSpec,
-      [arg_printer_id],
+      { arg_printer_id: arg_printer_id },
       false);
   }
 
@@ -920,7 +920,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -929,7 +929,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_CreatePrintJob_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_CreatePrintJob_ResponseParamsSpec,
-      [arg_job],
+      { arg_job: arg_job },
       false);
   }
 
@@ -938,7 +938,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_CancelPrintJob_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_CancelPrintJob_ResponseParamsSpec,
-      [arg_printer_id, arg_job_id],
+      { arg_printer_id: arg_printer_id, arg_job_id: arg_job_id },
       false);
   }
 
@@ -947,7 +947,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrintServersConfig_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrintServersConfig_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -956,7 +956,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_ChoosePrintServers_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_ChoosePrintServers_ResponseParamsSpec,
-      [arg_print_server_ids],
+      { arg_print_server_ids: arg_print_server_ids },
       false);
   }
 
@@ -965,7 +965,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintServerObserver_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintServerObserver_ResponseParamsSpec,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -974,7 +974,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -983,7 +983,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -992,7 +992,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1001,7 +1001,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ResponseParamsSpec,
-      [arg_observer, arg_source],
+      { arg_observer: arg_observer, arg_source: arg_source },
       false);
   }
 
@@ -1010,7 +1010,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ResponseParamsSpec,
-      [arg_printer_id],
+      { arg_printer_id: arg_printer_id },
       false);
   }
 
@@ -1019,7 +1019,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParamsSpec,
-      [arg_printer_id],
+      { arg_printer_id: arg_printer_id },
       false);
   }
 
@@ -1028,7 +1028,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ResponseParamsSpec,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -1118,8 +1118,8 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_printers' in response) ? response.arg_arg_printers : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinters_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_printers' in response) ? response.arg_printers : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinters_ResponseParamsSpec.$.structSpec, { 'arg_printers': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPrinters FAILED:', e));
           }
@@ -1129,13 +1129,13 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetCapability_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCapability');
-          const result = this.impl.getCapability(params.arg_arg_printer_id);
+          const result = this.impl.getCapability(params.arg_printer_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_capabilities' in response) ? response.arg_arg_capabilities : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetCapability_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_capabilities' in response) ? response.arg_capabilities : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetCapability_ResponseParamsSpec.$.structSpec, { 'arg_capabilities': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCapability FAILED:', e));
           }
@@ -1145,13 +1145,13 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getEulaUrl');
-          const result = this.impl.getEulaUrl(params.arg_arg_printer_id);
+          const result = this.impl.getEulaUrl(params.arg_printer_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_url' in response) ? response.arg_arg_url : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_url' in response) ? response.arg_url : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParamsSpec.$.structSpec, { 'arg_url': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getEulaUrl FAILED:', e));
           }
@@ -1161,13 +1161,13 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStatus');
-          const result = this.impl.getStatus(params.arg_arg_printer_id);
+          const result = this.impl.getStatus(params.arg_printer_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetStatus_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetStatus_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getStatus FAILED:', e));
           }
@@ -1182,7 +1182,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] showSystemPrintSettings FAILED:', e));
           }
@@ -1192,12 +1192,12 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_CreatePrintJob_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPrintJob');
-          const result = this.impl.createPrintJob(params.arg_arg_job);
+          const result = this.impl.createPrintJob(params.arg_job);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_CreatePrintJob_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_CreatePrintJob_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createPrintJob FAILED:', e));
           }
@@ -1207,13 +1207,13 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_CancelPrintJob_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelPrintJob');
-          const result = this.impl.cancelPrintJob(params.arg_arg_printer_id, params.arg_arg_job_id);
+          const result = this.impl.cancelPrintJob(params.arg_printer_id, params.arg_job_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_attempted' in response) ? response.arg_arg_attempted : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_CancelPrintJob_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_attempted' in response) ? response.arg_attempted : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_CancelPrintJob_ResponseParamsSpec.$.structSpec, { 'arg_attempted': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] cancelPrintJob FAILED:', e));
           }
@@ -1228,8 +1228,8 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_config' in response) ? response.arg_arg_config : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrintServersConfig_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_config' in response) ? response.arg_config : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrintServersConfig_ResponseParamsSpec.$.structSpec, { 'arg_config': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPrintServersConfig FAILED:', e));
           }
@@ -1239,12 +1239,12 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_ChoosePrintServers_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.choosePrintServers');
-          const result = this.impl.choosePrintServers(params.arg_arg_print_server_ids);
+          const result = this.impl.choosePrintServers(params.arg_print_server_ids);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_ChoosePrintServers_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_ChoosePrintServers_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] choosePrintServers FAILED:', e));
           }
@@ -1254,12 +1254,12 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintServerObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPrintServerObserver');
-          const result = this.impl.addPrintServerObserver(params.arg_arg_observer);
+          const result = this.impl.addPrintServerObserver(params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintServerObserver_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintServerObserver_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addPrintServerObserver FAILED:', e));
           }
@@ -1274,8 +1274,8 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_policies' in response) ? response.arg_arg_policies : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_policies' in response) ? response.arg_policies : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ResponseParamsSpec.$.structSpec, { 'arg_policies': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPolicies FAILED:', e));
           }
@@ -1290,8 +1290,8 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_username' in response) ? response.arg_arg_username : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_username' in response) ? response.arg_username : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParamsSpec.$.structSpec, { 'arg_username': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUsernamePerPolicy FAILED:', e));
           }
@@ -1306,8 +1306,8 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_deny_list' in response) ? response.arg_arg_deny_list : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_deny_list' in response) ? response.arg_deny_list : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ResponseParamsSpec.$.structSpec, { 'arg_deny_list': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPrinterTypeDenyList FAILED:', e));
           }
@@ -1317,12 +1317,12 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPrintJobObserver');
-          const result = this.impl.addPrintJobObserver(params.arg_arg_observer, params.arg_arg_source);
+          const result = this.impl.addPrintJobObserver(params.arg_observer, params.arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addPrintJobObserver FAILED:', e));
           }
@@ -1332,13 +1332,13 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOAuthAccessToken');
-          const result = this.impl.getOAuthAccessToken(params.arg_arg_printer_id);
+          const result = this.impl.getOAuthAccessToken(params.arg_printer_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_oauth_result' in response) ? response.arg_arg_oauth_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_oauth_result' in response) ? response.arg_oauth_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ResponseParamsSpec.$.structSpec, { 'arg_oauth_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOAuthAccessToken FAILED:', e));
           }
@@ -1348,13 +1348,13 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getIppClientInfo');
-          const result = this.impl.getIppClientInfo(params.arg_arg_printer_id);
+          const result = this.impl.getIppClientInfo(params.arg_printer_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_settings' in response) ? response.arg_arg_settings : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_settings' in response) ? response.arg_settings : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParamsSpec.$.structSpec, { 'arg_settings': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getIppClientInfo FAILED:', e));
           }
@@ -1364,13 +1364,13 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addLocalPrintersObserver');
-          const result = this.impl.addLocalPrintersObserver(params.arg_arg_observer);
+          const result = this.impl.addLocalPrintersObserver(params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_printers' in response) ? response.arg_arg_printers : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_printers' in response) ? response.arg_printers : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ResponseParamsSpec.$.structSpec, { 'arg_printers': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addLocalPrintersObserver FAILED:', e));
           }

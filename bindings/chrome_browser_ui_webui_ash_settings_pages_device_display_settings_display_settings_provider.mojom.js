@@ -235,7 +235,7 @@ mojo.internal.bindings.ash.settings.mojom.TabletModeObserverRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec,
       null,
-      [arg_is_tablet_mode],
+      { arg_is_tablet_mode: arg_is_tablet_mode },
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.ash.settings.mojom.TabletModeObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTabletModeChanged');
-          const result = this.impl.onTabletModeChanged(params.arg_arg_is_tablet_mode);
+          const result = this.impl.onTabletModeChanged(params.arg_is_tablet_mode);
           break;
         }
       }
@@ -365,7 +365,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserverRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -495,7 +495,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec,
       null,
-      [arg_brightness_percent, arg_triggered_by_als],
+      { arg_brightness_percent: arg_brightness_percent, arg_triggered_by_als: arg_triggered_by_als },
       false);
   }
 
@@ -564,7 +564,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDisplayBrightnessChanged');
-          const result = this.impl.onDisplayBrightnessChanged(params.arg_arg_brightness_percent, params.arg_arg_triggered_by_als);
+          const result = this.impl.onDisplayBrightnessChanged(params.arg_brightness_percent, params.arg_triggered_by_als);
           break;
         }
       }
@@ -625,7 +625,7 @@ mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec,
       null,
-      [arg_is_ambient_light_sensor_enabled],
+      { arg_is_ambient_light_sensor_enabled: arg_is_ambient_light_sensor_enabled },
       false);
   }
 
@@ -694,7 +694,7 @@ mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAmbientLightSensorEnabledChanged');
-          const result = this.impl.onAmbientLightSensorEnabledChanged(params.arg_arg_is_ambient_light_sensor_enabled);
+          const result = this.impl.onAmbientLightSensorEnabledChanged(params.arg_is_ambient_light_sensor_enabled);
           break;
         }
       }
@@ -791,7 +791,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec,
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -800,7 +800,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -809,7 +809,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec,
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -818,7 +818,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec,
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -827,7 +827,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec,
       null,
-      [arg_type, arg_value],
+      { arg_type: arg_type, arg_value: arg_value },
       false);
   }
 
@@ -836,7 +836,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -845,7 +845,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec,
       null,
-      [arg_percent],
+      { arg_percent: arg_percent },
       false);
   }
 
@@ -854,7 +854,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -863,7 +863,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandl
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -872,7 +872,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandl
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec,
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -950,13 +950,13 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeTabletMode');
-          const result = this.impl.observeTabletMode(params.arg_arg_observer);
+          const result = this.impl.observeTabletMode(params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_tablet_mode' in response) ? response.arg_arg_is_tablet_mode : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_tablet_mode' in response) ? response.arg_is_tablet_mode : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec.$.structSpec, { 'arg_is_tablet_mode': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] observeTabletMode FAILED:', e));
           }
@@ -966,20 +966,20 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeDisplayConfiguration');
-          const result = this.impl.observeDisplayConfiguration(params.arg_arg_observer);
+          const result = this.impl.observeDisplayConfiguration(params.arg_observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeDisplayBrightnessSettings');
-          const result = this.impl.observeDisplayBrightnessSettings(params.arg_arg_observer);
+          const result = this.impl.observeDisplayBrightnessSettings(params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_brightness_percent' in response) ? response.arg_arg_brightness_percent : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_brightness_percent' in response) ? response.arg_brightness_percent : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec.$.structSpec, { 'arg_brightness_percent': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] observeDisplayBrightnessSettings FAILED:', e));
           }
@@ -989,13 +989,13 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeAmbientLightSensor');
-          const result = this.impl.observeAmbientLightSensor(params.arg_arg_observer);
+          const result = this.impl.observeAmbientLightSensor(params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_ambient_light_sensor_enabled' in response) ? response.arg_arg_is_ambient_light_sensor_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_ambient_light_sensor_enabled' in response) ? response.arg_is_ambient_light_sensor_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec.$.structSpec, { 'arg_is_ambient_light_sensor_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] observeAmbientLightSensor FAILED:', e));
           }
@@ -1005,28 +1005,28 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordChangingDisplaySettings');
-          const result = this.impl.recordChangingDisplaySettings(params.arg_arg_type, params.arg_arg_value);
+          const result = this.impl.recordChangingDisplaySettings(params.arg_type, params.arg_value);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setShinyPerformance');
-          const result = this.impl.setShinyPerformance(params.arg_arg_enabled);
+          const result = this.impl.setShinyPerformance(params.arg_enabled);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInternalDisplayScreenBrightness');
-          const result = this.impl.setInternalDisplayScreenBrightness(params.arg_arg_percent);
+          const result = this.impl.setInternalDisplayScreenBrightness(params.arg_percent);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInternalDisplayAmbientLightSensorEnabled');
-          const result = this.impl.setInternalDisplayAmbientLightSensorEnabled(params.arg_arg_enabled);
+          const result = this.impl.setInternalDisplayAmbientLightSensorEnabled(params.arg_enabled);
           break;
         }
         case 8: {
@@ -1045,8 +1045,8 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_has_ambient_light_sensor' in response) ? response.arg_arg_has_ambient_light_sensor : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_has_ambient_light_sensor' in response) ? response.arg_has_ambient_light_sensor : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec.$.structSpec, { 'arg_has_ambient_light_sensor': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] hasAmbientLightSensor FAILED:', e));
           }

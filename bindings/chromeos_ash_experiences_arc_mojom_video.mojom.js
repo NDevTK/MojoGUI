@@ -218,7 +218,7 @@ mojo.internal.bindings.arc.mojom.VideoHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec,
       mojo.internal.bindings.arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.arc.mojom.VideoHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec,
       mojo.internal.bindings.arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -302,7 +302,7 @@ mojo.internal.bindings.arc.mojom.VideoHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParamsSpec.$.structSpec, ['response.arg_arg_channel_handle', 'response.arg_arg_token']);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParamsSpec.$.structSpec, { 'arg_channel_handle': response.arg_channel_handle, 'arg_token': response.arg_token });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onBootstrapVideoAcceleratorFactory FAILED:', e));
           }
@@ -317,8 +317,8 @@ mojo.internal.bindings.arc.mojom.VideoHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_remote' in response) ? response.arg_arg_remote : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_remote' in response) ? response.arg_remote : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec.$.structSpec, { 'arg_remote': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createVideoAcceleratorFactory FAILED:', e));
           }
@@ -382,7 +382,7 @@ mojo.internal.bindings.arc.mojom.VideoInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.VideoInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -451,12 +451,12 @@ mojo.internal.bindings.arc.mojom.VideoInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.VideoInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.VideoInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -532,7 +532,7 @@ mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec,
       null,
-      [arg_video_encoder],
+      { arg_video_encoder: arg_video_encoder },
       false);
   }
 
@@ -541,7 +541,7 @@ mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec,
       null,
-      [arg_video_decoder, arg_protected_buffer_manager, arg_browser_cdm_factory],
+      { arg_video_decoder: arg_video_decoder, arg_protected_buffer_manager: arg_protected_buffer_manager, arg_browser_cdm_factory: arg_browser_cdm_factory },
       false);
   }
 
@@ -550,7 +550,7 @@ mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec,
       null,
-      [arg_video_decoder],
+      { arg_video_decoder: arg_video_decoder },
       false);
   }
 
@@ -559,7 +559,7 @@ mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec,
       null,
-      [arg_video_protected_buffer_allocator],
+      { arg_video_protected_buffer_allocator: arg_video_protected_buffer_allocator },
       false);
   }
 
@@ -631,28 +631,28 @@ mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createEncodeAccelerator');
-          const result = this.impl.createEncodeAccelerator(params.arg_arg_video_encoder);
+          const result = this.impl.createEncodeAccelerator(params.arg_video_encoder);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDecodeAccelerator');
-          const result = this.impl.createDecodeAccelerator(params.arg_arg_video_decoder, params.arg_arg_protected_buffer_manager, params.arg_arg_browser_cdm_factory);
+          const result = this.impl.createDecodeAccelerator(params.arg_video_decoder, params.arg_protected_buffer_manager, params.arg_browser_cdm_factory);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createVideoDecoder');
-          const result = this.impl.createVideoDecoder(params.arg_arg_video_decoder);
+          const result = this.impl.createVideoDecoder(params.arg_video_decoder);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createProtectedBufferAllocator');
-          const result = this.impl.createProtectedBufferAllocator(params.arg_arg_video_protected_buffer_allocator);
+          const result = this.impl.createProtectedBufferAllocator(params.arg_video_protected_buffer_allocator);
           break;
         }
       }

@@ -176,7 +176,7 @@ mojo.internal.bindings.chromecast.mojom.ServiceConnectorRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.ServiceConnector_Connect_ParamsSpec,
       null,
-      [arg_service_name, arg_receiver],
+      { arg_service_name: arg_service_name, arg_receiver: arg_receiver },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.chromecast.mojom.ServiceConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.ServiceConnector_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_arg_service_name, params.arg_arg_receiver);
+          const result = this.impl.connect(params.arg_service_name, params.arg_receiver);
           break;
         }
       }

@@ -220,7 +220,7 @@ mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec,
       null,
-      [arg_message, arg_ports],
+      { arg_message: arg_message, arg_ports: arg_ports },
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec,
       null,
-      [arg_browser_to_js_messaging],
+      { arg_browser_to_js_messaging: arg_browser_to_js_messaging },
       false);
   }
 
@@ -299,14 +299,14 @@ mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.postMessage');
-          const result = this.impl.postMessage(params.arg_arg_message, params.arg_arg_ports);
+          const result = this.impl.postMessage(params.arg_message, params.arg_ports);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBrowserToJsMessaging');
-          const result = this.impl.setBrowserToJsMessaging(params.arg_arg_browser_to_js_messaging);
+          const result = this.impl.setBrowserToJsMessaging(params.arg_browser_to_js_messaging);
           break;
         }
       }
@@ -367,7 +367,7 @@ mojo.internal.bindings.js_injection.mojom.JsObjectsClientRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactoryRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec,
       null,
-      [arg_browser_to_js_messaging],
+      { arg_browser_to_js_messaging: arg_browser_to_js_messaging },
       false);
   }
 
@@ -566,7 +566,7 @@ mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactoryReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendBrowserToJsMessaging');
-          const result = this.impl.sendBrowserToJsMessaging(params.arg_arg_browser_to_js_messaging);
+          const result = this.impl.sendBrowserToJsMessaging(params.arg_browser_to_js_messaging);
           break;
         }
       }
@@ -627,7 +627,7 @@ mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -696,7 +696,7 @@ mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPostMessage');
-          const result = this.impl.onPostMessage(params.arg_arg_message);
+          const result = this.impl.onPostMessage(params.arg_message);
           break;
         }
       }
@@ -765,7 +765,7 @@ mojo.internal.bindings.js_injection.mojom.JsCommunicationRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec,
       null,
-      [arg_js_objects, arg_client],
+      { arg_js_objects: arg_js_objects, arg_client: arg_client },
       false);
   }
 
@@ -774,7 +774,7 @@ mojo.internal.bindings.js_injection.mojom.JsCommunicationRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec,
       null,
-      [arg_script],
+      { arg_script: arg_script },
       false);
   }
 
@@ -783,7 +783,7 @@ mojo.internal.bindings.js_injection.mojom.JsCommunicationRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec,
       null,
-      [arg_script_id],
+      { arg_script_id: arg_script_id },
       false);
   }
 
@@ -854,21 +854,21 @@ mojo.internal.bindings.js_injection.mojom.JsCommunicationReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setJsObjects');
-          const result = this.impl.setJsObjects(params.arg_arg_js_objects, params.arg_arg_client);
+          const result = this.impl.setJsObjects(params.arg_js_objects, params.arg_client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPersistentJavaScript');
-          const result = this.impl.addPersistentJavaScript(params.arg_arg_script);
+          const result = this.impl.addPersistentJavaScript(params.arg_script);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removePersistentJavaScript');
-          const result = this.impl.removePersistentJavaScript(params.arg_arg_script_id);
+          const result = this.impl.removePersistentJavaScript(params.arg_script_id);
           break;
         }
       }

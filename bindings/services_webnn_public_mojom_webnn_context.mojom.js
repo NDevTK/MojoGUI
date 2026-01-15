@@ -218,7 +218,7 @@ mojo.internal.bindings.webnn.mojom.WebNNContextRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.webnn.mojom.WebNNContextRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ParamsSpec,
       mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec,
-      [arg_tensor_info, arg_tensor_data],
+      { arg_tensor_info: arg_tensor_info, arg_tensor_data: arg_tensor_data },
       false);
   }
 
@@ -236,7 +236,7 @@ mojo.internal.bindings.webnn.mojom.WebNNContextRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec,
       mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec,
-      [arg_tensor_info, arg_mailbox, arg_fence],
+      { arg_tensor_info: arg_tensor_info, arg_mailbox: arg_mailbox, arg_fence: arg_fence },
       false);
   }
 
@@ -307,20 +307,20 @@ mojo.internal.bindings.webnn.mojom.WebNNContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createGraphBuilder');
-          const result = this.impl.createGraphBuilder(params.arg_arg_receiver);
+          const result = this.impl.createGraphBuilder(params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTensor');
-          const result = this.impl.createTensor(params.arg_arg_tensor_info, params.arg_arg_tensor_data);
+          const result = this.impl.createTensor(params.arg_tensor_info, params.arg_tensor_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createTensor FAILED:', e));
           }
@@ -330,13 +330,13 @@ mojo.internal.bindings.webnn.mojom.WebNNContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTensorFromMailbox');
-          const result = this.impl.createTensorFromMailbox(params.arg_arg_tensor_info, params.arg_arg_mailbox, params.arg_arg_fence);
+          const result = this.impl.createTensorFromMailbox(params.arg_tensor_info, params.arg_mailbox, params.arg_fence);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createTensorFromMailbox FAILED:', e));
           }

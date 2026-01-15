@@ -183,7 +183,7 @@ mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ParamsSpec,
       mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -252,12 +252,12 @@ mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeQuickStartMessage');
-          const result = this.impl.decodeQuickStartMessage(params.arg_arg_data);
+          const result = this.impl.decodeQuickStartMessage(params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_error': response.arg_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] decodeQuickStartMessage FAILED:', e));
           }

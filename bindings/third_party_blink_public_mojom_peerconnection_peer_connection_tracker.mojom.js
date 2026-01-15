@@ -240,7 +240,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionManagerRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionManagerRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec,
       null,
-      [arg_thermal_state],
+      { arg_thermal_state: arg_thermal_state },
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionManagerRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec,
       null,
-      [arg_peer_connection_local_id, arg_output_period_ms],
+      { arg_peer_connection_local_id: arg_peer_connection_local_id, arg_output_period_ms: arg_output_period_ms },
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionManagerRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec,
       null,
-      [arg_peer_connection_local_id],
+      { arg_peer_connection_local_id: arg_peer_connection_local_id },
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionManagerRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec,
       null,
-      [arg_peer_connection_local_id],
+      { arg_peer_connection_local_id: arg_peer_connection_local_id },
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionManagerRemoteCallHandler = clas
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec,
       null,
-      [arg_peer_connection_local_id],
+      { arg_peer_connection_local_id: arg_peer_connection_local_id },
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionManagerRemoteCallHandler = clas
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionManagerRemoteCallHandler = clas
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -386,35 +386,35 @@ mojo.internal.bindings.blink.mojom.PeerConnectionManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onThermalStateChange');
-          const result = this.impl.onThermalStateChange(params.arg_arg_thermal_state);
+          const result = this.impl.onThermalStateChange(params.arg_thermal_state);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startEventLog');
-          const result = this.impl.startEventLog(params.arg_arg_peer_connection_local_id, params.arg_arg_output_period_ms);
+          const result = this.impl.startEventLog(params.arg_peer_connection_local_id, params.arg_output_period_ms);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopEventLog');
-          const result = this.impl.stopEventLog(params.arg_arg_peer_connection_local_id);
+          const result = this.impl.stopEventLog(params.arg_peer_connection_local_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDataChannelLog');
-          const result = this.impl.startDataChannelLog(params.arg_arg_peer_connection_local_id);
+          const result = this.impl.startDataChannelLog(params.arg_peer_connection_local_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopDataChannelLog');
-          const result = this.impl.stopDataChannelLog(params.arg_arg_peer_connection_local_id);
+          const result = this.impl.stopDataChannelLog(params.arg_peer_connection_local_id);
           break;
         }
         case 6: {
@@ -537,7 +537,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec,
       null,
-      [arg_info],
+      { arg_info: arg_info },
       false);
   }
 
@@ -546,7 +546,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec,
       null,
-      [arg_lid],
+      { arg_lid: arg_lid },
       false);
   }
 
@@ -555,7 +555,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec,
       null,
-      [arg_lid, arg_type, arg_value],
+      { arg_lid: arg_lid, arg_type: arg_type, arg_value: arg_value },
       false);
   }
 
@@ -564,7 +564,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec,
       null,
-      [arg_lid, arg_session_id],
+      { arg_lid: arg_lid, arg_session_id: arg_session_id },
       false);
   }
 
@@ -573,7 +573,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec,
       null,
-      [arg_request_id, arg_audio, arg_video, arg_audio_constraints, arg_video_constraints],
+      { arg_request_id: arg_request_id, arg_audio: arg_audio, arg_video: arg_video, arg_audio_constraints: arg_audio_constraints, arg_video_constraints: arg_video_constraints },
       false);
   }
 
@@ -582,7 +582,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec,
       null,
-      [arg_request_id, arg_stream_id, arg_audio_track_info, arg_video_track_info],
+      { arg_request_id: arg_request_id, arg_stream_id: arg_stream_id, arg_audio_track_info: arg_audio_track_info, arg_video_track_info: arg_video_track_info },
       false);
   }
 
@@ -591,7 +591,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec,
       null,
-      [arg_request_id, arg_error, arg_error_message],
+      { arg_request_id: arg_request_id, arg_error: arg_error, arg_error_message: arg_error_message },
       false);
   }
 
@@ -600,7 +600,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec,
       null,
-      [arg_request_id, arg_audio, arg_video, arg_audio_constraints, arg_video_constraints],
+      { arg_request_id: arg_request_id, arg_audio: arg_audio, arg_video: arg_video, arg_audio_constraints: arg_audio_constraints, arg_video_constraints: arg_video_constraints },
       false);
   }
 
@@ -609,7 +609,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec,
       null,
-      [arg_request_id, arg_stream_id, arg_audio_track_info, arg_video_track_info],
+      { arg_request_id: arg_request_id, arg_stream_id: arg_stream_id, arg_audio_track_info: arg_audio_track_info, arg_video_track_info: arg_video_track_info },
       false);
   }
 
@@ -618,7 +618,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec,
       null,
-      [arg_request_id, arg_error, arg_error_message],
+      { arg_request_id: arg_request_id, arg_error: arg_error, arg_error_message: arg_error_message },
       false);
   }
 
@@ -627,7 +627,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec,
       null,
-      [arg_lid, arg_output],
+      { arg_lid: arg_lid, arg_output: arg_output },
       false);
   }
 
@@ -636,7 +636,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec,
       null,
-      [arg_lid, arg_output],
+      { arg_lid: arg_lid, arg_output: arg_output },
       false);
   }
 
@@ -645,7 +645,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec,
       null,
-      [arg_lid, arg_value],
+      { arg_lid: arg_lid, arg_value: arg_value },
       false);
   }
 
@@ -726,91 +726,91 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPeerConnection');
-          const result = this.impl.addPeerConnection(params.arg_arg_info);
+          const result = this.impl.addPeerConnection(params.arg_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removePeerConnection');
-          const result = this.impl.removePeerConnection(params.arg_arg_lid);
+          const result = this.impl.removePeerConnection(params.arg_lid);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePeerConnection');
-          const result = this.impl.updatePeerConnection(params.arg_arg_lid, params.arg_arg_type, params.arg_arg_value);
+          const result = this.impl.updatePeerConnection(params.arg_lid, params.arg_type, params.arg_value);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPeerConnectionSessionIdSet');
-          const result = this.impl.onPeerConnectionSessionIdSet(params.arg_arg_lid, params.arg_arg_session_id);
+          const result = this.impl.onPeerConnectionSessionIdSet(params.arg_lid, params.arg_session_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserMedia');
-          const result = this.impl.getUserMedia(params.arg_arg_request_id, params.arg_arg_audio, params.arg_arg_video, params.arg_arg_audio_constraints, params.arg_arg_video_constraints);
+          const result = this.impl.getUserMedia(params.arg_request_id, params.arg_audio, params.arg_video, params.arg_audio_constraints, params.arg_video_constraints);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserMediaSuccess');
-          const result = this.impl.getUserMediaSuccess(params.arg_arg_request_id, params.arg_arg_stream_id, params.arg_arg_audio_track_info, params.arg_arg_video_track_info);
+          const result = this.impl.getUserMediaSuccess(params.arg_request_id, params.arg_stream_id, params.arg_audio_track_info, params.arg_video_track_info);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserMediaFailure');
-          const result = this.impl.getUserMediaFailure(params.arg_arg_request_id, params.arg_arg_error, params.arg_arg_error_message);
+          const result = this.impl.getUserMediaFailure(params.arg_request_id, params.arg_error, params.arg_error_message);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDisplayMedia');
-          const result = this.impl.getDisplayMedia(params.arg_arg_request_id, params.arg_arg_audio, params.arg_arg_video, params.arg_arg_audio_constraints, params.arg_arg_video_constraints);
+          const result = this.impl.getDisplayMedia(params.arg_request_id, params.arg_audio, params.arg_video, params.arg_audio_constraints, params.arg_video_constraints);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDisplayMediaSuccess');
-          const result = this.impl.getDisplayMediaSuccess(params.arg_arg_request_id, params.arg_arg_stream_id, params.arg_arg_audio_track_info, params.arg_arg_video_track_info);
+          const result = this.impl.getDisplayMediaSuccess(params.arg_request_id, params.arg_stream_id, params.arg_audio_track_info, params.arg_video_track_info);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDisplayMediaFailure');
-          const result = this.impl.getDisplayMediaFailure(params.arg_arg_request_id, params.arg_arg_error, params.arg_arg_error_message);
+          const result = this.impl.getDisplayMediaFailure(params.arg_request_id, params.arg_error, params.arg_error_message);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.webRtcEventLogWrite');
-          const result = this.impl.webRtcEventLogWrite(params.arg_arg_lid, params.arg_arg_output);
+          const result = this.impl.webRtcEventLogWrite(params.arg_lid, params.arg_output);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.webRtcDataChannelLogWrite');
-          const result = this.impl.webRtcDataChannelLogWrite(params.arg_arg_lid, params.arg_arg_output);
+          const result = this.impl.webRtcDataChannelLogWrite(params.arg_lid, params.arg_output);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addStandardStats');
-          const result = this.impl.addStandardStats(params.arg_arg_lid, params.arg_arg_value);
+          const result = this.impl.addStandardStats(params.arg_lid, params.arg_value);
           break;
         }
       }

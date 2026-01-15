@@ -185,7 +185,7 @@ mojo.internal.bindings.network.mojom.SocketBrokerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec,
       mojo.internal.bindings.network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec,
-      [arg_address_family],
+      { arg_address_family: arg_address_family },
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.network.mojom.SocketBrokerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec,
       mojo.internal.bindings.network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec,
-      [arg_address_family],
+      { arg_address_family: arg_address_family },
       false);
   }
 
@@ -264,12 +264,12 @@ mojo.internal.bindings.network.mojom.SocketBrokerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTcpSocket');
-          const result = this.impl.createTcpSocket(params.arg_arg_address_family);
+          const result = this.impl.createTcpSocket(params.arg_address_family);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec.$.structSpec, ['response.arg_arg_created_socket', 'response.arg_arg_rv']);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec.$.structSpec, { 'arg_created_socket': response.arg_created_socket, 'arg_rv': response.arg_rv });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createTcpSocket FAILED:', e));
           }
@@ -279,12 +279,12 @@ mojo.internal.bindings.network.mojom.SocketBrokerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createUdpSocket');
-          const result = this.impl.createUdpSocket(params.arg_arg_address_family);
+          const result = this.impl.createUdpSocket(params.arg_address_family);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec.$.structSpec, ['response.arg_arg_created_socket', 'response.arg_arg_rv']);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec.$.structSpec, { 'arg_created_socket': response.arg_created_socket, 'arg_rv': response.arg_rv });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createUdpSocket FAILED:', e));
           }

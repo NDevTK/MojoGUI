@@ -186,7 +186,7 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec,
       null,
-      [arg_prerewritten_key_event, arg_key_event],
+      { arg_prerewritten_key_event: arg_prerewritten_key_event, arg_key_event: arg_key_event },
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec,
       null,
-      [arg_prerewritten_key_event, arg_key_event],
+      { arg_prerewritten_key_event: arg_prerewritten_key_event, arg_key_event: arg_key_event },
       false);
   }
 
@@ -265,14 +265,14 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onShortcutInputEventPressed');
-          const result = this.impl.onShortcutInputEventPressed(params.arg_arg_prerewritten_key_event, params.arg_arg_key_event);
+          const result = this.impl.onShortcutInputEventPressed(params.arg_prerewritten_key_event, params.arg_key_event);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onShortcutInputEventReleased');
-          const result = this.impl.onShortcutInputEventReleased(params.arg_arg_prerewritten_key_event, params.arg_arg_key_event);
+          const result = this.impl.onShortcutInputEventReleased(params.arg_prerewritten_key_event, params.arg_key_event);
           break;
         }
       }
@@ -337,7 +337,7 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -346,7 +346,7 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -416,7 +416,7 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startObservingShortcutInput');
-          const result = this.impl.startObservingShortcutInput(params.arg_arg_observer);
+          const result = this.impl.startObservingShortcutInput(params.arg_observer);
           break;
         }
         case 1: {

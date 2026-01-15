@@ -221,7 +221,7 @@ mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticatorRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec,
-      [arg_account, arg_request],
+      { arg_account: arg_account, arg_request: arg_request },
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticatorRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec,
-      [arg_account, arg_request],
+      { arg_account: arg_account, arg_request: arg_request },
       false);
   }
 
@@ -300,13 +300,13 @@ mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
-          const result = this.impl.create(params.arg_arg_account, params.arg_arg_request);
+          const result = this.impl.create(params.arg_account, params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] create FAILED:', e));
           }
@@ -316,13 +316,13 @@ mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.assert');
-          const result = this.impl.assert(params.arg_arg_account, params.arg_arg_request);
+          const result = this.impl.assert(params.arg_account, params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] assert FAILED:', e));
           }

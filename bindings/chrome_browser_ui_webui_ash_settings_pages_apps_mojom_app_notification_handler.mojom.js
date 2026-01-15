@@ -226,7 +226,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec,
       null,
-      [arg_app_id, arg_permission],
+      { arg_app_id: arg_app_id, arg_permission: arg_permission },
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec,
       mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec,
       mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -345,21 +345,21 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setQuietMode');
-          const result = this.impl.setQuietMode(params.arg_arg_enabled);
+          const result = this.impl.setQuietMode(params.arg_enabled);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_arg_observer);
+          const result = this.impl.addObserver(params.arg_observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNotificationPermission');
-          const result = this.impl.setNotificationPermission(params.arg_arg_app_id, params.arg_arg_permission);
+          const result = this.impl.setNotificationPermission(params.arg_app_id, params.arg_permission);
           break;
         }
         case 3: {
@@ -371,8 +371,8 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_apps' in response) ? response.arg_arg_apps : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_apps' in response) ? response.arg_apps : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec.$.structSpec, { 'arg_apps': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getApps FAILED:', e));
           }
@@ -387,8 +387,8 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_enabled' in response) ? response.arg_arg_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_enabled' in response) ? response.arg_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec.$.structSpec, { 'arg_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getQuietMode FAILED:', e));
           }
@@ -463,7 +463,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObser
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec,
       null,
-      [arg_app],
+      { arg_app: arg_app },
       false);
   }
 
@@ -472,7 +472,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObser
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -542,14 +542,14 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObser
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNotificationAppChanged');
-          const result = this.impl.onNotificationAppChanged(params.arg_arg_app);
+          const result = this.impl.onNotificationAppChanged(params.arg_app);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onQuietModeChanged');
-          const result = this.impl.onQuietModeChanged(params.arg_arg_enabled);
+          const result = this.impl.onQuietModeChanged(params.arg_enabled);
           break;
         }
       }

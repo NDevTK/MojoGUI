@@ -169,7 +169,7 @@ mojo.internal.bindings.mojom.ModuleEventSinkRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.ModuleEventSink_OnModuleEvents_ParamsSpec,
       null,
-      [arg_module_load_addresses],
+      { arg_module_load_addresses: arg_module_load_addresses },
       false);
   }
 
@@ -238,7 +238,7 @@ mojo.internal.bindings.mojom.ModuleEventSinkReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.ModuleEventSink_OnModuleEvents_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onModuleEvents');
-          const result = this.impl.onModuleEvents(params.arg_arg_module_load_addresses);
+          const result = this.impl.onModuleEvents(params.arg_module_load_addresses);
           break;
         }
       }

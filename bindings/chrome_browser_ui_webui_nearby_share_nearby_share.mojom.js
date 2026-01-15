@@ -303,7 +303,7 @@ mojo.internal.bindings.nearby_share.mojom.ShareTargetListenerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec,
       null,
-      [arg_share_target],
+      { arg_share_target: arg_share_target },
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.nearby_share.mojom.ShareTargetListenerRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec,
       null,
-      [arg_share_target],
+      { arg_share_target: arg_share_target },
       false);
   }
 
@@ -382,14 +382,14 @@ mojo.internal.bindings.nearby_share.mojom.ShareTargetListenerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onShareTargetDiscovered');
-          const result = this.impl.onShareTargetDiscovered(params.arg_arg_share_target);
+          const result = this.impl.onShareTargetDiscovered(params.arg_share_target);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onShareTargetLost');
-          const result = this.impl.onShareTargetLost(params.arg_arg_share_target);
+          const result = this.impl.onShareTargetLost(params.arg_share_target);
           break;
         }
       }
@@ -450,7 +450,7 @@ mojo.internal.bindings.nearby_share.mojom.TransferUpdateListenerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec,
       null,
-      [arg_status, arg_token],
+      { arg_status: arg_status, arg_token: arg_token },
       false);
   }
 
@@ -519,7 +519,7 @@ mojo.internal.bindings.nearby_share.mojom.TransferUpdateListenerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTransferUpdate');
-          const result = this.impl.onTransferUpdate(params.arg_arg_status, params.arg_arg_token);
+          const result = this.impl.onTransferUpdate(params.arg_status, params.arg_token);
           break;
         }
       }
@@ -584,7 +584,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -593,7 +593,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryObserverRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec,
       null,
-      [arg_success],
+      { arg_success: arg_success },
       false);
   }
 
@@ -670,7 +670,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStartDiscoveryResult');
-          const result = this.impl.onStartDiscoveryResult(params.arg_arg_success);
+          const result = this.impl.onStartDiscoveryResult(params.arg_success);
           break;
         }
       }
@@ -747,7 +747,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -756,7 +756,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec,
-      [arg_listener],
+      { arg_listener: arg_listener },
       false);
   }
 
@@ -765,7 +765,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -774,7 +774,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec,
-      [arg_share_target_id],
+      { arg_share_target_id: arg_share_target_id },
       false);
   }
 
@@ -783,7 +783,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -856,20 +856,20 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDiscoveryObserver');
-          const result = this.impl.addDiscoveryObserver(params.arg_arg_observer);
+          const result = this.impl.addDiscoveryObserver(params.arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDiscovery');
-          const result = this.impl.startDiscovery(params.arg_arg_listener);
+          const result = this.impl.startDiscovery(params.arg_listener);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startDiscovery FAILED:', e));
           }
@@ -884,7 +884,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] stopDiscovery FAILED:', e));
           }
@@ -894,12 +894,12 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectShareTarget');
-          const result = this.impl.selectShareTarget(params.arg_arg_share_target_id);
+          const result = this.impl.selectShareTarget(params.arg_share_target_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_transfer_update_listener', 'response.arg_arg_confirmation_manager']);
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_transfer_update_listener': response.arg_transfer_update_listener, 'arg_confirmation_manager': response.arg_confirmation_manager });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] selectShareTarget FAILED:', e));
           }
@@ -914,8 +914,8 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_payload_preview' in response) ? response.arg_arg_payload_preview : response;
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_payload_preview' in response) ? response.arg_payload_preview : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec.$.structSpec, { 'arg_payload_preview': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPayloadPreview FAILED:', e));
           }
@@ -987,7 +987,7 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -996,7 +996,7 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1005,7 +1005,7 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1081,8 +1081,8 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] accept FAILED:', e));
           }
@@ -1097,8 +1097,8 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] reject FAILED:', e));
           }
@@ -1113,8 +1113,8 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] cancel FAILED:', e));
           }
@@ -1190,7 +1190,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveObserverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec,
       null,
-      [arg_in_high_visibility],
+      { arg_in_high_visibility: arg_in_high_visibility },
       false);
   }
 
@@ -1199,7 +1199,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveObserverRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec,
       null,
-      [arg_share_target, arg_metadata],
+      { arg_share_target: arg_share_target, arg_metadata: arg_metadata },
       false);
   }
 
@@ -1208,7 +1208,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveObserverRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1217,7 +1217,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveObserverRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1289,14 +1289,14 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHighVisibilityChanged');
-          const result = this.impl.onHighVisibilityChanged(params.arg_arg_in_high_visibility);
+          const result = this.impl.onHighVisibilityChanged(params.arg_in_high_visibility);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTransferUpdate');
-          const result = this.impl.onTransferUpdate(params.arg_arg_share_target, params.arg_arg_metadata);
+          const result = this.impl.onTransferUpdate(params.arg_share_target, params.arg_metadata);
           break;
         }
         case 2: {
@@ -1395,7 +1395,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -1404,7 +1404,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1413,7 +1413,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1422,7 +1422,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1431,7 +1431,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Accept_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec,
-      [arg_share_target_id],
+      { arg_share_target_id: arg_share_target_id },
       false);
   }
 
@@ -1440,7 +1440,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerRemoteCallHandler = clas
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Reject_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec,
-      [arg_share_target_id],
+      { arg_share_target_id: arg_share_target_id },
       false);
   }
 
@@ -1449,7 +1449,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerRemoteCallHandler = clas
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec,
       null,
-      [arg_success],
+      { arg_success: arg_success },
       false);
   }
 
@@ -1524,7 +1524,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addReceiveObserver');
-          const result = this.impl.addReceiveObserver(params.arg_arg_observer);
+          const result = this.impl.addReceiveObserver(params.arg_observer);
           break;
         }
         case 1: {
@@ -1536,8 +1536,8 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_in_high_visibility' in response) ? response.arg_arg_in_high_visibility : response;
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_in_high_visibility' in response) ? response.arg_in_high_visibility : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec.$.structSpec, { 'arg_in_high_visibility': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isInHighVisibility FAILED:', e));
           }
@@ -1552,8 +1552,8 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] registerForegroundReceiveSurface FAILED:', e));
           }
@@ -1568,8 +1568,8 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] unregisterForegroundReceiveSurface FAILED:', e));
           }
@@ -1579,13 +1579,13 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Accept_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.accept');
-          const result = this.impl.accept(params.arg_arg_share_target_id);
+          const result = this.impl.accept(params.arg_share_target_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] accept FAILED:', e));
           }
@@ -1595,13 +1595,13 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Reject_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reject');
-          const result = this.impl.reject(params.arg_arg_share_target_id);
+          const result = this.impl.reject(params.arg_share_target_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] reject FAILED:', e));
           }
@@ -1611,7 +1611,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordFastInitiationNotificationUsage');
-          const result = this.impl.recordFastInitiationNotificationUsage(params.arg_arg_success);
+          const result = this.impl.recordFastInitiationNotificationUsage(params.arg_success);
           break;
         }
       }

@@ -215,7 +215,7 @@ mojo.internal.bindings.media.mojom.AudioEncoderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ResponseParamsSpec,
-      [arg_client, arg_config],
+      { arg_client: arg_client, arg_config: arg_config },
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.media.mojom.AudioEncoderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ResponseParamsSpec,
-      [arg_buffer],
+      { arg_buffer: arg_buffer },
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.media.mojom.AudioEncoderRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -304,13 +304,13 @@ mojo.internal.bindings.media.mojom.AudioEncoderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_arg_client, params.arg_arg_config);
+          const result = this.impl.initialize(params.arg_client, params.arg_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] initialize FAILED:', e));
           }
@@ -320,13 +320,13 @@ mojo.internal.bindings.media.mojom.AudioEncoderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.encode');
-          const result = this.impl.encode(params.arg_arg_buffer);
+          const result = this.impl.encode(params.arg_buffer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] encode FAILED:', e));
           }
@@ -341,8 +341,8 @@ mojo.internal.bindings.media.mojom.AudioEncoderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] flush FAILED:', e));
           }
@@ -406,7 +406,7 @@ mojo.internal.bindings.media.mojom.AudioEncoderClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec,
       null,
-      [arg_buffer, arg_description],
+      { arg_buffer: arg_buffer, arg_description: arg_description },
       false);
   }
 
@@ -475,7 +475,7 @@ mojo.internal.bindings.media.mojom.AudioEncoderClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEncodedBufferReady');
-          const result = this.impl.onEncodedBufferReady(params.arg_arg_buffer, params.arg_arg_description);
+          const result = this.impl.onEncodedBufferReady(params.arg_buffer, params.arg_description);
           break;
         }
       }

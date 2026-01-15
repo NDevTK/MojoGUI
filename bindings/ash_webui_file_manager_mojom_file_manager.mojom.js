@@ -177,7 +177,7 @@ mojo.internal.bindings.ash.file_manager.mojom.PageHandlerFactoryRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -246,7 +246,7 @@ mojo.internal.bindings.ash.file_manager.mojom.PageHandlerFactoryReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }

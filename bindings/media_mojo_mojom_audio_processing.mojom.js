@@ -179,7 +179,7 @@ mojo.internal.bindings.media.mojom.AudioProcessorControlsRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -188,7 +188,7 @@ mojo.internal.bindings.media.mojom.AudioProcessorControlsRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec,
       null,
-      [arg_num_preferred_channels],
+      { arg_num_preferred_channels: arg_num_preferred_channels },
       false);
   }
 
@@ -263,8 +263,8 @@ mojo.internal.bindings.media.mojom.AudioProcessorControlsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_stats' in response) ? response.arg_arg_stats : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_stats' in response) ? response.arg_stats : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec.$.structSpec, { 'arg_stats': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getStats FAILED:', e));
           }
@@ -274,7 +274,7 @@ mojo.internal.bindings.media.mojom.AudioProcessorControlsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPreferredNumCaptureChannels');
-          const result = this.impl.setPreferredNumCaptureChannels(params.arg_arg_num_preferred_channels);
+          const result = this.impl.setPreferredNumCaptureChannels(params.arg_num_preferred_channels);
           break;
         }
       }

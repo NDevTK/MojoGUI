@@ -181,7 +181,7 @@ mojo.internal.bindings.content.mojom.RendererVariationsConfigurationRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec,
       null,
-      [arg_variations_headers],
+      { arg_variations_headers: arg_variations_headers },
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.content.mojom.RendererVariationsConfigurationRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec,
       null,
-      [arg_trial_name, arg_group_name],
+      { arg_trial_name: arg_trial_name, arg_group_name: arg_group_name },
       false);
   }
 
@@ -260,14 +260,14 @@ mojo.internal.bindings.content.mojom.RendererVariationsConfigurationReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVariationsHeaders');
-          const result = this.impl.setVariationsHeaders(params.arg_arg_variations_headers);
+          const result = this.impl.setVariationsHeaders(params.arg_variations_headers);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFieldTrialGroup');
-          const result = this.impl.setFieldTrialGroup(params.arg_arg_trial_name, params.arg_arg_group_name);
+          const result = this.impl.setFieldTrialGroup(params.arg_trial_name, params.arg_group_name);
           break;
         }
       }

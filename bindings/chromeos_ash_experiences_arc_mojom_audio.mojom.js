@@ -213,7 +213,7 @@ mojo.internal.bindings.arc.mojom.AudioHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.arc.mojom.AudioHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec,
       null,
-      [arg_percent],
+      { arg_percent: arg_percent },
       false);
   }
 
@@ -299,7 +299,7 @@ mojo.internal.bindings.arc.mojom.AudioHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSystemVolumeUpdateRequest');
-          const result = this.impl.onSystemVolumeUpdateRequest(params.arg_arg_percent);
+          const result = this.impl.onSystemVolumeUpdateRequest(params.arg_percent);
           break;
         }
       }
@@ -376,7 +376,7 @@ mojo.internal.bindings.arc.mojom.AudioInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.AudioInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AudioInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.arc.mojom.AudioInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.arc.mojom.AudioInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec,
       null,
-      [arg_volume, arg_muted],
+      { arg_volume: arg_volume, arg_muted: arg_muted },
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.arc.mojom.AudioInstanceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.arc.mojom.AudioInstanceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec,
       null,
-      [arg_device_type],
+      { arg_device_type: arg_device_type },
       false);
   }
 
@@ -485,12 +485,12 @@ mojo.internal.bindings.arc.mojom.AudioInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AudioInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AudioInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AudioInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -500,28 +500,28 @@ mojo.internal.bindings.arc.mojom.AudioInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifySwitchState');
-          const result = this.impl.notifySwitchState(params.arg_arg_state);
+          const result = this.impl.notifySwitchState(params.arg_state);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyVolumeState');
-          const result = this.impl.notifyVolumeState(params.arg_arg_volume, params.arg_arg_muted);
+          const result = this.impl.notifyVolumeState(params.arg_volume, params.arg_muted);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifySpatialAudioState');
-          const result = this.impl.notifySpatialAudioState(params.arg_arg_enabled);
+          const result = this.impl.notifySpatialAudioState(params.arg_enabled);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyOutputDeviceInfo');
-          const result = this.impl.notifyOutputDeviceInfo(params.arg_arg_device_type);
+          const result = this.impl.notifyOutputDeviceInfo(params.arg_device_type);
           break;
         }
       }

@@ -219,7 +219,7 @@ mojo.internal.bindings.network.mojom.NetLogExporterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetLogExporter_Start_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetLogExporter_Start_ResponseParamsSpec,
-      [arg_destination, arg_extra_constants, arg_capture_mode, arg_max_file_size],
+      { arg_destination: arg_destination, arg_extra_constants: arg_extra_constants, arg_capture_mode: arg_capture_mode, arg_max_file_size: arg_max_file_size },
       false);
   }
 
@@ -228,7 +228,7 @@ mojo.internal.bindings.network.mojom.NetLogExporterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ResponseParamsSpec,
-      [arg_polled_values],
+      { arg_polled_values: arg_polled_values },
       false);
   }
 
@@ -298,13 +298,13 @@ mojo.internal.bindings.network.mojom.NetLogExporterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetLogExporter_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start(params.arg_arg_destination, params.arg_arg_extra_constants, params.arg_arg_capture_mode, params.arg_arg_max_file_size);
+          const result = this.impl.start(params.arg_destination, params.arg_extra_constants, params.arg_capture_mode, params.arg_max_file_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_net_error' in response) ? response.arg_arg_net_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetLogExporter_Start_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_net_error' in response) ? response.arg_net_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetLogExporter_Start_ResponseParamsSpec.$.structSpec, { 'arg_net_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] start FAILED:', e));
           }
@@ -314,13 +314,13 @@ mojo.internal.bindings.network.mojom.NetLogExporterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stop');
-          const result = this.impl.stop(params.arg_arg_polled_values);
+          const result = this.impl.stop(params.arg_polled_values);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_net_error' in response) ? response.arg_arg_net_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_net_error' in response) ? response.arg_net_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ResponseParamsSpec.$.structSpec, { 'arg_net_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] stop FAILED:', e));
           }
@@ -384,7 +384,7 @@ mojo.internal.bindings.network.mojom.NetLogProxySourceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec,
       null,
-      [arg_modes],
+      { arg_modes: arg_modes },
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.network.mojom.NetLogProxySourceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateCaptureModes');
-          const result = this.impl.updateCaptureModes(params.arg_arg_modes);
+          const result = this.impl.updateCaptureModes(params.arg_modes);
           break;
         }
       }
@@ -514,7 +514,7 @@ mojo.internal.bindings.network.mojom.NetLogProxySinkRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetLogProxySink_AddEntry_ParamsSpec,
       null,
-      [arg_type, arg_net_log_source, arg_phase, arg_time, arg_params],
+      { arg_type: arg_type, arg_net_log_source: arg_net_log_source, arg_phase: arg_phase, arg_time: arg_time, arg_params: arg_params },
       false);
   }
 
@@ -583,7 +583,7 @@ mojo.internal.bindings.network.mojom.NetLogProxySinkReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetLogProxySink_AddEntry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addEntry');
-          const result = this.impl.addEntry(params.arg_arg_type, params.arg_arg_net_log_source, params.arg_arg_phase, params.arg_arg_time, params.arg_arg_params);
+          const result = this.impl.addEntry(params.arg_type, params.arg_net_log_source, params.arg_phase, params.arg_time, params.arg_params);
           break;
         }
       }

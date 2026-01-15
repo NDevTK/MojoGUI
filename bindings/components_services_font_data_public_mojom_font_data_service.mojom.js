@@ -215,7 +215,7 @@ mojo.internal.bindings.font_data_service.mojom.FontDataServiceRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec,
       mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec,
-      [arg_family_name, arg_style],
+      { arg_family_name: arg_family_name, arg_style: arg_style },
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.font_data_service.mojom.FontDataServiceRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec,
       mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec,
-      [arg_family_name, arg_style, arg_bcp47s, arg_character],
+      { arg_family_name: arg_family_name, arg_style: arg_style, arg_bcp47s: arg_bcp47s, arg_character: arg_character },
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.font_data_service.mojom.FontDataServiceRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec,
       mojo.internal.bindings.font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.font_data_service.mojom.FontDataServiceRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec,
       mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec,
-      [arg_family_name, arg_style],
+      { arg_family_name: arg_family_name, arg_style: arg_style },
       false);
   }
 
@@ -314,13 +314,13 @@ mojo.internal.bindings.font_data_service.mojom.FontDataServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.matchFamilyName');
-          const result = this.impl.matchFamilyName(params.arg_arg_family_name, params.arg_arg_style);
+          const result = this.impl.matchFamilyName(params.arg_family_name, params.arg_style);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] matchFamilyName FAILED:', e));
           }
@@ -330,13 +330,13 @@ mojo.internal.bindings.font_data_service.mojom.FontDataServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.matchFamilyNameCharacter');
-          const result = this.impl.matchFamilyNameCharacter(params.arg_arg_family_name, params.arg_arg_style, params.arg_arg_bcp47s, params.arg_arg_character);
+          const result = this.impl.matchFamilyNameCharacter(params.arg_family_name, params.arg_style, params.arg_bcp47s, params.arg_character);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] matchFamilyNameCharacter FAILED:', e));
           }
@@ -351,8 +351,8 @@ mojo.internal.bindings.font_data_service.mojom.FontDataServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAllFamilyNames FAILED:', e));
           }
@@ -362,13 +362,13 @@ mojo.internal.bindings.font_data_service.mojom.FontDataServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.legacyMakeTypeface');
-          const result = this.impl.legacyMakeTypeface(params.arg_arg_family_name, params.arg_arg_style);
+          const result = this.impl.legacyMakeTypeface(params.arg_family_name, params.arg_style);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] legacyMakeTypeface FAILED:', e));
           }

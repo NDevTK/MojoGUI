@@ -487,7 +487,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnVisibilityChanged_ParamsSpec,
       null,
-      [arg_visible],
+      { arg_visible: arg_visible },
       false);
   }
 
@@ -496,7 +496,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSpaceActivationChanged_ParamsSpec,
       null,
-      [arg_is_space_active],
+      { arg_is_space_active: arg_is_space_active },
       false);
   }
 
@@ -505,7 +505,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowNativeThemeChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -514,7 +514,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnViewSizeChanged_ParamsSpec,
       null,
-      [arg_new_size],
+      { arg_new_size: arg_new_size },
       false);
   }
 
@@ -523,7 +523,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -532,7 +532,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_SetKeyboardAccessible_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -541,7 +541,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnIsFirstResponderChanged_ParamsSpec,
       null,
-      [arg_is_first_responder],
+      { arg_is_first_responder: arg_is_first_responder },
       false);
   }
 
@@ -550,7 +550,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseCaptureActiveChanged_ParamsSpec,
       null,
-      [arg_capture_is_active],
+      { arg_capture_is_active: arg_capture_is_active },
       false);
   }
 
@@ -559,7 +559,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnScrollEvent_ParamsSpec,
       null,
-      [arg_event],
+      { arg_event: arg_event },
       false);
   }
 
@@ -568,7 +568,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseEvent_ParamsSpec,
       null,
-      [arg_event],
+      { arg_event: arg_event },
       false);
   }
 
@@ -577,7 +577,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnGestureEvent_ParamsSpec,
       null,
-      [arg_event],
+      { arg_event: arg_event },
       false);
   }
 
@@ -586,7 +586,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ResponseParamsSpec,
-      [arg_event],
+      { arg_event: arg_event },
       false);
   }
 
@@ -595,7 +595,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ResponseParamsSpec,
-      [arg_event],
+      { arg_event: arg_event },
       false);
   }
 
@@ -604,7 +604,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ResponseParamsSpec,
-      [arg_event, arg_target_is_this_window],
+      { arg_event: arg_event, arg_target_is_this_window: arg_target_is_this_window },
       false);
   }
 
@@ -613,7 +613,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -622,7 +622,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ResponseParamsSpec,
-      [arg_location_in_content],
+      { arg_location_in_content: arg_location_in_content },
       false);
   }
 
@@ -631,7 +631,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ResponseParamsSpec,
-      [arg_location_in_content],
+      { arg_location_in_content: arg_location_in_content },
       false);
   }
 
@@ -640,7 +640,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -649,7 +649,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -658,7 +658,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowGeometryChanged_ParamsSpec,
       null,
-      [arg_window_bounds_in_screen_dips, arg_content_bounds_in_screen_dips],
+      { arg_window_bounds_in_screen_dips: arg_window_bounds_in_screen_dips, arg_content_bounds_in_screen_dips: arg_content_bounds_in_screen_dips },
       false);
   }
 
@@ -667,7 +667,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowWillStartLiveResize_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -676,7 +676,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDidEndLiveResize_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -685,7 +685,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowFullscreenTransitionStart_ParamsSpec,
       null,
-      [arg_target_fullscreen_state],
+      { arg_target_fullscreen_state: arg_target_fullscreen_state },
       false);
   }
 
@@ -694,7 +694,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowFullscreenTransitionComplete_ParamsSpec,
       null,
-      [arg_is_fullscreen],
+      { arg_is_fullscreen: arg_is_fullscreen },
       false);
   }
 
@@ -703,7 +703,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowMiniaturizedChanged_ParamsSpec,
       null,
-      [arg_miniaturized],
+      { arg_miniaturized: arg_miniaturized },
       false);
   }
 
@@ -712,7 +712,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowZoomedChanged_ParamsSpec,
       null,
-      [arg_zoomed],
+      { arg_zoomed: arg_zoomed },
       false);
   }
 
@@ -721,7 +721,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDisplayChanged_ParamsSpec,
       null,
-      [arg_display],
+      { arg_display: arg_display },
       false);
   }
 
@@ -730,7 +730,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowWillClose_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -739,7 +739,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowHasClosed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -748,7 +748,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowKeyStatusChanged_ParamsSpec,
       null,
-      [arg_is_key, arg_is_content_first_responder, arg_full_keyboard_access_enabled],
+      { arg_is_key: arg_is_key, arg_is_content_first_responder: arg_is_content_first_responder, arg_full_keyboard_access_enabled: arg_full_keyboard_access_enabled },
       false);
   }
 
@@ -757,7 +757,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowStateRestorationDataChanged_ParamsSpec,
       null,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -766,7 +766,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSheetModalShown_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -775,7 +775,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSheetModalClosed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -784,7 +784,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnImmersiveFullscreenToolbarRevealChanged_ParamsSpec,
       null,
-      [arg_is_revealed],
+      { arg_is_revealed: arg_is_revealed },
       false);
   }
 
@@ -793,7 +793,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnImmersiveFullscreenMenuBarRevealChanged_ParamsSpec,
       null,
-      [arg_reveal_amount],
+      { arg_reveal_amount: arg_reveal_amount },
       false);
   }
 
@@ -802,7 +802,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnAutohidingMenuBarHeightChanged_ParamsSpec,
       null,
-      [arg_menu_bar_height],
+      { arg_menu_bar_height: arg_menu_bar_height },
       false);
   }
 
@@ -811,7 +811,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DoDialogButtonAction_ParamsSpec,
       null,
-      [arg_button],
+      { arg_button: arg_button },
       false);
   }
 
@@ -820,7 +820,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[37],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ResponseParamsSpec,
-      [arg_button],
+      { arg_button: arg_button },
       false);
   }
 
@@ -829,7 +829,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[38],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -838,7 +838,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[39],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -847,7 +847,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[40],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -856,7 +856,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[41],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -865,7 +865,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[42],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -874,7 +874,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[43],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -883,7 +883,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[44],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnFocusWindowToolbar_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -892,7 +892,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[45],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_SetRemoteAccessibilityTokens_ParamsSpec,
       null,
-      [arg_window_token, arg_view_token],
+      { arg_window_token: arg_window_token, arg_view_token: arg_view_token },
       false);
   }
 
@@ -901,7 +901,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[46],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -910,7 +910,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[47],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ResponseParamsSpec,
-      [arg_command],
+      { arg_command: arg_command },
       false);
   }
 
@@ -919,7 +919,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[48],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ResponseParamsSpec,
-      [arg_command, arg_window_open_disposition, arg_is_before_first_responder],
+      { arg_command: arg_command, arg_window_open_disposition: arg_window_open_disposition, arg_is_before_first_responder: arg_is_before_first_responder },
       false);
   }
 
@@ -928,7 +928,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[49],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ResponseParamsSpec,
-      [arg_command, arg_window_open_disposition, arg_is_before_first_responder],
+      { arg_command: arg_command, arg_window_open_disposition: arg_window_open_disposition, arg_is_before_first_responder: arg_is_before_first_responder },
       false);
   }
 
@@ -937,7 +937,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[50],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ResponseParamsSpec,
-      [arg_accelerator, arg_require_priority_handler],
+      { arg_accelerator: arg_accelerator, arg_require_priority_handler: arg_require_priority_handler },
       false);
   }
 
@@ -1056,14 +1056,14 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnVisibilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVisibilityChanged');
-          const result = this.impl.onVisibilityChanged(params.arg_arg_visible);
+          const result = this.impl.onVisibilityChanged(params.arg_visible);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSpaceActivationChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSpaceActivationChanged');
-          const result = this.impl.onSpaceActivationChanged(params.arg_arg_is_space_active);
+          const result = this.impl.onSpaceActivationChanged(params.arg_is_space_active);
           break;
         }
         case 2: {
@@ -1077,7 +1077,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnViewSizeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onViewSizeChanged');
-          const result = this.impl.onViewSizeChanged(params.arg_arg_new_size);
+          const result = this.impl.onViewSizeChanged(params.arg_new_size);
           break;
         }
         case 4: {
@@ -1089,8 +1089,8 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_offset_y' in response) ? response.arg_arg_offset_y : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_offset_y' in response) ? response.arg_offset_y : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ResponseParamsSpec.$.structSpec, { 'arg_offset_y': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSheetOffsetY FAILED:', e));
           }
@@ -1100,55 +1100,55 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_SetKeyboardAccessible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setKeyboardAccessible');
-          const result = this.impl.setKeyboardAccessible(params.arg_arg_enabled);
+          const result = this.impl.setKeyboardAccessible(params.arg_enabled);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnIsFirstResponderChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onIsFirstResponderChanged');
-          const result = this.impl.onIsFirstResponderChanged(params.arg_arg_is_first_responder);
+          const result = this.impl.onIsFirstResponderChanged(params.arg_is_first_responder);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseCaptureActiveChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMouseCaptureActiveChanged');
-          const result = this.impl.onMouseCaptureActiveChanged(params.arg_arg_capture_is_active);
+          const result = this.impl.onMouseCaptureActiveChanged(params.arg_capture_is_active);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnScrollEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScrollEvent');
-          const result = this.impl.onScrollEvent(params.arg_arg_event);
+          const result = this.impl.onScrollEvent(params.arg_event);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMouseEvent');
-          const result = this.impl.onMouseEvent(params.arg_arg_event);
+          const result = this.impl.onMouseEvent(params.arg_event);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnGestureEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGestureEvent');
-          const result = this.impl.onGestureEvent(params.arg_arg_event);
+          const result = this.impl.onGestureEvent(params.arg_event);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchKeyEventRemote');
-          const result = this.impl.dispatchKeyEventRemote(params.arg_arg_event);
+          const result = this.impl.dispatchKeyEventRemote(params.arg_event);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_event_handled' in response) ? response.arg_arg_event_handled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_event_handled' in response) ? response.arg_event_handled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ResponseParamsSpec.$.structSpec, { 'arg_event_handled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchKeyEventRemote FAILED:', e));
           }
@@ -1158,12 +1158,12 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchKeyEventToMenuControllerRemote');
-          const result = this.impl.dispatchKeyEventToMenuControllerRemote(params.arg_arg_event);
+          const result = this.impl.dispatchKeyEventToMenuControllerRemote(params.arg_event);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ResponseParamsSpec.$.structSpec, ['response.arg_arg_event_swallowed', 'response.arg_arg_event_handled']);
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ResponseParamsSpec.$.structSpec, { 'arg_event_swallowed': response.arg_event_swallowed, 'arg_event_handled': response.arg_event_handled });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchKeyEventToMenuControllerRemote FAILED:', e));
           }
@@ -1173,13 +1173,13 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchMonitorEvent');
-          const result = this.impl.dispatchMonitorEvent(params.arg_arg_event, params.arg_arg_target_is_this_window);
+          const result = this.impl.dispatchMonitorEvent(params.arg_event, params.arg_target_is_this_window);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_event_handled' in response) ? response.arg_arg_event_handled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_event_handled' in response) ? response.arg_event_handled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ResponseParamsSpec.$.structSpec, { 'arg_event_handled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchMonitorEvent FAILED:', e));
           }
@@ -1194,8 +1194,8 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_has_menu_controller' in response) ? response.arg_arg_has_menu_controller : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_has_menu_controller' in response) ? response.arg_has_menu_controller : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ResponseParamsSpec.$.structSpec, { 'arg_has_menu_controller': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getHasMenuController FAILED:', e));
           }
@@ -1205,13 +1205,13 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHitTestResult');
-          const result = this.impl.getHitTestResult(params.arg_arg_location_in_content);
+          const result = this.impl.getHitTestResult(params.arg_location_in_content);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_hit_test_result' in response) ? response.arg_arg_hit_test_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_hit_test_result' in response) ? response.arg_hit_test_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ResponseParamsSpec.$.structSpec, { 'arg_hit_test_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getHitTestResult FAILED:', e));
           }
@@ -1221,13 +1221,13 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTooltipTextAt');
-          const result = this.impl.getTooltipTextAt(params.arg_arg_location_in_content);
+          const result = this.impl.getTooltipTextAt(params.arg_location_in_content);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_new_tooltip_text' in response) ? response.arg_arg_new_tooltip_text : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_new_tooltip_text' in response) ? response.arg_new_tooltip_text : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ResponseParamsSpec.$.structSpec, { 'arg_new_tooltip_text': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getTooltipTextAt FAILED:', e));
           }
@@ -1242,8 +1242,8 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_widget_is_modal' in response) ? response.arg_arg_widget_is_modal : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_widget_is_modal' in response) ? response.arg_widget_is_modal : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ResponseParamsSpec.$.structSpec, { 'arg_widget_is_modal': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getWidgetIsModal FAILED:', e));
           }
@@ -1258,8 +1258,8 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_textual' in response) ? response.arg_arg_is_textual : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_textual' in response) ? response.arg_is_textual : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ResponseParamsSpec.$.structSpec, { 'arg_is_textual': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getIsFocusedViewTextual FAILED:', e));
           }
@@ -1269,7 +1269,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowGeometryChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWindowGeometryChanged');
-          const result = this.impl.onWindowGeometryChanged(params.arg_arg_window_bounds_in_screen_dips, params.arg_arg_content_bounds_in_screen_dips);
+          const result = this.impl.onWindowGeometryChanged(params.arg_window_bounds_in_screen_dips, params.arg_content_bounds_in_screen_dips);
           break;
         }
         case 20: {
@@ -1290,35 +1290,35 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowFullscreenTransitionStart_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWindowFullscreenTransitionStart');
-          const result = this.impl.onWindowFullscreenTransitionStart(params.arg_arg_target_fullscreen_state);
+          const result = this.impl.onWindowFullscreenTransitionStart(params.arg_target_fullscreen_state);
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowFullscreenTransitionComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWindowFullscreenTransitionComplete');
-          const result = this.impl.onWindowFullscreenTransitionComplete(params.arg_arg_is_fullscreen);
+          const result = this.impl.onWindowFullscreenTransitionComplete(params.arg_is_fullscreen);
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowMiniaturizedChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWindowMiniaturizedChanged');
-          const result = this.impl.onWindowMiniaturizedChanged(params.arg_arg_miniaturized);
+          const result = this.impl.onWindowMiniaturizedChanged(params.arg_miniaturized);
           break;
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowZoomedChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWindowZoomedChanged');
-          const result = this.impl.onWindowZoomedChanged(params.arg_arg_zoomed);
+          const result = this.impl.onWindowZoomedChanged(params.arg_zoomed);
           break;
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDisplayChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWindowDisplayChanged');
-          const result = this.impl.onWindowDisplayChanged(params.arg_arg_display);
+          const result = this.impl.onWindowDisplayChanged(params.arg_display);
           break;
         }
         case 27: {
@@ -1339,14 +1339,14 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowKeyStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWindowKeyStatusChanged');
-          const result = this.impl.onWindowKeyStatusChanged(params.arg_arg_is_key, params.arg_arg_is_content_first_responder, params.arg_arg_full_keyboard_access_enabled);
+          const result = this.impl.onWindowKeyStatusChanged(params.arg_is_key, params.arg_is_content_first_responder, params.arg_full_keyboard_access_enabled);
           break;
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowStateRestorationDataChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWindowStateRestorationDataChanged');
-          const result = this.impl.onWindowStateRestorationDataChanged(params.arg_arg_data);
+          const result = this.impl.onWindowStateRestorationDataChanged(params.arg_data);
           break;
         }
         case 31: {
@@ -1367,40 +1367,40 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnImmersiveFullscreenToolbarRevealChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onImmersiveFullscreenToolbarRevealChanged');
-          const result = this.impl.onImmersiveFullscreenToolbarRevealChanged(params.arg_arg_is_revealed);
+          const result = this.impl.onImmersiveFullscreenToolbarRevealChanged(params.arg_is_revealed);
           break;
         }
         case 34: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnImmersiveFullscreenMenuBarRevealChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onImmersiveFullscreenMenuBarRevealChanged');
-          const result = this.impl.onImmersiveFullscreenMenuBarRevealChanged(params.arg_arg_reveal_amount);
+          const result = this.impl.onImmersiveFullscreenMenuBarRevealChanged(params.arg_reveal_amount);
           break;
         }
         case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnAutohidingMenuBarHeightChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAutohidingMenuBarHeightChanged');
-          const result = this.impl.onAutohidingMenuBarHeightChanged(params.arg_arg_menu_bar_height);
+          const result = this.impl.onAutohidingMenuBarHeightChanged(params.arg_menu_bar_height);
           break;
         }
         case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DoDialogButtonAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.doDialogButtonAction');
-          const result = this.impl.doDialogButtonAction(params.arg_arg_button);
+          const result = this.impl.doDialogButtonAction(params.arg_button);
           break;
         }
         case 37: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDialogButtonInfo');
-          const result = this.impl.getDialogButtonInfo(params.arg_arg_button);
+          const result = this.impl.getDialogButtonInfo(params.arg_button);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_button_exists', 'response.arg_arg_title', 'response.arg_arg_is_button_enabled', 'response.arg_arg_is_button_default']);
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ResponseParamsSpec.$.structSpec, { 'arg_button_exists': response.arg_button_exists, 'arg_title': response.arg_title, 'arg_is_button_enabled': response.arg_is_button_enabled, 'arg_is_button_default': response.arg_is_button_default });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDialogButtonInfo FAILED:', e));
           }
@@ -1415,8 +1415,8 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_buttons_exist' in response) ? response.arg_arg_buttons_exist : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_buttons_exist' in response) ? response.arg_buttons_exist : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ResponseParamsSpec.$.structSpec, { 'arg_buttons_exist': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDoDialogButtonsExist FAILED:', e));
           }
@@ -1431,8 +1431,8 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_should_show_window_title' in response) ? response.arg_arg_should_show_window_title : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_should_show_window_title' in response) ? response.arg_should_show_window_title : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ResponseParamsSpec.$.structSpec, { 'arg_should_show_window_title': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getShouldShowWindowTitle FAILED:', e));
           }
@@ -1447,8 +1447,8 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_can_window_become_key' in response) ? response.arg_arg_can_window_become_key : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_can_window_become_key' in response) ? response.arg_can_window_become_key : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ResponseParamsSpec.$.structSpec, { 'arg_can_window_become_key': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCanWindowBecomeKey FAILED:', e));
           }
@@ -1463,8 +1463,8 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_always_render_as_key' in response) ? response.arg_arg_always_render_as_key : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_always_render_as_key' in response) ? response.arg_always_render_as_key : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ResponseParamsSpec.$.structSpec, { 'arg_always_render_as_key': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAlwaysRenderWindowAsKey FAILED:', e));
           }
@@ -1479,8 +1479,8 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_can_window_close' in response) ? response.arg_arg_can_window_close : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_can_window_close' in response) ? response.arg_can_window_close : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ResponseParamsSpec.$.structSpec, { 'arg_can_window_close': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onWindowCloseRequested FAILED:', e));
           }
@@ -1495,7 +1495,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ResponseParamsSpec.$.structSpec, ['response.arg_arg_override_titlebar_height', 'response.arg_arg_titlebar_height']);
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ResponseParamsSpec.$.structSpec, { 'arg_override_titlebar_height': response.arg_override_titlebar_height, 'arg_titlebar_height': response.arg_titlebar_height });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getWindowFrameTitlebarHeight FAILED:', e));
           }
@@ -1512,7 +1512,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_SetRemoteAccessibilityTokens_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRemoteAccessibilityTokens');
-          const result = this.impl.setRemoteAccessibilityTokens(params.arg_arg_window_token, params.arg_arg_view_token);
+          const result = this.impl.setRemoteAccessibilityTokens(params.arg_window_token, params.arg_view_token);
           break;
         }
         case 46: {
@@ -1524,7 +1524,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ResponseParamsSpec.$.structSpec, ['response.arg_arg_host_pid', 'response.arg_arg_element_token']);
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ResponseParamsSpec.$.structSpec, { 'arg_host_pid': response.arg_host_pid, 'arg_element_token': response.arg_element_token });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRootViewAccessibilityToken FAILED:', e));
           }
@@ -1534,13 +1534,13 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.validateUserInterfaceItem');
-          const result = this.impl.validateUserInterfaceItem(params.arg_arg_command);
+          const result = this.impl.validateUserInterfaceItem(params.arg_command);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] validateUserInterfaceItem FAILED:', e));
           }
@@ -1550,13 +1550,13 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.willExecuteCommand');
-          const result = this.impl.willExecuteCommand(params.arg_arg_command, params.arg_arg_window_open_disposition, params.arg_arg_is_before_first_responder);
+          const result = this.impl.willExecuteCommand(params.arg_command, params.arg_window_open_disposition, params.arg_is_before_first_responder);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_will_execute' in response) ? response.arg_arg_will_execute : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_will_execute' in response) ? response.arg_will_execute : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ResponseParamsSpec.$.structSpec, { 'arg_will_execute': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] willExecuteCommand FAILED:', e));
           }
@@ -1566,13 +1566,13 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeCommand');
-          const result = this.impl.executeCommand(params.arg_arg_command, params.arg_arg_window_open_disposition, params.arg_arg_is_before_first_responder);
+          const result = this.impl.executeCommand(params.arg_command, params.arg_window_open_disposition, params.arg_is_before_first_responder);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_was_executed' in response) ? response.arg_arg_was_executed : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_was_executed' in response) ? response.arg_was_executed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ResponseParamsSpec.$.structSpec, { 'arg_was_executed': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] executeCommand FAILED:', e));
           }
@@ -1582,13 +1582,13 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleAccelerator');
-          const result = this.impl.handleAccelerator(params.arg_arg_accelerator, params.arg_arg_require_priority_handler);
+          const result = this.impl.handleAccelerator(params.arg_accelerator, params.arg_require_priority_handler);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_was_handled' in response) ? response.arg_arg_was_handled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_was_handled' in response) ? response.arg_was_handled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ResponseParamsSpec.$.structSpec, { 'arg_was_handled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] handleAccelerator FAILED:', e));
           }

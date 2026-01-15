@@ -176,7 +176,7 @@ mojo.internal.bindings.drivefs.mojom.FakeDriveFsLauncherRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec,
       null,
-      [arg_datadir_path, arg_mount_path, arg_mojo_socket_handle],
+      { arg_datadir_path: arg_datadir_path, arg_mount_path: arg_mount_path, arg_mojo_socket_handle: arg_mojo_socket_handle },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.drivefs.mojom.FakeDriveFsLauncherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchDriveFs');
-          const result = this.impl.launchDriveFs(params.arg_arg_datadir_path, params.arg_arg_mount_path, params.arg_arg_mojo_socket_handle);
+          const result = this.impl.launchDriveFs(params.arg_datadir_path, params.arg_mount_path, params.arg_mojo_socket_handle);
           break;
         }
       }

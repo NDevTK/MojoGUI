@@ -181,7 +181,7 @@ mojo.internal.bindings.test.mojom.FooRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.test.mojom.Foo_GetFoo_ParamsSpec,
       mojo.internal.bindings.test.mojom.Foo_GetFoo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -255,8 +255,8 @@ mojo.internal.bindings.test.mojom.FooReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.test.mojom.Foo_GetFoo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.test.mojom.Foo_GetFoo_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFoo FAILED:', e));
           }
@@ -320,7 +320,7 @@ mojo.internal.bindings.test.mojom.BarRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.test.mojom.Bar_GetBar_ParamsSpec,
       mojo.internal.bindings.test.mojom.Bar_GetBar_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -394,8 +394,8 @@ mojo.internal.bindings.test.mojom.BarReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.test.mojom.Bar_GetBar_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.test.mojom.Bar_GetBar_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getBar FAILED:', e));
           }
@@ -459,7 +459,7 @@ mojo.internal.bindings.test.mojom.BazRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.test.mojom.Baz_GetBaz_ParamsSpec,
       mojo.internal.bindings.test.mojom.Baz_GetBaz_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -533,8 +533,8 @@ mojo.internal.bindings.test.mojom.BazReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.test.mojom.Baz_GetBaz_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.test.mojom.Baz_GetBaz_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getBaz FAILED:', e));
           }

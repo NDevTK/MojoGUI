@@ -175,7 +175,7 @@ mojo.internal.bindings.chromecast.mojom.ActivityWindowRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.ActivityWindow_Show_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -184,7 +184,7 @@ mojo.internal.bindings.chromecast.mojom.ActivityWindowRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.ActivityWindow_Hide_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

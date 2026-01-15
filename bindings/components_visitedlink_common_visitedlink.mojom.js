@@ -195,7 +195,7 @@ mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec,
       null,
-      [arg_table_region],
+      { arg_table_region: arg_table_region },
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec,
       null,
-      [arg_link_hashes],
+      { arg_link_hashes: arg_link_hashes },
       false);
   }
 
@@ -213,7 +213,7 @@ mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec,
       null,
-      [arg_invalidate_cached_hashes],
+      { arg_invalidate_cached_hashes: arg_invalidate_cached_hashes },
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec,
       null,
-      [arg_origin_salts],
+      { arg_origin_salts: arg_origin_salts },
       false);
   }
 
@@ -294,28 +294,28 @@ mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateVisitedLinks');
-          const result = this.impl.updateVisitedLinks(params.arg_arg_table_region);
+          const result = this.impl.updateVisitedLinks(params.arg_table_region);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addVisitedLinks');
-          const result = this.impl.addVisitedLinks(params.arg_arg_link_hashes);
+          const result = this.impl.addVisitedLinks(params.arg_link_hashes);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetVisitedLinks');
-          const result = this.impl.resetVisitedLinks(params.arg_arg_invalidate_cached_hashes);
+          const result = this.impl.resetVisitedLinks(params.arg_invalidate_cached_hashes);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateOriginSalts');
-          const result = this.impl.updateOriginSalts(params.arg_arg_origin_salts);
+          const result = this.impl.updateOriginSalts(params.arg_origin_salts);
           break;
         }
       }

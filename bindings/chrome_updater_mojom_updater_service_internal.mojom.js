@@ -177,7 +177,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceInternalRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Run_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Run_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -186,7 +186,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceInternalRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Hello_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Hello_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -261,7 +261,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceInternalReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Run_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Run_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] run FAILED:', e));
           }
@@ -276,7 +276,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceInternalReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Hello_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Hello_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] hello FAILED:', e));
           }

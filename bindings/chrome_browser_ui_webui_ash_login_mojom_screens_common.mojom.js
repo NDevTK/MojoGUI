@@ -234,7 +234,7 @@ mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandlerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -364,7 +364,7 @@ mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec,
       null,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -433,7 +433,7 @@ mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAutoTransition');
-          const result = this.impl.setAutoTransition(params.arg_arg_value);
+          const result = this.impl.setAutoTransition(params.arg_value);
           break;
         }
       }
@@ -494,7 +494,7 @@ mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandlerRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -628,7 +628,7 @@ mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandlerRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec,
       null,
-      [arg_enable_drive_pinning],
+      { arg_enable_drive_pinning: arg_enable_drive_pinning },
       false);
   }
 
@@ -637,7 +637,7 @@ mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandlerRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec,
       null,
-      [arg_enable_drive_pinning],
+      { arg_enable_drive_pinning: arg_enable_drive_pinning },
       false);
   }
 
@@ -707,14 +707,14 @@ mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandlerReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReturnClicked');
-          const result = this.impl.onReturnClicked(params.arg_arg_enable_drive_pinning);
+          const result = this.impl.onReturnClicked(params.arg_enable_drive_pinning);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNextClicked');
-          const result = this.impl.onNextClicked(params.arg_arg_enable_drive_pinning);
+          const result = this.impl.onNextClicked(params.arg_enable_drive_pinning);
           break;
         }
       }
@@ -775,7 +775,7 @@ mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec,
       null,
-      [arg_required_space, arg_free_space],
+      { arg_required_space: arg_required_space, arg_free_space: arg_free_space },
       false);
   }
 
@@ -844,7 +844,7 @@ mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRequiredSpaceInfo');
-          const result = this.impl.setRequiredSpaceInfo(params.arg_arg_required_space, params.arg_arg_free_space);
+          const result = this.impl.setRequiredSpaceInfo(params.arg_required_space, params.arg_free_space);
           break;
         }
       }
@@ -905,7 +905,7 @@ mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandlerRemo
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1039,7 +1039,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandlerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1048,7 +1048,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandlerRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec,
       null,
-      [arg_user_flow],
+      { arg_user_flow: arg_user_flow },
       false);
   }
 
@@ -1125,7 +1125,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandlerReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNextClicked');
-          const result = this.impl.onNextClicked(params.arg_arg_user_flow);
+          const result = this.impl.onNextClicked(params.arg_user_flow);
           break;
         }
       }
@@ -1186,7 +1186,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1324,7 +1324,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerRemo
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec,
       null,
-      [arg_page],
+      { arg_page: arg_page },
       false);
   }
 
@@ -1333,7 +1333,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerRemo
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1342,7 +1342,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerRemo
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1413,7 +1413,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerRece
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPageChange');
-          const result = this.impl.onPageChange(params.arg_arg_page);
+          const result = this.impl.onPageChange(params.arg_page);
           break;
         }
         case 1: {
@@ -1492,7 +1492,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1501,7 +1501,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

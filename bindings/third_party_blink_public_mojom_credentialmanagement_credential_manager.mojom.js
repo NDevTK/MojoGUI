@@ -223,7 +223,7 @@ mojo.internal.bindings.blink.mojom.CredentialManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.CredentialManager_Store_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CredentialManager_Store_ResponseParamsSpec,
-      [arg_credential],
+      { arg_credential: arg_credential },
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.blink.mojom.CredentialManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -241,7 +241,7 @@ mojo.internal.bindings.blink.mojom.CredentialManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.CredentialManager_Get_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CredentialManager_Get_ResponseParamsSpec,
-      [arg_mediation, arg_include_passwords, arg_federations],
+      { arg_mediation: arg_mediation, arg_include_passwords: arg_include_passwords, arg_federations: arg_federations },
       false);
   }
 
@@ -312,12 +312,12 @@ mojo.internal.bindings.blink.mojom.CredentialManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CredentialManager_Store_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.store');
-          const result = this.impl.store(params.arg_arg_credential);
+          const result = this.impl.store(params.arg_credential);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CredentialManager_Store_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CredentialManager_Store_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] store FAILED:', e));
           }
@@ -332,7 +332,7 @@ mojo.internal.bindings.blink.mojom.CredentialManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] preventSilentAccess FAILED:', e));
           }
@@ -342,12 +342,12 @@ mojo.internal.bindings.blink.mojom.CredentialManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CredentialManager_Get_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.get');
-          const result = this.impl.get(params.arg_arg_mediation, params.arg_arg_include_passwords, params.arg_arg_federations);
+          const result = this.impl.get(params.arg_mediation, params.arg_include_passwords, params.arg_federations);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CredentialManager_Get_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_credential']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CredentialManager_Get_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_credential': response.arg_credential });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] get FAILED:', e));
           }

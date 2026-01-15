@@ -201,7 +201,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec,
       mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec,
-      [arg_bucket],
+      { arg_bucket: arg_bucket },
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec,
       mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec,
-      [arg_bucket],
+      { arg_bucket: arg_bucket },
       false);
   }
 
@@ -228,7 +228,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec,
       mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -300,13 +300,13 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBucketUsage');
-          const result = this.impl.getBucketUsage(params.arg_arg_bucket);
+          const result = this.impl.getBucketUsage(params.arg_bucket);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_usage' in response) ? response.arg_arg_usage : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_usage' in response) ? response.arg_usage : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec.$.structSpec, { 'arg_usage': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getBucketUsage FAILED:', e));
           }
@@ -321,8 +321,8 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_storage_keys' in response) ? response.arg_arg_storage_keys : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_storage_keys' in response) ? response.arg_storage_keys : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec.$.structSpec, { 'arg_storage_keys': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDefaultStorageKeys FAILED:', e));
           }
@@ -332,13 +332,13 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteBucketData');
-          const result = this.impl.deleteBucketData(params.arg_arg_bucket);
+          const result = this.impl.deleteBucketData(params.arg_bucket);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteBucketData FAILED:', e));
           }
@@ -353,7 +353,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] performStorageCleanup FAILED:', e));
           }

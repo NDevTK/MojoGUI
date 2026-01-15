@@ -171,7 +171,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHostRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHost_Close_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHostReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHost_Close_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHost_Close_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] close FAILED:', e));
           }

@@ -184,7 +184,7 @@ mojo.internal.bindings.blink.mojom.AutoplayConfigurationClientRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec,
       null,
-      [arg_origin, arg_flags],
+      { arg_origin: arg_origin, arg_flags: arg_flags },
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.blink.mojom.AutoplayConfigurationClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addAutoplayFlags');
-          const result = this.impl.addAutoplayFlags(params.arg_arg_origin, params.arg_arg_flags);
+          const result = this.impl.addAutoplayFlags(params.arg_origin, params.arg_flags);
           break;
         }
       }

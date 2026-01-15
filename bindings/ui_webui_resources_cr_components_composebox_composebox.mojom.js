@@ -197,7 +197,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerFactoryRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler, arg_searchbox_page, arg_searchbox_handler],
+      { arg_page: arg_page, arg_handler: arg_handler, arg_searchbox_page: arg_searchbox_page, arg_searchbox_handler: arg_searchbox_handler },
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler, params.arg_arg_searchbox_page, params.arg_arg_searchbox_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler, params.arg_searchbox_page, params.arg_searchbox_handler);
           break;
         }
       }
@@ -347,7 +347,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.composebox.mojom.PageHandler_FocusChanged_ParamsSpec,
       null,
-      [arg_focused],
+      { arg_focused: arg_focused },
       false);
   }
 
@@ -356,7 +356,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec,
       null,
-      [arg_enabled, arg_image_present],
+      { arg_enabled: arg_enabled, arg_image_present: arg_image_present },
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec,
       null,
-      [arg_is_image],
+      { arg_is_image: arg_is_image },
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.composebox.mojom.PageHandler_NavigateUrl_ParamsSpec,
       null,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -466,21 +466,21 @@ mojo.internal.bindings.composebox.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_FocusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.focusChanged');
-          const result = this.impl.focusChanged(params.arg_arg_focused);
+          const result = this.impl.focusChanged(params.arg_focused);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDeepSearchMode');
-          const result = this.impl.setDeepSearchMode(params.arg_arg_enabled);
+          const result = this.impl.setDeepSearchMode(params.arg_enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCreateImageMode');
-          const result = this.impl.setCreateImageMode(params.arg_arg_enabled, params.arg_arg_image_present);
+          const result = this.impl.setCreateImageMode(params.arg_enabled, params.arg_image_present);
           break;
         }
         case 3: {
@@ -494,14 +494,14 @@ mojo.internal.bindings.composebox.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleFileUpload');
-          const result = this.impl.handleFileUpload(params.arg_arg_is_image);
+          const result = this.impl.handleFileUpload(params.arg_is_image);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_NavigateUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.navigateUrl');
-          const result = this.impl.navigateUrl(params.arg_arg_url);
+          const result = this.impl.navigateUrl(params.arg_url);
           break;
         }
       }

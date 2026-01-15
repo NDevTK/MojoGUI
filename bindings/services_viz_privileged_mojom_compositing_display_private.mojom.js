@@ -282,7 +282,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec,
       null,
-      [arg_visible],
+      { arg_visible: arg_visible },
       false);
   }
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec,
       mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -300,7 +300,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_Resize_ParamsSpec,
       null,
-      [arg_size],
+      { arg_size: arg_size },
       false);
   }
 
@@ -309,7 +309,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec,
       null,
-      [arg_color_matrix],
+      { arg_color_matrix: arg_color_matrix },
       false);
   }
 
@@ -318,7 +318,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec,
       null,
-      [arg_display_color_spaces],
+      { arg_display_color_spaces: arg_display_color_spaces },
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec,
       null,
-      [arg_secure],
+      { arg_secure: arg_secure },
       false);
   }
 
@@ -336,7 +336,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec,
       null,
-      [arg_timebase, arg_interval],
+      { arg_timebase: arg_timebase, arg_interval: arg_interval },
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec,
       null,
-      [arg_refresh_rates],
+      { arg_refresh_rates: arg_refresh_rates },
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -372,7 +372,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec,
       null,
-      [arg_max_vsync_interval, arg_vrr_state],
+      { arg_max_vsync_interval: arg_max_vsync_interval, arg_vrr_state: arg_vrr_state },
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDisplayVisible');
-          const result = this.impl.setDisplayVisible(params.arg_arg_visible);
+          const result = this.impl.setDisplayVisible(params.arg_visible);
           break;
         }
         case 1: {
@@ -483,7 +483,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] disableSwapUntilResize FAILED:', e));
           }
@@ -493,35 +493,35 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_Resize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resize');
-          const result = this.impl.resize(params.arg_arg_size);
+          const result = this.impl.resize(params.arg_size);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDisplayColorMatrix');
-          const result = this.impl.setDisplayColorMatrix(params.arg_arg_color_matrix);
+          const result = this.impl.setDisplayColorMatrix(params.arg_color_matrix);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDisplayColorSpaces');
-          const result = this.impl.setDisplayColorSpaces(params.arg_arg_display_color_spaces);
+          const result = this.impl.setDisplayColorSpaces(params.arg_display_color_spaces);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOutputIsSecure');
-          const result = this.impl.setOutputIsSecure(params.arg_arg_secure);
+          const result = this.impl.setOutputIsSecure(params.arg_secure);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDisplayVSyncParameters');
-          const result = this.impl.setDisplayVSyncParameters(params.arg_arg_timebase, params.arg_arg_interval);
+          const result = this.impl.setDisplayVSyncParameters(params.arg_timebase, params.arg_interval);
           break;
         }
         case 7: {
@@ -535,35 +535,35 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSupportedRefreshRates');
-          const result = this.impl.setSupportedRefreshRates(params.arg_arg_refresh_rates);
+          const result = this.impl.setSupportedRefreshRates(params.arg_refresh_rates);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addVSyncParameterObserver');
-          const result = this.impl.addVSyncParameterObserver(params.arg_arg_observer);
+          const result = this.impl.addVSyncParameterObserver(params.arg_observer);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDelegatedInkPointRenderer');
-          const result = this.impl.setDelegatedInkPointRenderer(params.arg_arg_receiver);
+          const result = this.impl.setDelegatedInkPointRenderer(params.arg_receiver);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setStandaloneBeginFrameObserver');
-          const result = this.impl.setStandaloneBeginFrameObserver(params.arg_arg_observer);
+          const result = this.impl.setStandaloneBeginFrameObserver(params.arg_observer);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMaxVSyncAndVrr');
-          const result = this.impl.setMaxVSyncAndVrr(params.arg_arg_max_vsync_interval, params.arg_arg_vrr_state);
+          const result = this.impl.setMaxVSyncAndVrr(params.arg_max_vsync_interval, params.arg_vrr_state);
           break;
         }
       }
@@ -636,7 +636,7 @@ mojo.internal.bindings.viz.mojom.DisplayClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -645,7 +645,7 @@ mojo.internal.bindings.viz.mojom.DisplayClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec,
       null,
-      [arg_child_window],
+      { arg_child_window: arg_child_window },
       false);
   }
 
@@ -654,7 +654,7 @@ mojo.internal.bindings.viz.mojom.DisplayClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec,
       null,
-      [arg_size],
+      { arg_size: arg_size },
       false);
   }
 
@@ -663,7 +663,7 @@ mojo.internal.bindings.viz.mojom.DisplayClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec,
       null,
-      [arg_refresh_rate],
+      { arg_refresh_rate: arg_refresh_rate },
       false);
   }
 
@@ -735,28 +735,28 @@ mojo.internal.bindings.viz.mojom.DisplayClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createLayeredWindowUpdater');
-          const result = this.impl.createLayeredWindowUpdater(params.arg_arg_receiver);
+          const result = this.impl.createLayeredWindowUpdater(params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addChildWindowToBrowser');
-          const result = this.impl.addChildWindowToBrowser(params.arg_arg_child_window);
+          const result = this.impl.addChildWindowToBrowser(params.arg_child_window);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didCompleteSwapWithNewSize');
-          const result = this.impl.didCompleteSwapWithNewSize(params.arg_arg_size);
+          const result = this.impl.didCompleteSwapWithNewSize(params.arg_size);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPreferredRefreshRate');
-          const result = this.impl.setPreferredRefreshRate(params.arg_arg_refresh_rate);
+          const result = this.impl.setPreferredRefreshRate(params.arg_refresh_rate);
           break;
         }
       }

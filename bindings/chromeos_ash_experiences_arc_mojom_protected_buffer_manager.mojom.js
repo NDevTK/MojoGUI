@@ -201,7 +201,7 @@ mojo.internal.bindings.arc.mojom.ProtectedBufferManagerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec,
-      [arg_dummy_handle],
+      { arg_dummy_handle: arg_dummy_handle },
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.arc.mojom.ProtectedBufferManagerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec,
-      [arg_dummy_handle],
+      { arg_dummy_handle: arg_dummy_handle },
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.arc.mojom.ProtectedBufferManagerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec,
-      [arg_dummy_handle],
+      { arg_dummy_handle: arg_dummy_handle },
       false);
   }
 
@@ -228,7 +228,7 @@ mojo.internal.bindings.arc.mojom.ProtectedBufferManagerRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec,
-      [arg_dummy_handle],
+      { arg_dummy_handle: arg_dummy_handle },
       false);
   }
 
@@ -300,13 +300,13 @@ mojo.internal.bindings.arc.mojom.ProtectedBufferManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deprecatedGetProtectedSharedMemoryFromHandle');
-          const result = this.impl.deprecatedGetProtectedSharedMemoryFromHandle(params.arg_arg_dummy_handle);
+          const result = this.impl.deprecatedGetProtectedSharedMemoryFromHandle(params.arg_dummy_handle);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_shared_memory_handle' in response) ? response.arg_arg_shared_memory_handle : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_shared_memory_handle' in response) ? response.arg_shared_memory_handle : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec.$.structSpec, { 'arg_shared_memory_handle': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deprecatedGetProtectedSharedMemoryFromHandle FAILED:', e));
           }
@@ -316,13 +316,13 @@ mojo.internal.bindings.arc.mojom.ProtectedBufferManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getProtectedSharedMemoryFromHandle');
-          const result = this.impl.getProtectedSharedMemoryFromHandle(params.arg_arg_dummy_handle);
+          const result = this.impl.getProtectedSharedMemoryFromHandle(params.arg_dummy_handle);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_unsafe_region' in response) ? response.arg_arg_unsafe_region : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_unsafe_region' in response) ? response.arg_unsafe_region : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec.$.structSpec, { 'arg_unsafe_region': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getProtectedSharedMemoryFromHandle FAILED:', e));
           }
@@ -332,13 +332,13 @@ mojo.internal.bindings.arc.mojom.ProtectedBufferManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getProtectedNativePixmapHandleFromHandle');
-          const result = this.impl.getProtectedNativePixmapHandleFromHandle(params.arg_arg_dummy_handle);
+          const result = this.impl.getProtectedNativePixmapHandleFromHandle(params.arg_dummy_handle);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_native_pixmap_handle' in response) ? response.arg_arg_native_pixmap_handle : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_native_pixmap_handle' in response) ? response.arg_native_pixmap_handle : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec.$.structSpec, { 'arg_native_pixmap_handle': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getProtectedNativePixmapHandleFromHandle FAILED:', e));
           }
@@ -348,13 +348,13 @@ mojo.internal.bindings.arc.mojom.ProtectedBufferManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isProtectedNativePixmapHandle');
-          const result = this.impl.isProtectedNativePixmapHandle(params.arg_arg_dummy_handle);
+          const result = this.impl.isProtectedNativePixmapHandle(params.arg_dummy_handle);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_protected' in response) ? response.arg_arg_is_protected : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_protected' in response) ? response.arg_is_protected : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec.$.structSpec, { 'arg_is_protected': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isProtectedNativePixmapHandle FAILED:', e));
           }

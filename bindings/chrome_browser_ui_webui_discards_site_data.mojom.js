@@ -183,7 +183,7 @@ mojo.internal.bindings.discards.mojom.SiteDataProviderRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec,
       mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec,
-      [arg_explicitly_requested_origins],
+      { arg_explicitly_requested_origins: arg_explicitly_requested_origins },
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.discards.mojom.SiteDataProviderRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec,
       mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -262,13 +262,13 @@ mojo.internal.bindings.discards.mojom.SiteDataProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSiteDataArray');
-          const result = this.impl.getSiteDataArray(params.arg_arg_explicitly_requested_origins);
+          const result = this.impl.getSiteDataArray(params.arg_explicitly_requested_origins);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSiteDataArray FAILED:', e));
           }
@@ -283,8 +283,8 @@ mojo.internal.bindings.discards.mojom.SiteDataProviderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_db_size' in response) ? response.arg_arg_db_size : response;
-              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_db_size' in response) ? response.arg_db_size : response;
+              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec.$.structSpec, { 'arg_db_size': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSiteDataDatabaseSize FAILED:', e));
           }

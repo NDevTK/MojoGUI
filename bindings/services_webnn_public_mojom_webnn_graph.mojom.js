@@ -392,7 +392,7 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNGraph_Dispatch_ParamsSpec,
       null,
-      [arg_named_inputs, arg_named_outputs],
+      { arg_named_inputs: arg_named_inputs, arg_named_outputs: arg_named_outputs },
       false);
   }
 
@@ -461,7 +461,7 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNGraph_Dispatch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatch');
-          const result = this.impl.dispatch(params.arg_arg_named_inputs, params.arg_arg_named_outputs);
+          const result = this.impl.dispatch(params.arg_named_inputs, params.arg_named_outputs);
           break;
         }
       }

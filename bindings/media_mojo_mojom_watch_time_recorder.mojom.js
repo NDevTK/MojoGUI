@@ -258,7 +258,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec,
       null,
-      [arg_key, arg_watch_time],
+      { arg_key: arg_key, arg_watch_time: arg_watch_time },
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec,
       null,
-      [arg_watch_time_keys],
+      { arg_watch_time_keys: arg_watch_time_keys },
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnError_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec,
       null,
-      [arg_secondary_properties],
+      { arg_secondary_properties: arg_secondary_properties },
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec,
       null,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec,
       null,
-      [arg_duration],
+      { arg_duration: arg_duration },
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec,
       null,
-      [arg_frames_decoded, arg_frames_dropped],
+      { arg_frames_decoded: arg_frames_decoded, arg_frames_dropped: arg_frames_dropped },
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec,
       null,
-      [arg_total_count],
+      { arg_total_count: arg_total_count },
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec,
       null,
-      [arg_total_completed_count, arg_total_duration],
+      { arg_total_completed_count: arg_total_completed_count, arg_total_duration: arg_total_duration },
       false);
   }
 
@@ -407,63 +407,63 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordWatchTime');
-          const result = this.impl.recordWatchTime(params.arg_arg_key, params.arg_arg_watch_time);
+          const result = this.impl.recordWatchTime(params.arg_key, params.arg_watch_time);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.finalizeWatchTime');
-          const result = this.impl.finalizeWatchTime(params.arg_arg_watch_time_keys);
+          const result = this.impl.finalizeWatchTime(params.arg_watch_time_keys);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_status);
+          const result = this.impl.onError(params.arg_status);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSecondaryProperties');
-          const result = this.impl.updateSecondaryProperties(params.arg_arg_secondary_properties);
+          const result = this.impl.updateSecondaryProperties(params.arg_secondary_properties);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAutoplayInitiated');
-          const result = this.impl.setAutoplayInitiated(params.arg_arg_value);
+          const result = this.impl.setAutoplayInitiated(params.arg_value);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDurationChanged');
-          const result = this.impl.onDurationChanged(params.arg_arg_duration);
+          const result = this.impl.onDurationChanged(params.arg_duration);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateVideoDecodeStats');
-          const result = this.impl.updateVideoDecodeStats(params.arg_arg_frames_decoded, params.arg_arg_frames_dropped);
+          const result = this.impl.updateVideoDecodeStats(params.arg_frames_decoded, params.arg_frames_dropped);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateUnderflowCount');
-          const result = this.impl.updateUnderflowCount(params.arg_arg_total_count);
+          const result = this.impl.updateUnderflowCount(params.arg_total_count);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateUnderflowDuration');
-          const result = this.impl.updateUnderflowDuration(params.arg_arg_total_completed_count, params.arg_arg_total_duration);
+          const result = this.impl.updateUnderflowDuration(params.arg_total_completed_count, params.arg_total_duration);
           break;
         }
       }

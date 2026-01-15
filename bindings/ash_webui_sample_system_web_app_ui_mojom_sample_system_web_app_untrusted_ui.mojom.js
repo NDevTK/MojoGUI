@@ -183,7 +183,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactoryRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec,
       null,
-      [arg_child_page, arg_parent_page],
+      { arg_child_page: arg_child_page, arg_parent_page: arg_parent_page },
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactoryReceiv
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createParentPage');
-          const result = this.impl.createParentPage(params.arg_arg_child_page, params.arg_arg_parent_page);
+          const result = this.impl.createParentPage(params.arg_child_page, params.arg_parent_page);
           break;
         }
       }

@@ -205,7 +205,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec,
       mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec,
       mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec,
       mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -241,7 +241,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerRemoteCallHand
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -250,7 +250,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerRemoteCallHand
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -329,8 +329,8 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_closed' in response) ? response.arg_arg_closed : response;
-              encoder.encodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_closed' in response) ? response.arg_closed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec.$.structSpec, { 'arg_closed': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestClose FAILED:', e));
           }
@@ -345,8 +345,8 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_package_names' in response) ? response.arg_arg_package_names : response;
-              encoder.encodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_package_names' in response) ? response.arg_package_names : response;
+              encoder.encodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec.$.structSpec, { 'arg_package_names': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getInstalledArcApps FAILED:', e));
           }
@@ -361,7 +361,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_oauth_token']);
+              encoder.encodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_oauth_token': response.arg_oauth_token });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOAuthToken FAILED:', e));
           }
@@ -385,7 +385,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCloseOnEscape');
-          const result = this.impl.setCloseOnEscape(params.arg_arg_enabled);
+          const result = this.impl.setCloseOnEscape(params.arg_enabled);
           break;
         }
       }

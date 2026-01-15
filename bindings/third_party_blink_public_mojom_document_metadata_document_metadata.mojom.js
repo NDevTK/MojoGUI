@@ -182,7 +182,7 @@ mojo.internal.bindings.blink.mojom.DocumentMetadataRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DocumentMetadata_GetEntities_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -256,8 +256,8 @@ mojo.internal.bindings.blink.mojom.DocumentMetadataReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_page' in response) ? response.arg_arg_page : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_page' in response) ? response.arg_page : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec.$.structSpec, { 'arg_page': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getEntities FAILED:', e));
           }

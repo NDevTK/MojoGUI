@@ -188,7 +188,7 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactoryRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactoryReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -330,7 +330,7 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec,
       mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec,
       mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec,
       mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -357,7 +357,7 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec,
       mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -434,8 +434,8 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerReceiver = class 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_email' in response) ? response.arg_arg_email : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_email' in response) ? response.arg_email : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec.$.structSpec, { 'arg_email': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUserEmailAddress FAILED:', e));
           }
@@ -450,8 +450,8 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerReceiver = class 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] connectToOneDrive FAILED:', e));
           }
@@ -466,8 +466,8 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerReceiver = class 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] disconnectFromOneDrive FAILED:', e));
           }
@@ -482,8 +482,8 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerReceiver = class 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openOneDriveFolder FAILED:', e));
           }
@@ -551,7 +551,7 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -560,7 +560,7 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec,
       null,
-      [arg_is_allowed],
+      { arg_is_allowed: arg_is_allowed },
       false);
   }
 
@@ -637,7 +637,7 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAllowUserToRemoveODFSChanged');
-          const result = this.impl.onAllowUserToRemoveODFSChanged(params.arg_arg_is_allowed);
+          const result = this.impl.onAllowUserToRemoveODFSChanged(params.arg_is_allowed);
           break;
         }
       }

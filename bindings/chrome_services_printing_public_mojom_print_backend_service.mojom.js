@@ -241,7 +241,7 @@ mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHostRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec,
       null,
-      [arg_service],
+      { arg_service: arg_service },
       false);
   }
 
@@ -310,7 +310,7 @@ mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHostReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindBackend');
-          const result = this.impl.bindBackend(params.arg_arg_service);
+          const result = this.impl.bindBackend(params.arg_service);
           break;
         }
       }
@@ -371,7 +371,7 @@ mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHostRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec,
       null,
-      [arg_service],
+      { arg_service: arg_service },
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHostReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindBackend');
-          const result = this.impl.bindBackend(params.arg_arg_service);
+          const result = this.impl.bindBackend(params.arg_service);
           break;
         }
       }
@@ -557,7 +557,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_Init_ParamsSpec,
       null,
-      [arg_locale, arg_remote],
+      { arg_locale: arg_locale, arg_remote: arg_remote },
       false);
   }
 
@@ -566,7 +566,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_Poke_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -575,7 +575,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -584,7 +584,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -593,7 +593,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec,
       null,
-      [arg_printer_name],
+      { arg_printer_name: arg_printer_name },
       false);
   }
 
@@ -602,7 +602,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec,
-      [arg_printer_name, arg_media],
+      { arg_printer_name: arg_printer_name, arg_media: arg_media },
       false);
   }
 
@@ -611,7 +611,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec,
       null,
-      [arg_context_id, arg_parent_window_id],
+      { arg_context_id: arg_context_id, arg_parent_window_id: arg_parent_window_id },
       false);
   }
 
@@ -620,7 +620,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec,
       null,
-      [arg_context_id],
+      { arg_context_id: arg_context_id },
       false);
   }
 
@@ -629,7 +629,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec,
       null,
-      [arg_context_id, arg_max_pages, arg_has_selection, arg_is_scripted],
+      { arg_context_id: arg_context_id, arg_max_pages: arg_max_pages, arg_has_selection: arg_has_selection, arg_is_scripted: arg_is_scripted },
       false);
   }
 
@@ -638,7 +638,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec,
       null,
-      [arg_context_id, arg_job_settings],
+      { arg_context_id: arg_context_id, arg_job_settings: arg_job_settings },
       false);
   }
 
@@ -647,7 +647,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_StartPrinting_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec,
-      [arg_context_id, arg_document_cookie, arg_document_name, arg_settings],
+      { arg_context_id: arg_context_id, arg_document_cookie: arg_document_cookie, arg_document_name: arg_document_name, arg_settings: arg_settings },
       false);
   }
 
@@ -656,7 +656,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec,
-      [arg_document_cookie, arg_page_index, arg_page_data_type, arg_serialized_page, arg_page_size, arg_page_content_rect, arg_shrink_factor],
+      { arg_document_cookie: arg_document_cookie, arg_page_index: arg_page_index, arg_page_data_type: arg_page_data_type, arg_serialized_page: arg_serialized_page, arg_page_size: arg_page_size, arg_page_content_rect: arg_page_content_rect, arg_shrink_factor: arg_shrink_factor },
       false);
   }
 
@@ -665,7 +665,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec,
-      [arg_document_cookie, arg_page_count, arg_data_type, arg_serialized_doc],
+      { arg_document_cookie: arg_document_cookie, arg_page_count: arg_page_count, arg_data_type: arg_data_type, arg_serialized_doc: arg_serialized_doc },
       false);
   }
 
@@ -674,7 +674,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_DocumentDone_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec,
-      [arg_document_cookie],
+      { arg_document_cookie: arg_document_cookie },
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_Cancel_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintBackendService_Cancel_ResponseParamsSpec,
-      [arg_document_cookie],
+      { arg_document_cookie: arg_document_cookie },
       false);
   }
 
@@ -766,7 +766,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_locale, params.arg_arg_remote);
+          const result = this.impl.init(params.arg_locale, params.arg_remote);
           break;
         }
         case 1: {
@@ -794,20 +794,20 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchCapabilities');
-          const result = this.impl.fetchCapabilities(params.arg_arg_printer_name);
+          const result = this.impl.fetchCapabilities(params.arg_printer_name);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPaperPrintableArea');
-          const result = this.impl.getPaperPrintableArea(params.arg_arg_printer_name, params.arg_arg_media);
+          const result = this.impl.getPaperPrintableArea(params.arg_printer_name, params.arg_media);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_printable_area_um' in response) ? response.arg_arg_printable_area_um : response;
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_printable_area_um' in response) ? response.arg_printable_area_um : response;
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec.$.structSpec, { 'arg_printable_area_um': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPaperPrintableArea FAILED:', e));
           }
@@ -817,40 +817,40 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishPrintingContext');
-          const result = this.impl.establishPrintingContext(params.arg_arg_context_id, params.arg_arg_parent_window_id);
+          const result = this.impl.establishPrintingContext(params.arg_context_id, params.arg_parent_window_id);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.useDefaultSettings');
-          const result = this.impl.useDefaultSettings(params.arg_arg_context_id);
+          const result = this.impl.useDefaultSettings(params.arg_context_id);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.askUserForSettings');
-          const result = this.impl.askUserForSettings(params.arg_arg_context_id, params.arg_arg_max_pages, params.arg_arg_has_selection, params.arg_arg_is_scripted);
+          const result = this.impl.askUserForSettings(params.arg_context_id, params.arg_max_pages, params.arg_has_selection, params.arg_is_scripted);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePrintSettings');
-          const result = this.impl.updatePrintSettings(params.arg_arg_context_id, params.arg_arg_job_settings);
+          const result = this.impl.updatePrintSettings(params.arg_context_id, params.arg_job_settings);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_StartPrinting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startPrinting');
-          const result = this.impl.startPrinting(params.arg_arg_context_id, params.arg_arg_document_cookie, params.arg_arg_document_name, params.arg_arg_settings);
+          const result = this.impl.startPrinting(params.arg_context_id, params.arg_document_cookie, params.arg_document_name, params.arg_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result_code', 'response.arg_arg_job_id']);
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec.$.structSpec, { 'arg_result_code': response.arg_result_code, 'arg_job_id': response.arg_job_id });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startPrinting FAILED:', e));
           }
@@ -860,13 +860,13 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.renderPrintedPage');
-          const result = this.impl.renderPrintedPage(params.arg_arg_document_cookie, params.arg_arg_page_index, params.arg_arg_page_data_type, params.arg_arg_serialized_page, params.arg_arg_page_size, params.arg_arg_page_content_rect, params.arg_arg_shrink_factor);
+          const result = this.impl.renderPrintedPage(params.arg_document_cookie, params.arg_page_index, params.arg_page_data_type, params.arg_serialized_page, params.arg_page_size, params.arg_page_content_rect, params.arg_shrink_factor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result_code' in response) ? response.arg_arg_result_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result_code' in response) ? response.arg_result_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec.$.structSpec, { 'arg_result_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] renderPrintedPage FAILED:', e));
           }
@@ -876,13 +876,13 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.renderPrintedDocument');
-          const result = this.impl.renderPrintedDocument(params.arg_arg_document_cookie, params.arg_arg_page_count, params.arg_arg_data_type, params.arg_arg_serialized_doc);
+          const result = this.impl.renderPrintedDocument(params.arg_document_cookie, params.arg_page_count, params.arg_data_type, params.arg_serialized_doc);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result_code' in response) ? response.arg_arg_result_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result_code' in response) ? response.arg_result_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec.$.structSpec, { 'arg_result_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] renderPrintedDocument FAILED:', e));
           }
@@ -892,13 +892,13 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_DocumentDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.documentDone');
-          const result = this.impl.documentDone(params.arg_arg_document_cookie);
+          const result = this.impl.documentDone(params.arg_document_cookie);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result_code' in response) ? response.arg_arg_result_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result_code' in response) ? response.arg_result_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec.$.structSpec, { 'arg_result_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] documentDone FAILED:', e));
           }
@@ -908,12 +908,12 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_Cancel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancel');
-          const result = this.impl.cancel(params.arg_arg_document_cookie);
+          const result = this.impl.cancel(params.arg_document_cookie);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_Cancel_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintBackendService_Cancel_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] cancel FAILED:', e));
           }

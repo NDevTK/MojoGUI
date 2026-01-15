@@ -186,7 +186,7 @@ mojo.internal.bindings.IPC.mojom.ChannelRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.IPC.mojom.Channel_SetPeerPid_ParamsSpec,
       null,
-      [arg_pid],
+      { arg_pid: arg_pid },
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.IPC.mojom.ChannelRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -265,14 +265,14 @@ mojo.internal.bindings.IPC.mojom.ChannelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.IPC.mojom.Channel_SetPeerPid_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPeerPid');
-          const result = this.impl.setPeerPid(params.arg_arg_pid);
+          const result = this.impl.setPeerPid(params.arg_pid);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAssociatedInterface');
-          const result = this.impl.getAssociatedInterface(params.arg_arg_receiver);
+          const result = this.impl.getAssociatedInterface(params.arg_receiver);
           break;
         }
       }

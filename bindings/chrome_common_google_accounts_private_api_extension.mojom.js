@@ -170,7 +170,7 @@ mojo.internal.bindings.chrome.mojom.GoogleAccountsPrivateApiExtensionRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec,
       null,
-      [arg_consent_result],
+      { arg_consent_result: arg_consent_result },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.chrome.mojom.GoogleAccountsPrivateApiExtensionReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setConsentResult');
-          const result = this.impl.setConsentResult(params.arg_arg_consent_result);
+          const result = this.impl.setConsentResult(params.arg_consent_result);
           break;
         }
       }

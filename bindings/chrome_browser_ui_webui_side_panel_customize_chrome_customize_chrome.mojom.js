@@ -280,7 +280,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerFactoryRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -349,7 +349,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerFactoryReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -522,7 +522,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsSpec,
       null,
-      [arg_shortcuts_types, arg_shortcuts_visible, arg_personal_shortcuts_visible],
+      { arg_shortcuts_types: arg_shortcuts_types, arg_shortcuts_visible: arg_shortcuts_visible, arg_personal_shortcuts_visible: arg_personal_shortcuts_visible },
       false);
   }
 
@@ -531,7 +531,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_UpdateMostVisitedSettings_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -540,7 +540,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ParamsSpec,
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -549,7 +549,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ParamsSpec,
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec,
-      [arg_collection_id],
+      { arg_collection_id: arg_collection_id },
       false);
   }
 
@@ -558,7 +558,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ParamsSpec,
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec,
-      [arg_collection_id],
+      { arg_collection_id: arg_collection_id },
       false);
   }
 
@@ -567,7 +567,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_UpdateModulesSettings_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -576,7 +576,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_UpdateTheme_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -585,7 +585,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_UpdateThemeEditable_ParamsSpec,
       null,
-      [arg_is_theme_editable],
+      { arg_is_theme_editable: arg_is_theme_editable },
       false);
   }
 
@@ -594,7 +594,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetDefaultColor_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -603,7 +603,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetFollowDeviceTheme_ParamsSpec,
       null,
-      [arg_follow],
+      { arg_follow: arg_follow },
       false);
   }
 
@@ -612,7 +612,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_RemoveBackgroundImage_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -621,7 +621,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ParamsSpec,
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -630,7 +630,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetBackgroundImage_ParamsSpec,
       null,
-      [arg_attribution_1, arg_attribution_2, arg_attribution_url, arg_image_url, arg_thumbnail_url, arg_collection_id],
+      { arg_attribution_1: arg_attribution_1, arg_attribution_2: arg_attribution_2, arg_attribution_url: arg_attribution_url, arg_image_url: arg_image_url, arg_thumbnail_url: arg_thumbnail_url, arg_collection_id: arg_collection_id },
       false);
   }
 
@@ -639,7 +639,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetDailyRefreshCollectionId_ParamsSpec,
       null,
-      [arg_collection_id],
+      { arg_collection_id: arg_collection_id },
       false);
   }
 
@@ -648,7 +648,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStore_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreHomePage_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_OpenThirdPartyThemePage_ParamsSpec,
       null,
-      [arg_theme_id],
+      { arg_theme_id: arg_theme_id },
       false);
   }
 
@@ -675,7 +675,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_ParamsSpec,
       null,
-      [arg_category],
+      { arg_category: arg_category },
       false);
   }
 
@@ -684,7 +684,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_ParamsSpec,
       null,
-      [arg_collection],
+      { arg_collection: arg_collection },
       false);
   }
 
@@ -693,7 +693,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_OpenNtpManagedByPage_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -702,7 +702,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetModulesVisible_ParamsSpec,
       null,
-      [arg_visible],
+      { arg_visible: arg_visible },
       false);
   }
 
@@ -711,7 +711,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetModuleDisabled_ParamsSpec,
       null,
-      [arg_module_id, arg_disabled],
+      { arg_module_id: arg_module_id, arg_disabled: arg_disabled },
       false);
   }
 
@@ -720,7 +720,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetToolChipsVisible_ParamsSpec,
       null,
-      [arg_visible],
+      { arg_visible: arg_visible },
       false);
   }
 
@@ -729,7 +729,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_UpdateToolChipsSettings_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -738,7 +738,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_UpdateScrollToSection_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -747,7 +747,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_UpdateAttachedTabState_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -756,7 +756,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_UpdateNtpManagedByName_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -765,7 +765,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetFooterVisible_ParamsSpec,
       null,
-      [arg_visible],
+      { arg_visible: arg_visible },
       false);
   }
 
@@ -774,7 +774,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_UpdateFooterSettings_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -871,7 +871,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMostVisitedSettings');
-          const result = this.impl.setMostVisitedSettings(params.arg_arg_shortcuts_types, params.arg_arg_shortcuts_visible, params.arg_arg_personal_shortcuts_visible);
+          const result = this.impl.setMostVisitedSettings(params.arg_shortcuts_types, params.arg_shortcuts_visible, params.arg_personal_shortcuts_visible);
           break;
         }
         case 1: {
@@ -890,8 +890,8 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_collections' in response) ? response.arg_arg_collections : response;
-              encoder.encodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_collections' in response) ? response.arg_collections : response;
+              encoder.encodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec.$.structSpec, { 'arg_collections': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getBackgroundCollections FAILED:', e));
           }
@@ -901,13 +901,13 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getReplacementCollectionPreviewImage');
-          const result = this.impl.getReplacementCollectionPreviewImage(params.arg_arg_collection_id);
+          const result = this.impl.getReplacementCollectionPreviewImage(params.arg_collection_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_preview_image_url' in response) ? response.arg_arg_preview_image_url : response;
-              encoder.encodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_preview_image_url' in response) ? response.arg_preview_image_url : response;
+              encoder.encodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec.$.structSpec, { 'arg_preview_image_url': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getReplacementCollectionPreviewImage FAILED:', e));
           }
@@ -917,13 +917,13 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBackgroundImages');
-          const result = this.impl.getBackgroundImages(params.arg_arg_collection_id);
+          const result = this.impl.getBackgroundImages(params.arg_collection_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_images' in response) ? response.arg_arg_images : response;
-              encoder.encodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_images' in response) ? response.arg_images : response;
+              encoder.encodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec.$.structSpec, { 'arg_images': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getBackgroundImages FAILED:', e));
           }
@@ -947,7 +947,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_UpdateThemeEditable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateThemeEditable');
-          const result = this.impl.updateThemeEditable(params.arg_arg_is_theme_editable);
+          const result = this.impl.updateThemeEditable(params.arg_is_theme_editable);
           break;
         }
         case 8: {
@@ -961,7 +961,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetFollowDeviceTheme_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFollowDeviceTheme');
-          const result = this.impl.setFollowDeviceTheme(params.arg_arg_follow);
+          const result = this.impl.setFollowDeviceTheme(params.arg_follow);
           break;
         }
         case 10: {
@@ -980,8 +980,8 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] chooseLocalCustomBackground FAILED:', e));
           }
@@ -991,14 +991,14 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetBackgroundImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundImage');
-          const result = this.impl.setBackgroundImage(params.arg_arg_attribution_1, params.arg_arg_attribution_2, params.arg_arg_attribution_url, params.arg_arg_image_url, params.arg_arg_thumbnail_url, params.arg_arg_collection_id);
+          const result = this.impl.setBackgroundImage(params.arg_attribution_1, params.arg_attribution_2, params.arg_attribution_url, params.arg_image_url, params.arg_thumbnail_url, params.arg_collection_id);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetDailyRefreshCollectionId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDailyRefreshCollectionId');
-          const result = this.impl.setDailyRefreshCollectionId(params.arg_arg_collection_id);
+          const result = this.impl.setDailyRefreshCollectionId(params.arg_collection_id);
           break;
         }
         case 14: {
@@ -1019,21 +1019,21 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_OpenThirdPartyThemePage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openThirdPartyThemePage');
-          const result = this.impl.openThirdPartyThemePage(params.arg_arg_theme_id);
+          const result = this.impl.openThirdPartyThemePage(params.arg_theme_id);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openChromeWebStoreCategoryPage');
-          const result = this.impl.openChromeWebStoreCategoryPage(params.arg_arg_category);
+          const result = this.impl.openChromeWebStoreCategoryPage(params.arg_category);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openChromeWebStoreCollectionPage');
-          const result = this.impl.openChromeWebStoreCollectionPage(params.arg_arg_collection);
+          const result = this.impl.openChromeWebStoreCollectionPage(params.arg_collection);
           break;
         }
         case 19: {
@@ -1047,21 +1047,21 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetModulesVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setModulesVisible');
-          const result = this.impl.setModulesVisible(params.arg_arg_visible);
+          const result = this.impl.setModulesVisible(params.arg_visible);
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetModuleDisabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setModuleDisabled');
-          const result = this.impl.setModuleDisabled(params.arg_arg_module_id, params.arg_arg_disabled);
+          const result = this.impl.setModuleDisabled(params.arg_module_id, params.arg_disabled);
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetToolChipsVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setToolChipsVisible');
-          const result = this.impl.setToolChipsVisible(params.arg_arg_visible);
+          const result = this.impl.setToolChipsVisible(params.arg_visible);
           break;
         }
         case 23: {
@@ -1096,7 +1096,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetFooterVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFooterVisible');
-          const result = this.impl.setFooterVisible(params.arg_arg_visible);
+          const result = this.impl.setFooterVisible(params.arg_visible);
           break;
         }
         case 28: {
@@ -1196,7 +1196,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec,
       null,
-      [arg_modules_settings, arg_managed, arg_visible],
+      { arg_modules_settings: arg_modules_settings, arg_managed: arg_managed, arg_visible: arg_visible },
       false);
   }
 
@@ -1205,7 +1205,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec,
       null,
-      [arg_shortcuts_types, arg_visible, arg_personal_shortcuts_visible, arg_disabled_shortcuts],
+      { arg_shortcuts_types: arg_shortcuts_types, arg_visible: arg_visible, arg_personal_shortcuts_visible: arg_personal_shortcuts_visible, arg_disabled_shortcuts: arg_disabled_shortcuts },
       false);
   }
 
@@ -1214,7 +1214,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetToolsSettings_ParamsSpec,
       null,
-      [arg_visible],
+      { arg_visible: arg_visible },
       false);
   }
 
@@ -1223,7 +1223,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec,
       null,
-      [arg_visible, arg_extension_policy_enabled, arg_management_notice_state],
+      { arg_visible: arg_visible, arg_extension_policy_enabled: arg_extension_policy_enabled, arg_management_notice_state: arg_management_notice_state },
       false);
   }
 
@@ -1232,7 +1232,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetTheme_ParamsSpec,
       null,
-      [arg_theme],
+      { arg_theme: arg_theme },
       false);
   }
 
@@ -1241,7 +1241,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageRemoteCallHandler = c
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetThemeEditable_ParamsSpec,
       null,
-      [arg_is_theme_editable],
+      { arg_is_theme_editable: arg_is_theme_editable },
       false);
   }
 
@@ -1250,7 +1250,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageRemoteCallHandler = c
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_ScrollToSection_ParamsSpec,
       null,
-      [arg_section],
+      { arg_section: arg_section },
       false);
   }
 
@@ -1259,7 +1259,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageRemoteCallHandler = c
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_AttachedTabStateUpdated_ParamsSpec,
       null,
-      [arg_ntp_type],
+      { arg_ntp_type: arg_ntp_type },
       false);
   }
 
@@ -1268,7 +1268,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageRemoteCallHandler = c
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_NtpManagedByNameUpdated_ParamsSpec,
       null,
-      [arg_name, arg_description],
+      { arg_name: arg_name, arg_description: arg_description },
       false);
   }
 
@@ -1345,63 +1345,63 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setModulesSettings');
-          const result = this.impl.setModulesSettings(params.arg_arg_modules_settings, params.arg_arg_managed, params.arg_arg_visible);
+          const result = this.impl.setModulesSettings(params.arg_modules_settings, params.arg_managed, params.arg_visible);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMostVisitedSettings');
-          const result = this.impl.setMostVisitedSettings(params.arg_arg_shortcuts_types, params.arg_arg_visible, params.arg_arg_personal_shortcuts_visible, params.arg_arg_disabled_shortcuts);
+          const result = this.impl.setMostVisitedSettings(params.arg_shortcuts_types, params.arg_visible, params.arg_personal_shortcuts_visible, params.arg_disabled_shortcuts);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetToolsSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setToolsSettings');
-          const result = this.impl.setToolsSettings(params.arg_arg_visible);
+          const result = this.impl.setToolsSettings(params.arg_visible);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFooterSettings');
-          const result = this.impl.setFooterSettings(params.arg_arg_visible, params.arg_arg_extension_policy_enabled, params.arg_arg_management_notice_state);
+          const result = this.impl.setFooterSettings(params.arg_visible, params.arg_extension_policy_enabled, params.arg_management_notice_state);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetTheme_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTheme');
-          const result = this.impl.setTheme(params.arg_arg_theme);
+          const result = this.impl.setTheme(params.arg_theme);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetThemeEditable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setThemeEditable');
-          const result = this.impl.setThemeEditable(params.arg_arg_is_theme_editable);
+          const result = this.impl.setThemeEditable(params.arg_is_theme_editable);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_ScrollToSection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.scrollToSection');
-          const result = this.impl.scrollToSection(params.arg_arg_section);
+          const result = this.impl.scrollToSection(params.arg_section);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_AttachedTabStateUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.attachedTabStateUpdated');
-          const result = this.impl.attachedTabStateUpdated(params.arg_arg_ntp_type);
+          const result = this.impl.attachedTabStateUpdated(params.arg_ntp_type);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_NtpManagedByNameUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.ntpManagedByNameUpdated');
-          const result = this.impl.ntpManagedByNameUpdated(params.arg_arg_name, params.arg_arg_description);
+          const result = this.impl.ntpManagedByNameUpdated(params.arg_name, params.arg_description);
           break;
         }
       }

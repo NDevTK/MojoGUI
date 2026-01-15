@@ -183,7 +183,7 @@ mojo.internal.bindings.arc.mojom.PipHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.PipHost_OnPipEvent_ParamsSpec,
       null,
-      [arg_event],
+      { arg_event: arg_event },
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.arc.mojom.PipHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PipHost_OnPipEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPipEvent');
-          const result = this.impl.onPipEvent(params.arg_arg_event);
+          const result = this.impl.onPipEvent(params.arg_event);
           break;
         }
       }
@@ -321,7 +321,7 @@ mojo.internal.bindings.arc.mojom.PipInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.PipInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PipInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.arc.mojom.PipInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.PipInstance_ClosePip_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.arc.mojom.PipInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec,
       null,
-      [arg_suppressed],
+      { arg_suppressed: arg_suppressed },
       false);
   }
 
@@ -410,12 +410,12 @@ mojo.internal.bindings.arc.mojom.PipInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PipInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PipInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PipInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -432,7 +432,7 @@ mojo.internal.bindings.arc.mojom.PipInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPipSuppressionStatus');
-          const result = this.impl.setPipSuppressionStatus(params.arg_arg_suppressed);
+          const result = this.impl.setPipSuppressionStatus(params.arg_suppressed);
           break;
         }
       }

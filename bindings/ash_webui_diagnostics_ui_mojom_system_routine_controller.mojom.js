@@ -221,7 +221,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec,
       null,
-      [arg_info],
+      { arg_info: arg_info },
       false);
   }
 
@@ -290,7 +290,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRoutineResult');
-          const result = this.impl.onRoutineResult(params.arg_arg_info);
+          const result = this.impl.onRoutineResult(params.arg_info);
           break;
         }
       }
@@ -355,7 +355,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec,
       mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -364,7 +364,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec,
       null,
-      [arg_type, arg_runner],
+      { arg_type: arg_type, arg_runner: arg_runner },
       false);
   }
 
@@ -439,8 +439,8 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerReceiver = c
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_routines' in response) ? response.arg_arg_routines : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_routines' in response) ? response.arg_routines : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec.$.structSpec, { 'arg_routines': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSupportedRoutines FAILED:', e));
           }
@@ -450,7 +450,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runRoutine');
-          const result = this.impl.runRoutine(params.arg_arg_type, params.arg_arg_runner);
+          const result = this.impl.runRoutine(params.arg_type, params.arg_runner);
           break;
         }
       }

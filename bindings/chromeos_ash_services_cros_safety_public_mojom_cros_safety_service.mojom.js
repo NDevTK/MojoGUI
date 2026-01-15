@@ -213,7 +213,7 @@ mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServiceRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec,
       mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec,
-      [arg_session],
+      { arg_session: arg_session },
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServiceRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec,
       mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec,
-      [arg_session],
+      { arg_session: arg_session },
       false);
   }
 
@@ -292,13 +292,13 @@ mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createOnDeviceSafetySession');
-          const result = this.impl.createOnDeviceSafetySession(params.arg_arg_session);
+          const result = this.impl.createOnDeviceSafetySession(params.arg_session);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createOnDeviceSafetySession FAILED:', e));
           }
@@ -308,13 +308,13 @@ mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCloudSafetySession');
-          const result = this.impl.createCloudSafetySession(params.arg_arg_session);
+          const result = this.impl.createCloudSafetySession(params.arg_session);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createCloudSafetySession FAILED:', e));
           }

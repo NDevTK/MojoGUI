@@ -186,7 +186,7 @@ mojo.internal.bindings.download.mojom.DownloadStreamClientRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -255,7 +255,7 @@ mojo.internal.bindings.download.mojom.DownloadStreamClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStreamCompleted');
-          const result = this.impl.onStreamCompleted(params.arg_arg_status);
+          const result = this.impl.onStreamCompleted(params.arg_status);
           break;
         }
       }

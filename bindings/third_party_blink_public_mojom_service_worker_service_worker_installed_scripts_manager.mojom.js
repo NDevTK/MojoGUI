@@ -182,7 +182,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec,
       null,
-      [arg_script_url],
+      { arg_script_url: arg_script_url },
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHostRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestInstalledScript');
-          const result = this.impl.requestInstalledScript(params.arg_arg_script_url);
+          const result = this.impl.requestInstalledScript(params.arg_script_url);
           break;
         }
       }
@@ -312,7 +312,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec,
       null,
-      [arg_script_info],
+      { arg_script_info: arg_script_info },
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.transferInstalledScript');
-          const result = this.impl.transferInstalledScript(params.arg_arg_script_info);
+          const result = this.impl.transferInstalledScript(params.arg_script_info);
           break;
         }
       }

@@ -194,7 +194,7 @@ mojo.internal.bindings.network.mojom.ProxyConfigClientRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec,
       null,
-      [arg_proxy_config],
+      { arg_proxy_config: arg_proxy_config },
       false);
   }
 
@@ -203,7 +203,7 @@ mojo.internal.bindings.network.mojom.ProxyConfigClientRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec,
       mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -273,7 +273,7 @@ mojo.internal.bindings.network.mojom.ProxyConfigClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProxyConfigUpdated');
-          const result = this.impl.onProxyConfigUpdated(params.arg_arg_proxy_config);
+          const result = this.impl.onProxyConfigUpdated(params.arg_proxy_config);
           break;
         }
         case 1: {
@@ -285,7 +285,7 @@ mojo.internal.bindings.network.mojom.ProxyConfigClientReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] flushProxyConfig FAILED:', e));
           }
@@ -349,7 +349,7 @@ mojo.internal.bindings.network.mojom.ProxyConfigPollerClientRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -483,7 +483,7 @@ mojo.internal.bindings.network.mojom.ProxyErrorClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec,
       null,
-      [arg_line_number, arg_details],
+      { arg_line_number: arg_line_number, arg_details: arg_details },
       false);
   }
 
@@ -492,7 +492,7 @@ mojo.internal.bindings.network.mojom.ProxyErrorClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec,
       null,
-      [arg_net_error],
+      { arg_net_error: arg_net_error },
       false);
   }
 
@@ -562,14 +562,14 @@ mojo.internal.bindings.network.mojom.ProxyErrorClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPACScriptError');
-          const result = this.impl.onPACScriptError(params.arg_arg_line_number, params.arg_arg_details);
+          const result = this.impl.onPACScriptError(params.arg_line_number, params.arg_details);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRequestMaybeFailedDueToProxySettings');
-          const result = this.impl.onRequestMaybeFailedDueToProxySettings(params.arg_arg_net_error);
+          const result = this.impl.onRequestMaybeFailedDueToProxySettings(params.arg_net_error);
           break;
         }
       }

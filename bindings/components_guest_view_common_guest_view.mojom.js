@@ -294,7 +294,7 @@ mojo.internal.bindings.guest_view.mojom.GuestViewHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec,
       mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec,
-      [arg_element_instance_id, arg_guest_instance_id, arg_params],
+      { arg_element_instance_id: arg_element_instance_id, arg_guest_instance_id: arg_guest_instance_id, arg_params: arg_params },
       false);
   }
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.guest_view.mojom.GuestViewHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec,
       null,
-      [arg_view_instance_id, arg_view_type, arg_keep_alive_handle_receiver],
+      { arg_view_instance_id: arg_view_instance_id, arg_view_type: arg_view_type, arg_keep_alive_handle_receiver: arg_keep_alive_handle_receiver },
       false);
   }
 
@@ -373,12 +373,12 @@ mojo.internal.bindings.guest_view.mojom.GuestViewHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.attachToEmbedderFrame');
-          const result = this.impl.attachToEmbedderFrame(params.arg_arg_element_instance_id, params.arg_arg_guest_instance_id, params.arg_arg_params);
+          const result = this.impl.attachToEmbedderFrame(params.arg_element_instance_id, params.arg_guest_instance_id, params.arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] attachToEmbedderFrame FAILED:', e));
           }
@@ -388,7 +388,7 @@ mojo.internal.bindings.guest_view.mojom.GuestViewHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.viewCreated');
-          const result = this.impl.viewCreated(params.arg_arg_view_instance_id, params.arg_arg_view_type, params.arg_arg_keep_alive_handle_receiver);
+          const result = this.impl.viewCreated(params.arg_view_instance_id, params.arg_view_type, params.arg_keep_alive_handle_receiver);
           break;
         }
       }

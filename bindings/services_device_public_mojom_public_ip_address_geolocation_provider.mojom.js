@@ -183,7 +183,7 @@ mojo.internal.bindings.device.mojom.PublicIpAddressGeolocationProviderRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec,
       null,
-      [arg_tag, arg_receiver, arg_client_id],
+      { arg_tag: arg_tag, arg_receiver: arg_receiver, arg_client_id: arg_client_id },
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.device.mojom.PublicIpAddressGeolocationProviderReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createGeolocation');
-          const result = this.impl.createGeolocation(params.arg_arg_tag, params.arg_arg_receiver, params.arg_arg_client_id);
+          const result = this.impl.createGeolocation(params.arg_tag, params.arg_receiver, params.arg_client_id);
           break;
         }
       }

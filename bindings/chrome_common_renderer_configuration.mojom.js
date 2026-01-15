@@ -211,7 +211,7 @@ mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec,
-      [arg_untrusted_request_url],
+      { arg_untrusted_request_url: arg_untrusted_request_url },
       false);
   }
 
@@ -280,13 +280,13 @@ mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleRequestBlockedOnCookie');
-          const result = this.impl.handleRequestBlockedOnCookie(params.arg_arg_untrusted_request_url);
+          const result = this.impl.handleRequestBlockedOnCookie(params.arg_untrusted_request_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_resume_trigger' in response) ? response.arg_arg_resume_trigger : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_resume_trigger' in response) ? response.arg_resume_trigger : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec.$.structSpec, { 'arg_resume_trigger': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] handleRequestBlockedOnCookie FAILED:', e));
           }
@@ -467,7 +467,7 @@ mojo.internal.bindings.chrome.mojom.RendererConfigurationRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec,
       null,
-      [arg_is_incognito_process, arg_chromeos_listener, arg_content_settings_manager, arg_bound_session_request_throttled_handler],
+      { arg_is_incognito_process: arg_is_incognito_process, arg_chromeos_listener: arg_chromeos_listener, arg_content_settings_manager: arg_content_settings_manager, arg_bound_session_request_throttled_handler: arg_bound_session_request_throttled_handler },
       false);
   }
 
@@ -476,7 +476,7 @@ mojo.internal.bindings.chrome.mojom.RendererConfigurationRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec,
       null,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -485,7 +485,7 @@ mojo.internal.bindings.chrome.mojom.RendererConfigurationRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec,
       null,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -556,21 +556,21 @@ mojo.internal.bindings.chrome.mojom.RendererConfigurationReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInitialConfiguration');
-          const result = this.impl.setInitialConfiguration(params.arg_arg_is_incognito_process, params.arg_arg_chromeos_listener, params.arg_arg_content_settings_manager, params.arg_arg_bound_session_request_throttled_handler);
+          const result = this.impl.setInitialConfiguration(params.arg_is_incognito_process, params.arg_chromeos_listener, params.arg_content_settings_manager, params.arg_bound_session_request_throttled_handler);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setConfiguration');
-          const result = this.impl.setConfiguration(params.arg_arg_params);
+          const result = this.impl.setConfiguration(params.arg_params);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setConfigurationOnProcessLockUpdate');
-          const result = this.impl.setConfigurationOnProcessLockUpdate(params.arg_arg_params);
+          const result = this.impl.setConfigurationOnProcessLockUpdate(params.arg_params);
           break;
         }
       }

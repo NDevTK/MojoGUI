@@ -199,7 +199,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec,
-      [arg_process_id, arg_async, arg_file_paths, arg_destination_url],
+      { arg_process_id: arg_process_id, arg_async: arg_async, arg_file_paths: arg_file_paths, arg_destination_url: arg_destination_url },
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec,
-      [arg_origins],
+      { arg_origins: arg_origins },
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec,
-      [arg_origin],
+      { arg_origin: arg_origin },
       false);
   }
 
@@ -288,12 +288,12 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFileUploadRequested');
-          const result = this.impl.onFileUploadRequested(params.arg_arg_process_id, params.arg_arg_async, params.arg_arg_file_paths, params.arg_arg_destination_url);
+          const result = this.impl.onFileUploadRequested(params.arg_process_id, params.arg_async, params.arg_file_paths, params.arg_destination_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec.$.structSpec, ['response.arg_arg_net_error', 'response.arg_arg_files']);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec.$.structSpec, { 'arg_net_error': response.arg_net_error, 'arg_files': response.arg_files });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onFileUploadRequested FAILED:', e));
           }
@@ -303,13 +303,13 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCanSendReportingReports');
-          const result = this.impl.onCanSendReportingReports(params.arg_arg_origins);
+          const result = this.impl.onCanSendReportingReports(params.arg_origins);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_origins' in response) ? response.arg_arg_origins : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_origins' in response) ? response.arg_origins : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec.$.structSpec, { 'arg_origins': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onCanSendReportingReports FAILED:', e));
           }
@@ -319,13 +319,13 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCanSendDomainReliabilityUpload');
-          const result = this.impl.onCanSendDomainReliabilityUpload(params.arg_arg_origin);
+          const result = this.impl.onCanSendDomainReliabilityUpload(params.arg_origin);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_allowed' in response) ? response.arg_arg_allowed : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_allowed' in response) ? response.arg_allowed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec.$.structSpec, { 'arg_allowed': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onCanSendDomainReliabilityUpload FAILED:', e));
           }

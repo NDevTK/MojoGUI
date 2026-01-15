@@ -349,7 +349,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec,
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec,
-      [arg_media_source, arg_sink_id, arg_original_presentation_id, arg_origin, arg_frame_tree_node_id, arg_timeout],
+      { arg_media_source: arg_media_source, arg_sink_id: arg_sink_id, arg_original_presentation_id: arg_original_presentation_id, arg_origin: arg_origin, arg_frame_tree_node_id: arg_frame_tree_node_id, arg_timeout: arg_timeout },
       false);
   }
 
@@ -358,7 +358,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec,
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec,
-      [arg_media_source, arg_presentation_id, arg_origin, arg_frame_tree_node_id, arg_timeout],
+      { arg_media_source: arg_media_source, arg_presentation_id: arg_presentation_id, arg_origin: arg_origin, arg_frame_tree_node_id: arg_frame_tree_node_id, arg_timeout: arg_timeout },
       false);
   }
 
@@ -367,7 +367,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec,
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec,
-      [arg_route_id],
+      { arg_route_id: arg_route_id },
       false);
   }
 
@@ -376,7 +376,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec,
       null,
-      [arg_media_route_id, arg_message],
+      { arg_media_route_id: arg_media_route_id, arg_message: arg_message },
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec,
       null,
-      [arg_media_route_id, arg_data],
+      { arg_media_route_id: arg_media_route_id, arg_data: arg_data },
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec,
       null,
-      [arg_media_source],
+      { arg_media_source: arg_media_source },
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec,
       null,
-      [arg_media_source],
+      { arg_media_source: arg_media_source },
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -421,7 +421,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec,
       null,
-      [arg_route_id],
+      { arg_route_id: arg_route_id },
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec,
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec,
-      [arg_route_id, arg_media_controller, arg_observer],
+      { arg_route_id: arg_route_id, arg_media_controller: arg_media_controller, arg_observer: arg_observer },
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_GetState_ParamsSpec,
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -528,12 +528,12 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createRoute');
-          const result = this.impl.createRoute(params.arg_arg_media_source, params.arg_arg_sink_id, params.arg_arg_original_presentation_id, params.arg_arg_origin, params.arg_arg_frame_tree_node_id, params.arg_arg_timeout);
+          const result = this.impl.createRoute(params.arg_media_source, params.arg_sink_id, params.arg_original_presentation_id, params.arg_origin, params.arg_frame_tree_node_id, params.arg_timeout);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec.$.structSpec, ['response.arg_arg_route', 'response.arg_arg_connection', 'response.arg_arg_error_text', 'response.arg_arg_result_code']);
+              encoder.encodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec.$.structSpec, { 'arg_route': response.arg_route, 'arg_connection': response.arg_connection, 'arg_error_text': response.arg_error_text, 'arg_result_code': response.arg_result_code });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createRoute FAILED:', e));
           }
@@ -543,12 +543,12 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.joinRoute');
-          const result = this.impl.joinRoute(params.arg_arg_media_source, params.arg_arg_presentation_id, params.arg_arg_origin, params.arg_arg_frame_tree_node_id, params.arg_arg_timeout);
+          const result = this.impl.joinRoute(params.arg_media_source, params.arg_presentation_id, params.arg_origin, params.arg_frame_tree_node_id, params.arg_timeout);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec.$.structSpec, ['response.arg_arg_route', 'response.arg_arg_connection', 'response.arg_arg_error_text', 'response.arg_arg_result_code']);
+              encoder.encodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec.$.structSpec, { 'arg_route': response.arg_route, 'arg_connection': response.arg_connection, 'arg_error_text': response.arg_error_text, 'arg_result_code': response.arg_result_code });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] joinRoute FAILED:', e));
           }
@@ -558,12 +558,12 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.terminateRoute');
-          const result = this.impl.terminateRoute(params.arg_arg_route_id);
+          const result = this.impl.terminateRoute(params.arg_route_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error_text', 'response.arg_arg_result_code']);
+              encoder.encodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec.$.structSpec, { 'arg_error_text': response.arg_error_text, 'arg_result_code': response.arg_result_code });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] terminateRoute FAILED:', e));
           }
@@ -573,28 +573,28 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendRouteMessage');
-          const result = this.impl.sendRouteMessage(params.arg_arg_media_route_id, params.arg_arg_message);
+          const result = this.impl.sendRouteMessage(params.arg_media_route_id, params.arg_message);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendRouteBinaryMessage');
-          const result = this.impl.sendRouteBinaryMessage(params.arg_arg_media_route_id, params.arg_arg_data);
+          const result = this.impl.sendRouteBinaryMessage(params.arg_media_route_id, params.arg_data);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startObservingMediaSinks');
-          const result = this.impl.startObservingMediaSinks(params.arg_arg_media_source);
+          const result = this.impl.startObservingMediaSinks(params.arg_media_source);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopObservingMediaSinks');
-          const result = this.impl.stopObservingMediaSinks(params.arg_arg_media_source);
+          const result = this.impl.stopObservingMediaSinks(params.arg_media_source);
           break;
         }
         case 7: {
@@ -608,7 +608,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.detachRoute');
-          const result = this.impl.detachRoute(params.arg_arg_route_id);
+          const result = this.impl.detachRoute(params.arg_route_id);
           break;
         }
         case 9: {
@@ -622,13 +622,13 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindMediaController');
-          const result = this.impl.bindMediaController(params.arg_arg_route_id, params.arg_arg_media_controller, params.arg_arg_observer);
+          const result = this.impl.bindMediaController(params.arg_route_id, params.arg_media_controller, params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] bindMediaController FAILED:', e));
           }
@@ -643,8 +643,8 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response.arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec.$.structSpec, { 'arg_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getState FAILED:', e));
           }
@@ -752,7 +752,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec,
       null,
-      [arg_provider_id, arg_media_router_provider],
+      { arg_provider_id: arg_provider_id, arg_media_router_provider: arg_media_router_provider },
       false);
   }
 
@@ -761,7 +761,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec,
       null,
-      [arg_provider_id, arg_media_source, arg_sinks, arg_origins],
+      { arg_provider_id: arg_provider_id, arg_media_source: arg_media_source, arg_sinks: arg_sinks, arg_origins: arg_origins },
       false);
   }
 
@@ -770,7 +770,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_OnIssue_ParamsSpec,
       null,
-      [arg_issue],
+      { arg_issue: arg_issue },
       false);
   }
 
@@ -779,7 +779,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec,
       null,
-      [arg_sink_id],
+      { arg_sink_id: arg_sink_id },
       false);
   }
 
@@ -788,7 +788,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec,
       null,
-      [arg_provider_id, arg_routes],
+      { arg_provider_id: arg_provider_id, arg_routes: arg_routes },
       false);
   }
 
@@ -797,7 +797,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec,
       null,
-      [arg_route_id, arg_state],
+      { arg_route_id: arg_route_id, arg_state: arg_state },
       false);
   }
 
@@ -806,7 +806,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec,
       null,
-      [arg_route_id, arg_reason, arg_message],
+      { arg_route_id: arg_route_id, arg_reason: arg_reason, arg_message: arg_message },
       false);
   }
 
@@ -815,7 +815,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec,
       null,
-      [arg_route_id, arg_messages],
+      { arg_route_id: arg_route_id, arg_messages: arg_messages },
       false);
   }
 
@@ -824,7 +824,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec,
       mojo.internal.bindings.media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -833,7 +833,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_GetLogger_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -842,7 +842,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_GetDebugger_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -851,7 +851,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec,
       mojo.internal.bindings.media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -931,56 +931,56 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerMediaRouteProvider');
-          const result = this.impl.registerMediaRouteProvider(params.arg_arg_provider_id, params.arg_arg_media_router_provider);
+          const result = this.impl.registerMediaRouteProvider(params.arg_provider_id, params.arg_media_router_provider);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSinksReceived');
-          const result = this.impl.onSinksReceived(params.arg_arg_provider_id, params.arg_arg_media_source, params.arg_arg_sinks, params.arg_arg_origins);
+          const result = this.impl.onSinksReceived(params.arg_provider_id, params.arg_media_source, params.arg_sinks, params.arg_origins);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_OnIssue_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onIssue');
-          const result = this.impl.onIssue(params.arg_arg_issue);
+          const result = this.impl.onIssue(params.arg_issue);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearTopIssueForSink');
-          const result = this.impl.clearTopIssueForSink(params.arg_arg_sink_id);
+          const result = this.impl.clearTopIssueForSink(params.arg_sink_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRoutesUpdated');
-          const result = this.impl.onRoutesUpdated(params.arg_arg_provider_id, params.arg_arg_routes);
+          const result = this.impl.onRoutesUpdated(params.arg_provider_id, params.arg_routes);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPresentationConnectionStateChanged');
-          const result = this.impl.onPresentationConnectionStateChanged(params.arg_arg_route_id, params.arg_arg_state);
+          const result = this.impl.onPresentationConnectionStateChanged(params.arg_route_id, params.arg_state);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPresentationConnectionClosed');
-          const result = this.impl.onPresentationConnectionClosed(params.arg_arg_route_id, params.arg_arg_reason, params.arg_arg_message);
+          const result = this.impl.onPresentationConnectionClosed(params.arg_route_id, params.arg_reason, params.arg_message);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRouteMessagesReceived');
-          const result = this.impl.onRouteMessagesReceived(params.arg_arg_route_id, params.arg_arg_messages);
+          const result = this.impl.onRouteMessagesReceived(params.arg_route_id, params.arg_messages);
           break;
         }
         case 8: {
@@ -992,8 +992,8 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMediaSinkServiceStatus FAILED:', e));
           }
@@ -1003,14 +1003,14 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_GetLogger_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getLogger');
-          const result = this.impl.getLogger(params.arg_arg_receiver);
+          const result = this.impl.getLogger(params.arg_receiver);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_GetDebugger_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDebugger');
-          const result = this.impl.getDebugger(params.arg_arg_receiver);
+          const result = this.impl.getDebugger(params.arg_receiver);
           break;
         }
         case 11: {
@@ -1022,8 +1022,8 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_logs' in response) ? response.arg_arg_logs : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_logs' in response) ? response.arg_logs : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec.$.structSpec, { 'arg_logs': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getLogsAsString FAILED:', e));
           }

@@ -172,7 +172,7 @@ mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManagerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSpec,
       mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -246,8 +246,8 @@ mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManagerReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_cast_application_media_info' in response) ? response.arg_arg_cast_application_media_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_cast_application_media_info' in response) ? response.arg_cast_application_media_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec.$.structSpec, { 'arg_cast_application_media_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCastApplicationMediaInfo FAILED:', e));
           }

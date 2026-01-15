@@ -216,7 +216,7 @@ mojo.internal.bindings.media.mojom.KeySystemSupportObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec,
       null,
-      [arg_key_systems],
+      { arg_key_systems: arg_key_systems },
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.media.mojom.KeySystemSupportObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onKeySystemSupportUpdated');
-          const result = this.impl.onKeySystemSupportUpdated(params.arg_arg_key_systems);
+          const result = this.impl.onKeySystemSupportUpdated(params.arg_key_systems);
           break;
         }
       }
@@ -346,7 +346,7 @@ mojo.internal.bindings.media.mojom.KeySystemSupportRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.KeySystemSupport_SetObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -415,7 +415,7 @@ mojo.internal.bindings.media.mojom.KeySystemSupportReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.KeySystemSupport_SetObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setObserver');
-          const result = this.impl.setObserver(params.arg_arg_observer);
+          const result = this.impl.setObserver(params.arg_observer);
           break;
         }
       }

@@ -253,7 +253,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserve
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnAllPrintJobsDeleted_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserve
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_ParamsSpec,
       null,
-      [arg_print_job],
+      { arg_print_job: arg_print_job },
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserve
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPrintJobUpdate');
-          const result = this.impl.onPrintJobUpdate(params.arg_arg_print_job);
+          const result = this.impl.onPrintJobUpdate(params.arg_print_job);
           break;
         }
       }
@@ -420,7 +420,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ParamsSpec,
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ResponseParamsSpec,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -429,7 +429,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ParamsSpec,
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -438,7 +438,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ParamsSpec,
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -447,7 +447,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ParamsSpec,
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ResponseParamsSpec,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -456,7 +456,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ParamsSpec,
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -465,7 +465,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ParamsSpec,
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -539,12 +539,12 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observePrintJobs');
-          const result = this.impl.observePrintJobs(params.arg_arg_observer);
+          const result = this.impl.observePrintJobs(params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] observePrintJobs FAILED:', e));
           }
@@ -559,8 +559,8 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_print_jobs' in response) ? response.arg_arg_print_jobs : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_print_jobs' in response) ? response.arg_print_jobs : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ResponseParamsSpec.$.structSpec, { 'arg_print_jobs': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPrintJobs FAILED:', e));
           }
@@ -575,8 +575,8 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteAllPrintJobs FAILED:', e));
           }
@@ -586,13 +586,13 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelPrintJob');
-          const result = this.impl.cancelPrintJob(params.arg_arg_id);
+          const result = this.impl.cancelPrintJob(params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_attempted_cancel' in response) ? response.arg_arg_attempted_cancel : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_attempted_cancel' in response) ? response.arg_attempted_cancel : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ResponseParamsSpec.$.structSpec, { 'arg_attempted_cancel': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] cancelPrintJob FAILED:', e));
           }
@@ -607,8 +607,8 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_allowed_by_policy' in response) ? response.arg_arg_is_allowed_by_policy : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_allowed_by_policy' in response) ? response.arg_is_allowed_by_policy : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ResponseParamsSpec.$.structSpec, { 'arg_is_allowed_by_policy': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDeletePrintJobHistoryAllowedByPolicy FAILED:', e));
           }
@@ -623,7 +623,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ResponseParamsSpec.$.structSpec, ['response.arg_arg_expiration_period_in_days', 'response.arg_arg_is_from_policy']);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ResponseParamsSpec.$.structSpec, { 'arg_expiration_period_in_days': response.arg_expiration_period_in_days, 'arg_is_from_policy': response.arg_is_from_policy });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPrintJobHistoryExpirationPeriod FAILED:', e));
           }
@@ -691,7 +691,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSettings_ParamsSpec,
       null,
-      [arg_source],
+      { arg_source: arg_source },
       false);
   }
 
@@ -700,7 +700,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementHandler_RecordGetPrintJobsRequestDuration_ParamsSpec,
       null,
-      [arg_duration],
+      { arg_duration: arg_duration },
       false);
   }
 
@@ -770,14 +770,14 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementH
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchPrinterSettings');
-          const result = this.impl.launchPrinterSettings(params.arg_arg_source);
+          const result = this.impl.launchPrinterSettings(params.arg_source);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementHandler_RecordGetPrintJobsRequestDuration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordGetPrintJobsRequestDuration');
-          const result = this.impl.recordGetPrintJobsRequestDuration(params.arg_arg_duration);
+          const result = this.impl.recordGetPrintJobsRequestDuration(params.arg_duration);
           break;
         }
       }

@@ -313,7 +313,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerFactoryRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -563,7 +563,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_SetMostVisitedSettings_ParamsSpec,
       null,
-      [arg_shortcuts_type, arg_shortcuts_visible],
+      { arg_shortcuts_type: arg_shortcuts_type, arg_shortcuts_visible: arg_shortcuts_visible },
       false);
   }
 
@@ -572,7 +572,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ParamsSpec,
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -581,7 +581,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetDoodle_ParamsSpec,
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -590,7 +590,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdatePromoData_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -599,7 +599,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_BlocklistPromo_ParamsSpec,
       null,
-      [arg_promo_id],
+      { arg_promo_id: arg_promo_id },
       false);
   }
 
@@ -608,7 +608,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_UndoBlocklistPromo_ParamsSpec,
       null,
-      [arg_promo_id],
+      { arg_promo_id: arg_promo_id },
       false);
   }
 
@@ -617,7 +617,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDismissModule_ParamsSpec,
       null,
-      [arg_module_id],
+      { arg_module_id: arg_module_id },
       false);
   }
 
@@ -626,7 +626,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnRestoreModule_ParamsSpec,
       null,
-      [arg_module_id],
+      { arg_module_id: arg_module_id },
       false);
   }
 
@@ -635,7 +635,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_SetModulesVisible_ParamsSpec,
       null,
-      [arg_visible],
+      { arg_visible: arg_visible },
       false);
   }
 
@@ -644,7 +644,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdateDisabledModules_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -653,7 +653,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnModulesLoadedWithData_ParamsSpec,
       null,
-      [arg_module_ids],
+      { arg_module_ids: arg_module_ids },
       false);
   }
 
@@ -662,7 +662,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnModuleUsed_ParamsSpec,
       null,
-      [arg_module_id],
+      { arg_module_id: arg_module_id },
       false);
   }
 
@@ -671,7 +671,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesIdNames_ParamsSpec,
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesIdNames_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -680,7 +680,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ParamsSpec,
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -689,7 +689,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_SetModulesOrder_ParamsSpec,
       null,
-      [arg_module_ids],
+      { arg_module_ids: arg_module_ids },
       false);
   }
 
@@ -698,7 +698,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesOrder_ParamsSpec,
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesOrder_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -707,7 +707,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdateModulesLoadable_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -716,7 +716,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_SetModulesDisabled_ParamsSpec,
       null,
-      [arg_module_ids, arg_disabled, arg_is_user_action],
+      { arg_module_ids: arg_module_ids, arg_disabled: arg_disabled, arg_is_user_action: arg_is_user_action },
       false);
   }
 
@@ -725,7 +725,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdateActionChipsVisibility_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -734,7 +734,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdateFooterVisibility_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -743,7 +743,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_IncrementComposeButtonShownCount_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -752,7 +752,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_MaybeTriggerAutomaticCustomizeChromePromo_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -761,7 +761,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_RecordContextMenuClick_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -770,7 +770,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnOneGoogleBarRendered_ParamsSpec,
       null,
-      [arg_time],
+      { arg_time: arg_time },
       false);
   }
 
@@ -779,7 +779,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnPromoRendered_ParamsSpec,
       null,
-      [arg_time, arg_log_url],
+      { arg_time: arg_time, arg_log_url: arg_log_url },
       false);
   }
 
@@ -788,7 +788,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_ParamsSpec,
       null,
-      [arg_action],
+      { arg_action: arg_action },
       false);
   }
 
@@ -797,7 +797,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageClicked_ParamsSpec,
       null,
-      [arg_type, arg_log_url],
+      { arg_type: arg_type, arg_log_url: arg_log_url },
       false);
   }
 
@@ -806,7 +806,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ParamsSpec,
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParamsSpec,
-      [arg_type, arg_time, arg_log_url],
+      { arg_type: arg_type, arg_time: arg_time, arg_log_url: arg_log_url },
       false);
   }
 
@@ -815,7 +815,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleShared_ParamsSpec,
       null,
-      [arg_channel, arg_doodle_id, arg_share_id],
+      { arg_channel: arg_channel, arg_doodle_id: arg_doodle_id, arg_share_id: arg_share_id },
       false);
   }
 
@@ -824,7 +824,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnPromoLinkClicked_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -833,7 +833,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnAppRendered_ParamsSpec,
       null,
-      [arg_time],
+      { arg_time: arg_time },
       false);
   }
 
@@ -932,7 +932,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_SetMostVisitedSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMostVisitedSettings');
-          const result = this.impl.setMostVisitedSettings(params.arg_arg_shortcuts_type, params.arg_arg_shortcuts_visible);
+          const result = this.impl.setMostVisitedSettings(params.arg_shortcuts_type, params.arg_shortcuts_visible);
           break;
         }
         case 1: {
@@ -944,7 +944,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ResponseParamsSpec.$.structSpec, ['response.arg_arg_shortcuts_type', 'response.arg_arg_shortcuts_visible']);
+              encoder.encodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ResponseParamsSpec.$.structSpec, { 'arg_shortcuts_type': response.arg_shortcuts_type, 'arg_shortcuts_visible': response.arg_shortcuts_visible });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMostVisitedSettings FAILED:', e));
           }
@@ -959,8 +959,8 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_doodle' in response) ? response.arg_arg_doodle : response;
-              encoder.encodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_doodle' in response) ? response.arg_doodle : response;
+              encoder.encodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec.$.structSpec, { 'arg_doodle': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDoodle FAILED:', e));
           }
@@ -977,35 +977,35 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_BlocklistPromo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.blocklistPromo');
-          const result = this.impl.blocklistPromo(params.arg_arg_promo_id);
+          const result = this.impl.blocklistPromo(params.arg_promo_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_UndoBlocklistPromo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.undoBlocklistPromo');
-          const result = this.impl.undoBlocklistPromo(params.arg_arg_promo_id);
+          const result = this.impl.undoBlocklistPromo(params.arg_promo_id);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDismissModule_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDismissModule');
-          const result = this.impl.onDismissModule(params.arg_arg_module_id);
+          const result = this.impl.onDismissModule(params.arg_module_id);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnRestoreModule_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRestoreModule');
-          const result = this.impl.onRestoreModule(params.arg_arg_module_id);
+          const result = this.impl.onRestoreModule(params.arg_module_id);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_SetModulesVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setModulesVisible');
-          const result = this.impl.setModulesVisible(params.arg_arg_visible);
+          const result = this.impl.setModulesVisible(params.arg_visible);
           break;
         }
         case 9: {
@@ -1019,14 +1019,14 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnModulesLoadedWithData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onModulesLoadedWithData');
-          const result = this.impl.onModulesLoadedWithData(params.arg_arg_module_ids);
+          const result = this.impl.onModulesLoadedWithData(params.arg_module_ids);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnModuleUsed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onModuleUsed');
-          const result = this.impl.onModuleUsed(params.arg_arg_module_id);
+          const result = this.impl.onModuleUsed(params.arg_module_id);
           break;
         }
         case 12: {
@@ -1038,8 +1038,8 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesIdNames_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesIdNames_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getModulesIdNames FAILED:', e));
           }
@@ -1054,8 +1054,8 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_module_ids' in response) ? response.arg_arg_module_ids : response;
-              encoder.encodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_module_ids' in response) ? response.arg_module_ids : response;
+              encoder.encodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ResponseParamsSpec.$.structSpec, { 'arg_module_ids': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getModulesEligibleForRemoval FAILED:', e));
           }
@@ -1065,7 +1065,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_SetModulesOrder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setModulesOrder');
-          const result = this.impl.setModulesOrder(params.arg_arg_module_ids);
+          const result = this.impl.setModulesOrder(params.arg_module_ids);
           break;
         }
         case 15: {
@@ -1077,8 +1077,8 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_module_ids' in response) ? response.arg_arg_module_ids : response;
-              encoder.encodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesOrder_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_module_ids' in response) ? response.arg_module_ids : response;
+              encoder.encodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesOrder_ResponseParamsSpec.$.structSpec, { 'arg_module_ids': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getModulesOrder FAILED:', e));
           }
@@ -1095,7 +1095,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_SetModulesDisabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setModulesDisabled');
-          const result = this.impl.setModulesDisabled(params.arg_arg_module_ids, params.arg_arg_disabled, params.arg_arg_is_user_action);
+          const result = this.impl.setModulesDisabled(params.arg_module_ids, params.arg_disabled, params.arg_is_user_action);
           break;
         }
         case 18: {
@@ -1137,40 +1137,40 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnOneGoogleBarRendered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOneGoogleBarRendered');
-          const result = this.impl.onOneGoogleBarRendered(params.arg_arg_time);
+          const result = this.impl.onOneGoogleBarRendered(params.arg_time);
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnPromoRendered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPromoRendered');
-          const result = this.impl.onPromoRendered(params.arg_arg_time, params.arg_arg_log_url);
+          const result = this.impl.onPromoRendered(params.arg_time, params.arg_log_url);
           break;
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCustomizeDialogAction');
-          const result = this.impl.onCustomizeDialogAction(params.arg_arg_action);
+          const result = this.impl.onCustomizeDialogAction(params.arg_action);
           break;
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDoodleImageClicked');
-          const result = this.impl.onDoodleImageClicked(params.arg_arg_type, params.arg_arg_log_url);
+          const result = this.impl.onDoodleImageClicked(params.arg_type, params.arg_log_url);
           break;
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDoodleImageRendered');
-          const result = this.impl.onDoodleImageRendered(params.arg_arg_type, params.arg_arg_time, params.arg_arg_log_url);
+          const result = this.impl.onDoodleImageRendered(params.arg_type, params.arg_time, params.arg_log_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParamsSpec.$.structSpec, ['response.arg_arg_image_click_params', 'response.arg_arg_interaction_log_url', 'response.arg_arg_share_id']);
+              encoder.encodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParamsSpec.$.structSpec, { 'arg_image_click_params': response.arg_image_click_params, 'arg_interaction_log_url': response.arg_interaction_log_url, 'arg_share_id': response.arg_share_id });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onDoodleImageRendered FAILED:', e));
           }
@@ -1180,7 +1180,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleShared_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDoodleShared');
-          const result = this.impl.onDoodleShared(params.arg_arg_channel, params.arg_arg_doodle_id, params.arg_arg_share_id);
+          const result = this.impl.onDoodleShared(params.arg_channel, params.arg_doodle_id, params.arg_share_id);
           break;
         }
         case 29: {
@@ -1194,7 +1194,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnAppRendered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAppRendered');
-          const result = this.impl.onAppRendered(params.arg_arg_time);
+          const result = this.impl.onAppRendered(params.arg_time);
           break;
         }
       }
@@ -1287,7 +1287,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.Page_SetTheme_ParamsSpec,
       null,
-      [arg_theme],
+      { arg_theme: arg_theme },
       false);
   }
 
@@ -1296,7 +1296,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.Page_SetDisabledModules_ParamsSpec,
       null,
-      [arg_all, arg_ids],
+      { arg_all: arg_all, arg_ids: arg_ids },
       false);
   }
 
@@ -1305,7 +1305,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.Page_SetModulesLoadable_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1314,7 +1314,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.Page_SetActionChipsVisibility_ParamsSpec,
       null,
-      [arg_visible],
+      { arg_visible: arg_visible },
       false);
   }
 
@@ -1323,7 +1323,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.Page_SetPromo_ParamsSpec,
       null,
-      [arg_promo],
+      { arg_promo: arg_promo },
       false);
   }
 
@@ -1332,7 +1332,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.Page_ShowWebstoreToast_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1341,7 +1341,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.Page_SetWallpaperSearchButtonVisibility_ParamsSpec,
       null,
-      [arg_visible],
+      { arg_visible: arg_visible },
       false);
   }
 
@@ -1350,7 +1350,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.Page_FooterVisibilityUpdated_ParamsSpec,
       null,
-      [arg_visible],
+      { arg_visible: arg_visible },
       false);
   }
 
@@ -1359,7 +1359,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.Page_ConnectToParentDocument_ParamsSpec,
       null,
-      [arg_child_untrusted_document_remote],
+      { arg_child_untrusted_document_remote: arg_child_untrusted_document_remote },
       false);
   }
 
@@ -1436,14 +1436,14 @@ mojo.internal.bindings.new_tab_page.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.Page_SetTheme_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTheme');
-          const result = this.impl.setTheme(params.arg_arg_theme);
+          const result = this.impl.setTheme(params.arg_theme);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.Page_SetDisabledModules_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDisabledModules');
-          const result = this.impl.setDisabledModules(params.arg_arg_all, params.arg_arg_ids);
+          const result = this.impl.setDisabledModules(params.arg_all, params.arg_ids);
           break;
         }
         case 2: {
@@ -1457,14 +1457,14 @@ mojo.internal.bindings.new_tab_page.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.Page_SetActionChipsVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setActionChipsVisibility');
-          const result = this.impl.setActionChipsVisibility(params.arg_arg_visible);
+          const result = this.impl.setActionChipsVisibility(params.arg_visible);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.Page_SetPromo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPromo');
-          const result = this.impl.setPromo(params.arg_arg_promo);
+          const result = this.impl.setPromo(params.arg_promo);
           break;
         }
         case 5: {
@@ -1478,21 +1478,21 @@ mojo.internal.bindings.new_tab_page.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.Page_SetWallpaperSearchButtonVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWallpaperSearchButtonVisibility');
-          const result = this.impl.setWallpaperSearchButtonVisibility(params.arg_arg_visible);
+          const result = this.impl.setWallpaperSearchButtonVisibility(params.arg_visible);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.Page_FooterVisibilityUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.footerVisibilityUpdated');
-          const result = this.impl.footerVisibilityUpdated(params.arg_arg_visible);
+          const result = this.impl.footerVisibilityUpdated(params.arg_visible);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.Page_ConnectToParentDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToParentDocument');
-          const result = this.impl.connectToParentDocument(params.arg_arg_child_untrusted_document_remote);
+          const result = this.impl.connectToParentDocument(params.arg_child_untrusted_document_remote);
           break;
         }
       }

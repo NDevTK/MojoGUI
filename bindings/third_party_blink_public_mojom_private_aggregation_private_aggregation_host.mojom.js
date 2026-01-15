@@ -199,7 +199,7 @@ mojo.internal.bindings.blink.mojom.PrivateAggregationHostRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec,
       null,
-      [arg_contributions],
+      { arg_contributions: arg_contributions },
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.blink.mojom.PrivateAggregationHostRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec,
       null,
-      [arg_error_event, arg_contributions],
+      { arg_error_event: arg_error_event, arg_contributions: arg_contributions },
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.blink.mojom.PrivateAggregationHostRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec,
       null,
-      [arg_debug_key],
+      { arg_debug_key: arg_debug_key },
       false);
   }
 
@@ -288,21 +288,21 @@ mojo.internal.bindings.blink.mojom.PrivateAggregationHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.contributeToHistogram');
-          const result = this.impl.contributeToHistogram(params.arg_arg_contributions);
+          const result = this.impl.contributeToHistogram(params.arg_contributions);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.contributeToHistogramOnEvent');
-          const result = this.impl.contributeToHistogramOnEvent(params.arg_arg_error_event, params.arg_arg_contributions);
+          const result = this.impl.contributeToHistogramOnEvent(params.arg_error_event, params.arg_contributions);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableDebugMode');
-          const result = this.impl.enableDebugMode(params.arg_arg_debug_key);
+          const result = this.impl.enableDebugMode(params.arg_debug_key);
           break;
         }
       }

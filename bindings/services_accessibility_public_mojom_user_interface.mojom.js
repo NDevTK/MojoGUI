@@ -225,7 +225,7 @@ mojo.internal.bindings.ax.mojom.UserInterfaceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.UserInterface_DarkenScreen_ParamsSpec,
       null,
-      [arg_darken],
+      { arg_darken: arg_darken },
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.ax.mojom.UserInterfaceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec,
       null,
-      [arg_subpage],
+      { arg_subpage: arg_subpage },
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.ax.mojom.UserInterfaceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec,
       mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec,
-      [arg_title, arg_description, arg_cancelName],
+      { arg_title: arg_title, arg_description: arg_description, arg_cancelName: arg_cancelName },
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.ax.mojom.UserInterfaceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ax.mojom.UserInterface_SetFocusRings_ParamsSpec,
       null,
-      [arg_focus_rings, arg_at_type],
+      { arg_focus_rings: arg_focus_rings, arg_at_type: arg_at_type },
       false);
   }
 
@@ -261,7 +261,7 @@ mojo.internal.bindings.ax.mojom.UserInterfaceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ax.mojom.UserInterface_SetHighlights_ParamsSpec,
       null,
-      [arg_rects, arg_color],
+      { arg_rects: arg_rects, arg_color: arg_color },
       false);
   }
 
@@ -270,7 +270,7 @@ mojo.internal.bindings.ax.mojom.UserInterfaceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec,
       null,
-      [arg_is_visible],
+      { arg_is_visible: arg_is_visible },
       false);
   }
 
@@ -344,27 +344,27 @@ mojo.internal.bindings.ax.mojom.UserInterfaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_DarkenScreen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.darkenScreen');
-          const result = this.impl.darkenScreen(params.arg_arg_darken);
+          const result = this.impl.darkenScreen(params.arg_darken);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openSettingsSubpage');
-          const result = this.impl.openSettingsSubpage(params.arg_arg_subpage);
+          const result = this.impl.openSettingsSubpage(params.arg_subpage);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showConfirmationDialog');
-          const result = this.impl.showConfirmationDialog(params.arg_arg_title, params.arg_arg_description, params.arg_arg_cancelName);
+          const result = this.impl.showConfirmationDialog(params.arg_title, params.arg_description, params.arg_cancelName);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_confirmed' in response) ? response.arg_arg_confirmed : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_confirmed' in response) ? response.arg_confirmed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec.$.structSpec, { 'arg_confirmed': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] showConfirmationDialog FAILED:', e));
           }
@@ -374,21 +374,21 @@ mojo.internal.bindings.ax.mojom.UserInterfaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_SetFocusRings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFocusRings');
-          const result = this.impl.setFocusRings(params.arg_arg_focus_rings, params.arg_arg_at_type);
+          const result = this.impl.setFocusRings(params.arg_focus_rings, params.arg_at_type);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_SetHighlights_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHighlights');
-          const result = this.impl.setHighlights(params.arg_arg_rects, params.arg_arg_color);
+          const result = this.impl.setHighlights(params.arg_rects, params.arg_color);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVirtualKeyboardVisible');
-          const result = this.impl.setVirtualKeyboardVisible(params.arg_arg_is_visible);
+          const result = this.impl.setVirtualKeyboardVisible(params.arg_is_visible);
           break;
         }
       }

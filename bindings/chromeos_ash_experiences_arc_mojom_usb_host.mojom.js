@@ -196,7 +196,7 @@ mojo.internal.bindings.arc.mojom.UsbHostHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.UsbHostHost_OpenDevice_ParamsSpec,
       mojo.internal.bindings.arc.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec,
-      [arg_guid, arg_pkg_name],
+      { arg_guid: arg_guid, arg_pkg_name: arg_pkg_name },
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.arc.mojom.UsbHostHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec,
       mojo.internal.bindings.arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec,
-      [arg_guid],
+      { arg_guid: arg_guid },
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.arc.mojom.UsbHostHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.UsbHostHost_RequestPermission_ParamsSpec,
       mojo.internal.bindings.arc.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec,
-      [arg_guid, arg_pkg_name, arg_interactive],
+      { arg_guid: arg_guid, arg_pkg_name: arg_pkg_name, arg_interactive: arg_interactive },
       false);
   }
 
@@ -285,13 +285,13 @@ mojo.internal.bindings.arc.mojom.UsbHostHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_OpenDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openDevice');
-          const result = this.impl.openDevice(params.arg_arg_guid, params.arg_arg_pkg_name);
+          const result = this.impl.openDevice(params.arg_guid, params.arg_pkg_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_usb_fd' in response) ? response.arg_arg_usb_fd : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_usb_fd' in response) ? response.arg_usb_fd : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec.$.structSpec, { 'arg_usb_fd': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openDevice FAILED:', e));
           }
@@ -301,12 +301,12 @@ mojo.internal.bindings.arc.mojom.UsbHostHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeviceInfo');
-          const result = this.impl.getDeviceInfo(params.arg_arg_guid);
+          const result = this.impl.getDeviceInfo(params.arg_guid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_device_name', 'response.arg_arg_info']);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec.$.structSpec, { 'arg_device_name': response.arg_device_name, 'arg_info': response.arg_info });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDeviceInfo FAILED:', e));
           }
@@ -316,13 +316,13 @@ mojo.internal.bindings.arc.mojom.UsbHostHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_RequestPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPermission');
-          const result = this.impl.requestPermission(params.arg_arg_guid, params.arg_arg_pkg_name, params.arg_arg_interactive);
+          const result = this.impl.requestPermission(params.arg_guid, params.arg_pkg_name, params.arg_interactive);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_authorized' in response) ? response.arg_arg_authorized : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_authorized' in response) ? response.arg_authorized : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec.$.structSpec, { 'arg_authorized': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestPermission FAILED:', e));
           }
@@ -394,7 +394,7 @@ mojo.internal.bindings.arc.mojom.UsbHostInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.UsbHostInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.UsbHostInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.arc.mojom.UsbHostInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec,
       null,
-      [arg_guid, arg_event_receiver_packages],
+      { arg_guid: arg_guid, arg_event_receiver_packages: arg_event_receiver_packages },
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.arc.mojom.UsbHostInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec,
       null,
-      [arg_guid, arg_event_receiver_packages],
+      { arg_guid: arg_guid, arg_event_receiver_packages: arg_event_receiver_packages },
       false);
   }
 
@@ -483,12 +483,12 @@ mojo.internal.bindings.arc.mojom.UsbHostInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -498,14 +498,14 @@ mojo.internal.bindings.arc.mojom.UsbHostInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceAdded');
-          const result = this.impl.onDeviceAdded(params.arg_arg_guid, params.arg_arg_event_receiver_packages);
+          const result = this.impl.onDeviceAdded(params.arg_guid, params.arg_event_receiver_packages);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceRemoved');
-          const result = this.impl.onDeviceRemoved(params.arg_arg_guid, params.arg_arg_event_receiver_packages);
+          const result = this.impl.onDeviceRemoved(params.arg_guid, params.arg_event_receiver_packages);
           break;
         }
       }

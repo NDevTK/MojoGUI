@@ -305,7 +305,7 @@ mojo.internal.bindings.tracing.mojom.ProducerHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ResponseParamsSpec,
-      [arg_data_request],
+      { arg_data_request: arg_data_request },
       false);
   }
 
@@ -314,7 +314,7 @@ mojo.internal.bindings.tracing.mojom.ProducerHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec,
       null,
-      [arg_registration_info],
+      { arg_registration_info: arg_registration_info },
       false);
   }
 
@@ -323,7 +323,7 @@ mojo.internal.bindings.tracing.mojom.ProducerHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec,
       null,
-      [arg_registration_info],
+      { arg_registration_info: arg_registration_info },
       false);
   }
 
@@ -332,7 +332,7 @@ mojo.internal.bindings.tracing.mojom.ProducerHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec,
       null,
-      [arg_writer_id, arg_target_buffer],
+      { arg_writer_id: arg_writer_id, arg_target_buffer: arg_target_buffer },
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.tracing.mojom.ProducerHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec,
       null,
-      [arg_writer_id],
+      { arg_writer_id: arg_writer_id },
       false);
   }
 
@@ -414,12 +414,12 @@ mojo.internal.bindings.tracing.mojom.ProducerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commitData');
-          const result = this.impl.commitData(params.arg_arg_data_request);
+          const result = this.impl.commitData(params.arg_data_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] commitData FAILED:', e));
           }
@@ -429,28 +429,28 @@ mojo.internal.bindings.tracing.mojom.ProducerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerDataSource');
-          const result = this.impl.registerDataSource(params.arg_arg_registration_info);
+          const result = this.impl.registerDataSource(params.arg_registration_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateDataSource');
-          const result = this.impl.updateDataSource(params.arg_arg_registration_info);
+          const result = this.impl.updateDataSource(params.arg_registration_info);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerTraceWriter');
-          const result = this.impl.registerTraceWriter(params.arg_arg_writer_id, params.arg_arg_target_buffer);
+          const result = this.impl.registerTraceWriter(params.arg_writer_id, params.arg_target_buffer);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unregisterTraceWriter');
-          const result = this.impl.unregisterTraceWriter(params.arg_arg_writer_id);
+          const result = this.impl.unregisterTraceWriter(params.arg_writer_id);
           break;
         }
       }
@@ -527,7 +527,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -536,7 +536,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec,
-      [arg_id, arg_data_source_config],
+      { arg_id: arg_id, arg_data_source_config: arg_data_source_config },
       false);
   }
 
@@ -545,7 +545,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ResponseParamsSpec,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -554,7 +554,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerClient_Flush_ParamsSpec,
       null,
-      [arg_flush_request_id, arg_data_source_ids],
+      { arg_flush_request_id: arg_flush_request_id, arg_data_source_ids: arg_data_source_ids },
       false);
   }
 
@@ -563,7 +563,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -643,12 +643,12 @@ mojo.internal.bindings.tracing.mojom.ProducerClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDataSource');
-          const result = this.impl.startDataSource(params.arg_arg_id, params.arg_arg_data_source_config);
+          const result = this.impl.startDataSource(params.arg_id, params.arg_data_source_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startDataSource FAILED:', e));
           }
@@ -658,12 +658,12 @@ mojo.internal.bindings.tracing.mojom.ProducerClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopDataSource');
-          const result = this.impl.stopDataSource(params.arg_arg_id);
+          const result = this.impl.stopDataSource(params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] stopDataSource FAILED:', e));
           }
@@ -673,7 +673,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_Flush_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flush');
-          const result = this.impl.flush(params.arg_arg_flush_request_id, params.arg_arg_data_source_ids);
+          const result = this.impl.flush(params.arg_flush_request_id, params.arg_data_source_ids);
           break;
         }
         case 4: {
@@ -741,7 +741,7 @@ mojo.internal.bindings.tracing.mojom.PerfettoServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec,
       null,
-      [arg_producer_client, arg_producer_host_receiver, arg_shared_memory, arg_shared_memory_buffer_page_size_bytes],
+      { arg_producer_client: arg_producer_client, arg_producer_host_receiver: arg_producer_host_receiver, arg_shared_memory: arg_shared_memory, arg_shared_memory_buffer_page_size_bytes: arg_shared_memory_buffer_page_size_bytes },
       false);
   }
 
@@ -810,7 +810,7 @@ mojo.internal.bindings.tracing.mojom.PerfettoServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToProducerHost');
-          const result = this.impl.connectToProducerHost(params.arg_arg_producer_client, params.arg_arg_producer_host_receiver, params.arg_arg_shared_memory, params.arg_arg_shared_memory_buffer_page_size_bytes);
+          const result = this.impl.connectToProducerHost(params.arg_producer_client, params.arg_producer_host_receiver, params.arg_shared_memory, params.arg_shared_memory_buffer_page_size_bytes);
           break;
         }
       }
@@ -875,7 +875,7 @@ mojo.internal.bindings.tracing.mojom.ConsumerHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec,
       null,
-      [arg_tracing_session_host, arg_tracing_session_client, arg_config, arg_output_file],
+      { arg_tracing_session_host: arg_tracing_session_host, arg_tracing_session_client: arg_tracing_session_client, arg_config: arg_config, arg_output_file: arg_output_file },
       false);
   }
 
@@ -884,7 +884,7 @@ mojo.internal.bindings.tracing.mojom.ConsumerHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec,
-      [arg_tracing_session_host, arg_tracing_session_client, arg_unguessable_name, arg_privacy_filtering_enabled],
+      { arg_tracing_session_host: arg_tracing_session_host, arg_tracing_session_client: arg_tracing_session_client, arg_unguessable_name: arg_unguessable_name, arg_privacy_filtering_enabled: arg_privacy_filtering_enabled },
       false);
   }
 
@@ -954,19 +954,19 @@ mojo.internal.bindings.tracing.mojom.ConsumerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableTracing');
-          const result = this.impl.enableTracing(params.arg_arg_tracing_session_host, params.arg_arg_tracing_session_client, params.arg_arg_config, params.arg_arg_output_file);
+          const result = this.impl.enableTracing(params.arg_tracing_session_host, params.arg_tracing_session_client, params.arg_config, params.arg_output_file);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cloneSession');
-          const result = this.impl.cloneSession(params.arg_arg_tracing_session_host, params.arg_arg_tracing_session_client, params.arg_arg_unguessable_name, params.arg_arg_privacy_filtering_enabled);
+          const result = this.impl.cloneSession(params.arg_tracing_session_host, params.arg_tracing_session_client, params.arg_unguessable_name, params.arg_privacy_filtering_enabled);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_error', 'response.arg_arg_uuid']);
+              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_error': response.arg_error, 'arg_uuid': response.arg_uuid });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] cloneSession FAILED:', e));
           }
@@ -1046,7 +1046,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec,
       null,
-      [arg_config],
+      { arg_config: arg_config },
       false);
   }
 
@@ -1055,7 +1055,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1064,7 +1064,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.TracingSessionHost_ReadBuffers_ResponseParamsSpec,
-      [arg_stream],
+      { arg_stream: arg_stream },
       false);
   }
 
@@ -1073,7 +1073,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1082,7 +1082,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParamsSpec,
-      [arg_agent_label_filter, arg_stream, arg_privacy_filtering_enabled],
+      { arg_agent_label_filter: arg_agent_label_filter, arg_stream: arg_stream, arg_privacy_filtering_enabled: arg_privacy_filtering_enabled },
       false);
   }
 
@@ -1155,7 +1155,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.changeTraceConfig');
-          const result = this.impl.changeTraceConfig(params.arg_arg_config);
+          const result = this.impl.changeTraceConfig(params.arg_config);
           break;
         }
         case 1: {
@@ -1169,12 +1169,12 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readBuffers');
-          const result = this.impl.readBuffers(params.arg_arg_stream);
+          const result = this.impl.readBuffers(params.arg_stream);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_ReadBuffers_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_ReadBuffers_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readBuffers FAILED:', e));
           }
@@ -1189,7 +1189,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_percent_full', 'response.arg_arg_data_loss']);
+              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_percent_full': response.arg_percent_full, 'arg_data_loss': response.arg_data_loss });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestBufferUsage FAILED:', e));
           }
@@ -1199,12 +1199,12 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disableTracingAndEmitJson');
-          const result = this.impl.disableTracingAndEmitJson(params.arg_arg_agent_label_filter, params.arg_arg_stream, params.arg_arg_privacy_filtering_enabled);
+          const result = this.impl.disableTracingAndEmitJson(params.arg_agent_label_filter, params.arg_stream, params.arg_privacy_filtering_enabled);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] disableTracingAndEmitJson FAILED:', e));
           }
@@ -1272,7 +1272,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionClientRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1281,7 +1281,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionClientRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec,
       null,
-      [arg_tracing_succeeded],
+      { arg_tracing_succeeded: arg_tracing_succeeded },
       false);
   }
 
@@ -1358,7 +1358,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTracingDisabled');
-          const result = this.impl.onTracingDisabled(params.arg_arg_tracing_succeeded);
+          const result = this.impl.onTracingDisabled(params.arg_tracing_succeeded);
           break;
         }
       }

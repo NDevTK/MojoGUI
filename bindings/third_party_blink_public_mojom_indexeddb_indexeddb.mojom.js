@@ -425,7 +425,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBFactoryClient_Error_ParamsSpec,
       null,
-      [arg_code, arg_message],
+      { arg_code: arg_code, arg_message: arg_message },
       false);
   }
 
@@ -434,7 +434,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBFactoryClient_Blocked_ParamsSpec,
       null,
-      [arg_existing_version],
+      { arg_existing_version: arg_existing_version },
       false);
   }
 
@@ -443,7 +443,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBFactoryClient_UpgradeNeeded_ParamsSpec,
       null,
-      [arg_pending_database, arg_old_version, arg_data_loss, arg_data_loss_message, arg_db_metadata],
+      { arg_pending_database: arg_pending_database, arg_old_version: arg_old_version, arg_data_loss: arg_data_loss, arg_data_loss_message: arg_data_loss_message, arg_db_metadata: arg_db_metadata },
       false);
   }
 
@@ -452,7 +452,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBFactoryClient_OpenSuccess_ParamsSpec,
       null,
-      [arg_pending_database, arg_metadata],
+      { arg_pending_database: arg_pending_database, arg_metadata: arg_metadata },
       false);
   }
 
@@ -461,7 +461,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryClientRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBFactoryClient_DeleteSuccess_ParamsSpec,
       null,
-      [arg_old_version],
+      { arg_old_version: arg_old_version },
       false);
   }
 
@@ -534,35 +534,35 @@ mojo.internal.bindings.blink.mojom.IDBFactoryClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactoryClient_Error_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.error');
-          const result = this.impl.error(params.arg_arg_code, params.arg_arg_message);
+          const result = this.impl.error(params.arg_code, params.arg_message);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactoryClient_Blocked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.blocked');
-          const result = this.impl.blocked(params.arg_arg_existing_version);
+          const result = this.impl.blocked(params.arg_existing_version);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactoryClient_UpgradeNeeded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.upgradeNeeded');
-          const result = this.impl.upgradeNeeded(params.arg_arg_pending_database, params.arg_arg_old_version, params.arg_arg_data_loss, params.arg_arg_data_loss_message, params.arg_arg_db_metadata);
+          const result = this.impl.upgradeNeeded(params.arg_pending_database, params.arg_old_version, params.arg_data_loss, params.arg_data_loss_message, params.arg_db_metadata);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactoryClient_OpenSuccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openSuccess');
-          const result = this.impl.openSuccess(params.arg_arg_pending_database, params.arg_arg_metadata);
+          const result = this.impl.openSuccess(params.arg_pending_database, params.arg_metadata);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactoryClient_DeleteSuccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteSuccess');
-          const result = this.impl.deleteSuccess(params.arg_arg_old_version);
+          const result = this.impl.deleteSuccess(params.arg_old_version);
           break;
         }
       }
@@ -635,7 +635,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_ForcedClose_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -644,7 +644,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_VersionChange_ParamsSpec,
       null,
-      [arg_old_version, arg_new_version],
+      { arg_old_version: arg_old_version, arg_new_version: arg_new_version },
       false);
   }
 
@@ -653,7 +653,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_Abort_ParamsSpec,
       null,
-      [arg_transaction_id, arg_code, arg_message],
+      { arg_transaction_id: arg_transaction_id, arg_code: arg_code, arg_message: arg_message },
       false);
   }
 
@@ -662,7 +662,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_Complete_ParamsSpec,
       null,
-      [arg_transaction_id],
+      { arg_transaction_id: arg_transaction_id },
       false);
   }
 
@@ -741,21 +741,21 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_VersionChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.versionChange');
-          const result = this.impl.versionChange(params.arg_arg_old_version, params.arg_arg_new_version);
+          const result = this.impl.versionChange(params.arg_old_version, params.arg_new_version);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_Abort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.abort');
-          const result = this.impl.abort(params.arg_arg_transaction_id, params.arg_arg_code, params.arg_arg_message);
+          const result = this.impl.abort(params.arg_transaction_id, params.arg_code, params.arg_message);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_Complete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.complete');
-          const result = this.impl.complete(params.arg_arg_transaction_id);
+          const result = this.impl.complete(params.arg_transaction_id);
           break;
         }
       }
@@ -828,7 +828,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBCursor_Advance_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBCursor_Advance_ResponseParamsSpec,
-      [arg_count],
+      { arg_count: arg_count },
       false);
   }
 
@@ -837,7 +837,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBCursor_Continue_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBCursor_Continue_ResponseParamsSpec,
-      [arg_key, arg_primary_key],
+      { arg_key: arg_key, arg_primary_key: arg_primary_key },
       false);
   }
 
@@ -846,7 +846,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBCursor_Prefetch_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBCursor_Prefetch_ResponseParamsSpec,
-      [arg_count],
+      { arg_count: arg_count },
       false);
   }
 
@@ -855,7 +855,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBCursor_PrefetchReset_ParamsSpec,
       null,
-      [arg_used_prefetches],
+      { arg_used_prefetches: arg_used_prefetches },
       false);
   }
 
@@ -927,13 +927,13 @@ mojo.internal.bindings.blink.mojom.IDBCursorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBCursor_Advance_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.advance');
-          const result = this.impl.advance(params.arg_arg_count);
+          const result = this.impl.advance(params.arg_count);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBCursor_Advance_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBCursor_Advance_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] advance FAILED:', e));
           }
@@ -943,13 +943,13 @@ mojo.internal.bindings.blink.mojom.IDBCursorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBCursor_Continue_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.continue');
-          const result = this.impl.continue(params.arg_arg_key, params.arg_arg_primary_key);
+          const result = this.impl.continue(params.arg_key, params.arg_primary_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBCursor_Continue_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBCursor_Continue_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] continue FAILED:', e));
           }
@@ -959,13 +959,13 @@ mojo.internal.bindings.blink.mojom.IDBCursorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBCursor_Prefetch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prefetch');
-          const result = this.impl.prefetch(params.arg_arg_count);
+          const result = this.impl.prefetch(params.arg_count);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBCursor_Prefetch_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBCursor_Prefetch_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] prefetch FAILED:', e));
           }
@@ -975,7 +975,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBCursor_PrefetchReset_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prefetchReset');
-          const result = this.impl.prefetchReset(params.arg_arg_used_prefetches);
+          const result = this.impl.prefetchReset(params.arg_used_prefetches);
           break;
         }
       }
@@ -1056,7 +1056,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBTransaction_CreateObjectStore_ParamsSpec,
       null,
-      [arg_object_store_id, arg_name, arg_key_path, arg_auto_increment],
+      { arg_object_store_id: arg_object_store_id, arg_name: arg_name, arg_key_path: arg_key_path, arg_auto_increment: arg_auto_increment },
       false);
   }
 
@@ -1065,7 +1065,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBTransaction_DeleteObjectStore_ParamsSpec,
       null,
-      [arg_object_store_id],
+      { arg_object_store_id: arg_object_store_id },
       false);
   }
 
@@ -1074,7 +1074,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBTransaction_Put_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBTransaction_Put_ResponseParamsSpec,
-      [arg_object_store_id, arg_value, arg_key, arg_mode, arg_index_keys],
+      { arg_object_store_id: arg_object_store_id, arg_value: arg_value, arg_key: arg_key, arg_mode: arg_mode, arg_index_keys: arg_index_keys },
       false);
   }
 
@@ -1083,7 +1083,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBTransaction_SetIndexKeys_ParamsSpec,
       null,
-      [arg_object_store_id, arg_primary_key, arg_index_keys],
+      { arg_object_store_id: arg_object_store_id, arg_primary_key: arg_primary_key, arg_index_keys: arg_index_keys },
       false);
   }
 
@@ -1092,7 +1092,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBTransaction_SetIndexKeysDone_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1101,7 +1101,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBTransaction_Commit_ParamsSpec,
       null,
-      [arg_num_errors_handled],
+      { arg_num_errors_handled: arg_num_errors_handled },
       false);
   }
 
@@ -1175,27 +1175,27 @@ mojo.internal.bindings.blink.mojom.IDBTransactionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBTransaction_CreateObjectStore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createObjectStore');
-          const result = this.impl.createObjectStore(params.arg_arg_object_store_id, params.arg_arg_name, params.arg_arg_key_path, params.arg_arg_auto_increment);
+          const result = this.impl.createObjectStore(params.arg_object_store_id, params.arg_name, params.arg_key_path, params.arg_auto_increment);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBTransaction_DeleteObjectStore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteObjectStore');
-          const result = this.impl.deleteObjectStore(params.arg_arg_object_store_id);
+          const result = this.impl.deleteObjectStore(params.arg_object_store_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBTransaction_Put_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.put');
-          const result = this.impl.put(params.arg_arg_object_store_id, params.arg_arg_value, params.arg_arg_key, params.arg_arg_mode, params.arg_arg_index_keys);
+          const result = this.impl.put(params.arg_object_store_id, params.arg_value, params.arg_key, params.arg_mode, params.arg_index_keys);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBTransaction_Put_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBTransaction_Put_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] put FAILED:', e));
           }
@@ -1205,7 +1205,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBTransaction_SetIndexKeys_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIndexKeys');
-          const result = this.impl.setIndexKeys(params.arg_arg_object_store_id, params.arg_arg_primary_key, params.arg_arg_index_keys);
+          const result = this.impl.setIndexKeys(params.arg_object_store_id, params.arg_primary_key, params.arg_index_keys);
           break;
         }
         case 4: {
@@ -1219,7 +1219,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBTransaction_Commit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commit');
-          const result = this.impl.commit(params.arg_arg_num_errors_handled);
+          const result = this.impl.commit(params.arg_num_errors_handled);
           break;
         }
       }
@@ -1284,7 +1284,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSinkRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSink_ReceiveResults_ParamsSpec,
       null,
-      [arg_records, arg_done],
+      { arg_records: arg_records, arg_done: arg_done },
       false);
   }
 
@@ -1293,7 +1293,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSinkRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSink_OnError_ParamsSpec,
       null,
-      [arg_error],
+      { arg_error: arg_error },
       false);
   }
 
@@ -1363,14 +1363,14 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSinkReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSink_ReceiveResults_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.receiveResults');
-          const result = this.impl.receiveResults(params.arg_arg_records, params.arg_arg_done);
+          const result = this.impl.receiveResults(params.arg_records, params.arg_done);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSink_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_error);
+          const result = this.impl.onError(params.arg_error);
           break;
         }
       }
@@ -1491,7 +1491,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_RenameObjectStore_ParamsSpec,
       null,
-      [arg_transaction_id, arg_object_store_id, arg_new_name],
+      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id, arg_new_name: arg_new_name },
       false);
   }
 
@@ -1500,7 +1500,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_CreateTransaction_ParamsSpec,
       null,
-      [arg_transaction_receiver, arg_transaction_id, arg_object_store_ids, arg_mode, arg_durability],
+      { arg_transaction_receiver: arg_transaction_receiver, arg_transaction_id: arg_transaction_id, arg_object_store_ids: arg_object_store_ids, arg_mode: arg_mode, arg_durability: arg_durability },
       false);
   }
 
@@ -1509,7 +1509,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_VersionChangeIgnored_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1518,7 +1518,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_Get_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBDatabase_Get_ResponseParamsSpec,
-      [arg_transaction_id, arg_object_store_id, arg_index_id, arg_key_range, arg_key_only],
+      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id, arg_index_id: arg_index_id, arg_key_range: arg_key_range, arg_key_only: arg_key_only },
       false);
   }
 
@@ -1527,7 +1527,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_GetAll_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBDatabase_GetAll_ResponseParamsSpec,
-      [arg_transaction_id, arg_object_store_id, arg_index_id, arg_key_range, arg_result_type, arg_max_count, arg_direction],
+      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id, arg_index_id: arg_index_id, arg_key_range: arg_key_range, arg_result_type: arg_result_type, arg_max_count: arg_max_count, arg_direction: arg_direction },
       false);
   }
 
@@ -1536,7 +1536,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_OpenCursor_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBDatabase_OpenCursor_ResponseParamsSpec,
-      [arg_transaction_id, arg_object_store_id, arg_index_id, arg_key_range, arg_direction, arg_key_only, arg_task_type],
+      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id, arg_index_id: arg_index_id, arg_key_range: arg_key_range, arg_direction: arg_direction, arg_key_only: arg_key_only, arg_task_type: arg_task_type },
       false);
   }
 
@@ -1545,7 +1545,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_Count_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBDatabase_Count_ResponseParamsSpec,
-      [arg_transaction_id, arg_object_store_id, arg_index_id, arg_key_range],
+      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id, arg_index_id: arg_index_id, arg_key_range: arg_key_range },
       false);
   }
 
@@ -1554,7 +1554,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_DeleteRange_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBDatabase_DeleteRange_ResponseParamsSpec,
-      [arg_transaction_id, arg_object_store_id, arg_key_range],
+      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id, arg_key_range: arg_key_range },
       false);
   }
 
@@ -1563,7 +1563,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ResponseParamsSpec,
-      [arg_transaction_id, arg_object_store_id],
+      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id },
       false);
   }
 
@@ -1572,7 +1572,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_Clear_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBDatabase_Clear_ResponseParamsSpec,
-      [arg_transaction_id, arg_object_store_id],
+      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id },
       false);
   }
 
@@ -1581,7 +1581,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_CreateIndex_ParamsSpec,
       null,
-      [arg_transaction_id, arg_object_store_id, arg_index],
+      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id, arg_index: arg_index },
       false);
   }
 
@@ -1590,7 +1590,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_DeleteIndex_ParamsSpec,
       null,
-      [arg_transaction_id, arg_object_store_id, arg_index_id],
+      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id, arg_index_id: arg_index_id },
       false);
   }
 
@@ -1599,7 +1599,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_RenameIndex_ParamsSpec,
       null,
-      [arg_transaction_id, arg_object_store_id, arg_index_id, arg_new_name],
+      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id, arg_index_id: arg_index_id, arg_new_name: arg_new_name },
       false);
   }
 
@@ -1608,7 +1608,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_Abort_ParamsSpec,
       null,
-      [arg_transaction_id],
+      { arg_transaction_id: arg_transaction_id },
       false);
   }
 
@@ -1617,7 +1617,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_DidBecomeInactive_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1626,7 +1626,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_UpdatePriority_ParamsSpec,
       null,
-      [arg_new_priority],
+      { arg_new_priority: arg_new_priority },
       false);
   }
 
@@ -1710,14 +1710,14 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_RenameObjectStore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.renameObjectStore');
-          const result = this.impl.renameObjectStore(params.arg_arg_transaction_id, params.arg_arg_object_store_id, params.arg_arg_new_name);
+          const result = this.impl.renameObjectStore(params.arg_transaction_id, params.arg_object_store_id, params.arg_new_name);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_CreateTransaction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTransaction');
-          const result = this.impl.createTransaction(params.arg_arg_transaction_receiver, params.arg_arg_transaction_id, params.arg_arg_object_store_ids, params.arg_arg_mode, params.arg_arg_durability);
+          const result = this.impl.createTransaction(params.arg_transaction_receiver, params.arg_transaction_id, params.arg_object_store_ids, params.arg_mode, params.arg_durability);
           break;
         }
         case 2: {
@@ -1731,13 +1731,13 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_Get_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.get');
-          const result = this.impl.get(params.arg_arg_transaction_id, params.arg_arg_object_store_id, params.arg_arg_index_id, params.arg_arg_key_range, params.arg_arg_key_only);
+          const result = this.impl.get(params.arg_transaction_id, params.arg_object_store_id, params.arg_index_id, params.arg_key_range, params.arg_key_only);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_Get_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_Get_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] get FAILED:', e));
           }
@@ -1747,13 +1747,13 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_GetAll_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAll');
-          const result = this.impl.getAll(params.arg_arg_transaction_id, params.arg_arg_object_store_id, params.arg_arg_index_id, params.arg_arg_key_range, params.arg_arg_result_type, params.arg_arg_max_count, params.arg_arg_direction);
+          const result = this.impl.getAll(params.arg_transaction_id, params.arg_object_store_id, params.arg_index_id, params.arg_key_range, params.arg_result_type, params.arg_max_count, params.arg_direction);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_receiver' in response) ? response.arg_arg_receiver : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_GetAll_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_receiver' in response) ? response.arg_receiver : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_GetAll_ResponseParamsSpec.$.structSpec, { 'arg_receiver': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAll FAILED:', e));
           }
@@ -1763,13 +1763,13 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_OpenCursor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openCursor');
-          const result = this.impl.openCursor(params.arg_arg_transaction_id, params.arg_arg_object_store_id, params.arg_arg_index_id, params.arg_arg_key_range, params.arg_arg_direction, params.arg_arg_key_only, params.arg_arg_task_type);
+          const result = this.impl.openCursor(params.arg_transaction_id, params.arg_object_store_id, params.arg_index_id, params.arg_key_range, params.arg_direction, params.arg_key_only, params.arg_task_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_OpenCursor_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_OpenCursor_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openCursor FAILED:', e));
           }
@@ -1779,12 +1779,12 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_Count_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.count');
-          const result = this.impl.count(params.arg_arg_transaction_id, params.arg_arg_object_store_id, params.arg_arg_index_id, params.arg_arg_key_range);
+          const result = this.impl.count(params.arg_transaction_id, params.arg_object_store_id, params.arg_index_id, params.arg_key_range);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_Count_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_count']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_Count_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_count': response.arg_count });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] count FAILED:', e));
           }
@@ -1794,13 +1794,13 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_DeleteRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteRange');
-          const result = this.impl.deleteRange(params.arg_arg_transaction_id, params.arg_arg_object_store_id, params.arg_arg_key_range);
+          const result = this.impl.deleteRange(params.arg_transaction_id, params.arg_object_store_id, params.arg_key_range);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_DeleteRange_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_DeleteRange_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteRange FAILED:', e));
           }
@@ -1810,12 +1810,12 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getKeyGeneratorCurrentNumber');
-          const result = this.impl.getKeyGeneratorCurrentNumber(params.arg_arg_transaction_id, params.arg_arg_object_store_id);
+          const result = this.impl.getKeyGeneratorCurrentNumber(params.arg_transaction_id, params.arg_object_store_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_error': response.arg_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getKeyGeneratorCurrentNumber FAILED:', e));
           }
@@ -1825,13 +1825,13 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_Clear_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clear');
-          const result = this.impl.clear(params.arg_arg_transaction_id, params.arg_arg_object_store_id);
+          const result = this.impl.clear(params.arg_transaction_id, params.arg_object_store_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_Clear_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_Clear_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] clear FAILED:', e));
           }
@@ -1841,28 +1841,28 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_CreateIndex_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createIndex');
-          const result = this.impl.createIndex(params.arg_arg_transaction_id, params.arg_arg_object_store_id, params.arg_arg_index);
+          const result = this.impl.createIndex(params.arg_transaction_id, params.arg_object_store_id, params.arg_index);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_DeleteIndex_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteIndex');
-          const result = this.impl.deleteIndex(params.arg_arg_transaction_id, params.arg_arg_object_store_id, params.arg_arg_index_id);
+          const result = this.impl.deleteIndex(params.arg_transaction_id, params.arg_object_store_id, params.arg_index_id);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_RenameIndex_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.renameIndex');
-          const result = this.impl.renameIndex(params.arg_arg_transaction_id, params.arg_arg_object_store_id, params.arg_arg_index_id, params.arg_arg_new_name);
+          const result = this.impl.renameIndex(params.arg_transaction_id, params.arg_object_store_id, params.arg_index_id, params.arg_new_name);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_Abort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.abort');
-          const result = this.impl.abort(params.arg_arg_transaction_id);
+          const result = this.impl.abort(params.arg_transaction_id);
           break;
         }
         case 14: {
@@ -1876,7 +1876,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBDatabase_UpdatePriority_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePriority');
-          const result = this.impl.updatePriority(params.arg_arg_new_priority);
+          const result = this.impl.updatePriority(params.arg_new_priority);
           break;
         }
       }
@@ -1945,7 +1945,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBFactory_GetDatabaseInfo_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBFactory_GetDatabaseInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1954,7 +1954,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBFactory_Open_ParamsSpec,
       null,
-      [arg_client, arg_database_callbacks, arg_name, arg_version, arg_version_change_transaction_receiver, arg_transaction_id, arg_priority],
+      { arg_client: arg_client, arg_database_callbacks: arg_database_callbacks, arg_name: arg_name, arg_version: arg_version, arg_version_change_transaction_receiver: arg_version_change_transaction_receiver, arg_transaction_id: arg_transaction_id, arg_priority: arg_priority },
       false);
   }
 
@@ -1963,7 +1963,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBFactory_DeleteDatabase_ParamsSpec,
       null,
-      [arg_client, arg_name, arg_force_close],
+      { arg_client: arg_client, arg_name: arg_name, arg_force_close: arg_force_close },
       false);
   }
 
@@ -2039,7 +2039,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactory_GetDatabaseInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_names_and_versions', 'response.arg_arg_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactory_GetDatabaseInfo_ResponseParamsSpec.$.structSpec, { 'arg_names_and_versions': response.arg_names_and_versions, 'arg_error': response.arg_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDatabaseInfo FAILED:', e));
           }
@@ -2049,14 +2049,14 @@ mojo.internal.bindings.blink.mojom.IDBFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactory_Open_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.open');
-          const result = this.impl.open(params.arg_arg_client, params.arg_arg_database_callbacks, params.arg_arg_name, params.arg_arg_version, params.arg_arg_version_change_transaction_receiver, params.arg_arg_transaction_id, params.arg_arg_priority);
+          const result = this.impl.open(params.arg_client, params.arg_database_callbacks, params.arg_name, params.arg_version, params.arg_version_change_transaction_receiver, params.arg_transaction_id, params.arg_priority);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactory_DeleteDatabase_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteDatabase');
-          const result = this.impl.deleteDatabase(params.arg_arg_client, params.arg_arg_name, params.arg_arg_force_close);
+          const result = this.impl.deleteDatabase(params.arg_client, params.arg_name, params.arg_force_close);
           break;
         }
       }

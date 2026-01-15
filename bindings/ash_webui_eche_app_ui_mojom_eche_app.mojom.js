@@ -316,7 +316,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchangerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_ParamsSpec,
       null,
-      [arg_signal],
+      { arg_signal: arg_signal },
       false);
   }
 
@@ -325,7 +325,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchangerRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchangerRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchanger_TearDownSignaling_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -405,14 +405,14 @@ mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchangerReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendSignalingMessage');
-          const result = this.impl.sendSignalingMessage(params.arg_arg_signal);
+          const result = this.impl.sendSignalingMessage(params.arg_signal);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSignalingMessageObserver');
-          const result = this.impl.setSignalingMessageObserver(params.arg_arg_observer);
+          const result = this.impl.setSignalingMessageObserver(params.arg_observer);
           break;
         }
         case 2: {
@@ -480,7 +480,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_ParamsSpec,
       null,
-      [arg_signal],
+      { arg_signal: arg_signal },
       false);
   }
 
@@ -549,7 +549,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageObserverReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReceivedSignalingMessage');
-          const result = this.impl.onReceivedSignalingMessage(params.arg_arg_signal);
+          const result = this.impl.onReceivedSignalingMessage(params.arg_signal);
           break;
         }
       }
@@ -614,7 +614,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProviderRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ParamsSpec,
       mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -623,7 +623,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProviderRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -698,8 +698,8 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProviderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_system_info' in response) ? response.arg_arg_system_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_system_info' in response) ? response.arg_system_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec.$.structSpec, { 'arg_system_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSystemInfo FAILED:', e));
           }
@@ -709,7 +709,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSystemInfoObserver');
-          const result = this.impl.setSystemInfoObserver(params.arg_arg_observer);
+          const result = this.impl.setSystemInfoObserver(params.arg_observer);
           break;
         }
       }
@@ -778,7 +778,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserverRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -787,7 +787,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserverRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver_OnReceivedTabletModeChanged_ParamsSpec,
       null,
-      [arg_is_tablet_mode],
+      { arg_is_tablet_mode: arg_is_tablet_mode },
       false);
   }
 
@@ -796,7 +796,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserverRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_ParamsSpec,
       null,
-      [arg_is_different_network, arg_android_device_on_cellular],
+      { arg_is_different_network: arg_is_different_network, arg_android_device_on_cellular: arg_android_device_on_cellular },
       false);
   }
 
@@ -867,21 +867,21 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScreenBacklightStateChanged');
-          const result = this.impl.onScreenBacklightStateChanged(params.arg_arg_state);
+          const result = this.impl.onScreenBacklightStateChanged(params.arg_state);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver_OnReceivedTabletModeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReceivedTabletModeChanged');
-          const result = this.impl.onReceivedTabletModeChanged(params.arg_arg_is_tablet_mode);
+          const result = this.impl.onReceivedTabletModeChanged(params.arg_is_tablet_mode);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAndroidDeviceNetworkInfoChanged');
-          const result = this.impl.onAndroidDeviceNetworkInfoChanged(params.arg_arg_is_different_network, params.arg_arg_android_device_on_cellular);
+          const result = this.impl.onAndroidDeviceNetworkInfoChanged(params.arg_is_different_network, params.arg_android_device_on_cellular);
           break;
         }
       }
@@ -950,7 +950,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProviderRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_ParamsSpec,
       null,
-      [arg_serialized_proto],
+      { arg_serialized_proto: arg_serialized_proto },
       false);
   }
 
@@ -959,7 +959,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProviderRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -968,7 +968,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProviderRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ParamsSpec,
       mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1039,14 +1039,14 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProviderReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleAccessibilityEventReceived');
-          const result = this.impl.handleAccessibilityEventReceived(params.arg_arg_serialized_proto);
+          const result = this.impl.handleAccessibilityEventReceived(params.arg_serialized_proto);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAccessibilityObserver');
-          const result = this.impl.setAccessibilityObserver(params.arg_arg_observer);
+          const result = this.impl.setAccessibilityObserver(params.arg_observer);
           break;
         }
         case 2: {
@@ -1058,8 +1058,8 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProviderReceiver = class 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_enabled' in response) ? response.arg_arg_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_enabled' in response) ? response.arg_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec.$.structSpec, { 'arg_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isAccessibilityEnabled FAILED:', e));
           }
@@ -1135,7 +1135,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_ParamsSpec,
       null,
-      [arg_enable],
+      { arg_enable: arg_enable },
       false);
   }
 
@@ -1144,7 +1144,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_EnableExploreByTouch_ParamsSpec,
       null,
-      [arg_enable],
+      { arg_enable: arg_enable },
       false);
   }
 
@@ -1153,7 +1153,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_PerformAction_ParamsSpec,
       mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec,
-      [arg_serialized_proto],
+      { arg_serialized_proto: arg_serialized_proto },
       false);
   }
 
@@ -1162,7 +1162,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ParamsSpec,
       mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec,
-      [arg_refresh_data_proto],
+      { arg_refresh_data_proto: arg_refresh_data_proto },
       false);
   }
 
@@ -1234,27 +1234,27 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableAccessibilityTreeStreaming');
-          const result = this.impl.enableAccessibilityTreeStreaming(params.arg_arg_enable);
+          const result = this.impl.enableAccessibilityTreeStreaming(params.arg_enable);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_EnableExploreByTouch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableExploreByTouch');
-          const result = this.impl.enableExploreByTouch(params.arg_arg_enable);
+          const result = this.impl.enableExploreByTouch(params.arg_enable);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_PerformAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.performAction');
-          const result = this.impl.performAction(params.arg_arg_serialized_proto);
+          const result = this.impl.performAction(params.arg_serialized_proto);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] performAction FAILED:', e));
           }
@@ -1264,13 +1264,13 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.refreshWithExtraData');
-          const result = this.impl.refreshWithExtraData(params.arg_arg_refresh_data_proto);
+          const result = this.impl.refreshWithExtraData(params.arg_refresh_data_proto);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_text_location_proto' in response) ? response.arg_arg_text_location_proto : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_text_location_proto' in response) ? response.arg_text_location_proto : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec.$.structSpec, { 'arg_text_location_proto': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] refreshWithExtraData FAILED:', e));
           }
@@ -1334,7 +1334,7 @@ mojo.internal.bindings.ash.eche_app.mojom.UidGeneratorRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.UidGenerator_GetUid_ParamsSpec,
       mojo.internal.bindings.ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1408,8 +1408,8 @@ mojo.internal.bindings.ash.eche_app.mojom.UidGeneratorReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_local_uid' in response) ? response.arg_arg_local_uid : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_local_uid' in response) ? response.arg_local_uid : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec.$.structSpec, { 'arg_local_uid': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUid FAILED:', e));
           }
@@ -1477,7 +1477,7 @@ mojo.internal.bindings.ash.eche_app.mojom.NotificationGeneratorRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec,
       null,
-      [arg_title, arg_message, arg_type],
+      { arg_title: arg_title, arg_message: arg_message, arg_type: arg_type },
       false);
   }
 
@@ -1486,7 +1486,7 @@ mojo.internal.bindings.ash.eche_app.mojom.NotificationGeneratorRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.NotificationGenerator_ShowToast_ParamsSpec,
       null,
-      [arg_text],
+      { arg_text: arg_text },
       false);
   }
 
@@ -1556,14 +1556,14 @@ mojo.internal.bindings.ash.eche_app.mojom.NotificationGeneratorReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showNotification');
-          const result = this.impl.showNotification(params.arg_arg_title, params.arg_arg_message, params.arg_arg_type);
+          const result = this.impl.showNotification(params.arg_title, params.arg_message, params.arg_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.NotificationGenerator_ShowToast_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showToast');
-          const result = this.impl.showToast(params.arg_arg_text);
+          const result = this.impl.showToast(params.arg_text);
           break;
         }
       }
@@ -1632,7 +1632,7 @@ mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandlerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler_StartStreaming_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1641,7 +1641,7 @@ mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandlerRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -1650,7 +1650,7 @@ mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandlerRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -1728,14 +1728,14 @@ mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStreamStatusChanged');
-          const result = this.impl.onStreamStatusChanged(params.arg_arg_status);
+          const result = this.impl.onStreamStatusChanged(params.arg_status);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setStreamActionObserver');
-          const result = this.impl.setStreamActionObserver(params.arg_arg_observer);
+          const result = this.impl.setStreamActionObserver(params.arg_observer);
           break;
         }
       }
@@ -1796,7 +1796,7 @@ mojo.internal.bindings.ash.eche_app.mojom.StreamActionObserverRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec,
       null,
-      [arg_action],
+      { arg_action: arg_action },
       false);
   }
 
@@ -1865,7 +1865,7 @@ mojo.internal.bindings.ash.eche_app.mojom.StreamActionObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStreamAction');
-          const result = this.impl.onStreamAction(params.arg_arg_action);
+          const result = this.impl.onStreamAction(params.arg_action);
           break;
         }
       }
@@ -1926,7 +1926,7 @@ mojo.internal.bindings.ash.eche_app.mojom.StreamOrientationObserverRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_ParamsSpec,
       null,
-      [arg_isLandscape],
+      { arg_isLandscape: arg_isLandscape },
       false);
   }
 
@@ -1995,7 +1995,7 @@ mojo.internal.bindings.ash.eche_app.mojom.StreamOrientationObserverReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStreamOrientationChanged');
-          const result = this.impl.onStreamOrientationChanged(params.arg_arg_isLandscape);
+          const result = this.impl.onStreamOrientationChanged(params.arg_isLandscape);
           break;
         }
       }
@@ -2056,7 +2056,7 @@ mojo.internal.bindings.ash.eche_app.mojom.ConnectionStatusObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -2125,7 +2125,7 @@ mojo.internal.bindings.ash.eche_app.mojom.ConnectionStatusObserverReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnectionStatusChanged');
-          const result = this.impl.onConnectionStatusChanged(params.arg_arg_status);
+          const result = this.impl.onConnectionStatusChanged(params.arg_status);
           break;
         }
       }
@@ -2190,7 +2190,7 @@ mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandler_RequestCurrentKeyboardLayout_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -2199,7 +2199,7 @@ mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -2276,7 +2276,7 @@ mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandlerReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setKeyboardLayoutObserver');
-          const result = this.impl.setKeyboardLayoutObserver(params.arg_arg_observer);
+          const result = this.impl.setKeyboardLayoutObserver(params.arg_observer);
           break;
         }
       }
@@ -2337,7 +2337,7 @@ mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutObserverRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_ParamsSpec,
       null,
-      [arg_id, arg_longName, arg_shortName, arg_layoutTag],
+      { arg_id: arg_id, arg_longName: arg_longName, arg_shortName: arg_shortName, arg_layoutTag: arg_layoutTag },
       false);
   }
 
@@ -2406,7 +2406,7 @@ mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutObserverReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onKeyboardLayoutChanged');
-          const result = this.impl.onKeyboardLayoutChanged(params.arg_arg_id, params.arg_arg_longName, params.arg_arg_shortName, params.arg_arg_layoutTag);
+          const result = this.impl.onKeyboardLayoutChanged(params.arg_id, params.arg_longName, params.arg_shortName, params.arg_layoutTag);
           break;
         }
       }

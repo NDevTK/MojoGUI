@@ -200,7 +200,7 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingServiceRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec,
       mojo.internal.bindings.heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec,
-      [arg_pid, arg_client, arg_process_type, arg_params],
+      { arg_pid: arg_pid, arg_client: arg_client, arg_process_type: arg_process_type, arg_params: arg_params },
       false);
   }
 
@@ -209,7 +209,7 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingServiceRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec,
       mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -279,13 +279,13 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addProfilingClient');
-          const result = this.impl.addProfilingClient(params.arg_arg_pid, params.arg_arg_client, params.arg_arg_process_type, params.arg_arg_params);
+          const result = this.impl.addProfilingClient(params.arg_pid, params.arg_client, params.arg_process_type, params.arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addProfilingClient FAILED:', e));
           }
@@ -300,8 +300,8 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pids' in response) ? response.arg_arg_pids : response;
-              encoder.encodeStructInline(mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pids' in response) ? response.arg_pids : response;
+              encoder.encodeStructInline(mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec.$.structSpec, { 'arg_pids': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getProfiledPids FAILED:', e));
           }

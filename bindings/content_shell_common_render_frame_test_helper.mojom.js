@@ -177,7 +177,7 @@ mojo.internal.bindings.content.mojom.RenderFrameTestHelperRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec,
       mojo.internal.bindings.content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -251,8 +251,8 @@ mojo.internal.bindings.content.mojom.RenderFrameTestHelperReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_token' in response) ? response.arg_arg_token : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_token' in response) ? response.arg_token : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec.$.structSpec, { 'arg_token': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDocumentToken FAILED:', e));
           }

@@ -205,7 +205,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandlerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandler_OnFinishedConsumingBuffer_ParamsSpec,
       null,
-      [arg_buffer_id],
+      { arg_buffer_id: arg_buffer_id },
       false);
   }
 
@@ -274,7 +274,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandler_OnFinishedConsumingBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFinishedConsumingBuffer');
-          const result = this.impl.onFinishedConsumingBuffer(params.arg_arg_buffer_id);
+          const result = this.impl.onFinishedConsumingBuffer(params.arg_buffer_id);
           break;
         }
       }
@@ -383,7 +383,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec,
       null,
-      [arg_buffer_id, arg_buffer_handle],
+      { arg_buffer_id: arg_buffer_id, arg_buffer_handle: arg_buffer_handle },
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_ParamsSpec,
       null,
-      [arg_frame_access_handler],
+      { arg_frame_access_handler: arg_frame_access_handler },
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec,
       null,
-      [arg_buffer],
+      { arg_buffer: arg_buffer },
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec,
       null,
-      [arg_buffer_id],
+      { arg_buffer_id: arg_buffer_id },
       false);
   }
 
@@ -428,7 +428,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnError_ParamsSpec,
       null,
-      [arg_error],
+      { arg_error: arg_error },
       false);
   }
 
@@ -437,7 +437,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec,
       null,
-      [arg_reason],
+      { arg_reason: arg_reason },
       false);
   }
 
@@ -446,7 +446,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec,
       null,
-      [arg_capture_version],
+      { arg_capture_version: arg_capture_version },
       false);
   }
 
@@ -455,7 +455,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -464,7 +464,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnLog_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -473,7 +473,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStarted_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -482,7 +482,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -491,7 +491,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStopped_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -579,49 +579,49 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewBuffer');
-          const result = this.impl.onNewBuffer(params.arg_arg_buffer_id, params.arg_arg_buffer_handle);
+          const result = this.impl.onNewBuffer(params.arg_buffer_id, params.arg_buffer_handle);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameAccessHandlerReady');
-          const result = this.impl.onFrameAccessHandlerReady(params.arg_arg_frame_access_handler);
+          const result = this.impl.onFrameAccessHandlerReady(params.arg_frame_access_handler);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameReadyInBuffer');
-          const result = this.impl.onFrameReadyInBuffer(params.arg_arg_buffer);
+          const result = this.impl.onFrameReadyInBuffer(params.arg_buffer);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBufferRetired');
-          const result = this.impl.onBufferRetired(params.arg_arg_buffer_id);
+          const result = this.impl.onBufferRetired(params.arg_buffer_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_error);
+          const result = this.impl.onError(params.arg_error);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameDropped');
-          const result = this.impl.onFrameDropped(params.arg_arg_reason);
+          const result = this.impl.onFrameDropped(params.arg_reason);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewCaptureVersion');
-          const result = this.impl.onNewCaptureVersion(params.arg_arg_capture_version);
+          const result = this.impl.onNewCaptureVersion(params.arg_capture_version);
           break;
         }
         case 8: {
@@ -635,7 +635,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLog');
-          const result = this.impl.onLog(params.arg_arg_message);
+          const result = this.impl.onLog(params.arg_message);
           break;
         }
         case 10: {

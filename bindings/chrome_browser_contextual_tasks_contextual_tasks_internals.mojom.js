@@ -196,7 +196,7 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -265,7 +265,7 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -326,7 +326,7 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec,
       mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -395,13 +395,13 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRelevantContext');
-          const result = this.impl.getRelevantContext(params.arg_arg_request);
+          const result = this.impl.getRelevantContext(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRelevantContext FAILED:', e));
           }
@@ -465,7 +465,7 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec,
       null,
-      [arg_event_time, arg_source_file, arg_source_line, arg_message],
+      { arg_event_time: arg_event_time, arg_source_file: arg_source_file, arg_source_line: arg_source_line, arg_message: arg_message },
       false);
   }
 
@@ -534,7 +534,7 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLogMessageAdded');
-          const result = this.impl.onLogMessageAdded(params.arg_arg_event_time, params.arg_arg_source_file, params.arg_arg_source_line, params.arg_arg_message);
+          const result = this.impl.onLogMessageAdded(params.arg_event_time, params.arg_source_file, params.arg_source_line, params.arg_message);
           break;
         }
       }

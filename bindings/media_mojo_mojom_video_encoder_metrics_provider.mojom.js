@@ -209,7 +209,7 @@ mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec,
       null,
-      [arg_encoder_id, arg_encoder_use_case, arg_profile, arg_encode_size, arg_is_hardware_encoder, arg_svc_mode],
+      { arg_encoder_id: arg_encoder_id, arg_encoder_use_case: arg_encoder_use_case, arg_profile: arg_profile, arg_encode_size: arg_encode_size, arg_is_hardware_encoder: arg_is_hardware_encoder, arg_svc_mode: arg_svc_mode },
       false);
   }
 
@@ -218,7 +218,7 @@ mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec,
       null,
-      [arg_encoder_id, arg_num_encoded_frames],
+      { arg_encoder_id: arg_encoder_id, arg_num_encoded_frames: arg_num_encoded_frames },
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec,
       null,
-      [arg_encoder_id, arg_status],
+      { arg_encoder_id: arg_encoder_id, arg_status: arg_status },
       false);
   }
 
@@ -236,7 +236,7 @@ mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec,
       null,
-      [arg_encoder_id],
+      { arg_encoder_id: arg_encoder_id },
       false);
   }
 
@@ -308,28 +308,28 @@ mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_arg_encoder_id, params.arg_arg_encoder_use_case, params.arg_arg_profile, params.arg_arg_encode_size, params.arg_arg_is_hardware_encoder, params.arg_arg_svc_mode);
+          const result = this.impl.initialize(params.arg_encoder_id, params.arg_encoder_use_case, params.arg_profile, params.arg_encode_size, params.arg_is_hardware_encoder, params.arg_svc_mode);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setEncodedFrameCount');
-          const result = this.impl.setEncodedFrameCount(params.arg_arg_encoder_id, params.arg_arg_num_encoded_frames);
+          const result = this.impl.setEncodedFrameCount(params.arg_encoder_id, params.arg_num_encoded_frames);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setError');
-          const result = this.impl.setError(params.arg_arg_encoder_id, params.arg_arg_status);
+          const result = this.impl.setError(params.arg_encoder_id, params.arg_status);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.complete');
-          const result = this.impl.complete(params.arg_arg_encoder_id);
+          const result = this.impl.complete(params.arg_encoder_id);
           break;
         }
       }

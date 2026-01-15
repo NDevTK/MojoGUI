@@ -198,7 +198,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserverRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec,
       null,
-      [arg_level],
+      { arg_level: arg_level },
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserverReceiv
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.volumeChanged');
-          const result = this.impl.volumeChanged(params.arg_arg_level);
+          const result = this.impl.volumeChanged(params.arg_level);
           break;
         }
       }
@@ -376,7 +376,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec,
       null,
-      [arg_event_name, arg_data],
+      { arg_event_name: arg_event_name, arg_data: arg_data },
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec,
       null,
-      [arg_retailer_name],
+      { arg_retailer_name: arg_retailer_name },
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec,
       null,
-      [arg_store_id],
+      { arg_store_id: arg_store_id },
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec,
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec,
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -421,7 +421,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec,
       null,
-      [arg_level],
+      { arg_level: arg_level },
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec,
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec,
       null,
-      [arg_ssid, arg_psk],
+      { arg_ssid: arg_ssid, arg_psk: arg_psk },
       false);
   }
 
@@ -457,7 +457,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec,
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -466,7 +466,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec,
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -475,7 +475,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -484,7 +484,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -565,21 +565,21 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordEvent');
-          const result = this.impl.recordEvent(params.arg_arg_event_name, params.arg_arg_data);
+          const result = this.impl.recordEvent(params.arg_event_name, params.arg_data);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRetailerName');
-          const result = this.impl.setRetailerName(params.arg_arg_retailer_name);
+          const result = this.impl.setRetailerName(params.arg_retailer_name);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setStoreId');
-          const result = this.impl.setStoreId(params.arg_arg_store_id);
+          const result = this.impl.setStoreId(params.arg_store_id);
           break;
         }
         case 3: {
@@ -591,8 +591,8 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_retailer_name' in response) ? response.arg_arg_retailer_name : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_retailer_name' in response) ? response.arg_retailer_name : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec.$.structSpec, { 'arg_retailer_name': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRetailerName FAILED:', e));
           }
@@ -607,8 +607,8 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_store_id' in response) ? response.arg_arg_store_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_store_id' in response) ? response.arg_store_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec.$.structSpec, { 'arg_store_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getStoreId FAILED:', e));
           }
@@ -618,7 +618,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDefaultVolumeLevel');
-          const result = this.impl.setDefaultVolumeLevel(params.arg_arg_level);
+          const result = this.impl.setDefaultVolumeLevel(params.arg_level);
           break;
         }
         case 6: {
@@ -630,8 +630,8 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_level' in response) ? response.arg_arg_level : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_level' in response) ? response.arg_level : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec.$.structSpec, { 'arg_level': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDefaultVolumeLevel FAILED:', e));
           }
@@ -648,7 +648,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWifiCredentials');
-          const result = this.impl.setWifiCredentials(params.arg_arg_ssid, params.arg_arg_psk);
+          const result = this.impl.setWifiCredentials(params.arg_ssid, params.arg_psk);
           break;
         }
         case 9: {
@@ -660,8 +660,8 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_network_list' in response) ? response.arg_arg_network_list : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_network_list' in response) ? response.arg_network_list : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec.$.structSpec, { 'arg_network_list': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAvailableWifiNetworks FAILED:', e));
           }
@@ -676,8 +676,8 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getConnectionStatus FAILED:', e));
           }
@@ -687,7 +687,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addVolumeChangeObserver');
-          const result = this.impl.addVolumeChangeObserver(params.arg_arg_observer);
+          const result = this.impl.addVolumeChangeObserver(params.arg_observer);
           break;
         }
         case 12: {

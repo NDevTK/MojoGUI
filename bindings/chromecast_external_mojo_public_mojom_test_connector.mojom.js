@@ -171,7 +171,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnectorRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_ParamsSpec,
       null,
-      [arg_service_name, arg_interface_name, arg_interface_pipe],
+      { arg_service_name: arg_service_name, arg_interface_name: arg_interface_name, arg_interface_pipe: arg_interface_pipe },
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnectorRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindInterfaceInternal');
-          const result = this.impl.bindInterfaceInternal(params.arg_arg_service_name, params.arg_arg_interface_name, params.arg_arg_interface_pipe);
+          const result = this.impl.bindInterfaceInternal(params.arg_service_name, params.arg_interface_name, params.arg_interface_pipe);
           break;
         }
       }

@@ -234,7 +234,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec,
       null,
-      [arg_client, arg_handler],
+      { arg_client: arg_client, arg_handler: arg_handler },
       false);
   }
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCustomizeToolbarHandler');
-          const result = this.impl.createCustomizeToolbarHandler(params.arg_arg_client, params.arg_arg_handler);
+          const result = this.impl.createCustomizeToolbarHandler(params.arg_client, params.arg_handler);
           break;
         }
       }
@@ -380,7 +380,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec,
       mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec,
       mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec,
       null,
-      [arg_action_id, arg_pinned],
+      { arg_action_id: arg_action_id, arg_pinned: arg_pinned },
       false);
   }
 
@@ -407,7 +407,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec,
       mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -416,7 +416,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -494,8 +494,8 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_actions' in response) ? response.arg_arg_actions : response;
-              encoder.encodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_actions' in response) ? response.arg_actions : response;
+              encoder.encodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec.$.structSpec, { 'arg_actions': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] listActions FAILED:', e));
           }
@@ -510,8 +510,8 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_categories' in response) ? response.arg_arg_categories : response;
-              encoder.encodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_categories' in response) ? response.arg_categories : response;
+              encoder.encodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec.$.structSpec, { 'arg_categories': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] listCategories FAILED:', e));
           }
@@ -521,7 +521,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pinAction');
-          const result = this.impl.pinAction(params.arg_arg_action_id, params.arg_arg_pinned);
+          const result = this.impl.pinAction(params.arg_action_id, params.arg_pinned);
           break;
         }
         case 3: {
@@ -533,8 +533,8 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_customized' in response) ? response.arg_arg_customized : response;
-              encoder.encodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_customized' in response) ? response.arg_customized : response;
+              encoder.encodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec.$.structSpec, { 'arg_customized': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getIsCustomized FAILED:', e));
           }
@@ -609,7 +609,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClientR
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec,
       null,
-      [arg_action_id, arg_pinned],
+      { arg_action_id: arg_action_id, arg_pinned: arg_pinned },
       false);
   }
 
@@ -618,7 +618,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClientR
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -688,7 +688,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClientR
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setActionPinned');
-          const result = this.impl.setActionPinned(params.arg_arg_action_id, params.arg_arg_pinned);
+          const result = this.impl.setActionPinned(params.arg_action_id, params.arg_pinned);
           break;
         }
         case 1: {

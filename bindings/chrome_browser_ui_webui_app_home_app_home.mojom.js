@@ -220,7 +220,7 @@ mojo.internal.bindings.app_home.mojom.PageHandlerFactoryRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.app_home.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -386,7 +386,7 @@ mojo.internal.bindings.app_home.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.app_home.mojom.PageHandler_GetApps_ParamsSpec,
       mojo.internal.bindings.app_home.mojom.PageHandler_GetApps_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -395,7 +395,7 @@ mojo.internal.bindings.app_home.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec,
       mojo.internal.bindings.app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -404,7 +404,7 @@ mojo.internal.bindings.app_home.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.app_home.mojom.PageHandler_UninstallApp_ParamsSpec,
       null,
-      [arg_app_id],
+      { arg_app_id: arg_app_id },
       false);
   }
 
@@ -413,7 +413,7 @@ mojo.internal.bindings.app_home.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec,
       null,
-      [arg_app_id],
+      { arg_app_id: arg_app_id },
       false);
   }
 
@@ -422,7 +422,7 @@ mojo.internal.bindings.app_home.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec,
       mojo.internal.bindings.app_home.mojom.PageHandler_CreateAppShortcut_ResponseParamsSpec,
-      [arg_app_id],
+      { arg_app_id: arg_app_id },
       false);
   }
 
@@ -431,7 +431,7 @@ mojo.internal.bindings.app_home.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.app_home.mojom.PageHandler_LaunchApp_ParamsSpec,
       null,
-      [arg_app_id, arg_click_event],
+      { arg_app_id: arg_app_id, arg_click_event: arg_click_event },
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.app_home.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec,
       null,
-      [arg_app_id, arg_run_on_os_login_mode],
+      { arg_app_id: arg_app_id, arg_run_on_os_login_mode: arg_run_on_os_login_mode },
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.app_home.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.app_home.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec,
       null,
-      [arg_app_id],
+      { arg_app_id: arg_app_id },
       false);
   }
 
@@ -467,7 +467,7 @@ mojo.internal.bindings.app_home.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec,
       null,
-      [arg_app_id, arg_display_mode],
+      { arg_app_id: arg_app_id, arg_display_mode: arg_display_mode },
       false);
   }
 
@@ -550,8 +550,8 @@ mojo.internal.bindings.app_home.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_app_list' in response) ? response.arg_arg_app_list : response;
-              encoder.encodeStructInline(mojo.internal.bindings.app_home.mojom.PageHandler_GetApps_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_app_list' in response) ? response.arg_app_list : response;
+              encoder.encodeStructInline(mojo.internal.bindings.app_home.mojom.PageHandler_GetApps_ResponseParamsSpec.$.structSpec, { 'arg_app_list': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getApps FAILED:', e));
           }
@@ -566,8 +566,8 @@ mojo.internal.bindings.app_home.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_link_string' in response) ? response.arg_arg_link_string : response;
-              encoder.encodeStructInline(mojo.internal.bindings.app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_link_string' in response) ? response.arg_link_string : response;
+              encoder.encodeStructInline(mojo.internal.bindings.app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec.$.structSpec, { 'arg_link_string': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDeprecationLinkString FAILED:', e));
           }
@@ -577,26 +577,26 @@ mojo.internal.bindings.app_home.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.app_home.mojom.PageHandler_UninstallApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.uninstallApp');
-          const result = this.impl.uninstallApp(params.arg_arg_app_id);
+          const result = this.impl.uninstallApp(params.arg_app_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showAppSettings');
-          const result = this.impl.showAppSettings(params.arg_arg_app_id);
+          const result = this.impl.showAppSettings(params.arg_app_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAppShortcut');
-          const result = this.impl.createAppShortcut(params.arg_arg_app_id);
+          const result = this.impl.createAppShortcut(params.arg_app_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.app_home.mojom.PageHandler_CreateAppShortcut_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.app_home.mojom.PageHandler_CreateAppShortcut_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createAppShortcut FAILED:', e));
           }
@@ -606,14 +606,14 @@ mojo.internal.bindings.app_home.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.app_home.mojom.PageHandler_LaunchApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchApp');
-          const result = this.impl.launchApp(params.arg_arg_app_id, params.arg_arg_click_event);
+          const result = this.impl.launchApp(params.arg_app_id, params.arg_click_event);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRunOnOsLoginMode');
-          const result = this.impl.setRunOnOsLoginMode(params.arg_arg_app_id, params.arg_arg_run_on_os_login_mode);
+          const result = this.impl.setRunOnOsLoginMode(params.arg_app_id, params.arg_run_on_os_login_mode);
           break;
         }
         case 7: {
@@ -627,14 +627,14 @@ mojo.internal.bindings.app_home.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installAppLocally');
-          const result = this.impl.installAppLocally(params.arg_arg_app_id);
+          const result = this.impl.installAppLocally(params.arg_app_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUserDisplayMode');
-          const result = this.impl.setUserDisplayMode(params.arg_arg_app_id, params.arg_arg_display_mode);
+          const result = this.impl.setUserDisplayMode(params.arg_app_id, params.arg_display_mode);
           break;
         }
       }
@@ -703,7 +703,7 @@ mojo.internal.bindings.app_home.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.app_home.mojom.Page_AddApp_ParamsSpec,
       null,
-      [arg_app_info],
+      { arg_app_info: arg_app_info },
       false);
   }
 
@@ -712,7 +712,7 @@ mojo.internal.bindings.app_home.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.app_home.mojom.Page_RemoveApp_ParamsSpec,
       null,
-      [arg_app_info],
+      { arg_app_info: arg_app_info },
       false);
   }
 
@@ -721,7 +721,7 @@ mojo.internal.bindings.app_home.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.app_home.mojom.Page_UpdateApp_ParamsSpec,
       null,
-      [arg_app_info],
+      { arg_app_info: arg_app_info },
       false);
   }
 
@@ -792,21 +792,21 @@ mojo.internal.bindings.app_home.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.app_home.mojom.Page_AddApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addApp');
-          const result = this.impl.addApp(params.arg_arg_app_info);
+          const result = this.impl.addApp(params.arg_app_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.app_home.mojom.Page_RemoveApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeApp');
-          const result = this.impl.removeApp(params.arg_arg_app_info);
+          const result = this.impl.removeApp(params.arg_app_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.app_home.mojom.Page_UpdateApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateApp');
-          const result = this.impl.updateApp(params.arg_arg_app_info);
+          const result = this.impl.updateApp(params.arg_app_info);
           break;
         }
       }

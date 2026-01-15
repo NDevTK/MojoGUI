@@ -170,7 +170,7 @@ mojo.internal.bindings.blink.mojom.FullscreenVideoElementHandlerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FullscreenVideoElementHandler_RequestFullscreenVideoElement_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

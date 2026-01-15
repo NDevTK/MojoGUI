@@ -186,7 +186,7 @@ mojo.internal.bindings.arc.mojom.CompatibilityModeInstanceRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec,
       null,
-      [arg_package_name, arg_state],
+      { arg_package_name: arg_package_name, arg_state: arg_state },
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.arc.mojom.CompatibilityModeInstanceRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec,
       mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec,
-      [arg_package_name],
+      { arg_package_name: arg_package_name },
       false);
   }
 
@@ -265,20 +265,20 @@ mojo.internal.bindings.arc.mojom.CompatibilityModeInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setResizeLockState');
-          const result = this.impl.setResizeLockState(params.arg_arg_package_name, params.arg_arg_state);
+          const result = this.impl.setResizeLockState(params.arg_package_name, params.arg_state);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isOptimizedForCrosApp');
-          const result = this.impl.isOptimizedForCrosApp(params.arg_arg_package_name);
+          const result = this.impl.isOptimizedForCrosApp(params.arg_package_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_o4c_app' in response) ? response.arg_arg_is_o4c_app : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_o4c_app' in response) ? response.arg_is_o4c_app : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec.$.structSpec, { 'arg_is_o4c_app': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isOptimizedForCrosApp FAILED:', e));
           }

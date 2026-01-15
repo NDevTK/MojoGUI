@@ -268,7 +268,7 @@ mojo.internal.bindings.traces_internals.mojom.TracesInternalsHandlerFactoryRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -337,7 +337,7 @@ mojo.internal.bindings.traces_internals.mojom.TracesInternalsHandlerFactoryRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -474,7 +474,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec,
-      [arg_config_pb, arg_enable_privacy_filters],
+      { arg_config_pb: arg_config_pb, arg_enable_privacy_filters: arg_enable_privacy_filters },
       false);
   }
 
@@ -483,7 +483,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -492,7 +492,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -501,7 +501,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -510,7 +510,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -519,7 +519,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -528,7 +528,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec,
-      [arg_uuid],
+      { arg_uuid: arg_uuid },
       false);
   }
 
@@ -537,7 +537,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -546,7 +546,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec,
-      [arg_uuid],
+      { arg_uuid: arg_uuid },
       false);
   }
 
@@ -555,7 +555,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec,
-      [arg_uuid],
+      { arg_uuid: arg_uuid },
       false);
   }
 
@@ -564,7 +564,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -573,7 +573,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec,
-      [arg_new_config],
+      { arg_new_config: arg_new_config },
       false);
   }
 
@@ -582,7 +582,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec,
-      [arg_config_string],
+      { arg_config_string: arg_config_string },
       false);
   }
 
@@ -591,7 +591,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec,
-      [arg_config_pb],
+      { arg_config_pb: arg_config_pb },
       false);
   }
 
@@ -600,7 +600,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -609,7 +609,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec,
       null,
-      [arg_enable],
+      { arg_enable: arg_enable },
       false);
   }
 
@@ -618,7 +618,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -627,7 +627,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -636,7 +636,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -645,7 +645,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -733,13 +733,13 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startTraceSession');
-          const result = this.impl.startTraceSession(params.arg_arg_config_pb, params.arg_arg_enable_privacy_filters);
+          const result = this.impl.startTraceSession(params.arg_config_pb, params.arg_enable_privacy_filters);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startTraceSession FAILED:', e));
           }
@@ -754,7 +754,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec.$.structSpec, ['response.arg_arg_trace', 'response.arg_arg_uuid']);
+              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec.$.structSpec, { 'arg_trace': response.arg_trace, 'arg_uuid': response.arg_uuid });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] cloneTraceSession FAILED:', e));
           }
@@ -769,8 +769,8 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] stopTraceSession FAILED:', e));
           }
@@ -785,8 +785,8 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_categories' in response) ? response.arg_arg_categories : response;
-              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_categories' in response) ? response.arg_categories : response;
+              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec.$.structSpec, { 'arg_categories': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getTrackEventCategories FAILED:', e));
           }
@@ -801,7 +801,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_percent_full', 'response.arg_arg_data_loss']);
+              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_percent_full': response.arg_percent_full, 'arg_data_loss': response.arg_data_loss });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getBufferUsage FAILED:', e));
           }
@@ -816,8 +816,8 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_reports' in response) ? response.arg_arg_reports : response;
-              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_reports' in response) ? response.arg_reports : response;
+              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec.$.structSpec, { 'arg_reports': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAllTraceReports FAILED:', e));
           }
@@ -827,13 +827,13 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteSingleTrace');
-          const result = this.impl.deleteSingleTrace(params.arg_arg_uuid);
+          const result = this.impl.deleteSingleTrace(params.arg_uuid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteSingleTrace FAILED:', e));
           }
@@ -848,8 +848,8 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteAllTraces FAILED:', e));
           }
@@ -859,13 +859,13 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.userUploadSingleTrace');
-          const result = this.impl.userUploadSingleTrace(params.arg_arg_uuid);
+          const result = this.impl.userUploadSingleTrace(params.arg_uuid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] userUploadSingleTrace FAILED:', e));
           }
@@ -875,13 +875,13 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.downloadTrace');
-          const result = this.impl.downloadTrace(params.arg_arg_uuid);
+          const result = this.impl.downloadTrace(params.arg_uuid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_trace' in response) ? response.arg_arg_trace : response;
-              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_trace' in response) ? response.arg_trace : response;
+              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec.$.structSpec, { 'arg_trace': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] downloadTrace FAILED:', e));
           }
@@ -896,8 +896,8 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_config' in response) ? response.arg_arg_config : response;
-              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_config' in response) ? response.arg_config : response;
+              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec.$.structSpec, { 'arg_config': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAllScenarios FAILED:', e));
           }
@@ -907,13 +907,13 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setEnabledScenarios');
-          const result = this.impl.setEnabledScenarios(params.arg_arg_new_config);
+          const result = this.impl.setEnabledScenarios(params.arg_new_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setEnabledScenarios FAILED:', e));
           }
@@ -923,13 +923,13 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setScenariosConfigFromString');
-          const result = this.impl.setScenariosConfigFromString(params.arg_arg_config_string);
+          const result = this.impl.setScenariosConfigFromString(params.arg_config_string);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setScenariosConfigFromString FAILED:', e));
           }
@@ -939,13 +939,13 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setScenariosConfigFromBuffer');
-          const result = this.impl.setScenariosConfigFromBuffer(params.arg_arg_config_pb);
+          const result = this.impl.setScenariosConfigFromBuffer(params.arg_config_pb);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setScenariosConfigFromBuffer FAILED:', e));
           }
@@ -960,8 +960,8 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_enabled' in response) ? response.arg_arg_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_enabled' in response) ? response.arg_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec.$.structSpec, { 'arg_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPrivacyFilterEnabled FAILED:', e));
           }
@@ -971,7 +971,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPrivacyFilterEnabled');
-          const result = this.impl.setPrivacyFilterEnabled(params.arg_arg_enable);
+          const result = this.impl.setPrivacyFilterEnabled(params.arg_enable);
           break;
         }
         case 16: {
@@ -983,7 +983,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec.$.structSpec, ['response.arg_arg_service_supported', 'response.arg_arg_service_registered']);
+              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec.$.structSpec, { 'arg_service_supported': response.arg_service_supported, 'arg_service_registered': response.arg_service_registered });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSystemTracingState FAILED:', e));
           }
@@ -998,8 +998,8 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_shield_icon_url' in response) ? response.arg_arg_shield_icon_url : response;
-              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_shield_icon_url' in response) ? response.arg_shield_icon_url : response;
+              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec.$.structSpec, { 'arg_shield_icon_url': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSecurityShieldIconUrl FAILED:', e));
           }
@@ -1014,8 +1014,8 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] enableSystemTracing FAILED:', e));
           }
@@ -1030,8 +1030,8 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] disableSystemTracing FAILED:', e));
           }
@@ -1095,7 +1095,7 @@ mojo.internal.bindings.traces_internals.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.Page_OnTraceComplete_ParamsSpec,
       null,
-      [arg_trace, arg_uuid],
+      { arg_trace: arg_trace, arg_uuid: arg_uuid },
       false);
   }
 
@@ -1164,7 +1164,7 @@ mojo.internal.bindings.traces_internals.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.traces_internals.mojom.Page_OnTraceComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTraceComplete');
-          const result = this.impl.onTraceComplete(params.arg_arg_trace, params.arg_arg_uuid);
+          const result = this.impl.onTraceComplete(params.arg_trace, params.arg_uuid);
           break;
         }
       }

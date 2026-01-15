@@ -197,7 +197,7 @@ mojo.internal.bindings.blink.mojom.DomStorageProviderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec,
       null,
-      [arg_receiver, arg_client],
+      { arg_receiver: arg_receiver, arg_client: arg_client },
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.blink.mojom.DomStorageProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindDomStorage');
-          const result = this.impl.bindDomStorage(params.arg_arg_receiver, params.arg_arg_client);
+          const result = this.impl.bindDomStorage(params.arg_receiver, params.arg_client);
           break;
         }
       }
@@ -335,7 +335,7 @@ mojo.internal.bindings.blink.mojom.DomStorageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec,
       null,
-      [arg_storage_key, arg_local_frame_token, arg_area],
+      { arg_storage_key: arg_storage_key, arg_local_frame_token: arg_local_frame_token, arg_area: arg_area },
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.blink.mojom.DomStorageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec,
       null,
-      [arg_namespace_id, arg_receiver],
+      { arg_namespace_id: arg_namespace_id, arg_receiver: arg_receiver },
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.blink.mojom.DomStorageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec,
       null,
-      [arg_storage_key, arg_local_frame_token, arg_namespace_id, arg_session_namespace],
+      { arg_storage_key: arg_storage_key, arg_local_frame_token: arg_local_frame_token, arg_namespace_id: arg_namespace_id, arg_session_namespace: arg_session_namespace },
       false);
   }
 
@@ -424,21 +424,21 @@ mojo.internal.bindings.blink.mojom.DomStorageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openLocalStorage');
-          const result = this.impl.openLocalStorage(params.arg_arg_storage_key, params.arg_arg_local_frame_token, params.arg_arg_area);
+          const result = this.impl.openLocalStorage(params.arg_storage_key, params.arg_local_frame_token, params.arg_area);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSessionStorageNamespace');
-          const result = this.impl.bindSessionStorageNamespace(params.arg_arg_namespace_id, params.arg_arg_receiver);
+          const result = this.impl.bindSessionStorageNamespace(params.arg_namespace_id, params.arg_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSessionStorageArea');
-          const result = this.impl.bindSessionStorageArea(params.arg_arg_storage_key, params.arg_arg_local_frame_token, params.arg_arg_namespace_id, params.arg_arg_session_namespace);
+          const result = this.impl.bindSessionStorageArea(params.arg_storage_key, params.arg_local_frame_token, params.arg_namespace_id, params.arg_session_namespace);
           break;
         }
       }
@@ -503,7 +503,7 @@ mojo.internal.bindings.blink.mojom.DomStorageClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -512,7 +512,7 @@ mojo.internal.bindings.blink.mojom.DomStorageClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

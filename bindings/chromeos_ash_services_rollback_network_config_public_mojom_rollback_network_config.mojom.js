@@ -178,7 +178,7 @@ mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfigRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ParamsSpec,
       mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec,
-      [arg_config],
+      { arg_config: arg_config },
       false);
   }
 
@@ -187,7 +187,7 @@ mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfigRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ParamsSpec,
       mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -257,13 +257,13 @@ mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfigRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rollbackConfigImport');
-          const result = this.impl.rollbackConfigImport(params.arg_arg_config);
+          const result = this.impl.rollbackConfigImport(params.arg_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] rollbackConfigImport FAILED:', e));
           }
@@ -278,8 +278,8 @@ mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfigRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_config' in response) ? response.arg_arg_config : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_config' in response) ? response.arg_config : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec.$.structSpec, { 'arg_config': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] rollbackConfigExport FAILED:', e));
           }

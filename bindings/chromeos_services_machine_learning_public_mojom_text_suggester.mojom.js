@@ -211,7 +211,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec,
-      [arg_query],
+      { arg_query: arg_query },
       false);
   }
 
@@ -280,13 +280,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.suggest');
-          const result = this.impl.suggest(params.arg_arg_query);
+          const result = this.impl.suggest(params.arg_query);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] suggest FAILED:', e));
           }

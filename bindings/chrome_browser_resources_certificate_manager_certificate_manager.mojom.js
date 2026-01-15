@@ -227,7 +227,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -296,7 +296,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFa
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCertificateManagerPageHandler');
-          const result = this.impl.createCertificateManagerPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createCertificateManagerPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -385,7 +385,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec,
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec,
-      [arg_source],
+      { arg_source: arg_source },
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec,
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec,
       null,
-      [arg_source, arg_sha256_hash_hex],
+      { arg_source: arg_source, arg_sha256_hash_hex: arg_sha256_hash_hex },
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec,
       null,
-      [arg_source],
+      { arg_source: arg_source },
       false);
   }
 
@@ -421,7 +421,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec,
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec,
-      [arg_source],
+      { arg_source: arg_source },
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec,
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec,
-      [arg_source],
+      { arg_source: arg_source },
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec,
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec,
-      [arg_source, arg_display_name, arg_sha256_hash_hex],
+      { arg_source: arg_source, arg_display_name: arg_display_name, arg_sha256_hash_hex: arg_sha256_hash_hex },
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec,
       null,
-      [arg_include],
+      { arg_include: arg_include },
       false);
   }
 
@@ -524,13 +524,13 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCertificates');
-          const result = this.impl.getCertificates(params.arg_arg_source);
+          const result = this.impl.getCertificates(params.arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_certs' in response) ? response.arg_arg_certs : response;
-              encoder.encodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_certs' in response) ? response.arg_certs : response;
+              encoder.encodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec.$.structSpec, { 'arg_certs': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCertificates FAILED:', e));
           }
@@ -545,8 +545,8 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_metadata' in response) ? response.arg_arg_metadata : response;
-              encoder.encodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_metadata' in response) ? response.arg_metadata : response;
+              encoder.encodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec.$.structSpec, { 'arg_metadata': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCertManagementMetadata FAILED:', e));
           }
@@ -556,27 +556,27 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.viewCertificate');
-          const result = this.impl.viewCertificate(params.arg_arg_source, params.arg_arg_sha256_hash_hex);
+          const result = this.impl.viewCertificate(params.arg_source, params.arg_sha256_hash_hex);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.exportCertificates');
-          const result = this.impl.exportCertificates(params.arg_arg_source);
+          const result = this.impl.exportCertificates(params.arg_source);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.importCertificate');
-          const result = this.impl.importCertificate(params.arg_arg_source);
+          const result = this.impl.importCertificate(params.arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] importCertificate FAILED:', e));
           }
@@ -586,13 +586,13 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.importAndBindCertificate');
-          const result = this.impl.importAndBindCertificate(params.arg_arg_source);
+          const result = this.impl.importAndBindCertificate(params.arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] importAndBindCertificate FAILED:', e));
           }
@@ -602,13 +602,13 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteCertificate');
-          const result = this.impl.deleteCertificate(params.arg_arg_source, params.arg_arg_display_name, params.arg_arg_sha256_hash_hex);
+          const result = this.impl.deleteCertificate(params.arg_source, params.arg_display_name, params.arg_sha256_hash_hex);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteCertificate FAILED:', e));
           }
@@ -618,7 +618,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIncludeSystemTrustStore');
-          const result = this.impl.setIncludeSystemTrustStore(params.arg_arg_include);
+          const result = this.impl.setIncludeSystemTrustStore(params.arg_include);
           break;
         }
       }
@@ -691,7 +691,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec,
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -700,7 +700,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec,
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec,
-      [arg_title, arg_message],
+      { arg_title: arg_title, arg_message: arg_message },
       false);
   }
 
@@ -709,7 +709,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageRemoteCal
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec,
       null,
-      [arg_sources],
+      { arg_sources: arg_sources },
       false);
   }
 
@@ -718,7 +718,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageRemoteCal
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -795,8 +795,8 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageReceiver 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_password' in response) ? response.arg_arg_password : response;
-              encoder.encodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_password' in response) ? response.arg_password : response;
+              encoder.encodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec.$.structSpec, { 'arg_password': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] askForImportPassword FAILED:', e));
           }
@@ -806,13 +806,13 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.askForConfirmation');
-          const result = this.impl.askForConfirmation(params.arg_arg_title, params.arg_arg_message);
+          const result = this.impl.askForConfirmation(params.arg_title, params.arg_message);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_confirmed' in response) ? response.arg_arg_confirmed : response;
-              encoder.encodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_confirmed' in response) ? response.arg_confirmed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec.$.structSpec, { 'arg_confirmed': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] askForConfirmation FAILED:', e));
           }
@@ -822,7 +822,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.triggerReload');
-          const result = this.impl.triggerReload(params.arg_arg_sources);
+          const result = this.impl.triggerReload(params.arg_sources);
           break;
         }
         case 3: {

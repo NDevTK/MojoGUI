@@ -285,7 +285,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ResponseParamsSpec,
-      [arg_update_manifest_url],
+      { arg_update_manifest_url: arg_update_manifest_url },
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ResponseParamsSpec,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ResponseParamsSpec,
-      [arg_app_id],
+      { arg_app_id: arg_app_id },
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ResponseParamsSpec,
-      [arg_app_id],
+      { arg_app_id: arg_app_id },
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ResponseParamsSpec,
-      [arg_app_id],
+      { arg_app_id: arg_app_id },
       false);
   }
 
@@ -357,7 +357,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ResponseParamsSpec,
-      [arg_app_id],
+      { arg_app_id: arg_app_id },
       false);
   }
 
@@ -366,7 +366,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ResponseParamsSpec,
-      [arg_app_id, arg_update_channel],
+      { arg_app_id: arg_app_id, arg_update_channel: arg_update_channel },
       false);
   }
 
@@ -375,7 +375,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ResponseParamsSpec,
-      [arg_app_id, arg_pinned_version],
+      { arg_app_id: arg_app_id, arg_pinned_version: arg_pinned_version },
       false);
   }
 
@@ -384,7 +384,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_ResetPinnedVersionForIsolatedWebApp_ParamsSpec,
       null,
-      [arg_app_id],
+      { arg_app_id: arg_app_id },
       false);
   }
 
@@ -393,7 +393,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_ParamsSpec,
       null,
-      [arg_allow_downgrades, arg_app_id],
+      { arg_allow_downgrades: arg_allow_downgrades, arg_app_id: arg_app_id },
       false);
   }
 
@@ -402,7 +402,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -411,7 +411,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -420,7 +420,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_RotateKey_ParamsSpec,
       null,
-      [arg_web_bundle_id, arg_rotated_key],
+      { arg_web_bundle_id: arg_web_bundle_id, arg_rotated_key: arg_rotated_key },
       false);
   }
 
@@ -509,8 +509,8 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDebugInfoAsJsonString FAILED:', e));
           }
@@ -520,13 +520,13 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installIsolatedWebAppFromDevProxy');
-          const result = this.impl.installIsolatedWebAppFromDevProxy(params.arg_arg_url);
+          const result = this.impl.installIsolatedWebAppFromDevProxy(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] installIsolatedWebAppFromDevProxy FAILED:', e));
           }
@@ -541,8 +541,8 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] selectFileAndInstallIsolatedWebAppFromDevBundle FAILED:', e));
           }
@@ -552,13 +552,13 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseUpdateManifestFromUrl');
-          const result = this.impl.parseUpdateManifestFromUrl(params.arg_arg_update_manifest_url);
+          const result = this.impl.parseUpdateManifestFromUrl(params.arg_update_manifest_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] parseUpdateManifestFromUrl FAILED:', e));
           }
@@ -568,13 +568,13 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installIsolatedWebAppFromBundleUrl');
-          const result = this.impl.installIsolatedWebAppFromBundleUrl(params.arg_arg_params);
+          const result = this.impl.installIsolatedWebAppFromBundleUrl(params.arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] installIsolatedWebAppFromBundleUrl FAILED:', e));
           }
@@ -584,13 +584,13 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateDevProxyIsolatedWebApp');
-          const result = this.impl.updateDevProxyIsolatedWebApp(params.arg_arg_app_id);
+          const result = this.impl.updateDevProxyIsolatedWebApp(params.arg_app_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateDevProxyIsolatedWebApp FAILED:', e));
           }
@@ -600,13 +600,13 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectFileAndUpdateIsolatedWebAppFromDevBundle');
-          const result = this.impl.selectFileAndUpdateIsolatedWebAppFromDevBundle(params.arg_arg_app_id);
+          const result = this.impl.selectFileAndUpdateIsolatedWebAppFromDevBundle(params.arg_app_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] selectFileAndUpdateIsolatedWebAppFromDevBundle FAILED:', e));
           }
@@ -616,13 +616,13 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateManifestInstalledIsolatedWebApp');
-          const result = this.impl.updateManifestInstalledIsolatedWebApp(params.arg_arg_app_id);
+          const result = this.impl.updateManifestInstalledIsolatedWebApp(params.arg_app_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateManifestInstalledIsolatedWebApp FAILED:', e));
           }
@@ -632,13 +632,13 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteIsolatedWebApp');
-          const result = this.impl.deleteIsolatedWebApp(params.arg_arg_app_id);
+          const result = this.impl.deleteIsolatedWebApp(params.arg_app_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteIsolatedWebApp FAILED:', e));
           }
@@ -648,13 +648,13 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUpdateChannelForIsolatedWebApp');
-          const result = this.impl.setUpdateChannelForIsolatedWebApp(params.arg_arg_app_id, params.arg_arg_update_channel);
+          const result = this.impl.setUpdateChannelForIsolatedWebApp(params.arg_app_id, params.arg_update_channel);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setUpdateChannelForIsolatedWebApp FAILED:', e));
           }
@@ -664,13 +664,13 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPinnedVersionForIsolatedWebApp');
-          const result = this.impl.setPinnedVersionForIsolatedWebApp(params.arg_arg_app_id, params.arg_arg_pinned_version);
+          const result = this.impl.setPinnedVersionForIsolatedWebApp(params.arg_app_id, params.arg_pinned_version);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setPinnedVersionForIsolatedWebApp FAILED:', e));
           }
@@ -680,14 +680,14 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_ResetPinnedVersionForIsolatedWebApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetPinnedVersionForIsolatedWebApp');
-          const result = this.impl.resetPinnedVersionForIsolatedWebApp(params.arg_arg_app_id);
+          const result = this.impl.resetPinnedVersionForIsolatedWebApp(params.arg_app_id);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAllowDowngradesForIsolatedWebApp');
-          const result = this.impl.setAllowDowngradesForIsolatedWebApp(params.arg_arg_allow_downgrades, params.arg_arg_app_id);
+          const result = this.impl.setAllowDowngradesForIsolatedWebApp(params.arg_allow_downgrades, params.arg_app_id);
           break;
         }
         case 13: {
@@ -699,8 +699,8 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] searchForIsolatedWebAppUpdates FAILED:', e));
           }
@@ -715,8 +715,8 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_apps' in response) ? response.arg_arg_apps : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_apps' in response) ? response.arg_apps : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ResponseParamsSpec.$.structSpec, { 'arg_apps': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getIsolatedWebAppDevModeAppInfo FAILED:', e));
           }
@@ -726,7 +726,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.WebAppInternalsHandler_RotateKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rotateKey');
-          const result = this.impl.rotateKey(params.arg_arg_web_bundle_id, params.arg_arg_rotated_key);
+          const result = this.impl.rotateKey(params.arg_web_bundle_id, params.arg_rotated_key);
           break;
         }
       }

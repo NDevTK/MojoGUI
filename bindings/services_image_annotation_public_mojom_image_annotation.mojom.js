@@ -204,7 +204,7 @@ mojo.internal.bindings.image_annotation.mojom.ImageProcessorRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec,
       mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -278,7 +278,7 @@ mojo.internal.bindings.image_annotation.mojom.ImageProcessorReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec.$.structSpec, ['response.arg_arg_bytes', 'response.arg_arg_width', 'response.arg_arg_height']);
+              encoder.encodeStructInline(mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec.$.structSpec, { 'arg_bytes': response.arg_bytes, 'arg_width': response.arg_width, 'arg_height': response.arg_height });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getJpgImageData FAILED:', e));
           }
@@ -342,7 +342,7 @@ mojo.internal.bindings.image_annotation.mojom.AnnotatorRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec,
       mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec,
-      [arg_source_id, arg_description_language_tag, arg_image_processor],
+      { arg_source_id: arg_source_id, arg_description_language_tag: arg_description_language_tag, arg_image_processor: arg_image_processor },
       false);
   }
 
@@ -411,13 +411,13 @@ mojo.internal.bindings.image_annotation.mojom.AnnotatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.annotateImage');
-          const result = this.impl.annotateImage(params.arg_arg_source_id, params.arg_arg_description_language_tag, params.arg_arg_image_processor);
+          const result = this.impl.annotateImage(params.arg_source_id, params.arg_description_language_tag, params.arg_image_processor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] annotateImage FAILED:', e));
           }
@@ -481,7 +481,7 @@ mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -550,7 +550,7 @@ mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAnnotator');
-          const result = this.impl.bindAnnotator(params.arg_arg_receiver);
+          const result = this.impl.bindAnnotator(params.arg_receiver);
           break;
         }
       }

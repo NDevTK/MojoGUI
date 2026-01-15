@@ -201,7 +201,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.MediaClientRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec,
       null,
-      [arg_track],
+      { arg_track: arg_track },
       false);
   }
 
@@ -270,7 +270,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.MediaClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startPlay');
-          const result = this.impl.startPlay(params.arg_arg_track);
+          const result = this.impl.startPlay(params.arg_track);
           break;
         }
       }
@@ -343,7 +343,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec,
       mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -352,7 +352,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec,
       null,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec,
       null,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -447,8 +447,8 @@ mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_track' in response) ? response.arg_arg_track : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_track' in response) ? response.arg_track : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec.$.structSpec, { 'arg_track': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getTrack FAILED:', e));
           }
@@ -458,14 +458,14 @@ mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMediaClient');
-          const result = this.impl.setMediaClient(params.arg_arg_client);
+          const result = this.impl.setMediaClient(params.arg_client);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportPlayback');
-          const result = this.impl.reportPlayback(params.arg_arg_data);
+          const result = this.impl.reportPlayback(params.arg_data);
           break;
         }
         case 3: {

@@ -197,7 +197,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec,
       null,
-      [arg_response, arg_timing],
+      { arg_response: arg_response, arg_timing: arg_timing },
       false);
   }
 
@@ -206,7 +206,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec,
       null,
-      [arg_response, arg_body_as_stream, arg_timing],
+      { arg_response: arg_response, arg_body_as_stream: arg_body_as_stream, arg_timing: arg_timing },
       false);
   }
 
@@ -215,7 +215,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec,
       null,
-      [arg_request_body, arg_timing],
+      { arg_request_body: arg_request_body, arg_timing: arg_timing },
       false);
   }
 
@@ -286,21 +286,21 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallbackReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponse');
-          const result = this.impl.onResponse(params.arg_arg_response, params.arg_arg_timing);
+          const result = this.impl.onResponse(params.arg_response, params.arg_timing);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponseStream');
-          const result = this.impl.onResponseStream(params.arg_arg_response, params.arg_arg_body_as_stream, params.arg_arg_timing);
+          const result = this.impl.onResponseStream(params.arg_response, params.arg_body_as_stream, params.arg_timing);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFallback');
-          const result = this.impl.onFallback(params.arg_arg_request_body, params.arg_arg_timing);
+          const result = this.impl.onFallback(params.arg_request_body, params.arg_timing);
           break;
         }
       }

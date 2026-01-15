@@ -174,7 +174,7 @@ mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec,
       null,
-      [arg_camera_id, arg_device_id],
+      { arg_camera_id: arg_camera_id, arg_device_id: arg_device_id },
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGetCameraIdToDeviceIdMapping');
-          const result = this.impl.onGetCameraIdToDeviceIdMapping(params.arg_arg_camera_id, params.arg_arg_device_id);
+          const result = this.impl.onGetCameraIdToDeviceIdMapping(params.arg_camera_id, params.arg_device_id);
           break;
         }
       }
@@ -304,7 +304,7 @@ mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addVideoCaptureDeviceInfoObserver');
-          const result = this.impl.addVideoCaptureDeviceInfoObserver(params.arg_arg_observer);
+          const result = this.impl.addVideoCaptureDeviceInfoObserver(params.arg_observer);
           break;
         }
       }

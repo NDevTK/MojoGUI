@@ -192,7 +192,7 @@ mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec,
-      [arg_type, arg_title, arg_file_path, arg_file_types, arg_file_type_index, arg_default_extension],
+      { arg_type: arg_type, arg_title: arg_title, arg_file_path: arg_file_path, arg_file_types: arg_file_types, arg_file_type_index: arg_file_type_index, arg_default_extension: arg_default_extension },
       false);
   }
 
@@ -261,12 +261,12 @@ mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.show');
-          const result = this.impl.show(params.arg_arg_type, params.arg_arg_title, params.arg_arg_file_path, params.arg_arg_file_types, params.arg_arg_file_type_index, params.arg_arg_default_extension);
+          const result = this.impl.show(params.arg_type, params.arg_title, params.arg_file_path, params.arg_file_types, params.arg_file_type_index, params.arg_default_extension);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec.$.structSpec, ['response.arg_arg_was_cancelled', 'response.arg_arg_files', 'response.arg_arg_index', 'response.arg_arg_file_tags']);
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec.$.structSpec, { 'arg_was_cancelled': response.arg_was_cancelled, 'arg_files': response.arg_files, 'arg_index': response.arg_index, 'arg_file_tags': response.arg_file_tags });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] show FAILED:', e));
           }

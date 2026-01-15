@@ -230,7 +230,7 @@ mojo.internal.bindings.ax.mojom.AssistiveTechnologyControllerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec,
       null,
-      [arg_enabled_features],
+      { arg_enabled_features: arg_enabled_features },
       false);
   }
 
@@ -299,7 +299,7 @@ mojo.internal.bindings.ax.mojom.AssistiveTechnologyControllerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableAssistiveTechnology');
-          const result = this.impl.enableAssistiveTechnology(params.arg_arg_enabled_features);
+          const result = this.impl.enableAssistiveTechnology(params.arg_enabled_features);
           break;
         }
       }
@@ -368,7 +368,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec,
       null,
-      [arg_accessibility_service_client],
+      { arg_accessibility_service_client: arg_accessibility_service_client },
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec,
       null,
-      [arg_at_controller, arg_enabled_features],
+      { arg_at_controller: arg_at_controller, arg_enabled_features: arg_enabled_features },
       false);
   }
 
@@ -386,7 +386,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec,
       null,
-      [arg_agent, arg_type],
+      { arg_agent: arg_agent, arg_type: arg_type },
       false);
   }
 
@@ -457,21 +457,21 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAccessibilityServiceClient');
-          const result = this.impl.bindAccessibilityServiceClient(params.arg_arg_accessibility_service_client);
+          const result = this.impl.bindAccessibilityServiceClient(params.arg_accessibility_service_client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAssistiveTechnologyController');
-          const result = this.impl.bindAssistiveTechnologyController(params.arg_arg_at_controller, params.arg_arg_enabled_features);
+          const result = this.impl.bindAssistiveTechnologyController(params.arg_at_controller, params.arg_enabled_features);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectDevToolsAgent');
-          const result = this.impl.connectDevToolsAgent(params.arg_arg_agent, params.arg_arg_type);
+          const result = this.impl.connectDevToolsAgent(params.arg_agent, params.arg_type);
           break;
         }
       }
@@ -560,7 +560,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec,
       null,
-      [arg_automation],
+      { arg_automation: arg_automation },
       false);
   }
 
@@ -569,7 +569,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec,
       null,
-      [arg_automation_client],
+      { arg_automation_client: arg_automation_client },
       false);
   }
 
@@ -578,7 +578,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec,
       null,
-      [arg_autoclick_client],
+      { arg_autoclick_client: arg_autoclick_client },
       false);
   }
 
@@ -587,7 +587,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec,
       null,
-      [arg_sr_receiver],
+      { arg_sr_receiver: arg_sr_receiver },
       false);
   }
 
@@ -596,7 +596,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec,
       null,
-      [arg_tts_receiver],
+      { arg_tts_receiver: arg_tts_receiver },
       false);
   }
 
@@ -605,7 +605,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientRemoteCallHandler = cl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec,
       null,
-      [arg_user_input_receiver],
+      { arg_user_input_receiver: arg_user_input_receiver },
       false);
   }
 
@@ -614,7 +614,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientRemoteCallHandler = cl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec,
       null,
-      [arg_user_interface_receiver],
+      { arg_user_interface_receiver: arg_user_interface_receiver },
       false);
   }
 
@@ -623,7 +623,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientRemoteCallHandler = cl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec,
       null,
-      [arg_file_loader_receiver],
+      { arg_file_loader_receiver: arg_file_loader_receiver },
       false);
   }
 
@@ -699,56 +699,56 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAutomation');
-          const result = this.impl.bindAutomation(params.arg_arg_automation);
+          const result = this.impl.bindAutomation(params.arg_automation);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAutomationClient');
-          const result = this.impl.bindAutomationClient(params.arg_arg_automation_client);
+          const result = this.impl.bindAutomationClient(params.arg_automation_client);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAutoclickClient');
-          const result = this.impl.bindAutoclickClient(params.arg_arg_autoclick_client);
+          const result = this.impl.bindAutoclickClient(params.arg_autoclick_client);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSpeechRecognition');
-          const result = this.impl.bindSpeechRecognition(params.arg_arg_sr_receiver);
+          const result = this.impl.bindSpeechRecognition(params.arg_sr_receiver);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTts');
-          const result = this.impl.bindTts(params.arg_arg_tts_receiver);
+          const result = this.impl.bindTts(params.arg_tts_receiver);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindUserInput');
-          const result = this.impl.bindUserInput(params.arg_arg_user_input_receiver);
+          const result = this.impl.bindUserInput(params.arg_user_input_receiver);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindUserInterface');
-          const result = this.impl.bindUserInterface(params.arg_arg_user_interface_receiver);
+          const result = this.impl.bindUserInterface(params.arg_user_interface_receiver);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAccessibilityFileLoader');
-          const result = this.impl.bindAccessibilityFileLoader(params.arg_arg_file_loader_receiver);
+          const result = this.impl.bindAccessibilityFileLoader(params.arg_file_loader_receiver);
           break;
         }
       }

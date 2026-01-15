@@ -186,7 +186,7 @@ mojo.internal.bindings.blink.mojom.ContentSecurityNotifierRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.blink.mojom.ContentSecurityNotifierRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.blink.mojom.ContentSecurityNotifierRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec,
       null,
-      [arg_origin, arg_insecure_url],
+      { arg_origin: arg_origin, arg_insecure_url: arg_insecure_url },
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.blink.mojom.ContentSecurityNotifierReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyInsecureContentRan');
-          const result = this.impl.notifyInsecureContentRan(params.arg_arg_origin, params.arg_arg_insecure_url);
+          const result = this.impl.notifyInsecureContentRan(params.arg_origin, params.arg_insecure_url);
           break;
         }
       }

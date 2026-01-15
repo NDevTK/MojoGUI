@@ -208,7 +208,7 @@ mojo.internal.bindings.remote_cocoa.mojom.MenuHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec,
       null,
-      [arg_command_id, arg_event_flags],
+      { arg_command_id: arg_command_id, arg_event_flags: arg_event_flags },
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.remote_cocoa.mojom.MenuHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.remote_cocoa.mojom.MenuHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commandActivated');
-          const result = this.impl.commandActivated(params.arg_arg_command_id, params.arg_arg_event_flags);
+          const result = this.impl.commandActivated(params.arg_command_id, params.arg_event_flags);
           break;
         }
         case 1: {
@@ -359,7 +359,7 @@ mojo.internal.bindings.remote_cocoa.mojom.MenuRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.Menu_Cancel_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.remote_cocoa.mojom.MenuRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec,
       null,
-      [arg_command_id, arg_enabled, arg_visible, arg_label],
+      { arg_command_id: arg_command_id, arg_enabled: arg_enabled, arg_visible: arg_visible, arg_label: arg_label },
       false);
   }
 
@@ -445,7 +445,7 @@ mojo.internal.bindings.remote_cocoa.mojom.MenuReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateMenuItem');
-          const result = this.impl.updateMenuItem(params.arg_arg_command_id, params.arg_arg_enabled, params.arg_arg_visible, params.arg_arg_label);
+          const result = this.impl.updateMenuItem(params.arg_command_id, params.arg_enabled, params.arg_visible, params.arg_label);
           break;
         }
       }

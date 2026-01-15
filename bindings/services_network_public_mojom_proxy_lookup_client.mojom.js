@@ -176,7 +176,7 @@ mojo.internal.bindings.network.mojom.ProxyLookupClientRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec,
       null,
-      [arg_net_error, arg_proxy_info],
+      { arg_net_error: arg_net_error, arg_proxy_info: arg_proxy_info },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.network.mojom.ProxyLookupClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProxyLookupComplete');
-          const result = this.impl.onProxyLookupComplete(params.arg_arg_net_error, params.arg_arg_proxy_info);
+          const result = this.impl.onProxyLookupComplete(params.arg_net_error, params.arg_proxy_info);
           break;
         }
       }

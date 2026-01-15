@@ -245,7 +245,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerManagerRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaControllerManager_CreateMediaControllerForSession_ParamsSpec,
       null,
-      [arg_receiver, arg_request_id],
+      { arg_receiver: arg_receiver, arg_request_id: arg_request_id },
       false);
   }
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerManagerRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaControllerManager_CreateActiveMediaController_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerManagerRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaControllerManager_SuspendAllSessions_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -334,14 +334,14 @@ mojo.internal.bindings.media_session.mojom.MediaControllerManagerReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaControllerManager_CreateMediaControllerForSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createMediaControllerForSession');
-          const result = this.impl.createMediaControllerForSession(params.arg_arg_receiver, params.arg_arg_request_id);
+          const result = this.impl.createMediaControllerForSession(params.arg_receiver, params.arg_request_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaControllerManager_CreateActiveMediaController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createActiveMediaController');
-          const result = this.impl.createActiveMediaController(params.arg_arg_receiver);
+          const result = this.impl.createActiveMediaController(params.arg_receiver);
           break;
         }
         case 2: {
@@ -493,7 +493,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_Suspend_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -502,7 +502,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_Resume_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -511,7 +511,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_Stop_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -520,7 +520,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_ToggleSuspendResume_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -529,7 +529,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_AddObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -538,7 +538,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_PreviousTrack_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -547,7 +547,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_NextTrack_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -556,7 +556,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_Seek_ParamsSpec,
       null,
-      [arg_seek_time],
+      { arg_seek_time: arg_seek_time },
       false);
   }
 
@@ -565,7 +565,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_ObserveImages_ParamsSpec,
       null,
-      [arg_type, arg_minimum_size_px, arg_desired_size_px, arg_observer],
+      { arg_type: arg_type, arg_minimum_size_px: arg_minimum_size_px, arg_desired_size_px: arg_desired_size_px, arg_observer: arg_observer },
       false);
   }
 
@@ -574,7 +574,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_SeekTo_ParamsSpec,
       null,
-      [arg_seek_time],
+      { arg_seek_time: arg_seek_time },
       false);
   }
 
@@ -583,7 +583,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_ScrubTo_ParamsSpec,
       null,
-      [arg_seek_time],
+      { arg_seek_time: arg_seek_time },
       false);
   }
 
@@ -592,7 +592,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_EnterPictureInPicture_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -601,7 +601,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_ExitPictureInPicture_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -610,7 +610,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_SetAudioSinkId_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -619,7 +619,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_ToggleMicrophone_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -628,7 +628,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_ToggleCamera_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -637,7 +637,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_HangUp_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -646,7 +646,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_Raise_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -655,7 +655,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_SetMute_ParamsSpec,
       null,
-      [arg_mute],
+      { arg_mute: arg_mute },
       false);
   }
 
@@ -664,7 +664,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_RequestMediaRemoting_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -673,7 +673,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_EnterAutoPictureInPicture_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -682,7 +682,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_SkipAd_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -800,7 +800,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaController_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_arg_observer);
+          const result = this.impl.addObserver(params.arg_observer);
           break;
         }
         case 5: {
@@ -821,28 +821,28 @@ mojo.internal.bindings.media_session.mojom.MediaControllerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaController_Seek_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.seek');
-          const result = this.impl.seek(params.arg_arg_seek_time);
+          const result = this.impl.seek(params.arg_seek_time);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaController_ObserveImages_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeImages');
-          const result = this.impl.observeImages(params.arg_arg_type, params.arg_arg_minimum_size_px, params.arg_arg_desired_size_px, params.arg_arg_observer);
+          const result = this.impl.observeImages(params.arg_type, params.arg_minimum_size_px, params.arg_desired_size_px, params.arg_observer);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaController_SeekTo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.seekTo');
-          const result = this.impl.seekTo(params.arg_arg_seek_time);
+          const result = this.impl.seekTo(params.arg_seek_time);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaController_ScrubTo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.scrubTo');
-          const result = this.impl.scrubTo(params.arg_arg_seek_time);
+          const result = this.impl.scrubTo(params.arg_seek_time);
           break;
         }
         case 11: {
@@ -863,7 +863,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaController_SetAudioSinkId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAudioSinkId');
-          const result = this.impl.setAudioSinkId(params.arg_arg_id);
+          const result = this.impl.setAudioSinkId(params.arg_id);
           break;
         }
         case 14: {
@@ -898,7 +898,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaController_SetMute_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMute');
-          const result = this.impl.setMute(params.arg_arg_mute);
+          const result = this.impl.setMute(params.arg_mute);
           break;
         }
         case 19: {
@@ -996,7 +996,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaControllerObserver_MediaSessionInfoChanged_ParamsSpec,
       null,
-      [arg_info],
+      { arg_info: arg_info },
       false);
   }
 
@@ -1005,7 +1005,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerObserverRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaControllerObserver_MediaSessionMetadataChanged_ParamsSpec,
       null,
-      [arg_metadata],
+      { arg_metadata: arg_metadata },
       false);
   }
 
@@ -1014,7 +1014,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerObserverRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaControllerObserver_MediaSessionActionsChanged_ParamsSpec,
       null,
-      [arg_action],
+      { arg_action: arg_action },
       false);
   }
 
@@ -1023,7 +1023,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerObserverRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaControllerObserver_MediaSessionChanged_ParamsSpec,
       null,
-      [arg_request_id],
+      { arg_request_id: arg_request_id },
       false);
   }
 
@@ -1032,7 +1032,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerObserverRemoteCallHand
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaControllerObserver_MediaSessionPositionChanged_ParamsSpec,
       null,
-      [arg_position],
+      { arg_position: arg_position },
       false);
   }
 
@@ -1105,35 +1105,35 @@ mojo.internal.bindings.media_session.mojom.MediaControllerObserverReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaControllerObserver_MediaSessionInfoChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionInfoChanged');
-          const result = this.impl.mediaSessionInfoChanged(params.arg_arg_info);
+          const result = this.impl.mediaSessionInfoChanged(params.arg_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaControllerObserver_MediaSessionMetadataChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionMetadataChanged');
-          const result = this.impl.mediaSessionMetadataChanged(params.arg_arg_metadata);
+          const result = this.impl.mediaSessionMetadataChanged(params.arg_metadata);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaControllerObserver_MediaSessionActionsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionActionsChanged');
-          const result = this.impl.mediaSessionActionsChanged(params.arg_arg_action);
+          const result = this.impl.mediaSessionActionsChanged(params.arg_action);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaControllerObserver_MediaSessionChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionChanged');
-          const result = this.impl.mediaSessionChanged(params.arg_arg_request_id);
+          const result = this.impl.mediaSessionChanged(params.arg_request_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaControllerObserver_MediaSessionPositionChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionPositionChanged');
-          const result = this.impl.mediaSessionPositionChanged(params.arg_arg_position);
+          const result = this.impl.mediaSessionPositionChanged(params.arg_position);
           break;
         }
       }
@@ -1198,7 +1198,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerImageObserverRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaControllerImageObserver_MediaControllerImageChanged_ParamsSpec,
       null,
-      [arg_type, arg_bitmap],
+      { arg_type: arg_type, arg_bitmap: arg_bitmap },
       false);
   }
 
@@ -1207,7 +1207,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerImageObserverRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaControllerImageObserver_MediaControllerChapterImageChanged_ParamsSpec,
       null,
-      [arg_index, arg_bitmap],
+      { arg_index: arg_index, arg_bitmap: arg_bitmap },
       false);
   }
 
@@ -1277,14 +1277,14 @@ mojo.internal.bindings.media_session.mojom.MediaControllerImageObserverReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaControllerImageObserver_MediaControllerImageChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mediaControllerImageChanged');
-          const result = this.impl.mediaControllerImageChanged(params.arg_arg_type, params.arg_arg_bitmap);
+          const result = this.impl.mediaControllerImageChanged(params.arg_type, params.arg_bitmap);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaControllerImageObserver_MediaControllerChapterImageChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mediaControllerChapterImageChanged');
-          const result = this.impl.mediaControllerChapterImageChanged(params.arg_arg_index, params.arg_arg_bitmap);
+          const result = this.impl.mediaControllerChapterImageChanged(params.arg_index, params.arg_bitmap);
           break;
         }
       }

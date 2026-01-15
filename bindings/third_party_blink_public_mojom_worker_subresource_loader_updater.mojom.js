@@ -175,7 +175,7 @@ mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdaterRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec,
       null,
-      [arg_subresource_loader_factories],
+      { arg_subresource_loader_factories: arg_subresource_loader_factories },
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdaterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSubresourceLoaderFactories');
-          const result = this.impl.updateSubresourceLoaderFactories(params.arg_arg_subresource_loader_factories);
+          const result = this.impl.updateSubresourceLoaderFactories(params.arg_subresource_loader_factories);
           break;
         }
       }

@@ -176,7 +176,7 @@ mojo.internal.bindings.content.mojom.ThreadTypeSwitcherRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec,
       null,
-      [arg_platform_thread_id, arg_thread_type],
+      { arg_platform_thread_id: arg_platform_thread_id, arg_thread_type: arg_thread_type },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.content.mojom.ThreadTypeSwitcherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setThreadType');
-          const result = this.impl.setThreadType(params.arg_arg_platform_thread_id, params.arg_arg_thread_type);
+          const result = this.impl.setThreadType(params.arg_platform_thread_id, params.arg_thread_type);
           break;
         }
       }

@@ -181,7 +181,7 @@ mojo.internal.bindings.device.mojom.GeolocationRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec,
       null,
-      [arg_high_accuracy],
+      { arg_high_accuracy: arg_high_accuracy },
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.device.mojom.GeolocationRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.Geolocation_QueryNextPosition_ParamsSpec,
       mojo.internal.bindings.device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.device.mojom.GeolocationReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHighAccuracyHint');
-          const result = this.impl.setHighAccuracyHint(params.arg_arg_high_accuracy);
+          const result = this.impl.setHighAccuracyHint(params.arg_high_accuracy);
           break;
         }
         case 1: {
@@ -272,8 +272,8 @@ mojo.internal.bindings.device.mojom.GeolocationReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] queryNextPosition FAILED:', e));
           }

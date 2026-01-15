@@ -171,7 +171,7 @@ mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfigurationRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec,
       null,
-      [arg_filter],
+      { arg_filter: arg_filter },
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfigurationReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFilter');
-          const result = this.impl.setFilter(params.arg_arg_filter);
+          const result = this.impl.setFilter(params.arg_filter);
           break;
         }
       }

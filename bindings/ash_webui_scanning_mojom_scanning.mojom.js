@@ -278,7 +278,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec,
       null,
-      [arg_page_number, arg_progress_percent],
+      { arg_page_number: arg_page_number, arg_progress_percent: arg_progress_percent },
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec,
       null,
-      [arg_page_data, arg_new_page_index],
+      { arg_page_data: arg_page_data, arg_new_page_index: arg_new_page_index },
       false);
   }
 
@@ -296,7 +296,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec,
       null,
-      [arg_result, arg_scanned_file_paths],
+      { arg_result: arg_result, arg_scanned_file_paths: arg_scanned_file_paths },
       false);
   }
 
@@ -305,7 +305,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec,
       null,
-      [arg_success],
+      { arg_success: arg_success },
       false);
   }
 
@@ -314,7 +314,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec,
       null,
-      [arg_result],
+      { arg_result: arg_result },
       false);
   }
 
@@ -387,35 +387,35 @@ mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPageProgress');
-          const result = this.impl.onPageProgress(params.arg_arg_page_number, params.arg_arg_progress_percent);
+          const result = this.impl.onPageProgress(params.arg_page_number, params.arg_progress_percent);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPageComplete');
-          const result = this.impl.onPageComplete(params.arg_arg_page_data, params.arg_arg_new_page_index);
+          const result = this.impl.onPageComplete(params.arg_page_data, params.arg_new_page_index);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScanComplete');
-          const result = this.impl.onScanComplete(params.arg_arg_result, params.arg_arg_scanned_file_paths);
+          const result = this.impl.onScanComplete(params.arg_result, params.arg_scanned_file_paths);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCancelComplete');
-          const result = this.impl.onCancelComplete(params.arg_arg_success);
+          const result = this.impl.onCancelComplete(params.arg_success);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMultiPageScanFail');
-          const result = this.impl.onMultiPageScanFail(params.arg_arg_result);
+          const result = this.impl.onMultiPageScanFail(params.arg_result);
           break;
         }
       }
@@ -492,7 +492,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ParamsSpec,
       mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -501,7 +501,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec,
       mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec,
-      [arg_scanner_id],
+      { arg_scanner_id: arg_scanner_id },
       false);
   }
 
@@ -510,7 +510,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ParamsSpec,
       mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec,
-      [arg_scanner_id, arg_settings, arg_observer],
+      { arg_scanner_id: arg_scanner_id, arg_settings: arg_settings, arg_observer: arg_observer },
       false);
   }
 
@@ -519,7 +519,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec,
       mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec,
-      [arg_scanner_id, arg_settings, arg_observer],
+      { arg_scanner_id: arg_scanner_id, arg_settings: arg_settings, arg_observer: arg_observer },
       false);
   }
 
@@ -528,7 +528,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.ScanService_CancelScan_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -606,8 +606,8 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_scanners' in response) ? response.arg_arg_scanners : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_scanners' in response) ? response.arg_scanners : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec.$.structSpec, { 'arg_scanners': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getScanners FAILED:', e));
           }
@@ -617,13 +617,13 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getScannerCapabilities');
-          const result = this.impl.getScannerCapabilities(params.arg_arg_scanner_id);
+          const result = this.impl.getScannerCapabilities(params.arg_scanner_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_capabilities' in response) ? response.arg_arg_capabilities : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_capabilities' in response) ? response.arg_capabilities : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec.$.structSpec, { 'arg_capabilities': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getScannerCapabilities FAILED:', e));
           }
@@ -633,13 +633,13 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startScan');
-          const result = this.impl.startScan(params.arg_arg_scanner_id, params.arg_arg_settings, params.arg_arg_observer);
+          const result = this.impl.startScan(params.arg_scanner_id, params.arg_settings, params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startScan FAILED:', e));
           }
@@ -649,13 +649,13 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startMultiPageScan');
-          const result = this.impl.startMultiPageScan(params.arg_arg_scanner_id, params.arg_arg_settings, params.arg_arg_observer);
+          const result = this.impl.startMultiPageScan(params.arg_scanner_id, params.arg_settings, params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_controller' in response) ? response.arg_arg_controller : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_controller' in response) ? response.arg_controller : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec.$.structSpec, { 'arg_controller': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startMultiPageScan FAILED:', e));
           }
@@ -738,7 +738,7 @@ mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec,
       mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec,
-      [arg_scanner_id, arg_settings],
+      { arg_scanner_id: arg_scanner_id, arg_settings: arg_settings },
       false);
   }
 
@@ -747,7 +747,7 @@ mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec,
       null,
-      [arg_page_index],
+      { arg_page_index: arg_page_index },
       false);
   }
 
@@ -756,7 +756,7 @@ mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec,
       mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec,
-      [arg_scanner_id, arg_settings, arg_page_index],
+      { arg_scanner_id: arg_scanner_id, arg_settings: arg_settings, arg_page_index: arg_page_index },
       false);
   }
 
@@ -765,7 +765,7 @@ mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -837,13 +837,13 @@ mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.scanNextPage');
-          const result = this.impl.scanNextPage(params.arg_arg_scanner_id, params.arg_arg_settings);
+          const result = this.impl.scanNextPage(params.arg_scanner_id, params.arg_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] scanNextPage FAILED:', e));
           }
@@ -853,20 +853,20 @@ mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removePage');
-          const result = this.impl.removePage(params.arg_arg_page_index);
+          const result = this.impl.removePage(params.arg_page_index);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rescanPage');
-          const result = this.impl.rescanPage(params.arg_arg_scanner_id, params.arg_arg_settings, params.arg_arg_page_index);
+          const result = this.impl.rescanPage(params.arg_scanner_id, params.arg_settings, params.arg_page_index);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] rescanPage FAILED:', e));
           }

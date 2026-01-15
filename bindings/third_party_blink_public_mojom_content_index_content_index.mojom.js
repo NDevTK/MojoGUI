@@ -226,7 +226,7 @@ mojo.internal.bindings.blink.mojom.ContentIndexServiceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec,
-      [arg_category],
+      { arg_category: arg_category },
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.blink.mojom.ContentIndexServiceRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ResponseParamsSpec,
-      [arg_service_worker_registration_id, arg_description, arg_icon, arg_launchUrl],
+      { arg_service_worker_registration_id: arg_service_worker_registration_id, arg_description: arg_description, arg_icon: arg_icon, arg_launchUrl: arg_launchUrl },
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.blink.mojom.ContentIndexServiceRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ResponseParamsSpec,
-      [arg_service_worker_registration_id, arg_id],
+      { arg_service_worker_registration_id: arg_service_worker_registration_id, arg_id: arg_id },
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.blink.mojom.ContentIndexServiceRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec,
-      [arg_service_worker_registration_id],
+      { arg_service_worker_registration_id: arg_service_worker_registration_id },
       false);
   }
 
@@ -325,13 +325,13 @@ mojo.internal.bindings.blink.mojom.ContentIndexServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getIconSizes');
-          const result = this.impl.getIconSizes(params.arg_arg_category);
+          const result = this.impl.getIconSizes(params.arg_category);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_icon_sizes' in response) ? response.arg_arg_icon_sizes : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_icon_sizes' in response) ? response.arg_icon_sizes : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec.$.structSpec, { 'arg_icon_sizes': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getIconSizes FAILED:', e));
           }
@@ -341,13 +341,13 @@ mojo.internal.bindings.blink.mojom.ContentIndexServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.add');
-          const result = this.impl.add(params.arg_arg_service_worker_registration_id, params.arg_arg_description, params.arg_arg_icon, params.arg_arg_launchUrl);
+          const result = this.impl.add(params.arg_service_worker_registration_id, params.arg_description, params.arg_icon, params.arg_launchUrl);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] add FAILED:', e));
           }
@@ -357,13 +357,13 @@ mojo.internal.bindings.blink.mojom.ContentIndexServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.delete');
-          const result = this.impl.delete(params.arg_arg_service_worker_registration_id, params.arg_arg_id);
+          const result = this.impl.delete(params.arg_service_worker_registration_id, params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] delete FAILED:', e));
           }
@@ -373,12 +373,12 @@ mojo.internal.bindings.blink.mojom.ContentIndexServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDescriptions');
-          const result = this.impl.getDescriptions(params.arg_arg_service_worker_registration_id);
+          const result = this.impl.getDescriptions(params.arg_service_worker_registration_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_descriptions']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_descriptions': response.arg_descriptions });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDescriptions FAILED:', e));
           }

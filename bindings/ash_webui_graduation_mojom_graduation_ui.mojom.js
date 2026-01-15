@@ -204,7 +204,7 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec,
       mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -213,7 +213,7 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec,
       mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec,
       null,
-      [arg_screen],
+      { arg_screen: arg_screen },
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -308,8 +308,8 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] authenticateWebview FAILED:', e));
           }
@@ -324,8 +324,8 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_profile_info' in response) ? response.arg_arg_profile_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_profile_info' in response) ? response.arg_profile_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec.$.structSpec, { 'arg_profile_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getProfileInfo FAILED:', e));
           }
@@ -335,7 +335,7 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScreenSwitched');
-          const result = this.impl.onScreenSwitched(params.arg_arg_screen);
+          const result = this.impl.onScreenSwitched(params.arg_screen);
           break;
         }
         case 3: {

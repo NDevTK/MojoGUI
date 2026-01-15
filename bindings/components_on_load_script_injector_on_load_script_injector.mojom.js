@@ -181,7 +181,7 @@ mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjectorRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec,
       null,
-      [arg_script],
+      { arg_script: arg_script },
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjectorRemoteC
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjectorReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addOnLoadScript');
-          const result = this.impl.addOnLoadScript(params.arg_arg_script);
+          const result = this.impl.addOnLoadScript(params.arg_script);
           break;
         }
         case 1: {

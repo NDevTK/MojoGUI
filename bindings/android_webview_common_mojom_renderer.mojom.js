@@ -175,7 +175,7 @@ mojo.internal.bindings.android_webview.mojom.RendererRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.android_webview.mojom.Renderer_ClearCache_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -184,7 +184,7 @@ mojo.internal.bindings.android_webview.mojom.RendererRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec,
       null,
-      [arg_network_up],
+      { arg_network_up: arg_network_up },
       false);
   }
 
@@ -261,7 +261,7 @@ mojo.internal.bindings.android_webview.mojom.RendererReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setJsOnlineProperty');
-          const result = this.impl.setJsOnlineProperty(params.arg_arg_network_up);
+          const result = this.impl.setJsOnlineProperty(params.arg_network_up);
           break;
         }
       }

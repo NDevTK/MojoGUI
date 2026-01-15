@@ -186,7 +186,7 @@ mojo.internal.bindings.viz.mojom.LayeredWindowUpdaterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec,
       null,
-      [arg_pixel_size, arg_region],
+      { arg_pixel_size: arg_pixel_size, arg_region: arg_region },
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.viz.mojom.LayeredWindowUpdaterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec,
       mojo.internal.bindings.viz.mojom.LayeredWindowUpdater_Draw_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -265,7 +265,7 @@ mojo.internal.bindings.viz.mojom.LayeredWindowUpdaterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAllocatedSharedMemory');
-          const result = this.impl.onAllocatedSharedMemory(params.arg_arg_pixel_size, params.arg_arg_region);
+          const result = this.impl.onAllocatedSharedMemory(params.arg_pixel_size, params.arg_region);
           break;
         }
         case 1: {
@@ -277,7 +277,7 @@ mojo.internal.bindings.viz.mojom.LayeredWindowUpdaterReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.LayeredWindowUpdater_Draw_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.LayeredWindowUpdater_Draw_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] draw FAILED:', e));
           }

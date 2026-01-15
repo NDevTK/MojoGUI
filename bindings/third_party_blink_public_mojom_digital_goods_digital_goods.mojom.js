@@ -208,7 +208,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ParamsSpec,
       mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec,
-      [arg_item_ids],
+      { arg_item_ids: arg_item_ids },
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchases_ParamsSpec,
       mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec,
       mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ParamsSpec,
       mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ResponseParamsSpec,
-      [arg_purchase_token],
+      { arg_purchase_token: arg_purchase_token },
       false);
   }
 
@@ -307,12 +307,12 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDetails');
-          const result = this.impl.getDetails(params.arg_arg_item_ids);
+          const result = this.impl.getDetails(params.arg_item_ids);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec.$.structSpec, ['response.arg_arg_code', 'response.arg_arg_item_details_list']);
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec.$.structSpec, { 'arg_code': response.arg_code, 'arg_item_details_list': response.arg_item_details_list });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDetails FAILED:', e));
           }
@@ -327,7 +327,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec.$.structSpec, ['response.arg_arg_code', 'response.arg_arg_purchase_reference_list']);
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec.$.structSpec, { 'arg_code': response.arg_code, 'arg_purchase_reference_list': response.arg_purchase_reference_list });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] listPurchases FAILED:', e));
           }
@@ -342,7 +342,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec.$.structSpec, ['response.arg_arg_code', 'response.arg_arg_purchase_reference_list']);
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec.$.structSpec, { 'arg_code': response.arg_code, 'arg_purchase_reference_list': response.arg_purchase_reference_list });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] listPurchaseHistory FAILED:', e));
           }
@@ -352,13 +352,13 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.consume');
-          const result = this.impl.consume(params.arg_arg_purchase_token);
+          const result = this.impl.consume(params.arg_purchase_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_code' in response) ? response.arg_arg_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_code' in response) ? response.arg_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ResponseParamsSpec.$.structSpec, { 'arg_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] consume FAILED:', e));
           }
@@ -422,7 +422,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsFactoryRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec,
       mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec,
-      [arg_payment_method],
+      { arg_payment_method: arg_payment_method },
       false);
   }
 
@@ -491,12 +491,12 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDigitalGoods');
-          const result = this.impl.createDigitalGoods(params.arg_arg_payment_method);
+          const result = this.impl.createDigitalGoods(params.arg_payment_method);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec.$.structSpec, ['response.arg_arg_code', 'response.arg_arg_digital_goods']);
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec.$.structSpec, { 'arg_code': response.arg_code, 'arg_digital_goods': response.arg_digital_goods });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createDigitalGoods FAILED:', e));
           }

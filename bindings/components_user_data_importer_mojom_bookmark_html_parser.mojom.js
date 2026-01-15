@@ -189,7 +189,7 @@ mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParserRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec,
       mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec,
-      [arg_raw_html],
+      { arg_raw_html: arg_raw_html },
       false);
   }
 
@@ -258,13 +258,13 @@ mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParserReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parse');
-          const result = this.impl.parse(params.arg_arg_raw_html);
+          const result = this.impl.parse(params.arg_raw_html);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] parse FAILED:', e));
           }

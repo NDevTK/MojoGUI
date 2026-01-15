@@ -209,7 +209,7 @@ mojo.internal.bindings.chrome.mojom.PluginHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.PluginHost_OpenPDF_ParamsSpec,
       null,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -278,7 +278,7 @@ mojo.internal.bindings.chrome.mojom.PluginHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.PluginHost_OpenPDF_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openPDF');
-          const result = this.impl.openPDF(params.arg_arg_url);
+          const result = this.impl.openPDF(params.arg_url);
           break;
         }
       }
@@ -339,7 +339,7 @@ mojo.internal.bindings.chrome.mojom.PluginAuthHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec,
       null,
-      [arg_name, arg_group_id],
+      { arg_name: arg_name, arg_group_id: arg_group_id },
       false);
   }
 
@@ -408,7 +408,7 @@ mojo.internal.bindings.chrome.mojom.PluginAuthHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.blockedUnauthorizedPlugin');
-          const result = this.impl.blockedUnauthorizedPlugin(params.arg_arg_name, params.arg_arg_group_id);
+          const result = this.impl.blockedUnauthorizedPlugin(params.arg_name, params.arg_group_id);
           break;
         }
       }
@@ -469,7 +469,7 @@ mojo.internal.bindings.chrome.mojom.PluginInfoHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec,
-      [arg_url, arg_origin, arg_mime_type],
+      { arg_url: arg_url, arg_origin: arg_origin, arg_mime_type: arg_mime_type },
       false);
   }
 
@@ -538,13 +538,13 @@ mojo.internal.bindings.chrome.mojom.PluginInfoHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPluginInfo');
-          const result = this.impl.getPluginInfo(params.arg_arg_url, params.arg_arg_origin, params.arg_arg_mime_type);
+          const result = this.impl.getPluginInfo(params.arg_url, params.arg_origin, params.arg_mime_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_plugin_info' in response) ? response.arg_arg_plugin_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_plugin_info' in response) ? response.arg_plugin_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec.$.structSpec, { 'arg_plugin_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPluginInfo FAILED:', e));
           }

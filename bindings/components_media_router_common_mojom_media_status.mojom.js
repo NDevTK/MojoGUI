@@ -194,7 +194,7 @@ mojo.internal.bindings.media_router.mojom.MediaStatusObserverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.media_router.mojom.MediaStatusObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMediaStatusUpdated');
-          const result = this.impl.onMediaStatusUpdated(params.arg_arg_status);
+          const result = this.impl.onMediaStatusUpdated(params.arg_status);
           break;
         }
       }

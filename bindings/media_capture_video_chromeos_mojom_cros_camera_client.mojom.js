@@ -176,7 +176,7 @@ mojo.internal.bindings.cros.mojom.CameraHalClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec,
       null,
-      [arg_camera_module],
+      { arg_camera_module: arg_camera_module },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.cros.mojom.CameraHalClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUpChannel');
-          const result = this.impl.setUpChannel(params.arg_arg_camera_module);
+          const result = this.impl.setUpChannel(params.arg_camera_module);
           break;
         }
       }

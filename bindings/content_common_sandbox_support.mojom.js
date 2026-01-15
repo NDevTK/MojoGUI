@@ -217,7 +217,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec,
       mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec,
-      [arg_locale, arg_default_language, arg_defaults],
+      { arg_locale: arg_locale, arg_default_language: arg_default_language, arg_defaults: arg_defaults },
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec,
       mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec,
-      [arg_lcid, arg_defaults],
+      { arg_lcid: arg_lcid, arg_defaults: arg_defaults },
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ParamsSpec,
       mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec,
-      [arg_lcid, arg_defaults, arg_type],
+      { arg_lcid: arg_lcid, arg_defaults: arg_defaults, arg_type: arg_type },
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ParamsSpec,
       mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec,
-      [arg_lcid, arg_defaults, arg_collection],
+      { arg_lcid: arg_lcid, arg_defaults: arg_defaults, arg_collection: arg_collection },
       false);
   }
 
@@ -316,12 +316,12 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.lcidAndFirstDayOfWeek');
-          const result = this.impl.lcidAndFirstDayOfWeek(params.arg_arg_locale, params.arg_arg_default_language, params.arg_arg_defaults);
+          const result = this.impl.lcidAndFirstDayOfWeek(params.arg_locale, params.arg_default_language, params.arg_defaults);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec.$.structSpec, ['response.arg_arg_lcid', 'response.arg_arg_first_day_of_week']);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec.$.structSpec, { 'arg_lcid': response.arg_lcid, 'arg_first_day_of_week': response.arg_first_day_of_week });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] lcidAndFirstDayOfWeek FAILED:', e));
           }
@@ -331,12 +331,12 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.digitsAndSigns');
-          const result = this.impl.digitsAndSigns(params.arg_arg_lcid, params.arg_arg_defaults);
+          const result = this.impl.digitsAndSigns(params.arg_lcid, params.arg_defaults);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec.$.structSpec, ['response.arg_arg_digit_substitution', 'response.arg_arg_digits', 'response.arg_arg_decimal', 'response.arg_arg_thousand', 'response.arg_arg_negative_sign', 'response.arg_arg_negnumber']);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec.$.structSpec, { 'arg_digit_substitution': response.arg_digit_substitution, 'arg_digits': response.arg_digits, 'arg_decimal': response.arg_decimal, 'arg_thousand': response.arg_thousand, 'arg_negative_sign': response.arg_negative_sign, 'arg_negnumber': response.arg_negnumber });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] digitsAndSigns FAILED:', e));
           }
@@ -346,13 +346,13 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.localeString');
-          const result = this.impl.localeString(params.arg_arg_lcid, params.arg_arg_defaults, params.arg_arg_type);
+          const result = this.impl.localeString(params.arg_lcid, params.arg_defaults, params.arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_str' in response) ? response.arg_arg_str : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_str' in response) ? response.arg_str : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec.$.structSpec, { 'arg_str': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] localeString FAILED:', e));
           }
@@ -362,13 +362,13 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.localeStrings');
-          const result = this.impl.localeStrings(params.arg_arg_lcid, params.arg_arg_defaults, params.arg_arg_collection);
+          const result = this.impl.localeStrings(params.arg_lcid, params.arg_defaults, params.arg_collection);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_strings' in response) ? response.arg_arg_strings : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_strings' in response) ? response.arg_strings : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec.$.structSpec, { 'arg_strings': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] localeStrings FAILED:', e));
           }

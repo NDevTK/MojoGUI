@@ -282,7 +282,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ResponseParamsSpec,
-      [arg_tutorial_id],
+      { arg_tutorial_id: arg_tutorial_id },
       false);
   }
 
@@ -300,7 +300,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -309,7 +309,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -318,7 +318,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ResponseParamsSpec,
-      [arg_feature_name],
+      { arg_feature_name: arg_feature_name },
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec,
-      [arg_feature_name],
+      { arg_feature_name: arg_feature_name },
       false);
   }
 
@@ -336,7 +336,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -372,7 +372,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -399,7 +399,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -408,7 +408,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ResponseParamsSpec,
-      [arg_feature_name],
+      { arg_feature_name: arg_feature_name },
       false);
   }
 
@@ -417,7 +417,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -426,7 +426,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ResponseParamsSpec,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -444,7 +444,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewStaging_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -536,8 +536,8 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_tutorial_infos' in response) ? response.arg_arg_tutorial_infos : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_tutorial_infos' in response) ? response.arg_tutorial_infos : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParamsSpec.$.structSpec, { 'arg_tutorial_infos': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getTutorials FAILED:', e));
           }
@@ -547,13 +547,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startTutorial');
-          const result = this.impl.startTutorial(params.arg_arg_tutorial_id);
+          const result = this.impl.startTutorial(params.arg_tutorial_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_message' in response) ? response.arg_arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startTutorial FAILED:', e));
           }
@@ -568,8 +568,8 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_session_data' in response) ? response.arg_arg_session_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_session_data' in response) ? response.arg_session_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ResponseParamsSpec.$.structSpec, { 'arg_session_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSessionData FAILED:', e));
           }
@@ -584,8 +584,8 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_feature_promos' in response) ? response.arg_arg_feature_promos : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_feature_promos' in response) ? response.arg_feature_promos : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ResponseParamsSpec.$.structSpec, { 'arg_feature_promos': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFeaturePromos FAILED:', e));
           }
@@ -595,13 +595,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showFeaturePromo');
-          const result = this.impl.showFeaturePromo(params.arg_arg_feature_name);
+          const result = this.impl.showFeaturePromo(params.arg_feature_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_message' in response) ? response.arg_arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] showFeaturePromo FAILED:', e));
           }
@@ -611,13 +611,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearFeaturePromoData');
-          const result = this.impl.clearFeaturePromoData(params.arg_arg_feature_name);
+          const result = this.impl.clearFeaturePromoData(params.arg_feature_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_message' in response) ? response.arg_arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] clearFeaturePromoData FAILED:', e));
           }
@@ -632,8 +632,8 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_message' in response) ? response.arg_arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] clearSessionData FAILED:', e));
           }
@@ -648,8 +648,8 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_message' in response) ? response.arg_arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] forceNewSession FAILED:', e));
           }
@@ -664,8 +664,8 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_message' in response) ? response.arg_arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] removeGracePeriods FAILED:', e));
           }
@@ -680,8 +680,8 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_new_badges' in response) ? response.arg_arg_new_badges : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_new_badges' in response) ? response.arg_new_badges : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParamsSpec.$.structSpec, { 'arg_new_badges': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNewBadges FAILED:', e));
           }
@@ -696,8 +696,8 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_whats_new_modules' in response) ? response.arg_arg_whats_new_modules : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_whats_new_modules' in response) ? response.arg_whats_new_modules : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParamsSpec.$.structSpec, { 'arg_whats_new_modules': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getWhatsNewModules FAILED:', e));
           }
@@ -712,8 +712,8 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_whats_new_editions' in response) ? response.arg_arg_whats_new_editions : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_whats_new_editions' in response) ? response.arg_whats_new_editions : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParamsSpec.$.structSpec, { 'arg_whats_new_editions': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getWhatsNewEditions FAILED:', e));
           }
@@ -728,8 +728,8 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_ntp_promos' in response) ? response.arg_arg_ntp_promos : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_ntp_promos' in response) ? response.arg_ntp_promos : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParamsSpec.$.structSpec, { 'arg_ntp_promos': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNtpPromos FAILED:', e));
           }
@@ -744,8 +744,8 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_ntp_promo_preferences' in response) ? response.arg_arg_ntp_promo_preferences : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_ntp_promo_preferences' in response) ? response.arg_ntp_promo_preferences : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParamsSpec.$.structSpec, { 'arg_ntp_promo_preferences': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNtpPromoPreferences FAILED:', e));
           }
@@ -755,13 +755,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearNewBadgeData');
-          const result = this.impl.clearNewBadgeData(params.arg_arg_feature_name);
+          const result = this.impl.clearNewBadgeData(params.arg_feature_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_message' in response) ? response.arg_arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] clearNewBadgeData FAILED:', e));
           }
@@ -776,8 +776,8 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_message' in response) ? response.arg_arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] clearWhatsNewData FAILED:', e));
           }
@@ -787,13 +787,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearNtpPromoData');
-          const result = this.impl.clearNtpPromoData(params.arg_arg_id);
+          const result = this.impl.clearNtpPromoData(params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_message' in response) ? response.arg_arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] clearNtpPromoData FAILED:', e));
           }
@@ -808,8 +808,8 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_message' in response) ? response.arg_arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] clearNtpPromoPreferences FAILED:', e));
           }

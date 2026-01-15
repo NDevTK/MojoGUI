@@ -175,7 +175,7 @@ mojo.internal.bindings.viz.mojom.BeginFrameObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec,
       null,
-      [arg_args],
+      { arg_args: arg_args },
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.viz.mojom.BeginFrameObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStandaloneBeginFrame');
-          const result = this.impl.onStandaloneBeginFrame(params.arg_arg_args);
+          const result = this.impl.onStandaloneBeginFrame(params.arg_args);
           break;
         }
       }

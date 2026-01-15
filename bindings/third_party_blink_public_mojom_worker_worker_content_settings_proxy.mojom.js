@@ -189,7 +189,7 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -198,7 +198,7 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -207,7 +207,7 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -216,7 +216,7 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -293,8 +293,8 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] allowIndexedDB FAILED:', e));
           }
@@ -309,8 +309,8 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] allowCacheStorage FAILED:', e));
           }
@@ -325,8 +325,8 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] allowWebLocks FAILED:', e));
           }
@@ -341,8 +341,8 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestFileSystemAccessSync FAILED:', e));
           }

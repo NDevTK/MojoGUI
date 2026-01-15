@@ -189,7 +189,7 @@ mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactoryRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec,
       null,
-      [arg_loader, arg_request_id, arg_options, arg_request, arg_traffic_annotation],
+      { arg_loader: arg_loader, arg_request_id: arg_request_id, arg_options: arg_options, arg_request: arg_request, arg_traffic_annotation: arg_traffic_annotation },
       false);
   }
 
@@ -198,7 +198,7 @@ mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactoryRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec,
       null,
-      [arg_factory],
+      { arg_factory: arg_factory },
       false);
   }
 
@@ -268,14 +268,14 @@ mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createLoader');
-          const result = this.impl.createLoader(params.arg_arg_loader, params.arg_arg_request_id, params.arg_arg_options, params.arg_arg_request, params.arg_arg_traffic_annotation);
+          const result = this.impl.createLoader(params.arg_loader, params.arg_request_id, params.arg_options, params.arg_request, params.arg_traffic_annotation);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_factory);
+          const result = this.impl.clone(params.arg_factory);
           break;
         }
       }
@@ -340,7 +340,7 @@ mojo.internal.bindings.blink.mojom.FetchLaterLoaderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FetchLaterLoader_SendNow_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -349,7 +349,7 @@ mojo.internal.bindings.blink.mojom.FetchLaterLoaderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FetchLaterLoader_Cancel_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

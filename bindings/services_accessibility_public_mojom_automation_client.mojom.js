@@ -194,7 +194,7 @@ mojo.internal.bindings.ax.mojom.AutomationClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ParamsSpec,
       mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -203,7 +203,7 @@ mojo.internal.bindings.ax.mojom.AutomationClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ax.mojom.AutomationClient_Disable_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.ax.mojom.AutomationClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ax.mojom.AutomationClient_EnableChildTree_ParamsSpec,
       null,
-      [arg_tree_id],
+      { arg_tree_id: arg_tree_id },
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.ax.mojom.AutomationClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ax.mojom.AutomationClient_PerformAction_ParamsSpec,
       null,
-      [arg_action_data],
+      { arg_action_data: arg_action_data },
       false);
   }
 
@@ -298,8 +298,8 @@ mojo.internal.bindings.ax.mojom.AutomationClientReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_desktop_id' in response) ? response.arg_arg_desktop_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_desktop_id' in response) ? response.arg_desktop_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ResponseParamsSpec.$.structSpec, { 'arg_desktop_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] enable FAILED:', e));
           }
@@ -316,14 +316,14 @@ mojo.internal.bindings.ax.mojom.AutomationClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AutomationClient_EnableChildTree_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableChildTree');
-          const result = this.impl.enableChildTree(params.arg_arg_tree_id);
+          const result = this.impl.enableChildTree(params.arg_tree_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AutomationClient_PerformAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.performAction');
-          const result = this.impl.performAction(params.arg_arg_action_data);
+          const result = this.impl.performAction(params.arg_action_data);
           break;
         }
       }

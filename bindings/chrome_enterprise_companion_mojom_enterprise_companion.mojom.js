@@ -183,7 +183,7 @@ mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec,
       mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec,
       mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec,
-      [arg_reason],
+      { arg_reason: arg_reason },
       false);
   }
 
@@ -267,8 +267,8 @@ mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionReceiver = 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] shutdown FAILED:', e));
           }
@@ -278,13 +278,13 @@ mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchPolicies');
-          const result = this.impl.fetchPolicies(params.arg_arg_reason);
+          const result = this.impl.fetchPolicies(params.arg_reason);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fetchPolicies FAILED:', e));
           }

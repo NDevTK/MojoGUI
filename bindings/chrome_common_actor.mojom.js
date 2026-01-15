@@ -349,7 +349,7 @@ mojo.internal.bindings.actor.mojom.JournalClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec,
       null,
-      [arg_entries],
+      { arg_entries: arg_entries },
       false);
   }
 
@@ -418,7 +418,7 @@ mojo.internal.bindings.actor.mojom.JournalClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addEntriesToJournal');
-          const result = this.impl.addEntriesToJournal(params.arg_arg_entries);
+          const result = this.impl.addEntriesToJournal(params.arg_entries);
           break;
         }
       }
@@ -479,7 +479,7 @@ mojo.internal.bindings.actor.mojom.PageStabilityMonitorRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec,
       mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec,
-      [arg_observation_delay],
+      { arg_observation_delay: arg_observation_delay },
       false);
   }
 
@@ -548,12 +548,12 @@ mojo.internal.bindings.actor.mojom.PageStabilityMonitorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyWhenStable');
-          const result = this.impl.notifyWhenStable(params.arg_arg_observation_delay);
+          const result = this.impl.notifyWhenStable(params.arg_observation_delay);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] notifyWhenStable FAILED:', e));
           }

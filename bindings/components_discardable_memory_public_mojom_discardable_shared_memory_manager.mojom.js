@@ -182,7 +182,7 @@ mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec,
       mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec,
-      [arg_size, arg_id],
+      { arg_size: arg_size, arg_id: arg_id },
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -261,13 +261,13 @@ mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.allocateLockedDiscardableSharedMemory');
-          const result = this.impl.allocateLockedDiscardableSharedMemory(params.arg_arg_size, params.arg_arg_id);
+          const result = this.impl.allocateLockedDiscardableSharedMemory(params.arg_size, params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_region' in response) ? response.arg_arg_region : response;
-              encoder.encodeStructInline(mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_region' in response) ? response.arg_region : response;
+              encoder.encodeStructInline(mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec.$.structSpec, { 'arg_region': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] allocateLockedDiscardableSharedMemory FAILED:', e));
           }
@@ -277,7 +277,7 @@ mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deletedDiscardableSharedMemory');
-          const result = this.impl.deletedDiscardableSharedMemory(params.arg_arg_id);
+          const result = this.impl.deletedDiscardableSharedMemory(params.arg_id);
           break;
         }
       }

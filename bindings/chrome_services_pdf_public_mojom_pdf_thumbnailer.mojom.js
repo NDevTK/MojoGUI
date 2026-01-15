@@ -195,7 +195,7 @@ mojo.internal.bindings.pdf.mojom.PdfThumbnailerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec,
       mojo.internal.bindings.pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec,
-      [arg_params, arg_pdf_region],
+      { arg_params: arg_params, arg_pdf_region: arg_pdf_region },
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.pdf.mojom.PdfThumbnailerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
-      [arg_use_skia],
+      { arg_use_skia: arg_use_skia },
       false);
   }
 
@@ -274,13 +274,13 @@ mojo.internal.bindings.pdf.mojom.PdfThumbnailerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getThumbnail');
-          const result = this.impl.getThumbnail(params.arg_arg_params, params.arg_arg_pdf_region);
+          const result = this.impl.getThumbnail(params.arg_params, params.arg_pdf_region);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_bitmap' in response) ? response.arg_arg_bitmap : response;
-              encoder.encodeStructInline(mojo.internal.bindings.pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_bitmap' in response) ? response.arg_bitmap : response;
+              encoder.encodeStructInline(mojo.internal.bindings.pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec.$.structSpec, { 'arg_bitmap': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getThumbnail FAILED:', e));
           }
@@ -290,7 +290,7 @@ mojo.internal.bindings.pdf.mojom.PdfThumbnailerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUseSkiaRendererPolicy');
-          const result = this.impl.setUseSkiaRendererPolicy(params.arg_arg_use_skia);
+          const result = this.impl.setUseSkiaRendererPolicy(params.arg_use_skia);
           break;
         }
       }

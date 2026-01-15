@@ -259,7 +259,7 @@ mojo.internal.bindings.media.mojom.RendererRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.Renderer_Initialize_ParamsSpec,
       mojo.internal.bindings.media.mojom.Renderer_Initialize_ResponseParamsSpec,
-      [arg_client, arg_streams],
+      { arg_client: arg_client, arg_streams: arg_streams },
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.media.mojom.RendererRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.Renderer_Flush_ParamsSpec,
       mojo.internal.bindings.media.mojom.Renderer_Flush_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -277,7 +277,7 @@ mojo.internal.bindings.media.mojom.RendererRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.Renderer_StartPlayingFrom_ParamsSpec,
       null,
-      [arg_time],
+      { arg_time: arg_time },
       false);
   }
 
@@ -286,7 +286,7 @@ mojo.internal.bindings.media.mojom.RendererRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.Renderer_SetPlaybackRate_ParamsSpec,
       null,
-      [arg_playback_rate],
+      { arg_playback_rate: arg_playback_rate },
       false);
   }
 
@@ -295,7 +295,7 @@ mojo.internal.bindings.media.mojom.RendererRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.Renderer_SetVolume_ParamsSpec,
       null,
-      [arg_volume],
+      { arg_volume: arg_volume },
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.media.mojom.RendererRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.Renderer_SetCdm_ParamsSpec,
       mojo.internal.bindings.media.mojom.Renderer_SetCdm_ResponseParamsSpec,
-      [arg_cdm_id],
+      { arg_cdm_id: arg_cdm_id },
       false);
   }
 
@@ -313,7 +313,7 @@ mojo.internal.bindings.media.mojom.RendererRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.Renderer_SetLatencyHint_ParamsSpec,
       null,
-      [arg_latency_hint],
+      { arg_latency_hint: arg_latency_hint },
       false);
   }
 
@@ -388,13 +388,13 @@ mojo.internal.bindings.media.mojom.RendererReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Renderer_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_arg_client, params.arg_arg_streams);
+          const result = this.impl.initialize(params.arg_client, params.arg_streams);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.Renderer_Initialize_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.Renderer_Initialize_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] initialize FAILED:', e));
           }
@@ -409,7 +409,7 @@ mojo.internal.bindings.media.mojom.RendererReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.Renderer_Flush_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.Renderer_Flush_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] flush FAILED:', e));
           }
@@ -419,34 +419,34 @@ mojo.internal.bindings.media.mojom.RendererReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Renderer_StartPlayingFrom_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startPlayingFrom');
-          const result = this.impl.startPlayingFrom(params.arg_arg_time);
+          const result = this.impl.startPlayingFrom(params.arg_time);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Renderer_SetPlaybackRate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPlaybackRate');
-          const result = this.impl.setPlaybackRate(params.arg_arg_playback_rate);
+          const result = this.impl.setPlaybackRate(params.arg_playback_rate);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Renderer_SetVolume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVolume');
-          const result = this.impl.setVolume(params.arg_arg_volume);
+          const result = this.impl.setVolume(params.arg_volume);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Renderer_SetCdm_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCdm');
-          const result = this.impl.setCdm(params.arg_arg_cdm_id);
+          const result = this.impl.setCdm(params.arg_cdm_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.Renderer_SetCdm_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.Renderer_SetCdm_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setCdm FAILED:', e));
           }
@@ -456,7 +456,7 @@ mojo.internal.bindings.media.mojom.RendererReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Renderer_SetLatencyHint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setLatencyHint');
-          const result = this.impl.setLatencyHint(params.arg_arg_latency_hint);
+          const result = this.impl.setLatencyHint(params.arg_latency_hint);
           break;
         }
       }
@@ -553,7 +553,7 @@ mojo.internal.bindings.media.mojom.RendererClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.RendererClient_OnTimeUpdate_ParamsSpec,
       null,
-      [arg_time, arg_max_time, arg_capture_time],
+      { arg_time: arg_time, arg_max_time: arg_max_time, arg_capture_time: arg_capture_time },
       false);
   }
 
@@ -562,7 +562,7 @@ mojo.internal.bindings.media.mojom.RendererClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec,
       null,
-      [arg_state, arg_reason],
+      { arg_state: arg_state, arg_reason: arg_reason },
       false);
   }
 
@@ -571,7 +571,7 @@ mojo.internal.bindings.media.mojom.RendererClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.RendererClient_OnEnded_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -580,7 +580,7 @@ mojo.internal.bindings.media.mojom.RendererClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.RendererClient_OnError_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -589,7 +589,7 @@ mojo.internal.bindings.media.mojom.RendererClientRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec,
       null,
-      [arg_config],
+      { arg_config: arg_config },
       false);
   }
 
@@ -598,7 +598,7 @@ mojo.internal.bindings.media.mojom.RendererClientRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec,
       null,
-      [arg_config],
+      { arg_config: arg_config },
       false);
   }
 
@@ -607,7 +607,7 @@ mojo.internal.bindings.media.mojom.RendererClientRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec,
       null,
-      [arg_size],
+      { arg_size: arg_size },
       false);
   }
 
@@ -616,7 +616,7 @@ mojo.internal.bindings.media.mojom.RendererClientRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media.mojom.RendererClient_OnVideoOpacityChange_ParamsSpec,
       null,
-      [arg_opaque],
+      { arg_opaque: arg_opaque },
       false);
   }
 
@@ -625,7 +625,7 @@ mojo.internal.bindings.media.mojom.RendererClientRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec,
       null,
-      [arg_stats],
+      { arg_stats: arg_stats },
       false);
   }
 
@@ -634,7 +634,7 @@ mojo.internal.bindings.media.mojom.RendererClientRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.media.mojom.RendererClient_OnWaiting_ParamsSpec,
       null,
-      [arg_reason],
+      { arg_reason: arg_reason },
       false);
   }
 
@@ -712,14 +712,14 @@ mojo.internal.bindings.media.mojom.RendererClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnTimeUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTimeUpdate');
-          const result = this.impl.onTimeUpdate(params.arg_arg_time, params.arg_arg_max_time, params.arg_arg_capture_time);
+          const result = this.impl.onTimeUpdate(params.arg_time, params.arg_max_time, params.arg_capture_time);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBufferingStateChange');
-          const result = this.impl.onBufferingStateChange(params.arg_arg_state, params.arg_arg_reason);
+          const result = this.impl.onBufferingStateChange(params.arg_state, params.arg_reason);
           break;
         }
         case 2: {
@@ -733,49 +733,49 @@ mojo.internal.bindings.media.mojom.RendererClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_status);
+          const result = this.impl.onError(params.arg_status);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAudioConfigChange');
-          const result = this.impl.onAudioConfigChange(params.arg_arg_config);
+          const result = this.impl.onAudioConfigChange(params.arg_config);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVideoConfigChange');
-          const result = this.impl.onVideoConfigChange(params.arg_arg_config);
+          const result = this.impl.onVideoConfigChange(params.arg_config);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVideoNaturalSizeChange');
-          const result = this.impl.onVideoNaturalSizeChange(params.arg_arg_size);
+          const result = this.impl.onVideoNaturalSizeChange(params.arg_size);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnVideoOpacityChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVideoOpacityChange');
-          const result = this.impl.onVideoOpacityChange(params.arg_arg_opaque);
+          const result = this.impl.onVideoOpacityChange(params.arg_opaque);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStatisticsUpdate');
-          const result = this.impl.onStatisticsUpdate(params.arg_arg_stats);
+          const result = this.impl.onStatisticsUpdate(params.arg_stats);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RendererClient_OnWaiting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWaiting');
-          const result = this.impl.onWaiting(params.arg_arg_reason);
+          const result = this.impl.onWaiting(params.arg_reason);
           break;
         }
       }

@@ -232,7 +232,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec,
       null,
-      [arg_info],
+      { arg_info: arg_info },
       false);
   }
 
@@ -241,7 +241,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec,
       null,
-      [arg_info],
+      { arg_info: arg_info },
       false);
   }
 
@@ -250,7 +250,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec,
       null,
-      [arg_port, arg_state],
+      { arg_port: arg_port, arg_state: arg_state },
       false);
   }
 
@@ -259,7 +259,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec,
       null,
-      [arg_port, arg_state],
+      { arg_port: arg_port, arg_state: arg_state },
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec,
       null,
-      [arg_result],
+      { arg_result: arg_result },
       false);
   }
 
@@ -277,7 +277,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec,
       null,
-      [arg_bytes],
+      { arg_bytes: arg_bytes },
       false);
   }
 
@@ -286,7 +286,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.midi.mojom.MidiSessionClient_DataReceived_ParamsSpec,
       null,
-      [arg_port, arg_data, arg_timestamp],
+      { arg_port: arg_port, arg_data: arg_data, arg_timestamp: arg_timestamp },
       false);
   }
 
@@ -361,49 +361,49 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addInputPort');
-          const result = this.impl.addInputPort(params.arg_arg_info);
+          const result = this.impl.addInputPort(params.arg_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addOutputPort');
-          const result = this.impl.addOutputPort(params.arg_arg_info);
+          const result = this.impl.addOutputPort(params.arg_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInputPortState');
-          const result = this.impl.setInputPortState(params.arg_arg_port, params.arg_arg_state);
+          const result = this.impl.setInputPortState(params.arg_port, params.arg_state);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOutputPortState');
-          const result = this.impl.setOutputPortState(params.arg_arg_port, params.arg_arg_state);
+          const result = this.impl.setOutputPortState(params.arg_port, params.arg_state);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sessionStarted');
-          const result = this.impl.sessionStarted(params.arg_arg_result);
+          const result = this.impl.sessionStarted(params.arg_result);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.acknowledgeSentData');
-          const result = this.impl.acknowledgeSentData(params.arg_arg_bytes);
+          const result = this.impl.acknowledgeSentData(params.arg_bytes);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionClient_DataReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dataReceived');
-          const result = this.impl.dataReceived(params.arg_arg_port, params.arg_arg_data, params.arg_arg_timestamp);
+          const result = this.impl.dataReceived(params.arg_port, params.arg_data, params.arg_timestamp);
           break;
         }
       }
@@ -464,7 +464,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionProviderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.midi.mojom.MidiSessionProvider_StartSession_ParamsSpec,
       null,
-      [arg_receiver, arg_client],
+      { arg_receiver: arg_receiver, arg_client: arg_client },
       false);
   }
 
@@ -533,7 +533,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSessionProvider_StartSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startSession');
-          const result = this.impl.startSession(params.arg_arg_receiver, params.arg_arg_client);
+          const result = this.impl.startSession(params.arg_receiver, params.arg_client);
           break;
         }
       }
@@ -594,7 +594,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.midi.mojom.MidiSession_SendData_ParamsSpec,
       null,
-      [arg_port, arg_data, arg_timestamp],
+      { arg_port: arg_port, arg_data: arg_data, arg_timestamp: arg_timestamp },
       false);
   }
 
@@ -663,7 +663,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.midi.mojom.MidiSession_SendData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendData');
-          const result = this.impl.sendData(params.arg_arg_port, params.arg_arg_data, params.arg_arg_timestamp);
+          const result = this.impl.sendData(params.arg_port, params.arg_data, params.arg_timestamp);
           break;
         }
       }

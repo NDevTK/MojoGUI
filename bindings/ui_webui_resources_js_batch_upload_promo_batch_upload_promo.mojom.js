@@ -180,7 +180,7 @@ mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactoryRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactoryReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createBatchUploadPromoHandler');
-          const result = this.impl.createBatchUploadPromoHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createBatchUploadPromoHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -314,7 +314,7 @@ mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec,
       mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -323,7 +323,7 @@ mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -398,8 +398,8 @@ mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_local_data_count' in response) ? response.arg_arg_local_data_count : response;
-              encoder.encodeStructInline(mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_local_data_count' in response) ? response.arg_local_data_count : response;
+              encoder.encodeStructInline(mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec.$.structSpec, { 'arg_local_data_count': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getBatchUploadPromoLocalDataCount FAILED:', e));
           }
@@ -470,7 +470,7 @@ mojo.internal.bindings.batch_upload_promo.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec,
       null,
-      [arg_local_data_count],
+      { arg_local_data_count: arg_local_data_count },
       false);
   }
 
@@ -539,7 +539,7 @@ mojo.internal.bindings.batch_upload_promo.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLocalDataCountChanged');
-          const result = this.impl.onLocalDataCountChanged(params.arg_arg_local_data_count);
+          const result = this.impl.onLocalDataCountChanged(params.arg_local_data_count);
           break;
         }
       }

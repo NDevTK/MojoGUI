@@ -182,7 +182,7 @@ mojo.internal.bindings.arc.mojom.WakeLockHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec,
       mojo.internal.bindings.arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.arc.mojom.WakeLockHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec,
       mojo.internal.bindings.arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -266,8 +266,8 @@ mojo.internal.bindings.arc.mojom.WakeLockHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] acquirePartialWakeLock FAILED:', e));
           }
@@ -282,8 +282,8 @@ mojo.internal.bindings.arc.mojom.WakeLockHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] releasePartialWakeLock FAILED:', e));
           }
@@ -347,7 +347,7 @@ mojo.internal.bindings.arc.mojom.WakeLockInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.WakeLockInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.WakeLockInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -416,12 +416,12 @@ mojo.internal.bindings.arc.mojom.WakeLockInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WakeLockInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.WakeLockInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.WakeLockInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }

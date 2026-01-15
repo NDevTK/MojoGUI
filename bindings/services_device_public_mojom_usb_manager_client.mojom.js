@@ -180,7 +180,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerClientRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec,
       null,
-      [arg_device_info],
+      { arg_device_info: arg_device_info },
       false);
   }
 
@@ -189,7 +189,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerClientRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec,
       null,
-      [arg_device_info],
+      { arg_device_info: arg_device_info },
       false);
   }
 
@@ -259,14 +259,14 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceAdded');
-          const result = this.impl.onDeviceAdded(params.arg_arg_device_info);
+          const result = this.impl.onDeviceAdded(params.arg_device_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceRemoved');
-          const result = this.impl.onDeviceRemoved(params.arg_arg_device_info);
+          const result = this.impl.onDeviceRemoved(params.arg_device_info);
           break;
         }
       }

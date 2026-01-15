@@ -233,7 +233,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec,
       mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec,
       mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -269,7 +269,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec,
       mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -278,7 +278,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec,
       mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -364,7 +364,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec.$.structSpec, ['response.arg_arg_selector', 'response.arg_arg_error', 'response.arg_arg_ready_status']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec.$.structSpec, { 'arg_selector': response.arg_selector, 'arg_error': response.arg_error, 'arg_ready_status': response.arg_ready_status });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestSelector FAILED:', e));
           }
@@ -386,8 +386,8 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_text' in response) ? response.arg_arg_text : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_text' in response) ? response.arg_text : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec.$.structSpec, { 'arg_text': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] extractTextFragmentsMatches FAILED:', e));
           }
@@ -402,8 +402,8 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_selectors' in response) ? response.arg_arg_selectors : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_selectors' in response) ? response.arg_selectors : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec.$.structSpec, { 'arg_selectors': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getExistingSelectors FAILED:', e));
           }
@@ -418,8 +418,8 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_bounds' in response) ? response.arg_arg_bounds : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_bounds' in response) ? response.arg_bounds : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec.$.structSpec, { 'arg_bounds': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] extractFirstFragmentRect FAILED:', e));
           }

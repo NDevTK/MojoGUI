@@ -373,7 +373,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec,
       null,
-      [arg_device],
+      { arg_device: arg_device },
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec,
       null,
-      [arg_device],
+      { arg_device: arg_device },
       false);
   }
 
@@ -391,7 +391,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec,
       null,
-      [arg_device],
+      { arg_device: arg_device },
       false);
   }
 
@@ -462,21 +462,21 @@ mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceFound');
-          const result = this.impl.onDeviceFound(params.arg_arg_device);
+          const result = this.impl.onDeviceFound(params.arg_device);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceChanged');
-          const result = this.impl.onDeviceChanged(params.arg_arg_device);
+          const result = this.impl.onDeviceChanged(params.arg_device);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceLost');
-          const result = this.impl.onDeviceLost(params.arg_arg_device);
+          const result = this.impl.onDeviceLost(params.arg_device);
           break;
         }
       }
@@ -557,7 +557,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec,
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec,
-      [arg_scan_request],
+      { arg_scan_request: arg_scan_request },
       false);
   }
 
@@ -566,7 +566,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec,
       null,
-      [arg_scan_observer],
+      { arg_scan_observer: arg_scan_observer },
       false);
   }
 
@@ -575,7 +575,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec,
       null,
-      [arg_metadata],
+      { arg_metadata: arg_metadata },
       false);
   }
 
@@ -584,7 +584,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec,
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec,
-      [arg_metadata],
+      { arg_metadata: arg_metadata },
       false);
   }
 
@@ -593,7 +593,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec,
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec,
-      [arg_shared_credentials, arg_account_name],
+      { arg_shared_credentials: arg_shared_credentials, arg_account_name: arg_account_name },
       false);
   }
 
@@ -602,7 +602,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec,
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec,
-      [arg_account_name],
+      { arg_account_name: arg_account_name },
       false);
   }
 
@@ -676,12 +676,12 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startScan');
-          const result = this.impl.startScan(params.arg_arg_scan_request);
+          const result = this.impl.startScan(params.arg_scan_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec.$.structSpec, ['response.arg_arg_scan_session', 'response.arg_arg_status']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec.$.structSpec, { 'arg_scan_session': response.arg_scan_session, 'arg_status': response.arg_status });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startScan FAILED:', e));
           }
@@ -691,26 +691,26 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setScanObserver');
-          const result = this.impl.setScanObserver(params.arg_arg_scan_observer);
+          const result = this.impl.setScanObserver(params.arg_scan_observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateLocalDeviceMetadata');
-          const result = this.impl.updateLocalDeviceMetadata(params.arg_arg_metadata);
+          const result = this.impl.updateLocalDeviceMetadata(params.arg_metadata);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateLocalDeviceMetadataAndGenerateCredentials');
-          const result = this.impl.updateLocalDeviceMetadataAndGenerateCredentials(params.arg_arg_metadata);
+          const result = this.impl.updateLocalDeviceMetadataAndGenerateCredentials(params.arg_metadata);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec.$.structSpec, ['response.arg_arg_shared_credentials', 'response.arg_arg_status']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec.$.structSpec, { 'arg_shared_credentials': response.arg_shared_credentials, 'arg_status': response.arg_status });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateLocalDeviceMetadataAndGenerateCredentials FAILED:', e));
           }
@@ -720,13 +720,13 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateRemoteSharedCredentials');
-          const result = this.impl.updateRemoteSharedCredentials(params.arg_arg_shared_credentials, params.arg_arg_account_name);
+          const result = this.impl.updateRemoteSharedCredentials(params.arg_shared_credentials, params.arg_account_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateRemoteSharedCredentials FAILED:', e));
           }
@@ -736,12 +736,12 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getLocalSharedCredentials');
-          const result = this.impl.getLocalSharedCredentials(params.arg_arg_account_name);
+          const result = this.impl.getLocalSharedCredentials(params.arg_account_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec.$.structSpec, ['response.arg_arg_shared_credentials', 'response.arg_arg_status']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec.$.structSpec, { 'arg_shared_credentials': response.arg_shared_credentials, 'arg_status': response.arg_status });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getLocalSharedCredentials FAILED:', e));
           }

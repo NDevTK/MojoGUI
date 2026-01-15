@@ -214,7 +214,7 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec,
       mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec,
-      [arg_credentials],
+      { arg_credentials: arg_credentials },
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec,
       mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec,
-      [arg_credentials, arg_frequency],
+      { arg_credentials: arg_credentials, arg_frequency: arg_frequency },
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec,
       mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -303,12 +303,12 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWifiDirectGroup');
-          const result = this.impl.createWifiDirectGroup(params.arg_arg_credentials);
+          const result = this.impl.createWifiDirectGroup(params.arg_credentials);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_wifi_direct_connection']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_wifi_direct_connection': response.arg_wifi_direct_connection });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createWifiDirectGroup FAILED:', e));
           }
@@ -318,12 +318,12 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToWifiDirectGroup');
-          const result = this.impl.connectToWifiDirectGroup(params.arg_arg_credentials, params.arg_arg_frequency);
+          const result = this.impl.connectToWifiDirectGroup(params.arg_credentials, params.arg_frequency);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_wifi_direct_connection']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_wifi_direct_connection': response.arg_wifi_direct_connection });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] connectToWifiDirectGroup FAILED:', e));
           }
@@ -338,8 +338,8 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_capabilities' in response) ? response.arg_arg_capabilities : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_capabilities' in response) ? response.arg_capabilities : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec.$.structSpec, { 'arg_capabilities': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getWifiP2PCapabilities FAILED:', e));
           }
@@ -407,7 +407,7 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec,
       mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -416,7 +416,7 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec,
       mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec,
-      [arg_socket],
+      { arg_socket: arg_socket },
       false);
   }
 
@@ -491,8 +491,8 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionReceiver = clas
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_properties' in response) ? response.arg_arg_properties : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_properties' in response) ? response.arg_properties : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec.$.structSpec, { 'arg_properties': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getProperties FAILED:', e));
           }
@@ -502,13 +502,13 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.associateSocket');
-          const result = this.impl.associateSocket(params.arg_arg_socket);
+          const result = this.impl.associateSocket(params.arg_socket);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] associateSocket FAILED:', e));
           }

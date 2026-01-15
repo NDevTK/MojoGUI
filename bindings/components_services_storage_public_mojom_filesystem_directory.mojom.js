@@ -242,7 +242,7 @@ mojo.internal.bindings.storage.mojom.FileLockRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.FileLock_Release_ParamsSpec,
       mojo.internal.bindings.storage.mojom.FileLock_Release_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -316,8 +316,8 @@ mojo.internal.bindings.storage.mojom.FileLockReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.FileLock_Release_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.FileLock_Release_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] release FAILED:', e));
           }
@@ -417,7 +417,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.Directory_Clone_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -426,7 +426,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.Directory_PathExists_ParamsSpec,
       mojo.internal.bindings.storage.mojom.Directory_PathExists_ResponseParamsSpec,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.Directory_GetEntries_ParamsSpec,
       mojo.internal.bindings.storage.mojom.Directory_GetEntries_ResponseParamsSpec,
-      [arg_path, arg_mode],
+      { arg_path: arg_path, arg_mode: arg_mode },
       false);
   }
 
@@ -444,7 +444,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.Directory_OpenFile_ParamsSpec,
       mojo.internal.bindings.storage.mojom.Directory_OpenFile_ResponseParamsSpec,
-      [arg_path, arg_mode, arg_read_access, arg_write_access],
+      { arg_path: arg_path, arg_mode: arg_mode, arg_read_access: arg_read_access, arg_write_access: arg_write_access },
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ParamsSpec,
       mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ResponseParamsSpec,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ParamsSpec,
       mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ResponseParamsSpec,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ParamsSpec,
       mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ResponseParamsSpec,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ParamsSpec,
       mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ResponseParamsSpec,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.storage.mojom.Directory_RenameFile_ParamsSpec,
       mojo.internal.bindings.storage.mojom.Directory_RenameFile_ResponseParamsSpec,
-      [arg_old_path, arg_new_path],
+      { arg_old_path: arg_old_path, arg_new_path: arg_new_path },
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.storage.mojom.Directory_LockFile_ParamsSpec,
       mojo.internal.bindings.storage.mojom.Directory_LockFile_ResponseParamsSpec,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -576,20 +576,20 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_receiver);
+          const result = this.impl.clone(params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_PathExists_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pathExists');
-          const result = this.impl.pathExists(params.arg_arg_path);
+          const result = this.impl.pathExists(params.arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_exists' in response) ? response.arg_arg_exists : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.Directory_PathExists_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_exists' in response) ? response.arg_exists : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.Directory_PathExists_ResponseParamsSpec.$.structSpec, { 'arg_exists': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] pathExists FAILED:', e));
           }
@@ -599,12 +599,12 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_GetEntries_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getEntries');
-          const result = this.impl.getEntries(params.arg_arg_path, params.arg_arg_mode);
+          const result = this.impl.getEntries(params.arg_path, params.arg_mode);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.Directory_GetEntries_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_entries']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.Directory_GetEntries_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_entries': response.arg_entries });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getEntries FAILED:', e));
           }
@@ -614,12 +614,12 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_OpenFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFile');
-          const result = this.impl.openFile(params.arg_arg_path, params.arg_arg_mode, params.arg_arg_read_access, params.arg_arg_write_access);
+          const result = this.impl.openFile(params.arg_path, params.arg_mode, params.arg_read_access, params.arg_write_access);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.Directory_OpenFile_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_file']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.Directory_OpenFile_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_file': response.arg_file });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openFile FAILED:', e));
           }
@@ -629,13 +629,13 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDirectory');
-          const result = this.impl.createDirectory(params.arg_arg_path);
+          const result = this.impl.createDirectory(params.arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createDirectory FAILED:', e));
           }
@@ -645,13 +645,13 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteFile');
-          const result = this.impl.deleteFile(params.arg_arg_path);
+          const result = this.impl.deleteFile(params.arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteFile FAILED:', e));
           }
@@ -661,13 +661,13 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFileInfo');
-          const result = this.impl.getFileInfo(params.arg_arg_path);
+          const result = this.impl.getFileInfo(params.arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFileInfo FAILED:', e));
           }
@@ -677,13 +677,13 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPathAccess');
-          const result = this.impl.getPathAccess(params.arg_arg_path);
+          const result = this.impl.getPathAccess(params.arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPathAccess FAILED:', e));
           }
@@ -693,13 +693,13 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_RenameFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.renameFile');
-          const result = this.impl.renameFile(params.arg_arg_old_path, params.arg_arg_new_path);
+          const result = this.impl.renameFile(params.arg_old_path, params.arg_new_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.Directory_RenameFile_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.Directory_RenameFile_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] renameFile FAILED:', e));
           }
@@ -709,12 +709,12 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.Directory_LockFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.lockFile');
-          const result = this.impl.lockFile(params.arg_arg_path);
+          const result = this.impl.lockFile(params.arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.Directory_LockFile_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_lock']);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.Directory_LockFile_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_lock': response.arg_lock });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] lockFile FAILED:', e));
           }

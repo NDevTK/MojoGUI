@@ -174,7 +174,7 @@ mojo.internal.bindings.viz.mojom.CompositingModeWatcherRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.viz.mojom.CompositingModeReporterRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec,
       null,
-      [arg_watcher],
+      { arg_watcher: arg_watcher },
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.viz.mojom.CompositingModeReporterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addCompositingModeWatcher');
-          const result = this.impl.addCompositingModeWatcher(params.arg_arg_watcher);
+          const result = this.impl.addCompositingModeWatcher(params.arg_watcher);
           break;
         }
       }

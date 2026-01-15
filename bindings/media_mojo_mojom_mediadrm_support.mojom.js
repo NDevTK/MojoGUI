@@ -179,7 +179,7 @@ mojo.internal.bindings.media.mojom.MediaDrmSupportRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec,
-      [arg_key_system, arg_is_secure],
+      { arg_key_system: arg_key_system, arg_is_secure: arg_is_secure },
       false);
   }
 
@@ -248,13 +248,13 @@ mojo.internal.bindings.media.mojom.MediaDrmSupportReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isKeySystemSupported');
-          const result = this.impl.isKeySystemSupported(params.arg_arg_key_system, params.arg_arg_is_secure);
+          const result = this.impl.isKeySystemSupported(params.arg_key_system, params.arg_is_secure);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_key_system_supports' in response) ? response.arg_arg_key_system_supports : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_key_system_supports' in response) ? response.arg_key_system_supports : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec.$.structSpec, { 'arg_key_system_supports': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isKeySystemSupported FAILED:', e));
           }

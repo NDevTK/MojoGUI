@@ -189,7 +189,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec,
-      [arg_token, arg_is_recursive],
+      { arg_token: arg_token, arg_is_recursive: arg_is_recursive },
       false);
   }
 
@@ -198,7 +198,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec,
       null,
-      [arg_token],
+      { arg_token: arg_token },
       false);
   }
 
@@ -268,12 +268,12 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observe');
-          const result = this.impl.observe(params.arg_arg_token, params.arg_arg_is_recursive);
+          const result = this.impl.observe(params.arg_token, params.arg_is_recursive);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_observer_receiver']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_observer_receiver': response.arg_observer_receiver });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] observe FAILED:', e));
           }
@@ -283,7 +283,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unobserve');
-          const result = this.impl.unobserve(params.arg_arg_token);
+          const result = this.impl.unobserve(params.arg_token);
           break;
         }
       }

@@ -223,7 +223,7 @@ mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec,
       null,
-      [arg_stream, arg_client_receiver, arg_data_pipe],
+      { arg_stream: arg_stream, arg_client_receiver: arg_client_receiver, arg_data_pipe: arg_data_pipe },
       false);
   }
 
@@ -292,7 +292,7 @@ mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.streamCreated');
-          const result = this.impl.streamCreated(params.arg_arg_stream, params.arg_arg_client_receiver, params.arg_arg_data_pipe);
+          const result = this.impl.streamCreated(params.arg_stream, params.arg_client_receiver, params.arg_data_pipe);
           break;
         }
       }
@@ -373,7 +373,7 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -391,7 +391,7 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -400,7 +400,7 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -409,7 +409,7 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec,
       null,
-      [arg_client, arg_param, arg_shared_memory_count],
+      { arg_client: arg_client, arg_param: arg_param, arg_shared_memory_count: arg_shared_memory_count },
       false);
   }
 
@@ -418,7 +418,7 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec,
       null,
-      [arg_remoter, arg_receiver],
+      { arg_remoter: arg_remoter, arg_receiver: arg_receiver },
       false);
   }
 
@@ -492,42 +492,42 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindGpu');
-          const result = this.impl.bindGpu(params.arg_arg_receiver);
+          const result = this.impl.bindGpu(params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVideoCaptureHost');
-          const result = this.impl.getVideoCaptureHost(params.arg_arg_receiver);
+          const result = this.impl.getVideoCaptureHost(params.arg_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVideoEncoderMetricsProvider');
-          const result = this.impl.getVideoEncoderMetricsProvider(params.arg_arg_receiver);
+          const result = this.impl.getVideoEncoderMetricsProvider(params.arg_receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNetworkContext');
-          const result = this.impl.getNetworkContext(params.arg_arg_receiver);
+          const result = this.impl.getNetworkContext(params.arg_receiver);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAudioStream');
-          const result = this.impl.createAudioStream(params.arg_arg_client, params.arg_arg_param, params.arg_arg_shared_memory_count);
+          const result = this.impl.createAudioStream(params.arg_client, params.arg_param, params.arg_shared_memory_count);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToRemotingSource');
-          const result = this.impl.connectToRemotingSource(params.arg_arg_remoter, params.arg_arg_receiver);
+          const result = this.impl.connectToRemotingSource(params.arg_remoter, params.arg_receiver);
           break;
         }
       }

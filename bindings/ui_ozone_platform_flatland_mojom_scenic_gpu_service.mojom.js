@@ -176,7 +176,7 @@ mojo.internal.bindings.ui.mojom.ScenicGpuServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ui.mojom.ScenicGpuService_Initialize_ParamsSpec,
       null,
-      [arg_scenic_gpu_host],
+      { arg_scenic_gpu_host: arg_scenic_gpu_host },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.ui.mojom.ScenicGpuServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.mojom.ScenicGpuService_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_arg_scenic_gpu_host);
+          const result = this.impl.initialize(params.arg_scenic_gpu_host);
           break;
         }
       }

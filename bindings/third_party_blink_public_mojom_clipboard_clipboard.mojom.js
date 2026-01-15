@@ -265,7 +265,7 @@ mojo.internal.bindings.blink.mojom.ClipboardListenerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec,
       null,
-      [arg_types, arg_change_id],
+      { arg_types: arg_types, arg_change_id: arg_change_id },
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.blink.mojom.ClipboardListenerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClipboardDataChanged');
-          const result = this.impl.onClipboardDataChanged(params.arg_arg_types, params.arg_arg_change_id);
+          const result = this.impl.onClipboardDataChanged(params.arg_types, params.arg_change_id);
           break;
         }
       }
@@ -479,7 +479,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec,
-      [arg_buffer],
+      { arg_buffer: arg_buffer },
       false);
   }
 
@@ -488,7 +488,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec,
-      [arg_format, arg_buffer],
+      { arg_format: arg_format, arg_buffer: arg_buffer },
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec,
-      [arg_buffer],
+      { arg_buffer: arg_buffer },
       false);
   }
 
@@ -506,7 +506,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadText_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec,
-      [arg_buffer],
+      { arg_buffer: arg_buffer },
       false);
   }
 
@@ -515,7 +515,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadHtml_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec,
-      [arg_buffer],
+      { arg_buffer: arg_buffer },
       false);
   }
 
@@ -524,7 +524,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadSvg_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec,
-      [arg_buffer],
+      { arg_buffer: arg_buffer },
       false);
   }
 
@@ -533,7 +533,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadRtf_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec,
-      [arg_buffer],
+      { arg_buffer: arg_buffer },
       false);
   }
 
@@ -542,7 +542,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadPng_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec,
-      [arg_buffer],
+      { arg_buffer: arg_buffer },
       false);
   }
 
@@ -551,7 +551,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadFiles_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec,
-      [arg_buffer],
+      { arg_buffer: arg_buffer },
       false);
   }
 
@@ -560,7 +560,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec,
-      [arg_buffer, arg_type],
+      { arg_buffer: arg_buffer, arg_type: arg_type },
       false);
   }
 
@@ -569,7 +569,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -578,7 +578,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec,
-      [arg_format],
+      { arg_format: arg_format },
       false);
   }
 
@@ -587,7 +587,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_WriteText_ParamsSpec,
       null,
-      [arg_text],
+      { arg_text: arg_text },
       false);
   }
 
@@ -596,7 +596,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_WriteHtml_ParamsSpec,
       null,
-      [arg_markup, arg_url],
+      { arg_markup: arg_markup, arg_url: arg_url },
       false);
   }
 
@@ -605,7 +605,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_WriteSvg_ParamsSpec,
       null,
-      [arg_markup],
+      { arg_markup: arg_markup },
       false);
   }
 
@@ -614,7 +614,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -623,7 +623,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec,
       null,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -632,7 +632,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec,
       null,
-      [arg_url, arg_title],
+      { arg_url: arg_url, arg_title: arg_title },
       false);
   }
 
@@ -641,7 +641,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_WriteImage_ParamsSpec,
       null,
-      [arg_image],
+      { arg_image: arg_image },
       false);
   }
 
@@ -650,7 +650,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec,
       null,
-      [arg_format, arg_data],
+      { arg_format: arg_format, arg_data: arg_data },
       false);
   }
 
@@ -659,7 +659,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_CommitWrite_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -668,7 +668,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec,
       null,
-      [arg_listener],
+      { arg_listener: arg_listener },
       false);
   }
 
@@ -758,13 +758,13 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSequenceNumber');
-          const result = this.impl.getSequenceNumber(params.arg_arg_buffer);
+          const result = this.impl.getSequenceNumber(params.arg_buffer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSequenceNumber FAILED:', e));
           }
@@ -774,13 +774,13 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isFormatAvailable');
-          const result = this.impl.isFormatAvailable(params.arg_arg_format, params.arg_arg_buffer);
+          const result = this.impl.isFormatAvailable(params.arg_format, params.arg_buffer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isFormatAvailable FAILED:', e));
           }
@@ -790,13 +790,13 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readAvailableTypes');
-          const result = this.impl.readAvailableTypes(params.arg_arg_buffer);
+          const result = this.impl.readAvailableTypes(params.arg_buffer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_types' in response) ? response.arg_arg_types : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_types' in response) ? response.arg_types : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec.$.structSpec, { 'arg_types': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readAvailableTypes FAILED:', e));
           }
@@ -806,13 +806,13 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readText');
-          const result = this.impl.readText(params.arg_arg_buffer);
+          const result = this.impl.readText(params.arg_buffer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readText FAILED:', e));
           }
@@ -822,12 +822,12 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadHtml_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readHtml');
-          const result = this.impl.readHtml(params.arg_arg_buffer);
+          const result = this.impl.readHtml(params.arg_buffer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec.$.structSpec, ['response.arg_arg_markup', 'response.arg_arg_url', 'response.arg_arg_fragment_start', 'response.arg_arg_fragment_end']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec.$.structSpec, { 'arg_markup': response.arg_markup, 'arg_url': response.arg_url, 'arg_fragment_start': response.arg_fragment_start, 'arg_fragment_end': response.arg_fragment_end });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readHtml FAILED:', e));
           }
@@ -837,13 +837,13 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadSvg_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readSvg');
-          const result = this.impl.readSvg(params.arg_arg_buffer);
+          const result = this.impl.readSvg(params.arg_buffer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readSvg FAILED:', e));
           }
@@ -853,13 +853,13 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadRtf_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readRtf');
-          const result = this.impl.readRtf(params.arg_arg_buffer);
+          const result = this.impl.readRtf(params.arg_buffer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readRtf FAILED:', e));
           }
@@ -869,13 +869,13 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadPng_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readPng');
-          const result = this.impl.readPng(params.arg_arg_buffer);
+          const result = this.impl.readPng(params.arg_buffer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_png' in response) ? response.arg_arg_png : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_png' in response) ? response.arg_png : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec.$.structSpec, { 'arg_png': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readPng FAILED:', e));
           }
@@ -885,13 +885,13 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadFiles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readFiles');
-          const result = this.impl.readFiles(params.arg_arg_buffer);
+          const result = this.impl.readFiles(params.arg_buffer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readFiles FAILED:', e));
           }
@@ -901,13 +901,13 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readDataTransferCustomData');
-          const result = this.impl.readDataTransferCustomData(params.arg_arg_buffer, params.arg_arg_type);
+          const result = this.impl.readDataTransferCustomData(params.arg_buffer, params.arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readDataTransferCustomData FAILED:', e));
           }
@@ -922,8 +922,8 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_format_types' in response) ? response.arg_arg_format_types : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_format_types' in response) ? response.arg_format_types : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec.$.structSpec, { 'arg_format_types': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readAvailableCustomAndStandardFormats FAILED:', e));
           }
@@ -933,13 +933,13 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readUnsanitizedCustomFormat');
-          const result = this.impl.readUnsanitizedCustomFormat(params.arg_arg_format);
+          const result = this.impl.readUnsanitizedCustomFormat(params.arg_format);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readUnsanitizedCustomFormat FAILED:', e));
           }
@@ -949,21 +949,21 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeText');
-          const result = this.impl.writeText(params.arg_arg_text);
+          const result = this.impl.writeText(params.arg_text);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteHtml_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeHtml');
-          const result = this.impl.writeHtml(params.arg_arg_markup, params.arg_arg_url);
+          const result = this.impl.writeHtml(params.arg_markup, params.arg_url);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteSvg_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeSvg');
-          const result = this.impl.writeSvg(params.arg_arg_markup);
+          const result = this.impl.writeSvg(params.arg_markup);
           break;
         }
         case 15: {
@@ -977,28 +977,28 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeDataTransferCustomData');
-          const result = this.impl.writeDataTransferCustomData(params.arg_arg_data);
+          const result = this.impl.writeDataTransferCustomData(params.arg_data);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeBookmark');
-          const result = this.impl.writeBookmark(params.arg_arg_url, params.arg_arg_title);
+          const result = this.impl.writeBookmark(params.arg_url, params.arg_title);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeImage');
-          const result = this.impl.writeImage(params.arg_arg_image);
+          const result = this.impl.writeImage(params.arg_image);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeUnsanitizedCustomFormat');
-          const result = this.impl.writeUnsanitizedCustomFormat(params.arg_arg_format, params.arg_arg_data);
+          const result = this.impl.writeUnsanitizedCustomFormat(params.arg_format, params.arg_data);
           break;
         }
         case 20: {
@@ -1012,7 +1012,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerClipboardListener');
-          const result = this.impl.registerClipboardListener(params.arg_arg_listener);
+          const result = this.impl.registerClipboardListener(params.arg_listener);
           break;
         }
       }

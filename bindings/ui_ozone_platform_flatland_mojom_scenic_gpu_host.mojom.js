@@ -170,7 +170,7 @@ mojo.internal.bindings.ui.mojom.ScenicGpuHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec,
       null,
-      [arg_window_id, arg_view_holder_token],
+      { arg_window_id: arg_window_id, arg_view_holder_token: arg_view_holder_token },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.ui.mojom.ScenicGpuHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.attachSurfaceToWindow');
-          const result = this.impl.attachSurfaceToWindow(params.arg_arg_window_id, params.arg_arg_view_holder_token);
+          const result = this.impl.attachSurfaceToWindow(params.arg_window_id, params.arg_view_holder_token);
           break;
         }
       }

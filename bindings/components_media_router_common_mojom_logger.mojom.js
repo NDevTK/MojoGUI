@@ -194,7 +194,7 @@ mojo.internal.bindings.media_router.mojom.LoggerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_router.mojom.Logger_LogInfo_ParamsSpec,
       null,
-      [arg_category, arg_component, arg_message, arg_sink_id, arg_media_source, arg_session_id],
+      { arg_category: arg_category, arg_component: arg_component, arg_message: arg_message, arg_sink_id: arg_sink_id, arg_media_source: arg_media_source, arg_session_id: arg_session_id },
       false);
   }
 
@@ -203,7 +203,7 @@ mojo.internal.bindings.media_router.mojom.LoggerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_router.mojom.Logger_LogWarning_ParamsSpec,
       null,
-      [arg_category, arg_component, arg_message, arg_sink_id, arg_media_source, arg_session_id],
+      { arg_category: arg_category, arg_component: arg_component, arg_message: arg_message, arg_sink_id: arg_sink_id, arg_media_source: arg_media_source, arg_session_id: arg_session_id },
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.media_router.mojom.LoggerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_router.mojom.Logger_LogError_ParamsSpec,
       null,
-      [arg_category, arg_component, arg_message, arg_sink_id, arg_media_source, arg_session_id],
+      { arg_category: arg_category, arg_component: arg_component, arg_message: arg_message, arg_sink_id: arg_sink_id, arg_media_source: arg_media_source, arg_session_id: arg_session_id },
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.media_router.mojom.LoggerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media_router.mojom.Logger_BindReceiver_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -293,28 +293,28 @@ mojo.internal.bindings.media_router.mojom.LoggerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Logger_LogInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logInfo');
-          const result = this.impl.logInfo(params.arg_arg_category, params.arg_arg_component, params.arg_arg_message, params.arg_arg_sink_id, params.arg_arg_media_source, params.arg_arg_session_id);
+          const result = this.impl.logInfo(params.arg_category, params.arg_component, params.arg_message, params.arg_sink_id, params.arg_media_source, params.arg_session_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Logger_LogWarning_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logWarning');
-          const result = this.impl.logWarning(params.arg_arg_category, params.arg_arg_component, params.arg_arg_message, params.arg_arg_sink_id, params.arg_arg_media_source, params.arg_arg_session_id);
+          const result = this.impl.logWarning(params.arg_category, params.arg_component, params.arg_message, params.arg_sink_id, params.arg_media_source, params.arg_session_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Logger_LogError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logError');
-          const result = this.impl.logError(params.arg_arg_category, params.arg_arg_component, params.arg_arg_message, params.arg_arg_sink_id, params.arg_arg_media_source, params.arg_arg_session_id);
+          const result = this.impl.logError(params.arg_category, params.arg_component, params.arg_message, params.arg_sink_id, params.arg_media_source, params.arg_session_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Logger_BindReceiver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindReceiver');
-          const result = this.impl.bindReceiver(params.arg_arg_receiver);
+          const result = this.impl.bindReceiver(params.arg_receiver);
           break;
         }
       }

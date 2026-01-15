@@ -201,7 +201,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioInputStream_Record_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.AudioInputStream_SetVolume_ParamsSpec,
       null,
-      [arg_volume],
+      { arg_volume: arg_volume },
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioInputStream_SetVolume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVolume');
-          const result = this.impl.setVolume(params.arg_arg_volume);
+          const result = this.impl.setVolume(params.arg_volume);
           break;
         }
       }
@@ -352,7 +352,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamClientRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioInputStreamClient_OnError_ParamsSpec,
       null,
-      [arg_code],
+      { arg_code: arg_code },
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamClientRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.AudioInputStreamClient_OnMutedStateChanged_ParamsSpec,
       null,
-      [arg_is_muted],
+      { arg_is_muted: arg_is_muted },
       false);
   }
 
@@ -431,14 +431,14 @@ mojo.internal.bindings.media.mojom.AudioInputStreamClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioInputStreamClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_code);
+          const result = this.impl.onError(params.arg_code);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioInputStreamClient_OnMutedStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMutedStateChanged');
-          const result = this.impl.onMutedStateChanged(params.arg_arg_is_muted);
+          const result = this.impl.onMutedStateChanged(params.arg_is_muted);
           break;
         }
       }
@@ -499,7 +499,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioInputStreamObserver_DidStartRecording_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

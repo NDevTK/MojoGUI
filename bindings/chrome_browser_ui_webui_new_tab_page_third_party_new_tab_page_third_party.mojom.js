@@ -189,7 +189,7 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactoryRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactoryReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -319,7 +319,7 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec,
       null,
-      [arg_theme],
+      { arg_theme: arg_theme },
       false);
   }
 
@@ -518,7 +518,7 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTheme');
-          const result = this.impl.setTheme(params.arg_arg_theme);
+          const result = this.impl.setTheme(params.arg_theme);
           break;
         }
       }

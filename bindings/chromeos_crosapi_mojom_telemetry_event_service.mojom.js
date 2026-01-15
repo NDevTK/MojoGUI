@@ -314,7 +314,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryEventObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec,
       null,
-      [arg_info],
+      { arg_info: arg_info },
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryEventObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEvent');
-          const result = this.impl.onEvent(params.arg_arg_info);
+          const result = this.impl.onEvent(params.arg_info);
           break;
         }
       }
@@ -448,7 +448,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryEventServiceRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec,
       null,
-      [arg_category, arg_observer],
+      { arg_category: arg_category, arg_observer: arg_observer },
       false);
   }
 
@@ -457,7 +457,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryEventServiceRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec,
-      [arg_category],
+      { arg_category: arg_category },
       false);
   }
 
@@ -527,20 +527,20 @@ mojo.internal.bindings.crosapi.mojom.TelemetryEventServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addEventObserver');
-          const result = this.impl.addEventObserver(params.arg_arg_category, params.arg_arg_observer);
+          const result = this.impl.addEventObserver(params.arg_category, params.arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isEventSupported');
-          const result = this.impl.isEventSupported(params.arg_arg_category);
+          const result = this.impl.isEventSupported(params.arg_category);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isEventSupported FAILED:', e));
           }

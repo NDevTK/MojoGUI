@@ -194,7 +194,7 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProviderRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec,
       null,
-      [arg_key_system, arg_cdm_request],
+      { arg_key_system: arg_key_system, arg_cdm_request: arg_cdm_request },
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCdm');
-          const result = this.impl.createCdm(params.arg_arg_key_system, params.arg_arg_cdm_request);
+          const result = this.impl.createCdm(params.arg_key_system, params.arg_cdm_request);
           break;
         }
       }
@@ -328,7 +328,7 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec,
       null,
-      [arg_codec, arg_secure_mode, arg_stream_processor_request],
+      { arg_codec: arg_codec, arg_secure_mode: arg_secure_mode, arg_stream_processor_request: arg_stream_processor_request },
       false);
   }
 
@@ -337,7 +337,7 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec,
       mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -407,7 +407,7 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createVideoDecoder');
-          const result = this.impl.createVideoDecoder(params.arg_arg_codec, params.arg_arg_secure_mode, params.arg_arg_stream_processor_request);
+          const result = this.impl.createVideoDecoder(params.arg_codec, params.arg_secure_mode, params.arg_stream_processor_request);
           break;
         }
         case 1: {
@@ -419,8 +419,8 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_supported_configs' in response) ? response.arg_arg_supported_configs : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_supported_configs' in response) ? response.arg_supported_configs : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec.$.structSpec, { 'arg_supported_configs': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSupportedVideoDecoderConfigs FAILED:', e));
           }

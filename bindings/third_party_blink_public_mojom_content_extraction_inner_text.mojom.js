@@ -188,7 +188,7 @@ mojo.internal.bindings.blink.mojom.InnerTextAgentRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec,
       mojo.internal.bindings.blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -257,13 +257,13 @@ mojo.internal.bindings.blink.mojom.InnerTextAgentReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInnerText');
-          const result = this.impl.getInnerText(params.arg_arg_params);
+          const result = this.impl.getInnerText(params.arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_frame' in response) ? response.arg_arg_frame : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_frame' in response) ? response.arg_frame : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec.$.structSpec, { 'arg_frame': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getInnerText FAILED:', e));
           }

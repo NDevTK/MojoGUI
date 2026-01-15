@@ -182,7 +182,7 @@ mojo.internal.bindings.video_capture.mojom.ProducerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.video_capture.mojom.Producer_OnNewBuffer_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.Producer_OnNewBuffer_ResponseParamsSpec,
-      [arg_buffer_id, arg_buffer_handle],
+      { arg_buffer_id: arg_buffer_id, arg_buffer_handle: arg_buffer_handle },
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.video_capture.mojom.ProducerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.video_capture.mojom.Producer_OnBufferRetired_ParamsSpec,
       null,
-      [arg_buffer_id],
+      { arg_buffer_id: arg_buffer_id },
       false);
   }
 
@@ -261,12 +261,12 @@ mojo.internal.bindings.video_capture.mojom.ProducerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.Producer_OnNewBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewBuffer');
-          const result = this.impl.onNewBuffer(params.arg_arg_buffer_id, params.arg_arg_buffer_handle);
+          const result = this.impl.onNewBuffer(params.arg_buffer_id, params.arg_buffer_handle);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.Producer_OnNewBuffer_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.Producer_OnNewBuffer_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onNewBuffer FAILED:', e));
           }
@@ -276,7 +276,7 @@ mojo.internal.bindings.video_capture.mojom.ProducerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.Producer_OnBufferRetired_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBufferRetired');
-          const result = this.impl.onBufferRetired(params.arg_arg_buffer_id);
+          const result = this.impl.onBufferRetired(params.arg_buffer_id);
           break;
         }
       }

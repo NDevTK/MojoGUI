@@ -180,7 +180,7 @@ mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactoryRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_page_handler],
+      { arg_page: arg_page, arg_page_handler: arg_page_handler },
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactoryReceiv
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_page_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_page_handler);
           break;
         }
       }
@@ -314,7 +314,7 @@ mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec,
       mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -323,7 +323,7 @@ mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -398,8 +398,8 @@ mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_context_clusters_json' in response) ? response.arg_arg_context_clusters_json : response;
-              encoder.encodeStructInline(mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_context_clusters_json' in response) ? response.arg_context_clusters_json : response;
+              encoder.encodeStructInline(mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec.$.structSpec, { 'arg_context_clusters_json': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getContextClustersJson FAILED:', e));
           }
@@ -470,7 +470,7 @@ mojo.internal.bindings.history_clusters_internals.mojom.PageRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -539,7 +539,7 @@ mojo.internal.bindings.history_clusters_internals.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLogMessageAdded');
-          const result = this.impl.onLogMessageAdded(params.arg_arg_message);
+          const result = this.impl.onLogMessageAdded(params.arg_message);
           break;
         }
       }

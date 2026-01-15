@@ -186,7 +186,7 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec,
       null,
-      [arg_receiver, arg_options],
+      { arg_receiver: arg_receiver, arg_options: arg_options },
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec,
       mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -265,7 +265,7 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createBarcodeDetection');
-          const result = this.impl.createBarcodeDetection(params.arg_arg_receiver, params.arg_arg_options);
+          const result = this.impl.createBarcodeDetection(params.arg_receiver, params.arg_options);
           break;
         }
         case 1: {
@@ -277,8 +277,8 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderReceiver = 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_supported_formats' in response) ? response.arg_arg_supported_formats : response;
-              encoder.encodeStructInline(mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_supported_formats' in response) ? response.arg_supported_formats : response;
+              encoder.encodeStructInline(mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec.$.structSpec, { 'arg_supported_formats': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] enumerateSupportedFormats FAILED:', e));
           }

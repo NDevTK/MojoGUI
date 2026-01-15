@@ -171,7 +171,7 @@ mojo.internal.bindings.pdf.mojom.PdfSearchifierRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfSearchifier_Searchify_ParamsSpec,
       mojo.internal.bindings.pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec,
-      [arg_pdf],
+      { arg_pdf: arg_pdf },
       false);
   }
 
@@ -240,13 +240,13 @@ mojo.internal.bindings.pdf.mojom.PdfSearchifierReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfSearchifier_Searchify_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.searchify');
-          const result = this.impl.searchify(params.arg_arg_pdf);
+          const result = this.impl.searchify(params.arg_pdf);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_searchified_pdf' in response) ? response.arg_arg_searchified_pdf : response;
-              encoder.encodeStructInline(mojo.internal.bindings.pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_searchified_pdf' in response) ? response.arg_searchified_pdf : response;
+              encoder.encodeStructInline(mojo.internal.bindings.pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec.$.structSpec, { 'arg_searchified_pdf': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] searchify FAILED:', e));
           }

@@ -309,7 +309,7 @@ mojo.internal.bindings.blink.mojom.LockRequestRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.LockRequest_Granted_ParamsSpec,
       null,
-      [arg_lock_handle],
+      { arg_lock_handle: arg_lock_handle },
       false);
   }
 
@@ -318,7 +318,7 @@ mojo.internal.bindings.blink.mojom.LockRequestRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.LockRequest_Failed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -388,7 +388,7 @@ mojo.internal.bindings.blink.mojom.LockRequestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LockRequest_Granted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.granted');
-          const result = this.impl.granted(params.arg_arg_lock_handle);
+          const result = this.impl.granted(params.arg_lock_handle);
           break;
         }
         case 1: {
@@ -460,7 +460,7 @@ mojo.internal.bindings.blink.mojom.LockManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.LockManager_RequestLock_ParamsSpec,
       null,
-      [arg_name, arg_mode, arg_wait, arg_request],
+      { arg_name: arg_name, arg_mode: arg_mode, arg_wait: arg_wait, arg_request: arg_request },
       false);
   }
 
@@ -469,7 +469,7 @@ mojo.internal.bindings.blink.mojom.LockManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.LockManager_QueryState_ParamsSpec,
       mojo.internal.bindings.blink.mojom.LockManager_QueryState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -539,7 +539,7 @@ mojo.internal.bindings.blink.mojom.LockManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LockManager_RequestLock_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestLock');
-          const result = this.impl.requestLock(params.arg_arg_name, params.arg_arg_mode, params.arg_arg_wait, params.arg_arg_request);
+          const result = this.impl.requestLock(params.arg_name, params.arg_mode, params.arg_wait, params.arg_request);
           break;
         }
         case 1: {
@@ -551,7 +551,7 @@ mojo.internal.bindings.blink.mojom.LockManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LockManager_QueryState_ResponseParamsSpec.$.structSpec, ['response.arg_arg_requested', 'response.arg_arg_held']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LockManager_QueryState_ResponseParamsSpec.$.structSpec, { 'arg_requested': response.arg_requested, 'arg_held': response.arg_held });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] queryState FAILED:', e));
           }

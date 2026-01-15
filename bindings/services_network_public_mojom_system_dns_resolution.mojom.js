@@ -179,7 +179,7 @@ mojo.internal.bindings.network.mojom.SystemDnsResolverRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ParamsSpec,
       mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec,
-      [arg_hostname, arg_addr_family, arg_flags, arg_network],
+      { arg_hostname: arg_hostname, arg_addr_family: arg_addr_family, arg_flags: arg_flags, arg_network: arg_network },
       false);
   }
 
@@ -248,12 +248,12 @@ mojo.internal.bindings.network.mojom.SystemDnsResolverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolve');
-          const result = this.impl.resolve(params.arg_arg_hostname, params.arg_arg_addr_family, params.arg_arg_flags, params.arg_arg_network);
+          const result = this.impl.resolve(params.arg_hostname, params.arg_addr_family, params.arg_flags, params.arg_network);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec.$.structSpec, ['response.arg_arg_addr_list', 'response.arg_arg_os_error', 'response.arg_arg_net_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec.$.structSpec, { 'arg_addr_list': response.arg_addr_list, 'arg_os_error': response.arg_os_error, 'arg_net_error': response.arg_net_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] resolve FAILED:', e));
           }

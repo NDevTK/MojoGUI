@@ -193,7 +193,7 @@ mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec,
       null,
-      [arg_blocked_url, arg_destination, arg_report_only],
+      { arg_blocked_url: arg_blocked_url, arg_destination: arg_destination, arg_report_only: arg_report_only },
       false);
   }
 
@@ -202,7 +202,7 @@ mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -272,14 +272,14 @@ mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueCorpViolationReport');
-          const result = this.impl.queueCorpViolationReport(params.arg_arg_blocked_url, params.arg_arg_destination, params.arg_arg_report_only);
+          const result = this.impl.queueCorpViolationReport(params.arg_blocked_url, params.arg_destination, params.arg_report_only);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_receiver);
+          const result = this.impl.clone(params.arg_receiver);
           break;
         }
       }

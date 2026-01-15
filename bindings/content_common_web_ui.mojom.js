@@ -180,7 +180,7 @@ mojo.internal.bindings.content.mojom.WebUIHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.WebUIHost_Send_ParamsSpec,
       null,
-      [arg_message, arg_args],
+      { arg_message: arg_message, arg_args: arg_args },
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.content.mojom.WebUIHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebUIHost_Send_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.send');
-          const result = this.impl.send(params.arg_arg_message, params.arg_arg_args);
+          const result = this.impl.send(params.arg_message, params.arg_args);
           break;
         }
       }
@@ -310,7 +310,7 @@ mojo.internal.bindings.content.mojom.WebUIRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.WebUI_SetProperty_ParamsSpec,
       null,
-      [arg_property_name, arg_property_value_json],
+      { arg_property_name: arg_property_name, arg_property_value_json: arg_property_value_json },
       false);
   }
 
@@ -379,7 +379,7 @@ mojo.internal.bindings.content.mojom.WebUIReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebUI_SetProperty_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setProperty');
-          const result = this.impl.setProperty(params.arg_arg_property_name, params.arg_arg_property_value_json);
+          const result = this.impl.setProperty(params.arg_property_name, params.arg_property_value_json);
           break;
         }
       }

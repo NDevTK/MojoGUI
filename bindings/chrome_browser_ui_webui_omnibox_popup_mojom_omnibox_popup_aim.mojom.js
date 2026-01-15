@@ -194,7 +194,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactoryRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactoryReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -328,7 +328,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -337,7 +337,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec,
       null,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -414,7 +414,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.navigateCurrentTab');
-          const result = this.impl.navigateCurrentTab(params.arg_arg_url);
+          const result = this.impl.navigateCurrentTab(params.arg_url);
           break;
         }
       }
@@ -487,7 +487,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec,
       null,
-      [arg_context],
+      { arg_context: arg_context },
       false);
   }
 
@@ -496,7 +496,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec,
       null,
-      [arg_context],
+      { arg_context: arg_context },
       false);
   }
 
@@ -505,7 +505,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec,
       mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -514,7 +514,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec,
       null,
-      [arg_preserve_context_on_close],
+      { arg_preserve_context_on_close: arg_preserve_context_on_close },
       false);
   }
 
@@ -586,14 +586,14 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPopupShown');
-          const result = this.impl.onPopupShown(params.arg_arg_context);
+          const result = this.impl.onPopupShown(params.arg_context);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addContext');
-          const result = this.impl.addContext(params.arg_arg_context);
+          const result = this.impl.addContext(params.arg_context);
           break;
         }
         case 2: {
@@ -605,8 +605,8 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_input' in response) ? response.arg_arg_input : response;
-              encoder.encodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_input' in response) ? response.arg_input : response;
+              encoder.encodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec.$.structSpec, { 'arg_input': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onPopupHidden FAILED:', e));
           }
@@ -616,7 +616,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPreserveContextOnClose');
-          const result = this.impl.setPreserveContextOnClose(params.arg_arg_preserve_context_on_close);
+          const result = this.impl.setPreserveContextOnClose(params.arg_preserve_context_on_close);
           break;
         }
       }

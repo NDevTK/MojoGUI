@@ -199,7 +199,7 @@ mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -329,7 +329,7 @@ mojo.internal.bindings.action_chips.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec,
       null,
-      [arg_action_chips],
+      { arg_action_chips: arg_action_chips },
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.action_chips.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onActionChipsChanged');
-          const result = this.impl.onActionChipsChanged(params.arg_arg_action_chips);
+          const result = this.impl.onActionChipsChanged(params.arg_action_chips);
           break;
         }
       }
@@ -459,7 +459,7 @@ mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactoryRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec,
       null,
-      [arg_handler, arg_page],
+      { arg_handler: arg_handler, arg_page: arg_page },
       false);
   }
 
@@ -528,7 +528,7 @@ mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactoryReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createActionChipsHandler');
-          const result = this.impl.createActionChipsHandler(params.arg_arg_handler, params.arg_arg_page);
+          const result = this.impl.createActionChipsHandler(params.arg_handler, params.arg_page);
           break;
         }
       }

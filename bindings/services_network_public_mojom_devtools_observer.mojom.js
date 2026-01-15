@@ -326,7 +326,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec,
       null,
-      [arg_devtool_request_id, arg_cookies_with_access_result, arg_headers, arg_timestamp, arg_client_security_state, arg_other_partition_info, arg_applied_network_conditions_id],
+      { arg_devtool_request_id: arg_devtool_request_id, arg_cookies_with_access_result: arg_cookies_with_access_result, arg_headers: arg_headers, arg_timestamp: arg_timestamp, arg_client_security_state: arg_client_security_state, arg_other_partition_info: arg_other_partition_info, arg_applied_network_conditions_id: arg_applied_network_conditions_id },
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec,
       null,
-      [arg_devtool_request_id, arg_cookies_with_access_result, arg_headers, arg_raw_response_headers, arg_resource_address_space, arg_http_status_code, arg_cookie_partition_key],
+      { arg_devtool_request_id: arg_devtool_request_id, arg_cookies_with_access_result: arg_cookies_with_access_result, arg_headers: arg_headers, arg_raw_response_headers: arg_raw_response_headers, arg_resource_address_space: arg_resource_address_space, arg_http_status_code: arg_http_status_code, arg_cookie_partition_key: arg_cookie_partition_key },
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec,
       null,
-      [arg_devtool_request_id, arg_headers],
+      { arg_devtool_request_id: arg_devtool_request_id, arg_headers: arg_headers },
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec,
       null,
-      [arg_devtool_request_id, arg_url, arg_is_warning, arg_resource_address_space, arg_client_security_state],
+      { arg_devtool_request_id: arg_devtool_request_id, arg_url: arg_url, arg_is_warning: arg_is_warning, arg_resource_address_space: arg_resource_address_space, arg_client_security_state: arg_client_security_state },
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec,
       null,
-      [arg_devtool_request_id, arg_request_headers, arg_request_info, arg_initiator_url, arg_initiator_devtool_request_id],
+      { arg_devtool_request_id: arg_devtool_request_id, arg_request_headers: arg_request_headers, arg_request_info: arg_request_info, arg_initiator_url: arg_initiator_url, arg_initiator_devtool_request_id: arg_initiator_devtool_request_id },
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec,
       null,
-      [arg_devtool_request_id, arg_url, arg_head],
+      { arg_devtool_request_id: arg_devtool_request_id, arg_url: arg_url, arg_head: arg_head },
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec,
       null,
-      [arg_devtool_request_id, arg_status],
+      { arg_devtool_request_id: arg_devtool_request_id, arg_status: arg_status },
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec,
       null,
-      [arg_devtool_request_id, arg_result],
+      { arg_devtool_request_id: arg_devtool_request_id, arg_result: arg_result },
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsError_ParamsSpec,
       null,
-      [arg_devtool_request_id, arg_initiator_origin, arg_client_security_state, arg_url, arg_status, arg_is_warning],
+      { arg_devtool_request_id: arg_devtool_request_id, arg_initiator_origin: arg_initiator_origin, arg_client_security_state: arg_client_security_state, arg_url: arg_url, arg_status: arg_status, arg_is_warning: arg_is_warning },
       false);
   }
 
@@ -407,7 +407,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnOrbError_ParamsSpec,
       null,
-      [arg_devtools_request_id, arg_url],
+      { arg_devtools_request_id: arg_devtools_request_id, arg_url: arg_url },
       false);
   }
 
@@ -416,7 +416,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec,
       null,
-      [arg_devtool_request_id, arg_url, arg_error],
+      { arg_devtool_request_id: arg_devtool_request_id, arg_url: arg_url, arg_error: arg_error },
       false);
   }
 
@@ -425,7 +425,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec,
       null,
-      [arg_devtool_request_id, arg_url, arg_issues],
+      { arg_devtool_request_id: arg_devtool_request_id, arg_url: arg_url, arg_issues: arg_issues },
       false);
   }
 
@@ -434,7 +434,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec,
       null,
-      [arg_devtool_request_id, arg_url, arg_issue],
+      { arg_devtool_request_id: arg_devtool_request_id, arg_url: arg_url, arg_issue: arg_issue },
       false);
   }
 
@@ -443,7 +443,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_Clone_ParamsSpec,
       null,
-      [arg_listener],
+      { arg_listener: arg_listener },
       false);
   }
 
@@ -525,98 +525,98 @@ mojo.internal.bindings.network.mojom.DevToolsObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRawRequest');
-          const result = this.impl.onRawRequest(params.arg_arg_devtool_request_id, params.arg_arg_cookies_with_access_result, params.arg_arg_headers, params.arg_arg_timestamp, params.arg_arg_client_security_state, params.arg_arg_other_partition_info, params.arg_arg_applied_network_conditions_id);
+          const result = this.impl.onRawRequest(params.arg_devtool_request_id, params.arg_cookies_with_access_result, params.arg_headers, params.arg_timestamp, params.arg_client_security_state, params.arg_other_partition_info, params.arg_applied_network_conditions_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRawResponse');
-          const result = this.impl.onRawResponse(params.arg_arg_devtool_request_id, params.arg_arg_cookies_with_access_result, params.arg_arg_headers, params.arg_arg_raw_response_headers, params.arg_arg_resource_address_space, params.arg_arg_http_status_code, params.arg_arg_cookie_partition_key);
+          const result = this.impl.onRawResponse(params.arg_devtool_request_id, params.arg_cookies_with_access_result, params.arg_headers, params.arg_raw_response_headers, params.arg_resource_address_space, params.arg_http_status_code, params.arg_cookie_partition_key);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEarlyHintsResponse');
-          const result = this.impl.onEarlyHintsResponse(params.arg_arg_devtool_request_id, params.arg_arg_headers);
+          const result = this.impl.onEarlyHintsResponse(params.arg_devtool_request_id, params.arg_headers);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPrivateNetworkRequest');
-          const result = this.impl.onPrivateNetworkRequest(params.arg_arg_devtool_request_id, params.arg_arg_url, params.arg_arg_is_warning, params.arg_arg_resource_address_space, params.arg_arg_client_security_state);
+          const result = this.impl.onPrivateNetworkRequest(params.arg_devtool_request_id, params.arg_url, params.arg_is_warning, params.arg_resource_address_space, params.arg_client_security_state);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCorsPreflightRequest');
-          const result = this.impl.onCorsPreflightRequest(params.arg_arg_devtool_request_id, params.arg_arg_request_headers, params.arg_arg_request_info, params.arg_arg_initiator_url, params.arg_arg_initiator_devtool_request_id);
+          const result = this.impl.onCorsPreflightRequest(params.arg_devtool_request_id, params.arg_request_headers, params.arg_request_info, params.arg_initiator_url, params.arg_initiator_devtool_request_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCorsPreflightResponse');
-          const result = this.impl.onCorsPreflightResponse(params.arg_arg_devtool_request_id, params.arg_arg_url, params.arg_arg_head);
+          const result = this.impl.onCorsPreflightResponse(params.arg_devtool_request_id, params.arg_url, params.arg_head);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCorsPreflightRequestCompleted');
-          const result = this.impl.onCorsPreflightRequestCompleted(params.arg_arg_devtool_request_id, params.arg_arg_status);
+          const result = this.impl.onCorsPreflightRequestCompleted(params.arg_devtool_request_id, params.arg_status);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTrustTokenOperationDone');
-          const result = this.impl.onTrustTokenOperationDone(params.arg_arg_devtool_request_id, params.arg_arg_result);
+          const result = this.impl.onTrustTokenOperationDone(params.arg_devtool_request_id, params.arg_result);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCorsError');
-          const result = this.impl.onCorsError(params.arg_arg_devtool_request_id, params.arg_arg_initiator_origin, params.arg_arg_client_security_state, params.arg_arg_url, params.arg_arg_status, params.arg_arg_is_warning);
+          const result = this.impl.onCorsError(params.arg_devtool_request_id, params.arg_initiator_origin, params.arg_client_security_state, params.arg_url, params.arg_status, params.arg_is_warning);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnOrbError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOrbError');
-          const result = this.impl.onOrbError(params.arg_arg_devtools_request_id, params.arg_arg_url);
+          const result = this.impl.onOrbError(params.arg_devtools_request_id, params.arg_url);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSharedDictionaryError');
-          const result = this.impl.onSharedDictionaryError(params.arg_arg_devtool_request_id, params.arg_arg_url, params.arg_arg_error);
+          const result = this.impl.onSharedDictionaryError(params.arg_devtool_request_id, params.arg_url, params.arg_error);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSRIMessageSignatureIssue');
-          const result = this.impl.onSRIMessageSignatureIssue(params.arg_arg_devtool_request_id, params.arg_arg_url, params.arg_arg_issues);
+          const result = this.impl.onSRIMessageSignatureIssue(params.arg_devtool_request_id, params.arg_url, params.arg_issues);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUnencodedDigestError');
-          const result = this.impl.onUnencodedDigestError(params.arg_arg_devtool_request_id, params.arg_arg_url, params.arg_arg_issue);
+          const result = this.impl.onUnencodedDigestError(params.arg_devtool_request_id, params.arg_url, params.arg_issue);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_listener);
+          const result = this.impl.clone(params.arg_listener);
           break;
         }
       }

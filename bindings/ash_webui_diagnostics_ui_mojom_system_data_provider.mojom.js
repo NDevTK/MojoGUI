@@ -224,7 +224,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec,
       null,
-      [arg_battery_charge_status],
+      { arg_battery_charge_status: arg_battery_charge_status },
       false);
   }
 
@@ -293,7 +293,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBatteryChargeStatusUpdated');
-          const result = this.impl.onBatteryChargeStatusUpdated(params.arg_arg_battery_charge_status);
+          const result = this.impl.onBatteryChargeStatusUpdated(params.arg_battery_charge_status);
           break;
         }
       }
@@ -354,7 +354,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec,
       null,
-      [arg_battery_health],
+      { arg_battery_health: arg_battery_health },
       false);
   }
 
@@ -423,7 +423,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBatteryHealthUpdated');
-          const result = this.impl.onBatteryHealthUpdated(params.arg_arg_battery_health);
+          const result = this.impl.onBatteryHealthUpdated(params.arg_battery_health);
           break;
         }
       }
@@ -484,7 +484,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec,
       null,
-      [arg_memory_usage],
+      { arg_memory_usage: arg_memory_usage },
       false);
   }
 
@@ -553,7 +553,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMemoryUsageUpdated');
-          const result = this.impl.onMemoryUsageUpdated(params.arg_arg_memory_usage);
+          const result = this.impl.onMemoryUsageUpdated(params.arg_memory_usage);
           break;
         }
       }
@@ -614,7 +614,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec,
       null,
-      [arg_cpu_usage],
+      { arg_cpu_usage: arg_cpu_usage },
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCpuUsageUpdated');
-          const result = this.impl.onCpuUsageUpdated(params.arg_arg_cpu_usage);
+          const result = this.impl.onCpuUsageUpdated(params.arg_cpu_usage);
           break;
         }
       }
@@ -764,7 +764,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec,
       mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -773,7 +773,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec,
       mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -782,7 +782,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -791,7 +791,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -800,7 +800,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -809,7 +809,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -888,8 +888,8 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderReceiver = class 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_system_info' in response) ? response.arg_arg_system_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_system_info' in response) ? response.arg_system_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec.$.structSpec, { 'arg_system_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSystemInfo FAILED:', e));
           }
@@ -904,8 +904,8 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderReceiver = class 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_battery_info' in response) ? response.arg_arg_battery_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_battery_info' in response) ? response.arg_battery_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec.$.structSpec, { 'arg_battery_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getBatteryInfo FAILED:', e));
           }
@@ -915,28 +915,28 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeBatteryChargeStatus');
-          const result = this.impl.observeBatteryChargeStatus(params.arg_arg_observer);
+          const result = this.impl.observeBatteryChargeStatus(params.arg_observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeBatteryHealth');
-          const result = this.impl.observeBatteryHealth(params.arg_arg_observer);
+          const result = this.impl.observeBatteryHealth(params.arg_observer);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeMemoryUsage');
-          const result = this.impl.observeMemoryUsage(params.arg_arg_observer);
+          const result = this.impl.observeMemoryUsage(params.arg_observer);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeCpuUsage');
-          const result = this.impl.observeCpuUsage(params.arg_arg_observer);
+          const result = this.impl.observeCpuUsage(params.arg_observer);
           break;
         }
       }

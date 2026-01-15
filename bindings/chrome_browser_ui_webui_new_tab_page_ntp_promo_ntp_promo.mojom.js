@@ -218,7 +218,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec,
       null,
-      [arg_eligible_shown, arg_completed_shown],
+      { arg_eligible_shown: arg_eligible_shown, arg_completed_shown: arg_completed_shown },
       false);
   }
 
@@ -236,7 +236,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec,
       null,
-      [arg_promo_id],
+      { arg_promo_id: arg_promo_id },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -354,14 +354,14 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPromosShown');
-          const result = this.impl.onPromosShown(params.arg_arg_eligible_shown, params.arg_arg_completed_shown);
+          const result = this.impl.onPromosShown(params.arg_eligible_shown, params.arg_completed_shown);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPromoClicked');
-          const result = this.impl.onPromoClicked(params.arg_arg_promo_id);
+          const result = this.impl.onPromoClicked(params.arg_promo_id);
           break;
         }
         case 3: {
@@ -450,7 +450,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec,
       null,
-      [arg_eligible, arg_completed],
+      { arg_eligible: arg_eligible, arg_completed: arg_completed },
       false);
   }
 
@@ -519,7 +519,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPromos');
-          const result = this.impl.setPromos(params.arg_arg_eligible, params.arg_arg_completed);
+          const result = this.impl.setPromos(params.arg_eligible, params.arg_completed);
           break;
         }
       }
@@ -580,7 +580,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactoryRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec,
       null,
-      [arg_client, arg_handler],
+      { arg_client: arg_client, arg_handler: arg_handler },
       false);
   }
 
@@ -649,7 +649,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createNtpPromoHandler');
-          const result = this.impl.createNtpPromoHandler(params.arg_arg_client, params.arg_arg_handler);
+          const result = this.impl.createNtpPromoHandler(params.arg_client, params.arg_handler);
           break;
         }
       }

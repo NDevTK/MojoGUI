@@ -181,7 +181,7 @@ mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec,
       null,
-      [arg_failed_url],
+      { arg_failed_url: arg_failed_url },
       false);
   }
 
@@ -250,7 +250,7 @@ mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runNetworkDiagnostics');
-          const result = this.impl.runNetworkDiagnostics(params.arg_arg_failed_url);
+          const result = this.impl.runNetworkDiagnostics(params.arg_failed_url);
           break;
         }
       }
@@ -315,7 +315,7 @@ mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClientRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec,
       null,
-      [arg_can_show],
+      { arg_can_show: arg_can_show },
       false);
   }
 
@@ -324,7 +324,7 @@ mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClientRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -394,14 +394,14 @@ mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCanShowNetworkDiagnosticsDialog');
-          const result = this.impl.setCanShowNetworkDiagnosticsDialog(params.arg_arg_can_show);
+          const result = this.impl.setCanShowNetworkDiagnosticsDialog(params.arg_can_show);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dNSProbeStatus');
-          const result = this.impl.dNSProbeStatus(params.arg_arg_status);
+          const result = this.impl.dNSProbeStatus(params.arg_status);
           break;
         }
       }

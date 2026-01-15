@@ -509,7 +509,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserverRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserver_OnWallpaperPreviewEnded_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -518,7 +518,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserverRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec,
       null,
-      [arg_attribution],
+      { arg_attribution: arg_attribution },
       false);
   }
 
@@ -527,7 +527,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserverRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec,
       null,
-      [arg_image],
+      { arg_image: arg_image },
       false);
   }
 
@@ -605,14 +605,14 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserverReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAttributionChanged');
-          const result = this.impl.onAttributionChanged(params.arg_arg_attribution);
+          const result = this.impl.onAttributionChanged(params.arg_attribution);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWallpaperChanged');
-          const result = this.impl.onWallpaperChanged(params.arg_arg_image);
+          const result = this.impl.onWallpaperChanged(params.arg_image);
           break;
         }
       }
@@ -773,7 +773,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_MakeTransparent_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -782,7 +782,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_MakeOpaque_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -791,7 +791,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -800,7 +800,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec,
-      [arg_collection_id],
+      { arg_collection_id: arg_collection_id },
       false);
   }
 
@@ -809,7 +809,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec,
-      [arg_resume_token],
+      { arg_resume_token: arg_resume_token },
       false);
   }
 
@@ -818,7 +818,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec,
-      [arg_resume_token],
+      { arg_resume_token: arg_resume_token },
       false);
   }
 
@@ -827,7 +827,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -836,7 +836,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec,
-      [arg_item_id, arg_album_id, arg_resume_token],
+      { arg_item_id: arg_item_id, arg_album_id: arg_album_id, arg_resume_token: arg_resume_token },
       false);
   }
 
@@ -845,7 +845,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -854,7 +854,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -863,7 +863,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec,
-      [arg_file_path],
+      { arg_file_path: arg_file_path },
       false);
   }
 
@@ -872,7 +872,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -881,7 +881,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec,
-      [arg_unit_id, arg_preview_mode],
+      { arg_unit_id: arg_unit_id, arg_preview_mode: arg_preview_mode },
       false);
   }
 
@@ -890,7 +890,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -899,7 +899,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec,
-      [arg_path, arg_layout, arg_preview_mode],
+      { arg_path: arg_path, arg_layout: arg_layout, arg_preview_mode: arg_preview_mode },
       false);
   }
 
@@ -908,7 +908,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec,
-      [arg_id, arg_layout, arg_preview_mode],
+      { arg_id: arg_id, arg_layout: arg_layout, arg_preview_mode: arg_preview_mode },
       false);
   }
 
@@ -917,7 +917,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -926,7 +926,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -935,7 +935,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetCurrentWallpaperLayout_ParamsSpec,
       null,
-      [arg_layout],
+      { arg_layout: arg_layout },
       false);
   }
 
@@ -944,7 +944,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec,
-      [arg_collection_id],
+      { arg_collection_id: arg_collection_id },
       false);
   }
 
@@ -953,7 +953,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -962,7 +962,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -971,7 +971,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -980,7 +980,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_ConfirmPreviewWallpaper_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -989,7 +989,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_CancelPreviewWallpaper_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -998,7 +998,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1111,8 +1111,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_collections' in response) ? response.arg_arg_collections : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_collections' in response) ? response.arg_collections : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec.$.structSpec, { 'arg_collections': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fetchCollections FAILED:', e));
           }
@@ -1122,13 +1122,13 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchImagesForCollection');
-          const result = this.impl.fetchImagesForCollection(params.arg_arg_collection_id);
+          const result = this.impl.fetchImagesForCollection(params.arg_collection_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_images' in response) ? response.arg_arg_images : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_images' in response) ? response.arg_images : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec.$.structSpec, { 'arg_images': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fetchImagesForCollection FAILED:', e));
           }
@@ -1138,13 +1138,13 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchGooglePhotosAlbums');
-          const result = this.impl.fetchGooglePhotosAlbums(params.arg_arg_resume_token);
+          const result = this.impl.fetchGooglePhotosAlbums(params.arg_resume_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fetchGooglePhotosAlbums FAILED:', e));
           }
@@ -1154,13 +1154,13 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchGooglePhotosSharedAlbums');
-          const result = this.impl.fetchGooglePhotosSharedAlbums(params.arg_arg_resume_token);
+          const result = this.impl.fetchGooglePhotosSharedAlbums(params.arg_resume_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fetchGooglePhotosSharedAlbums FAILED:', e));
           }
@@ -1175,8 +1175,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response.arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec.$.structSpec, { 'arg_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fetchGooglePhotosEnabled FAILED:', e));
           }
@@ -1186,13 +1186,13 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchGooglePhotosPhotos');
-          const result = this.impl.fetchGooglePhotosPhotos(params.arg_arg_item_id, params.arg_arg_album_id, params.arg_arg_resume_token);
+          const result = this.impl.fetchGooglePhotosPhotos(params.arg_item_id, params.arg_album_id, params.arg_resume_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fetchGooglePhotosPhotos FAILED:', e));
           }
@@ -1207,8 +1207,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_images' in response) ? response.arg_arg_images : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_images' in response) ? response.arg_images : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec.$.structSpec, { 'arg_images': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getLocalImages FAILED:', e));
           }
@@ -1223,8 +1223,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDefaultImageThumbnail FAILED:', e));
           }
@@ -1234,13 +1234,13 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getLocalImageThumbnail');
-          const result = this.impl.getLocalImageThumbnail(params.arg_arg_file_path);
+          const result = this.impl.getLocalImageThumbnail(params.arg_file_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getLocalImageThumbnail FAILED:', e));
           }
@@ -1250,20 +1250,20 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWallpaperObserver');
-          const result = this.impl.setWallpaperObserver(params.arg_arg_observer);
+          const result = this.impl.setWallpaperObserver(params.arg_observer);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectWallpaper');
-          const result = this.impl.selectWallpaper(params.arg_arg_unit_id, params.arg_arg_preview_mode);
+          const result = this.impl.selectWallpaper(params.arg_unit_id, params.arg_preview_mode);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] selectWallpaper FAILED:', e));
           }
@@ -1278,8 +1278,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] selectDefaultImage FAILED:', e));
           }
@@ -1289,13 +1289,13 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectLocalImage');
-          const result = this.impl.selectLocalImage(params.arg_arg_path, params.arg_arg_layout, params.arg_arg_preview_mode);
+          const result = this.impl.selectLocalImage(params.arg_path, params.arg_layout, params.arg_preview_mode);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] selectLocalImage FAILED:', e));
           }
@@ -1305,13 +1305,13 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectGooglePhotosPhoto');
-          const result = this.impl.selectGooglePhotosPhoto(params.arg_arg_id, params.arg_arg_layout, params.arg_arg_preview_mode);
+          const result = this.impl.selectGooglePhotosPhoto(params.arg_id, params.arg_layout, params.arg_preview_mode);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] selectGooglePhotosPhoto FAILED:', e));
           }
@@ -1321,13 +1321,13 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectGooglePhotosAlbum');
-          const result = this.impl.selectGooglePhotosAlbum(params.arg_arg_id);
+          const result = this.impl.selectGooglePhotosAlbum(params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] selectGooglePhotosAlbum FAILED:', e));
           }
@@ -1342,8 +1342,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_album_id' in response) ? response.arg_arg_album_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_album_id' in response) ? response.arg_album_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec.$.structSpec, { 'arg_album_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getGooglePhotosDailyRefreshAlbumId FAILED:', e));
           }
@@ -1353,20 +1353,20 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetCurrentWallpaperLayout_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCurrentWallpaperLayout');
-          const result = this.impl.setCurrentWallpaperLayout(params.arg_arg_layout);
+          const result = this.impl.setCurrentWallpaperLayout(params.arg_layout);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDailyRefreshCollectionId');
-          const result = this.impl.setDailyRefreshCollectionId(params.arg_arg_collection_id);
+          const result = this.impl.setDailyRefreshCollectionId(params.arg_collection_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setDailyRefreshCollectionId FAILED:', e));
           }
@@ -1381,8 +1381,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_collection_id' in response) ? response.arg_arg_collection_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_collection_id' in response) ? response.arg_collection_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec.$.structSpec, { 'arg_collection_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDailyRefreshCollectionId FAILED:', e));
           }
@@ -1397,8 +1397,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateDailyRefreshWallpaper FAILED:', e));
           }
@@ -1413,8 +1413,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_tablet_mode' in response) ? response.arg_arg_tablet_mode : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_tablet_mode' in response) ? response.arg_tablet_mode : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec.$.structSpec, { 'arg_tablet_mode': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isInTabletMode FAILED:', e));
           }
@@ -1443,8 +1443,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_should_show_dialog' in response) ? response.arg_arg_should_show_dialog : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_should_show_dialog' in response) ? response.arg_should_show_dialog : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec.$.structSpec, { 'arg_should_show_dialog': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] shouldShowTimeOfDayWallpaperDialog FAILED:', e));
           }
@@ -1532,7 +1532,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec,
       null,
-      [arg_dark_mode_enabled],
+      { arg_dark_mode_enabled: arg_dark_mode_enabled },
       false);
   }
 
@@ -1541,7 +1541,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -1550,7 +1550,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec,
       null,
-      [arg_color_scheme],
+      { arg_color_scheme: arg_color_scheme },
       false);
   }
 
@@ -1559,7 +1559,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSpec,
       null,
-      [arg_sample_color_schemes],
+      { arg_sample_color_schemes: arg_sample_color_schemes },
       false);
   }
 
@@ -1568,7 +1568,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverRemoteCallHand
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec,
       null,
-      [arg_color],
+      { arg_color: arg_color },
       false);
   }
 
@@ -1577,7 +1577,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverRemoteCallHand
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec,
       null,
-      [arg_enabled, arg_is_user_modifiable],
+      { arg_enabled: arg_enabled, arg_is_user_modifiable: arg_is_user_modifiable },
       false);
   }
 
@@ -1586,7 +1586,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverRemoteCallHand
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec,
       null,
-      [arg_sunrise_time, arg_sunset_time],
+      { arg_sunrise_time: arg_sunrise_time, arg_sunset_time: arg_sunset_time },
       false);
   }
 
@@ -1661,49 +1661,49 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onColorModeChanged');
-          const result = this.impl.onColorModeChanged(params.arg_arg_dark_mode_enabled);
+          const result = this.impl.onColorModeChanged(params.arg_dark_mode_enabled);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onColorModeAutoScheduleChanged');
-          const result = this.impl.onColorModeAutoScheduleChanged(params.arg_arg_enabled);
+          const result = this.impl.onColorModeAutoScheduleChanged(params.arg_enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onColorSchemeChanged');
-          const result = this.impl.onColorSchemeChanged(params.arg_arg_color_scheme);
+          const result = this.impl.onColorSchemeChanged(params.arg_color_scheme);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSampleColorSchemesChanged');
-          const result = this.impl.onSampleColorSchemesChanged(params.arg_arg_sample_color_schemes);
+          const result = this.impl.onSampleColorSchemesChanged(params.arg_sample_color_schemes);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStaticColorChanged');
-          const result = this.impl.onStaticColorChanged(params.arg_arg_color);
+          const result = this.impl.onStaticColorChanged(params.arg_color);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGeolocationPermissionForSystemServicesChanged');
-          const result = this.impl.onGeolocationPermissionForSystemServicesChanged(params.arg_arg_enabled, params.arg_arg_is_user_modifiable);
+          const result = this.impl.onGeolocationPermissionForSystemServicesChanged(params.arg_enabled, params.arg_is_user_modifiable);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDaylightTimeChanged');
-          const result = this.impl.onDaylightTimeChanged(params.arg_arg_sunrise_time, params.arg_arg_sunset_time);
+          const result = this.impl.onDaylightTimeChanged(params.arg_sunrise_time, params.arg_sunset_time);
           break;
         }
       }
@@ -1812,7 +1812,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -1821,7 +1821,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetColorModePref_ParamsSpec,
       null,
-      [arg_dark_mode_enabled],
+      { arg_dark_mode_enabled: arg_dark_mode_enabled },
       false);
   }
 
@@ -1830,7 +1830,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetColorModeAutoScheduleEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -1839,7 +1839,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetColorScheme_ParamsSpec,
       null,
-      [arg_colorScheme],
+      { arg_colorScheme: arg_colorScheme },
       false);
   }
 
@@ -1848,7 +1848,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetStaticColor_ParamsSpec,
       null,
-      [arg_static_color],
+      { arg_static_color: arg_static_color },
       false);
   }
 
@@ -1857,7 +1857,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_EnableGeolocationForSystemServices_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1866,7 +1866,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1875,7 +1875,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1884,7 +1884,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1893,7 +1893,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1902,7 +1902,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1911,7 +1911,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1920,7 +1920,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2001,35 +2001,35 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setThemeObserver');
-          const result = this.impl.setThemeObserver(params.arg_arg_observer);
+          const result = this.impl.setThemeObserver(params.arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetColorModePref_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setColorModePref');
-          const result = this.impl.setColorModePref(params.arg_arg_dark_mode_enabled);
+          const result = this.impl.setColorModePref(params.arg_dark_mode_enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetColorModeAutoScheduleEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setColorModeAutoScheduleEnabled');
-          const result = this.impl.setColorModeAutoScheduleEnabled(params.arg_arg_enabled);
+          const result = this.impl.setColorModeAutoScheduleEnabled(params.arg_enabled);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetColorScheme_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setColorScheme');
-          const result = this.impl.setColorScheme(params.arg_arg_colorScheme);
+          const result = this.impl.setColorScheme(params.arg_colorScheme);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetStaticColor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setStaticColor');
-          const result = this.impl.setStaticColor(params.arg_arg_static_color);
+          const result = this.impl.setStaticColor(params.arg_static_color);
           break;
         }
         case 5: {
@@ -2048,8 +2048,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_color_scheme' in response) ? response.arg_arg_color_scheme : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_color_scheme' in response) ? response.arg_color_scheme : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec.$.structSpec, { 'arg_color_scheme': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getColorScheme FAILED:', e));
           }
@@ -2064,8 +2064,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_static_color' in response) ? response.arg_arg_static_color : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_static_color' in response) ? response.arg_static_color : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec.$.structSpec, { 'arg_static_color': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getStaticColor FAILED:', e));
           }
@@ -2080,8 +2080,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_sample_color_schemes' in response) ? response.arg_arg_sample_color_schemes : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_sample_color_schemes' in response) ? response.arg_sample_color_schemes : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec.$.structSpec, { 'arg_sample_color_schemes': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] generateSampleColorSchemes FAILED:', e));
           }
@@ -2096,8 +2096,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_enabled' in response) ? response.arg_arg_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_enabled' in response) ? response.arg_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec.$.structSpec, { 'arg_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isColorModeAutoScheduleEnabled FAILED:', e));
           }
@@ -2112,8 +2112,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_dark_mode_enabled' in response) ? response.arg_arg_dark_mode_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_dark_mode_enabled' in response) ? response.arg_dark_mode_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec.$.structSpec, { 'arg_dark_mode_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isDarkModeEnabled FAILED:', e));
           }
@@ -2128,8 +2128,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_geolocation_enabled' in response) ? response.arg_arg_geolocation_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_geolocation_enabled' in response) ? response.arg_geolocation_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec.$.structSpec, { 'arg_geolocation_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isGeolocationEnabledForSystemServices FAILED:', e));
           }
@@ -2144,8 +2144,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_geolocation_is_user_modifiable' in response) ? response.arg_arg_geolocation_is_user_modifiable : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_geolocation_is_user_modifiable' in response) ? response.arg_geolocation_is_user_modifiable : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec.$.structSpec, { 'arg_geolocation_is_user_modifiable': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isGeolocationUserModifiable FAILED:', e));
           }
@@ -2221,7 +2221,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec,
       null,
-      [arg_user_image],
+      { arg_user_image: arg_user_image },
       false);
   }
 
@@ -2230,7 +2230,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_ParamsSpec,
       null,
-      [arg_profile_image],
+      { arg_profile_image: arg_profile_image },
       false);
   }
 
@@ -2239,7 +2239,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnCameraPresenceCheckDone_ParamsSpec,
       null,
-      [arg_is_camera_present],
+      { arg_is_camera_present: arg_is_camera_present },
       false);
   }
 
@@ -2248,7 +2248,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverRemoteCall
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_ParamsSpec,
       null,
-      [arg_is_enterprise_managed],
+      { arg_is_enterprise_managed: arg_is_enterprise_managed },
       false);
   }
 
@@ -2320,28 +2320,28 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUserImageChanged');
-          const result = this.impl.onUserImageChanged(params.arg_arg_user_image);
+          const result = this.impl.onUserImageChanged(params.arg_user_image);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUserProfileImageUpdated');
-          const result = this.impl.onUserProfileImageUpdated(params.arg_arg_profile_image);
+          const result = this.impl.onUserProfileImageUpdated(params.arg_profile_image);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnCameraPresenceCheckDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCameraPresenceCheckDone');
-          const result = this.impl.onCameraPresenceCheckDone(params.arg_arg_is_camera_present);
+          const result = this.impl.onCameraPresenceCheckDone(params.arg_is_camera_present);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onIsEnterpriseManagedChanged');
-          const result = this.impl.onIsEnterpriseManagedChanged(params.arg_arg_is_enterprise_managed);
+          const result = this.impl.onIsEnterpriseManagedChanged(params.arg_is_enterprise_managed);
           break;
         }
       }
@@ -2430,7 +2430,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -2439,7 +2439,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetUserInfo_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2448,7 +2448,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -2457,7 +2457,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectDefaultImage_ParamsSpec,
       null,
-      [arg_index],
+      { arg_index: arg_index },
       false);
   }
 
@@ -2466,7 +2466,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderRemoteCallHandl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectProfileImage_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -2475,7 +2475,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderRemoteCallHandl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectCameraImage_ParamsSpec,
       null,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -2484,7 +2484,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderRemoteCallHandl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectImageFromDisk_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -2493,7 +2493,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderRemoteCallHandl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectLastExternalUserImage_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -2569,7 +2569,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUserImageObserver');
-          const result = this.impl.setUserImageObserver(params.arg_arg_observer);
+          const result = this.impl.setUserImageObserver(params.arg_observer);
           break;
         }
         case 1: {
@@ -2581,8 +2581,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderReceiver = clas
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_user_info' in response) ? response.arg_arg_user_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_user_info' in response) ? response.arg_user_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec.$.structSpec, { 'arg_user_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUserInfo FAILED:', e));
           }
@@ -2597,8 +2597,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderReceiver = clas
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_default_user_images' in response) ? response.arg_arg_default_user_images : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_default_user_images' in response) ? response.arg_default_user_images : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec.$.structSpec, { 'arg_default_user_images': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDefaultUserImages FAILED:', e));
           }
@@ -2608,7 +2608,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectDefaultImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectDefaultImage');
-          const result = this.impl.selectDefaultImage(params.arg_arg_index);
+          const result = this.impl.selectDefaultImage(params.arg_index);
           break;
         }
         case 4: {
@@ -2622,7 +2622,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectCameraImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectCameraImage');
-          const result = this.impl.selectCameraImage(params.arg_arg_data);
+          const result = this.impl.selectCameraImage(params.arg_data);
           break;
         }
         case 6: {
@@ -2733,7 +2733,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientModeEnabledChanged_ParamsSpec,
       null,
-      [arg_ambient_mode_enabled],
+      { arg_ambient_mode_enabled: arg_ambient_mode_enabled },
       false);
   }
 
@@ -2742,7 +2742,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec,
       null,
-      [arg_ambient_theme],
+      { arg_ambient_theme: arg_ambient_theme },
       false);
   }
 
@@ -2751,7 +2751,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec,
       null,
-      [arg_topic_source],
+      { arg_topic_source: arg_topic_source },
       false);
   }
 
@@ -2760,7 +2760,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnScreenSaverDurationChanged_ParamsSpec,
       null,
-      [arg_minutes],
+      { arg_minutes: arg_minutes },
       false);
   }
 
@@ -2769,7 +2769,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHa
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpec,
       null,
-      [arg_temperature_unit],
+      { arg_temperature_unit: arg_temperature_unit },
       false);
   }
 
@@ -2778,7 +2778,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHa
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec,
       null,
-      [arg_albums],
+      { arg_albums: arg_albums },
       false);
   }
 
@@ -2787,7 +2787,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHa
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec,
       null,
-      [arg_previews],
+      { arg_previews: arg_previews },
       false);
   }
 
@@ -2796,7 +2796,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHa
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_ParamsSpec,
       null,
-      [arg_visibility],
+      { arg_visibility: arg_visibility },
       false);
   }
 
@@ -2805,7 +2805,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHa
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec,
       null,
-      [arg_enabled, arg_is_user_modifiable],
+      { arg_enabled: arg_enabled, arg_is_user_modifiable: arg_is_user_modifiable },
       false);
   }
 
@@ -2814,7 +2814,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHa
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged_ParamsSpec,
       null,
-      [arg_previews],
+      { arg_previews: arg_previews },
       false);
   }
 
@@ -2892,70 +2892,70 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientModeEnabledChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAmbientModeEnabledChanged');
-          const result = this.impl.onAmbientModeEnabledChanged(params.arg_arg_ambient_mode_enabled);
+          const result = this.impl.onAmbientModeEnabledChanged(params.arg_ambient_mode_enabled);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAmbientThemeChanged');
-          const result = this.impl.onAmbientThemeChanged(params.arg_arg_ambient_theme);
+          const result = this.impl.onAmbientThemeChanged(params.arg_ambient_theme);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTopicSourceChanged');
-          const result = this.impl.onTopicSourceChanged(params.arg_arg_topic_source);
+          const result = this.impl.onTopicSourceChanged(params.arg_topic_source);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnScreenSaverDurationChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScreenSaverDurationChanged');
-          const result = this.impl.onScreenSaverDurationChanged(params.arg_arg_minutes);
+          const result = this.impl.onScreenSaverDurationChanged(params.arg_minutes);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTemperatureUnitChanged');
-          const result = this.impl.onTemperatureUnitChanged(params.arg_arg_temperature_unit);
+          const result = this.impl.onTemperatureUnitChanged(params.arg_temperature_unit);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAlbumsChanged');
-          const result = this.impl.onAlbumsChanged(params.arg_arg_albums);
+          const result = this.impl.onAlbumsChanged(params.arg_albums);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPreviewsFetched');
-          const result = this.impl.onPreviewsFetched(params.arg_arg_previews);
+          const result = this.impl.onPreviewsFetched(params.arg_previews);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAmbientUiVisibilityChanged');
-          const result = this.impl.onAmbientUiVisibilityChanged(params.arg_arg_visibility);
+          const result = this.impl.onAmbientUiVisibilityChanged(params.arg_visibility);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGeolocationPermissionForSystemServicesChanged');
-          const result = this.impl.onGeolocationPermissionForSystemServicesChanged(params.arg_arg_enabled, params.arg_arg_is_user_modifiable);
+          const result = this.impl.onGeolocationPermissionForSystemServicesChanged(params.arg_enabled, params.arg_is_user_modifiable);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAmbientThemePreviewImagesChanged');
-          const result = this.impl.onAmbientThemePreviewImagesChanged(params.arg_arg_previews);
+          const result = this.impl.onAmbientThemePreviewImagesChanged(params.arg_previews);
           break;
         }
       }
@@ -3076,7 +3076,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -3085,7 +3085,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAmbientModeEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -3094,7 +3094,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -3103,7 +3103,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec,
       null,
-      [arg_ambient_theme],
+      { arg_ambient_theme: arg_ambient_theme },
       false);
   }
 
@@ -3112,7 +3112,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetScreenSaverDuration_ParamsSpec,
       null,
-      [arg_minutes],
+      { arg_minutes: arg_minutes },
       false);
   }
 
@@ -3121,7 +3121,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetTopicSource_ParamsSpec,
       null,
-      [arg_topic_source],
+      { arg_topic_source: arg_topic_source },
       false);
   }
 
@@ -3130,7 +3130,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec,
       null,
-      [arg_temperature_unit],
+      { arg_temperature_unit: arg_temperature_unit },
       false);
   }
 
@@ -3139,7 +3139,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec,
       null,
-      [arg_id, arg_topic_source, arg_selected],
+      { arg_id: arg_id, arg_topic_source: arg_topic_source, arg_selected: arg_selected },
       false);
   }
 
@@ -3148,7 +3148,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetPageViewed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -3157,7 +3157,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_FetchSettingsAndAlbums_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -3166,7 +3166,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_StartScreenSaverPreview_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -3175,7 +3175,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -3184,7 +3184,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_HandleTimeOfDayBannerDismissed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -3193,7 +3193,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -3202,7 +3202,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -3211,7 +3211,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_EnableGeolocationForSystemServices_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -3300,8 +3300,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_enabled' in response) ? response.arg_arg_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_enabled' in response) ? response.arg_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec.$.structSpec, { 'arg_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isAmbientModeEnabled FAILED:', e));
           }
@@ -3311,49 +3311,49 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAmbientModeEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAmbientModeEnabled');
-          const result = this.impl.setAmbientModeEnabled(params.arg_arg_enabled);
+          const result = this.impl.setAmbientModeEnabled(params.arg_enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAmbientObserver');
-          const result = this.impl.setAmbientObserver(params.arg_arg_observer);
+          const result = this.impl.setAmbientObserver(params.arg_observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAmbientTheme');
-          const result = this.impl.setAmbientTheme(params.arg_arg_ambient_theme);
+          const result = this.impl.setAmbientTheme(params.arg_ambient_theme);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetScreenSaverDuration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setScreenSaverDuration');
-          const result = this.impl.setScreenSaverDuration(params.arg_arg_minutes);
+          const result = this.impl.setScreenSaverDuration(params.arg_minutes);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetTopicSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTopicSource');
-          const result = this.impl.setTopicSource(params.arg_arg_topic_source);
+          const result = this.impl.setTopicSource(params.arg_topic_source);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTemperatureUnit');
-          const result = this.impl.setTemperatureUnit(params.arg_arg_temperature_unit);
+          const result = this.impl.setTemperatureUnit(params.arg_temperature_unit);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAlbumSelected');
-          const result = this.impl.setAlbumSelected(params.arg_arg_id, params.arg_arg_topic_source, params.arg_arg_selected);
+          const result = this.impl.setAlbumSelected(params.arg_id, params.arg_topic_source, params.arg_selected);
           break;
         }
         case 8: {
@@ -3386,8 +3386,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_should_show_banner' in response) ? response.arg_arg_should_show_banner : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_should_show_banner' in response) ? response.arg_should_show_banner : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec.$.structSpec, { 'arg_should_show_banner': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] shouldShowTimeOfDayBanner FAILED:', e));
           }
@@ -3409,8 +3409,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_geolocation_enabled' in response) ? response.arg_arg_geolocation_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_geolocation_enabled' in response) ? response.arg_geolocation_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec.$.structSpec, { 'arg_geolocation_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isGeolocationEnabledForSystemServices FAILED:', e));
           }
@@ -3425,8 +3425,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_geolocation_is_user_modifiable' in response) ? response.arg_arg_geolocation_is_user_modifiable : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_geolocation_is_user_modifiable' in response) ? response.arg_geolocation_is_user_modifiable : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec.$.structSpec, { 'arg_geolocation_is_user_modifiable': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isGeolocationUserModifiable FAILED:', e));
           }
@@ -3501,7 +3501,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserverRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_ParamsSpec,
       null,
-      [arg_currentBacklightState],
+      { arg_currentBacklightState: arg_currentBacklightState },
       false);
   }
 
@@ -3510,7 +3510,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserverRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_ParamsSpec,
       null,
-      [arg_wallpaper_color],
+      { arg_wallpaper_color: arg_wallpaper_color },
       false);
   }
 
@@ -3580,14 +3580,14 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserverRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBacklightStateChanged');
-          const result = this.impl.onBacklightStateChanged(params.arg_arg_currentBacklightState);
+          const result = this.impl.onBacklightStateChanged(params.arg_currentBacklightState);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWallpaperColorChanged');
-          const result = this.impl.onWallpaperColorChanged(params.arg_arg_wallpaper_color);
+          const result = this.impl.onWallpaperColorChanged(params.arg_wallpaper_color);
           break;
         }
       }
@@ -3664,7 +3664,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -3673,7 +3673,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_ParamsSpec,
       null,
-      [arg_backlight_color],
+      { arg_backlight_color: arg_backlight_color },
       false);
   }
 
@@ -3682,7 +3682,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_ParamsSpec,
       null,
-      [arg_zone, arg_backlight_color],
+      { arg_zone: arg_zone, arg_backlight_color: arg_backlight_color },
       false);
   }
 
@@ -3691,7 +3691,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -3700,7 +3700,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_HandleNudgeShown_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -3773,21 +3773,21 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setKeyboardBacklightObserver');
-          const result = this.impl.setKeyboardBacklightObserver(params.arg_arg_observer);
+          const result = this.impl.setKeyboardBacklightObserver(params.arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBacklightColor');
-          const result = this.impl.setBacklightColor(params.arg_arg_backlight_color);
+          const result = this.impl.setBacklightColor(params.arg_backlight_color);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBacklightZoneColor');
-          const result = this.impl.setBacklightZoneColor(params.arg_arg_zone, params.arg_arg_backlight_color);
+          const result = this.impl.setBacklightZoneColor(params.arg_zone, params.arg_backlight_color);
           break;
         }
         case 3: {
@@ -3799,8 +3799,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_should_show_nudge' in response) ? response.arg_arg_should_show_nudge : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_should_show_nudge' in response) ? response.arg_should_show_nudge : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec.$.structSpec, { 'arg_should_show_nudge': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] shouldShowNudge FAILED:', e));
           }

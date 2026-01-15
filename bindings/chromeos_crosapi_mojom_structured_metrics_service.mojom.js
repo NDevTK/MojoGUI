@@ -177,7 +177,7 @@ mojo.internal.bindings.crosapi.mojom.StructuredMetricsServiceRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.StructuredMetricsService_Record_ParamsSpec,
       null,
-      [arg_events],
+      { arg_events: arg_events },
       false);
   }
 
@@ -246,7 +246,7 @@ mojo.internal.bindings.crosapi.mojom.StructuredMetricsServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.StructuredMetricsService_Record_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.record');
-          const result = this.impl.record(params.arg_arg_events);
+          const result = this.impl.record(params.arg_events);
           break;
         }
       }

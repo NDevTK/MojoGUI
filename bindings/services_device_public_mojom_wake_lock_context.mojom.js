@@ -182,7 +182,7 @@ mojo.internal.bindings.device.mojom.WakeLockContextRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.WakeLockContext_GetWakeLock_ParamsSpec,
       null,
-      [arg_type, arg_reason, arg_description, arg_wake_lock],
+      { arg_type: arg_type, arg_reason: arg_reason, arg_description: arg_description, arg_wake_lock: arg_wake_lock },
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.device.mojom.WakeLockContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.WakeLockContext_GetWakeLock_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getWakeLock');
-          const result = this.impl.getWakeLock(params.arg_arg_type, params.arg_arg_reason, params.arg_arg_description, params.arg_arg_wake_lock);
+          const result = this.impl.getWakeLock(params.arg_type, params.arg_reason, params.arg_description, params.arg_wake_lock);
           break;
         }
       }

@@ -216,7 +216,7 @@ mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec,
       mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec,
-      [arg_rules, arg_text],
+      { arg_rules: arg_rules, arg_text: arg_text },
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec,
       mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec,
-      [arg_rules, arg_prompt, arg_image],
+      { arg_rules: arg_rules, arg_prompt: arg_prompt, arg_image: arg_image },
       false);
   }
 
@@ -295,13 +295,13 @@ mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.classifyTextSafety');
-          const result = this.impl.classifyTextSafety(params.arg_arg_rules, params.arg_arg_text);
+          const result = this.impl.classifyTextSafety(params.arg_rules, params.arg_text);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_verdict' in response) ? response.arg_arg_verdict : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_verdict' in response) ? response.arg_verdict : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec.$.structSpec, { 'arg_verdict': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] classifyTextSafety FAILED:', e));
           }
@@ -311,13 +311,13 @@ mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.classifyImageSafety');
-          const result = this.impl.classifyImageSafety(params.arg_arg_rules, params.arg_arg_prompt, params.arg_arg_image);
+          const result = this.impl.classifyImageSafety(params.arg_rules, params.arg_prompt, params.arg_image);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_verdict' in response) ? response.arg_arg_verdict : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_verdict' in response) ? response.arg_verdict : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec.$.structSpec, { 'arg_verdict': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] classifyImageSafety FAILED:', e));
           }
@@ -385,7 +385,7 @@ mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec,
       mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec,
-      [arg_rules, arg_text],
+      { arg_rules: arg_rules, arg_text: arg_text },
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec,
       mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec,
-      [arg_rules, arg_image],
+      { arg_rules: arg_rules, arg_image: arg_image },
       false);
   }
 
@@ -464,13 +464,13 @@ mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.classifyTextSafety');
-          const result = this.impl.classifyTextSafety(params.arg_arg_rules, params.arg_arg_text);
+          const result = this.impl.classifyTextSafety(params.arg_rules, params.arg_text);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_verdict' in response) ? response.arg_arg_verdict : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_verdict' in response) ? response.arg_verdict : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec.$.structSpec, { 'arg_verdict': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] classifyTextSafety FAILED:', e));
           }
@@ -480,13 +480,13 @@ mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.classifyImageSafety');
-          const result = this.impl.classifyImageSafety(params.arg_arg_rules, params.arg_arg_image);
+          const result = this.impl.classifyImageSafety(params.arg_rules, params.arg_image);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_verdict' in response) ? response.arg_arg_verdict : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_verdict' in response) ? response.arg_verdict : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec.$.structSpec, { 'arg_verdict': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] classifyImageSafety FAILED:', e));
           }

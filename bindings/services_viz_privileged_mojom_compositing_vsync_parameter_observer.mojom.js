@@ -179,7 +179,7 @@ mojo.internal.bindings.viz.mojom.VSyncParameterObserverRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec,
       null,
-      [arg_timebase, arg_interval],
+      { arg_timebase: arg_timebase, arg_interval: arg_interval },
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.viz.mojom.VSyncParameterObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUpdateVSyncParameters');
-          const result = this.impl.onUpdateVSyncParameters(params.arg_arg_timebase, params.arg_arg_interval);
+          const result = this.impl.onUpdateVSyncParameters(params.arg_timebase, params.arg_interval);
           break;
         }
       }

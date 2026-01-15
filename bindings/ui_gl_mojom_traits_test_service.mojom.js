@@ -185,7 +185,7 @@ mojo.internal.bindings.gl.mojom.TraitsTestServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec,
       mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec,
-      [arg_g],
+      { arg_g: arg_g },
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.gl.mojom.TraitsTestServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec,
       mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec,
-      [arg_impl],
+      { arg_impl: arg_impl },
       false);
   }
 
@@ -264,13 +264,13 @@ mojo.internal.bindings.gl.mojom.TraitsTestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoGpuPreference');
-          const result = this.impl.echoGpuPreference(params.arg_arg_g);
+          const result = this.impl.echoGpuPreference(params.arg_g);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pass' in response) ? response.arg_arg_pass : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pass' in response) ? response.arg_pass : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec.$.structSpec, { 'arg_pass': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoGpuPreference FAILED:', e));
           }
@@ -280,13 +280,13 @@ mojo.internal.bindings.gl.mojom.TraitsTestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoGLImplementationParts');
-          const result = this.impl.echoGLImplementationParts(params.arg_arg_impl);
+          const result = this.impl.echoGLImplementationParts(params.arg_impl);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pass' in response) ? response.arg_arg_pass : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pass' in response) ? response.arg_pass : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec.$.structSpec, { 'arg_pass': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoGLImplementationParts FAILED:', e));
           }

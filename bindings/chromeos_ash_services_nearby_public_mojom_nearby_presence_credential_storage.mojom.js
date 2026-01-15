@@ -212,7 +212,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec,
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec,
-      [arg_local_credentials, arg_shared_credentials, arg_public_credential_type],
+      { arg_local_credentials: arg_local_credentials, arg_shared_credentials: arg_shared_credentials, arg_public_credential_type: arg_public_credential_type },
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec,
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec,
-      [arg_public_credential_type],
+      { arg_public_credential_type: arg_public_credential_type },
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec,
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec,
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec,
-      [arg_local_credential],
+      { arg_local_credential: arg_local_credential },
       false);
   }
 
@@ -311,13 +311,13 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.saveCredentials');
-          const result = this.impl.saveCredentials(params.arg_arg_local_credentials, params.arg_arg_shared_credentials, params.arg_arg_public_credential_type);
+          const result = this.impl.saveCredentials(params.arg_local_credentials, params.arg_shared_credentials, params.arg_public_credential_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] saveCredentials FAILED:', e));
           }
@@ -327,12 +327,12 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPublicCredentials');
-          const result = this.impl.getPublicCredentials(params.arg_arg_public_credential_type);
+          const result = this.impl.getPublicCredentials(params.arg_public_credential_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_shared_credentials']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_shared_credentials': response.arg_shared_credentials });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPublicCredentials FAILED:', e));
           }
@@ -347,7 +347,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_local_credentials']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_local_credentials': response.arg_local_credentials });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPrivateCredentials FAILED:', e));
           }
@@ -357,13 +357,13 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateLocalCredential');
-          const result = this.impl.updateLocalCredential(params.arg_arg_local_credential);
+          const result = this.impl.updateLocalCredential(params.arg_local_credential);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateLocalCredential FAILED:', e));
           }

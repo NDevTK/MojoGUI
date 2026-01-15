@@ -211,7 +211,7 @@ mojo.internal.bindings.blink.mojom.BlobURLStoreRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ResponseParamsSpec,
-      [arg_blob, arg_url],
+      { arg_blob: arg_blob, arg_url: arg_url },
       false);
   }
 
@@ -220,7 +220,7 @@ mojo.internal.bindings.blink.mojom.BlobURLStoreRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobURLStore_Revoke_ParamsSpec,
       null,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.blink.mojom.BlobURLStoreRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec,
       null,
-      [arg_url, arg_factory],
+      { arg_url: arg_url, arg_factory: arg_factory },
       false);
   }
 
@@ -238,7 +238,7 @@ mojo.internal.bindings.blink.mojom.BlobURLStoreRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec,
       null,
-      [arg_url, arg_token, arg_is_top_level_navigation],
+      { arg_url: arg_url, arg_token: arg_token, arg_is_top_level_navigation: arg_is_top_level_navigation },
       false);
   }
 
@@ -310,12 +310,12 @@ mojo.internal.bindings.blink.mojom.BlobURLStoreReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.register');
-          const result = this.impl.register(params.arg_arg_blob, params.arg_arg_url);
+          const result = this.impl.register(params.arg_blob, params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] register FAILED:', e));
           }
@@ -325,21 +325,21 @@ mojo.internal.bindings.blink.mojom.BlobURLStoreReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLStore_Revoke_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.revoke');
-          const result = this.impl.revoke(params.arg_arg_url);
+          const result = this.impl.revoke(params.arg_url);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolveAsURLLoaderFactory');
-          const result = this.impl.resolveAsURLLoaderFactory(params.arg_arg_url, params.arg_arg_factory);
+          const result = this.impl.resolveAsURLLoaderFactory(params.arg_url, params.arg_factory);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolveAsBlobURLToken');
-          const result = this.impl.resolveAsBlobURLToken(params.arg_arg_url, params.arg_arg_token, params.arg_arg_is_top_level_navigation);
+          const result = this.impl.resolveAsBlobURLToken(params.arg_url, params.arg_token, params.arg_is_top_level_navigation);
           break;
         }
       }
@@ -404,7 +404,7 @@ mojo.internal.bindings.blink.mojom.BlobURLTokenRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobURLToken_Clone_ParamsSpec,
       null,
-      [arg_token],
+      { arg_token: arg_token },
       false);
   }
 
@@ -413,7 +413,7 @@ mojo.internal.bindings.blink.mojom.BlobURLTokenRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -483,7 +483,7 @@ mojo.internal.bindings.blink.mojom.BlobURLTokenReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLToken_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_token);
+          const result = this.impl.clone(params.arg_token);
           break;
         }
         case 1: {
@@ -495,8 +495,8 @@ mojo.internal.bindings.blink.mojom.BlobURLTokenReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_token' in response) ? response.arg_arg_token : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_token' in response) ? response.arg_token : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec.$.structSpec, { 'arg_token': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getToken FAILED:', e));
           }

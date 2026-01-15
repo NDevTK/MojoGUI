@@ -222,7 +222,7 @@ mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandlerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec,
       mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec,
-      [arg_info, arg_headers, arg_remote_endpoint],
+      { arg_info: arg_info, arg_headers: arg_headers, arg_remote_endpoint: arg_remote_endpoint },
       false);
   }
 
@@ -291,13 +291,13 @@ mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandlerReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAuthRequired');
-          const result = this.impl.onAuthRequired(params.arg_arg_info, params.arg_arg_headers, params.arg_arg_remote_endpoint);
+          const result = this.impl.onAuthRequired(params.arg_info, params.arg_headers, params.arg_remote_endpoint);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_credentials' in response) ? response.arg_arg_credentials : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_credentials' in response) ? response.arg_credentials : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec.$.structSpec, { 'arg_credentials': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onAuthRequired FAILED:', e));
           }
@@ -369,7 +369,7 @@ mojo.internal.bindings.network.mojom.WebSocketHandshakeClientRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec,
       null,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -378,7 +378,7 @@ mojo.internal.bindings.network.mojom.WebSocketHandshakeClientRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec,
       null,
-      [arg_message, arg_net_error, arg_response_code],
+      { arg_message: arg_message, arg_net_error: arg_net_error, arg_response_code: arg_response_code },
       false);
   }
 
@@ -387,7 +387,7 @@ mojo.internal.bindings.network.mojom.WebSocketHandshakeClientRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec,
       null,
-      [arg_socket, arg_client_receiver, arg_response, arg_readable, arg_writable],
+      { arg_socket: arg_socket, arg_client_receiver: arg_client_receiver, arg_response: arg_response, arg_readable: arg_readable, arg_writable: arg_writable },
       false);
   }
 
@@ -458,21 +458,21 @@ mojo.internal.bindings.network.mojom.WebSocketHandshakeClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOpeningHandshakeStarted');
-          const result = this.impl.onOpeningHandshakeStarted(params.arg_arg_request);
+          const result = this.impl.onOpeningHandshakeStarted(params.arg_request);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFailure');
-          const result = this.impl.onFailure(params.arg_arg_message, params.arg_arg_net_error, params.arg_arg_response_code);
+          const result = this.impl.onFailure(params.arg_message, params.arg_net_error, params.arg_response_code);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnectionEstablished');
-          const result = this.impl.onConnectionEstablished(params.arg_arg_socket, params.arg_arg_client_receiver, params.arg_arg_response, params.arg_arg_readable, params.arg_arg_writable);
+          const result = this.impl.onConnectionEstablished(params.arg_socket, params.arg_client_receiver, params.arg_response, params.arg_readable, params.arg_writable);
           break;
         }
       }
@@ -541,7 +541,7 @@ mojo.internal.bindings.network.mojom.WebSocketClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.WebSocketClient_OnDataFrame_ParamsSpec,
       null,
-      [arg_fin, arg_type, arg_data_length],
+      { arg_fin: arg_fin, arg_type: arg_type, arg_data_length: arg_data_length },
       false);
   }
 
@@ -550,7 +550,7 @@ mojo.internal.bindings.network.mojom.WebSocketClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.WebSocketClient_OnDropChannel_ParamsSpec,
       null,
-      [arg_was_clean, arg_code, arg_reason],
+      { arg_was_clean: arg_was_clean, arg_code: arg_code, arg_reason: arg_reason },
       false);
   }
 
@@ -559,7 +559,7 @@ mojo.internal.bindings.network.mojom.WebSocketClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -630,14 +630,14 @@ mojo.internal.bindings.network.mojom.WebSocketClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocketClient_OnDataFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDataFrame');
-          const result = this.impl.onDataFrame(params.arg_arg_fin, params.arg_arg_type, params.arg_arg_data_length);
+          const result = this.impl.onDataFrame(params.arg_fin, params.arg_type, params.arg_data_length);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocketClient_OnDropChannel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDropChannel');
-          const result = this.impl.onDropChannel(params.arg_arg_was_clean, params.arg_arg_code, params.arg_arg_reason);
+          const result = this.impl.onDropChannel(params.arg_was_clean, params.arg_code, params.arg_reason);
           break;
         }
         case 2: {
@@ -713,7 +713,7 @@ mojo.internal.bindings.network.mojom.WebSocketRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.WebSocket_SendMessage_ParamsSpec,
       null,
-      [arg_type, arg_data_length],
+      { arg_type: arg_type, arg_data_length: arg_data_length },
       false);
   }
 
@@ -722,7 +722,7 @@ mojo.internal.bindings.network.mojom.WebSocketRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.WebSocket_StartReceiving_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -731,7 +731,7 @@ mojo.internal.bindings.network.mojom.WebSocketRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.WebSocket_StartClosingHandshake_ParamsSpec,
       null,
-      [arg_code, arg_reason],
+      { arg_code: arg_code, arg_reason: arg_reason },
       false);
   }
 
@@ -802,7 +802,7 @@ mojo.internal.bindings.network.mojom.WebSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocket_SendMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendMessage');
-          const result = this.impl.sendMessage(params.arg_arg_type, params.arg_arg_data_length);
+          const result = this.impl.sendMessage(params.arg_type, params.arg_data_length);
           break;
         }
         case 1: {
@@ -816,7 +816,7 @@ mojo.internal.bindings.network.mojom.WebSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebSocket_StartClosingHandshake_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startClosingHandshake');
-          const result = this.impl.startClosingHandshake(params.arg_arg_code, params.arg_arg_reason);
+          const result = this.impl.startClosingHandshake(params.arg_code, params.arg_reason);
           break;
         }
       }

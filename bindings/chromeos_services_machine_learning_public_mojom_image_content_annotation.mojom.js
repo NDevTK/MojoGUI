@@ -198,7 +198,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotatorRemo
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParamsSpec,
-      [arg_rgb_bytes, arg_width, arg_height, arg_line_stride],
+      { arg_rgb_bytes: arg_rgb_bytes, arg_width: arg_width, arg_height: arg_height, arg_line_stride: arg_line_stride },
       false);
   }
 
@@ -207,7 +207,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotatorRemo
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParamsSpec,
-      [arg_encoded_image],
+      { arg_encoded_image: arg_encoded_image },
       false);
   }
 
@@ -277,13 +277,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotatorRece
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.annotateRawImage');
-          const result = this.impl.annotateRawImage(params.arg_arg_rgb_bytes, params.arg_arg_width, params.arg_arg_height, params.arg_arg_line_stride);
+          const result = this.impl.annotateRawImage(params.arg_rgb_bytes, params.arg_width, params.arg_height, params.arg_line_stride);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] annotateRawImage FAILED:', e));
           }
@@ -293,13 +293,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotatorRece
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.annotateEncodedImage');
-          const result = this.impl.annotateEncodedImage(params.arg_arg_encoded_image);
+          const result = this.impl.annotateEncodedImage(params.arg_encoded_image);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] annotateEncodedImage FAILED:', e));
           }

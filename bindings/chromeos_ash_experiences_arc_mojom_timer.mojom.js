@@ -212,7 +212,7 @@ mojo.internal.bindings.arc.mojom.TimerHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ParamsSpec,
       mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec,
-      [arg_timer_requests],
+      { arg_timer_requests: arg_timer_requests },
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.arc.mojom.TimerHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ParamsSpec,
       mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ResponseParamsSpec,
-      [arg_clock_id, arg_absolute_expiration_time],
+      { arg_clock_id: arg_clock_id, arg_absolute_expiration_time: arg_absolute_expiration_time },
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.arc.mojom.TimerHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ParamsSpec,
       mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ResponseParamsSpec,
-      [arg_time],
+      { arg_time: arg_time },
       false);
   }
 
@@ -301,13 +301,13 @@ mojo.internal.bindings.arc.mojom.TimerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTimers');
-          const result = this.impl.createTimers(params.arg_arg_timer_requests);
+          const result = this.impl.createTimers(params.arg_timer_requests);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createTimers FAILED:', e));
           }
@@ -317,13 +317,13 @@ mojo.internal.bindings.arc.mojom.TimerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startTimer');
-          const result = this.impl.startTimer(params.arg_arg_clock_id, params.arg_arg_absolute_expiration_time);
+          const result = this.impl.startTimer(params.arg_clock_id, params.arg_absolute_expiration_time);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startTimer FAILED:', e));
           }
@@ -333,13 +333,13 @@ mojo.internal.bindings.arc.mojom.TimerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTime');
-          const result = this.impl.setTime(params.arg_arg_time);
+          const result = this.impl.setTime(params.arg_time);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setTime FAILED:', e));
           }
@@ -403,7 +403,7 @@ mojo.internal.bindings.arc.mojom.TimerInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.TimerInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.TimerInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -472,12 +472,12 @@ mojo.internal.bindings.arc.mojom.TimerInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TimerInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.TimerInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.TimerInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }

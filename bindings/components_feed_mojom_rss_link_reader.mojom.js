@@ -178,7 +178,7 @@ mojo.internal.bindings.feed.mojom.RssLinkReaderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec,
       mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -252,8 +252,8 @@ mojo.internal.bindings.feed.mojom.RssLinkReaderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_rss_links' in response) ? response.arg_arg_rss_links : response;
-              encoder.encodeStructInline(mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_rss_links' in response) ? response.arg_rss_links : response;
+              encoder.encodeStructInline(mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec.$.structSpec, { 'arg_rss_links': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRssLinks FAILED:', e));
           }

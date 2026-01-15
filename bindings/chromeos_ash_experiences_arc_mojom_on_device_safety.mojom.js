@@ -197,7 +197,7 @@ mojo.internal.bindings.arc.mojom.OnDeviceSafetyHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -271,8 +271,8 @@ mojo.internal.bindings.arc.mojom.OnDeviceSafetyHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_enabled' in response) ? response.arg_arg_is_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_enabled' in response) ? response.arg_is_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec.$.structSpec, { 'arg_is_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isCrosSafetyServiceEnabled FAILED:', e));
           }
@@ -340,7 +340,7 @@ mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstanceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec,
-      [arg_session],
+      { arg_session: arg_session },
       false);
   }
 
@@ -349,7 +349,7 @@ mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstanceRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -419,13 +419,13 @@ mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getArcSafetySession');
-          const result = this.impl.getArcSafetySession(params.arg_arg_session);
+          const result = this.impl.getArcSafetySession(params.arg_session);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getArcSafetySession FAILED:', e));
           }
@@ -435,12 +435,12 @@ mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }

@@ -187,7 +187,7 @@ mojo.internal.bindings.media.mojom.MediaServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec,
       null,
-      [arg_factory, arg_frame_interfaces],
+      { arg_factory: arg_factory, arg_frame_interfaces: arg_frame_interfaces },
       false);
   }
 
@@ -256,7 +256,7 @@ mojo.internal.bindings.media.mojom.MediaServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createInterfaceFactory');
-          const result = this.impl.createInterfaceFactory(params.arg_arg_factory, params.arg_arg_frame_interfaces);
+          const result = this.impl.createInterfaceFactory(params.arg_factory, params.arg_frame_interfaces);
           break;
         }
       }

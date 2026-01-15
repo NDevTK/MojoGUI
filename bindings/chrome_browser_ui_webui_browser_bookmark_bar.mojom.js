@@ -200,7 +200,7 @@ mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactoryRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -269,7 +269,7 @@ mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -334,7 +334,7 @@ mojo.internal.bindings.bookmark_bar.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec,
       mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.bookmark_bar.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec,
       null,
-      [arg_node_id],
+      { arg_node_id: arg_node_id },
       false);
   }
 
@@ -418,8 +418,8 @@ mojo.internal.bindings.bookmark_bar.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_bookmarks' in response) ? response.arg_arg_bookmarks : response;
-              encoder.encodeStructInline(mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_bookmarks' in response) ? response.arg_bookmarks : response;
+              encoder.encodeStructInline(mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec.$.structSpec, { 'arg_bookmarks': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getBookmarkBar FAILED:', e));
           }
@@ -429,7 +429,7 @@ mojo.internal.bindings.bookmark_bar.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openInNewTab');
-          const result = this.impl.openInNewTab(params.arg_arg_node_id);
+          const result = this.impl.openInNewTab(params.arg_node_id);
           break;
         }
       }
@@ -502,7 +502,7 @@ mojo.internal.bindings.bookmark_bar.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -511,7 +511,7 @@ mojo.internal.bindings.bookmark_bar.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec,
       null,
-      [arg_bookmark_data],
+      { arg_bookmark_data: arg_bookmark_data },
       false);
   }
 
@@ -520,7 +520,7 @@ mojo.internal.bindings.bookmark_bar.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.bookmark_bar.mojom.Page_Show_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -529,7 +529,7 @@ mojo.internal.bindings.bookmark_bar.mojom.PageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.bookmark_bar.mojom.Page_Hide_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -608,7 +608,7 @@ mojo.internal.bindings.bookmark_bar.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.favIconChanged');
-          const result = this.impl.favIconChanged(params.arg_arg_bookmark_data);
+          const result = this.impl.favIconChanged(params.arg_bookmark_data);
           break;
         }
         case 2: {

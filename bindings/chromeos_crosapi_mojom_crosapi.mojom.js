@@ -354,7 +354,7 @@ mojo.internal.bindings.crosapi.mojom.CrosapiRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Crosapi_BindAccountManager_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.crosapi.mojom.CrosapiRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Crosapi_BindBrowserCdmFactory_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -372,7 +372,7 @@ mojo.internal.bindings.crosapi.mojom.CrosapiRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Crosapi_BindCfmServiceContext_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.crosapi.mojom.CrosapiRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Crosapi_BindCrosDisplayConfigController_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.crosapi.mojom.CrosapiRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Crosapi_BindDiagnosticsService_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -399,7 +399,7 @@ mojo.internal.bindings.crosapi.mojom.CrosapiRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Crosapi_BindDocumentScan_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -408,7 +408,7 @@ mojo.internal.bindings.crosapi.mojom.CrosapiRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Crosapi_BindInSessionAuth_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -417,7 +417,7 @@ mojo.internal.bindings.crosapi.mojom.CrosapiRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Crosapi_BindKeystoreService_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -426,7 +426,7 @@ mojo.internal.bindings.crosapi.mojom.CrosapiRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Crosapi_BindLocalPrinter_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.crosapi.mojom.CrosapiRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Crosapi_BindMachineLearningService_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -444,7 +444,7 @@ mojo.internal.bindings.crosapi.mojom.CrosapiRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Crosapi_BindSensorHalClient_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.crosapi.mojom.CrosapiRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Crosapi_BindHidManager_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.crosapi.mojom.CrosapiRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionController_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.crosapi.mojom.CrosapiRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionAudioFocus_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.crosapi.mojom.CrosapiRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionAudioFocusDebug_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.crosapi.mojom.CrosapiRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryDiagnosticRoutinesService_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.crosapi.mojom.CrosapiRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryManagementService_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -507,7 +507,7 @@ mojo.internal.bindings.crosapi.mojom.CrosapiRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryProbeService_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -516,7 +516,7 @@ mojo.internal.bindings.crosapi.mojom.CrosapiRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Crosapi_BindVideoCaptureDeviceFactory_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -525,7 +525,7 @@ mojo.internal.bindings.crosapi.mojom.CrosapiRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Crosapi_BindGuestOsSkForwarderFactory_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -613,140 +613,140 @@ mojo.internal.bindings.crosapi.mojom.CrosapiReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Crosapi_BindAccountManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAccountManager');
-          const result = this.impl.bindAccountManager(params.arg_arg_receiver);
+          const result = this.impl.bindAccountManager(params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Crosapi_BindBrowserCdmFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindBrowserCdmFactory');
-          const result = this.impl.bindBrowserCdmFactory(params.arg_arg_receiver);
+          const result = this.impl.bindBrowserCdmFactory(params.arg_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Crosapi_BindCfmServiceContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindCfmServiceContext');
-          const result = this.impl.bindCfmServiceContext(params.arg_arg_receiver);
+          const result = this.impl.bindCfmServiceContext(params.arg_receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Crosapi_BindCrosDisplayConfigController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindCrosDisplayConfigController');
-          const result = this.impl.bindCrosDisplayConfigController(params.arg_arg_receiver);
+          const result = this.impl.bindCrosDisplayConfigController(params.arg_receiver);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Crosapi_BindDiagnosticsService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindDiagnosticsService');
-          const result = this.impl.bindDiagnosticsService(params.arg_arg_receiver);
+          const result = this.impl.bindDiagnosticsService(params.arg_receiver);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Crosapi_BindDocumentScan_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindDocumentScan');
-          const result = this.impl.bindDocumentScan(params.arg_arg_receiver);
+          const result = this.impl.bindDocumentScan(params.arg_receiver);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Crosapi_BindInSessionAuth_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindInSessionAuth');
-          const result = this.impl.bindInSessionAuth(params.arg_arg_receiver);
+          const result = this.impl.bindInSessionAuth(params.arg_receiver);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Crosapi_BindKeystoreService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindKeystoreService');
-          const result = this.impl.bindKeystoreService(params.arg_arg_receiver);
+          const result = this.impl.bindKeystoreService(params.arg_receiver);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Crosapi_BindLocalPrinter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindLocalPrinter');
-          const result = this.impl.bindLocalPrinter(params.arg_arg_receiver);
+          const result = this.impl.bindLocalPrinter(params.arg_receiver);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Crosapi_BindMachineLearningService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindMachineLearningService');
-          const result = this.impl.bindMachineLearningService(params.arg_arg_receiver);
+          const result = this.impl.bindMachineLearningService(params.arg_receiver);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Crosapi_BindSensorHalClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSensorHalClient');
-          const result = this.impl.bindSensorHalClient(params.arg_arg_receiver);
+          const result = this.impl.bindSensorHalClient(params.arg_receiver);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Crosapi_BindHidManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindHidManager');
-          const result = this.impl.bindHidManager(params.arg_arg_receiver);
+          const result = this.impl.bindHidManager(params.arg_receiver);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindMediaSessionController');
-          const result = this.impl.bindMediaSessionController(params.arg_arg_receiver);
+          const result = this.impl.bindMediaSessionController(params.arg_receiver);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionAudioFocus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindMediaSessionAudioFocus');
-          const result = this.impl.bindMediaSessionAudioFocus(params.arg_arg_receiver);
+          const result = this.impl.bindMediaSessionAudioFocus(params.arg_receiver);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionAudioFocusDebug_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindMediaSessionAudioFocusDebug');
-          const result = this.impl.bindMediaSessionAudioFocusDebug(params.arg_arg_receiver);
+          const result = this.impl.bindMediaSessionAudioFocusDebug(params.arg_receiver);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryDiagnosticRoutinesService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTelemetryDiagnosticRoutinesService');
-          const result = this.impl.bindTelemetryDiagnosticRoutinesService(params.arg_arg_receiver);
+          const result = this.impl.bindTelemetryDiagnosticRoutinesService(params.arg_receiver);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryManagementService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTelemetryManagementService');
-          const result = this.impl.bindTelemetryManagementService(params.arg_arg_receiver);
+          const result = this.impl.bindTelemetryManagementService(params.arg_receiver);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryProbeService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTelemetryProbeService');
-          const result = this.impl.bindTelemetryProbeService(params.arg_arg_receiver);
+          const result = this.impl.bindTelemetryProbeService(params.arg_receiver);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Crosapi_BindVideoCaptureDeviceFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindVideoCaptureDeviceFactory');
-          const result = this.impl.bindVideoCaptureDeviceFactory(params.arg_arg_receiver);
+          const result = this.impl.bindVideoCaptureDeviceFactory(params.arg_receiver);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Crosapi_BindGuestOsSkForwarderFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindGuestOsSkForwarderFactory');
-          const result = this.impl.bindGuestOsSkForwarderFactory(params.arg_arg_receiver);
+          const result = this.impl.bindGuestOsSkForwarderFactory(params.arg_receiver);
           break;
         }
       }

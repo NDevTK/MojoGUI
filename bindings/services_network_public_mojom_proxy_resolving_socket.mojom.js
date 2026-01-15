@@ -203,7 +203,7 @@ mojo.internal.bindings.network.mojom.ProxyResolvingSocketRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec,
       mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec,
-      [arg_host_port_pair, arg_traffic_annotation, arg_receiver, arg_observer],
+      { arg_host_port_pair: arg_host_port_pair, arg_traffic_annotation: arg_traffic_annotation, arg_receiver: arg_receiver, arg_observer: arg_observer },
       false);
   }
 
@@ -272,12 +272,12 @@ mojo.internal.bindings.network.mojom.ProxyResolvingSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.upgradeToTLS');
-          const result = this.impl.upgradeToTLS(params.arg_arg_host_port_pair, params.arg_arg_traffic_annotation, params.arg_arg_receiver, params.arg_arg_observer);
+          const result = this.impl.upgradeToTLS(params.arg_host_port_pair, params.arg_traffic_annotation, params.arg_receiver, params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec.$.structSpec, ['response.arg_arg_net_error', 'response.arg_arg_receive_stream', 'response.arg_arg_send_stream']);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec.$.structSpec, { 'arg_net_error': response.arg_net_error, 'arg_receive_stream': response.arg_receive_stream, 'arg_send_stream': response.arg_send_stream });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] upgradeToTLS FAILED:', e));
           }
@@ -341,7 +341,7 @@ mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactoryRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec,
       mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec,
-      [arg_url, arg_network_anonymization_key, arg_options, arg_traffic_annotation, arg_socket, arg_observer],
+      { arg_url: arg_url, arg_network_anonymization_key: arg_network_anonymization_key, arg_options: arg_options, arg_traffic_annotation: arg_traffic_annotation, arg_socket: arg_socket, arg_observer: arg_observer },
       false);
   }
 
@@ -410,12 +410,12 @@ mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactoryReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createProxyResolvingSocket');
-          const result = this.impl.createProxyResolvingSocket(params.arg_arg_url, params.arg_arg_network_anonymization_key, params.arg_arg_options, params.arg_arg_traffic_annotation, params.arg_arg_socket, params.arg_arg_observer);
+          const result = this.impl.createProxyResolvingSocket(params.arg_url, params.arg_network_anonymization_key, params.arg_options, params.arg_traffic_annotation, params.arg_socket, params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_local_addr', 'response.arg_arg_peer_addr', 'response.arg_arg_receive_stream', 'response.arg_arg_send_stream']);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_local_addr': response.arg_local_addr, 'arg_peer_addr': response.arg_peer_addr, 'arg_receive_stream': response.arg_receive_stream, 'arg_send_stream': response.arg_send_stream });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createProxyResolvingSocket FAILED:', e));
           }

@@ -187,7 +187,7 @@ mojo.internal.bindings.blink.mojom.WebOTPServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.blink.mojom.WebOTPServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.WebOTPService_Abort_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.blink.mojom.WebOTPServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_otp']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_otp': response.arg_otp });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] receive FAILED:', e));
           }

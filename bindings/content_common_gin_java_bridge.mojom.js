@@ -217,7 +217,7 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec,
       null,
-      [arg_name, arg_object_id, arg_origin_matcher],
+      { arg_name: arg_name, arg_object_id: arg_object_id, arg_origin_matcher: arg_origin_matcher },
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec,
       null,
-      [arg_name],
+      { arg_name: arg_name },
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.GinJavaBridge_SetHost_ParamsSpec,
       null,
-      [arg_host],
+      { arg_host: arg_host },
       false);
   }
 
@@ -306,21 +306,21 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addNamedObject');
-          const result = this.impl.addNamedObject(params.arg_arg_name, params.arg_arg_object_id, params.arg_arg_origin_matcher);
+          const result = this.impl.addNamedObject(params.arg_name, params.arg_object_id, params.arg_origin_matcher);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeNamedObject');
-          const result = this.impl.removeNamedObject(params.arg_arg_name);
+          const result = this.impl.removeNamedObject(params.arg_name);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.GinJavaBridge_SetHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHost');
-          const result = this.impl.setHost(params.arg_arg_host);
+          const result = this.impl.setHost(params.arg_host);
           break;
         }
       }
@@ -389,7 +389,7 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec,
       mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec,
       mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec,
-      [arg_method_name],
+      { arg_method_name: arg_method_name },
       false);
   }
 
@@ -407,7 +407,7 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec,
       mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec,
-      [arg_method_name, arg_arguments],
+      { arg_method_name: arg_method_name, arg_arguments: arg_arguments },
       false);
   }
 
@@ -483,8 +483,8 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_method_names' in response) ? response.arg_arg_method_names : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_method_names' in response) ? response.arg_method_names : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec.$.structSpec, { 'arg_method_names': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMethods FAILED:', e));
           }
@@ -494,13 +494,13 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasMethod');
-          const result = this.impl.hasMethod(params.arg_arg_method_name);
+          const result = this.impl.hasMethod(params.arg_method_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] hasMethod FAILED:', e));
           }
@@ -510,12 +510,12 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.invokeMethod');
-          const result = this.impl.invokeMethod(params.arg_arg_method_name, params.arg_arg_arguments);
+          const result = this.impl.invokeMethod(params.arg_method_name, params.arg_arguments);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error_code', 'response.arg_arg_result']);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec.$.structSpec, { 'arg_error_code': response.arg_error_code, 'arg_result': response.arg_result });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] invokeMethod FAILED:', e));
           }
@@ -583,7 +583,7 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec,
       null,
-      [arg_object_id, arg_receiver],
+      { arg_object_id: arg_object_id, arg_receiver: arg_receiver },
       false);
   }
 
@@ -592,7 +592,7 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeHostRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec,
       null,
-      [arg_object_id],
+      { arg_object_id: arg_object_id },
       false);
   }
 
@@ -662,14 +662,14 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getObject');
-          const result = this.impl.getObject(params.arg_arg_object_id, params.arg_arg_receiver);
+          const result = this.impl.getObject(params.arg_object_id, params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.objectWrapperDeleted');
-          const result = this.impl.objectWrapperDeleted(params.arg_arg_object_id);
+          const result = this.impl.objectWrapperDeleted(params.arg_object_id);
           break;
         }
       }

@@ -195,7 +195,7 @@ mojo.internal.bindings.arc.mojom.AppPermissionsInstanceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec,
       null,
-      [arg_package_name, arg_permission],
+      { arg_package_name: arg_package_name, arg_permission: arg_permission },
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.arc.mojom.AppPermissionsInstanceRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec,
       null,
-      [arg_package_name, arg_permission],
+      { arg_package_name: arg_package_name, arg_permission: arg_permission },
       false);
   }
 
@@ -274,14 +274,14 @@ mojo.internal.bindings.arc.mojom.AppPermissionsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.grantPermission');
-          const result = this.impl.grantPermission(params.arg_arg_package_name, params.arg_arg_permission);
+          const result = this.impl.grantPermission(params.arg_package_name, params.arg_permission);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.revokePermission');
-          const result = this.impl.revokePermission(params.arg_arg_package_name, params.arg_arg_permission);
+          const result = this.impl.revokePermission(params.arg_package_name, params.arg_permission);
           break;
         }
       }

@@ -170,7 +170,7 @@ mojo.internal.bindings.dom_distiller.mojom.DistillabilityServiceRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec,
       null,
-      [arg_page_is_distillable, arg_is_last_update, arg_is_long_article, arg_is_mobile_friendly],
+      { arg_page_is_distillable: arg_page_is_distillable, arg_is_last_update: arg_is_last_update, arg_is_long_article: arg_is_long_article, arg_is_mobile_friendly: arg_is_mobile_friendly },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.dom_distiller.mojom.DistillabilityServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyIsDistillable');
-          const result = this.impl.notifyIsDistillable(params.arg_arg_page_is_distillable, params.arg_arg_is_last_update, params.arg_arg_is_long_article, params.arg_arg_is_mobile_friendly);
+          const result = this.impl.notifyIsDistillable(params.arg_page_is_distillable, params.arg_is_last_update, params.arg_is_long_article, params.arg_is_mobile_friendly);
           break;
         }
       }

@@ -188,7 +188,7 @@ mojo.internal.bindings.webui_toolbar.mojom.PageHandlerFactoryRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webui_toolbar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.webui_toolbar.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_toolbar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -326,7 +326,7 @@ mojo.internal.bindings.webui_toolbar.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webui_toolbar.mojom.PageHandler_Reload_ParamsSpec,
       null,
-      [arg_ignore_cache, arg_flags],
+      { arg_ignore_cache: arg_ignore_cache, arg_flags: arg_flags },
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.webui_toolbar.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webui_toolbar.mojom.PageHandler_StopReload_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.webui_toolbar.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webui_toolbar.mojom.PageHandler_ShowContextMenu_ParamsSpec,
       null,
-      [arg_offset_x, arg_offset_y],
+      { arg_offset_x: arg_offset_x, arg_offset_y: arg_offset_y },
       false);
   }
 
@@ -415,7 +415,7 @@ mojo.internal.bindings.webui_toolbar.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_toolbar.mojom.PageHandler_Reload_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reload');
-          const result = this.impl.reload(params.arg_arg_ignore_cache, params.arg_arg_flags);
+          const result = this.impl.reload(params.arg_ignore_cache, params.arg_flags);
           break;
         }
         case 1: {
@@ -429,7 +429,7 @@ mojo.internal.bindings.webui_toolbar.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_toolbar.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
-          const result = this.impl.showContextMenu(params.arg_arg_offset_x, params.arg_arg_offset_y);
+          const result = this.impl.showContextMenu(params.arg_offset_x, params.arg_offset_y);
           break;
         }
       }
@@ -490,7 +490,7 @@ mojo.internal.bindings.webui_toolbar.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webui_toolbar.mojom.Page_SetReloadButtonState_ParamsSpec,
       null,
-      [arg_is_loading, arg_is_menu_enabled],
+      { arg_is_loading: arg_is_loading, arg_is_menu_enabled: arg_is_menu_enabled },
       false);
   }
 
@@ -559,7 +559,7 @@ mojo.internal.bindings.webui_toolbar.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_toolbar.mojom.Page_SetReloadButtonState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setReloadButtonState');
-          const result = this.impl.setReloadButtonState(params.arg_arg_is_loading, params.arg_arg_is_menu_enabled);
+          const result = this.impl.setReloadButtonState(params.arg_is_loading, params.arg_is_menu_enabled);
           break;
         }
       }

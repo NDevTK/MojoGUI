@@ -354,7 +354,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnPaymentMethodChange_ParamsSpec,
       null,
-      [arg_method_name, arg_stringified_details],
+      { arg_method_name: arg_method_name, arg_stringified_details: arg_stringified_details },
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnShippingAddressChange_ParamsSpec,
       null,
-      [arg_address],
+      { arg_address: arg_address },
       false);
   }
 
@@ -372,7 +372,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnShippingOptionChange_ParamsSpec,
       null,
-      [arg_shipping_option_id],
+      { arg_shipping_option_id: arg_shipping_option_id },
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnPayerDetailChange_ParamsSpec,
       null,
-      [arg_detail],
+      { arg_detail: arg_detail },
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnPaymentResponse_ParamsSpec,
       null,
-      [arg_response],
+      { arg_response: arg_response },
       false);
   }
 
@@ -399,7 +399,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientRemoteCallHandler = cl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnError_ParamsSpec,
       null,
-      [arg_error, arg_error_message],
+      { arg_error: arg_error, arg_error_message: arg_error_message },
       false);
   }
 
@@ -408,7 +408,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientRemoteCallHandler = cl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnComplete_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -417,7 +417,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientRemoteCallHandler = cl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnAbort_ParamsSpec,
       null,
-      [arg_aborted_successfully],
+      { arg_aborted_successfully: arg_aborted_successfully },
       false);
   }
 
@@ -426,7 +426,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientRemoteCallHandler = cl
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnCanMakePayment_ParamsSpec,
       null,
-      [arg_result],
+      { arg_result: arg_result },
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientRemoteCallHandler = cl
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnHasEnrolledInstrument_ParamsSpec,
       null,
-      [arg_result],
+      { arg_result: arg_result },
       false);
   }
 
@@ -444,7 +444,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientRemoteCallHandler = cl
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequestClient_WarnNoFavicon_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientRemoteCallHandler = cl
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequestClient_AllowConnectToSource_ParamsSpec,
       mojo.internal.bindings.payments.mojom.PaymentRequestClient_AllowConnectToSource_ResponseParamsSpec,
-      [arg_url, arg_url_before_redirects, arg_did_follow_redirect],
+      { arg_url: arg_url, arg_url_before_redirects: arg_url_before_redirects, arg_did_follow_redirect: arg_did_follow_redirect },
       false);
   }
 
@@ -533,42 +533,42 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnPaymentMethodChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPaymentMethodChange');
-          const result = this.impl.onPaymentMethodChange(params.arg_arg_method_name, params.arg_arg_stringified_details);
+          const result = this.impl.onPaymentMethodChange(params.arg_method_name, params.arg_stringified_details);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnShippingAddressChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onShippingAddressChange');
-          const result = this.impl.onShippingAddressChange(params.arg_arg_address);
+          const result = this.impl.onShippingAddressChange(params.arg_address);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnShippingOptionChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onShippingOptionChange');
-          const result = this.impl.onShippingOptionChange(params.arg_arg_shipping_option_id);
+          const result = this.impl.onShippingOptionChange(params.arg_shipping_option_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnPayerDetailChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPayerDetailChange');
-          const result = this.impl.onPayerDetailChange(params.arg_arg_detail);
+          const result = this.impl.onPayerDetailChange(params.arg_detail);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnPaymentResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPaymentResponse');
-          const result = this.impl.onPaymentResponse(params.arg_arg_response);
+          const result = this.impl.onPaymentResponse(params.arg_response);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_error, params.arg_arg_error_message);
+          const result = this.impl.onError(params.arg_error, params.arg_error_message);
           break;
         }
         case 6: {
@@ -582,21 +582,21 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnAbort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAbort');
-          const result = this.impl.onAbort(params.arg_arg_aborted_successfully);
+          const result = this.impl.onAbort(params.arg_aborted_successfully);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnCanMakePayment_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCanMakePayment');
-          const result = this.impl.onCanMakePayment(params.arg_arg_result);
+          const result = this.impl.onCanMakePayment(params.arg_result);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnHasEnrolledInstrument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHasEnrolledInstrument');
-          const result = this.impl.onHasEnrolledInstrument(params.arg_arg_result);
+          const result = this.impl.onHasEnrolledInstrument(params.arg_result);
           break;
         }
         case 10: {
@@ -610,13 +610,13 @@ mojo.internal.bindings.payments.mojom.PaymentRequestClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_AllowConnectToSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.allowConnectToSource');
-          const result = this.impl.allowConnectToSource(params.arg_arg_url, params.arg_arg_url_before_redirects, params.arg_arg_did_follow_redirect);
+          const result = this.impl.allowConnectToSource(params.arg_url, params.arg_url_before_redirects, params.arg_did_follow_redirect);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_allow' in response) ? response.arg_arg_allow : response;
-              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_AllowConnectToSource_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_allow' in response) ? response.arg_allow : response;
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequestClient_AllowConnectToSource_ResponseParamsSpec.$.structSpec, { 'arg_allow': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] allowConnectToSource FAILED:', e));
           }
@@ -712,7 +712,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequest_Init_ParamsSpec,
       null,
-      [arg_client, arg_method_data, arg_details, arg_options],
+      { arg_client: arg_client, arg_method_data: arg_method_data, arg_details: arg_details, arg_options: arg_options },
       false);
   }
 
@@ -721,7 +721,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequest_Show_ParamsSpec,
       null,
-      [arg_wait_for_updated_details, arg_had_user_activation],
+      { arg_wait_for_updated_details: arg_wait_for_updated_details, arg_had_user_activation: arg_had_user_activation },
       false);
   }
 
@@ -730,7 +730,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequest_UpdateWith_ParamsSpec,
       null,
-      [arg_details],
+      { arg_details: arg_details },
       false);
   }
 
@@ -739,7 +739,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequest_OnPaymentDetailsNotUpdated_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -748,7 +748,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequest_Abort_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -757,7 +757,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequest_Complete_ParamsSpec,
       null,
-      [arg_result],
+      { arg_result: arg_result },
       false);
   }
 
@@ -766,7 +766,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequest_Retry_ParamsSpec,
       null,
-      [arg_errors],
+      { arg_errors: arg_errors },
       false);
   }
 
@@ -775,7 +775,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequest_CanMakePayment_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -784,7 +784,7 @@ mojo.internal.bindings.payments.mojom.PaymentRequestRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentRequest_HasEnrolledInstrument_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -861,21 +861,21 @@ mojo.internal.bindings.payments.mojom.PaymentRequestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_client, params.arg_arg_method_data, params.arg_arg_details, params.arg_arg_options);
+          const result = this.impl.init(params.arg_client, params.arg_method_data, params.arg_details, params.arg_options);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_Show_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.show');
-          const result = this.impl.show(params.arg_arg_wait_for_updated_details, params.arg_arg_had_user_activation);
+          const result = this.impl.show(params.arg_wait_for_updated_details, params.arg_had_user_activation);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_UpdateWith_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateWith');
-          const result = this.impl.updateWith(params.arg_arg_details);
+          const result = this.impl.updateWith(params.arg_details);
           break;
         }
         case 3: {
@@ -896,14 +896,14 @@ mojo.internal.bindings.payments.mojom.PaymentRequestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_Complete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.complete');
-          const result = this.impl.complete(params.arg_arg_result);
+          const result = this.impl.complete(params.arg_result);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentRequest_Retry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.retry');
-          const result = this.impl.retry(params.arg_arg_errors);
+          const result = this.impl.retry(params.arg_errors);
           break;
         }
         case 7: {

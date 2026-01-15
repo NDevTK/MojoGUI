@@ -201,7 +201,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -228,7 +228,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec,
       null,
-      [arg_tool],
+      { arg_tool: arg_tool },
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTool');
-          const result = this.impl.setTool(params.arg_arg_tool);
+          const result = this.impl.setTool(params.arg_tool);
           break;
         }
       }
@@ -386,7 +386,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec,
       null,
-      [arg_undo_available, arg_redo_available],
+      { arg_undo_available: arg_undo_available, arg_redo_available: arg_redo_available },
       false);
   }
 
@@ -395,7 +395,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemoteCa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec,
       null,
-      [arg_success],
+      { arg_success: arg_success },
       false);
   }
 
@@ -465,14 +465,14 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUndoRedoAvailabilityChanged');
-          const result = this.impl.onUndoRedoAvailabilityChanged(params.arg_arg_undo_available, params.arg_arg_redo_available);
+          const result = this.impl.onUndoRedoAvailabilityChanged(params.arg_undo_available, params.arg_redo_available);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCanvasInitialized');
-          const result = this.impl.onCanvasInitialized(params.arg_arg_success);
+          const result = this.impl.onCanvasInitialized(params.arg_success);
           break;
         }
       }
@@ -533,7 +533,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryR
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec,
       null,
-      [arg_handler, arg_annotator],
+      { arg_handler: arg_handler, arg_annotator: arg_annotator },
       false);
   }
 
@@ -602,7 +602,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryR
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
-          const result = this.impl.create(params.arg_arg_handler, params.arg_arg_annotator);
+          const result = this.impl.create(params.arg_handler, params.arg_annotator);
           break;
         }
       }

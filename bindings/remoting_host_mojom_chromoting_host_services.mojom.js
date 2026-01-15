@@ -190,7 +190,7 @@ mojo.internal.bindings.remoting.mojom.ChromotingHostServicesRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -259,7 +259,7 @@ mojo.internal.bindings.remoting.mojom.ChromotingHostServicesReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSessionServices');
-          const result = this.impl.bindSessionServices(params.arg_arg_receiver);
+          const result = this.impl.bindSessionServices(params.arg_receiver);
           break;
         }
       }
@@ -328,7 +328,7 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -337,7 +337,7 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -346,7 +346,7 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -417,21 +417,21 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindWebAuthnProxy');
-          const result = this.impl.bindWebAuthnProxy(params.arg_arg_receiver);
+          const result = this.impl.bindWebAuthnProxy(params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindRemoteUrlOpener');
-          const result = this.impl.bindRemoteUrlOpener(params.arg_arg_receiver);
+          const result = this.impl.bindRemoteUrlOpener(params.arg_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSecurityKeyForwarder');
-          const result = this.impl.bindSecurityKeyForwarder(params.arg_arg_receiver);
+          const result = this.impl.bindSecurityKeyForwarder(params.arg_receiver);
           break;
         }
       }

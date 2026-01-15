@@ -386,7 +386,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      [arg_page],
+      { arg_page: arg_page },
       false);
   }
 
@@ -395,7 +395,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec,
       null,
-      [arg_focused],
+      { arg_focused: arg_focused },
       false);
   }
 
@@ -404,7 +404,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec,
       null,
-      [arg_input, arg_prevent_inline_autocomplete],
+      { arg_input: arg_input, arg_prevent_inline_autocomplete: arg_prevent_inline_autocomplete },
       false);
   }
 
@@ -413,7 +413,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec,
       null,
-      [arg_clear_result],
+      { arg_clear_result: arg_clear_result },
       false);
   }
 
@@ -422,7 +422,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec,
       null,
-      [arg_line, arg_url, arg_are_matches_showing, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key],
+      { arg_line: arg_line, arg_url: arg_url, arg_are_matches_showing: arg_are_matches_showing, arg_mouse_button: arg_mouse_button, arg_alt_key: arg_alt_key, arg_ctrl_key: arg_ctrl_key, arg_meta_key: arg_meta_key, arg_shift_key: arg_shift_key },
       false);
   }
 
@@ -431,7 +431,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec,
       null,
-      [arg_line, arg_url, arg_navigation_predictor],
+      { arg_line: arg_line, arg_url: arg_url, arg_navigation_predictor: arg_navigation_predictor },
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec,
       null,
-      [arg_line, arg_url],
+      { arg_line: arg_line, arg_url: arg_url },
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec,
       null,
-      [arg_line, arg_url, arg_match_selection_timestamp, arg_is_mouse_event],
+      { arg_line: arg_line, arg_url: arg_url, arg_match_selection_timestamp: arg_match_selection_timestamp, arg_is_mouse_event: arg_is_mouse_event },
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec,
       null,
-      [arg_point],
+      { arg_point: arg_point },
       false);
   }
 
@@ -467,7 +467,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec,
       null,
-      [arg_line, arg_action_index, arg_url, arg_match_selection_timestamp, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key],
+      { arg_line: arg_line, arg_action_index: arg_action_index, arg_url: arg_url, arg_match_selection_timestamp: arg_match_selection_timestamp, arg_mouse_button: arg_mouse_button, arg_alt_key: arg_alt_key, arg_ctrl_key: arg_ctrl_key, arg_meta_key: arg_meta_key, arg_shift_key: arg_shift_key },
       false);
   }
 
@@ -476,7 +476,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -485,7 +485,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec,
       mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -494,7 +494,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec,
       mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -503,7 +503,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec,
       mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec,
-      [arg_tab_id],
+      { arg_tab_id: arg_tab_id },
       false);
   }
 
@@ -512,7 +512,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -521,7 +521,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -530,7 +530,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ParamsSpec,
       mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec,
-      [arg_file_info, arg_file_bytes],
+      { arg_file_info: arg_file_info, arg_file_bytes: arg_file_bytes },
       false);
   }
 
@@ -539,7 +539,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ParamsSpec,
       mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec,
-      [arg_tab_id, arg_delay_upload],
+      { arg_tab_id: arg_tab_id, arg_delay_upload: arg_delay_upload },
       false);
   }
 
@@ -548,7 +548,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteContext_ParamsSpec,
       null,
-      [arg_token, arg_from_automatic_chip],
+      { arg_token: arg_token, arg_from_automatic_chip: arg_from_automatic_chip },
       false);
   }
 
@@ -557,7 +557,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_ClearFiles_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -566,7 +566,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec,
       null,
-      [arg_query_text, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key],
+      { arg_query_text: arg_query_text, arg_mouse_button: arg_mouse_button, arg_alt_key: arg_alt_key, arg_ctrl_key: arg_ctrl_key, arg_meta_key: arg_meta_key, arg_shift_key: arg_shift_key },
       false);
   }
 
@@ -575,7 +575,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -665,70 +665,70 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPage');
-          const result = this.impl.setPage(params.arg_arg_page);
+          const result = this.impl.setPage(params.arg_page);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFocusChanged');
-          const result = this.impl.onFocusChanged(params.arg_arg_focused);
+          const result = this.impl.onFocusChanged(params.arg_focused);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queryAutocomplete');
-          const result = this.impl.queryAutocomplete(params.arg_arg_input, params.arg_arg_prevent_inline_autocomplete);
+          const result = this.impl.queryAutocomplete(params.arg_input, params.arg_prevent_inline_autocomplete);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopAutocomplete');
-          const result = this.impl.stopAutocomplete(params.arg_arg_clear_result);
+          const result = this.impl.stopAutocomplete(params.arg_clear_result);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openAutocompleteMatch');
-          const result = this.impl.openAutocompleteMatch(params.arg_arg_line, params.arg_arg_url, params.arg_arg_are_matches_showing, params.arg_arg_mouse_button, params.arg_arg_alt_key, params.arg_arg_ctrl_key, params.arg_arg_meta_key, params.arg_arg_shift_key);
+          const result = this.impl.openAutocompleteMatch(params.arg_line, params.arg_url, params.arg_are_matches_showing, params.arg_mouse_button, params.arg_alt_key, params.arg_ctrl_key, params.arg_meta_key, params.arg_shift_key);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNavigationLikely');
-          const result = this.impl.onNavigationLikely(params.arg_arg_line, params.arg_arg_url, params.arg_arg_navigation_predictor);
+          const result = this.impl.onNavigationLikely(params.arg_line, params.arg_url, params.arg_navigation_predictor);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteAutocompleteMatch');
-          const result = this.impl.deleteAutocompleteMatch(params.arg_arg_line, params.arg_arg_url);
+          const result = this.impl.deleteAutocompleteMatch(params.arg_line, params.arg_url);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.activateKeyword');
-          const result = this.impl.activateKeyword(params.arg_arg_line, params.arg_arg_url, params.arg_arg_match_selection_timestamp, params.arg_arg_is_mouse_event);
+          const result = this.impl.activateKeyword(params.arg_line, params.arg_url, params.arg_match_selection_timestamp, params.arg_is_mouse_event);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
-          const result = this.impl.showContextMenu(params.arg_arg_point);
+          const result = this.impl.showContextMenu(params.arg_point);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeAction');
-          const result = this.impl.executeAction(params.arg_arg_line, params.arg_arg_action_index, params.arg_arg_url, params.arg_arg_match_selection_timestamp, params.arg_arg_mouse_button, params.arg_arg_alt_key, params.arg_arg_ctrl_key, params.arg_arg_meta_key, params.arg_arg_shift_key);
+          const result = this.impl.executeAction(params.arg_line, params.arg_action_index, params.arg_url, params.arg_match_selection_timestamp, params.arg_mouse_button, params.arg_alt_key, params.arg_ctrl_key, params.arg_meta_key, params.arg_shift_key);
           break;
         }
         case 10: {
@@ -747,8 +747,8 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_config' in response) ? response.arg_arg_config : response;
-              encoder.encodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_config' in response) ? response.arg_config : response;
+              encoder.encodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec.$.structSpec, { 'arg_config': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPlaceholderConfig FAILED:', e));
           }
@@ -763,8 +763,8 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_tabs' in response) ? response.arg_arg_tabs : response;
-              encoder.encodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_tabs' in response) ? response.arg_tabs : response;
+              encoder.encodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec.$.structSpec, { 'arg_tabs': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRecentTabs FAILED:', e));
           }
@@ -774,13 +774,13 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTabPreview');
-          const result = this.impl.getTabPreview(params.arg_arg_tab_id);
+          const result = this.impl.getTabPreview(params.arg_tab_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_preview_data_url' in response) ? response.arg_arg_preview_data_url : response;
-              encoder.encodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_preview_data_url' in response) ? response.arg_preview_data_url : response;
+              encoder.encodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec.$.structSpec, { 'arg_preview_data_url': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getTabPreview FAILED:', e));
           }
@@ -804,13 +804,13 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addFileContext');
-          const result = this.impl.addFileContext(params.arg_arg_file_info, params.arg_arg_file_bytes);
+          const result = this.impl.addFileContext(params.arg_file_info, params.arg_file_bytes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_token' in response) ? response.arg_arg_token : response;
-              encoder.encodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_token' in response) ? response.arg_token : response;
+              encoder.encodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec.$.structSpec, { 'arg_token': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addFileContext FAILED:', e));
           }
@@ -820,13 +820,13 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addTabContext');
-          const result = this.impl.addTabContext(params.arg_arg_tab_id, params.arg_arg_delay_upload);
+          const result = this.impl.addTabContext(params.arg_tab_id, params.arg_delay_upload);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_token' in response) ? response.arg_arg_token : response;
-              encoder.encodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_token' in response) ? response.arg_token : response;
+              encoder.encodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec.$.structSpec, { 'arg_token': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addTabContext FAILED:', e));
           }
@@ -836,7 +836,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteContext');
-          const result = this.impl.deleteContext(params.arg_arg_token, params.arg_arg_from_automatic_chip);
+          const result = this.impl.deleteContext(params.arg_token, params.arg_from_automatic_chip);
           break;
         }
         case 19: {
@@ -850,7 +850,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitQuery');
-          const result = this.impl.submitQuery(params.arg_arg_query_text, params.arg_arg_mouse_button, params.arg_arg_alt_key, params.arg_arg_ctrl_key, params.arg_arg_meta_key, params.arg_arg_shift_key);
+          const result = this.impl.submitQuery(params.arg_query_text, params.arg_mouse_button, params.arg_alt_key, params.arg_ctrl_key, params.arg_meta_key, params.arg_shift_key);
           break;
         }
         case 21: {
@@ -970,7 +970,7 @@ mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec,
       null,
-      [arg_result],
+      { arg_result: arg_result },
       false);
   }
 
@@ -979,7 +979,7 @@ mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.searchbox.mojom.Page_UpdateSelection_ParamsSpec,
       null,
-      [arg_old_selection, arg_selection],
+      { arg_old_selection: arg_old_selection, arg_selection: arg_selection },
       false);
   }
 
@@ -988,7 +988,7 @@ mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.searchbox.mojom.Page_SetKeywordSelected_ParamsSpec,
       null,
-      [arg_is_keyword_selected],
+      { arg_is_keyword_selected: arg_is_keyword_selected },
       false);
   }
 
@@ -997,7 +997,7 @@ mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.searchbox.mojom.Page_OnShow_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1006,7 +1006,7 @@ mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.searchbox.mojom.Page_SetInputText_ParamsSpec,
       null,
-      [arg_input],
+      { arg_input: arg_input },
       false);
   }
 
@@ -1015,7 +1015,7 @@ mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.searchbox.mojom.Page_SetThumbnail_ParamsSpec,
       null,
-      [arg_thumbnail_url, arg_is_deletable],
+      { arg_thumbnail_url: arg_thumbnail_url, arg_is_deletable: arg_is_deletable },
       false);
   }
 
@@ -1024,7 +1024,7 @@ mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec,
       null,
-      [arg_token, arg_status, arg_error_type],
+      { arg_token: arg_token, arg_status: arg_status, arg_error_type: arg_error_type },
       false);
   }
 
@@ -1033,7 +1033,7 @@ mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.searchbox.mojom.Page_OnTabStripChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1042,7 +1042,7 @@ mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.searchbox.mojom.Page_AddFileContext_ParamsSpec,
       null,
-      [arg_token, arg_file_info],
+      { arg_token: arg_token, arg_file_info: arg_file_info },
       false);
   }
 
@@ -1051,7 +1051,7 @@ mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec,
       null,
-      [arg_tab],
+      { arg_tab: arg_tab },
       false);
   }
 
@@ -1060,7 +1060,7 @@ mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec,
       null,
-      [arg_eligible],
+      { arg_eligible: arg_eligible },
       false);
   }
 
@@ -1069,7 +1069,7 @@ mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -1078,7 +1078,7 @@ mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec,
       null,
-      [arg_eligible],
+      { arg_eligible: arg_eligible },
       false);
   }
 
@@ -1087,7 +1087,7 @@ mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec,
       null,
-      [arg_canShow],
+      { arg_canShow: arg_canShow },
       false);
   }
 
@@ -1169,21 +1169,21 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.autocompleteResultChanged');
-          const result = this.impl.autocompleteResultChanged(params.arg_arg_result);
+          const result = this.impl.autocompleteResultChanged(params.arg_result);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateSelection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSelection');
-          const result = this.impl.updateSelection(params.arg_arg_old_selection, params.arg_arg_selection);
+          const result = this.impl.updateSelection(params.arg_old_selection, params.arg_selection);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetKeywordSelected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setKeywordSelected');
-          const result = this.impl.setKeywordSelected(params.arg_arg_is_keyword_selected);
+          const result = this.impl.setKeywordSelected(params.arg_is_keyword_selected);
           break;
         }
         case 3: {
@@ -1197,21 +1197,21 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetInputText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInputText');
-          const result = this.impl.setInputText(params.arg_arg_input);
+          const result = this.impl.setInputText(params.arg_input);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetThumbnail_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setThumbnail');
-          const result = this.impl.setThumbnail(params.arg_arg_thumbnail_url, params.arg_arg_is_deletable);
+          const result = this.impl.setThumbnail(params.arg_thumbnail_url, params.arg_is_deletable);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onContextualInputStatusChanged');
-          const result = this.impl.onContextualInputStatusChanged(params.arg_arg_token, params.arg_arg_status, params.arg_arg_error_type);
+          const result = this.impl.onContextualInputStatusChanged(params.arg_token, params.arg_status, params.arg_error_type);
           break;
         }
         case 7: {
@@ -1225,42 +1225,42 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_AddFileContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addFileContext');
-          const result = this.impl.addFileContext(params.arg_arg_token, params.arg_arg_file_info);
+          const result = this.impl.addFileContext(params.arg_token, params.arg_file_info);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateAutoSuggestedTabContext');
-          const result = this.impl.updateAutoSuggestedTabContext(params.arg_arg_tab);
+          const result = this.impl.updateAutoSuggestedTabContext(params.arg_tab);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateLensSearchEligibility');
-          const result = this.impl.updateLensSearchEligibility(params.arg_arg_eligible);
+          const result = this.impl.updateLensSearchEligibility(params.arg_eligible);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateContentSharingPolicy');
-          const result = this.impl.updateContentSharingPolicy(params.arg_arg_enabled);
+          const result = this.impl.updateContentSharingPolicy(params.arg_enabled);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateAimEligibility');
-          const result = this.impl.updateAimEligibility(params.arg_arg_eligible);
+          const result = this.impl.updateAimEligibility(params.arg_eligible);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onShowAiModePrefChanged');
-          const result = this.impl.onShowAiModePrefChanged(params.arg_arg_canShow);
+          const result = this.impl.onShowAiModePrefChanged(params.arg_canShow);
           break;
         }
       }

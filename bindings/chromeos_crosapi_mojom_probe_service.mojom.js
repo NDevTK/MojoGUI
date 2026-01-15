@@ -416,7 +416,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryProbeServiceRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec,
-      [arg_categories],
+      { arg_categories: arg_categories },
       false);
   }
 
@@ -425,7 +425,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryProbeServiceRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_GetOemData_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -495,13 +495,13 @@ mojo.internal.bindings.crosapi.mojom.TelemetryProbeServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.probeTelemetryInfo');
-          const result = this.impl.probeTelemetryInfo(params.arg_arg_categories);
+          const result = this.impl.probeTelemetryInfo(params.arg_categories);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_telemetry_info' in response) ? response.arg_arg_telemetry_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_telemetry_info' in response) ? response.arg_telemetry_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec.$.structSpec, { 'arg_telemetry_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] probeTelemetryInfo FAILED:', e));
           }
@@ -516,8 +516,8 @@ mojo.internal.bindings.crosapi.mojom.TelemetryProbeServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_oem_data' in response) ? response.arg_arg_oem_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_oem_data' in response) ? response.arg_oem_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec.$.structSpec, { 'arg_oem_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getOemData FAILED:', e));
           }

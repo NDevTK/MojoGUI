@@ -206,7 +206,7 @@ mojo.internal.bindings.unzip.mojom.UnzipFilterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec,
       mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -275,13 +275,13 @@ mojo.internal.bindings.unzip.mojom.UnzipFilterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shouldUnzipFile');
-          const result = this.impl.shouldUnzipFile(params.arg_arg_path);
+          const result = this.impl.shouldUnzipFile(params.arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] shouldUnzipFile FAILED:', e));
           }
@@ -345,7 +345,7 @@ mojo.internal.bindings.unzip.mojom.UnzipListenerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.unzip.mojom.UnzipListener_OnProgress_ParamsSpec,
       null,
-      [arg_bytes],
+      { arg_bytes: arg_bytes },
       false);
   }
 
@@ -414,7 +414,7 @@ mojo.internal.bindings.unzip.mojom.UnzipListenerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.UnzipListener_OnProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
-          const result = this.impl.onProgress(params.arg_arg_bytes);
+          const result = this.impl.onProgress(params.arg_bytes);
           break;
         }
       }
@@ -487,7 +487,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ParamsSpec,
       mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ResponseParamsSpec,
-      [arg_zip_file, arg_output_dir, arg_options, arg_filter, arg_listener],
+      { arg_zip_file: arg_zip_file, arg_output_dir: arg_output_dir, arg_options: arg_options, arg_filter: arg_filter, arg_listener: arg_listener },
       false);
   }
 
@@ -496,7 +496,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ParamsSpec,
       mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec,
-      [arg_zip_file],
+      { arg_zip_file: arg_zip_file },
       false);
   }
 
@@ -505,7 +505,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec,
       mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec,
-      [arg_zip_file],
+      { arg_zip_file: arg_zip_file },
       false);
   }
 
@@ -514,7 +514,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ParamsSpec,
       mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec,
-      [arg_in_file, arg_out_file],
+      { arg_in_file: arg_in_file, arg_out_file: arg_out_file },
       false);
   }
 
@@ -586,13 +586,13 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unzip');
-          const result = this.impl.unzip(params.arg_arg_zip_file, params.arg_arg_output_dir, params.arg_arg_options, params.arg_arg_filter, params.arg_arg_listener);
+          const result = this.impl.unzip(params.arg_zip_file, params.arg_output_dir, params.arg_options, params.arg_filter, params.arg_listener);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] unzip FAILED:', e));
           }
@@ -602,13 +602,13 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.detectEncoding');
-          const result = this.impl.detectEncoding(params.arg_arg_zip_file);
+          const result = this.impl.detectEncoding(params.arg_zip_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_encoding' in response) ? response.arg_arg_encoding : response;
-              encoder.encodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_encoding' in response) ? response.arg_encoding : response;
+              encoder.encodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec.$.structSpec, { 'arg_encoding': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] detectEncoding FAILED:', e));
           }
@@ -618,13 +618,13 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getExtractedInfo');
-          const result = this.impl.getExtractedInfo(params.arg_arg_zip_file);
+          const result = this.impl.getExtractedInfo(params.arg_zip_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getExtractedInfo FAILED:', e));
           }
@@ -634,13 +634,13 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeXz');
-          const result = this.impl.decodeXz(params.arg_arg_in_file, params.arg_arg_out_file);
+          const result = this.impl.decodeXz(params.arg_in_file, params.arg_out_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] decodeXz FAILED:', e));
           }

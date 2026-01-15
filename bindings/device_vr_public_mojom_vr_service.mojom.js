@@ -539,7 +539,7 @@ mojo.internal.bindings.device.mojom.VRServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.VRService_SetClient_ParamsSpec,
       null,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -548,7 +548,7 @@ mojo.internal.bindings.device.mojom.VRServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.VRService_RequestSession_ParamsSpec,
       mojo.internal.bindings.device.mojom.VRService_RequestSession_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -557,7 +557,7 @@ mojo.internal.bindings.device.mojom.VRServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.VRService_SupportsSession_ParamsSpec,
       mojo.internal.bindings.device.mojom.VRService_SupportsSession_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -566,7 +566,7 @@ mojo.internal.bindings.device.mojom.VRServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.VRService_ExitPresent_ParamsSpec,
       mojo.internal.bindings.device.mojom.VRService_ExitPresent_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -575,7 +575,7 @@ mojo.internal.bindings.device.mojom.VRServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.VRService_SetFramesThrottled_ParamsSpec,
       null,
-      [arg_throttled],
+      { arg_throttled: arg_throttled },
       false);
   }
 
@@ -584,7 +584,7 @@ mojo.internal.bindings.device.mojom.VRServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.device.mojom.VRService_MakeXrCompatible_ParamsSpec,
       mojo.internal.bindings.device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -658,20 +658,20 @@ mojo.internal.bindings.device.mojom.VRServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.VRService_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
-          const result = this.impl.setClient(params.arg_arg_client);
+          const result = this.impl.setClient(params.arg_client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.VRService_RequestSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestSession');
-          const result = this.impl.requestSession(params.arg_arg_options);
+          const result = this.impl.requestSession(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.VRService_RequestSession_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.VRService_RequestSession_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestSession FAILED:', e));
           }
@@ -681,13 +681,13 @@ mojo.internal.bindings.device.mojom.VRServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.VRService_SupportsSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.supportsSession');
-          const result = this.impl.supportsSession(params.arg_arg_options);
+          const result = this.impl.supportsSession(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_supports_session' in response) ? response.arg_arg_supports_session : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.VRService_SupportsSession_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_supports_session' in response) ? response.arg_supports_session : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.VRService_SupportsSession_ResponseParamsSpec.$.structSpec, { 'arg_supports_session': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] supportsSession FAILED:', e));
           }
@@ -702,7 +702,7 @@ mojo.internal.bindings.device.mojom.VRServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.VRService_ExitPresent_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.VRService_ExitPresent_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] exitPresent FAILED:', e));
           }
@@ -712,7 +712,7 @@ mojo.internal.bindings.device.mojom.VRServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.VRService_SetFramesThrottled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFramesThrottled');
-          const result = this.impl.setFramesThrottled(params.arg_arg_throttled);
+          const result = this.impl.setFramesThrottled(params.arg_throttled);
           break;
         }
         case 5: {
@@ -724,8 +724,8 @@ mojo.internal.bindings.device.mojom.VRServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_xr_compatible_result' in response) ? response.arg_arg_xr_compatible_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_xr_compatible_result' in response) ? response.arg_xr_compatible_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec.$.structSpec, { 'arg_xr_compatible_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] makeXrCompatible FAILED:', e));
           }
@@ -789,7 +789,7 @@ mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec,
       null,
-      [arg_feature],
+      { arg_feature: arg_feature },
       false);
   }
 
@@ -858,7 +858,7 @@ mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportFeatureUsed');
-          const result = this.impl.reportFeatureUsed(params.arg_arg_feature);
+          const result = this.impl.reportFeatureUsed(params.arg_feature);
           break;
         }
       }
@@ -919,7 +919,7 @@ mojo.internal.bindings.device.mojom.VRServiceClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1065,7 +1065,7 @@ mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec,
       mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec,
-      [arg_native_origin_information, arg_entity_types, arg_ray],
+      { arg_native_origin_information: arg_native_origin_information, arg_entity_types: arg_entity_types, arg_ray: arg_ray },
       false);
   }
 
@@ -1074,7 +1074,7 @@ mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec,
       mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec,
-      [arg_profile_name, arg_entity_types, arg_ray],
+      { arg_profile_name: arg_profile_name, arg_entity_types: arg_entity_types, arg_ray: arg_ray },
       false);
   }
 
@@ -1083,7 +1083,7 @@ mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec,
       null,
-      [arg_subscription_id],
+      { arg_subscription_id: arg_subscription_id },
       false);
   }
 
@@ -1092,7 +1092,7 @@ mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemoteCallHa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec,
       mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec,
-      [arg_native_origin_information, arg_native_origin_from_anchor, arg_plane_id],
+      { arg_native_origin_information: arg_native_origin_information, arg_native_origin_from_anchor: arg_native_origin_from_anchor, arg_plane_id: arg_plane_id },
       false);
   }
 
@@ -1101,7 +1101,7 @@ mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemoteCallHa
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec,
       null,
-      [arg_anchor_id],
+      { arg_anchor_id: arg_anchor_id },
       false);
   }
 
@@ -1174,13 +1174,13 @@ mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToHitTest');
-          const result = this.impl.subscribeToHitTest(params.arg_arg_native_origin_information, params.arg_arg_entity_types, params.arg_arg_ray);
+          const result = this.impl.subscribeToHitTest(params.arg_native_origin_information, params.arg_entity_types, params.arg_ray);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_subscription_id' in response) ? response.arg_arg_subscription_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_subscription_id' in response) ? response.arg_subscription_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec.$.structSpec, { 'arg_subscription_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] subscribeToHitTest FAILED:', e));
           }
@@ -1190,13 +1190,13 @@ mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToHitTestForTransientInput');
-          const result = this.impl.subscribeToHitTestForTransientInput(params.arg_arg_profile_name, params.arg_arg_entity_types, params.arg_arg_ray);
+          const result = this.impl.subscribeToHitTestForTransientInput(params.arg_profile_name, params.arg_entity_types, params.arg_ray);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_subscription_id' in response) ? response.arg_arg_subscription_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_subscription_id' in response) ? response.arg_subscription_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec.$.structSpec, { 'arg_subscription_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] subscribeToHitTestForTransientInput FAILED:', e));
           }
@@ -1206,20 +1206,20 @@ mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unsubscribeFromHitTest');
-          const result = this.impl.unsubscribeFromHitTest(params.arg_arg_subscription_id);
+          const result = this.impl.unsubscribeFromHitTest(params.arg_subscription_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAnchor');
-          const result = this.impl.createAnchor(params.arg_arg_native_origin_information, params.arg_arg_native_origin_from_anchor, params.arg_arg_plane_id);
+          const result = this.impl.createAnchor(params.arg_native_origin_information, params.arg_native_origin_from_anchor, params.arg_plane_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_anchor_id' in response) ? response.arg_arg_anchor_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_anchor_id' in response) ? response.arg_anchor_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec.$.structSpec, { 'arg_anchor_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createAnchor FAILED:', e));
           }
@@ -1229,7 +1229,7 @@ mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.detachAnchor');
-          const result = this.impl.detachAnchor(params.arg_arg_anchor_id);
+          const result = this.impl.detachAnchor(params.arg_anchor_id);
           break;
         }
       }
@@ -1294,7 +1294,7 @@ mojo.internal.bindings.device.mojom.XRFrameDataProviderRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec,
       mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -1303,7 +1303,7 @@ mojo.internal.bindings.device.mojom.XRFrameDataProviderRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec,
       null,
-      [arg_environment_provider],
+      { arg_environment_provider: arg_environment_provider },
       false);
   }
 
@@ -1373,13 +1373,13 @@ mojo.internal.bindings.device.mojom.XRFrameDataProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFrameData');
-          const result = this.impl.getFrameData(params.arg_arg_options);
+          const result = this.impl.getFrameData(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_frame_data' in response) ? response.arg_arg_frame_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_frame_data' in response) ? response.arg_frame_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec.$.structSpec, { 'arg_frame_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFrameData FAILED:', e));
           }
@@ -1389,7 +1389,7 @@ mojo.internal.bindings.device.mojom.XRFrameDataProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getEnvironmentIntegrationProvider');
-          const result = this.impl.getEnvironmentIntegrationProvider(params.arg_arg_environment_provider);
+          const result = this.impl.getEnvironmentIntegrationProvider(params.arg_environment_provider);
           break;
         }
       }
@@ -1466,7 +1466,7 @@ mojo.internal.bindings.device.mojom.XRPresentationProviderRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec,
       null,
-      [arg_frame_id, arg_left_bounds, arg_right_bounds, arg_source_size],
+      { arg_frame_id: arg_frame_id, arg_left_bounds: arg_left_bounds, arg_right_bounds: arg_right_bounds, arg_source_size: arg_source_size },
       false);
   }
 
@@ -1475,7 +1475,7 @@ mojo.internal.bindings.device.mojom.XRPresentationProviderRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec,
       null,
-      [arg_frame_id, arg_sync_token],
+      { arg_frame_id: arg_frame_id, arg_sync_token: arg_sync_token },
       false);
   }
 
@@ -1484,7 +1484,7 @@ mojo.internal.bindings.device.mojom.XRPresentationProviderRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec,
       null,
-      [arg_frame_id, arg_time_waited],
+      { arg_frame_id: arg_frame_id, arg_time_waited: arg_time_waited },
       false);
   }
 
@@ -1493,7 +1493,7 @@ mojo.internal.bindings.device.mojom.XRPresentationProviderRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec,
       null,
-      [arg_frame_id, arg_texture, arg_sync_token],
+      { arg_frame_id: arg_frame_id, arg_texture: arg_texture, arg_sync_token: arg_sync_token },
       false);
   }
 
@@ -1502,7 +1502,7 @@ mojo.internal.bindings.device.mojom.XRPresentationProviderRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec,
       null,
-      [arg_frame_id, arg_layer_ids, arg_sync_token, arg_time_waited],
+      { arg_frame_id: arg_frame_id, arg_layer_ids: arg_layer_ids, arg_sync_token: arg_sync_token, arg_time_waited: arg_time_waited },
       false);
   }
 
@@ -1575,35 +1575,35 @@ mojo.internal.bindings.device.mojom.XRPresentationProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateLayerBounds');
-          const result = this.impl.updateLayerBounds(params.arg_arg_frame_id, params.arg_arg_left_bounds, params.arg_arg_right_bounds, params.arg_arg_source_size);
+          const result = this.impl.updateLayerBounds(params.arg_frame_id, params.arg_left_bounds, params.arg_right_bounds, params.arg_source_size);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFrameMissing');
-          const result = this.impl.submitFrameMissing(params.arg_arg_frame_id, params.arg_arg_sync_token);
+          const result = this.impl.submitFrameMissing(params.arg_frame_id, params.arg_sync_token);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFrame');
-          const result = this.impl.submitFrame(params.arg_arg_frame_id, params.arg_arg_time_waited);
+          const result = this.impl.submitFrame(params.arg_frame_id, params.arg_time_waited);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFrameWithTextureHandle');
-          const result = this.impl.submitFrameWithTextureHandle(params.arg_arg_frame_id, params.arg_arg_texture, params.arg_arg_sync_token);
+          const result = this.impl.submitFrameWithTextureHandle(params.arg_frame_id, params.arg_texture, params.arg_sync_token);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFrameDrawnIntoTexture');
-          const result = this.impl.submitFrameDrawnIntoTexture(params.arg_arg_frame_id, params.arg_arg_layer_ids, params.arg_arg_sync_token, params.arg_arg_time_waited);
+          const result = this.impl.submitFrameDrawnIntoTexture(params.arg_frame_id, params.arg_layer_ids, params.arg_sync_token, params.arg_time_waited);
           break;
         }
       }
@@ -1672,7 +1672,7 @@ mojo.internal.bindings.device.mojom.XRPresentationClientRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec,
       null,
-      [arg_success],
+      { arg_success: arg_success },
       false);
   }
 
@@ -1681,7 +1681,7 @@ mojo.internal.bindings.device.mojom.XRPresentationClientRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1690,7 +1690,7 @@ mojo.internal.bindings.device.mojom.XRPresentationClientRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec,
       null,
-      [arg_gpu_fence_handle],
+      { arg_gpu_fence_handle: arg_gpu_fence_handle },
       false);
   }
 
@@ -1761,7 +1761,7 @@ mojo.internal.bindings.device.mojom.XRPresentationClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSubmitFrameTransferred');
-          const result = this.impl.onSubmitFrameTransferred(params.arg_arg_success);
+          const result = this.impl.onSubmitFrameTransferred(params.arg_success);
           break;
         }
         case 1: {
@@ -1775,7 +1775,7 @@ mojo.internal.bindings.device.mojom.XRPresentationClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSubmitFrameGpuFence');
-          const result = this.impl.onSubmitFrameGpuFence(params.arg_arg_gpu_fence_handle);
+          const result = this.impl.onSubmitFrameGpuFence(params.arg_gpu_fence_handle);
           break;
         }
       }
@@ -1840,7 +1840,7 @@ mojo.internal.bindings.device.mojom.XRSessionClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.XRSessionClient_OnExitPresent_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1849,7 +1849,7 @@ mojo.internal.bindings.device.mojom.XRSessionClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec,
       null,
-      [arg_visibility_state],
+      { arg_visibility_state: arg_visibility_state },
       false);
   }
 
@@ -1926,7 +1926,7 @@ mojo.internal.bindings.device.mojom.XRSessionClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVisibilityStateChanged');
-          const result = this.impl.onVisibilityStateChanged(params.arg_arg_visibility_state);
+          const result = this.impl.onVisibilityStateChanged(params.arg_visibility_state);
           break;
         }
       }
@@ -1999,7 +1999,7 @@ mojo.internal.bindings.device.mojom.XRLayerManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec,
       mojo.internal.bindings.device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec,
-      [arg_create_data],
+      { arg_create_data: arg_create_data },
       false);
   }
 
@@ -2008,7 +2008,7 @@ mojo.internal.bindings.device.mojom.XRLayerManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec,
       null,
-      [arg_layer_id],
+      { arg_layer_id: arg_layer_id },
       false);
   }
 
@@ -2017,7 +2017,7 @@ mojo.internal.bindings.device.mojom.XRLayerManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec,
       null,
-      [arg_layer_id, arg_update_data],
+      { arg_layer_id: arg_layer_id, arg_update_data: arg_update_data },
       false);
   }
 
@@ -2026,7 +2026,7 @@ mojo.internal.bindings.device.mojom.XRLayerManagerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec,
       null,
-      [arg_layer_ids],
+      { arg_layer_ids: arg_layer_ids },
       false);
   }
 
@@ -2098,13 +2098,13 @@ mojo.internal.bindings.device.mojom.XRLayerManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCompositionLayer');
-          const result = this.impl.createCompositionLayer(params.arg_arg_create_data);
+          const result = this.impl.createCompositionLayer(params.arg_create_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_code' in response) ? response.arg_arg_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_code' in response) ? response.arg_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec.$.structSpec, { 'arg_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createCompositionLayer FAILED:', e));
           }
@@ -2114,21 +2114,21 @@ mojo.internal.bindings.device.mojom.XRLayerManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.destroyCompositionLayer');
-          const result = this.impl.destroyCompositionLayer(params.arg_arg_layer_id);
+          const result = this.impl.destroyCompositionLayer(params.arg_layer_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateCompositionLayer');
-          const result = this.impl.updateCompositionLayer(params.arg_arg_layer_id, params.arg_arg_update_data);
+          const result = this.impl.updateCompositionLayer(params.arg_layer_id, params.arg_update_data);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setEnabledCompositionLayers');
-          const result = this.impl.setEnabledCompositionLayers(params.arg_arg_layer_ids);
+          const result = this.impl.setEnabledCompositionLayers(params.arg_layer_ids);
           break;
         }
       }
@@ -2193,7 +2193,7 @@ mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec,
       null,
-      [arg_xrframe_statistics],
+      { arg_xrframe_statistics: arg_xrframe_statistics },
       false);
   }
 
@@ -2202,7 +2202,7 @@ mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec,
       null,
-      [arg_xrlogging_statistics],
+      { arg_xrlogging_statistics: arg_xrlogging_statistics },
       false);
   }
 
@@ -2272,14 +2272,14 @@ mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameData');
-          const result = this.impl.onFrameData(params.arg_arg_xrframe_statistics);
+          const result = this.impl.onFrameData(params.arg_xrframe_statistics);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConsoleLog');
-          const result = this.impl.onConsoleLog(params.arg_arg_xrlogging_statistics);
+          const result = this.impl.onConsoleLog(params.arg_xrlogging_statistics);
           break;
         }
       }

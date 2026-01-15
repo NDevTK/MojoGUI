@@ -234,7 +234,7 @@ mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec,
       mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -308,8 +308,8 @@ mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_free_remaining_bytes' in response) ? response.arg_arg_free_remaining_bytes : response;
-              encoder.encodeStructInline(mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_free_remaining_bytes' in response) ? response.arg_free_remaining_bytes : response;
+              encoder.encodeStructInline(mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec.$.structSpec, { 'arg_free_remaining_bytes': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDriveFsFreeSpaceBytes FAILED:', e));
           }
@@ -373,7 +373,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceClientRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec,
       null,
-      [arg_status, arg_thumbnail],
+      { arg_status: arg_status, arg_thumbnail: arg_thumbnail },
       false);
   }
 
@@ -442,7 +442,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRecordingEnded');
-          const result = this.impl.onRecordingEnded(params.arg_arg_status, params.arg_arg_thumbnail);
+          const result = this.impl.onRecordingEnded(params.arg_status, params.arg_thumbnail);
           break;
         }
       }
@@ -527,7 +527,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.recording.mojom.RecordingService_RecordFullscreen_ParamsSpec,
       null,
-      [arg_client, arg_video_capturer, arg_microphone_stream_factory, arg_system_audio_stream_factory, arg_drive_fs_quota_delegate, arg_output_file_path, arg_frame_sink_id, arg_frame_sink_size_dip, arg_device_scale_factor],
+      { arg_client: arg_client, arg_video_capturer: arg_video_capturer, arg_microphone_stream_factory: arg_microphone_stream_factory, arg_system_audio_stream_factory: arg_system_audio_stream_factory, arg_drive_fs_quota_delegate: arg_drive_fs_quota_delegate, arg_output_file_path: arg_output_file_path, arg_frame_sink_id: arg_frame_sink_id, arg_frame_sink_size_dip: arg_frame_sink_size_dip, arg_device_scale_factor: arg_device_scale_factor },
       false);
   }
 
@@ -536,7 +536,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.recording.mojom.RecordingService_RecordWindow_ParamsSpec,
       null,
-      [arg_client, arg_video_capturer, arg_microphone_stream_factory, arg_system_audio_stream_factory, arg_drive_fs_quota_delegate, arg_output_file_path, arg_frame_sink_id, arg_frame_sink_size_dip, arg_device_scale_factor, arg_subtree_capture_id, arg_window_size_dip],
+      { arg_client: arg_client, arg_video_capturer: arg_video_capturer, arg_microphone_stream_factory: arg_microphone_stream_factory, arg_system_audio_stream_factory: arg_system_audio_stream_factory, arg_drive_fs_quota_delegate: arg_drive_fs_quota_delegate, arg_output_file_path: arg_output_file_path, arg_frame_sink_id: arg_frame_sink_id, arg_frame_sink_size_dip: arg_frame_sink_size_dip, arg_device_scale_factor: arg_device_scale_factor, arg_subtree_capture_id: arg_subtree_capture_id, arg_window_size_dip: arg_window_size_dip },
       false);
   }
 
@@ -545,7 +545,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.recording.mojom.RecordingService_RecordRegion_ParamsSpec,
       null,
-      [arg_client, arg_video_capturer, arg_microphone_stream_factory, arg_system_audio_stream_factory, arg_drive_fs_quota_delegate, arg_output_file_path, arg_frame_sink_id, arg_frame_sink_size_dip, arg_device_scale_factor, arg_crop_region_dip],
+      { arg_client: arg_client, arg_video_capturer: arg_video_capturer, arg_microphone_stream_factory: arg_microphone_stream_factory, arg_system_audio_stream_factory: arg_system_audio_stream_factory, arg_drive_fs_quota_delegate: arg_drive_fs_quota_delegate, arg_output_file_path: arg_output_file_path, arg_frame_sink_id: arg_frame_sink_id, arg_frame_sink_size_dip: arg_frame_sink_size_dip, arg_device_scale_factor: arg_device_scale_factor, arg_crop_region_dip: arg_crop_region_dip },
       false);
   }
 
@@ -554,7 +554,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.recording.mojom.RecordingService_StopRecording_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -563,7 +563,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec,
       null,
-      [arg_new_frame_sink_id, arg_new_frame_sink_size_dip, arg_new_device_scale_factor],
+      { arg_new_frame_sink_id: arg_new_frame_sink_id, arg_new_frame_sink_size_dip: arg_new_frame_sink_size_dip, arg_new_device_scale_factor: arg_new_device_scale_factor },
       false);
   }
 
@@ -572,7 +572,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec,
       null,
-      [arg_new_window_size_dip],
+      { arg_new_window_size_dip: arg_new_window_size_dip },
       false);
   }
 
@@ -581,7 +581,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec,
       null,
-      [arg_new_frame_sink_size_dip, arg_new_device_scale_factor],
+      { arg_new_frame_sink_size_dip: arg_new_frame_sink_size_dip, arg_new_device_scale_factor: arg_new_device_scale_factor },
       false);
   }
 
@@ -656,21 +656,21 @@ mojo.internal.bindings.recording.mojom.RecordingServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingService_RecordFullscreen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordFullscreen');
-          const result = this.impl.recordFullscreen(params.arg_arg_client, params.arg_arg_video_capturer, params.arg_arg_microphone_stream_factory, params.arg_arg_system_audio_stream_factory, params.arg_arg_drive_fs_quota_delegate, params.arg_arg_output_file_path, params.arg_arg_frame_sink_id, params.arg_arg_frame_sink_size_dip, params.arg_arg_device_scale_factor);
+          const result = this.impl.recordFullscreen(params.arg_client, params.arg_video_capturer, params.arg_microphone_stream_factory, params.arg_system_audio_stream_factory, params.arg_drive_fs_quota_delegate, params.arg_output_file_path, params.arg_frame_sink_id, params.arg_frame_sink_size_dip, params.arg_device_scale_factor);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingService_RecordWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordWindow');
-          const result = this.impl.recordWindow(params.arg_arg_client, params.arg_arg_video_capturer, params.arg_arg_microphone_stream_factory, params.arg_arg_system_audio_stream_factory, params.arg_arg_drive_fs_quota_delegate, params.arg_arg_output_file_path, params.arg_arg_frame_sink_id, params.arg_arg_frame_sink_size_dip, params.arg_arg_device_scale_factor, params.arg_arg_subtree_capture_id, params.arg_arg_window_size_dip);
+          const result = this.impl.recordWindow(params.arg_client, params.arg_video_capturer, params.arg_microphone_stream_factory, params.arg_system_audio_stream_factory, params.arg_drive_fs_quota_delegate, params.arg_output_file_path, params.arg_frame_sink_id, params.arg_frame_sink_size_dip, params.arg_device_scale_factor, params.arg_subtree_capture_id, params.arg_window_size_dip);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingService_RecordRegion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordRegion');
-          const result = this.impl.recordRegion(params.arg_arg_client, params.arg_arg_video_capturer, params.arg_arg_microphone_stream_factory, params.arg_arg_system_audio_stream_factory, params.arg_arg_drive_fs_quota_delegate, params.arg_arg_output_file_path, params.arg_arg_frame_sink_id, params.arg_arg_frame_sink_size_dip, params.arg_arg_device_scale_factor, params.arg_arg_crop_region_dip);
+          const result = this.impl.recordRegion(params.arg_client, params.arg_video_capturer, params.arg_microphone_stream_factory, params.arg_system_audio_stream_factory, params.arg_drive_fs_quota_delegate, params.arg_output_file_path, params.arg_frame_sink_id, params.arg_frame_sink_size_dip, params.arg_device_scale_factor, params.arg_crop_region_dip);
           break;
         }
         case 3: {
@@ -684,21 +684,21 @@ mojo.internal.bindings.recording.mojom.RecordingServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRecordedWindowChangingRoot');
-          const result = this.impl.onRecordedWindowChangingRoot(params.arg_arg_new_frame_sink_id, params.arg_arg_new_frame_sink_size_dip, params.arg_arg_new_device_scale_factor);
+          const result = this.impl.onRecordedWindowChangingRoot(params.arg_new_frame_sink_id, params.arg_new_frame_sink_size_dip, params.arg_new_device_scale_factor);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRecordedWindowSizeChanged');
-          const result = this.impl.onRecordedWindowSizeChanged(params.arg_arg_new_window_size_dip);
+          const result = this.impl.onRecordedWindowSizeChanged(params.arg_new_window_size_dip);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameSinkSizeChanged');
-          const result = this.impl.onFrameSinkSizeChanged(params.arg_arg_new_frame_sink_size_dip, params.arg_arg_new_device_scale_factor);
+          const result = this.impl.onFrameSinkSizeChanged(params.arg_new_frame_sink_size_dip, params.arg_new_device_scale_factor);
           break;
         }
       }

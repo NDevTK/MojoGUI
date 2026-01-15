@@ -188,7 +188,7 @@ mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactoryRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -322,7 +322,7 @@ mojo.internal.bindings.chrome_urls.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec,
       mojo.internal.bindings.chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -331,7 +331,7 @@ mojo.internal.bindings.chrome_urls.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec,
       mojo.internal.bindings.chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParamsSpec,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -406,8 +406,8 @@ mojo.internal.bindings.chrome_urls.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_urls_data' in response) ? response.arg_arg_urls_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_urls_data' in response) ? response.arg_urls_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec.$.structSpec, { 'arg_urls_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUrls FAILED:', e));
           }
@@ -417,12 +417,12 @@ mojo.internal.bindings.chrome_urls.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDebugPagesEnabled');
-          const result = this.impl.setDebugPagesEnabled(params.arg_arg_enabled);
+          const result = this.impl.setDebugPagesEnabled(params.arg_enabled);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setDebugPagesEnabled FAILED:', e));
           }

@@ -267,7 +267,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec,
       null,
-      [arg_text, arg_as_character],
+      { arg_text: arg_text, arg_as_character: arg_as_character },
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec,
       null,
-      [arg_range],
+      { arg_range: arg_range },
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec,
       null,
-      [arg_text, arg_selected_range, arg_replacement_range],
+      { arg_text: arg_text, arg_selected_range: arg_selected_range, arg_replacement_range: arg_replacement_range },
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -357,7 +357,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -366,7 +366,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec,
-      [arg_requested_range],
+      { arg_requested_range: arg_requested_range },
       false);
   }
 
@@ -375,7 +375,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec,
-      [arg_requested_range],
+      { arg_requested_range: arg_requested_range },
       false);
   }
 
@@ -384,7 +384,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec,
-      [arg_command],
+      { arg_command: arg_command },
       false);
   }
 
@@ -393,7 +393,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec,
       null,
-      [arg_command],
+      { arg_command: arg_command },
       false);
   }
 
@@ -481,8 +481,8 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_has_client' in response) ? response.arg_arg_has_client : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_has_client' in response) ? response.arg_has_client : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec.$.structSpec, { 'arg_has_client': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] hasClient FAILED:', e));
           }
@@ -497,8 +497,8 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_has_input_context' in response) ? response.arg_arg_has_input_context : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_has_input_context' in response) ? response.arg_has_input_context : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec.$.structSpec, { 'arg_has_input_context': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] hasInputContext FAILED:', e));
           }
@@ -513,8 +513,8 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_rtl' in response) ? response.arg_arg_is_rtl : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_rtl' in response) ? response.arg_is_rtl : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec.$.structSpec, { 'arg_is_rtl': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isRTL FAILED:', e));
           }
@@ -529,8 +529,8 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_range' in response) ? response.arg_arg_range : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_range' in response) ? response.arg_range : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec.$.structSpec, { 'arg_range': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSelectionRange FAILED:', e));
           }
@@ -545,7 +545,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_text']);
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_text': response.arg_text });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSelectionText FAILED:', e));
           }
@@ -555,21 +555,21 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.insertText');
-          const result = this.impl.insertText(params.arg_arg_text, params.arg_arg_as_character);
+          const result = this.impl.insertText(params.arg_text, params.arg_as_character);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteRange');
-          const result = this.impl.deleteRange(params.arg_arg_range);
+          const result = this.impl.deleteRange(params.arg_range);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCompositionText');
-          const result = this.impl.setCompositionText(params.arg_arg_text, params.arg_arg_selected_range, params.arg_arg_replacement_range);
+          const result = this.impl.setCompositionText(params.arg_text, params.arg_selected_range, params.arg_replacement_range);
           break;
         }
         case 8: {
@@ -588,8 +588,8 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_has_composition_text' in response) ? response.arg_arg_has_composition_text : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_has_composition_text' in response) ? response.arg_has_composition_text : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec.$.structSpec, { 'arg_has_composition_text': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] hasCompositionText FAILED:', e));
           }
@@ -604,8 +604,8 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_composition_range' in response) ? response.arg_arg_composition_range : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_composition_range' in response) ? response.arg_composition_range : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec.$.structSpec, { 'arg_composition_range': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCompositionTextRange FAILED:', e));
           }
@@ -615,12 +615,12 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAttributedSubstringForRange');
-          const result = this.impl.getAttributedSubstringForRange(params.arg_arg_requested_range);
+          const result = this.impl.getAttributedSubstringForRange(params.arg_requested_range);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec.$.structSpec, ['response.arg_arg_text', 'response.arg_arg_actual_range']);
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec.$.structSpec, { 'arg_text': response.arg_text, 'arg_actual_range': response.arg_actual_range });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAttributedSubstringForRange FAILED:', e));
           }
@@ -630,12 +630,12 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFirstRectForRange');
-          const result = this.impl.getFirstRectForRange(params.arg_arg_requested_range);
+          const result = this.impl.getFirstRectForRange(params.arg_requested_range);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec.$.structSpec, ['response.arg_arg_rect', 'response.arg_arg_actual_range']);
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec.$.structSpec, { 'arg_rect': response.arg_rect, 'arg_actual_range': response.arg_actual_range });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFirstRectForRange FAILED:', e));
           }
@@ -645,13 +645,13 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isTextEditCommandEnabled');
-          const result = this.impl.isTextEditCommandEnabled(params.arg_arg_command);
+          const result = this.impl.isTextEditCommandEnabled(params.arg_command);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_enabled' in response) ? response.arg_arg_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_enabled' in response) ? response.arg_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec.$.structSpec, { 'arg_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isTextEditCommandEnabled FAILED:', e));
           }
@@ -661,7 +661,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTextEditCommandForNextKeyEvent');
-          const result = this.impl.setTextEditCommandForNextKeyEvent(params.arg_arg_command);
+          const result = this.impl.setTextEditCommandForNextKeyEvent(params.arg_command);
           break;
         }
       }

@@ -202,7 +202,7 @@ mojo.internal.bindings.extensions.mojom.RendererHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec,
       null,
-      [arg_extension_id, arg_call_name, arg_args, arg_extra],
+      { arg_extension_id: arg_extension_id, arg_call_name: arg_call_name, arg_args: arg_args, arg_extra: arg_extra },
       false);
   }
 
@@ -211,7 +211,7 @@ mojo.internal.bindings.extensions.mojom.RendererHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec,
       null,
-      [arg_extension_id, arg_call_name, arg_args, arg_extra],
+      { arg_extension_id: arg_extension_id, arg_call_name: arg_call_name, arg_args: arg_args, arg_extra: arg_extra },
       false);
   }
 
@@ -220,7 +220,7 @@ mojo.internal.bindings.extensions.mojom.RendererHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec,
       null,
-      [arg_extension_id, arg_call_name, arg_args, arg_url, arg_url_title, arg_call_type],
+      { arg_extension_id: arg_extension_id, arg_call_name: arg_call_name, arg_args: arg_args, arg_url: arg_url, arg_url_title: arg_url_title, arg_call_type: arg_call_type },
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.extensions.mojom.RendererHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec,
-      [arg_extension_id],
+      { arg_extension_id: arg_extension_id },
       false);
   }
 
@@ -301,34 +301,34 @@ mojo.internal.bindings.extensions.mojom.RendererHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addAPIActionToActivityLog');
-          const result = this.impl.addAPIActionToActivityLog(params.arg_arg_extension_id, params.arg_arg_call_name, params.arg_arg_args, params.arg_arg_extra);
+          const result = this.impl.addAPIActionToActivityLog(params.arg_extension_id, params.arg_call_name, params.arg_args, params.arg_extra);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addEventToActivityLog');
-          const result = this.impl.addEventToActivityLog(params.arg_arg_extension_id, params.arg_arg_call_name, params.arg_arg_args, params.arg_arg_extra);
+          const result = this.impl.addEventToActivityLog(params.arg_extension_id, params.arg_call_name, params.arg_args, params.arg_extra);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDOMActionToActivityLog');
-          const result = this.impl.addDOMActionToActivityLog(params.arg_arg_extension_id, params.arg_arg_call_name, params.arg_arg_args, params.arg_arg_url, params.arg_arg_url_title, params.arg_arg_call_type);
+          const result = this.impl.addDOMActionToActivityLog(params.arg_extension_id, params.arg_call_name, params.arg_args, params.arg_url, params.arg_url_title, params.arg_call_type);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMessageBundle');
-          const result = this.impl.getMessageBundle(params.arg_arg_extension_id);
+          const result = this.impl.getMessageBundle(params.arg_extension_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_message_map' in response) ? response.arg_arg_message_map : response;
-              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_message_map' in response) ? response.arg_message_map : response;
+              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec.$.structSpec, { 'arg_message_map': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMessageBundle FAILED:', e));
           }

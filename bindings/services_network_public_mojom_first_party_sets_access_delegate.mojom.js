@@ -185,7 +185,7 @@ mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec,
       null,
-      [arg_ready_event],
+      { arg_ready_event: arg_ready_event },
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -264,14 +264,14 @@ mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyReady');
-          const result = this.impl.notifyReady(params.arg_arg_ready_event);
+          const result = this.impl.notifyReady(params.arg_ready_event);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setEnabled');
-          const result = this.impl.setEnabled(params.arg_arg_enabled);
+          const result = this.impl.setEnabled(params.arg_enabled);
           break;
         }
       }

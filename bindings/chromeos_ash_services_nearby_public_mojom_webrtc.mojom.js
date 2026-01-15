@@ -196,7 +196,7 @@ mojo.internal.bindings.sharing.mojom.IceConfigFetcherRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec,
       mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -270,8 +270,8 @@ mojo.internal.bindings.sharing.mojom.IceConfigFetcherReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_ice_servers' in response) ? response.arg_arg_ice_servers : response;
-              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_ice_servers' in response) ? response.arg_ice_servers : response;
+              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec.$.structSpec, { 'arg_ice_servers': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getIceServers FAILED:', e));
           }
@@ -335,7 +335,7 @@ mojo.internal.bindings.sharing.mojom.MdnsResponderFactoryRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec,
       null,
-      [arg_responder_receiver],
+      { arg_responder_receiver: arg_responder_receiver },
       false);
   }
 
@@ -404,7 +404,7 @@ mojo.internal.bindings.sharing.mojom.MdnsResponderFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createMdnsResponder');
-          const result = this.impl.createMdnsResponder(params.arg_arg_responder_receiver);
+          const result = this.impl.createMdnsResponder(params.arg_responder_receiver);
           break;
         }
       }

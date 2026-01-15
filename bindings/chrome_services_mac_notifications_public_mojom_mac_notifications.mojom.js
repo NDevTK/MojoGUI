@@ -253,7 +253,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec,
       null,
-      [arg_notification],
+      { arg_notification: arg_notification },
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec,
       mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec,
-      [arg_profile, arg_origin],
+      { arg_profile: arg_profile, arg_origin: arg_origin },
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec,
       null,
-      [arg_identifier],
+      { arg_identifier: arg_identifier },
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceRemoteCallH
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec,
       null,
-      [arg_profile],
+      { arg_profile: arg_profile },
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceRemoteCallH
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -298,7 +298,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceRemoteCallH
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec,
       mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -372,20 +372,20 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.displayNotification');
-          const result = this.impl.displayNotification(params.arg_arg_notification);
+          const result = this.impl.displayNotification(params.arg_notification);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDisplayedNotifications');
-          const result = this.impl.getDisplayedNotifications(params.arg_arg_profile, params.arg_arg_origin);
+          const result = this.impl.getDisplayedNotifications(params.arg_profile, params.arg_origin);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_notifications' in response) ? response.arg_arg_notifications : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_notifications' in response) ? response.arg_notifications : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec.$.structSpec, { 'arg_notifications': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDisplayedNotifications FAILED:', e));
           }
@@ -395,14 +395,14 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeNotification');
-          const result = this.impl.closeNotification(params.arg_arg_identifier);
+          const result = this.impl.closeNotification(params.arg_identifier);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeNotificationsForProfile');
-          const result = this.impl.closeNotificationsForProfile(params.arg_arg_profile);
+          const result = this.impl.closeNotificationsForProfile(params.arg_profile);
           break;
         }
         case 4: {
@@ -421,8 +421,8 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceReceiver = 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_can_terminate' in response) ? response.arg_arg_can_terminate : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_can_terminate' in response) ? response.arg_can_terminate : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec.$.structSpec, { 'arg_can_terminate': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] okayToTerminateService FAILED:', e));
           }
@@ -486,7 +486,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec,
       null,
-      [arg_info],
+      { arg_info: arg_info },
       false);
   }
 
@@ -555,7 +555,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNotificationAction');
-          const result = this.impl.onNotificationAction(params.arg_arg_info);
+          const result = this.impl.onNotificationAction(params.arg_info);
           break;
         }
       }
@@ -616,7 +616,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationProviderRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec,
       null,
-      [arg_service, arg_handler],
+      { arg_service: arg_service, arg_handler: arg_handler },
       false);
   }
 
@@ -685,7 +685,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationProviderReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindNotificationService');
-          const result = this.impl.bindNotificationService(params.arg_arg_service, params.arg_arg_handler);
+          const result = this.impl.bindNotificationService(params.arg_service, params.arg_handler);
           break;
         }
       }

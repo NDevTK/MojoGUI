@@ -188,7 +188,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBClientStateCheckerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec,
-      [arg_connection_id, arg_reason, arg_keep_active],
+      { arg_connection_id: arg_connection_id, arg_reason: arg_reason, arg_keep_active: arg_keep_active },
       false);
   }
 
@@ -197,7 +197,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBClientStateCheckerRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -267,13 +267,13 @@ mojo.internal.bindings.storage.mojom.IndexedDBClientStateCheckerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disallowInactiveClient');
-          const result = this.impl.disallowInactiveClient(params.arg_arg_connection_id, params.arg_arg_reason, params.arg_arg_keep_active);
+          const result = this.impl.disallowInactiveClient(params.arg_connection_id, params.arg_reason, params.arg_keep_active);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_was_active' in response) ? response.arg_arg_was_active : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_was_active' in response) ? response.arg_was_active : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec.$.structSpec, { 'arg_was_active': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] disallowInactiveClient FAILED:', e));
           }
@@ -283,7 +283,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBClientStateCheckerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.makeClone');
-          const result = this.impl.makeClone(params.arg_arg_receiver);
+          const result = this.impl.makeClone(params.arg_receiver);
           break;
         }
       }

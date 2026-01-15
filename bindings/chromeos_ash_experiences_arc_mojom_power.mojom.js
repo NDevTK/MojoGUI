@@ -261,7 +261,7 @@ mojo.internal.bindings.arc.mojom.PowerHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec,
       null,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -270,7 +270,7 @@ mojo.internal.bindings.arc.mojom.PowerHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec,
       null,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -279,7 +279,7 @@ mojo.internal.bindings.arc.mojom.PowerHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec,
       null,
-      [arg_mode],
+      { arg_mode: arg_mode },
       false);
   }
 
@@ -288,7 +288,7 @@ mojo.internal.bindings.arc.mojom.PowerHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerHost_IsDisplayOn_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -297,7 +297,7 @@ mojo.internal.bindings.arc.mojom.PowerHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec,
       null,
-      [arg_percent],
+      { arg_percent: arg_percent },
       false);
   }
 
@@ -306,7 +306,7 @@ mojo.internal.bindings.arc.mojom.PowerHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerHost_OnPreAnr_ParamsSpec,
       null,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -315,7 +315,7 @@ mojo.internal.bindings.arc.mojom.PowerHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec,
       null,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -324,7 +324,7 @@ mojo.internal.bindings.arc.mojom.PowerHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -400,21 +400,21 @@ mojo.internal.bindings.arc.mojom.PowerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAcquireDisplayWakeLock');
-          const result = this.impl.onAcquireDisplayWakeLock(params.arg_arg_type);
+          const result = this.impl.onAcquireDisplayWakeLock(params.arg_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReleaseDisplayWakeLock');
-          const result = this.impl.onReleaseDisplayWakeLock(params.arg_arg_type);
+          const result = this.impl.onReleaseDisplayWakeLock(params.arg_type);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWakefulnessChanged');
-          const result = this.impl.onWakefulnessChanged(params.arg_arg_mode);
+          const result = this.impl.onWakefulnessChanged(params.arg_mode);
           break;
         }
         case 3: {
@@ -426,8 +426,8 @@ mojo.internal.bindings.arc.mojom.PowerHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_on' in response) ? response.arg_arg_is_on : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_on' in response) ? response.arg_is_on : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec.$.structSpec, { 'arg_is_on': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isDisplayOn FAILED:', e));
           }
@@ -437,21 +437,21 @@ mojo.internal.bindings.arc.mojom.PowerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScreenBrightnessUpdateRequest');
-          const result = this.impl.onScreenBrightnessUpdateRequest(params.arg_arg_percent);
+          const result = this.impl.onScreenBrightnessUpdateRequest(params.arg_percent);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_OnPreAnr_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPreAnr');
-          const result = this.impl.onPreAnr(params.arg_arg_type);
+          const result = this.impl.onPreAnr(params.arg_type);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAnrRecoveryFailed');
-          const result = this.impl.onAnrRecoveryFailed(params.arg_arg_type);
+          const result = this.impl.onAnrRecoveryFailed(params.arg_type);
           break;
         }
         case 7: {
@@ -463,8 +463,8 @@ mojo.internal.bindings.arc.mojom.PowerHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response.arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec.$.structSpec, { 'arg_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getBatterySaverModeState FAILED:', e));
           }
@@ -564,7 +564,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PowerInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -573,7 +573,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -582,7 +582,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerInstance_Suspend_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PowerInstance_Suspend_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -591,7 +591,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerInstance_Resume_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -600,7 +600,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec,
       null,
-      [arg_percent],
+      { arg_percent: arg_percent },
       false);
   }
 
@@ -609,7 +609,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -618,7 +618,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -627,7 +627,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -636,7 +636,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -645,7 +645,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerInstance_SetIdleState_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -723,12 +723,12 @@ mojo.internal.bindings.arc.mojom.PowerInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -738,7 +738,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInteractiveDeprecated');
-          const result = this.impl.setInteractiveDeprecated(params.arg_arg_enabled);
+          const result = this.impl.setInteractiveDeprecated(params.arg_enabled);
           break;
         }
         case 2: {
@@ -750,7 +750,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_Suspend_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_Suspend_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] suspend FAILED:', e));
           }
@@ -767,7 +767,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateScreenBrightnessSettings');
-          const result = this.impl.updateScreenBrightnessSettings(params.arg_arg_percent);
+          const result = this.impl.updateScreenBrightnessSettings(params.arg_percent);
           break;
         }
         case 5: {
@@ -786,8 +786,8 @@ mojo.internal.bindings.arc.mojom.PowerInstanceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_mode' in response) ? response.arg_arg_mode : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_mode' in response) ? response.arg_mode : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec.$.structSpec, { 'arg_mode': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getWakefulnessMode FAILED:', e));
           }
@@ -797,21 +797,21 @@ mojo.internal.bindings.arc.mojom.PowerInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCpuRestrictionChanged');
-          const result = this.impl.onCpuRestrictionChanged(params.arg_arg_state);
+          const result = this.impl.onCpuRestrictionChanged(params.arg_state);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBatterySaverModeStateChanged');
-          const result = this.impl.onBatterySaverModeStateChanged(params.arg_arg_state);
+          const result = this.impl.onBatterySaverModeStateChanged(params.arg_state);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PowerInstance_SetIdleState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIdleState');
-          const result = this.impl.setIdleState(params.arg_arg_state);
+          const result = this.impl.setIdleState(params.arg_state);
           break;
         }
       }

@@ -205,7 +205,7 @@ mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec,
       mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec,
-      [arg_reason, arg_prompt],
+      { arg_reason: arg_reason, arg_prompt: arg_prompt },
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec,
       mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec,
-      [arg_reason, arg_token],
+      { arg_reason: arg_reason, arg_token: arg_token },
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec,
       null,
-      [arg_token],
+      { arg_token: arg_token },
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec,
       mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec,
-      [arg_rp_id, arg_window_id],
+      { arg_rp_id: arg_rp_id, arg_window_id: arg_window_id },
       false);
   }
 
@@ -304,13 +304,13 @@ mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestToken');
-          const result = this.impl.requestToken(params.arg_arg_reason, params.arg_arg_prompt);
+          const result = this.impl.requestToken(params.arg_reason, params.arg_prompt);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_reply' in response) ? response.arg_arg_reply : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_reply' in response) ? response.arg_reply : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec.$.structSpec, { 'arg_reply': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestToken FAILED:', e));
           }
@@ -320,13 +320,13 @@ mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkToken');
-          const result = this.impl.checkToken(params.arg_arg_reason, params.arg_arg_token);
+          const result = this.impl.checkToken(params.arg_reason, params.arg_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_valid' in response) ? response.arg_arg_valid : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_valid' in response) ? response.arg_valid : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec.$.structSpec, { 'arg_valid': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] checkToken FAILED:', e));
           }
@@ -336,20 +336,20 @@ mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.invalidateToken');
-          const result = this.impl.invalidateToken(params.arg_arg_token);
+          const result = this.impl.invalidateToken(params.arg_token);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestLegacyWebAuthn');
-          const result = this.impl.requestLegacyWebAuthn(params.arg_arg_rp_id, params.arg_arg_window_id);
+          const result = this.impl.requestLegacyWebAuthn(params.arg_rp_id, params.arg_window_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestLegacyWebAuthn FAILED:', e));
           }

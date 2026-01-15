@@ -195,7 +195,7 @@ mojo.internal.bindings.data_sharing_internals.mojom.PageHandlerFactoryRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_sharing_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -264,7 +264,7 @@ mojo.internal.bindings.data_sharing_internals.mojom.PageHandlerFactoryReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_sharing_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -329,7 +329,7 @@ mojo.internal.bindings.data_sharing_internals.mojom.PageHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_sharing_internals.mojom.PageHandler_IsEmptyService_ParamsSpec,
       mojo.internal.bindings.data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -338,7 +338,7 @@ mojo.internal.bindings.data_sharing_internals.mojom.PageHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.data_sharing_internals.mojom.PageHandler_GetAllGroups_ParamsSpec,
       mojo.internal.bindings.data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -413,8 +413,8 @@ mojo.internal.bindings.data_sharing_internals.mojom.PageHandlerReceiver = class 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_empty' in response) ? response.arg_arg_is_empty : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_empty' in response) ? response.arg_is_empty : response;
+              encoder.encodeStructInline(mojo.internal.bindings.data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec.$.structSpec, { 'arg_is_empty': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isEmptyService FAILED:', e));
           }
@@ -429,7 +429,7 @@ mojo.internal.bindings.data_sharing_internals.mojom.PageHandlerReceiver = class 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec.$.structSpec, ['response.arg_arg_is_success', 'response.arg_arg_data']);
+              encoder.encodeStructInline(mojo.internal.bindings.data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec.$.structSpec, { 'arg_is_success': response.arg_is_success, 'arg_data': response.arg_data });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAllGroups FAILED:', e));
           }
@@ -493,7 +493,7 @@ mojo.internal.bindings.data_sharing_internals.mojom.PageRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_sharing_internals.mojom.Page_OnLogMessageAdded_ParamsSpec,
       null,
-      [arg_event_time, arg_log_source, arg_source_file, arg_source_line, arg_message],
+      { arg_event_time: arg_event_time, arg_log_source: arg_log_source, arg_source_file: arg_source_file, arg_source_line: arg_source_line, arg_message: arg_message },
       false);
   }
 
@@ -562,7 +562,7 @@ mojo.internal.bindings.data_sharing_internals.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_sharing_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLogMessageAdded');
-          const result = this.impl.onLogMessageAdded(params.arg_arg_event_time, params.arg_arg_log_source, params.arg_arg_source_file, params.arg_arg_source_line, params.arg_arg_message);
+          const result = this.impl.onLogMessageAdded(params.arg_event_time, params.arg_log_source, params.arg_source_file, params.arg_source_line, params.arg_message);
           break;
         }
       }

@@ -180,7 +180,7 @@ mojo.internal.bindings.data_decoder.mojom.CborParserRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.CborParser_Parse_ParamsSpec,
       mojo.internal.bindings.data_decoder.mojom.CborParser_Parse_ResponseParamsSpec,
-      [arg_cbor],
+      { arg_cbor: arg_cbor },
       false);
   }
 
@@ -249,12 +249,12 @@ mojo.internal.bindings.data_decoder.mojom.CborParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.CborParser_Parse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parse');
-          const result = this.impl.parse(params.arg_arg_cbor);
+          const result = this.impl.parse(params.arg_cbor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.CborParser_Parse_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.CborParser_Parse_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_error': response.arg_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] parse FAILED:', e));
           }

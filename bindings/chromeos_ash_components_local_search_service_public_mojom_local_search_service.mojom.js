@@ -202,7 +202,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec,
       mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec,
-      [arg_index_id],
+      { arg_index_id: arg_index_id },
       false);
   }
 
@@ -271,12 +271,12 @@ mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSearchPerformed');
-          const result = this.impl.onSearchPerformed(params.arg_arg_index_id);
+          const result = this.impl.onSearchPerformed(params.arg_index_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onSearchPerformed FAILED:', e));
           }
@@ -340,7 +340,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServiceRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec,
       mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec,
-      [arg_index_id, arg_backend, arg_index_receiver, arg_reporter_remote],
+      { arg_index_id: arg_index_id, arg_backend: arg_backend, arg_index_receiver: arg_index_receiver, arg_reporter_remote: arg_reporter_remote },
       false);
   }
 
@@ -409,13 +409,13 @@ mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServiceReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindIndex');
-          const result = this.impl.bindIndex(params.arg_arg_index_id, params.arg_arg_backend, params.arg_arg_index_receiver, params.arg_arg_reporter_remote);
+          const result = this.impl.bindIndex(params.arg_index_id, params.arg_backend, params.arg_index_receiver, params.arg_reporter_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] bindIndex FAILED:', e));
           }

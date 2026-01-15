@@ -195,7 +195,7 @@ mojo.internal.bindings.data_decoder.mojom.GzipperRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ParamsSpec,
       mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.data_decoder.mojom.GzipperRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ParamsSpec,
       mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec,
-      [arg_data, arg_max_uncompressed_size],
+      { arg_data: arg_data, arg_max_uncompressed_size: arg_max_uncompressed_size },
       false);
   }
 
@@ -213,7 +213,7 @@ mojo.internal.bindings.data_decoder.mojom.GzipperRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ParamsSpec,
       mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.data_decoder.mojom.GzipperRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ParamsSpec,
       mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec,
-      [arg_compressed_data],
+      { arg_compressed_data: arg_compressed_data },
       false);
   }
 
@@ -294,13 +294,13 @@ mojo.internal.bindings.data_decoder.mojom.GzipperReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deflate');
-          const result = this.impl.deflate(params.arg_arg_data);
+          const result = this.impl.deflate(params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_deflated_data' in response) ? response.arg_arg_deflated_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_deflated_data' in response) ? response.arg_deflated_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec.$.structSpec, { 'arg_deflated_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deflate FAILED:', e));
           }
@@ -310,13 +310,13 @@ mojo.internal.bindings.data_decoder.mojom.GzipperReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.inflate');
-          const result = this.impl.inflate(params.arg_arg_data, params.arg_arg_max_uncompressed_size);
+          const result = this.impl.inflate(params.arg_data, params.arg_max_uncompressed_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_inflated_data' in response) ? response.arg_arg_inflated_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_inflated_data' in response) ? response.arg_inflated_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec.$.structSpec, { 'arg_inflated_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] inflate FAILED:', e));
           }
@@ -326,13 +326,13 @@ mojo.internal.bindings.data_decoder.mojom.GzipperReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.compress');
-          const result = this.impl.compress(params.arg_arg_data);
+          const result = this.impl.compress(params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_compressed_data' in response) ? response.arg_arg_compressed_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_compressed_data' in response) ? response.arg_compressed_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec.$.structSpec, { 'arg_compressed_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] compress FAILED:', e));
           }
@@ -342,13 +342,13 @@ mojo.internal.bindings.data_decoder.mojom.GzipperReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.uncompress');
-          const result = this.impl.uncompress(params.arg_arg_compressed_data);
+          const result = this.impl.uncompress(params.arg_compressed_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] uncompress FAILED:', e));
           }

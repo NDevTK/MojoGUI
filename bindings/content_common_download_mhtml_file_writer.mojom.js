@@ -198,7 +198,7 @@ mojo.internal.bindings.content.mojom.MhtmlFileWriterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec,
       mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -267,12 +267,12 @@ mojo.internal.bindings.content.mojom.MhtmlFileWriterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.serializeAsMHTML');
-          const result = this.impl.serializeAsMHTML(params.arg_arg_params);
+          const result = this.impl.serializeAsMHTML(params.arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_digests_of_uris_to_skip']);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_digests_of_uris_to_skip': response.arg_digests_of_uris_to_skip });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] serializeAsMHTML FAILED:', e));
           }

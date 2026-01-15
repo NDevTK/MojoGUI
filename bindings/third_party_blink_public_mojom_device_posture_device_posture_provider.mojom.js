@@ -192,7 +192,7 @@ mojo.internal.bindings.blink.mojom.DevicePostureProviderRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -201,7 +201,7 @@ mojo.internal.bindings.blink.mojom.DevicePostureProviderRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec,
       null,
-      [arg_posture],
+      { arg_posture: arg_posture },
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.blink.mojom.DevicePostureProviderRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -281,13 +281,13 @@ mojo.internal.bindings.blink.mojom.DevicePostureProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addListenerAndGetCurrentPosture');
-          const result = this.impl.addListenerAndGetCurrentPosture(params.arg_arg_client);
+          const result = this.impl.addListenerAndGetCurrentPosture(params.arg_client);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_posture' in response) ? response.arg_arg_posture : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_posture' in response) ? response.arg_posture : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec.$.structSpec, { 'arg_posture': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addListenerAndGetCurrentPosture FAILED:', e));
           }
@@ -297,7 +297,7 @@ mojo.internal.bindings.blink.mojom.DevicePostureProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.overrideDevicePostureForEmulation');
-          const result = this.impl.overrideDevicePostureForEmulation(params.arg_arg_posture);
+          const result = this.impl.overrideDevicePostureForEmulation(params.arg_posture);
           break;
         }
         case 2: {
@@ -365,7 +365,7 @@ mojo.internal.bindings.blink.mojom.DevicePostureClientRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec,
       null,
-      [arg_posture],
+      { arg_posture: arg_posture },
       false);
   }
 
@@ -434,7 +434,7 @@ mojo.internal.bindings.blink.mojom.DevicePostureClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPostureChanged');
-          const result = this.impl.onPostureChanged(params.arg_arg_posture);
+          const result = this.impl.onPostureChanged(params.arg_posture);
           break;
         }
       }

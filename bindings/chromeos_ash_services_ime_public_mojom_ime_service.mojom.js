@@ -215,7 +215,7 @@ mojo.internal.bindings.ash.ime.mojom.InputEngineManagerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec,
-      [arg_ime_spec, arg_to_engine_request, arg_from_engine, arg_extra],
+      { arg_ime_spec: arg_ime_spec, arg_to_engine_request: arg_to_engine_request, arg_from_engine: arg_from_engine, arg_extra: arg_extra },
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.ash.ime.mojom.InputEngineManagerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec,
-      [arg_connection_factory],
+      { arg_connection_factory: arg_connection_factory },
       false);
   }
 
@@ -294,13 +294,13 @@ mojo.internal.bindings.ash.ime.mojom.InputEngineManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToImeEngine');
-          const result = this.impl.connectToImeEngine(params.arg_arg_ime_spec, params.arg_arg_to_engine_request, params.arg_arg_from_engine, params.arg_arg_extra);
+          const result = this.impl.connectToImeEngine(params.arg_ime_spec, params.arg_to_engine_request, params.arg_from_engine, params.arg_extra);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] connectToImeEngine FAILED:', e));
           }
@@ -310,13 +310,13 @@ mojo.internal.bindings.ash.ime.mojom.InputEngineManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeConnectionFactory');
-          const result = this.impl.initializeConnectionFactory(params.arg_arg_connection_factory);
+          const result = this.impl.initializeConnectionFactory(params.arg_connection_factory);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] initializeConnectionFactory FAILED:', e));
           }
@@ -380,7 +380,7 @@ mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec,
-      [arg_url, arg_file_path],
+      { arg_url: arg_url, arg_file_path: arg_file_path },
       false);
   }
 
@@ -449,13 +449,13 @@ mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.downloadImeFileTo');
-          const result = this.impl.downloadImeFileTo(params.arg_arg_url, params.arg_arg_file_path);
+          const result = this.impl.downloadImeFileTo(params.arg_url, params.arg_file_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_file_path' in response) ? response.arg_arg_file_path : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_file_path' in response) ? response.arg_file_path : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec.$.structSpec, { 'arg_file_path': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] downloadImeFileTo FAILED:', e));
           }
@@ -527,7 +527,7 @@ mojo.internal.bindings.ash.ime.mojom.ImeServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec,
       null,
-      [arg_provider],
+      { arg_provider: arg_provider },
       false);
   }
 
@@ -536,7 +536,7 @@ mojo.internal.bindings.ash.ime.mojom.ImeServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -545,7 +545,7 @@ mojo.internal.bindings.ash.ime.mojom.ImeServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -616,21 +616,21 @@ mojo.internal.bindings.ash.ime.mojom.ImeServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPlatformAccessProvider');
-          const result = this.impl.setPlatformAccessProvider(params.arg_arg_provider);
+          const result = this.impl.setPlatformAccessProvider(params.arg_provider);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindInputEngineManager');
-          const result = this.impl.bindInputEngineManager(params.arg_arg_receiver);
+          const result = this.impl.bindInputEngineManager(params.arg_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindInputMethodUserDataService');
-          const result = this.impl.bindInputMethodUserDataService(params.arg_arg_receiver);
+          const result = this.impl.bindInputMethodUserDataService(params.arg_receiver);
           break;
         }
       }

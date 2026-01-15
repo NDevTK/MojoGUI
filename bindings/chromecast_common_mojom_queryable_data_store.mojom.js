@@ -177,7 +177,7 @@ mojo.internal.bindings.chromecast.shell.mojom.QueryableDataStoreRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec,
       null,
-      [arg_key, arg_value],
+      { arg_key: arg_key, arg_value: arg_value },
       false);
   }
 
@@ -246,7 +246,7 @@ mojo.internal.bindings.chromecast.shell.mojom.QueryableDataStoreReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.set');
-          const result = this.impl.set(params.arg_arg_key, params.arg_arg_value);
+          const result = this.impl.set(params.arg_key, params.arg_value);
           break;
         }
       }

@@ -175,7 +175,7 @@ mojo.internal.bindings.chrome.mojom.FontPrewarmerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec,
       null,
-      [arg_font_names],
+      { arg_font_names: arg_font_names },
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.chrome.mojom.FontPrewarmerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prewarmFonts');
-          const result = this.impl.prewarmFonts(params.arg_arg_font_names);
+          const result = this.impl.prewarmFonts(params.arg_font_names);
           break;
         }
       }
@@ -305,7 +305,7 @@ mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -379,8 +379,8 @@ mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorReceiver = clas
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_font_names' in response) ? response.arg_arg_font_names : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_font_names' in response) ? response.arg_font_names : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec.$.structSpec, { 'arg_font_names': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFontFamilyNames FAILED:', e));
           }

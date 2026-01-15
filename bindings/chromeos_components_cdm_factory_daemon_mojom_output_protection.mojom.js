@@ -199,7 +199,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_QueryStatus_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_EnableProtection_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_EnableProtection_ResponseParamsSpec,
-      [arg_desired_protection],
+      { arg_desired_protection: arg_desired_protection },
       false);
   }
 
@@ -283,7 +283,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_link_mask', 'response.arg_arg_protection']);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_link_mask': response.arg_link_mask, 'arg_protection': response.arg_protection });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] queryStatus FAILED:', e));
           }
@@ -293,13 +293,13 @@ mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_EnableProtection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableProtection');
-          const result = this.impl.enableProtection(params.arg_arg_desired_protection);
+          const result = this.impl.enableProtection(params.arg_desired_protection);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_EnableProtection_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_EnableProtection_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] enableProtection FAILED:', e));
           }

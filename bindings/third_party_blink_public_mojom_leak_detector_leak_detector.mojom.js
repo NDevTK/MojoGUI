@@ -172,7 +172,7 @@ mojo.internal.bindings.blink.mojom.LeakDetectorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec,
       mojo.internal.bindings.blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -246,8 +246,8 @@ mojo.internal.bindings.blink.mojom.LeakDetectorReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] performLeakDetection FAILED:', e));
           }

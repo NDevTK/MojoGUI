@@ -245,7 +245,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec,
       null,
-      [arg_namespace_id, arg_receiver],
+      { arg_namespace_id: arg_namespace_id, arg_receiver: arg_receiver },
       false);
   }
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec,
       null,
-      [arg_storage_key, arg_namespace_id, arg_receiver],
+      { arg_storage_key: arg_storage_key, arg_namespace_id: arg_namespace_id, arg_receiver: arg_receiver },
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ParamsSpec,
       mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec,
       mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ResponseParamsSpec,
-      [arg_storage_key, arg_namespace_id],
+      { arg_storage_key: arg_storage_key, arg_namespace_id: arg_namespace_id },
       false);
   }
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec,
       mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -290,7 +290,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -299,7 +299,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_Flush_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -308,7 +308,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -317,7 +317,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec,
       null,
-      [arg_namespace_id],
+      { arg_namespace_id: arg_namespace_id },
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec,
       null,
-      [arg_namespace_id_to_clone, arg_clone_namespace_id, arg_clone_type],
+      { arg_namespace_id_to_clone: arg_namespace_id_to_clone, arg_clone_namespace_id: arg_clone_namespace_id, arg_clone_type: arg_clone_type },
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec,
       null,
-      [arg_namespace_id, arg_should_persist],
+      { arg_namespace_id: arg_namespace_id, arg_should_persist: arg_should_persist },
       false);
   }
 
@@ -414,14 +414,14 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindNamespace');
-          const result = this.impl.bindNamespace(params.arg_arg_namespace_id, params.arg_arg_receiver);
+          const result = this.impl.bindNamespace(params.arg_namespace_id, params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindStorageArea');
-          const result = this.impl.bindStorageArea(params.arg_arg_storage_key, params.arg_arg_namespace_id, params.arg_arg_receiver);
+          const result = this.impl.bindStorageArea(params.arg_storage_key, params.arg_namespace_id, params.arg_receiver);
           break;
         }
         case 2: {
@@ -433,8 +433,8 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUsage FAILED:', e));
           }
@@ -444,12 +444,12 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteStorage');
-          const result = this.impl.deleteStorage(params.arg_arg_storage_key, params.arg_arg_namespace_id);
+          const result = this.impl.deleteStorage(params.arg_storage_key, params.arg_namespace_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteStorage FAILED:', e));
           }
@@ -464,7 +464,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] cleanUpStorage FAILED:', e));
           }
@@ -495,21 +495,21 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createNamespace');
-          const result = this.impl.createNamespace(params.arg_arg_namespace_id);
+          const result = this.impl.createNamespace(params.arg_namespace_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cloneNamespace');
-          const result = this.impl.cloneNamespace(params.arg_arg_namespace_id_to_clone, params.arg_arg_clone_namespace_id, params.arg_arg_clone_type);
+          const result = this.impl.cloneNamespace(params.arg_namespace_id_to_clone, params.arg_clone_namespace_id, params.arg_clone_type);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteNamespace');
-          const result = this.impl.deleteNamespace(params.arg_arg_namespace_id, params.arg_arg_should_persist);
+          const result = this.impl.deleteNamespace(params.arg_namespace_id, params.arg_should_persist);
           break;
         }
       }

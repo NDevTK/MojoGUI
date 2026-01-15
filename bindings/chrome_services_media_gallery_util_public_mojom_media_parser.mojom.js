@@ -221,7 +221,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec,
-      [arg_mime_type, arg_total_size, arg_get_attached_images, arg_media_data_source],
+      { arg_mime_type: arg_mime_type, arg_total_size: arg_total_size, arg_get_attached_images: arg_get_attached_images, arg_media_data_source: arg_media_data_source },
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec,
-      [arg_decode_time, arg_file],
+      { arg_decode_time: arg_decode_time, arg_file: arg_file },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -310,12 +310,12 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseMediaMetadata');
-          const result = this.impl.parseMediaMetadata(params.arg_arg_mime_type, params.arg_arg_total_size, params.arg_arg_get_attached_images, params.arg_arg_media_data_source);
+          const result = this.impl.parseMediaMetadata(params.arg_mime_type, params.arg_total_size, params.arg_get_attached_images, params.arg_media_data_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec.$.structSpec, ['response.arg_arg_parse_success', 'response.arg_arg_metadata', 'response.arg_arg_attached_images']);
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec.$.structSpec, { 'arg_parse_success': response.arg_parse_success, 'arg_metadata': response.arg_metadata, 'arg_attached_images': response.arg_attached_images });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] parseMediaMetadata FAILED:', e));
           }
@@ -325,13 +325,13 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkMediaFile');
-          const result = this.impl.checkMediaFile(params.arg_arg_decode_time, params.arg_arg_file);
+          const result = this.impl.checkMediaFile(params.arg_decode_time, params.arg_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] checkMediaFile FAILED:', e));
           }
@@ -346,7 +346,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_libyuv_cpu_flags', 'response.arg_arg_ffmpeg_cpu_flags']);
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec.$.structSpec, { 'arg_libyuv_cpu_flags': response.arg_libyuv_cpu_flags, 'arg_ffmpeg_cpu_flags': response.arg_ffmpeg_cpu_flags });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCpuInfo FAILED:', e));
           }
@@ -410,7 +410,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserFactoryRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec,
-      [arg_libyuv_cpu_flags, arg_libavutil_cpu_flags],
+      { arg_libyuv_cpu_flags: arg_libyuv_cpu_flags, arg_libavutil_cpu_flags: arg_libavutil_cpu_flags },
       false);
   }
 
@@ -479,13 +479,13 @@ mojo.internal.bindings.chrome.mojom.MediaParserFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createMediaParser');
-          const result = this.impl.createMediaParser(params.arg_arg_libyuv_cpu_flags, params.arg_arg_libavutil_cpu_flags);
+          const result = this.impl.createMediaParser(params.arg_libyuv_cpu_flags, params.arg_libavutil_cpu_flags);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_media_parser' in response) ? response.arg_arg_media_parser : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_media_parser' in response) ? response.arg_media_parser : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec.$.structSpec, { 'arg_media_parser': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createMediaParser FAILED:', e));
           }
@@ -549,7 +549,7 @@ mojo.internal.bindings.chrome.mojom.MediaDataSourceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ResponseParamsSpec,
-      [arg_position, arg_length],
+      { arg_position: arg_position, arg_length: arg_length },
       false);
   }
 
@@ -618,13 +618,13 @@ mojo.internal.bindings.chrome.mojom.MediaDataSourceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.read');
-          const result = this.impl.read(params.arg_arg_position, params.arg_arg_length);
+          const result = this.impl.read(params.arg_position, params.arg_length);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] read FAILED:', e));
           }

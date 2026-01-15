@@ -263,7 +263,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      [arg_page],
+      { arg_page: arg_page },
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_QueryHistory_ParamsSpec,
       mojo.internal.bindings.history.mojom.PageHandler_QueryHistory_ResponseParamsSpec,
-      [arg_query, arg_max_results, arg_begin_time],
+      { arg_query: arg_query, arg_max_results: arg_max_results, arg_begin_time: arg_begin_time },
       false);
   }
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_QueryHistoryContinuation_ParamsSpec,
       mojo.internal.bindings.history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -290,7 +290,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_RemoveVisits_ParamsSpec,
       mojo.internal.bindings.history.mojom.PageHandler_RemoveVisits_ResponseParamsSpec,
-      [arg_items],
+      { arg_items: arg_items },
       false);
   }
 
@@ -299,7 +299,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_OpenClearBrowsingDataDialog_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -308,7 +308,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_RemoveBookmark_ParamsSpec,
       null,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -317,7 +317,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_SetLastSelectedTab_ParamsSpec,
       null,
-      [arg_last_tab],
+      { arg_last_tab: arg_last_tab },
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_ShowSidePanelUI_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_RequestAccountInfo_ParamsSpec,
       mojo.internal.bindings.history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_TurnOnHistorySync_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ParamsSpec,
       mojo.internal.bindings.history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -452,20 +452,20 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPage');
-          const result = this.impl.setPage(params.arg_arg_page);
+          const result = this.impl.setPage(params.arg_page);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_QueryHistory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queryHistory');
-          const result = this.impl.queryHistory(params.arg_arg_query, params.arg_arg_max_results, params.arg_arg_begin_time);
+          const result = this.impl.queryHistory(params.arg_query, params.arg_max_results, params.arg_begin_time);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
-              encoder.encodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_QueryHistory_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_results' in response) ? response.arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_QueryHistory_ResponseParamsSpec.$.structSpec, { 'arg_results': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] queryHistory FAILED:', e));
           }
@@ -480,8 +480,8 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
-              encoder.encodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_results' in response) ? response.arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec.$.structSpec, { 'arg_results': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] queryHistoryContinuation FAILED:', e));
           }
@@ -491,12 +491,12 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_RemoveVisits_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeVisits');
-          const result = this.impl.removeVisits(params.arg_arg_items);
+          const result = this.impl.removeVisits(params.arg_items);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_RemoveVisits_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_RemoveVisits_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] removeVisits FAILED:', e));
           }
@@ -513,14 +513,14 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_RemoveBookmark_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeBookmark');
-          const result = this.impl.removeBookmark(params.arg_arg_url);
+          const result = this.impl.removeBookmark(params.arg_url);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_SetLastSelectedTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setLastSelectedTab');
-          const result = this.impl.setLastSelectedTab(params.arg_arg_last_tab);
+          const result = this.impl.setLastSelectedTab(params.arg_last_tab);
           break;
         }
         case 7: {
@@ -539,8 +539,8 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_account_info' in response) ? response.arg_arg_account_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_account_info' in response) ? response.arg_account_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec.$.structSpec, { 'arg_account_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestAccountInfo FAILED:', e));
           }
@@ -562,8 +562,8 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_should_show' in response) ? response.arg_arg_should_show : response;
-              encoder.encodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_should_show' in response) ? response.arg_should_show : response;
+              encoder.encodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSpec.$.structSpec, { 'arg_should_show': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] shouldShowHistoryPageHistorySyncPromo FAILED:', e));
           }
@@ -649,7 +649,7 @@ mojo.internal.bindings.history.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.history.mojom.Page_OnHistoryDeleted_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -658,7 +658,7 @@ mojo.internal.bindings.history.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.history.mojom.Page_OnHasOtherFormsChanged_ParamsSpec,
       null,
-      [arg_has_other_forms],
+      { arg_has_other_forms: arg_has_other_forms },
       false);
   }
 
@@ -667,7 +667,7 @@ mojo.internal.bindings.history.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.history.mojom.Page_SendAccountInfo_ParamsSpec,
       null,
-      [arg_account_info],
+      { arg_account_info: arg_account_info },
       false);
   }
 
@@ -745,14 +745,14 @@ mojo.internal.bindings.history.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.Page_OnHasOtherFormsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHasOtherFormsChanged');
-          const result = this.impl.onHasOtherFormsChanged(params.arg_arg_has_other_forms);
+          const result = this.impl.onHasOtherFormsChanged(params.arg_has_other_forms);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.Page_SendAccountInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendAccountInfo');
-          const result = this.impl.sendAccountInfo(params.arg_arg_account_info);
+          const result = this.impl.sendAccountInfo(params.arg_account_info);
           break;
         }
       }

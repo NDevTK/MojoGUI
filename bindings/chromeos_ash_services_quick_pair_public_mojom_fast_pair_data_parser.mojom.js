@@ -239,7 +239,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec,
       mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec,
-      [arg_service_data],
+      { arg_service_data: arg_service_data },
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec,
       mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec,
-      [arg_aes_key, arg_encrypted_response_bytes],
+      { arg_aes_key: arg_aes_key, arg_encrypted_response_bytes: arg_encrypted_response_bytes },
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec,
       mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec,
-      [arg_aes_key, arg_encrypted_passkey_bytes],
+      { arg_aes_key: arg_aes_key, arg_encrypted_passkey_bytes: arg_encrypted_passkey_bytes },
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec,
       mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec,
-      [arg_service_data, arg_address],
+      { arg_service_data: arg_service_data, arg_address: arg_address },
       false);
   }
 
@@ -275,7 +275,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec,
       mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec,
-      [arg_message_bytes],
+      { arg_message_bytes: arg_message_bytes },
       false);
   }
 
@@ -348,13 +348,13 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHexModelIdFromServiceData');
-          const result = this.impl.getHexModelIdFromServiceData(params.arg_arg_service_data);
+          const result = this.impl.getHexModelIdFromServiceData(params.arg_service_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_model_id' in response) ? response.arg_arg_model_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_model_id' in response) ? response.arg_model_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec.$.structSpec, { 'arg_model_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getHexModelIdFromServiceData FAILED:', e));
           }
@@ -364,13 +364,13 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseDecryptedResponse');
-          const result = this.impl.parseDecryptedResponse(params.arg_arg_aes_key, params.arg_arg_encrypted_response_bytes);
+          const result = this.impl.parseDecryptedResponse(params.arg_aes_key, params.arg_encrypted_response_bytes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] parseDecryptedResponse FAILED:', e));
           }
@@ -380,13 +380,13 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseDecryptedPasskey');
-          const result = this.impl.parseDecryptedPasskey(params.arg_arg_aes_key, params.arg_arg_encrypted_passkey_bytes);
+          const result = this.impl.parseDecryptedPasskey(params.arg_aes_key, params.arg_encrypted_passkey_bytes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_passkey' in response) ? response.arg_arg_passkey : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_passkey' in response) ? response.arg_passkey : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec.$.structSpec, { 'arg_passkey': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] parseDecryptedPasskey FAILED:', e));
           }
@@ -396,13 +396,13 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseNotDiscoverableAdvertisement');
-          const result = this.impl.parseNotDiscoverableAdvertisement(params.arg_arg_service_data, params.arg_arg_address);
+          const result = this.impl.parseNotDiscoverableAdvertisement(params.arg_service_data, params.arg_address);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_advertisement' in response) ? response.arg_arg_advertisement : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_advertisement' in response) ? response.arg_advertisement : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec.$.structSpec, { 'arg_advertisement': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] parseNotDiscoverableAdvertisement FAILED:', e));
           }
@@ -412,13 +412,13 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseMessageStreamMessages');
-          const result = this.impl.parseMessageStreamMessages(params.arg_arg_message_bytes);
+          const result = this.impl.parseMessageStreamMessages(params.arg_message_bytes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_messages' in response) ? response.arg_arg_messages : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_messages' in response) ? response.arg_messages : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec.$.structSpec, { 'arg_messages': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] parseMessageStreamMessages FAILED:', e));
           }

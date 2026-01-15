@@ -346,7 +346,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_GetVersion_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_GetVersion_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -355,7 +355,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_FetchPolicies_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_FetchPolicies_ResponseParamsSpec,
-      [arg_reason],
+      { arg_reason: arg_reason },
       false);
   }
 
@@ -364,7 +364,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_RegisterApp_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_RegisterApp_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_GetAppStates_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_GetAppStates_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_RunPeriodicTasks_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_RunPeriodicTasks_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -391,7 +391,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_UpdateAll_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_UpdateAll_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -400,7 +400,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_Update_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_Update_ResponseParamsSpec,
-      [arg_app_id, arg_install_data_index, arg_priority, arg_policy_same_version_update, arg_do_update_check_only, arg_language],
+      { arg_app_id: arg_app_id, arg_install_data_index: arg_install_data_index, arg_priority: arg_priority, arg_policy_same_version_update: arg_policy_same_version_update, arg_do_update_check_only: arg_do_update_check_only, arg_language: arg_language },
       false);
   }
 
@@ -409,7 +409,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_Install_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_Install_ResponseParamsSpec,
-      [arg_registration, arg_client_install_data, arg_install_data_index, arg_priority, arg_language],
+      { arg_registration: arg_registration, arg_client_install_data: arg_client_install_data, arg_install_data_index: arg_install_data_index, arg_priority: arg_priority, arg_language: arg_language },
       false);
   }
 
@@ -418,7 +418,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_CancelInstalls_ParamsSpec,
       null,
-      [arg_app_id],
+      { arg_app_id: arg_app_id },
       false);
   }
 
@@ -427,7 +427,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_RunInstaller_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_RunInstaller_ResponseParamsSpec,
-      [arg_app_id, arg_installer_path, arg_install_args, arg_install_data, arg_install_settings, arg_language],
+      { arg_app_id: arg_app_id, arg_installer_path: arg_installer_path, arg_install_args: arg_install_args, arg_install_data: arg_install_data, arg_install_settings: arg_install_settings, arg_language: arg_language },
       false);
   }
 
@@ -436,7 +436,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_CheckForUpdate_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec,
-      [arg_app_id, arg_priority, arg_policy_same_version_update, arg_language],
+      { arg_app_id: arg_app_id, arg_priority: arg_priority, arg_policy_same_version_update: arg_policy_same_version_update, arg_language: arg_language },
       false);
   }
 
@@ -445,7 +445,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterState_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -454,7 +454,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -463,7 +463,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -550,8 +550,8 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_version' in response) ? response.arg_arg_version : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetVersion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_version' in response) ? response.arg_version : response;
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetVersion_ResponseParamsSpec.$.structSpec, { 'arg_version': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getVersion FAILED:', e));
           }
@@ -561,13 +561,13 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_FetchPolicies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchPolicies');
-          const result = this.impl.fetchPolicies(params.arg_arg_reason);
+          const result = this.impl.fetchPolicies(params.arg_reason);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_FetchPolicies_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_FetchPolicies_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fetchPolicies FAILED:', e));
           }
@@ -577,13 +577,13 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_RegisterApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerApp');
-          const result = this.impl.registerApp(params.arg_arg_request);
+          const result = this.impl.registerApp(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_RegisterApp_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_RegisterApp_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] registerApp FAILED:', e));
           }
@@ -598,8 +598,8 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_app_states' in response) ? response.arg_arg_app_states : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetAppStates_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_app_states' in response) ? response.arg_app_states : response;
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetAppStates_ResponseParamsSpec.$.structSpec, { 'arg_app_states': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAppStates FAILED:', e));
           }
@@ -614,7 +614,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_RunPeriodicTasks_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_RunPeriodicTasks_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runPeriodicTasks FAILED:', e));
           }
@@ -629,8 +629,8 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_observer' in response) ? response.arg_arg_observer : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_UpdateAll_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_observer' in response) ? response.arg_observer : response;
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_UpdateAll_ResponseParamsSpec.$.structSpec, { 'arg_observer': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateAll FAILED:', e));
           }
@@ -640,13 +640,13 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
-          const result = this.impl.update(params.arg_arg_app_id, params.arg_arg_install_data_index, params.arg_arg_priority, params.arg_arg_policy_same_version_update, params.arg_arg_do_update_check_only, params.arg_arg_language);
+          const result = this.impl.update(params.arg_app_id, params.arg_install_data_index, params.arg_priority, params.arg_policy_same_version_update, params.arg_do_update_check_only, params.arg_language);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_observer' in response) ? response.arg_arg_observer : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_Update_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_observer' in response) ? response.arg_observer : response;
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_Update_ResponseParamsSpec.$.structSpec, { 'arg_observer': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] update FAILED:', e));
           }
@@ -656,13 +656,13 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_Install_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.install');
-          const result = this.impl.install(params.arg_arg_registration, params.arg_arg_client_install_data, params.arg_arg_install_data_index, params.arg_arg_priority, params.arg_arg_language);
+          const result = this.impl.install(params.arg_registration, params.arg_client_install_data, params.arg_install_data_index, params.arg_priority, params.arg_language);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_observer' in response) ? response.arg_arg_observer : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_Install_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_observer' in response) ? response.arg_observer : response;
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_Install_ResponseParamsSpec.$.structSpec, { 'arg_observer': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] install FAILED:', e));
           }
@@ -672,20 +672,20 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_CancelInstalls_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelInstalls');
-          const result = this.impl.cancelInstalls(params.arg_arg_app_id);
+          const result = this.impl.cancelInstalls(params.arg_app_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_RunInstaller_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runInstaller');
-          const result = this.impl.runInstaller(params.arg_arg_app_id, params.arg_arg_installer_path, params.arg_arg_install_args, params.arg_arg_install_data, params.arg_arg_install_settings, params.arg_arg_language);
+          const result = this.impl.runInstaller(params.arg_app_id, params.arg_installer_path, params.arg_install_args, params.arg_install_data, params.arg_install_settings, params.arg_language);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_observer' in response) ? response.arg_arg_observer : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_RunInstaller_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_observer' in response) ? response.arg_observer : response;
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_RunInstaller_ResponseParamsSpec.$.structSpec, { 'arg_observer': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runInstaller FAILED:', e));
           }
@@ -695,13 +695,13 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_CheckForUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkForUpdate');
-          const result = this.impl.checkForUpdate(params.arg_arg_app_id, params.arg_arg_priority, params.arg_arg_policy_same_version_update, params.arg_arg_language);
+          const result = this.impl.checkForUpdate(params.arg_app_id, params.arg_priority, params.arg_policy_same_version_update, params.arg_language);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_observer' in response) ? response.arg_arg_observer : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_observer' in response) ? response.arg_observer : response;
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec.$.structSpec, { 'arg_observer': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] checkForUpdate FAILED:', e));
           }
@@ -716,8 +716,8 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_updater_state' in response) ? response.arg_arg_updater_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_updater_state' in response) ? response.arg_updater_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec.$.structSpec, { 'arg_updater_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUpdaterState FAILED:', e));
           }
@@ -732,8 +732,8 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_updater_policies' in response) ? response.arg_arg_updater_policies : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_updater_policies' in response) ? response.arg_updater_policies : response;
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec.$.structSpec, { 'arg_updater_policies': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUpdaterPolicies FAILED:', e));
           }
@@ -748,8 +748,8 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_app_policies' in response) ? response.arg_arg_app_policies : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_app_policies' in response) ? response.arg_app_policies : response;
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec.$.structSpec, { 'arg_app_policies': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAppPolicies FAILED:', e));
           }
@@ -817,7 +817,7 @@ mojo.internal.bindings.updater.mojom.StateChangeObserverRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.updater.mojom.StateChangeObserver_OnStateChange_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -826,7 +826,7 @@ mojo.internal.bindings.updater.mojom.StateChangeObserverRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.updater.mojom.StateChangeObserver_OnComplete_ParamsSpec,
       null,
-      [arg_result],
+      { arg_result: arg_result },
       false);
   }
 
@@ -896,14 +896,14 @@ mojo.internal.bindings.updater.mojom.StateChangeObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.StateChangeObserver_OnStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStateChange');
-          const result = this.impl.onStateChange(params.arg_arg_state);
+          const result = this.impl.onStateChange(params.arg_state);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.StateChangeObserver_OnComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
-          const result = this.impl.onComplete(params.arg_arg_result);
+          const result = this.impl.onComplete(params.arg_result);
           break;
         }
       }

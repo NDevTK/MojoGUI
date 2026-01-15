@@ -176,7 +176,7 @@ mojo.internal.bindings.watermark.mojom.PageHandlerFactoryRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.watermark.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_handler);
           break;
         }
       }
@@ -310,7 +310,7 @@ mojo.internal.bindings.watermark.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec,
       null,
-      [arg_style],
+      { arg_style: arg_style },
       false);
   }
 
@@ -319,7 +319,7 @@ mojo.internal.bindings.watermark.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.watermark.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWatermarkStyle');
-          const result = this.impl.setWatermarkStyle(params.arg_arg_style);
+          const result = this.impl.setWatermarkStyle(params.arg_style);
           break;
         }
         case 1: {

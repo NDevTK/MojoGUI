@@ -299,7 +299,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec,
       null,
-      [arg_window_features],
+      { arg_window_features: arg_window_features },
       false);
   }
 
@@ -308,7 +308,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -317,7 +317,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec,
-      [arg_image_min_area_pixels, arg_image_max_size_pixels, arg_image_format, arg_quality],
+      { arg_image_min_area_pixels: arg_image_min_area_pixels, arg_image_max_size_pixels: arg_image_max_size_pixels, arg_image_format: arg_image_format, arg_quality: arg_quality },
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec,
       null,
-      [arg_javascript],
+      { arg_javascript: arg_javascript },
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec,
       null,
-      [arg_identifier],
+      { arg_identifier: arg_identifier },
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec,
       null,
-      [arg_should_defer],
+      { arg_should_defer: arg_should_defer },
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec,
       null,
-      [arg_task_id],
+      { arg_task_id: arg_task_id },
       false);
   }
 
@@ -407,7 +407,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec,
       null,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -416,7 +416,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec,
       null,
-      [arg_monitor, arg_task_id, arg_supports_paint_stability],
+      { arg_monitor: arg_monitor, arg_task_id: arg_task_id, arg_supports_paint_stability: arg_supports_paint_stability },
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWindowFeatures');
-          const result = this.impl.setWindowFeatures(params.arg_arg_window_features);
+          const result = this.impl.setWindowFeatures(params.arg_window_features);
           break;
         }
         case 1: {
@@ -517,8 +517,8 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_bitmap' in response) ? response.arg_arg_bitmap : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_bitmap' in response) ? response.arg_bitmap : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec.$.structSpec, { 'arg_bitmap': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestBitmapForContextNode FAILED:', e));
           }
@@ -533,7 +533,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec.$.structSpec, ['response.arg_arg_bitmap', 'response.arg_arg_bounds']);
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec.$.structSpec, { 'arg_bitmap': response.arg_bitmap, 'arg_bounds': response.arg_bounds });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestBitmapForContextNodeWithBoundsHint FAILED:', e));
           }
@@ -548,8 +548,8 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_all_bounds' in response) ? response.arg_arg_all_bounds : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_all_bounds' in response) ? response.arg_all_bounds : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec.$.structSpec, { 'arg_all_bounds': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestBoundsHintForAllImages FAILED:', e));
           }
@@ -559,12 +559,12 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestImageForContextNode');
-          const result = this.impl.requestImageForContextNode(params.arg_arg_image_min_area_pixels, params.arg_arg_image_max_size_pixels, params.arg_arg_image_format, params.arg_arg_quality);
+          const result = this.impl.requestImageForContextNode(params.arg_image_min_area_pixels, params.arg_image_max_size_pixels, params.arg_image_format, params.arg_quality);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec.$.structSpec, ['response.arg_arg_image_data', 'response.arg_arg_original_size', 'response.arg_arg_downscaled_size', 'response.arg_arg_mime_type', 'response.arg_arg_log_data']);
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec.$.structSpec, { 'arg_image_data': response.arg_image_data, 'arg_original_size': response.arg_original_size, 'arg_downscaled_size': response.arg_downscaled_size, 'arg_mime_type': response.arg_mime_type, 'arg_log_data': response.arg_log_data });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestImageForContextNode FAILED:', e));
           }
@@ -574,7 +574,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeWebUIJavaScript');
-          const result = this.impl.executeWebUIJavaScript(params.arg_arg_javascript);
+          const result = this.impl.executeWebUIJavaScript(params.arg_javascript);
           break;
         }
         case 7: {
@@ -586,8 +586,8 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_url' in response) ? response.arg_arg_url : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_url' in response) ? response.arg_url : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec.$.structSpec, { 'arg_url': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMediaFeedURL FAILED:', e));
           }
@@ -597,27 +597,27 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadBlockedPlugins');
-          const result = this.impl.loadBlockedPlugins(params.arg_arg_identifier);
+          const result = this.impl.loadBlockedPlugins(params.arg_identifier);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setShouldDeferMediaLoad');
-          const result = this.impl.setShouldDeferMediaLoad(params.arg_arg_should_defer);
+          const result = this.impl.setShouldDeferMediaLoad(params.arg_should_defer);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.invokeTool');
-          const result = this.impl.invokeTool(params.arg_arg_request);
+          const result = this.impl.invokeTool(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] invokeTool FAILED:', e));
           }
@@ -627,21 +627,21 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelTool');
-          const result = this.impl.cancelTool(params.arg_arg_task_id);
+          const result = this.impl.cancelTool(params.arg_task_id);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startActorJournal');
-          const result = this.impl.startActorJournal(params.arg_arg_client);
+          const result = this.impl.startActorJournal(params.arg_client);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageStabilityMonitor');
-          const result = this.impl.createPageStabilityMonitor(params.arg_arg_monitor, params.arg_arg_task_id, params.arg_arg_supports_paint_stability);
+          const result = this.impl.createPageStabilityMonitor(params.arg_monitor, params.arg_task_id, params.arg_supports_paint_stability);
           break;
         }
       }

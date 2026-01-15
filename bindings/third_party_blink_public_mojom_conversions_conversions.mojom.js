@@ -199,7 +199,7 @@ mojo.internal.bindings.blink.mojom.AttributionHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec,
       null,
-      [arg_data_host, arg_registration_eligibility, arg_is_for_background_requests, arg_reporting_origins],
+      { arg_data_host: arg_data_host, arg_registration_eligibility: arg_registration_eligibility, arg_is_for_background_requests: arg_is_for_background_requests, arg_reporting_origins: arg_reporting_origins },
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.blink.mojom.AttributionHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec,
       null,
-      [arg_data_host, arg_attribution_src_token],
+      { arg_data_host: arg_data_host, arg_attribution_src_token: arg_attribution_src_token },
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.blink.mojom.AttributionHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec,
       null,
-      [arg_attribution_src_token, arg_expected_registrations],
+      { arg_attribution_src_token: arg_attribution_src_token, arg_expected_registrations: arg_expected_registrations },
       false);
   }
 
@@ -288,21 +288,21 @@ mojo.internal.bindings.blink.mojom.AttributionHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerDataHost');
-          const result = this.impl.registerDataHost(params.arg_arg_data_host, params.arg_arg_registration_eligibility, params.arg_arg_is_for_background_requests, params.arg_arg_reporting_origins);
+          const result = this.impl.registerDataHost(params.arg_data_host, params.arg_registration_eligibility, params.arg_is_for_background_requests, params.arg_reporting_origins);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerNavigationDataHost');
-          const result = this.impl.registerNavigationDataHost(params.arg_arg_data_host, params.arg_arg_attribution_src_token);
+          const result = this.impl.registerNavigationDataHost(params.arg_data_host, params.arg_attribution_src_token);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyNavigationWithBackgroundRegistrationsWillStart');
-          const result = this.impl.notifyNavigationWithBackgroundRegistrationsWillStart(params.arg_arg_attribution_src_token, params.arg_arg_expected_registrations);
+          const result = this.impl.notifyNavigationWithBackgroundRegistrationsWillStart(params.arg_attribution_src_token, params.arg_expected_registrations);
           break;
         }
       }

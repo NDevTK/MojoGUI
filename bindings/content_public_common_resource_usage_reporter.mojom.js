@@ -174,7 +174,7 @@ mojo.internal.bindings.content.mojom.ResourceUsageReporterRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec,
       mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -248,8 +248,8 @@ mojo.internal.bindings.content.mojom.ResourceUsageReporterReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUsageData FAILED:', e));
           }

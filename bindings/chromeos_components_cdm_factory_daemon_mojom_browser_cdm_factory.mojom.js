@@ -228,7 +228,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ResponseParamsSpec,
-      [arg_key_system],
+      { arg_key_system: arg_key_system },
       false);
   }
 
@@ -237,7 +237,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec,
       null,
-      [arg_output_protection],
+      { arg_output_protection: arg_output_protection },
       false);
   }
 
@@ -246,7 +246,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -255,7 +255,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -264,7 +264,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParamsSpec,
-      [arg_key_id, arg_hw_identifier],
+      { arg_key_id: arg_key_id, arg_hw_identifier: arg_hw_identifier },
       false);
   }
 
@@ -273,7 +273,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = c
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ResponseParamsSpec,
-      [arg_size],
+      { arg_size: arg_size },
       false);
   }
 
@@ -282,7 +282,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = c
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ResponseParamsSpec,
-      [arg_secure_handle, arg_offset, arg_stream_data],
+      { arg_secure_handle: arg_secure_handle, arg_offset: arg_offset, arg_stream_data: arg_stream_data },
       false);
   }
 
@@ -357,13 +357,13 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createFactory');
-          const result = this.impl.createFactory(params.arg_arg_key_system);
+          const result = this.impl.createFactory(params.arg_key_system);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_factory' in response) ? response.arg_arg_factory : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_factory' in response) ? response.arg_factory : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ResponseParamsSpec.$.structSpec, { 'arg_factory': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createFactory FAILED:', e));
           }
@@ -373,7 +373,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOutputProtection');
-          const result = this.impl.getOutputProtection(params.arg_arg_output_protection);
+          const result = this.impl.getOutputProtection(params.arg_output_protection);
           break;
         }
         case 2: {
@@ -385,7 +385,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_config_data']);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_config_data': response.arg_config_data });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getHwConfigData FAILED:', e));
           }
@@ -400,8 +400,8 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_resolutions' in response) ? response.arg_arg_resolutions : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_resolutions' in response) ? response.arg_resolutions : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParamsSpec.$.structSpec, { 'arg_resolutions': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getScreenResolutions FAILED:', e));
           }
@@ -411,12 +411,12 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAndroidHwKeyData');
-          const result = this.impl.getAndroidHwKeyData(params.arg_arg_key_id, params.arg_arg_hw_identifier);
+          const result = this.impl.getAndroidHwKeyData(params.arg_key_id, params.arg_hw_identifier);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_key_data']);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_key_data': response.arg_key_data });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAndroidHwKeyData FAILED:', e));
           }
@@ -426,13 +426,13 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.allocateSecureBuffer');
-          const result = this.impl.allocateSecureBuffer(params.arg_arg_size);
+          const result = this.impl.allocateSecureBuffer(params.arg_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_fd' in response) ? response.arg_arg_fd : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_fd' in response) ? response.arg_fd : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ResponseParamsSpec.$.structSpec, { 'arg_fd': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] allocateSecureBuffer FAILED:', e));
           }
@@ -442,12 +442,12 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseEncryptedSliceHeader');
-          const result = this.impl.parseEncryptedSliceHeader(params.arg_arg_secure_handle, params.arg_arg_offset, params.arg_arg_stream_data);
+          const result = this.impl.parseEncryptedSliceHeader(params.arg_secure_handle, params.arg_offset, params.arg_stream_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_slice_header']);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_slice_header': response.arg_slice_header });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] parseEncryptedSliceHeader FAILED:', e));
           }

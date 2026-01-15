@@ -212,7 +212,7 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.OmniboxPageHandler_SetClientPage_ParamsSpec,
       null,
-      [arg_page],
+      { arg_page: arg_page },
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec,
       null,
-      [arg_input_string, arg_reset_autocomplete_controller, arg_cursor_position, arg_zero_suggest, arg_prevent_inline_autocomplete, arg_prefer_keyword, arg_current_url, arg_page_classification],
+      { arg_input_string: arg_input_string, arg_reset_autocomplete_controller: arg_reset_autocomplete_controller, arg_cursor_position: arg_cursor_position, arg_zero_suggest: arg_zero_suggest, arg_prevent_inline_autocomplete: arg_prevent_inline_autocomplete, arg_prefer_keyword: arg_prefer_keyword, arg_current_url: arg_current_url, arg_page_classification: arg_page_classification },
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec,
       mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ParamsSpec,
       mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec,
-      [arg_signals],
+      { arg_signals: arg_signals },
       false);
   }
 
@@ -311,14 +311,14 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_SetClientPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClientPage');
-          const result = this.impl.setClientPage(params.arg_arg_page);
+          const result = this.impl.setClientPage(params.arg_page);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startOmniboxQuery');
-          const result = this.impl.startOmniboxQuery(params.arg_arg_input_string, params.arg_arg_reset_autocomplete_controller, params.arg_arg_cursor_position, params.arg_arg_zero_suggest, params.arg_arg_prevent_inline_autocomplete, params.arg_arg_prefer_keyword, params.arg_arg_current_url, params.arg_arg_page_classification);
+          const result = this.impl.startOmniboxQuery(params.arg_input_string, params.arg_reset_autocomplete_controller, params.arg_cursor_position, params.arg_zero_suggest, params.arg_prevent_inline_autocomplete, params.arg_prefer_keyword, params.arg_current_url, params.arg_page_classification);
           break;
         }
         case 2: {
@@ -330,8 +330,8 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_version' in response) ? response.arg_arg_version : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_version' in response) ? response.arg_version : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec.$.structSpec, { 'arg_version': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMlModelVersion FAILED:', e));
           }
@@ -341,13 +341,13 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startMl');
-          const result = this.impl.startMl(params.arg_arg_signals);
+          const result = this.impl.startMl(params.arg_signals);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_score' in response) ? response.arg_arg_score : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_score' in response) ? response.arg_score : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec.$.structSpec, { 'arg_score': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] startMl FAILED:', e));
           }
@@ -423,7 +423,7 @@ mojo.internal.bindings.mojom.OmniboxPageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec,
       null,
-      [arg_autocomplete_controller_type, arg_input_text],
+      { arg_autocomplete_controller_type: arg_autocomplete_controller_type, arg_input_text: arg_input_text },
       false);
   }
 
@@ -432,7 +432,7 @@ mojo.internal.bindings.mojom.OmniboxPageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec,
       null,
-      [arg_autocomplete_controller_type, arg_response],
+      { arg_autocomplete_controller_type: arg_autocomplete_controller_type, arg_response: arg_response },
       false);
   }
 
@@ -441,7 +441,7 @@ mojo.internal.bindings.mojom.OmniboxPageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec,
       null,
-      [arg_autocomplete_controller_type, arg_input_text, arg_matches],
+      { arg_autocomplete_controller_type: arg_autocomplete_controller_type, arg_input_text: arg_input_text, arg_matches: arg_matches },
       false);
   }
 
@@ -450,7 +450,7 @@ mojo.internal.bindings.mojom.OmniboxPageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec,
       null,
-      [arg_autocomplete_controller_type, arg_image_url, arg_image_data],
+      { arg_autocomplete_controller_type: arg_autocomplete_controller_type, arg_image_url: arg_image_url, arg_image_data: arg_image_data },
       false);
   }
 
@@ -522,28 +522,28 @@ mojo.internal.bindings.mojom.OmniboxPageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleNewAutocompleteQuery');
-          const result = this.impl.handleNewAutocompleteQuery(params.arg_arg_autocomplete_controller_type, params.arg_arg_input_text);
+          const result = this.impl.handleNewAutocompleteQuery(params.arg_autocomplete_controller_type, params.arg_input_text);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleNewAutocompleteResponse');
-          const result = this.impl.handleNewAutocompleteResponse(params.arg_arg_autocomplete_controller_type, params.arg_arg_response);
+          const result = this.impl.handleNewAutocompleteResponse(params.arg_autocomplete_controller_type, params.arg_response);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleNewMlResponse');
-          const result = this.impl.handleNewMlResponse(params.arg_arg_autocomplete_controller_type, params.arg_arg_input_text, params.arg_arg_matches);
+          const result = this.impl.handleNewMlResponse(params.arg_autocomplete_controller_type, params.arg_input_text, params.arg_matches);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleAnswerIconImageData');
-          const result = this.impl.handleAnswerIconImageData(params.arg_arg_autocomplete_controller_type, params.arg_arg_image_url, params.arg_arg_image_data);
+          const result = this.impl.handleAnswerIconImageData(params.arg_autocomplete_controller_type, params.arg_image_url, params.arg_image_data);
           break;
         }
       }

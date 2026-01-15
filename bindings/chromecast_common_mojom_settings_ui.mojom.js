@@ -203,7 +203,7 @@ mojo.internal.bindings.chromecast.mojom.SettingsClientRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec,
       null,
-      [arg_event, arg_origin, arg_touch_location],
+      { arg_event: arg_event, arg_origin: arg_origin, arg_touch_location: arg_touch_location },
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.chromecast.mojom.SettingsClientRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec,
       null,
-      [arg_platform_info_json],
+      { arg_platform_info_json: arg_platform_info_json },
       false);
   }
 
@@ -282,14 +282,14 @@ mojo.internal.bindings.chromecast.mojom.SettingsClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleSideSwipe');
-          const result = this.impl.handleSideSwipe(params.arg_arg_event, params.arg_arg_origin, params.arg_arg_touch_location);
+          const result = this.impl.handleSideSwipe(params.arg_event, params.arg_origin, params.arg_touch_location);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendPlatformInfo');
-          const result = this.impl.sendPlatformInfo(params.arg_arg_platform_info_json);
+          const result = this.impl.sendPlatformInfo(params.arg_platform_info_json);
           break;
         }
       }
@@ -354,7 +354,7 @@ mojo.internal.bindings.chromecast.mojom.SettingsPlatformRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.SettingsPlatform_Connect_ParamsSpec,
       null,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.chromecast.mojom.SettingsPlatformRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec,
       null,
-      [arg_visible],
+      { arg_visible: arg_visible },
       false);
   }
 
@@ -433,14 +433,14 @@ mojo.internal.bindings.chromecast.mojom.SettingsPlatformReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.SettingsPlatform_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_arg_client);
+          const result = this.impl.connect(params.arg_client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestVisible');
-          const result = this.impl.requestVisible(params.arg_arg_visible);
+          const result = this.impl.requestVisible(params.arg_visible);
           break;
         }
       }

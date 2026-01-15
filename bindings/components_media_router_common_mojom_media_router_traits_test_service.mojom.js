@@ -176,7 +176,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestServiceRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec,
       mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec,
-      [arg_s],
+      { arg_s: arg_s },
       false);
   }
 
@@ -245,13 +245,13 @@ mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestServiceReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoMediaSink');
-          const result = this.impl.echoMediaSink(params.arg_arg_s);
+          const result = this.impl.echoMediaSink(params.arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_sink' in response) ? response.arg_arg_sink : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_sink' in response) ? response.arg_sink : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec.$.structSpec, { 'arg_sink': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoMediaSink FAILED:', e));
           }

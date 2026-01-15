@@ -170,7 +170,7 @@ mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec,
       null,
-      [arg_downloaded_bytes, arg_total_bytes],
+      { arg_downloaded_bytes: arg_downloaded_bytes, arg_total_bytes: arg_total_bytes },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDownloadProgressUpdate');
-          const result = this.impl.onDownloadProgressUpdate(params.arg_arg_downloaded_bytes, params.arg_arg_total_bytes);
+          const result = this.impl.onDownloadProgressUpdate(params.arg_downloaded_bytes, params.arg_total_bytes);
           break;
         }
       }

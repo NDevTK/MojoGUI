@@ -198,7 +198,7 @@ mojo.internal.bindings.arc.mojom.WebApkInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec,
       mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec,
-      [arg_package_name, arg_version, arg_app_name, arg_token],
+      { arg_package_name: arg_package_name, arg_version: arg_version, arg_app_name: arg_app_name, arg_token: arg_token },
       false);
   }
 
@@ -207,7 +207,7 @@ mojo.internal.bindings.arc.mojom.WebApkInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec,
       mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec,
-      [arg_package_name],
+      { arg_package_name: arg_package_name },
       false);
   }
 
@@ -277,13 +277,13 @@ mojo.internal.bindings.arc.mojom.WebApkInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installWebApk');
-          const result = this.impl.installWebApk(params.arg_arg_package_name, params.arg_arg_version, params.arg_arg_app_name, params.arg_arg_token);
+          const result = this.impl.installWebApk(params.arg_package_name, params.arg_version, params.arg_app_name, params.arg_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] installWebApk FAILED:', e));
           }
@@ -293,13 +293,13 @@ mojo.internal.bindings.arc.mojom.WebApkInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getWebApkInfo');
-          const result = this.impl.getWebApkInfo(params.arg_arg_package_name);
+          const result = this.impl.getWebApkInfo(params.arg_package_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getWebApkInfo FAILED:', e));
           }

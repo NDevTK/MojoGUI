@@ -245,7 +245,7 @@ mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec,
       null,
-      [arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_input_timing_delta, arg_subresource_load_metrics, arg_soft_navigation_metrics],
+      { arg_page_load_timing: arg_page_load_timing, arg_frame_metadata: arg_frame_metadata, arg_new_features: arg_new_features, arg_resources: arg_resources, arg_render_data: arg_render_data, arg_cpu_load_timing: arg_cpu_load_timing, arg_input_timing_delta: arg_input_timing_delta, arg_subresource_load_metrics: arg_subresource_load_metrics, arg_soft_navigation_metrics: arg_soft_navigation_metrics },
       false);
   }
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec,
       null,
-      [arg_dropped_frames_memory],
+      { arg_dropped_frames_memory: arg_dropped_frames_memory },
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec,
       null,
-      [arg_custom_user_timing],
+      { arg_custom_user_timing: arg_custom_user_timing },
       false);
   }
 
@@ -334,21 +334,21 @@ mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateTiming');
-          const result = this.impl.updateTiming(params.arg_arg_page_load_timing, params.arg_arg_frame_metadata, params.arg_arg_new_features, params.arg_arg_resources, params.arg_arg_render_data, params.arg_arg_cpu_load_timing, params.arg_arg_input_timing_delta, params.arg_arg_subresource_load_metrics, params.arg_arg_soft_navigation_metrics);
+          const result = this.impl.updateTiming(params.arg_page_load_timing, params.arg_frame_metadata, params.arg_new_features, params.arg_resources, params.arg_render_data, params.arg_cpu_load_timing, params.arg_input_timing_delta, params.arg_subresource_load_metrics, params.arg_soft_navigation_metrics);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUpSharedMemoryForDroppedFrames');
-          const result = this.impl.setUpSharedMemoryForDroppedFrames(params.arg_arg_dropped_frames_memory);
+          const result = this.impl.setUpSharedMemoryForDroppedFrames(params.arg_dropped_frames_memory);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addCustomUserTiming');
-          const result = this.impl.addCustomUserTiming(params.arg_arg_custom_user_timing);
+          const result = this.impl.addCustomUserTiming(params.arg_custom_user_timing);
           break;
         }
       }

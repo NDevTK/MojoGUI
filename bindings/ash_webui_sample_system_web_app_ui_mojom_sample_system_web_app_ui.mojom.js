@@ -196,7 +196,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactoryRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_handler, arg_page],
+      { arg_handler: arg_handler, arg_page: arg_page },
       false);
   }
 
@@ -265,7 +265,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_handler, params.arg_arg_page);
+          const result = this.impl.createPageHandler(params.arg_handler, params.arg_page);
           break;
         }
       }
@@ -334,7 +334,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec,
       mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_Send_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -352,7 +352,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -428,8 +428,8 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_preferences' in response) ? response.arg_arg_preferences : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_preferences' in response) ? response.arg_preferences : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec.$.structSpec, { 'arg_preferences': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPreferences FAILED:', e));
           }
@@ -439,7 +439,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_Send_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.send');
-          const result = this.impl.send(params.arg_arg_message);
+          const result = this.impl.send(params.arg_message);
           break;
         }
         case 2: {
@@ -511,7 +511,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec,
       null,
-      [arg_name],
+      { arg_name: arg_name },
       false);
   }
 
@@ -520,7 +520,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec,
       null,
-      [arg_child_untrusted_page, arg_parent_trusted_page],
+      { arg_child_untrusted_page: arg_child_untrusted_page, arg_parent_trusted_page: arg_parent_trusted_page },
       false);
   }
 
@@ -590,14 +590,14 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEventOccurred');
-          const result = this.impl.onEventOccurred(params.arg_arg_name);
+          const result = this.impl.onEventOccurred(params.arg_name);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createParentPage');
-          const result = this.impl.createParentPage(params.arg_arg_child_untrusted_page, params.arg_arg_parent_trusted_page);
+          const result = this.impl.createParentPage(params.arg_child_untrusted_page, params.arg_parent_trusted_page);
           break;
         }
       }

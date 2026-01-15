@@ -176,7 +176,7 @@ mojo.internal.bindings.device.mojom.BatteryMonitorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec,
       mojo.internal.bindings.device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -250,8 +250,8 @@ mojo.internal.bindings.device.mojom.BatteryMonitorReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] queryNextStatus FAILED:', e));
           }

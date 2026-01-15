@@ -208,7 +208,7 @@ mojo.internal.bindings.cert_verifier.mojom.URLLoaderFactoryConnectorRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec,
       null,
-      [arg_url_loader_factory],
+      { arg_url_loader_factory: arg_url_loader_factory },
       false);
   }
 
@@ -277,7 +277,7 @@ mojo.internal.bindings.cert_verifier.mojom.URLLoaderFactoryConnectorReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createURLLoaderFactory');
-          const result = this.impl.createURLLoaderFactory(params.arg_arg_url_loader_factory);
+          const result = this.impl.createURLLoaderFactory(params.arg_url_loader_factory);
           break;
         }
       }
@@ -350,7 +350,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec,
       null,
-      [arg_url_loader_factory, arg_reconnector],
+      { arg_url_loader_factory: arg_url_loader_factory, arg_reconnector: arg_reconnector },
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec,
       null,
-      [arg_params, arg_net_log_source, arg_cert_verifier_request],
+      { arg_params: arg_params, arg_net_log_source: arg_net_log_source, arg_cert_verifier_request: arg_cert_verifier_request },
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec,
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec,
-      [arg_binding, arg_hostname, arg_tls_certificate, arg_net_log_source],
+      { arg_binding: arg_binding, arg_hostname: arg_hostname, arg_tls_certificate: arg_tls_certificate, arg_net_log_source: arg_net_log_source },
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec,
       null,
-      [arg_config],
+      { arg_config: arg_config },
       false);
   }
 
@@ -449,27 +449,27 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableNetworkAccess');
-          const result = this.impl.enableNetworkAccess(params.arg_arg_url_loader_factory, params.arg_arg_reconnector);
+          const result = this.impl.enableNetworkAccess(params.arg_url_loader_factory, params.arg_reconnector);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.verify');
-          const result = this.impl.verify(params.arg_arg_params, params.arg_arg_net_log_source, params.arg_arg_cert_verifier_request);
+          const result = this.impl.verify(params.arg_params, params.arg_net_log_source, params.arg_cert_verifier_request);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.verify2QwacBinding');
-          const result = this.impl.verify2QwacBinding(params.arg_arg_binding, params.arg_arg_hostname, params.arg_arg_tls_certificate, params.arg_arg_net_log_source);
+          const result = this.impl.verify2QwacBinding(params.arg_binding, params.arg_hostname, params.arg_tls_certificate, params.arg_net_log_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_verified_cert' in response) ? response.arg_arg_verified_cert : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_verified_cert' in response) ? response.arg_verified_cert : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec.$.structSpec, { 'arg_verified_cert': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] verify2QwacBinding FAILED:', e));
           }
@@ -479,7 +479,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setConfig');
-          const result = this.impl.setConfig(params.arg_arg_config);
+          const result = this.impl.setConfig(params.arg_config);
           break;
         }
       }
@@ -540,7 +540,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -670,7 +670,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequestRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec,
       null,
-      [arg_result, arg_net_error],
+      { arg_result: arg_result, arg_net_error: arg_net_error },
       false);
   }
 
@@ -739,7 +739,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.complete');
-          const result = this.impl.complete(params.arg_arg_result, params.arg_arg_net_error);
+          const result = this.impl.complete(params.arg_result, params.arg_net_error);
           break;
         }
       }

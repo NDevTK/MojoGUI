@@ -258,7 +258,7 @@ mojo.internal.bindings.device.mojom.SensorProviderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ParamsSpec,
       mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ResponseParamsSpec,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.device.mojom.SensorProviderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec,
       mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec,
-      [arg_type, arg_metadata],
+      { arg_type: arg_type, arg_metadata: arg_metadata },
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.device.mojom.SensorProviderRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec,
       mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec,
-      [arg_type, arg_reading],
+      { arg_type: arg_type, arg_reading: arg_reading },
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.device.mojom.SensorProviderRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec,
       mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.device.mojom.SensorProviderRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec,
       mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -367,12 +367,12 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSensor');
-          const result = this.impl.getSensor(params.arg_arg_type);
+          const result = this.impl.getSensor(params.arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_init_params']);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_init_params': response.arg_init_params });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSensor FAILED:', e));
           }
@@ -382,13 +382,13 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createVirtualSensor');
-          const result = this.impl.createVirtualSensor(params.arg_arg_type, params.arg_arg_metadata);
+          const result = this.impl.createVirtualSensor(params.arg_type, params.arg_metadata);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createVirtualSensor FAILED:', e));
           }
@@ -398,13 +398,13 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateVirtualSensor');
-          const result = this.impl.updateVirtualSensor(params.arg_arg_type, params.arg_arg_reading);
+          const result = this.impl.updateVirtualSensor(params.arg_type, params.arg_reading);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateVirtualSensor FAILED:', e));
           }
@@ -414,12 +414,12 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeVirtualSensor');
-          const result = this.impl.removeVirtualSensor(params.arg_arg_type);
+          const result = this.impl.removeVirtualSensor(params.arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] removeVirtualSensor FAILED:', e));
           }
@@ -429,13 +429,13 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVirtualSensorInformation');
-          const result = this.impl.getVirtualSensorInformation(params.arg_arg_type);
+          const result = this.impl.getVirtualSensorInformation(params.arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getVirtualSensorInformation FAILED:', e));
           }

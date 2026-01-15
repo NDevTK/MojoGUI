@@ -171,7 +171,7 @@ mojo.internal.bindings.blink.mojom.InnerHtmlAgentRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec,
       mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -245,8 +245,8 @@ mojo.internal.bindings.blink.mojom.InnerHtmlAgentReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_inner_html' in response) ? response.arg_arg_inner_html : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_inner_html' in response) ? response.arg_inner_html : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec.$.structSpec, { 'arg_inner_html': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getInnerHtml FAILED:', e));
           }

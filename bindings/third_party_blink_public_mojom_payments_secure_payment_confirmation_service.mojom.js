@@ -215,7 +215,7 @@ mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec,
       mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec,
       mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec,
-      [arg_credential_id, arg_rp_id, arg_user_id],
+      { arg_credential_id: arg_credential_id, arg_rp_id: arg_rp_id, arg_user_id: arg_user_id },
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec,
       mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -309,8 +309,8 @@ mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceReceiver =
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_availability' in response) ? response.arg_arg_availability : response;
-              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_availability' in response) ? response.arg_availability : response;
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec.$.structSpec, { 'arg_availability': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] securePaymentConfirmationAvailability FAILED:', e));
           }
@@ -320,13 +320,13 @@ mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.storePaymentCredential');
-          const result = this.impl.storePaymentCredential(params.arg_arg_credential_id, params.arg_arg_rp_id, params.arg_arg_user_id);
+          const result = this.impl.storePaymentCredential(params.arg_credential_id, params.arg_rp_id, params.arg_user_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] storePaymentCredential FAILED:', e));
           }
@@ -336,12 +336,12 @@ mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.makePaymentCredential');
-          const result = this.impl.makePaymentCredential(params.arg_arg_options);
+          const result = this.impl.makePaymentCredential(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_credential', 'response.arg_arg_dom_exception_details']);
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_credential': response.arg_credential, 'arg_dom_exception_details': response.arg_dom_exception_details });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] makePaymentCredential FAILED:', e));
           }

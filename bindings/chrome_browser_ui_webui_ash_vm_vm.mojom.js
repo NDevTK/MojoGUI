@@ -178,7 +178,7 @@ mojo.internal.bindings.ash.vm.mojom.VmDiagnosticsProviderRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec,
       mojo.internal.bindings.ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -252,8 +252,8 @@ mojo.internal.bindings.ash.vm.mojom.VmDiagnosticsProviderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_diagnostics' in response) ? response.arg_arg_diagnostics : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_diagnostics' in response) ? response.arg_diagnostics : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec.$.structSpec, { 'arg_diagnostics': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPluginVmDiagnostics FAILED:', e));
           }

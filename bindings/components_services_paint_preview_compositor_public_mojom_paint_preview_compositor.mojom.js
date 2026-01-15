@@ -259,7 +259,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec,
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec,
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec,
-      [arg_frame_guid, arg_clip_rect, arg_scale_factor],
+      { arg_frame_guid: arg_frame_guid, arg_clip_rect: arg_clip_rect, arg_scale_factor: arg_scale_factor },
       false);
   }
 
@@ -277,7 +277,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec,
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -286,7 +286,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec,
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec,
-      [arg_clip_rect, arg_scale_factor],
+      { arg_clip_rect: arg_clip_rect, arg_scale_factor: arg_scale_factor },
       false);
   }
 
@@ -295,7 +295,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorRemoteCallHandl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec,
       null,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -368,12 +368,12 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.beginSeparatedFrameComposite');
-          const result = this.impl.beginSeparatedFrameComposite(params.arg_arg_request);
+          const result = this.impl.beginSeparatedFrameComposite(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_response']);
+              encoder.encodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_response': response.arg_response });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] beginSeparatedFrameComposite FAILED:', e));
           }
@@ -383,12 +383,12 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bitmapForSeparatedFrame');
-          const result = this.impl.bitmapForSeparatedFrame(params.arg_arg_frame_guid, params.arg_arg_clip_rect, params.arg_arg_scale_factor);
+          const result = this.impl.bitmapForSeparatedFrame(params.arg_frame_guid, params.arg_clip_rect, params.arg_scale_factor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_bitmap']);
+              encoder.encodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_bitmap': response.arg_bitmap });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] bitmapForSeparatedFrame FAILED:', e));
           }
@@ -398,12 +398,12 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.beginMainFrameComposite');
-          const result = this.impl.beginMainFrameComposite(params.arg_arg_request);
+          const result = this.impl.beginMainFrameComposite(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_response']);
+              encoder.encodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_response': response.arg_response });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] beginMainFrameComposite FAILED:', e));
           }
@@ -413,12 +413,12 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bitmapForMainFrame');
-          const result = this.impl.bitmapForMainFrame(params.arg_arg_clip_rect, params.arg_arg_scale_factor);
+          const result = this.impl.bitmapForMainFrame(params.arg_clip_rect, params.arg_scale_factor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_bitmap']);
+              encoder.encodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_bitmap': response.arg_bitmap });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] bitmapForMainFrame FAILED:', e));
           }
@@ -428,7 +428,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRootFrameUrl');
-          const result = this.impl.setRootFrameUrl(params.arg_arg_url);
+          const result = this.impl.setRootFrameUrl(params.arg_url);
           break;
         }
       }
@@ -497,7 +497,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec,
       null,
-      [arg_manager],
+      { arg_manager: arg_manager },
       false);
   }
 
@@ -506,7 +506,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionRemot
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec,
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec,
-      [arg_compositor],
+      { arg_compositor: arg_compositor },
       false);
   }
 
@@ -515,7 +515,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionRemot
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec,
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -586,20 +586,20 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDiscardableSharedMemoryManager');
-          const result = this.impl.setDiscardableSharedMemoryManager(params.arg_arg_manager);
+          const result = this.impl.setDiscardableSharedMemoryManager(params.arg_manager);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCompositor');
-          const result = this.impl.createCompositor(params.arg_arg_compositor);
+          const result = this.impl.createCompositor(params.arg_compositor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_compositor_id' in response) ? response.arg_arg_compositor_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_compositor_id' in response) ? response.arg_compositor_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec.$.structSpec, { 'arg_compositor_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createCompositor FAILED:', e));
           }
@@ -614,8 +614,8 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionRecei
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_compositor_ids' in response) ? response.arg_arg_compositor_ids : response;
-              encoder.encodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_compositor_ids' in response) ? response.arg_compositor_ids : response;
+              encoder.encodeStructInline(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec.$.structSpec, { 'arg_compositor_ids': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] listCompositors FAILED:', e));
           }

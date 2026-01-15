@@ -230,7 +230,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ParamsSpec,
       mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec,
       mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ResponseParamsSpec,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ParamsSpec,
       mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec,
-      [arg_ids],
+      { arg_ids: arg_ids },
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec,
       mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ParamsSpec,
       mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ResponseParamsSpec,
-      [arg_query, arg_max_results],
+      { arg_query: arg_query, arg_max_results: arg_max_results },
       false);
   }
 
@@ -275,7 +275,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexRemoteCallHandler = c
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec,
       mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -284,7 +284,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexRemoteCallHandler = c
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec,
       mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ResponseParamsSpec,
-      [arg_search_params],
+      { arg_search_params: arg_search_params },
       false);
   }
 
@@ -364,8 +364,8 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_num_items' in response) ? response.arg_arg_num_items : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_num_items' in response) ? response.arg_num_items : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec.$.structSpec, { 'arg_num_items': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSize FAILED:', e));
           }
@@ -375,12 +375,12 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addOrUpdate');
-          const result = this.impl.addOrUpdate(params.arg_arg_data);
+          const result = this.impl.addOrUpdate(params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addOrUpdate FAILED:', e));
           }
@@ -390,13 +390,13 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.delete');
-          const result = this.impl.delete(params.arg_arg_ids);
+          const result = this.impl.delete(params.arg_ids);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_num_deleted' in response) ? response.arg_arg_num_deleted : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_num_deleted' in response) ? response.arg_num_deleted : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec.$.structSpec, { 'arg_num_deleted': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] delete FAILED:', e));
           }
@@ -406,13 +406,13 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateDocuments');
-          const result = this.impl.updateDocuments(params.arg_arg_data);
+          const result = this.impl.updateDocuments(params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_num_deleted' in response) ? response.arg_arg_num_deleted : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_num_deleted' in response) ? response.arg_num_deleted : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec.$.structSpec, { 'arg_num_deleted': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateDocuments FAILED:', e));
           }
@@ -422,12 +422,12 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.find');
-          const result = this.impl.find(params.arg_arg_query, params.arg_arg_max_results);
+          const result = this.impl.find(params.arg_query, params.arg_max_results);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_results']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_results': response.arg_results });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] find FAILED:', e));
           }
@@ -442,7 +442,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] clearIndex FAILED:', e));
           }
@@ -452,12 +452,12 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSearchParams');
-          const result = this.impl.setSearchParams(params.arg_arg_search_params);
+          const result = this.impl.setSearchParams(params.arg_search_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setSearchParams FAILED:', e));
           }

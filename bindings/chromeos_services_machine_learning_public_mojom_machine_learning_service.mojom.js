@@ -356,7 +356,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_Clone_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ResponseParamsSpec,
-      [arg_spec, arg_receiver],
+      { arg_spec: arg_spec, arg_receiver: arg_receiver },
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ResponseParamsSpec,
-      [arg_spec, arg_receiver],
+      { arg_spec: arg_spec, arg_receiver: arg_receiver },
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ResponseParamsSpec,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ResponseParamsSpec,
-      [arg_spec, arg_receiver],
+      { arg_spec: arg_spec, arg_receiver: arg_receiver },
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ResponseParamsSpec,
-      [arg_config, arg_soda_client, arg_soda_recognizer],
+      { arg_config: arg_config, arg_soda_client: arg_soda_client, arg_soda_recognizer: arg_soda_recognizer },
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ResponseParamsSpec,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ResponseParamsSpec,
-      [arg_receiver, arg_spec],
+      { arg_receiver: arg_receiver, arg_spec: arg_spec },
       false);
   }
 
@@ -428,7 +428,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ResponseParamsSpec,
-      [arg_constraint, arg_receiver],
+      { arg_constraint: arg_constraint, arg_receiver: arg_receiver },
       false);
   }
 
@@ -437,7 +437,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ResponseParamsSpec,
-      [arg_receiver, arg_config],
+      { arg_receiver: arg_receiver, arg_config: arg_config },
       false);
   }
 
@@ -446,7 +446,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ResponseParamsSpec,
-      [arg_config, arg_receiver],
+      { arg_config: arg_config, arg_receiver: arg_receiver },
       false);
   }
 
@@ -455,7 +455,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ResponseParamsSpec,
-      [arg_config, arg_client],
+      { arg_config: arg_config, arg_client: arg_client },
       false);
   }
 
@@ -464,7 +464,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ResponseParamsSpec,
-      [arg_spec, arg_receiver],
+      { arg_spec: arg_spec, arg_receiver: arg_receiver },
       false);
   }
 
@@ -545,20 +545,20 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_receiver);
+          const result = this.impl.clone(params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadBuiltinModel');
-          const result = this.impl.loadBuiltinModel(params.arg_arg_spec, params.arg_arg_receiver);
+          const result = this.impl.loadBuiltinModel(params.arg_spec, params.arg_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] loadBuiltinModel FAILED:', e));
           }
@@ -568,13 +568,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadFlatBufferModel');
-          const result = this.impl.loadFlatBufferModel(params.arg_arg_spec, params.arg_arg_receiver);
+          const result = this.impl.loadFlatBufferModel(params.arg_spec, params.arg_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] loadFlatBufferModel FAILED:', e));
           }
@@ -584,13 +584,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadTextClassifier');
-          const result = this.impl.loadTextClassifier(params.arg_arg_receiver);
+          const result = this.impl.loadTextClassifier(params.arg_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] loadTextClassifier FAILED:', e));
           }
@@ -600,13 +600,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadHandwritingModel');
-          const result = this.impl.loadHandwritingModel(params.arg_arg_spec, params.arg_arg_receiver);
+          const result = this.impl.loadHandwritingModel(params.arg_spec, params.arg_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] loadHandwritingModel FAILED:', e));
           }
@@ -616,13 +616,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadSpeechRecognizer');
-          const result = this.impl.loadSpeechRecognizer(params.arg_arg_config, params.arg_arg_soda_client, params.arg_arg_soda_recognizer);
+          const result = this.impl.loadSpeechRecognizer(params.arg_config, params.arg_soda_client, params.arg_soda_recognizer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] loadSpeechRecognizer FAILED:', e));
           }
@@ -632,13 +632,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadGrammarChecker');
-          const result = this.impl.loadGrammarChecker(params.arg_arg_receiver);
+          const result = this.impl.loadGrammarChecker(params.arg_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] loadGrammarChecker FAILED:', e));
           }
@@ -648,13 +648,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadTextSuggester');
-          const result = this.impl.loadTextSuggester(params.arg_arg_receiver, params.arg_arg_spec);
+          const result = this.impl.loadTextSuggester(params.arg_receiver, params.arg_spec);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] loadTextSuggester FAILED:', e));
           }
@@ -664,13 +664,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadWebPlatformHandwritingModel');
-          const result = this.impl.loadWebPlatformHandwritingModel(params.arg_arg_constraint, params.arg_arg_receiver);
+          const result = this.impl.loadWebPlatformHandwritingModel(params.arg_constraint, params.arg_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] loadWebPlatformHandwritingModel FAILED:', e));
           }
@@ -680,13 +680,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadDocumentScanner');
-          const result = this.impl.loadDocumentScanner(params.arg_arg_receiver, params.arg_arg_config);
+          const result = this.impl.loadDocumentScanner(params.arg_receiver, params.arg_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] loadDocumentScanner FAILED:', e));
           }
@@ -696,13 +696,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadImageAnnotator');
-          const result = this.impl.loadImageAnnotator(params.arg_arg_config, params.arg_arg_receiver);
+          const result = this.impl.loadImageAnnotator(params.arg_config, params.arg_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] loadImageAnnotator FAILED:', e));
           }
@@ -712,13 +712,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadHeatmapPalmRejection');
-          const result = this.impl.loadHeatmapPalmRejection(params.arg_arg_config, params.arg_arg_client);
+          const result = this.impl.loadHeatmapPalmRejection(params.arg_config, params.arg_client);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] loadHeatmapPalmRejection FAILED:', e));
           }
@@ -728,13 +728,13 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_4');
-          const result = this.impl.rEMOVED_4(params.arg_arg_spec, params.arg_arg_receiver);
+          const result = this.impl.rEMOVED_4(params.arg_spec, params.arg_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] rEMOVED_4 FAILED:', e));
           }

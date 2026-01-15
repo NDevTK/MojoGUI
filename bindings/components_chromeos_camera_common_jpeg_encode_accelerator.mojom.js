@@ -201,7 +201,7 @@ mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ParamsSpec,
       mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ParamsSpec,
       mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParamsSpec,
-      [arg_task_id, arg_input_fd, arg_input_buffer_size, arg_coded_size_width, arg_coded_size_height, arg_exif_fd, arg_exif_buffer_size, arg_output_fd, arg_output_buffer_size],
+      { arg_task_id: arg_task_id, arg_input_fd: arg_input_fd, arg_input_buffer_size: arg_input_buffer_size, arg_coded_size_width: arg_coded_size_width, arg_coded_size_height: arg_coded_size_height, arg_exif_fd: arg_exif_fd, arg_exif_buffer_size: arg_exif_buffer_size, arg_output_fd: arg_output_fd, arg_output_buffer_size: arg_output_buffer_size },
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec,
       mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec,
-      [arg_task_id, arg_input_format, arg_input_planes, arg_output_planes, arg_exif_handle, arg_exif_buffer_size, arg_coded_size_width, arg_coded_size_height, arg_quality, arg_has_input_modifier, arg_input_modifier],
+      { arg_task_id: arg_task_id, arg_input_format: arg_input_format, arg_input_planes: arg_input_planes, arg_output_planes: arg_output_planes, arg_exif_handle: arg_exif_handle, arg_exif_buffer_size: arg_exif_buffer_size, arg_coded_size_width: arg_coded_size_width, arg_coded_size_height: arg_coded_size_height, arg_quality: arg_quality, arg_has_input_modifier: arg_has_input_modifier, arg_input_modifier: arg_input_modifier },
       false);
   }
 
@@ -295,8 +295,8 @@ mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] initialize FAILED:', e));
           }
@@ -306,12 +306,12 @@ mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.encodeWithFD');
-          const result = this.impl.encodeWithFD(params.arg_arg_task_id, params.arg_arg_input_fd, params.arg_arg_input_buffer_size, params.arg_arg_coded_size_width, params.arg_arg_coded_size_height, params.arg_arg_exif_fd, params.arg_arg_exif_buffer_size, params.arg_arg_output_fd, params.arg_arg_output_buffer_size);
+          const result = this.impl.encodeWithFD(params.arg_task_id, params.arg_input_fd, params.arg_input_buffer_size, params.arg_coded_size_width, params.arg_coded_size_height, params.arg_exif_fd, params.arg_exif_buffer_size, params.arg_output_fd, params.arg_output_buffer_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParamsSpec.$.structSpec, ['response.arg_arg_task_id', 'response.arg_arg_encoded_buffer_size', 'response.arg_arg_status']);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParamsSpec.$.structSpec, { 'arg_task_id': response.arg_task_id, 'arg_encoded_buffer_size': response.arg_encoded_buffer_size, 'arg_status': response.arg_status });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] encodeWithFD FAILED:', e));
           }
@@ -321,12 +321,12 @@ mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.encodeWithDmaBuf');
-          const result = this.impl.encodeWithDmaBuf(params.arg_arg_task_id, params.arg_arg_input_format, params.arg_arg_input_planes, params.arg_arg_output_planes, params.arg_arg_exif_handle, params.arg_arg_exif_buffer_size, params.arg_arg_coded_size_width, params.arg_arg_coded_size_height, params.arg_arg_quality, params.arg_arg_has_input_modifier, params.arg_arg_input_modifier);
+          const result = this.impl.encodeWithDmaBuf(params.arg_task_id, params.arg_input_format, params.arg_input_planes, params.arg_output_planes, params.arg_exif_handle, params.arg_exif_buffer_size, params.arg_coded_size_width, params.arg_coded_size_height, params.arg_quality, params.arg_has_input_modifier, params.arg_input_modifier);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec.$.structSpec, ['response.arg_arg_encoded_buffer_size', 'response.arg_arg_status']);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec.$.structSpec, { 'arg_encoded_buffer_size': response.arg_encoded_buffer_size, 'arg_status': response.arg_status });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] encodeWithDmaBuf FAILED:', e));
           }

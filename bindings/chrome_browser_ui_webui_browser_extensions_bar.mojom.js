@@ -194,7 +194,7 @@ mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactoryRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -332,7 +332,7 @@ mojo.internal.bindings.extensions_bar.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.extensions_bar.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec,
       null,
-      [arg_source, arg_id],
+      { arg_source: arg_source, arg_id: arg_id },
       false);
   }
 
@@ -350,7 +350,7 @@ mojo.internal.bindings.extensions_bar.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -421,14 +421,14 @@ mojo.internal.bindings.extensions_bar.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeUserAction');
-          const result = this.impl.executeUserAction(params.arg_arg_id);
+          const result = this.impl.executeUserAction(params.arg_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
-          const result = this.impl.showContextMenu(params.arg_arg_source, params.arg_arg_id);
+          const result = this.impl.showContextMenu(params.arg_source, params.arg_id);
           break;
         }
         case 2: {
@@ -504,7 +504,7 @@ mojo.internal.bindings.extensions_bar.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec,
       null,
-      [arg_actions],
+      { arg_actions: arg_actions },
       false);
   }
 
@@ -513,7 +513,7 @@ mojo.internal.bindings.extensions_bar.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions_bar.mojom.Page_ActionRemoved_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -522,7 +522,7 @@ mojo.internal.bindings.extensions_bar.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec,
       mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -593,14 +593,14 @@ mojo.internal.bindings.extensions_bar.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.actionsAddedOrUpdated');
-          const result = this.impl.actionsAddedOrUpdated(params.arg_arg_actions);
+          const result = this.impl.actionsAddedOrUpdated(params.arg_actions);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions_bar.mojom.Page_ActionRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.actionRemoved');
-          const result = this.impl.actionRemoved(params.arg_arg_id);
+          const result = this.impl.actionRemoved(params.arg_id);
           break;
         }
         case 2: {
@@ -612,7 +612,7 @@ mojo.internal.bindings.extensions_bar.mojom.PageReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] actionPoppedOut FAILED:', e));
           }

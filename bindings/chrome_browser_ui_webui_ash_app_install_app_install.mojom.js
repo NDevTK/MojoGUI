@@ -210,7 +210,7 @@ mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec,
       mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -294,8 +294,8 @@ mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_installed' in response) ? response.arg_arg_installed : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_installed' in response) ? response.arg_installed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec.$.structSpec, { 'arg_installed': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] installApp FAILED:', e));
           }
@@ -366,7 +366,7 @@ mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -496,7 +496,7 @@ mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactoryRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_handler],
+      { arg_handler: arg_handler },
       false);
   }
 
@@ -565,7 +565,7 @@ mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactoryReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_handler);
           break;
         }
       }
@@ -630,7 +630,7 @@ mojo.internal.bindings.ash.app_install.mojom.PageHandlerRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec,
       mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -639,7 +639,7 @@ mojo.internal.bindings.ash.app_install.mojom.PageHandlerRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -714,8 +714,8 @@ mojo.internal.bindings.ash.app_install.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_dialog_args' in response) ? response.arg_arg_dialog_args : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_dialog_args' in response) ? response.arg_dialog_args : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec.$.structSpec, { 'arg_dialog_args': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDialogArgs FAILED:', e));
           }

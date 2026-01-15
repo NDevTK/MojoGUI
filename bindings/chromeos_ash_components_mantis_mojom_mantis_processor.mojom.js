@@ -239,7 +239,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ParamsSpec,
       mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec,
-      [arg_image, arg_mask, arg_seed],
+      { arg_image: arg_image, arg_mask: arg_mask, arg_seed: arg_seed },
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec,
       mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec,
-      [arg_image, arg_mask, arg_seed, arg_prompt],
+      { arg_image: arg_image, arg_mask: arg_mask, arg_seed: arg_seed, arg_prompt: arg_prompt },
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ParamsSpec,
       mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec,
-      [arg_image, arg_prior],
+      { arg_image: arg_image, arg_prior: arg_prior },
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec,
       mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec,
-      [arg_image],
+      { arg_image: arg_image },
       false);
   }
 
@@ -275,7 +275,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ParamsSpec,
       mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec,
-      [arg_image, arg_mask, arg_seed],
+      { arg_image: arg_image, arg_mask: arg_mask, arg_seed: arg_seed },
       false);
   }
 
@@ -284,7 +284,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec,
       mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec,
-      [arg_gesture],
+      { arg_gesture: arg_gesture },
       false);
   }
 
@@ -358,13 +358,13 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.inpainting');
-          const result = this.impl.inpainting(params.arg_arg_image, params.arg_arg_mask, params.arg_arg_seed);
+          const result = this.impl.inpainting(params.arg_image, params.arg_mask, params.arg_seed);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] inpainting FAILED:', e));
           }
@@ -374,13 +374,13 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generativeFill');
-          const result = this.impl.generativeFill(params.arg_arg_image, params.arg_arg_mask, params.arg_arg_seed, params.arg_arg_prompt);
+          const result = this.impl.generativeFill(params.arg_image, params.arg_mask, params.arg_seed, params.arg_prompt);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] generativeFill FAILED:', e));
           }
@@ -390,13 +390,13 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.segmentation');
-          const result = this.impl.segmentation(params.arg_arg_image, params.arg_arg_prior);
+          const result = this.impl.segmentation(params.arg_image, params.arg_prior);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] segmentation FAILED:', e));
           }
@@ -406,13 +406,13 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.classifyImageSafety');
-          const result = this.impl.classifyImageSafety(params.arg_arg_image);
+          const result = this.impl.classifyImageSafety(params.arg_image);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_verdict' in response) ? response.arg_arg_verdict : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_verdict' in response) ? response.arg_verdict : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec.$.structSpec, { 'arg_verdict': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] classifyImageSafety FAILED:', e));
           }
@@ -422,13 +422,13 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.outpainting');
-          const result = this.impl.outpainting(params.arg_arg_image, params.arg_arg_mask, params.arg_arg_seed);
+          const result = this.impl.outpainting(params.arg_image, params.arg_mask, params.arg_seed);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] outpainting FAILED:', e));
           }
@@ -438,13 +438,13 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.inferSegmentationMode');
-          const result = this.impl.inferSegmentationMode(params.arg_arg_gesture);
+          const result = this.impl.inferSegmentationMode(params.arg_gesture);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_mode' in response) ? response.arg_arg_mode : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_mode' in response) ? response.arg_mode : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec.$.structSpec, { 'arg_mode': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] inferSegmentationMode FAILED:', e));
           }

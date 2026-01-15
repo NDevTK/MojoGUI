@@ -186,7 +186,7 @@ mojo.internal.bindings.actor_internals.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec,
       null,
-      [arg_entry],
+      { arg_entry: arg_entry },
       false);
   }
 
@@ -255,7 +255,7 @@ mojo.internal.bindings.actor_internals.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.journalEntryAdded');
-          const result = this.impl.journalEntryAdded(params.arg_arg_entry);
+          const result = this.impl.journalEntryAdded(params.arg_entry);
           break;
         }
       }
@@ -320,7 +320,7 @@ mojo.internal.bindings.actor_internals.mojom.PageHandlerRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.actor_internals.mojom.PageHandler_StartLogging_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -329,7 +329,7 @@ mojo.internal.bindings.actor_internals.mojom.PageHandlerRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.actor_internals.mojom.PageHandler_StopLogging_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -467,7 +467,7 @@ mojo.internal.bindings.actor_internals.mojom.PageHandlerFactoryRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.actor_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -536,7 +536,7 @@ mojo.internal.bindings.actor_internals.mojom.PageHandlerFactoryReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.actor_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }

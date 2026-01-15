@@ -210,7 +210,7 @@ mojo.internal.bindings.content.mojom.ChildProcessHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ParamsSpec,
       mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.content.mojom.ChildProcessHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.content.mojom.ChildProcessHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] ping FAILED:', e));
           }
@@ -304,7 +304,7 @@ mojo.internal.bindings.content.mojom.ChildProcessHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindHostReceiver');
-          const result = this.impl.bindHostReceiver(params.arg_arg_receiver);
+          const result = this.impl.bindHostReceiver(params.arg_receiver);
           break;
         }
       }
@@ -405,7 +405,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_ProcessShutdown_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -414,7 +414,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec,
       null,
-      [arg_on],
+      { arg_on: arg_on },
       false);
   }
 
@@ -423,7 +423,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -432,7 +432,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_CrashHungProcess_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -441,7 +441,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_BindServiceInterface_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -450,7 +450,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_BindReceiver_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -459,7 +459,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_SetProfilingFile_ParamsSpec,
       null,
-      [arg_file],
+      { arg_file: arg_file },
       false);
   }
 
@@ -468,7 +468,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec,
       mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -477,7 +477,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec,
       null,
-      [arg_salt],
+      { arg_salt: arg_salt },
       false);
   }
 
@@ -486,7 +486,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec,
       null,
-      [arg_memory_pressure_level],
+      { arg_memory_pressure_level: arg_memory_pressure_level },
       false);
   }
 
@@ -495,7 +495,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec,
       null,
-      [arg_battery_saver_mode_enabled],
+      { arg_battery_saver_mode_enabled: arg_battery_saver_mode_enabled },
       false);
   }
 
@@ -581,14 +581,14 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIPCLoggingEnabled');
-          const result = this.impl.setIPCLoggingEnabled(params.arg_arg_on);
+          const result = this.impl.setIPCLoggingEnabled(params.arg_on);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBackgroundTracingAgentProvider');
-          const result = this.impl.getBackgroundTracingAgentProvider(params.arg_arg_receiver);
+          const result = this.impl.getBackgroundTracingAgentProvider(params.arg_receiver);
           break;
         }
         case 3: {
@@ -602,21 +602,21 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_BindServiceInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindServiceInterface');
-          const result = this.impl.bindServiceInterface(params.arg_arg_receiver);
+          const result = this.impl.bindServiceInterface(params.arg_receiver);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_BindReceiver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindReceiver');
-          const result = this.impl.bindReceiver(params.arg_arg_receiver);
+          const result = this.impl.bindReceiver(params.arg_receiver);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_SetProfilingFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setProfilingFile');
-          const result = this.impl.setProfilingFile(params.arg_arg_file);
+          const result = this.impl.setProfilingFile(params.arg_file);
           break;
         }
         case 7: {
@@ -628,7 +628,7 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] writeClangProfilingProfile FAILED:', e));
           }
@@ -638,21 +638,21 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPseudonymizationSalt');
-          const result = this.impl.setPseudonymizationSalt(params.arg_arg_salt);
+          const result = this.impl.setPseudonymizationSalt(params.arg_salt);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMemoryPressure');
-          const result = this.impl.onMemoryPressure(params.arg_arg_memory_pressure_level);
+          const result = this.impl.onMemoryPressure(params.arg_memory_pressure_level);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBatterySaverMode');
-          const result = this.impl.setBatterySaverMode(params.arg_arg_battery_saver_mode_enabled);
+          const result = this.impl.setBatterySaverMode(params.arg_battery_saver_mode_enabled);
           break;
         }
       }

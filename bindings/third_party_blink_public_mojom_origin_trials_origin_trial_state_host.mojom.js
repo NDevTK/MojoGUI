@@ -185,7 +185,7 @@ mojo.internal.bindings.blink.mojom.OriginTrialStateHostRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec,
       null,
-      [arg_origin_trial_features],
+      { arg_origin_trial_features: arg_origin_trial_features },
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.OriginTrialStateHostRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec,
       null,
-      [arg_token, arg_script_origins],
+      { arg_token: arg_token, arg_script_origins: arg_script_origins },
       false);
   }
 
@@ -264,14 +264,14 @@ mojo.internal.bindings.blink.mojom.OriginTrialStateHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyFeatureDiffForOriginTrial');
-          const result = this.impl.applyFeatureDiffForOriginTrial(params.arg_arg_origin_trial_features);
+          const result = this.impl.applyFeatureDiffForOriginTrial(params.arg_origin_trial_features);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enablePersistentTrial');
-          const result = this.impl.enablePersistentTrial(params.arg_arg_token, params.arg_arg_script_origins);
+          const result = this.impl.enablePersistentTrial(params.arg_token, params.arg_script_origins);
           break;
         }
       }

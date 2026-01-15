@@ -293,7 +293,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnEnabledChanged_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -302,7 +302,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnFastInitiationNotificationStateChanged_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -311,7 +311,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnIsFastInitiationHardwareSupportedChanged_ParamsSpec,
       null,
-      [arg_is_supported],
+      { arg_is_supported: arg_is_supported },
       false);
   }
 
@@ -320,7 +320,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverRemoteCallH
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnDeviceNameChanged_ParamsSpec,
       null,
-      [arg_device_name],
+      { arg_device_name: arg_device_name },
       false);
   }
 
@@ -329,7 +329,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverRemoteCallH
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnDataUsageChanged_ParamsSpec,
       null,
-      [arg_data_usage],
+      { arg_data_usage: arg_data_usage },
       false);
   }
 
@@ -338,7 +338,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverRemoteCallH
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnVisibilityChanged_ParamsSpec,
       null,
-      [arg_visibility],
+      { arg_visibility: arg_visibility },
       false);
   }
 
@@ -347,7 +347,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverRemoteCallH
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnAllowedContactsChanged_ParamsSpec,
       null,
-      [arg_visible_contact_ids],
+      { arg_visible_contact_ids: arg_visible_contact_ids },
       false);
   }
 
@@ -356,7 +356,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverRemoteCallH
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnIsOnboardingCompleteChanged_ParamsSpec,
       null,
-      [arg_is_complete],
+      { arg_is_complete: arg_is_complete },
       false);
   }
 
@@ -432,56 +432,56 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserverReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnEnabledChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEnabledChanged');
-          const result = this.impl.onEnabledChanged(params.arg_arg_enabled);
+          const result = this.impl.onEnabledChanged(params.arg_enabled);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnFastInitiationNotificationStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFastInitiationNotificationStateChanged');
-          const result = this.impl.onFastInitiationNotificationStateChanged(params.arg_arg_state);
+          const result = this.impl.onFastInitiationNotificationStateChanged(params.arg_state);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnIsFastInitiationHardwareSupportedChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onIsFastInitiationHardwareSupportedChanged');
-          const result = this.impl.onIsFastInitiationHardwareSupportedChanged(params.arg_arg_is_supported);
+          const result = this.impl.onIsFastInitiationHardwareSupportedChanged(params.arg_is_supported);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnDeviceNameChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceNameChanged');
-          const result = this.impl.onDeviceNameChanged(params.arg_arg_device_name);
+          const result = this.impl.onDeviceNameChanged(params.arg_device_name);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnDataUsageChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDataUsageChanged');
-          const result = this.impl.onDataUsageChanged(params.arg_arg_data_usage);
+          const result = this.impl.onDataUsageChanged(params.arg_data_usage);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnVisibilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVisibilityChanged');
-          const result = this.impl.onVisibilityChanged(params.arg_arg_visibility);
+          const result = this.impl.onVisibilityChanged(params.arg_visibility);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnAllowedContactsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAllowedContactsChanged');
-          const result = this.impl.onAllowedContactsChanged(params.arg_arg_visible_contact_ids);
+          const result = this.impl.onAllowedContactsChanged(params.arg_visible_contact_ids);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnIsOnboardingCompleteChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onIsOnboardingCompleteChanged');
-          const result = this.impl.onIsOnboardingCompleteChanged(params.arg_arg_is_complete);
+          const result = this.impl.onIsOnboardingCompleteChanged(params.arg_is_complete);
           break;
         }
       }
@@ -606,7 +606,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_AddSettingsObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -615,7 +615,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetEnabled_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetEnabled_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -624,7 +624,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -633,7 +633,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -642,7 +642,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsRemoteCallHandler =
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetIsOnboardingComplete_ParamsSpec,
       null,
-      [arg_completed],
+      { arg_completed: arg_completed },
       false);
   }
 
@@ -651,7 +651,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsRemoteCallHandler =
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -660,7 +660,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsRemoteCallHandler =
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetFastInitiationNotificationState_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -669,7 +669,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsRemoteCallHandler =
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -678,7 +678,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsRemoteCallHandler =
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetDeviceName_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetDeviceName_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -687,7 +687,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsRemoteCallHandler =
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ResponseParamsSpec,
-      [arg_device_name],
+      { arg_device_name: arg_device_name },
       false);
   }
 
@@ -696,7 +696,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsRemoteCallHandler =
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetDeviceName_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetDeviceName_ResponseParamsSpec,
-      [arg_device_name],
+      { arg_device_name: arg_device_name },
       false);
   }
 
@@ -705,7 +705,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsRemoteCallHandler =
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetDataUsage_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetDataUsage_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -714,7 +714,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsRemoteCallHandler =
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetDataUsage_ParamsSpec,
       null,
-      [arg_data_usage],
+      { arg_data_usage: arg_data_usage },
       false);
   }
 
@@ -723,7 +723,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsRemoteCallHandler =
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetVisibility_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetVisibility_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -732,7 +732,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsRemoteCallHandler =
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetVisibility_ParamsSpec,
       null,
-      [arg_visibility],
+      { arg_visibility: arg_visibility },
       false);
   }
 
@@ -741,7 +741,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsRemoteCallHandler =
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -750,7 +750,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsRemoteCallHandler =
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetAllowedContacts_ParamsSpec,
       null,
-      [arg_allowed_contacts],
+      { arg_allowed_contacts: arg_allowed_contacts },
       false);
   }
 
@@ -835,7 +835,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_AddSettingsObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addSettingsObserver');
-          const result = this.impl.addSettingsObserver(params.arg_arg_observer);
+          const result = this.impl.addSettingsObserver(params.arg_observer);
           break;
         }
         case 1: {
@@ -847,8 +847,8 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_enabled' in response) ? response.arg_arg_enabled : response;
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetEnabled_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_enabled' in response) ? response.arg_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetEnabled_ResponseParamsSpec.$.structSpec, { 'arg_enabled': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getEnabled FAILED:', e));
           }
@@ -858,7 +858,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setEnabled');
-          const result = this.impl.setEnabled(params.arg_arg_enabled);
+          const result = this.impl.setEnabled(params.arg_enabled);
           break;
         }
         case 3: {
@@ -870,8 +870,8 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_completed' in response) ? response.arg_arg_completed : response;
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_completed' in response) ? response.arg_completed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ResponseParamsSpec.$.structSpec, { 'arg_completed': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isOnboardingComplete FAILED:', e));
           }
@@ -881,7 +881,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetIsOnboardingComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsOnboardingComplete');
-          const result = this.impl.setIsOnboardingComplete(params.arg_arg_completed);
+          const result = this.impl.setIsOnboardingComplete(params.arg_completed);
           break;
         }
         case 5: {
@@ -893,8 +893,8 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response.arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ResponseParamsSpec.$.structSpec, { 'arg_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFastInitiationNotificationState FAILED:', e));
           }
@@ -904,7 +904,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetFastInitiationNotificationState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFastInitiationNotificationState');
-          const result = this.impl.setFastInitiationNotificationState(params.arg_arg_state);
+          const result = this.impl.setFastInitiationNotificationState(params.arg_state);
           break;
         }
         case 7: {
@@ -916,8 +916,8 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_supported' in response) ? response.arg_arg_supported : response;
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_supported' in response) ? response.arg_supported : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ResponseParamsSpec.$.structSpec, { 'arg_supported': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getIsFastInitiationHardwareSupported FAILED:', e));
           }
@@ -932,8 +932,8 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_device_name' in response) ? response.arg_arg_device_name : response;
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetDeviceName_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_device_name' in response) ? response.arg_device_name : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetDeviceName_ResponseParamsSpec.$.structSpec, { 'arg_device_name': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDeviceName FAILED:', e));
           }
@@ -943,13 +943,13 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.validateDeviceName');
-          const result = this.impl.validateDeviceName(params.arg_arg_device_name);
+          const result = this.impl.validateDeviceName(params.arg_device_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] validateDeviceName FAILED:', e));
           }
@@ -959,13 +959,13 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetDeviceName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDeviceName');
-          const result = this.impl.setDeviceName(params.arg_arg_device_name);
+          const result = this.impl.setDeviceName(params.arg_device_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetDeviceName_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetDeviceName_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setDeviceName FAILED:', e));
           }
@@ -980,8 +980,8 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data_usage' in response) ? response.arg_arg_data_usage : response;
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetDataUsage_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data_usage' in response) ? response.arg_data_usage : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetDataUsage_ResponseParamsSpec.$.structSpec, { 'arg_data_usage': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDataUsage FAILED:', e));
           }
@@ -991,7 +991,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetDataUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDataUsage');
-          const result = this.impl.setDataUsage(params.arg_arg_data_usage);
+          const result = this.impl.setDataUsage(params.arg_data_usage);
           break;
         }
         case 13: {
@@ -1003,8 +1003,8 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_visibility' in response) ? response.arg_arg_visibility : response;
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetVisibility_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_visibility' in response) ? response.arg_visibility : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetVisibility_ResponseParamsSpec.$.structSpec, { 'arg_visibility': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getVisibility FAILED:', e));
           }
@@ -1014,7 +1014,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVisibility');
-          const result = this.impl.setVisibility(params.arg_arg_visibility);
+          const result = this.impl.setVisibility(params.arg_visibility);
           break;
         }
         case 15: {
@@ -1026,8 +1026,8 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_allowed_contacts' in response) ? response.arg_arg_allowed_contacts : response;
-              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_allowed_contacts' in response) ? response.arg_allowed_contacts : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ResponseParamsSpec.$.structSpec, { 'arg_allowed_contacts': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAllowedContacts FAILED:', e));
           }
@@ -1037,7 +1037,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetAllowedContacts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAllowedContacts');
-          const result = this.impl.setAllowedContacts(params.arg_arg_allowed_contacts);
+          const result = this.impl.setAllowedContacts(params.arg_allowed_contacts);
           break;
         }
       }
@@ -1102,7 +1102,7 @@ mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserver_OnContactsDownloaded_ParamsSpec,
       null,
-      [arg_allowed_contacts, arg_contacts, arg_num_unreachable_contacts_filtered_out],
+      { arg_allowed_contacts: arg_allowed_contacts, arg_contacts: arg_contacts, arg_num_unreachable_contacts_filtered_out: arg_num_unreachable_contacts_filtered_out },
       false);
   }
 
@@ -1111,7 +1111,7 @@ mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserverRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserver_OnContactsDownloadFailed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1181,7 +1181,7 @@ mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserverReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserver_OnContactsDownloaded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onContactsDownloaded');
-          const result = this.impl.onContactsDownloaded(params.arg_arg_allowed_contacts, params.arg_arg_contacts, params.arg_arg_num_unreachable_contacts_filtered_out);
+          const result = this.impl.onContactsDownloaded(params.arg_allowed_contacts, params.arg_contacts, params.arg_num_unreachable_contacts_filtered_out);
           break;
         }
         case 1: {
@@ -1257,7 +1257,7 @@ mojo.internal.bindings.nearby_share.mojom.ContactManagerRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ContactManager_AddDownloadContactsObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -1266,7 +1266,7 @@ mojo.internal.bindings.nearby_share.mojom.ContactManagerRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ContactManager_DownloadContacts_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1275,7 +1275,7 @@ mojo.internal.bindings.nearby_share.mojom.ContactManagerRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ContactManager_SetAllowedContacts_ParamsSpec,
       null,
-      [arg_allowed_contacts],
+      { arg_allowed_contacts: arg_allowed_contacts },
       false);
   }
 
@@ -1346,7 +1346,7 @@ mojo.internal.bindings.nearby_share.mojom.ContactManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ContactManager_AddDownloadContactsObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDownloadContactsObserver');
-          const result = this.impl.addDownloadContactsObserver(params.arg_arg_observer);
+          const result = this.impl.addDownloadContactsObserver(params.arg_observer);
           break;
         }
         case 1: {
@@ -1360,7 +1360,7 @@ mojo.internal.bindings.nearby_share.mojom.ContactManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ContactManager_SetAllowedContacts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAllowedContacts');
-          const result = this.impl.setAllowedContacts(params.arg_arg_allowed_contacts);
+          const result = this.impl.setAllowedContacts(params.arg_allowed_contacts);
           break;
         }
       }

@@ -176,7 +176,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHostRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec,
-      [arg_capacity_delta],
+      { arg_capacity_delta: arg_capacity_delta },
       false);
   }
 
@@ -185,7 +185,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHostRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -255,13 +255,13 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHostReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestCapacityChange');
-          const result = this.impl.requestCapacityChange(params.arg_arg_capacity_delta);
+          const result = this.impl.requestCapacityChange(params.arg_capacity_delta);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_granted_capacity_delta' in response) ? response.arg_arg_granted_capacity_delta : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_granted_capacity_delta' in response) ? response.arg_granted_capacity_delta : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec.$.structSpec, { 'arg_granted_capacity_delta': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestCapacityChange FAILED:', e));
           }

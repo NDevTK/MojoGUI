@@ -242,7 +242,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec,
       null,
-      [arg_buffer_manager_gpu_associated],
+      { arg_buffer_manager_gpu_associated: arg_buffer_manager_gpu_associated },
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec,
       null,
-      [arg_dmabuf_fd, arg_size, arg_strides, arg_offsets, arg_modifiers, arg_format, arg_planes_count, arg_color_space, arg_hdr_metadata, arg_buffer_id],
+      { arg_dmabuf_fd: arg_dmabuf_fd, arg_size: arg_size, arg_strides: arg_strides, arg_offsets: arg_offsets, arg_modifiers: arg_modifiers, arg_format: arg_format, arg_planes_count: arg_planes_count, arg_color_space: arg_color_space, arg_hdr_metadata: arg_hdr_metadata, arg_buffer_id: arg_buffer_id },
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec,
       null,
-      [arg_shm_fd, arg_length, arg_size, arg_buffer_id],
+      { arg_shm_fd: arg_shm_fd, arg_length: arg_length, arg_size: arg_size, arg_buffer_id: arg_buffer_id },
       false);
   }
 
@@ -269,7 +269,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec,
       null,
-      [arg_color, arg_buffer_id],
+      { arg_color: arg_color, arg_buffer_id: arg_buffer_id },
       false);
   }
 
@@ -278,7 +278,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec,
       null,
-      [arg_buffer_id],
+      { arg_buffer_id: arg_buffer_id },
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec,
       null,
-      [arg_widget, arg_frame_id, arg_data, arg_overlays],
+      { arg_widget: arg_widget, arg_frame_id: arg_frame_id, arg_data: arg_data, arg_overlays: arg_overlays },
       false);
   }
 
@@ -361,42 +361,42 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWaylandBufferManagerGpu');
-          const result = this.impl.setWaylandBufferManagerGpu(params.arg_arg_buffer_manager_gpu_associated);
+          const result = this.impl.setWaylandBufferManagerGpu(params.arg_buffer_manager_gpu_associated);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDmabufBasedBuffer');
-          const result = this.impl.createDmabufBasedBuffer(params.arg_arg_dmabuf_fd, params.arg_arg_size, params.arg_arg_strides, params.arg_arg_offsets, params.arg_arg_modifiers, params.arg_arg_format, params.arg_arg_planes_count, params.arg_arg_color_space, params.arg_arg_hdr_metadata, params.arg_arg_buffer_id);
+          const result = this.impl.createDmabufBasedBuffer(params.arg_dmabuf_fd, params.arg_size, params.arg_strides, params.arg_offsets, params.arg_modifiers, params.arg_format, params.arg_planes_count, params.arg_color_space, params.arg_hdr_metadata, params.arg_buffer_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createShmBasedBuffer');
-          const result = this.impl.createShmBasedBuffer(params.arg_arg_shm_fd, params.arg_arg_length, params.arg_arg_size, params.arg_arg_buffer_id);
+          const result = this.impl.createShmBasedBuffer(params.arg_shm_fd, params.arg_length, params.arg_size, params.arg_buffer_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSinglePixelBuffer');
-          const result = this.impl.createSinglePixelBuffer(params.arg_arg_color, params.arg_arg_buffer_id);
+          const result = this.impl.createSinglePixelBuffer(params.arg_color, params.arg_buffer_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.destroyBuffer');
-          const result = this.impl.destroyBuffer(params.arg_arg_buffer_id);
+          const result = this.impl.destroyBuffer(params.arg_buffer_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commitOverlays');
-          const result = this.impl.commitOverlays(params.arg_arg_widget, params.arg_arg_frame_id, params.arg_arg_data, params.arg_arg_overlays);
+          const result = this.impl.commitOverlays(params.arg_widget, params.arg_frame_id, params.arg_data, params.arg_overlays);
           break;
         }
       }
@@ -465,7 +465,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec,
       null,
-      [arg_remote_host, arg_shared_image_formats_with_modifiers, arg_supports_dma_buf, arg_supports_viewporter, arg_supports_acquire_fence, arg_supports_overlays, arg_supports_single_pixel_buffer],
+      { arg_remote_host: arg_remote_host, arg_shared_image_formats_with_modifiers: arg_shared_image_formats_with_modifiers, arg_supports_dma_buf: arg_supports_dma_buf, arg_supports_viewporter: arg_supports_viewporter, arg_supports_acquire_fence: arg_supports_acquire_fence, arg_supports_overlays: arg_supports_overlays, arg_supports_single_pixel_buffer: arg_supports_single_pixel_buffer },
       false);
   }
 
@@ -474,7 +474,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec,
       null,
-      [arg_widget, arg_frame_id, arg_swap_result, arg_release_fence_handle, arg_presentation_infos],
+      { arg_widget: arg_widget, arg_frame_id: arg_frame_id, arg_swap_result: arg_swap_result, arg_release_fence_handle: arg_release_fence_handle, arg_presentation_infos: arg_presentation_infos },
       false);
   }
 
@@ -483,7 +483,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec,
       null,
-      [arg_widget, arg_presentation_infos],
+      { arg_widget: arg_widget, arg_presentation_infos: arg_presentation_infos },
       false);
   }
 
@@ -554,21 +554,21 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_arg_remote_host, params.arg_arg_shared_image_formats_with_modifiers, params.arg_arg_supports_dma_buf, params.arg_arg_supports_viewporter, params.arg_arg_supports_acquire_fence, params.arg_arg_supports_overlays, params.arg_arg_supports_single_pixel_buffer);
+          const result = this.impl.initialize(params.arg_remote_host, params.arg_shared_image_formats_with_modifiers, params.arg_supports_dma_buf, params.arg_supports_viewporter, params.arg_supports_acquire_fence, params.arg_supports_overlays, params.arg_supports_single_pixel_buffer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSubmission');
-          const result = this.impl.onSubmission(params.arg_arg_widget, params.arg_arg_frame_id, params.arg_arg_swap_result, params.arg_arg_release_fence_handle, params.arg_arg_presentation_infos);
+          const result = this.impl.onSubmission(params.arg_widget, params.arg_frame_id, params.arg_swap_result, params.arg_release_fence_handle, params.arg_presentation_infos);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPresentation');
-          const result = this.impl.onPresentation(params.arg_arg_widget, params.arg_arg_presentation_infos);
+          const result = this.impl.onPresentation(params.arg_widget, params.arg_presentation_infos);
           break;
         }
       }

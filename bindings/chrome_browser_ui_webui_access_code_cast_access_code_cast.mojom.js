@@ -213,7 +213,7 @@ mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactoryRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -282,7 +282,7 @@ mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactoryReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -347,7 +347,7 @@ mojo.internal.bindings.access_code_cast.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ParamsSpec,
       mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec,
-      [arg_access_code, arg_discovery_method],
+      { arg_access_code: arg_access_code, arg_discovery_method: arg_discovery_method },
       false);
   }
 
@@ -356,7 +356,7 @@ mojo.internal.bindings.access_code_cast.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec,
       mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -426,13 +426,13 @@ mojo.internal.bindings.access_code_cast.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addSink');
-          const result = this.impl.addSink(params.arg_arg_access_code, params.arg_arg_discovery_method);
+          const result = this.impl.addSink(params.arg_access_code, params.arg_discovery_method);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result_code' in response) ? response.arg_arg_result_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result_code' in response) ? response.arg_result_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec.$.structSpec, { 'arg_result_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addSink FAILED:', e));
           }
@@ -447,8 +447,8 @@ mojo.internal.bindings.access_code_cast.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result_code' in response) ? response.arg_arg_result_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result_code' in response) ? response.arg_result_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec.$.structSpec, { 'arg_result_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] castToSink FAILED:', e));
           }

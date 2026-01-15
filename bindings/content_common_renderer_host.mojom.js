@@ -187,7 +187,7 @@ mojo.internal.bindings.content.mojom.RendererHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec,
       mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec,
-      [arg_name],
+      { arg_name: arg_name },
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.content.mojom.RendererHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec,
       null,
-      [arg_allowed],
+      { arg_allowed: arg_allowed },
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.content.mojom.RendererHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec,
       null,
-      [arg_action],
+      { arg_action: arg_action },
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.content.mojom.RendererHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ParamsSpec,
       mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -286,13 +286,13 @@ mojo.internal.bindings.content.mojom.RendererHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBrowserHistogram');
-          const result = this.impl.getBrowserHistogram(params.arg_arg_name);
+          const result = this.impl.getBrowserHistogram(params.arg_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_histogram_json' in response) ? response.arg_arg_histogram_json : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_histogram_json' in response) ? response.arg_histogram_json : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec.$.structSpec, { 'arg_histogram_json': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getBrowserHistogram FAILED:', e));
           }
@@ -302,14 +302,14 @@ mojo.internal.bindings.content.mojom.RendererHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.suddenTerminationAllowedChanged');
-          const result = this.impl.suddenTerminationAllowedChanged(params.arg_arg_allowed);
+          const result = this.impl.suddenTerminationAllowedChanged(params.arg_allowed);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordUserMetricsAction');
-          const result = this.impl.recordUserMetricsAction(params.arg_arg_action);
+          const result = this.impl.recordUserMetricsAction(params.arg_action);
           break;
         }
         case 3: {
@@ -321,8 +321,8 @@ mojo.internal.bindings.content.mojom.RendererHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_has_gpu_process' in response) ? response.arg_arg_has_gpu_process : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_has_gpu_process' in response) ? response.arg_has_gpu_process : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec.$.structSpec, { 'arg_has_gpu_process': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] hasGpuProcess FAILED:', e));
           }

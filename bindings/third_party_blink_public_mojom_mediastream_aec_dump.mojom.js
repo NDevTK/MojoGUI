@@ -185,7 +185,7 @@ mojo.internal.bindings.blink.mojom.AecDumpAgentRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AecDumpAgent_Start_ParamsSpec,
       null,
-      [arg_file],
+      { arg_file: arg_file },
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.AecDumpAgentRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AecDumpAgent_Stop_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -264,7 +264,7 @@ mojo.internal.bindings.blink.mojom.AecDumpAgentReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AecDumpAgent_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start(params.arg_arg_file);
+          const result = this.impl.start(params.arg_file);
           break;
         }
         case 1: {
@@ -332,7 +332,7 @@ mojo.internal.bindings.blink.mojom.AecDumpManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AecDumpManager_Add_ParamsSpec,
       null,
-      [arg_agent],
+      { arg_agent: arg_agent },
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.blink.mojom.AecDumpManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AecDumpManager_Add_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.add');
-          const result = this.impl.add(params.arg_arg_agent);
+          const result = this.impl.add(params.arg_agent);
           break;
         }
       }

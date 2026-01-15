@@ -185,7 +185,7 @@ mojo.internal.bindings.network.mojom.SSLConfigClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec,
       null,
-      [arg_ssl_config],
+      { arg_ssl_config: arg_ssl_config },
       false);
   }
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.network.mojom.SSLConfigClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSSLConfigUpdated');
-          const result = this.impl.onSSLConfigUpdated(params.arg_arg_ssl_config);
+          const result = this.impl.onSSLConfigUpdated(params.arg_ssl_config);
           break;
         }
       }

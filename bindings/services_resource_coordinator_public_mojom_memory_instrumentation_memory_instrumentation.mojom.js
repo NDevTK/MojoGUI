@@ -306,7 +306,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec,
       mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec,
-      [arg_args],
+      { arg_args: arg_args },
       false);
   }
 
@@ -315,7 +315,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec,
       mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec,
-      [arg_option, arg_flags, arg_pids],
+      { arg_option: arg_option, arg_flags: arg_flags, arg_pids: arg_pids },
       false);
   }
 
@@ -385,12 +385,12 @@ mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestChromeMemoryDump');
-          const result = this.impl.requestChromeMemoryDump(params.arg_arg_args);
+          const result = this.impl.requestChromeMemoryDump(params.arg_args);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec.$.structSpec, ['response.arg_arg_outcome', 'response.arg_arg_dump_id', 'response.arg_arg_raw_process_memory_dump']);
+              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec.$.structSpec, { 'arg_outcome': response.arg_outcome, 'arg_dump_id': response.arg_dump_id, 'arg_raw_process_memory_dump': response.arg_raw_process_memory_dump });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestChromeMemoryDump FAILED:', e));
           }
@@ -400,12 +400,12 @@ mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestOSMemoryDump');
-          const result = this.impl.requestOSMemoryDump(params.arg_arg_option, params.arg_arg_flags, params.arg_arg_pids);
+          const result = this.impl.requestOSMemoryDump(params.arg_option, params.arg_flags, params.arg_pids);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec.$.structSpec, ['response.arg_arg_outcome', 'response.arg_arg_dumps']);
+              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec.$.structSpec, { 'arg_outcome': response.arg_outcome, 'arg_dumps': response.arg_dumps });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestOSMemoryDump FAILED:', e));
           }
@@ -469,7 +469,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec,
       mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec,
-      [arg_strip_path_from_mapped_files, arg_write_proto],
+      { arg_strip_path_from_mapped_files: arg_strip_path_from_mapped_files, arg_write_proto: arg_write_proto },
       false);
   }
 
@@ -538,13 +538,13 @@ mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dumpProcessesForTracing');
-          const result = this.impl.dumpProcessesForTracing(params.arg_arg_strip_path_from_mapped_files, params.arg_arg_write_proto);
+          const result = this.impl.dumpProcessesForTracing(params.arg_strip_path_from_mapped_files, params.arg_write_proto);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
-              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_results' in response) ? response.arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec.$.structSpec, { 'arg_results': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dumpProcessesForTracing FAILED:', e));
           }
@@ -608,7 +608,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec,
       mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec,
-      [arg_pids],
+      { arg_pids: arg_pids },
       false);
   }
 
@@ -677,13 +677,13 @@ mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVmRegionsForHeapProfiler');
-          const result = this.impl.getVmRegionsForHeapProfiler(params.arg_arg_pids);
+          const result = this.impl.getVmRegionsForHeapProfiler(params.arg_pids);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_vm_regions' in response) ? response.arg_arg_vm_regions : response;
-              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_vm_regions' in response) ? response.arg_vm_regions : response;
+              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec.$.structSpec, { 'arg_vm_regions': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getVmRegionsForHeapProfiler FAILED:', e));
           }
@@ -759,7 +759,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec,
       mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec,
-      [arg_dump_type, arg_level_of_detail, arg_determinism, arg_allocator_dump_names],
+      { arg_dump_type: arg_dump_type, arg_level_of_detail: arg_level_of_detail, arg_determinism: arg_determinism, arg_allocator_dump_names: arg_allocator_dump_names },
       false);
   }
 
@@ -768,7 +768,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec,
       mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec,
-      [arg_pid, arg_allocator_dump_names],
+      { arg_pid: arg_pid, arg_allocator_dump_names: arg_allocator_dump_names },
       false);
   }
 
@@ -777,7 +777,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec,
       mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec,
-      [arg_pid],
+      { arg_pid: arg_pid },
       false);
   }
 
@@ -786,7 +786,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec,
       mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec,
-      [arg_dump_type, arg_level_of_detail, arg_determinism],
+      { arg_dump_type: arg_dump_type, arg_level_of_detail: arg_level_of_detail, arg_determinism: arg_determinism },
       false);
   }
 
@@ -858,12 +858,12 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDump');
-          const result = this.impl.requestGlobalMemoryDump(params.arg_arg_dump_type, params.arg_arg_level_of_detail, params.arg_arg_determinism, params.arg_arg_allocator_dump_names);
+          const result = this.impl.requestGlobalMemoryDump(params.arg_dump_type, params.arg_level_of_detail, params.arg_determinism, params.arg_allocator_dump_names);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec.$.structSpec, ['response.arg_arg_outcome', 'response.arg_arg_global_memory_dump']);
+              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec.$.structSpec, { 'arg_outcome': response.arg_outcome, 'arg_global_memory_dump': response.arg_global_memory_dump });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestGlobalMemoryDump FAILED:', e));
           }
@@ -873,12 +873,12 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDumpForPid');
-          const result = this.impl.requestGlobalMemoryDumpForPid(params.arg_arg_pid, params.arg_arg_allocator_dump_names);
+          const result = this.impl.requestGlobalMemoryDumpForPid(params.arg_pid, params.arg_allocator_dump_names);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec.$.structSpec, ['response.arg_arg_outcome', 'response.arg_arg_global_memory_dump']);
+              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec.$.structSpec, { 'arg_outcome': response.arg_outcome, 'arg_global_memory_dump': response.arg_global_memory_dump });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestGlobalMemoryDumpForPid FAILED:', e));
           }
@@ -888,12 +888,12 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPrivateMemoryFootprint');
-          const result = this.impl.requestPrivateMemoryFootprint(params.arg_arg_pid);
+          const result = this.impl.requestPrivateMemoryFootprint(params.arg_pid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec.$.structSpec, ['response.arg_arg_outcome', 'response.arg_arg_global_memory_dump']);
+              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec.$.structSpec, { 'arg_outcome': response.arg_outcome, 'arg_global_memory_dump': response.arg_global_memory_dump });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestPrivateMemoryFootprint FAILED:', e));
           }
@@ -903,12 +903,12 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDumpAndAppendToTrace');
-          const result = this.impl.requestGlobalMemoryDumpAndAppendToTrace(params.arg_arg_dump_type, params.arg_arg_level_of_detail, params.arg_arg_determinism);
+          const result = this.impl.requestGlobalMemoryDumpAndAppendToTrace(params.arg_dump_type, params.arg_level_of_detail, params.arg_determinism);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec.$.structSpec, ['response.arg_arg_outcome', 'response.arg_arg_dump_id']);
+              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec.$.structSpec, { 'arg_outcome': response.arg_outcome, 'arg_dump_id': response.arg_dump_id });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestGlobalMemoryDumpAndAppendToTrace FAILED:', e));
           }
@@ -972,7 +972,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec,
       null,
-      [arg_receiver, arg_client_process],
+      { arg_receiver: arg_receiver, arg_client_process: arg_client_process },
       false);
   }
 
@@ -1041,7 +1041,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerCoordinatorClient');
-          const result = this.impl.registerCoordinatorClient(params.arg_arg_receiver, params.arg_arg_client_process);
+          const result = this.impl.registerCoordinatorClient(params.arg_receiver, params.arg_client_process);
           break;
         }
       }

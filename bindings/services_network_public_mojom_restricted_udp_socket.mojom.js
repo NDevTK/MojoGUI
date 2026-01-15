@@ -224,7 +224,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec,
       mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec,
-      [arg_group_address],
+      { arg_group_address: arg_group_address },
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec,
       mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec,
-      [arg_group_address],
+      { arg_group_address: arg_group_address },
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec,
       null,
-      [arg_num_additional_datagrams],
+      { arg_num_additional_datagrams: arg_num_additional_datagrams },
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ParamsSpec,
       mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec,
       mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec,
-      [arg_data, arg_dest_addr, arg_dns_query_type],
+      { arg_data: arg_data, arg_dest_addr: arg_dest_addr, arg_dns_query_type: arg_dns_query_type },
       false);
   }
 
@@ -333,13 +333,13 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.joinGroup');
-          const result = this.impl.joinGroup(params.arg_arg_group_address);
+          const result = this.impl.joinGroup(params.arg_group_address);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] joinGroup FAILED:', e));
           }
@@ -349,13 +349,13 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.leaveGroup');
-          const result = this.impl.leaveGroup(params.arg_arg_group_address);
+          const result = this.impl.leaveGroup(params.arg_group_address);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] leaveGroup FAILED:', e));
           }
@@ -365,20 +365,20 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.receiveMore');
-          const result = this.impl.receiveMore(params.arg_arg_num_additional_datagrams);
+          const result = this.impl.receiveMore(params.arg_num_additional_datagrams);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.send');
-          const result = this.impl.send(params.arg_arg_data);
+          const result = this.impl.send(params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] send FAILED:', e));
           }
@@ -388,13 +388,13 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendTo');
-          const result = this.impl.sendTo(params.arg_arg_data, params.arg_arg_dest_addr, params.arg_arg_dns_query_type);
+          const result = this.impl.sendTo(params.arg_data, params.arg_dest_addr, params.arg_dns_query_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendTo FAILED:', e));
           }

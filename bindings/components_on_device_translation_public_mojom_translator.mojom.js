@@ -177,7 +177,7 @@ mojo.internal.bindings.on_device_translation.mojom.TranslatorRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ParamsSpec,
       mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ResponseParamsSpec,
-      [arg_input],
+      { arg_input: arg_input },
       false);
   }
 
@@ -186,7 +186,7 @@ mojo.internal.bindings.on_device_translation.mojom.TranslatorRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ParamsSpec,
       mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec,
-      [arg_input],
+      { arg_input: arg_input },
       false);
   }
 
@@ -256,13 +256,13 @@ mojo.internal.bindings.on_device_translation.mojom.TranslatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.translate');
-          const result = this.impl.translate(params.arg_arg_input);
+          const result = this.impl.translate(params.arg_input);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_output' in response) ? response.arg_arg_output : response;
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_output' in response) ? response.arg_output : response;
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ResponseParamsSpec.$.structSpec, { 'arg_output': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] translate FAILED:', e));
           }
@@ -272,13 +272,13 @@ mojo.internal.bindings.on_device_translation.mojom.TranslatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.splitSentences');
-          const result = this.impl.splitSentences(params.arg_arg_input);
+          const result = this.impl.splitSentences(params.arg_input);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_sentences' in response) ? response.arg_arg_sentences : response;
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_sentences' in response) ? response.arg_sentences : response;
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec.$.structSpec, { 'arg_sentences': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] splitSentences FAILED:', e));
           }

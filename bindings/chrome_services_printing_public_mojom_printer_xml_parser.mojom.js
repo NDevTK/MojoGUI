@@ -171,7 +171,7 @@ mojo.internal.bindings.printing.mojom.PrinterXmlParserRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec,
       null,
-      [arg_capabilities_xml],
+      { arg_capabilities_xml: arg_capabilities_xml },
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.printing.mojom.PrinterXmlParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseXmlForPrinterCapabilities');
-          const result = this.impl.parseXmlForPrinterCapabilities(params.arg_arg_capabilities_xml);
+          const result = this.impl.parseXmlForPrinterCapabilities(params.arg_capabilities_xml);
           break;
         }
       }

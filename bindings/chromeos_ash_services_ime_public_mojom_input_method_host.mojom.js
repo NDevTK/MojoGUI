@@ -332,7 +332,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec,
       null,
-      [arg_text, arg_cursor_behavior],
+      { arg_text: arg_text, arg_cursor_behavior: arg_cursor_behavior },
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec,
       null,
-      [arg_text, arg_spans],
+      { arg_text: arg_text, arg_spans: arg_spans },
       false);
   }
 
@@ -350,7 +350,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec,
       null,
-      [arg_text, arg_spans, arg_new_cursor_position],
+      { arg_text: arg_text, arg_spans: arg_spans, arg_new_cursor_position: arg_new_cursor_position },
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec,
       null,
-      [arg_start_index, arg_end_index],
+      { arg_start_index: arg_start_index, arg_end_index: arg_end_index },
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_FinishComposition_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec,
       null,
-      [arg_num_before_cursor, arg_num_after_cursor],
+      { arg_num_before_cursor: arg_num_before_cursor, arg_num_after_cursor: arg_num_after_cursor },
       false);
   }
 
@@ -386,7 +386,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec,
       null,
-      [arg_num_before_cursor, arg_num_after_cursor, arg_text],
+      { arg_num_before_cursor: arg_num_before_cursor, arg_num_after_cursor: arg_num_after_cursor, arg_text: arg_text },
       false);
   }
 
@@ -395,7 +395,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec,
       null,
-      [arg_autocorrect_span],
+      { arg_autocorrect_span: arg_autocorrect_span },
       false);
   }
 
@@ -404,7 +404,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec,
       null,
-      [arg_suggestions, arg_context],
+      { arg_suggestions: arg_suggestions, arg_context: arg_context },
       false);
   }
 
@@ -413,7 +413,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec,
       null,
-      [arg_window],
+      { arg_window: arg_window },
       false);
   }
 
@@ -422,7 +422,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -431,7 +431,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec,
       null,
-      [arg_settings],
+      { arg_settings: arg_settings },
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec,
       null,
-      [arg_entry],
+      { arg_entry: arg_entry },
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec,
       null,
-      [arg_action],
+      { arg_action: arg_action },
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec,
       null,
-      [arg_settings],
+      { arg_settings: arg_settings },
       false);
   }
 
@@ -467,7 +467,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec,
       null,
-      [arg_mode],
+      { arg_mode: arg_mode },
       false);
   }
 
@@ -476,7 +476,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec,
       null,
-      [arg_histogram, arg_value],
+      { arg_histogram: arg_histogram, arg_value: arg_value },
       false);
   }
 
@@ -561,28 +561,28 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commitText');
-          const result = this.impl.commitText(params.arg_arg_text, params.arg_arg_cursor_behavior);
+          const result = this.impl.commitText(params.arg_text, params.arg_cursor_behavior);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_SetComposition');
-          const result = this.impl.dEPRECATED_SetComposition(params.arg_arg_text, params.arg_arg_spans);
+          const result = this.impl.dEPRECATED_SetComposition(params.arg_text, params.arg_spans);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setComposition');
-          const result = this.impl.setComposition(params.arg_arg_text, params.arg_arg_spans, params.arg_arg_new_cursor_position);
+          const result = this.impl.setComposition(params.arg_text, params.arg_spans, params.arg_new_cursor_position);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCompositionRange');
-          const result = this.impl.setCompositionRange(params.arg_arg_start_index, params.arg_arg_end_index);
+          const result = this.impl.setCompositionRange(params.arg_start_index, params.arg_end_index);
           break;
         }
         case 4: {
@@ -596,48 +596,48 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteSurroundingText');
-          const result = this.impl.deleteSurroundingText(params.arg_arg_num_before_cursor, params.arg_arg_num_after_cursor);
+          const result = this.impl.deleteSurroundingText(params.arg_num_before_cursor, params.arg_num_after_cursor);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.replaceSurroundingText');
-          const result = this.impl.replaceSurroundingText(params.arg_arg_num_before_cursor, params.arg_arg_num_after_cursor, params.arg_arg_text);
+          const result = this.impl.replaceSurroundingText(params.arg_num_before_cursor, params.arg_num_after_cursor, params.arg_text);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleAutocorrect');
-          const result = this.impl.handleAutocorrect(params.arg_arg_autocorrect_span);
+          const result = this.impl.handleAutocorrect(params.arg_autocorrect_span);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.displaySuggestions');
-          const result = this.impl.displaySuggestions(params.arg_arg_suggestions, params.arg_arg_context);
+          const result = this.impl.displaySuggestions(params.arg_suggestions, params.arg_context);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateCandidatesWindow');
-          const result = this.impl.updateCandidatesWindow(params.arg_arg_window);
+          const result = this.impl.updateCandidatesWindow(params.arg_window);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestSuggestions');
-          const result = this.impl.requestSuggestions(params.arg_arg_request);
+          const result = this.impl.requestSuggestions(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestSuggestions FAILED:', e));
           }
@@ -647,42 +647,42 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateQuickSettings');
-          const result = this.impl.updateQuickSettings(params.arg_arg_settings);
+          const result = this.impl.updateQuickSettings(params.arg_settings);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordUkm');
-          const result = this.impl.recordUkm(params.arg_arg_entry);
+          const result = this.impl.recordUkm(params.arg_entry);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_ReportKoreanAction');
-          const result = this.impl.dEPRECATED_ReportKoreanAction(params.arg_arg_action);
+          const result = this.impl.dEPRECATED_ReportKoreanAction(params.arg_action);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_ReportKoreanSettings');
-          const result = this.impl.dEPRECATED_ReportKoreanSettings(params.arg_arg_settings);
+          const result = this.impl.dEPRECATED_ReportKoreanSettings(params.arg_settings);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_ReportSuggestionOpportunity');
-          const result = this.impl.dEPRECATED_ReportSuggestionOpportunity(params.arg_arg_mode);
+          const result = this.impl.dEPRECATED_ReportSuggestionOpportunity(params.arg_mode);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_ReportHistogramSample');
-          const result = this.impl.dEPRECATED_ReportHistogramSample(params.arg_arg_histogram, params.arg_arg_value);
+          const result = this.impl.dEPRECATED_ReportHistogramSample(params.arg_histogram, params.arg_value);
           break;
         }
       }

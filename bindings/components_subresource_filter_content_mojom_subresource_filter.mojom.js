@@ -197,7 +197,7 @@ mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgentRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec,
       null,
-      [arg_activation_state, arg_ad_evidence],
+      { arg_activation_state: arg_activation_state, arg_ad_evidence: arg_ad_evidence },
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgentReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.activateForNextCommittedLoad');
-          const result = this.impl.activateForNextCommittedLoad(params.arg_arg_activation_state, params.arg_arg_ad_evidence);
+          const result = this.impl.activateForNextCommittedLoad(params.arg_activation_state, params.arg_ad_evidence);
           break;
         }
       }
@@ -347,7 +347,7 @@ mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHostRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -356,7 +356,7 @@ mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHostRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHostRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHostRemoteCallH
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec,
       null,
-      [arg_fenced_frame_root_placeholder_token],
+      { arg_fenced_frame_root_placeholder_token: arg_fenced_frame_root_placeholder_token },
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHostRemoteCallH
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec,
       null,
-      [arg_statistics],
+      { arg_statistics: arg_statistics },
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHostRemoteCallH
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec,
       null,
-      [arg_violation],
+      { arg_violation: arg_violation },
       false);
   }
 
@@ -487,21 +487,21 @@ mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHostReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.adScriptDidCreateFencedFrame');
-          const result = this.impl.adScriptDidCreateFencedFrame(params.arg_arg_fenced_frame_root_placeholder_token);
+          const result = this.impl.adScriptDidCreateFencedFrame(params.arg_fenced_frame_root_placeholder_token);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDocumentLoadStatistics');
-          const result = this.impl.setDocumentLoadStatistics(params.arg_arg_statistics);
+          const result = this.impl.setDocumentLoadStatistics(params.arg_statistics);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAdsViolationTriggered');
-          const result = this.impl.onAdsViolationTriggered(params.arg_arg_violation);
+          const result = this.impl.onAdsViolationTriggered(params.arg_violation);
           break;
         }
       }

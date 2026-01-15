@@ -177,7 +177,7 @@ mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateControllerRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_ParamsSpec,
       null,
-      [arg_enabled, arg_source],
+      { arg_enabled: arg_enabled, arg_source: arg_source },
       false);
   }
 
@@ -246,7 +246,7 @@ mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateControllerReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.tryToSetBluetoothEnabledState');
-          const result = this.impl.tryToSetBluetoothEnabledState(params.arg_arg_enabled, params.arg_arg_source);
+          const result = this.impl.tryToSetBluetoothEnabledState(params.arg_enabled, params.arg_source);
           break;
         }
       }

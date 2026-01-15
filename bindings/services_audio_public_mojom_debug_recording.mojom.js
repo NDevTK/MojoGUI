@@ -196,7 +196,7 @@ mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec,
       mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec,
-      [arg_stream_type, arg_id],
+      { arg_stream_type: arg_stream_type, arg_id: arg_id },
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec,
       mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -275,13 +275,13 @@ mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWavFile');
-          const result = this.impl.createWavFile(params.arg_arg_stream_type, params.arg_arg_id);
+          const result = this.impl.createWavFile(params.arg_stream_type, params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_file' in response) ? response.arg_arg_file : response;
-              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_file' in response) ? response.arg_file : response;
+              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec.$.structSpec, { 'arg_file': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createWavFile FAILED:', e));
           }
@@ -291,13 +291,13 @@ mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAecdumpFile');
-          const result = this.impl.createAecdumpFile(params.arg_arg_id);
+          const result = this.impl.createAecdumpFile(params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_file' in response) ? response.arg_arg_file : response;
-              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_file' in response) ? response.arg_file : response;
+              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec.$.structSpec, { 'arg_file': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createAecdumpFile FAILED:', e));
           }
@@ -361,7 +361,7 @@ mojo.internal.bindings.audio.mojom.DebugRecordingRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.audio.mojom.DebugRecording_Enable_ParamsSpec,
       null,
-      [arg_file_provider],
+      { arg_file_provider: arg_file_provider },
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.audio.mojom.DebugRecordingReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.DebugRecording_Enable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enable');
-          const result = this.impl.enable(params.arg_arg_file_provider);
+          const result = this.impl.enable(params.arg_file_provider);
           break;
         }
       }

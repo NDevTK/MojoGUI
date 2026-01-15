@@ -188,7 +188,7 @@ mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandlerRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ParamsSpec,
       mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -197,7 +197,7 @@ mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandlerRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_DismissModule_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -206,7 +206,7 @@ mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandlerRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_RestoreModule_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -282,8 +282,8 @@ mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandlerReceiver = c
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_events' in response) ? response.arg_arg_events : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_events' in response) ? response.arg_events : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ResponseParamsSpec.$.structSpec, { 'arg_events': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getEvents FAILED:', e));
           }

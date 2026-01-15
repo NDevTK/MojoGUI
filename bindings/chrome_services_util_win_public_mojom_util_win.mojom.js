@@ -268,7 +268,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -277,7 +277,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ResponseParamsSpec,
-      [arg_shortcut_paths],
+      { arg_shortcut_paths: arg_shortcut_paths },
       false);
   }
 
@@ -286,7 +286,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec,
-      [arg_shortcut_paths, arg_properties, arg_operation],
+      { arg_shortcut_paths: arg_shortcut_paths, arg_properties: arg_properties, arg_operation: arg_operation },
       false);
   }
 
@@ -295,7 +295,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec,
-      [arg_type, arg_owner, arg_title, arg_default_path, arg_filter, arg_file_type_index, arg_default_extension],
+      { arg_type: arg_type, arg_owner: arg_owner, arg_title: arg_title, arg_default_path: arg_default_path, arg_filter: arg_filter, arg_file_type_index: arg_file_type_index, arg_default_extension: arg_default_extension },
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec,
-      [arg_module_path],
+      { arg_module_path: arg_module_path },
       false);
   }
 
@@ -313,7 +313,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec,
-      [arg_report_full_names],
+      { arg_report_full_names: arg_report_full_names },
       false);
   }
 
@@ -322,7 +322,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -402,7 +402,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec.$.structSpec, ['response.arg_arg_succeeded', 'response.arg_arg_is_pinned_to_taskbar']);
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec.$.structSpec, { 'arg_succeeded': response.arg_succeeded, 'arg_is_pinned_to_taskbar': response.arg_is_pinned_to_taskbar });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isPinnedToTaskbar FAILED:', e));
           }
@@ -412,12 +412,12 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unpinShortcuts');
-          const result = this.impl.unpinShortcuts(params.arg_arg_shortcut_paths);
+          const result = this.impl.unpinShortcuts(params.arg_shortcut_paths);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] unpinShortcuts FAILED:', e));
           }
@@ -427,13 +427,13 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createOrUpdateShortcuts');
-          const result = this.impl.createOrUpdateShortcuts(params.arg_arg_shortcut_paths, params.arg_arg_properties, params.arg_arg_operation);
+          const result = this.impl.createOrUpdateShortcuts(params.arg_shortcut_paths, params.arg_properties, params.arg_operation);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_succeeded' in response) ? response.arg_arg_succeeded : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_succeeded' in response) ? response.arg_succeeded : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec.$.structSpec, { 'arg_succeeded': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createOrUpdateShortcuts FAILED:', e));
           }
@@ -443,12 +443,12 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.callExecuteSelectFile');
-          const result = this.impl.callExecuteSelectFile(params.arg_arg_type, params.arg_arg_owner, params.arg_arg_title, params.arg_arg_default_path, params.arg_arg_filter, params.arg_arg_file_type_index, params.arg_arg_default_extension);
+          const result = this.impl.callExecuteSelectFile(params.arg_type, params.arg_owner, params.arg_title, params.arg_default_path, params.arg_filter, params.arg_file_type_index, params.arg_default_extension);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec.$.structSpec, ['response.arg_arg_paths', 'response.arg_arg_file_type_index']);
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec.$.structSpec, { 'arg_paths': response.arg_paths, 'arg_file_type_index': response.arg_file_type_index });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] callExecuteSelectFile FAILED:', e));
           }
@@ -458,13 +458,13 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.inspectModule');
-          const result = this.impl.inspectModule(params.arg_arg_module_path);
+          const result = this.impl.inspectModule(params.arg_module_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_inspection_result' in response) ? response.arg_arg_inspection_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_inspection_result' in response) ? response.arg_inspection_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec.$.structSpec, { 'arg_inspection_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] inspectModule FAILED:', e));
           }
@@ -474,13 +474,13 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAntiVirusProducts');
-          const result = this.impl.getAntiVirusProducts(params.arg_arg_report_full_names);
+          const result = this.impl.getAntiVirusProducts(params.arg_report_full_names);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_av_products' in response) ? response.arg_arg_av_products : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_av_products' in response) ? response.arg_av_products : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec.$.structSpec, { 'arg_av_products': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAntiVirusProducts FAILED:', e));
           }
@@ -495,8 +495,8 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_tpm_identifier' in response) ? response.arg_arg_tpm_identifier : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_tpm_identifier' in response) ? response.arg_tpm_identifier : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec.$.structSpec, { 'arg_tpm_identifier': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getTpmIdentifier FAILED:', e));
           }
@@ -560,7 +560,7 @@ mojo.internal.bindings.chrome.mojom.ProcessorMetricsRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -634,7 +634,7 @@ mojo.internal.bindings.chrome.mojom.ProcessorMetricsReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] recordProcessorMetrics FAILED:', e));
           }

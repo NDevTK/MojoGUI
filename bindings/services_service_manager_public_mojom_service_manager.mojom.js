@@ -213,7 +213,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec,
       null,
-      [arg_running_services],
+      { arg_running_services: arg_running_services },
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec,
       null,
-      [arg_service],
+      { arg_service: arg_service },
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec,
       null,
-      [arg_identity, arg_pid_deprecated],
+      { arg_identity: arg_identity, arg_pid_deprecated: arg_pid_deprecated },
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec,
       null,
-      [arg_identity, arg_pid],
+      { arg_identity: arg_identity, arg_pid: arg_pid },
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerRemoteCallHan
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec,
       null,
-      [arg_identity],
+      { arg_identity: arg_identity },
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerRemoteCallHan
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec,
       null,
-      [arg_identity],
+      { arg_identity: arg_identity },
       false);
   }
 
@@ -332,42 +332,42 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInit');
-          const result = this.impl.onInit(params.arg_arg_running_services);
+          const result = this.impl.onInit(params.arg_running_services);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onServiceCreated');
-          const result = this.impl.onServiceCreated(params.arg_arg_service);
+          const result = this.impl.onServiceCreated(params.arg_service);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onServiceStarted');
-          const result = this.impl.onServiceStarted(params.arg_arg_identity, params.arg_arg_pid_deprecated);
+          const result = this.impl.onServiceStarted(params.arg_identity, params.arg_pid_deprecated);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onServicePIDReceived');
-          const result = this.impl.onServicePIDReceived(params.arg_arg_identity, params.arg_arg_pid);
+          const result = this.impl.onServicePIDReceived(params.arg_identity, params.arg_pid);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onServiceFailedToStart');
-          const result = this.impl.onServiceFailedToStart(params.arg_arg_identity);
+          const result = this.impl.onServiceFailedToStart(params.arg_identity);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onServiceStopped');
-          const result = this.impl.onServiceStopped(params.arg_arg_identity);
+          const result = this.impl.onServiceStopped(params.arg_identity);
           break;
         }
       }
@@ -428,7 +428,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.service_manager.mojom.ServiceManager_AddListener_ParamsSpec,
       null,
-      [arg_listener],
+      { arg_listener: arg_listener },
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ServiceManager_AddListener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addListener');
-          const result = this.impl.addListener(params.arg_arg_listener);
+          const result = this.impl.addListener(params.arg_listener);
           break;
         }
       }

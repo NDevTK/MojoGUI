@@ -170,7 +170,7 @@ mojo.internal.bindings.test.mojom.MojoFileSystemAccessTestRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec,
       null,
-      [arg_h],
+      { arg_h: arg_h },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.test.mojom.MojoFileSystemAccessTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolveTransferToken');
-          const result = this.impl.resolveTransferToken(params.arg_arg_h);
+          const result = this.impl.resolveTransferToken(params.arg_h);
           break;
         }
       }

@@ -190,7 +190,7 @@ mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingR
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec,
-      [arg_strokes, arg_hints],
+      { arg_strokes: arg_strokes, arg_hints: arg_hints },
       false);
   }
 
@@ -259,13 +259,13 @@ mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingR
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPrediction');
-          const result = this.impl.getPrediction(params.arg_arg_strokes, params.arg_arg_hints);
+          const result = this.impl.getPrediction(params.arg_strokes, params.arg_hints);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_prediction' in response) ? response.arg_arg_prediction : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_prediction' in response) ? response.arg_prediction : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec.$.structSpec, { 'arg_prediction': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPrediction FAILED:', e));
           }

@@ -222,7 +222,7 @@ mojo.internal.bindings.media.mojom.AudioLogRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioLog_OnCreated_ParamsSpec,
       null,
-      [arg_params, arg_device_id],
+      { arg_params: arg_params, arg_device_id: arg_device_id },
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.media.mojom.AudioLogRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.AudioLog_OnStarted_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.media.mojom.AudioLogRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.AudioLog_OnStopped_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.media.mojom.AudioLogRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.AudioLog_OnClosed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.media.mojom.AudioLogRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.AudioLog_OnError_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.media.mojom.AudioLogRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.AudioLog_OnSetVolume_ParamsSpec,
       null,
-      [arg_volume],
+      { arg_volume: arg_volume },
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.media.mojom.AudioLogRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.media.mojom.AudioLogRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media.mojom.AudioLog_OnLogMessage_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.media.mojom.AudioLogReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCreated');
-          const result = this.impl.onCreated(params.arg_arg_params, params.arg_arg_device_id);
+          const result = this.impl.onCreated(params.arg_params, params.arg_device_id);
           break;
         }
         case 1: {
@@ -396,21 +396,21 @@ mojo.internal.bindings.media.mojom.AudioLogReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnSetVolume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSetVolume');
-          const result = this.impl.onSetVolume(params.arg_arg_volume);
+          const result = this.impl.onSetVolume(params.arg_volume);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProcessingStateChanged');
-          const result = this.impl.onProcessingStateChanged(params.arg_arg_message);
+          const result = this.impl.onProcessingStateChanged(params.arg_message);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnLogMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLogMessage');
-          const result = this.impl.onLogMessage(params.arg_arg_message);
+          const result = this.impl.onLogMessage(params.arg_message);
           break;
         }
       }
@@ -471,7 +471,7 @@ mojo.internal.bindings.media.mojom.AudioLogFactoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec,
       null,
-      [arg_component, arg_component_id, arg_audio_log_receiver],
+      { arg_component: arg_component, arg_component_id: arg_component_id, arg_audio_log_receiver: arg_audio_log_receiver },
       false);
   }
 
@@ -540,7 +540,7 @@ mojo.internal.bindings.media.mojom.AudioLogFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAudioLog');
-          const result = this.impl.createAudioLog(params.arg_arg_component, params.arg_arg_component_id, params.arg_arg_audio_log_receiver);
+          const result = this.impl.createAudioLog(params.arg_component, params.arg_component_id, params.arg_audio_log_receiver);
           break;
         }
       }

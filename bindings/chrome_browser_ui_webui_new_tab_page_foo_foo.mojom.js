@@ -172,7 +172,7 @@ mojo.internal.bindings.foo.mojom.FooHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.foo.mojom.FooHandler_GetData_ParamsSpec,
       mojo.internal.bindings.foo.mojom.FooHandler_GetData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -246,8 +246,8 @@ mojo.internal.bindings.foo.mojom.FooHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.foo.mojom.FooHandler_GetData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.foo.mojom.FooHandler_GetData_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getData FAILED:', e));
           }

@@ -272,7 +272,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerFactoryRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -494,7 +494,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_GetDownloads_ParamsSpec,
       null,
-      [arg_search_terms],
+      { arg_search_terms: arg_search_terms },
       false);
   }
 
@@ -503,7 +503,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -512,7 +512,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_Drag_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -521,7 +521,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -530,7 +530,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -539,7 +539,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -548,7 +548,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -557,7 +557,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -566,7 +566,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_RetryDownload_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -575,7 +575,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_Show_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -584,7 +584,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_Pause_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -593,7 +593,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_Resume_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -602,7 +602,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_Remove_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -611,7 +611,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_Undo_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -620,7 +620,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_Cancel_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -629,7 +629,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_ClearAll_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -638,7 +638,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -647,7 +647,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_OpenEsbSettings_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -656,7 +656,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -665,7 +665,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -674,7 +674,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_DeepScan_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -692,7 +692,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -701,7 +701,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec,
       mojo.internal.bindings.downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -793,91 +793,91 @@ mojo.internal.bindings.downloads.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandler_GetDownloads_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDownloads');
-          const result = this.impl.getDownloads(params.arg_arg_search_terms);
+          const result = this.impl.getDownloads(params.arg_search_terms);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFileRequiringGesture');
-          const result = this.impl.openFileRequiringGesture(params.arg_arg_id);
+          const result = this.impl.openFileRequiringGesture(params.arg_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandler_Drag_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.drag');
-          const result = this.impl.drag(params.arg_arg_id);
+          const result = this.impl.drag(params.arg_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.saveSuspiciousRequiringGesture');
-          const result = this.impl.saveSuspiciousRequiringGesture(params.arg_arg_id);
+          const result = this.impl.saveSuspiciousRequiringGesture(params.arg_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordOpenBypassWarningDialog');
-          const result = this.impl.recordOpenBypassWarningDialog(params.arg_arg_id);
+          const result = this.impl.recordOpenBypassWarningDialog(params.arg_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.saveDangerousFromDialogRequiringGesture');
-          const result = this.impl.saveDangerousFromDialogRequiringGesture(params.arg_arg_id);
+          const result = this.impl.saveDangerousFromDialogRequiringGesture(params.arg_id);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordCancelBypassWarningDialog');
-          const result = this.impl.recordCancelBypassWarningDialog(params.arg_arg_id);
+          const result = this.impl.recordCancelBypassWarningDialog(params.arg_id);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.discardDangerous');
-          const result = this.impl.discardDangerous(params.arg_arg_id);
+          const result = this.impl.discardDangerous(params.arg_id);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandler_RetryDownload_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.retryDownload');
-          const result = this.impl.retryDownload(params.arg_arg_id);
+          const result = this.impl.retryDownload(params.arg_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandler_Show_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.show');
-          const result = this.impl.show(params.arg_arg_id);
+          const result = this.impl.show(params.arg_id);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandler_Pause_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pause');
-          const result = this.impl.pause(params.arg_arg_id);
+          const result = this.impl.pause(params.arg_id);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandler_Resume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resume');
-          const result = this.impl.resume(params.arg_arg_id);
+          const result = this.impl.resume(params.arg_id);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandler_Remove_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.remove');
-          const result = this.impl.remove(params.arg_arg_id);
+          const result = this.impl.remove(params.arg_id);
           break;
         }
         case 13: {
@@ -891,7 +891,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandler_Cancel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancel');
-          const result = this.impl.cancel(params.arg_arg_id);
+          const result = this.impl.cancel(params.arg_id);
           break;
         }
         case 15: {
@@ -926,28 +926,28 @@ mojo.internal.bindings.downloads.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openDuringScanningRequiringGesture');
-          const result = this.impl.openDuringScanningRequiringGesture(params.arg_arg_id);
+          const result = this.impl.openDuringScanningRequiringGesture(params.arg_id);
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reviewDangerousRequiringGesture');
-          const result = this.impl.reviewDangerousRequiringGesture(params.arg_arg_id);
+          const result = this.impl.reviewDangerousRequiringGesture(params.arg_id);
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandler_DeepScan_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deepScan');
-          const result = this.impl.deepScan(params.arg_arg_id);
+          const result = this.impl.deepScan(params.arg_id);
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bypassDeepScanRequiringGesture');
-          const result = this.impl.bypassDeepScanRequiringGesture(params.arg_arg_id);
+          const result = this.impl.bypassDeepScanRequiringGesture(params.arg_id);
           break;
         }
         case 23: {
@@ -959,8 +959,8 @@ mojo.internal.bindings.downloads.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isEligibleForEsbPromo FAILED:', e));
           }
@@ -1036,7 +1036,7 @@ mojo.internal.bindings.downloads.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.downloads.mojom.Page_RemoveItem_ParamsSpec,
       null,
-      [arg_index],
+      { arg_index: arg_index },
       false);
   }
 
@@ -1045,7 +1045,7 @@ mojo.internal.bindings.downloads.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.downloads.mojom.Page_UpdateItem_ParamsSpec,
       null,
-      [arg_index, arg_data],
+      { arg_index: arg_index, arg_data: arg_data },
       false);
   }
 
@@ -1054,7 +1054,7 @@ mojo.internal.bindings.downloads.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.downloads.mojom.Page_InsertItems_ParamsSpec,
       null,
-      [arg_index, arg_items],
+      { arg_index: arg_index, arg_items: arg_items },
       false);
   }
 
@@ -1063,7 +1063,7 @@ mojo.internal.bindings.downloads.mojom.PageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.downloads.mojom.Page_ClearAll_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1135,21 +1135,21 @@ mojo.internal.bindings.downloads.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.Page_RemoveItem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeItem');
-          const result = this.impl.removeItem(params.arg_arg_index);
+          const result = this.impl.removeItem(params.arg_index);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.Page_UpdateItem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateItem');
-          const result = this.impl.updateItem(params.arg_arg_index, params.arg_arg_data);
+          const result = this.impl.updateItem(params.arg_index, params.arg_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.downloads.mojom.Page_InsertItems_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.insertItems');
-          const result = this.impl.insertItems(params.arg_arg_index, params.arg_arg_items);
+          const result = this.impl.insertItems(params.arg_index, params.arg_items);
           break;
         }
         case 3: {

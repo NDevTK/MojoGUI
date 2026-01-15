@@ -213,7 +213,7 @@ mojo.internal.bindings.media.mojom.CdmContextEventCallbackRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec,
       null,
-      [arg_event],
+      { arg_event: arg_event },
       false);
   }
 
@@ -282,7 +282,7 @@ mojo.internal.bindings.media.mojom.CdmContextEventCallbackReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.eventCallback');
-          const result = this.impl.eventCallback(params.arg_arg_event);
+          const result = this.impl.eventCallback(params.arg_event);
           break;
         }
       }
@@ -367,7 +367,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec,
-      [arg_decrypt_config, arg_hw_identifier],
+      { arg_decrypt_config: arg_decrypt_config, arg_hw_identifier: arg_hw_identifier },
       false);
   }
 
@@ -376,7 +376,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec,
       null,
-      [arg_callback],
+      { arg_callback: arg_callback },
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec,
-      [arg_size],
+      { arg_size: arg_size },
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec,
-      [arg_secure_handle, arg_offset, arg_stream_data],
+      { arg_secure_handle: arg_secure_handle, arg_offset: arg_offset, arg_stream_data: arg_stream_data },
       false);
   }
 
@@ -421,7 +421,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec,
-      [arg_buffer, arg_bytes],
+      { arg_buffer: arg_buffer, arg_bytes: arg_bytes },
       false);
   }
 
@@ -496,12 +496,12 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHwKeyData');
-          const result = this.impl.getHwKeyData(params.arg_arg_decrypt_config, params.arg_arg_hw_identifier);
+          const result = this.impl.getHwKeyData(params.arg_decrypt_config, params.arg_hw_identifier);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_key_data']);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_key_data': response.arg_key_data });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getHwKeyData FAILED:', e));
           }
@@ -511,7 +511,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerEventCallback');
-          const result = this.impl.registerEventCallback(params.arg_arg_callback);
+          const result = this.impl.registerEventCallback(params.arg_callback);
           break;
         }
         case 2: {
@@ -523,7 +523,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_config_data']);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_config_data': response.arg_config_data });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getHwConfigData FAILED:', e));
           }
@@ -538,8 +538,8 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_resolutions' in response) ? response.arg_arg_resolutions : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_resolutions' in response) ? response.arg_resolutions : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec.$.structSpec, { 'arg_resolutions': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getScreenResolutions FAILED:', e));
           }
@@ -549,13 +549,13 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.allocateSecureBuffer');
-          const result = this.impl.allocateSecureBuffer(params.arg_arg_size);
+          const result = this.impl.allocateSecureBuffer(params.arg_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_secure_buffer' in response) ? response.arg_arg_secure_buffer : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_secure_buffer' in response) ? response.arg_secure_buffer : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec.$.structSpec, { 'arg_secure_buffer': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] allocateSecureBuffer FAILED:', e));
           }
@@ -565,12 +565,12 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseEncryptedSliceHeader');
-          const result = this.impl.parseEncryptedSliceHeader(params.arg_arg_secure_handle, params.arg_arg_offset, params.arg_arg_stream_data);
+          const result = this.impl.parseEncryptedSliceHeader(params.arg_secure_handle, params.arg_offset, params.arg_stream_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_slice_header']);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_slice_header': response.arg_slice_header });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] parseEncryptedSliceHeader FAILED:', e));
           }
@@ -580,12 +580,12 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decryptVideoBuffer');
-          const result = this.impl.decryptVideoBuffer(params.arg_arg_buffer, params.arg_arg_bytes);
+          const result = this.impl.decryptVideoBuffer(params.arg_buffer, params.arg_bytes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_decoder_buffer', 'response.arg_arg_bytes']);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_decoder_buffer': response.arg_decoder_buffer, 'arg_bytes': response.arg_bytes });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] decryptVideoBuffer FAILED:', e));
           }

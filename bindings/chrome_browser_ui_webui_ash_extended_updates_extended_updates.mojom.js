@@ -183,7 +183,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactoryRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactoryReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -321,7 +321,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec,
       mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_CloseDialog_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec,
       mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -415,8 +415,8 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] optInToExtendedUpdates FAILED:', e));
           }
@@ -438,8 +438,8 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_apps' in response) ? response.arg_arg_apps : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_apps' in response) ? response.arg_apps : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec.$.structSpec, { 'arg_apps': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getInstalledAndroidApps FAILED:', e));
           }

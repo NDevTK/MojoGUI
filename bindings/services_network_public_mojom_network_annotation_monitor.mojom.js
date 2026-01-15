@@ -170,7 +170,7 @@ mojo.internal.bindings.network.mojom.NetworkAnnotationMonitorRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec,
       null,
-      [arg_hash_code],
+      { arg_hash_code: arg_hash_code },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.network.mojom.NetworkAnnotationMonitorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.report');
-          const result = this.impl.report(params.arg_arg_hash_code);
+          const result = this.impl.report(params.arg_hash_code);
           break;
         }
       }

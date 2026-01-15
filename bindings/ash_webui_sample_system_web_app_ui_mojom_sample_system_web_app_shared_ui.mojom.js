@@ -176,7 +176,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec,
       null,
-      [arg_task],
+      { arg_task: arg_task },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.doSomethingForParent');
-          const result = this.impl.doSomethingForParent(params.arg_arg_task);
+          const result = this.impl.doSomethingForParent(params.arg_task);
           break;
         }
       }
@@ -306,7 +306,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec,
       mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec,
-      [arg_task],
+      { arg_task: arg_task },
       false);
   }
 
@@ -375,13 +375,13 @@ mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.doSomethingForChild');
-          const result = this.impl.doSomethingForChild(params.arg_arg_task);
+          const result = this.impl.doSomethingForChild(params.arg_task);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_resp' in response) ? response.arg_arg_resp : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_resp' in response) ? response.arg_resp : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec.$.structSpec, { 'arg_resp': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] doSomethingForChild FAILED:', e));
           }

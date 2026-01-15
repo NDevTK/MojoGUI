@@ -208,7 +208,7 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec,
       null,
-      [arg_event],
+      { arg_event: arg_event },
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec,
       null,
-      [arg_event],
+      { arg_event: arg_event },
       false);
   }
 
@@ -304,14 +304,14 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResult');
-          const result = this.impl.onResult(params.arg_arg_event);
+          const result = this.impl.onResult(params.arg_event);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_event);
+          const result = this.impl.onError(params.arg_event);
           break;
         }
       }
@@ -376,7 +376,7 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ParamsSpec,
       mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ParamsSpec,
       mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -455,13 +455,13 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start(params.arg_arg_options);
+          const result = this.impl.start(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] start FAILED:', e));
           }
@@ -471,13 +471,13 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stop');
-          const result = this.impl.stop(params.arg_arg_options);
+          const result = this.impl.stop(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] stop FAILED:', e));
           }

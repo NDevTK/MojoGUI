@@ -277,7 +277,7 @@ mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec,
       mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec,
-      [arg_issuer],
+      { arg_issuer: arg_issuer },
       false);
   }
 
@@ -286,7 +286,7 @@ mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec,
       mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec,
-      [arg_issuer],
+      { arg_issuer: arg_issuer },
       false);
   }
 
@@ -356,13 +356,13 @@ mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasTrustTokens');
-          const result = this.impl.hasTrustTokens(params.arg_arg_issuer);
+          const result = this.impl.hasTrustTokens(params.arg_issuer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] hasTrustTokens FAILED:', e));
           }
@@ -372,13 +372,13 @@ mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasRedemptionRecord');
-          const result = this.impl.hasRedemptionRecord(params.arg_arg_issuer);
+          const result = this.impl.hasRedemptionRecord(params.arg_issuer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] hasRedemptionRecord FAILED:', e));
           }

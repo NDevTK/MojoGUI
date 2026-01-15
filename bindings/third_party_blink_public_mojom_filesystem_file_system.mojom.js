@@ -259,7 +259,7 @@ mojo.internal.bindings.blink.mojom.FileSystemCancellableOperationRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemCancellableOperation_Cancel_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemCancellableOperation_Cancel_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -333,8 +333,8 @@ mojo.internal.bindings.blink.mojom.FileSystemCancellableOperationReceiver = clas
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_code' in response) ? response.arg_arg_error_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemCancellableOperation_Cancel_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response.arg_error_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemCancellableOperation_Cancel_ResponseParamsSpec.$.structSpec, { 'arg_error_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] cancel FAILED:', e));
           }
@@ -406,7 +406,7 @@ mojo.internal.bindings.blink.mojom.FileSystemOperationListenerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemOperationListener_ResultsRetrieved_ParamsSpec,
       null,
-      [arg_entries, arg_has_more],
+      { arg_entries: arg_entries, arg_has_more: arg_has_more },
       false);
   }
 
@@ -415,7 +415,7 @@ mojo.internal.bindings.blink.mojom.FileSystemOperationListenerRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemOperationListener_DidWrite_ParamsSpec,
       null,
-      [arg_byte_count, arg_complete],
+      { arg_byte_count: arg_byte_count, arg_complete: arg_complete },
       false);
   }
 
@@ -424,7 +424,7 @@ mojo.internal.bindings.blink.mojom.FileSystemOperationListenerRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemOperationListener_ErrorOccurred_ParamsSpec,
       null,
-      [arg_error_code],
+      { arg_error_code: arg_error_code },
       false);
   }
 
@@ -495,21 +495,21 @@ mojo.internal.bindings.blink.mojom.FileSystemOperationListenerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemOperationListener_ResultsRetrieved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resultsRetrieved');
-          const result = this.impl.resultsRetrieved(params.arg_arg_entries, params.arg_arg_has_more);
+          const result = this.impl.resultsRetrieved(params.arg_entries, params.arg_has_more);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemOperationListener_DidWrite_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didWrite');
-          const result = this.impl.didWrite(params.arg_arg_byte_count, params.arg_arg_complete);
+          const result = this.impl.didWrite(params.arg_byte_count, params.arg_complete);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemOperationListener_ErrorOccurred_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.errorOccurred');
-          const result = this.impl.errorOccurred(params.arg_arg_error_code);
+          const result = this.impl.errorOccurred(params.arg_error_code);
           break;
         }
       }
@@ -570,7 +570,7 @@ mojo.internal.bindings.blink.mojom.ReceivedSnapshotListenerRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ReceivedSnapshotListener_DidReceiveSnapshotFile_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -764,7 +764,7 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemManager_Open_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemManager_Open_ResponseParamsSpec,
-      [arg_origin, arg_file_system_type],
+      { arg_origin: arg_origin, arg_file_system_type: arg_file_system_type },
       false);
   }
 
@@ -773,7 +773,7 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemManager_ResolveURL_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemManager_ResolveURL_ResponseParamsSpec,
-      [arg_filesystem_url],
+      { arg_filesystem_url: arg_filesystem_url },
       false);
   }
 
@@ -782,7 +782,7 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemManager_Move_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemManager_Move_ResponseParamsSpec,
-      [arg_src_path, arg_dest_path],
+      { arg_src_path: arg_src_path, arg_dest_path: arg_dest_path },
       false);
   }
 
@@ -791,7 +791,7 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemManager_Copy_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemManager_Copy_ResponseParamsSpec,
-      [arg_src_path, arg_dest_path],
+      { arg_src_path: arg_src_path, arg_dest_path: arg_dest_path },
       false);
   }
 
@@ -800,7 +800,7 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemManager_Remove_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemManager_Remove_ResponseParamsSpec,
-      [arg_path, arg_recursive],
+      { arg_path: arg_path, arg_recursive: arg_recursive },
       false);
   }
 
@@ -809,7 +809,7 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemManager_ReadMetadata_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemManager_ReadMetadata_ResponseParamsSpec,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -818,7 +818,7 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemManager_Create_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemManager_Create_ResponseParamsSpec,
-      [arg_path, arg_exclusive, arg_is_directory, arg_recursive],
+      { arg_path: arg_path, arg_exclusive: arg_exclusive, arg_is_directory: arg_is_directory, arg_recursive: arg_recursive },
       false);
   }
 
@@ -827,7 +827,7 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemManager_Exists_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemManager_Exists_ResponseParamsSpec,
-      [arg_path, arg_is_directory],
+      { arg_path: arg_path, arg_is_directory: arg_is_directory },
       false);
   }
 
@@ -836,7 +836,7 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemManager_ReadDirectory_ParamsSpec,
       null,
-      [arg_path, arg_listener],
+      { arg_path: arg_path, arg_listener: arg_listener },
       false);
   }
 
@@ -845,7 +845,7 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemManager_ReadDirectorySync_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemManager_ReadDirectorySync_ResponseParamsSpec,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -854,7 +854,7 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemManager_Write_ParamsSpec,
       null,
-      [arg_file_path, arg_blob, arg_position, arg_op_receiver, arg_listener],
+      { arg_file_path: arg_file_path, arg_blob: arg_blob, arg_position: arg_position, arg_op_receiver: arg_op_receiver, arg_listener: arg_listener },
       false);
   }
 
@@ -863,7 +863,7 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemManager_WriteSync_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemManager_WriteSync_ResponseParamsSpec,
-      [arg_file_path, arg_blob, arg_position],
+      { arg_file_path: arg_file_path, arg_blob: arg_blob, arg_position: arg_position },
       false);
   }
 
@@ -872,7 +872,7 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemManager_Truncate_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemManager_Truncate_ResponseParamsSpec,
-      [arg_file_path, arg_length, arg_op_receiver],
+      { arg_file_path: arg_file_path, arg_length: arg_length, arg_op_receiver: arg_op_receiver },
       false);
   }
 
@@ -881,7 +881,7 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemManager_TruncateSync_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemManager_TruncateSync_ResponseParamsSpec,
-      [arg_file_path, arg_length],
+      { arg_file_path: arg_file_path, arg_length: arg_length },
       false);
   }
 
@@ -890,7 +890,7 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemManager_CreateSnapshotFile_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemManager_CreateSnapshotFile_ResponseParamsSpec,
-      [arg_file_path],
+      { arg_file_path: arg_file_path },
       false);
   }
 
@@ -899,7 +899,7 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemManager_GetPlatformPath_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemManager_GetPlatformPath_ResponseParamsSpec,
-      [arg_file_path],
+      { arg_file_path: arg_file_path },
       false);
   }
 
@@ -908,7 +908,7 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemManager_RegisterBlob_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemManager_RegisterBlob_ResponseParamsSpec,
-      [arg_content_type, arg_url, arg_length, arg_expected_modification_time],
+      { arg_content_type: arg_content_type, arg_url: arg_url, arg_length: arg_length, arg_expected_modification_time: arg_expected_modification_time },
       false);
   }
 
@@ -993,12 +993,12 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Open_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.open');
-          const result = this.impl.open(params.arg_arg_origin, params.arg_arg_file_system_type);
+          const result = this.impl.open(params.arg_origin, params.arg_file_system_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Open_ResponseParamsSpec.$.structSpec, ['response.arg_arg_name', 'response.arg_arg_root_url', 'response.arg_arg_error_code']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Open_ResponseParamsSpec.$.structSpec, { 'arg_name': response.arg_name, 'arg_root_url': response.arg_root_url, 'arg_error_code': response.arg_error_code });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] open FAILED:', e));
           }
@@ -1008,12 +1008,12 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_ResolveURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolveURL');
-          const result = this.impl.resolveURL(params.arg_arg_filesystem_url);
+          const result = this.impl.resolveURL(params.arg_filesystem_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_ResolveURL_ResponseParamsSpec.$.structSpec, ['response.arg_arg_info', 'response.arg_arg_file_path', 'response.arg_arg_is_directory', 'response.arg_arg_error_code']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_ResolveURL_ResponseParamsSpec.$.structSpec, { 'arg_info': response.arg_info, 'arg_file_path': response.arg_file_path, 'arg_is_directory': response.arg_is_directory, 'arg_error_code': response.arg_error_code });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] resolveURL FAILED:', e));
           }
@@ -1023,13 +1023,13 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Move_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.move');
-          const result = this.impl.move(params.arg_arg_src_path, params.arg_arg_dest_path);
+          const result = this.impl.move(params.arg_src_path, params.arg_dest_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_code' in response) ? response.arg_arg_error_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Move_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response.arg_error_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Move_ResponseParamsSpec.$.structSpec, { 'arg_error_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] move FAILED:', e));
           }
@@ -1039,13 +1039,13 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Copy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.copy');
-          const result = this.impl.copy(params.arg_arg_src_path, params.arg_arg_dest_path);
+          const result = this.impl.copy(params.arg_src_path, params.arg_dest_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_code' in response) ? response.arg_arg_error_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Copy_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response.arg_error_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Copy_ResponseParamsSpec.$.structSpec, { 'arg_error_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] copy FAILED:', e));
           }
@@ -1055,13 +1055,13 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Remove_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.remove');
-          const result = this.impl.remove(params.arg_arg_path, params.arg_arg_recursive);
+          const result = this.impl.remove(params.arg_path, params.arg_recursive);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_code' in response) ? response.arg_arg_error_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Remove_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response.arg_error_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Remove_ResponseParamsSpec.$.structSpec, { 'arg_error_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] remove FAILED:', e));
           }
@@ -1071,12 +1071,12 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_ReadMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readMetadata');
-          const result = this.impl.readMetadata(params.arg_arg_path);
+          const result = this.impl.readMetadata(params.arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_ReadMetadata_ResponseParamsSpec.$.structSpec, ['response.arg_arg_file_info', 'response.arg_arg_error_code']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_ReadMetadata_ResponseParamsSpec.$.structSpec, { 'arg_file_info': response.arg_file_info, 'arg_error_code': response.arg_error_code });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readMetadata FAILED:', e));
           }
@@ -1086,13 +1086,13 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Create_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
-          const result = this.impl.create(params.arg_arg_path, params.arg_arg_exclusive, params.arg_arg_is_directory, params.arg_arg_recursive);
+          const result = this.impl.create(params.arg_path, params.arg_exclusive, params.arg_is_directory, params.arg_recursive);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_code' in response) ? response.arg_arg_error_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Create_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response.arg_error_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Create_ResponseParamsSpec.$.structSpec, { 'arg_error_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] create FAILED:', e));
           }
@@ -1102,13 +1102,13 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Exists_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.exists');
-          const result = this.impl.exists(params.arg_arg_path, params.arg_arg_is_directory);
+          const result = this.impl.exists(params.arg_path, params.arg_is_directory);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_code' in response) ? response.arg_arg_error_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Exists_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response.arg_error_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Exists_ResponseParamsSpec.$.structSpec, { 'arg_error_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] exists FAILED:', e));
           }
@@ -1118,19 +1118,19 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_ReadDirectory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readDirectory');
-          const result = this.impl.readDirectory(params.arg_arg_path, params.arg_arg_listener);
+          const result = this.impl.readDirectory(params.arg_path, params.arg_listener);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_ReadDirectorySync_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readDirectorySync');
-          const result = this.impl.readDirectorySync(params.arg_arg_path);
+          const result = this.impl.readDirectorySync(params.arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_ReadDirectorySync_ResponseParamsSpec.$.structSpec, ['response.arg_arg_entries', 'response.arg_arg_error_code']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_ReadDirectorySync_ResponseParamsSpec.$.structSpec, { 'arg_entries': response.arg_entries, 'arg_error_code': response.arg_error_code });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readDirectorySync FAILED:', e));
           }
@@ -1140,19 +1140,19 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Write_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.write');
-          const result = this.impl.write(params.arg_arg_file_path, params.arg_arg_blob, params.arg_arg_position, params.arg_arg_op_receiver, params.arg_arg_listener);
+          const result = this.impl.write(params.arg_file_path, params.arg_blob, params.arg_position, params.arg_op_receiver, params.arg_listener);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_WriteSync_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeSync');
-          const result = this.impl.writeSync(params.arg_arg_file_path, params.arg_arg_blob, params.arg_arg_position);
+          const result = this.impl.writeSync(params.arg_file_path, params.arg_blob, params.arg_position);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_WriteSync_ResponseParamsSpec.$.structSpec, ['response.arg_arg_byte_count', 'response.arg_arg_error_code']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_WriteSync_ResponseParamsSpec.$.structSpec, { 'arg_byte_count': response.arg_byte_count, 'arg_error_code': response.arg_error_code });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] writeSync FAILED:', e));
           }
@@ -1162,13 +1162,13 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Truncate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.truncate');
-          const result = this.impl.truncate(params.arg_arg_file_path, params.arg_arg_length, params.arg_arg_op_receiver);
+          const result = this.impl.truncate(params.arg_file_path, params.arg_length, params.arg_op_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_code' in response) ? response.arg_arg_error_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Truncate_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response.arg_error_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Truncate_ResponseParamsSpec.$.structSpec, { 'arg_error_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] truncate FAILED:', e));
           }
@@ -1178,13 +1178,13 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_TruncateSync_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.truncateSync');
-          const result = this.impl.truncateSync(params.arg_arg_file_path, params.arg_arg_length);
+          const result = this.impl.truncateSync(params.arg_file_path, params.arg_length);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_code' in response) ? response.arg_arg_error_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_TruncateSync_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response.arg_error_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_TruncateSync_ResponseParamsSpec.$.structSpec, { 'arg_error_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] truncateSync FAILED:', e));
           }
@@ -1194,12 +1194,12 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_CreateSnapshotFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSnapshotFile');
-          const result = this.impl.createSnapshotFile(params.arg_arg_file_path);
+          const result = this.impl.createSnapshotFile(params.arg_file_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_CreateSnapshotFile_ResponseParamsSpec.$.structSpec, ['response.arg_arg_file_info', 'response.arg_arg_platform_path', 'response.arg_arg_error_code', 'response.arg_arg_snapshot_listener']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_CreateSnapshotFile_ResponseParamsSpec.$.structSpec, { 'arg_file_info': response.arg_file_info, 'arg_platform_path': response.arg_platform_path, 'arg_error_code': response.arg_error_code, 'arg_snapshot_listener': response.arg_snapshot_listener });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createSnapshotFile FAILED:', e));
           }
@@ -1209,13 +1209,13 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_GetPlatformPath_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPlatformPath');
-          const result = this.impl.getPlatformPath(params.arg_arg_file_path);
+          const result = this.impl.getPlatformPath(params.arg_file_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_platform_path' in response) ? response.arg_arg_platform_path : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_GetPlatformPath_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_platform_path' in response) ? response.arg_platform_path : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_GetPlatformPath_ResponseParamsSpec.$.structSpec, { 'arg_platform_path': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPlatformPath FAILED:', e));
           }
@@ -1225,13 +1225,13 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_RegisterBlob_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerBlob');
-          const result = this.impl.registerBlob(params.arg_arg_content_type, params.arg_arg_url, params.arg_arg_length, params.arg_arg_expected_modification_time);
+          const result = this.impl.registerBlob(params.arg_content_type, params.arg_url, params.arg_length, params.arg_expected_modification_time);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_blob' in response) ? response.arg_arg_blob : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_RegisterBlob_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_blob' in response) ? response.arg_blob : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_RegisterBlob_ResponseParamsSpec.$.structSpec, { 'arg_blob': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] registerBlob FAILED:', e));
           }

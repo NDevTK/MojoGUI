@@ -184,7 +184,7 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactoryRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactoryReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -322,7 +322,7 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -331,7 +331,7 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec,
       mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -340,7 +340,7 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -423,8 +423,8 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerReceiver = class 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_timezones' in response) ? response.arg_arg_timezones : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_timezones' in response) ? response.arg_timezones : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec.$.structSpec, { 'arg_timezones': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getTimezones FAILED:', e));
           }
@@ -499,7 +499,7 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec,
       null,
-      [arg_is_allowed],
+      { arg_is_allowed: arg_is_allowed },
       false);
   }
 
@@ -508,7 +508,7 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec,
       null,
-      [arg_success],
+      { arg_success: arg_success },
       false);
   }
 
@@ -578,14 +578,14 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSystemClockCanSetTimeChanged');
-          const result = this.impl.onSystemClockCanSetTimeChanged(params.arg_arg_is_allowed);
+          const result = this.impl.onSystemClockCanSetTimeChanged(params.arg_is_allowed);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onParentAccessValidationComplete');
-          const result = this.impl.onParentAccessValidationComplete(params.arg_arg_success);
+          const result = this.impl.onParentAccessValidationComplete(params.arg_success);
           break;
         }
       }

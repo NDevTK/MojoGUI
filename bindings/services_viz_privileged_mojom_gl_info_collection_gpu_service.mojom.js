@@ -183,7 +183,7 @@ mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ParamsSpec,
       mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ParamsSpec,
       mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_d3d12_feature_level', 'response.arg_arg_highest_shader_model_version', 'response.arg_arg_directml_feature_level', 'response.arg_arg_device_perf_info']);
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParamsSpec.$.structSpec, { 'arg_d3d12_feature_level': response.arg_d3d12_feature_level, 'arg_highest_shader_model_version': response.arg_highest_shader_model_version, 'arg_directml_feature_level': response.arg_directml_feature_level, 'arg_device_perf_info': response.arg_device_perf_info });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getGpuSupportedDirectXVersionAndDevicePerfInfo FAILED:', e));
           }
@@ -282,8 +282,8 @@ mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_vulkan_version' in response) ? response.arg_arg_vulkan_version : response;
-              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_vulkan_version' in response) ? response.arg_vulkan_version : response;
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponseParamsSpec.$.structSpec, { 'arg_vulkan_version': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getGpuSupportedVulkanVersionInfo FAILED:', e));
           }

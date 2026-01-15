@@ -349,7 +349,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec,
-      [arg_test_union],
+      { arg_test_union: arg_test_union },
       false);
   }
 
@@ -358,7 +358,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec,
-      [arg_test_union],
+      { arg_test_union: arg_test_union },
       false);
   }
 
@@ -367,7 +367,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec,
-      [arg_test_union],
+      { arg_test_union: arg_test_union },
       false);
   }
 
@@ -376,7 +376,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalUnion_ResponseParamsSpec,
-      [arg_test_union],
+      { arg_test_union: arg_test_union },
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec,
-      [arg_test_union],
+      { arg_test_union: arg_test_union },
       false);
   }
 
@@ -421,7 +421,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec,
-      [arg_test_union],
+      { arg_test_union: arg_test_union },
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec,
-      [arg_test_union],
+      { arg_test_union: arg_test_union },
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -457,7 +457,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -466,7 +466,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -475,7 +475,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec,
-      [arg_test_union],
+      { arg_test_union: arg_test_union },
       false);
   }
 
@@ -484,7 +484,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec,
-      [arg_test_union],
+      { arg_test_union: arg_test_union },
       false);
   }
 
@@ -493,7 +493,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec,
-      [arg_test_union],
+      { arg_test_union: arg_test_union },
       false);
   }
 
@@ -502,7 +502,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -511,7 +511,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -520,7 +520,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -529,7 +529,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ResponseParamsSpec,
-      [arg_test_union],
+      { arg_test_union: arg_test_union },
       false);
   }
 
@@ -538,7 +538,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec,
-      [arg_test_union],
+      { arg_test_union: arg_test_union },
       false);
   }
 
@@ -547,7 +547,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec,
-      [arg_test_union],
+      { arg_test_union: arg_test_union },
       false);
   }
 
@@ -556,7 +556,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec,
-      [arg_test_union],
+      { arg_test_union: arg_test_union },
       false);
   }
 
@@ -565,7 +565,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -574,7 +574,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -583,7 +583,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -592,7 +592,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec,
-      [arg_value],
+      { arg_value: arg_value },
       false);
   }
 
@@ -601,7 +601,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolArray_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec,
-      [arg_values],
+      { arg_values: arg_values },
       false);
   }
 
@@ -698,13 +698,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoBoolFromUnion');
-          const result = this.impl.echoBoolFromUnion(params.arg_arg_test_union);
+          const result = this.impl.echoBoolFromUnion(params.arg_test_union);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoBoolFromUnion FAILED:', e));
           }
@@ -714,13 +714,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoInt32FromUnion');
-          const result = this.impl.echoInt32FromUnion(params.arg_arg_test_union);
+          const result = this.impl.echoInt32FromUnion(params.arg_test_union);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoInt32FromUnion FAILED:', e));
           }
@@ -730,13 +730,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoStringFromUnion');
-          const result = this.impl.echoStringFromUnion(params.arg_arg_test_union);
+          const result = this.impl.echoStringFromUnion(params.arg_test_union);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoStringFromUnion FAILED:', e));
           }
@@ -746,13 +746,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoBoolAsUnion');
-          const result = this.impl.echoBoolAsUnion(params.arg_arg_value);
+          const result = this.impl.echoBoolAsUnion(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_test_union' in response) ? response.arg_arg_test_union : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_test_union' in response) ? response.arg_test_union : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec.$.structSpec, { 'arg_test_union': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoBoolAsUnion FAILED:', e));
           }
@@ -762,13 +762,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoInt32AsUnion');
-          const result = this.impl.echoInt32AsUnion(params.arg_arg_value);
+          const result = this.impl.echoInt32AsUnion(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_test_union' in response) ? response.arg_arg_test_union : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_test_union' in response) ? response.arg_test_union : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec.$.structSpec, { 'arg_test_union': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoInt32AsUnion FAILED:', e));
           }
@@ -778,13 +778,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoStringAsUnion');
-          const result = this.impl.echoStringAsUnion(params.arg_arg_value);
+          const result = this.impl.echoStringAsUnion(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_test_union' in response) ? response.arg_arg_test_union : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_test_union' in response) ? response.arg_test_union : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec.$.structSpec, { 'arg_test_union': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoStringAsUnion FAILED:', e));
           }
@@ -794,12 +794,12 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoNullFromOptionalUnion');
-          const result = this.impl.echoNullFromOptionalUnion(params.arg_arg_test_union);
+          const result = this.impl.echoNullFromOptionalUnion(params.arg_test_union);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalUnion_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalUnion_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoNullFromOptionalUnion FAILED:', e));
           }
@@ -809,13 +809,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoBoolFromOptionalUnion');
-          const result = this.impl.echoBoolFromOptionalUnion(params.arg_arg_test_union);
+          const result = this.impl.echoBoolFromOptionalUnion(params.arg_test_union);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoBoolFromOptionalUnion FAILED:', e));
           }
@@ -825,13 +825,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoInt32FromOptionalUnion');
-          const result = this.impl.echoInt32FromOptionalUnion(params.arg_arg_test_union);
+          const result = this.impl.echoInt32FromOptionalUnion(params.arg_test_union);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoInt32FromOptionalUnion FAILED:', e));
           }
@@ -841,13 +841,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoStringFromOptionalUnion');
-          const result = this.impl.echoStringFromOptionalUnion(params.arg_arg_test_union);
+          const result = this.impl.echoStringFromOptionalUnion(params.arg_test_union);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoStringFromOptionalUnion FAILED:', e));
           }
@@ -862,8 +862,8 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_test_union' in response) ? response.arg_arg_test_union : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_test_union' in response) ? response.arg_test_union : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec.$.structSpec, { 'arg_test_union': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoNullAsOptionalUnion FAILED:', e));
           }
@@ -873,13 +873,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoBoolAsOptionalUnion');
-          const result = this.impl.echoBoolAsOptionalUnion(params.arg_arg_value);
+          const result = this.impl.echoBoolAsOptionalUnion(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_test_union' in response) ? response.arg_arg_test_union : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_test_union' in response) ? response.arg_test_union : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec.$.structSpec, { 'arg_test_union': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoBoolAsOptionalUnion FAILED:', e));
           }
@@ -889,13 +889,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoInt32AsOptionalUnion');
-          const result = this.impl.echoInt32AsOptionalUnion(params.arg_arg_value);
+          const result = this.impl.echoInt32AsOptionalUnion(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_test_union' in response) ? response.arg_arg_test_union : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_test_union' in response) ? response.arg_test_union : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec.$.structSpec, { 'arg_test_union': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoInt32AsOptionalUnion FAILED:', e));
           }
@@ -905,13 +905,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoStringAsOptionalUnion');
-          const result = this.impl.echoStringAsOptionalUnion(params.arg_arg_value);
+          const result = this.impl.echoStringAsOptionalUnion(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_test_union' in response) ? response.arg_arg_test_union : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_test_union' in response) ? response.arg_test_union : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec.$.structSpec, { 'arg_test_union': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoStringAsOptionalUnion FAILED:', e));
           }
@@ -921,13 +921,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoInt8FromNestedUnion');
-          const result = this.impl.echoInt8FromNestedUnion(params.arg_arg_test_union);
+          const result = this.impl.echoInt8FromNestedUnion(params.arg_test_union);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoInt8FromNestedUnion FAILED:', e));
           }
@@ -937,13 +937,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoBoolFromNestedUnion');
-          const result = this.impl.echoBoolFromNestedUnion(params.arg_arg_test_union);
+          const result = this.impl.echoBoolFromNestedUnion(params.arg_test_union);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoBoolFromNestedUnion FAILED:', e));
           }
@@ -953,13 +953,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoStringFromNestedUnion');
-          const result = this.impl.echoStringFromNestedUnion(params.arg_arg_test_union);
+          const result = this.impl.echoStringFromNestedUnion(params.arg_test_union);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoStringFromNestedUnion FAILED:', e));
           }
@@ -969,13 +969,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoInt8AsNestedUnion');
-          const result = this.impl.echoInt8AsNestedUnion(params.arg_arg_value);
+          const result = this.impl.echoInt8AsNestedUnion(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_test_union' in response) ? response.arg_arg_test_union : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_test_union' in response) ? response.arg_test_union : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec.$.structSpec, { 'arg_test_union': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoInt8AsNestedUnion FAILED:', e));
           }
@@ -985,13 +985,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoBoolAsNestedUnion');
-          const result = this.impl.echoBoolAsNestedUnion(params.arg_arg_value);
+          const result = this.impl.echoBoolAsNestedUnion(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_test_union' in response) ? response.arg_arg_test_union : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_test_union' in response) ? response.arg_test_union : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec.$.structSpec, { 'arg_test_union': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoBoolAsNestedUnion FAILED:', e));
           }
@@ -1001,13 +1001,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoStringAsNestedUnion');
-          const result = this.impl.echoStringAsNestedUnion(params.arg_arg_value);
+          const result = this.impl.echoStringAsNestedUnion(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_test_union' in response) ? response.arg_arg_test_union : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_test_union' in response) ? response.arg_test_union : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec.$.structSpec, { 'arg_test_union': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoStringAsNestedUnion FAILED:', e));
           }
@@ -1017,12 +1017,12 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoNullFromOptionalNestedUnion');
-          const result = this.impl.echoNullFromOptionalNestedUnion(params.arg_arg_test_union);
+          const result = this.impl.echoNullFromOptionalNestedUnion(params.arg_test_union);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoNullFromOptionalNestedUnion FAILED:', e));
           }
@@ -1032,13 +1032,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoInt8FromOptionalNestedUnion');
-          const result = this.impl.echoInt8FromOptionalNestedUnion(params.arg_arg_test_union);
+          const result = this.impl.echoInt8FromOptionalNestedUnion(params.arg_test_union);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoInt8FromOptionalNestedUnion FAILED:', e));
           }
@@ -1048,13 +1048,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoBoolFromOptionalNestedUnion');
-          const result = this.impl.echoBoolFromOptionalNestedUnion(params.arg_arg_test_union);
+          const result = this.impl.echoBoolFromOptionalNestedUnion(params.arg_test_union);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoBoolFromOptionalNestedUnion FAILED:', e));
           }
@@ -1064,13 +1064,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoStringFromOptionalNestedUnion');
-          const result = this.impl.echoStringFromOptionalNestedUnion(params.arg_arg_test_union);
+          const result = this.impl.echoStringFromOptionalNestedUnion(params.arg_test_union);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_value' in response) ? response.arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec.$.structSpec, { 'arg_value': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoStringFromOptionalNestedUnion FAILED:', e));
           }
@@ -1085,8 +1085,8 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_test_union' in response) ? response.arg_arg_test_union : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_test_union' in response) ? response.arg_test_union : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec.$.structSpec, { 'arg_test_union': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoNullAsOptionalNestedUnion FAILED:', e));
           }
@@ -1096,13 +1096,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoInt8AsOptionalNestedUnion');
-          const result = this.impl.echoInt8AsOptionalNestedUnion(params.arg_arg_value);
+          const result = this.impl.echoInt8AsOptionalNestedUnion(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_test_union' in response) ? response.arg_arg_test_union : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_test_union' in response) ? response.arg_test_union : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec.$.structSpec, { 'arg_test_union': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoInt8AsOptionalNestedUnion FAILED:', e));
           }
@@ -1112,13 +1112,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoBoolAsOptionalNestedUnion');
-          const result = this.impl.echoBoolAsOptionalNestedUnion(params.arg_arg_value);
+          const result = this.impl.echoBoolAsOptionalNestedUnion(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_test_union' in response) ? response.arg_arg_test_union : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_test_union' in response) ? response.arg_test_union : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec.$.structSpec, { 'arg_test_union': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoBoolAsOptionalNestedUnion FAILED:', e));
           }
@@ -1128,13 +1128,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoStringAsOptionalNestedUnion');
-          const result = this.impl.echoStringAsOptionalNestedUnion(params.arg_arg_value);
+          const result = this.impl.echoStringAsOptionalNestedUnion(params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_test_union' in response) ? response.arg_arg_test_union : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_test_union' in response) ? response.arg_test_union : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec.$.structSpec, { 'arg_test_union': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoStringAsOptionalNestedUnion FAILED:', e));
           }
@@ -1144,13 +1144,13 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolArray_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoBoolArray');
-          const result = this.impl.echoBoolArray(params.arg_arg_values);
+          const result = this.impl.echoBoolArray(params.arg_values);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_values' in response) ? response.arg_arg_values : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_values' in response) ? response.arg_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec.$.structSpec, { 'arg_values': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoBoolArray FAILED:', e));
           }

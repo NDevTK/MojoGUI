@@ -180,7 +180,7 @@ mojo.internal.bindings.content.mojom.RouteProviderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.RouteProvider_GetRoute_ParamsSpec,
       null,
-      [arg_frame_token, arg_receiver],
+      { arg_frame_token: arg_frame_token, arg_receiver: arg_receiver },
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.content.mojom.RouteProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RouteProvider_GetRoute_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRoute');
-          const result = this.impl.getRoute(params.arg_arg_frame_token, params.arg_arg_receiver);
+          const result = this.impl.getRoute(params.arg_frame_token, params.arg_receiver);
           break;
         }
       }

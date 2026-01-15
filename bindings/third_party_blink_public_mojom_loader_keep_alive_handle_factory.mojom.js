@@ -176,7 +176,7 @@ mojo.internal.bindings.blink.mojom.KeepAliveHandleFactoryRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_ParamsSpec,
       null,
-      [arg_keep_alive_handle],
+      { arg_keep_alive_handle: arg_keep_alive_handle },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.blink.mojom.KeepAliveHandleFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.issueKeepAliveHandle');
-          const result = this.impl.issueKeepAliveHandle(params.arg_arg_keep_alive_handle);
+          const result = this.impl.issueKeepAliveHandle(params.arg_keep_alive_handle);
           break;
         }
       }

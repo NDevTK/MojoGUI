@@ -244,7 +244,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetParams_ParamsSpec,
       null,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec,
       null,
-      [arg_needs_begin_frame],
+      { arg_needs_begin_frame: arg_needs_begin_frame },
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec,
       null,
-      [arg_local_surface_id, arg_frame, arg_hit_test_region_list, arg_submit_time],
+      { arg_local_surface_id: arg_local_surface_id, arg_frame: arg_frame, arg_hit_test_region_list: arg_hit_test_region_list, arg_submit_time: arg_submit_time },
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec,
       null,
-      [arg_ack],
+      { arg_ack: arg_ack },
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec,
       null,
-      [arg_context, arg_settings],
+      { arg_context: arg_context, arg_settings: arg_settings },
       false);
   }
 
@@ -363,28 +363,28 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setParams');
-          const result = this.impl.setParams(params.arg_arg_params);
+          const result = this.impl.setParams(params.arg_params);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNeedsBeginFrame');
-          const result = this.impl.setNeedsBeginFrame(params.arg_arg_needs_begin_frame);
+          const result = this.impl.setNeedsBeginFrame(params.arg_needs_begin_frame);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitCompositorFrame');
-          const result = this.impl.submitCompositorFrame(params.arg_arg_local_surface_id, params.arg_arg_frame, params.arg_arg_hit_test_region_list, params.arg_arg_submit_time);
+          const result = this.impl.submitCompositorFrame(params.arg_local_surface_id, params.arg_frame, params.arg_hit_test_region_list, params.arg_submit_time);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didNotProduceFrame');
-          const result = this.impl.didNotProduceFrame(params.arg_arg_ack);
+          const result = this.impl.didNotProduceFrame(params.arg_ack);
           break;
         }
         case 4: {
@@ -398,7 +398,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindLayerContext');
-          const result = this.impl.bindLayerContext(params.arg_arg_context, params.arg_arg_settings);
+          const result = this.impl.bindLayerContext(params.arg_context, params.arg_settings);
           break;
         }
       }
@@ -479,7 +479,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec,
       null,
-      [arg_resources],
+      { arg_resources: arg_resources },
       false);
   }
 
@@ -488,7 +488,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec,
       null,
-      [arg_args, arg_details, arg_resources],
+      { arg_args: arg_args, arg_details: arg_details, arg_resources: arg_resources },
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec,
       null,
-      [arg_paused],
+      { arg_paused: arg_paused },
       false);
   }
 
@@ -506,7 +506,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec,
       null,
-      [arg_resources],
+      { arg_resources: arg_resources },
       false);
   }
 
@@ -515,7 +515,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec,
       null,
-      [arg_sequence_id],
+      { arg_sequence_id: arg_sequence_id },
       false);
   }
 
@@ -524,7 +524,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemoteCallHandler = cl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec,
       null,
-      [arg_local_surface_id],
+      { arg_local_surface_id: arg_local_surface_id },
       false);
   }
 
@@ -598,42 +598,42 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didReceiveCompositorFrameAck');
-          const result = this.impl.didReceiveCompositorFrameAck(params.arg_arg_resources);
+          const result = this.impl.didReceiveCompositorFrameAck(params.arg_resources);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBeginFrame');
-          const result = this.impl.onBeginFrame(params.arg_arg_args, params.arg_arg_details, params.arg_arg_resources);
+          const result = this.impl.onBeginFrame(params.arg_args, params.arg_details, params.arg_resources);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBeginFramePausedChanged');
-          const result = this.impl.onBeginFramePausedChanged(params.arg_arg_paused);
+          const result = this.impl.onBeginFramePausedChanged(params.arg_paused);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reclaimResources');
-          const result = this.impl.reclaimResources(params.arg_arg_resources);
+          const result = this.impl.reclaimResources(params.arg_resources);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCompositorFrameTransitionDirectiveProcessed');
-          const result = this.impl.onCompositorFrameTransitionDirectiveProcessed(params.arg_arg_sequence_id);
+          const result = this.impl.onCompositorFrameTransitionDirectiveProcessed(params.arg_sequence_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSurfaceEvicted');
-          const result = this.impl.onSurfaceEvicted(params.arg_arg_local_surface_id);
+          const result = this.impl.onSurfaceEvicted(params.arg_local_surface_id);
           break;
         }
       }

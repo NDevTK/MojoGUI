@@ -338,7 +338,7 @@ mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec,
       null,
-      [arg_update],
+      { arg_update: arg_update },
       false);
   }
 
@@ -407,7 +407,7 @@ mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWebPrintJobUpdate');
-          const result = this.impl.onWebPrintJobUpdate(params.arg_arg_update);
+          const result = this.impl.onWebPrintJobUpdate(params.arg_update);
           break;
         }
       }
@@ -468,7 +468,7 @@ mojo.internal.bindings.blink.mojom.WebPrintJobControllerRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebPrintJobController_Cancel_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -602,7 +602,7 @@ mojo.internal.bindings.blink.mojom.WebPrinterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -611,7 +611,7 @@ mojo.internal.bindings.blink.mojom.WebPrinterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.WebPrinter_Print_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebPrinter_Print_ResponseParamsSpec,
-      [arg_document, arg_attributes],
+      { arg_document: arg_document, arg_attributes: arg_attributes },
       false);
   }
 
@@ -686,8 +686,8 @@ mojo.internal.bindings.blink.mojom.WebPrinterReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fetchAttributes FAILED:', e));
           }
@@ -697,13 +697,13 @@ mojo.internal.bindings.blink.mojom.WebPrinterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrinter_Print_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.print');
-          const result = this.impl.print(params.arg_arg_document, params.arg_arg_attributes);
+          const result = this.impl.print(params.arg_document, params.arg_attributes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebPrinter_Print_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebPrinter_Print_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] print FAILED:', e));
           }
@@ -767,7 +767,7 @@ mojo.internal.bindings.blink.mojom.WebPrintingServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -841,8 +841,8 @@ mojo.internal.bindings.blink.mojom.WebPrintingServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPrinters FAILED:', e));
           }

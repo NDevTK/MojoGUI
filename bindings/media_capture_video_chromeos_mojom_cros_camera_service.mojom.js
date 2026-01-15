@@ -271,7 +271,7 @@ mojo.internal.bindings.cros.mojom.KioskVisionObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec,
       null,
-      [arg_detection],
+      { arg_detection: arg_detection },
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.cros.mojom.KioskVisionObserverRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec,
       null,
-      [arg_track],
+      { arg_track: arg_track },
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.cros.mojom.KioskVisionObserverRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cros.mojom.KioskVisionObserver_OnError_ParamsSpec,
       null,
-      [arg_error],
+      { arg_error: arg_error },
       false);
   }
 
@@ -360,21 +360,21 @@ mojo.internal.bindings.cros.mojom.KioskVisionObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameProcessed');
-          const result = this.impl.onFrameProcessed(params.arg_arg_detection);
+          const result = this.impl.onFrameProcessed(params.arg_detection);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTrackCompleted');
-          const result = this.impl.onTrackCompleted(params.arg_arg_track);
+          const result = this.impl.onTrackCompleted(params.arg_track);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.KioskVisionObserver_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_error);
+          const result = this.impl.onError(params.arg_error);
           break;
         }
       }
@@ -435,7 +435,7 @@ mojo.internal.bindings.cros.mojom.CameraHalDispatcherRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ResponseParamsSpec,
-      [arg_client, arg_type, arg_auth_token],
+      { arg_client: arg_client, arg_type: arg_type, arg_auth_token: arg_auth_token },
       false);
   }
 
@@ -504,13 +504,13 @@ mojo.internal.bindings.cros.mojom.CameraHalDispatcherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerClientWithToken');
-          const result = this.impl.registerClientWithToken(params.arg_arg_client, params.arg_arg_type, params.arg_arg_auth_token);
+          const result = this.impl.registerClientWithToken(params.arg_client, params.arg_type, params.arg_auth_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] registerClientWithToken FAILED:', e));
           }
@@ -590,7 +590,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec,
       null,
-      [arg_camera_id, arg_opened, arg_type],
+      { arg_camera_id: arg_camera_id, arg_opened: arg_opened, arg_type: arg_type },
       false);
   }
 
@@ -599,7 +599,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceObserverRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec,
       null,
-      [arg_state, arg_camera_id],
+      { arg_state: arg_state, arg_camera_id: arg_camera_id },
       false);
   }
 
@@ -608,7 +608,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceObserverRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -617,7 +617,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceObserverRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraServiceObserver_CameraEffectChange_ParamsSpec,
       null,
-      [arg_config],
+      { arg_config: arg_config },
       false);
   }
 
@@ -626,7 +626,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceObserverRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -699,35 +699,35 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cameraDeviceActivityChange');
-          const result = this.impl.cameraDeviceActivityChange(params.arg_arg_camera_id, params.arg_arg_opened, params.arg_arg_type);
+          const result = this.impl.cameraDeviceActivityChange(params.arg_camera_id, params.arg_opened, params.arg_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cameraPrivacySwitchStateChange');
-          const result = this.impl.cameraPrivacySwitchStateChange(params.arg_arg_state, params.arg_arg_camera_id);
+          const result = this.impl.cameraPrivacySwitchStateChange(params.arg_state, params.arg_camera_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cameraSWPrivacySwitchStateChange');
-          const result = this.impl.cameraSWPrivacySwitchStateChange(params.arg_arg_state);
+          const result = this.impl.cameraSWPrivacySwitchStateChange(params.arg_state);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosCameraServiceObserver_CameraEffectChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cameraEffectChange');
-          const result = this.impl.cameraEffectChange(params.arg_arg_config);
+          const result = this.impl.cameraEffectChange(params.arg_config);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.autoFramingStateChange');
-          const result = this.impl.autoFramingStateChange(params.arg_arg_state);
+          const result = this.impl.autoFramingStateChange(params.arg_state);
           break;
         }
       }
@@ -820,7 +820,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CrosCameraService_GetCameraModule_ResponseParamsSpec,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -829,7 +829,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraService_SetTracingEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -838,7 +838,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -847,7 +847,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -856,7 +856,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -865,7 +865,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraService_GetAutoFramingSupported_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CrosCameraService_GetAutoFramingSupported_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -874,7 +874,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraService_SetCameraEffect_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CrosCameraService_SetCameraEffect_ResponseParamsSpec,
-      [arg_config],
+      { arg_config: arg_config },
       false);
   }
 
@@ -883,7 +883,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraService_AddCrosCameraServiceObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -892,7 +892,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec,
       null,
-      [arg_dlc_path, arg_observer],
+      { arg_dlc_path: arg_dlc_path, arg_observer: arg_observer },
       false);
   }
 
@@ -969,13 +969,13 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCameraModule');
-          const result = this.impl.getCameraModule(params.arg_arg_type);
+          const result = this.impl.getCameraModule(params.arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_camera_module_receiver' in response) ? response.arg_arg_camera_module_receiver : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CrosCameraService_GetCameraModule_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_camera_module_receiver' in response) ? response.arg_camera_module_receiver : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CrosCameraService_GetCameraModule_ResponseParamsSpec.$.structSpec, { 'arg_camera_module_receiver': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCameraModule FAILED:', e));
           }
@@ -985,14 +985,14 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosCameraService_SetTracingEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTracingEnabled');
-          const result = this.impl.setTracingEnabled(params.arg_arg_enabled);
+          const result = this.impl.setTracingEnabled(params.arg_enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAutoFramingState');
-          const result = this.impl.setAutoFramingState(params.arg_arg_state);
+          const result = this.impl.setAutoFramingState(params.arg_state);
           break;
         }
         case 3: {
@@ -1004,8 +1004,8 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response.arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParamsSpec.$.structSpec, { 'arg_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCameraSWPrivacySwitchState FAILED:', e));
           }
@@ -1015,7 +1015,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCameraSWPrivacySwitchState');
-          const result = this.impl.setCameraSWPrivacySwitchState(params.arg_arg_state);
+          const result = this.impl.setCameraSWPrivacySwitchState(params.arg_state);
           break;
         }
         case 5: {
@@ -1027,8 +1027,8 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_supported' in response) ? response.arg_arg_supported : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CrosCameraService_GetAutoFramingSupported_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_supported' in response) ? response.arg_supported : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CrosCameraService_GetAutoFramingSupported_ResponseParamsSpec.$.structSpec, { 'arg_supported': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAutoFramingSupported FAILED:', e));
           }
@@ -1038,13 +1038,13 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosCameraService_SetCameraEffect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCameraEffect');
-          const result = this.impl.setCameraEffect(params.arg_arg_config);
+          const result = this.impl.setCameraEffect(params.arg_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CrosCameraService_SetCameraEffect_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CrosCameraService_SetCameraEffect_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setCameraEffect FAILED:', e));
           }
@@ -1054,14 +1054,14 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosCameraService_AddCrosCameraServiceObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addCrosCameraServiceObserver');
-          const result = this.impl.addCrosCameraServiceObserver(params.arg_arg_observer);
+          const result = this.impl.addCrosCameraServiceObserver(params.arg_observer);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startKioskVisionDetection');
-          const result = this.impl.startKioskVisionDetection(params.arg_arg_dlc_path, params.arg_arg_observer);
+          const result = this.impl.startKioskVisionDetection(params.arg_dlc_path, params.arg_observer);
           break;
         }
       }

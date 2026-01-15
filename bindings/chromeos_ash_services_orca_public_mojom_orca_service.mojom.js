@@ -340,7 +340,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec,
       mojo.internal.bindings.ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -349,7 +349,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec,
       mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec,
-      [arg_text_query_id, arg_text_override],
+      { arg_text_query_id: arg_text_query_id, arg_text_override: arg_text_override },
       false);
   }
 
@@ -358,7 +358,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec,
       mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec,
-      [arg_input, arg_text_override],
+      { arg_input: arg_input, arg_text_override: arg_text_override },
       false);
   }
 
@@ -367,7 +367,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec,
       mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec,
-      [arg_input],
+      { arg_input: arg_input },
       false);
   }
 
@@ -376,7 +376,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_InsertText_ParamsSpec,
       null,
-      [arg_text],
+      { arg_text: arg_text },
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_ApproveConsent_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_DeclineConsent_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_DismissConsent_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec,
       null,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -421,7 +421,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_ShowUI_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_CloseUI_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_AppendText_ParamsSpec,
       null,
-      [arg_text],
+      { arg_text: arg_text },
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec,
       mojo.internal.bindings.ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec,
-      [arg_result_id],
+      { arg_result_id: arg_result_id },
       false);
   }
 
@@ -457,7 +457,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec,
       null,
-      [arg_result_id, arg_user_description],
+      { arg_result_id: arg_result_id, arg_user_description: arg_user_description },
       false);
   }
 
@@ -466,7 +466,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec,
       null,
-      [arg_trigger_context],
+      { arg_trigger_context: arg_trigger_context },
       false);
   }
 
@@ -475,7 +475,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec,
       null,
-      [arg_metric_event],
+      { arg_metric_event: arg_metric_event },
       false);
   }
 
@@ -564,8 +564,8 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_text_queries' in response) ? response.arg_arg_text_queries : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_text_queries' in response) ? response.arg_text_queries : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec.$.structSpec, { 'arg_text_queries': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPresetTextQueries FAILED:', e));
           }
@@ -575,13 +575,13 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPresetRewrite');
-          const result = this.impl.requestPresetRewrite(params.arg_arg_text_query_id, params.arg_arg_text_override);
+          const result = this.impl.requestPresetRewrite(params.arg_text_query_id, params.arg_text_override);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestPresetRewrite FAILED:', e));
           }
@@ -591,13 +591,13 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestFreeformRewrite');
-          const result = this.impl.requestFreeformRewrite(params.arg_arg_input, params.arg_arg_text_override);
+          const result = this.impl.requestFreeformRewrite(params.arg_input, params.arg_text_override);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestFreeformRewrite FAILED:', e));
           }
@@ -607,13 +607,13 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestFreeformWrite');
-          const result = this.impl.requestFreeformWrite(params.arg_arg_input);
+          const result = this.impl.requestFreeformWrite(params.arg_input);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestFreeformWrite FAILED:', e));
           }
@@ -623,7 +623,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_InsertText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.insertText');
-          const result = this.impl.insertText(params.arg_arg_text);
+          const result = this.impl.insertText(params.arg_text);
           break;
         }
         case 5: {
@@ -651,7 +651,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openUrlInNewWindow');
-          const result = this.impl.openUrlInNewWindow(params.arg_arg_url);
+          const result = this.impl.openUrlInNewWindow(params.arg_url);
           break;
         }
         case 9: {
@@ -672,20 +672,20 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_AppendText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.appendText');
-          const result = this.impl.appendText(params.arg_arg_text);
+          const result = this.impl.appendText(params.arg_text);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.previewFeedback');
-          const result = this.impl.previewFeedback(params.arg_arg_result_id);
+          const result = this.impl.previewFeedback(params.arg_result_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_preview' in response) ? response.arg_arg_preview : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_preview' in response) ? response.arg_preview : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec.$.structSpec, { 'arg_preview': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] previewFeedback FAILED:', e));
           }
@@ -695,21 +695,21 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFeedback');
-          const result = this.impl.submitFeedback(params.arg_arg_result_id, params.arg_arg_user_description);
+          const result = this.impl.submitFeedback(params.arg_result_id, params.arg_user_description);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTrigger');
-          const result = this.impl.onTrigger(params.arg_arg_trigger_context);
+          const result = this.impl.onTrigger(params.arg_trigger_context);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.emitMetricEvent');
-          const result = this.impl.emitMetricEvent(params.arg_arg_metric_event);
+          const result = this.impl.emitMetricEvent(params.arg_metric_event);
           break;
         }
       }
@@ -770,7 +770,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientConnectorRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec,
       null,
-      [arg_editor_client],
+      { arg_editor_client: arg_editor_client },
       false);
   }
 
@@ -839,7 +839,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindEditorClient');
-          const result = this.impl.bindEditorClient(params.arg_arg_editor_client);
+          const result = this.impl.bindEditorClient(params.arg_editor_client);
           break;
         }
       }
@@ -900,7 +900,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorEventSinkRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec,
       null,
-      [arg_context],
+      { arg_context: arg_context },
       false);
   }
 
@@ -969,7 +969,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorEventSinkReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onContextUpdated');
-          const result = this.impl.onContextUpdated(params.arg_arg_context);
+          const result = this.impl.onContextUpdated(params.arg_context);
           break;
         }
       }
@@ -1062,7 +1062,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.SystemActuator_InsertText_ParamsSpec,
       null,
-      [arg_text],
+      { arg_text: arg_text },
       false);
   }
 
@@ -1071,7 +1071,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1080,7 +1080,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.SystemActuator_DeclineConsent_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1089,7 +1089,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec,
       null,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -1098,7 +1098,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.SystemActuator_ShowUI_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1107,7 +1107,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.SystemActuator_CloseUI_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1116,7 +1116,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec,
       null,
-      [arg_description],
+      { arg_description: arg_description },
       false);
   }
 
@@ -1125,7 +1125,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec,
       null,
-      [arg_trigger_context],
+      { arg_trigger_context: arg_trigger_context },
       false);
   }
 
@@ -1134,7 +1134,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec,
       null,
-      [arg_metric_event],
+      { arg_metric_event: arg_metric_event },
       false);
   }
 
@@ -1211,7 +1211,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_InsertText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.insertText');
-          const result = this.impl.insertText(params.arg_arg_text);
+          const result = this.impl.insertText(params.arg_text);
           break;
         }
         case 1: {
@@ -1232,7 +1232,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openUrlInNewWindow');
-          const result = this.impl.openUrlInNewWindow(params.arg_arg_url);
+          const result = this.impl.openUrlInNewWindow(params.arg_url);
           break;
         }
         case 4: {
@@ -1253,21 +1253,21 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFeedback');
-          const result = this.impl.submitFeedback(params.arg_arg_description);
+          const result = this.impl.submitFeedback(params.arg_description);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTrigger');
-          const result = this.impl.onTrigger(params.arg_arg_trigger_context);
+          const result = this.impl.onTrigger(params.arg_trigger_context);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.emitMetricEvent');
-          const result = this.impl.emitMetricEvent(params.arg_arg_metric_event);
+          const result = this.impl.emitMetricEvent(params.arg_metric_event);
           break;
         }
       }
@@ -1328,7 +1328,7 @@ mojo.internal.bindings.ash.orca.mojom.TextQueryProviderRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ParamsSpec,
       mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -1397,13 +1397,13 @@ mojo.internal.bindings.ash.orca.mojom.TextQueryProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.process');
-          const result = this.impl.process(params.arg_arg_request);
+          const result = this.impl.process(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] process FAILED:', e));
           }
@@ -1467,7 +1467,7 @@ mojo.internal.bindings.ash.orca.mojom.OrcaServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.OrcaService_BindEditor_ParamsSpec,
       null,
-      [arg_system_actuator, arg_text_query_provider, arg_client_connector, arg_event_sink, arg_editor_config],
+      { arg_system_actuator: arg_system_actuator, arg_text_query_provider: arg_text_query_provider, arg_client_connector: arg_client_connector, arg_event_sink: arg_event_sink, arg_editor_config: arg_editor_config },
       false);
   }
 
@@ -1536,7 +1536,7 @@ mojo.internal.bindings.ash.orca.mojom.OrcaServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.OrcaService_BindEditor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindEditor');
-          const result = this.impl.bindEditor(params.arg_arg_system_actuator, params.arg_arg_text_query_provider, params.arg_arg_client_connector, params.arg_arg_event_sink, params.arg_arg_editor_config);
+          const result = this.impl.bindEditor(params.arg_system_actuator, params.arg_text_query_provider, params.arg_client_connector, params.arg_event_sink, params.arg_editor_config);
           break;
         }
       }

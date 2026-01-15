@@ -181,7 +181,7 @@ mojo.internal.bindings.device.mojom.VibrationManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ParamsSpec,
       mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ResponseParamsSpec,
-      [arg_milliseconds],
+      { arg_milliseconds: arg_milliseconds },
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.device.mojom.VibrationManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ParamsSpec,
       mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -260,12 +260,12 @@ mojo.internal.bindings.device.mojom.VibrationManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.vibrate');
-          const result = this.impl.vibrate(params.arg_arg_milliseconds);
+          const result = this.impl.vibrate(params.arg_milliseconds);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] vibrate FAILED:', e));
           }
@@ -280,7 +280,7 @@ mojo.internal.bindings.device.mojom.VibrationManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] cancel FAILED:', e));
           }
@@ -344,7 +344,7 @@ mojo.internal.bindings.device.mojom.VibrationManagerListenerRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

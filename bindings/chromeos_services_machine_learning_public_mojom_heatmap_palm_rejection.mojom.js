@@ -192,7 +192,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClien
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClient_OnHeatmapProcessedEvent_ParamsSpec,
       null,
-      [arg_event],
+      { arg_event: arg_event },
       false);
   }
 
@@ -261,7 +261,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClien
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClient_OnHeatmapProcessedEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHeatmapProcessedEvent');
-          const result = this.impl.onHeatmapProcessedEvent(params.arg_arg_event);
+          const result = this.impl.onHeatmapProcessedEvent(params.arg_event);
           break;
         }
       }

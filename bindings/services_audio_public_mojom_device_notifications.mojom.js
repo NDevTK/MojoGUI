@@ -174,7 +174,7 @@ mojo.internal.bindings.audio.mojom.DeviceListenerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.audio.mojom.DeviceListener_DevicesChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.audio.mojom.DeviceNotifierRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec,
       null,
-      [arg_listener],
+      { arg_listener: arg_listener },
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.audio.mojom.DeviceNotifierReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerListener');
-          const result = this.impl.registerListener(params.arg_arg_listener);
+          const result = this.impl.registerListener(params.arg_listener);
           break;
         }
       }

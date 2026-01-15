@@ -175,7 +175,7 @@ mojo.internal.bindings.viz.mojom.VideoDetectorObserverRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -184,7 +184,7 @@ mojo.internal.bindings.viz.mojom.VideoDetectorObserverRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

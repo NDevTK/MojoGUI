@@ -216,7 +216,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNotifyState');
-          const result = this.impl.onNotifyState(params.arg_arg_state);
+          const result = this.impl.onNotifyState(params.arg_state);
           break;
         }
       }
@@ -350,7 +350,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLoggerRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec,
-      [arg_record, arg_priority],
+      { arg_record: arg_record, arg_priority: arg_priority },
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLoggerRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec,
       null,
-      [arg_pending_observer],
+      { arg_pending_observer: arg_pending_observer },
       false);
   }
 
@@ -429,13 +429,13 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLoggerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enqueue');
-          const result = this.impl.enqueue(params.arg_arg_record, params.arg_arg_priority);
+          const result = this.impl.enqueue(params.arg_record, params.arg_priority);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] enqueue FAILED:', e));
           }
@@ -445,7 +445,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLoggerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addStateObserver');
-          const result = this.impl.addStateObserver(params.arg_arg_pending_observer);
+          const result = this.impl.addStateObserver(params.arg_pending_observer);
           break;
         }
       }

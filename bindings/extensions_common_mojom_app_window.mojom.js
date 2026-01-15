@@ -170,7 +170,7 @@ mojo.internal.bindings.extensions.mojom.AppWindowRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec,
       null,
-      [arg_deemphasized],
+      { arg_deemphasized: arg_deemphasized },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.extensions.mojom.AppWindowReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVisuallyDeemphasized');
-          const result = this.impl.setVisuallyDeemphasized(params.arg_arg_deemphasized);
+          const result = this.impl.setVisuallyDeemphasized(params.arg_deemphasized);
           break;
         }
       }

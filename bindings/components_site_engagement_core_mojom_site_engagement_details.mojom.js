@@ -183,7 +183,7 @@ mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec,
       mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderRemote
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec,
       null,
-      [arg_url, arg_score],
+      { arg_url: arg_url, arg_score: arg_score },
       false);
   }
 
@@ -267,8 +267,8 @@ mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderReceiv
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSiteEngagementDetails FAILED:', e));
           }
@@ -278,7 +278,7 @@ mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderReceiv
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSiteEngagementBaseScoreForUrl');
-          const result = this.impl.setSiteEngagementBaseScoreForUrl(params.arg_arg_url, params.arg_arg_score);
+          const result = this.impl.setSiteEngagementBaseScoreForUrl(params.arg_url, params.arg_score);
           break;
         }
       }

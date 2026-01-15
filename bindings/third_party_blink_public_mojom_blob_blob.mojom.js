@@ -214,7 +214,7 @@ mojo.internal.bindings.blink.mojom.BlobReaderClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec,
       null,
-      [arg_total_size, arg_expected_content_size],
+      { arg_total_size: arg_total_size, arg_expected_content_size: arg_expected_content_size },
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.blink.mojom.BlobReaderClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobReaderClient_OnComplete_ParamsSpec,
       null,
-      [arg_status, arg_data_length],
+      { arg_status: arg_status, arg_data_length: arg_data_length },
       false);
   }
 
@@ -293,14 +293,14 @@ mojo.internal.bindings.blink.mojom.BlobReaderClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCalculatedSize');
-          const result = this.impl.onCalculatedSize(params.arg_arg_total_size, params.arg_arg_expected_content_size);
+          const result = this.impl.onCalculatedSize(params.arg_total_size, params.arg_expected_content_size);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobReaderClient_OnComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
-          const result = this.impl.onComplete(params.arg_arg_status, params.arg_arg_data_length);
+          const result = this.impl.onComplete(params.arg_status, params.arg_data_length);
           break;
         }
       }
@@ -389,7 +389,7 @@ mojo.internal.bindings.blink.mojom.BlobRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.Blob_Clone_ParamsSpec,
       null,
-      [arg_blob],
+      { arg_blob: arg_blob },
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.blink.mojom.BlobRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.Blob_AsDataPipeGetter_ParamsSpec,
       null,
-      [arg_data_pipe_getter],
+      { arg_data_pipe_getter: arg_data_pipe_getter },
       false);
   }
 
@@ -407,7 +407,7 @@ mojo.internal.bindings.blink.mojom.BlobRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.Blob_ReadAll_ParamsSpec,
       null,
-      [arg_pipe, arg_client],
+      { arg_pipe: arg_pipe, arg_client: arg_client },
       false);
   }
 
@@ -416,7 +416,7 @@ mojo.internal.bindings.blink.mojom.BlobRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.Blob_ReadRange_ParamsSpec,
       null,
-      [arg_offset, arg_length, arg_pipe, arg_client],
+      { arg_offset: arg_offset, arg_length: arg_length, arg_pipe: arg_pipe, arg_client: arg_client },
       false);
   }
 
@@ -425,7 +425,7 @@ mojo.internal.bindings.blink.mojom.BlobRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.Blob_Load_ParamsSpec,
       null,
-      [arg_loader, arg_request_method, arg_headers, arg_client],
+      { arg_loader: arg_loader, arg_request_method: arg_request_method, arg_headers: arg_headers, arg_client: arg_client },
       false);
   }
 
@@ -434,7 +434,7 @@ mojo.internal.bindings.blink.mojom.BlobRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ParamsSpec,
       mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -443,7 +443,7 @@ mojo.internal.bindings.blink.mojom.BlobRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ParamsSpec,
       mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -452,7 +452,7 @@ mojo.internal.bindings.blink.mojom.BlobRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.Blob_GetInternalUUID_ParamsSpec,
       mojo.internal.bindings.blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -528,35 +528,35 @@ mojo.internal.bindings.blink.mojom.BlobReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_blob);
+          const result = this.impl.clone(params.arg_blob);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_AsDataPipeGetter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.asDataPipeGetter');
-          const result = this.impl.asDataPipeGetter(params.arg_arg_data_pipe_getter);
+          const result = this.impl.asDataPipeGetter(params.arg_data_pipe_getter);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_ReadAll_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readAll');
-          const result = this.impl.readAll(params.arg_arg_pipe, params.arg_arg_client);
+          const result = this.impl.readAll(params.arg_pipe, params.arg_client);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_ReadRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readRange');
-          const result = this.impl.readRange(params.arg_arg_offset, params.arg_arg_length, params.arg_arg_pipe, params.arg_arg_client);
+          const result = this.impl.readRange(params.arg_offset, params.arg_length, params.arg_pipe, params.arg_client);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Blob_Load_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.load');
-          const result = this.impl.load(params.arg_arg_loader, params.arg_arg_request_method, params.arg_arg_headers, params.arg_arg_client);
+          const result = this.impl.load(params.arg_loader, params.arg_request_method, params.arg_headers, params.arg_client);
           break;
         }
         case 5: {
@@ -568,8 +568,8 @@ mojo.internal.bindings.blink.mojom.BlobReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readSideData FAILED:', e));
           }
@@ -584,7 +584,7 @@ mojo.internal.bindings.blink.mojom.BlobReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec.$.structSpec, ['response.arg_arg_length', 'response.arg_arg_modification_time']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec.$.structSpec, { 'arg_length': response.arg_length, 'arg_modification_time': response.arg_modification_time });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] captureSnapshot FAILED:', e));
           }
@@ -599,8 +599,8 @@ mojo.internal.bindings.blink.mojom.BlobReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_uuid' in response) ? response.arg_arg_uuid : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_uuid' in response) ? response.arg_uuid : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec.$.structSpec, { 'arg_uuid': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getInternalUUID FAILED:', e));
           }

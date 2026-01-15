@@ -212,7 +212,7 @@ mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserver
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec,
       null,
-      [arg_ruleset_file],
+      { arg_ruleset_file: arg_ruleset_file },
       false);
   }
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRulesetForProcess');
-          const result = this.impl.setRulesetForProcess(params.arg_arg_ruleset_file);
+          const result = this.impl.setRulesetForProcess(params.arg_ruleset_file);
           break;
         }
       }

@@ -177,7 +177,7 @@ mojo.internal.bindings.media.mojom.ProvisionFetcherRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.ProvisionFetcher_Retrieve_ParamsSpec,
       mojo.internal.bindings.media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec,
-      [arg_default_url, arg_request_data],
+      { arg_default_url: arg_default_url, arg_request_data: arg_request_data },
       false);
   }
 
@@ -246,12 +246,12 @@ mojo.internal.bindings.media.mojom.ProvisionFetcherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ProvisionFetcher_Retrieve_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.retrieve');
-          const result = this.impl.retrieve(params.arg_arg_default_url, params.arg_arg_request_data);
+          const result = this.impl.retrieve(params.arg_default_url, params.arg_request_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_response']);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_response': response.arg_response });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] retrieve FAILED:', e));
           }

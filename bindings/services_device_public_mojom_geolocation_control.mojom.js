@@ -170,7 +170,7 @@ mojo.internal.bindings.device.mojom.GeolocationControlRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

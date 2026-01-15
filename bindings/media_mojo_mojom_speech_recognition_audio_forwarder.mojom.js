@@ -175,7 +175,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec,
       null,
-      [arg_buffer],
+      { arg_buffer: arg_buffer },
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addAudioFromRenderer');
-          const result = this.impl.addAudioFromRenderer(params.arg_arg_buffer);
+          const result = this.impl.addAudioFromRenderer(params.arg_buffer);
           break;
         }
       }

@@ -198,7 +198,7 @@ mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec,
       null,
-      [arg_report_type, arg_property, arg_source_location, arg_reported_window_url],
+      { arg_report_type: arg_report_type, arg_property: arg_property, arg_source_location: arg_source_location, arg_reported_window_url: arg_reported_window_url },
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueAccessReport');
-          const result = this.impl.queueAccessReport(params.arg_arg_report_type, params.arg_arg_property, params.arg_arg_source_location, params.arg_arg_reported_window_url);
+          const result = this.impl.queueAccessReport(params.arg_report_type, params.arg_property, params.arg_source_location, params.arg_reported_window_url);
           break;
         }
       }

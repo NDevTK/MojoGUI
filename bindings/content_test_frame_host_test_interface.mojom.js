@@ -176,7 +176,7 @@ mojo.internal.bindings.content.mojom.FrameHostTestInterfaceRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHostTestInterface_Ping_ParamsSpec,
       null,
-      [arg_source_url, arg_source_event],
+      { arg_source_url: arg_source_url, arg_source_event: arg_source_event },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.content.mojom.FrameHostTestInterfaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHostTestInterface_Ping_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.ping');
-          const result = this.impl.ping(params.arg_arg_source_url, params.arg_arg_source_event);
+          const result = this.impl.ping(params.arg_source_url, params.arg_source_event);
           break;
         }
       }

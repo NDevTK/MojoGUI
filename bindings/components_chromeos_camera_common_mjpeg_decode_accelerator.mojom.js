@@ -217,7 +217,7 @@ mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ParamsSpec,
       mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec,
       mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParamsSpec,
-      [arg_input_buffer, arg_coded_size, arg_output_handle, arg_output_buffer_size],
+      { arg_input_buffer: arg_input_buffer, arg_coded_size: arg_coded_size, arg_output_handle: arg_output_handle, arg_output_buffer_size: arg_output_buffer_size },
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ParamsSpec,
       mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParamsSpec,
-      [arg_task_id, arg_src_dmabuf_fd, arg_src_size, arg_src_offset, arg_dst_frame],
+      { arg_task_id: arg_task_id, arg_src_dmabuf_fd: arg_src_dmabuf_fd, arg_src_size: arg_src_size, arg_src_offset: arg_src_offset, arg_dst_frame: arg_dst_frame },
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Uninitialize_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -321,8 +321,8 @@ mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] initialize FAILED:', e));
           }
@@ -332,12 +332,12 @@ mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decode');
-          const result = this.impl.decode(params.arg_arg_input_buffer, params.arg_arg_coded_size, params.arg_arg_output_handle, params.arg_arg_output_buffer_size);
+          const result = this.impl.decode(params.arg_input_buffer, params.arg_coded_size, params.arg_output_handle, params.arg_output_buffer_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParamsSpec.$.structSpec, ['response.arg_arg_bitstream_buffer_id', 'response.arg_arg_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParamsSpec.$.structSpec, { 'arg_bitstream_buffer_id': response.arg_bitstream_buffer_id, 'arg_error': response.arg_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] decode FAILED:', e));
           }
@@ -347,13 +347,13 @@ mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeWithDmaBuf');
-          const result = this.impl.decodeWithDmaBuf(params.arg_arg_task_id, params.arg_arg_src_dmabuf_fd, params.arg_arg_src_size, params.arg_arg_src_offset, params.arg_arg_dst_frame);
+          const result = this.impl.decodeWithDmaBuf(params.arg_task_id, params.arg_src_dmabuf_fd, params.arg_src_size, params.arg_src_offset, params.arg_dst_frame);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] decodeWithDmaBuf FAILED:', e));
           }

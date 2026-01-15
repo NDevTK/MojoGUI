@@ -182,7 +182,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClientRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClientRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec,
       null,
-      [arg_packet_header, arg_packet_length, arg_incoming],
+      { arg_packet_header: arg_packet_header, arg_packet_length: arg_packet_length, arg_incoming: arg_incoming },
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClientReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dumpPacket');
-          const result = this.impl.dumpPacket(params.arg_arg_packet_header, params.arg_arg_packet_length, params.arg_arg_incoming);
+          const result = this.impl.dumpPacket(params.arg_packet_header, params.arg_packet_length, params.arg_incoming);
           break;
         }
       }
@@ -341,7 +341,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec,
       null,
-      [arg_incoming, arg_outgoing],
+      { arg_incoming: arg_incoming, arg_outgoing: arg_outgoing },
       false);
   }
 
@@ -350,7 +350,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec,
       null,
-      [arg_incoming, arg_outgoing],
+      { arg_incoming: arg_incoming, arg_outgoing: arg_outgoing },
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -440,14 +440,14 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startRtpDump');
-          const result = this.impl.startRtpDump(params.arg_arg_incoming, params.arg_arg_outgoing);
+          const result = this.impl.startRtpDump(params.arg_incoming, params.arg_outgoing);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopRtpDump');
-          const result = this.impl.stopRtpDump(params.arg_arg_incoming, params.arg_arg_outgoing);
+          const result = this.impl.stopRtpDump(params.arg_incoming, params.arg_outgoing);
           break;
         }
         case 2: {

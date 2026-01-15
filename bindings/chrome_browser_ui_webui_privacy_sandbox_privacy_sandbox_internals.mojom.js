@@ -215,7 +215,7 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec,
       mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParamsSpec,
-      [arg_pref_prefixes],
+      { arg_pref_prefixes: arg_pref_prefixes },
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec,
       mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ResponseParamsSpec,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSpec,
       mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec,
       mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ResponseParamsSpec,
-      [arg_pattern],
+      { arg_pattern: arg_pattern },
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerRemoteCallHand
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec,
       mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ResponseParamsSpec,
-      [arg_s],
+      { arg_s: arg_s },
       false);
   }
 
@@ -324,13 +324,13 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readPrefsWithPrefixes');
-          const result = this.impl.readPrefsWithPrefixes(params.arg_arg_pref_prefixes);
+          const result = this.impl.readPrefsWithPrefixes(params.arg_pref_prefixes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_prefs' in response) ? response.arg_arg_prefs : response;
-              encoder.encodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_prefs' in response) ? response.arg_prefs : response;
+              encoder.encodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParamsSpec.$.structSpec, { 'arg_prefs': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readPrefsWithPrefixes FAILED:', e));
           }
@@ -340,13 +340,13 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readContentSettings');
-          const result = this.impl.readContentSettings(params.arg_arg_type);
+          const result = this.impl.readContentSettings(params.arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_content_settings' in response) ? response.arg_arg_content_settings : response;
-              encoder.encodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_content_settings' in response) ? response.arg_content_settings : response;
+              encoder.encodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ResponseParamsSpec.$.structSpec, { 'arg_content_settings': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readContentSettings FAILED:', e));
           }
@@ -361,8 +361,8 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerReceiver = cla
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_content_settings' in response) ? response.arg_arg_content_settings : response;
-              encoder.encodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_content_settings' in response) ? response.arg_content_settings : response;
+              encoder.encodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParamsSpec.$.structSpec, { 'arg_content_settings': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getTpcdMetadataGrants FAILED:', e));
           }
@@ -372,13 +372,13 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.contentSettingsPatternToString');
-          const result = this.impl.contentSettingsPatternToString(params.arg_arg_pattern);
+          const result = this.impl.contentSettingsPatternToString(params.arg_pattern);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_s' in response) ? response.arg_arg_s : response;
-              encoder.encodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_s' in response) ? response.arg_s : response;
+              encoder.encodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ResponseParamsSpec.$.structSpec, { 'arg_s': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] contentSettingsPatternToString FAILED:', e));
           }
@@ -388,13 +388,13 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stringToContentSettingsPattern');
-          const result = this.impl.stringToContentSettingsPattern(params.arg_arg_s);
+          const result = this.impl.stringToContentSettingsPattern(params.arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pattern' in response) ? response.arg_arg_pattern : response;
-              encoder.encodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pattern' in response) ? response.arg_pattern : response;
+              encoder.encodeStructInline(mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ResponseParamsSpec.$.structSpec, { 'arg_pattern': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] stringToContentSettingsPattern FAILED:', e));
           }

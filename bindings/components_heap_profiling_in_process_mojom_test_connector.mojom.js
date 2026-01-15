@@ -193,7 +193,7 @@ mojo.internal.bindings.heap_profiling.mojom.TestConnectorRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec,
       mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec,
-      [arg_controller],
+      { arg_controller: arg_controller },
       false);
   }
 
@@ -202,7 +202,7 @@ mojo.internal.bindings.heap_profiling.mojom.TestConnectorRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec,
       mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec,
-      [arg_collector],
+      { arg_collector: arg_collector },
       false);
   }
 
@@ -211,7 +211,7 @@ mojo.internal.bindings.heap_profiling.mojom.TestConnectorRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -282,12 +282,12 @@ mojo.internal.bindings.heap_profiling.mojom.TestConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectSnapshotController');
-          const result = this.impl.connectSnapshotController(params.arg_arg_controller);
+          const result = this.impl.connectSnapshotController(params.arg_controller);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] connectSnapshotController FAILED:', e));
           }
@@ -297,12 +297,12 @@ mojo.internal.bindings.heap_profiling.mojom.TestConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectProfileCollector');
-          const result = this.impl.connectProfileCollector(params.arg_arg_collector);
+          const result = this.impl.connectProfileCollector(params.arg_collector);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] connectProfileCollector FAILED:', e));
           }

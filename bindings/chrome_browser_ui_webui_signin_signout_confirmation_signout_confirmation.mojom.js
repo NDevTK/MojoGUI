@@ -184,7 +184,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactoryRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactoryReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSignoutConfirmationHandler');
-          const result = this.impl.createSignoutConfirmationHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createSignoutConfirmationHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -330,7 +330,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec,
       null,
-      [arg_height],
+      { arg_height: arg_height },
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Accept_ParamsSpec,
       null,
-      [arg_uninstall_account_extensions],
+      { arg_uninstall_account_extensions: arg_uninstall_account_extensions },
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec,
       null,
-      [arg_uninstall_account_extensions],
+      { arg_uninstall_account_extensions: arg_uninstall_account_extensions },
       false);
   }
 
@@ -357,7 +357,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -366,7 +366,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Close_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -439,21 +439,21 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateViewHeight');
-          const result = this.impl.updateViewHeight(params.arg_arg_height);
+          const result = this.impl.updateViewHeight(params.arg_height);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Accept_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.accept');
-          const result = this.impl.accept(params.arg_arg_uninstall_account_extensions);
+          const result = this.impl.accept(params.arg_uninstall_account_extensions);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancel');
-          const result = this.impl.cancel(params.arg_arg_uninstall_account_extensions);
+          const result = this.impl.cancel(params.arg_uninstall_account_extensions);
           break;
         }
         case 3: {
@@ -528,7 +528,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec,
       null,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -597,7 +597,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendSignoutConfirmationData');
-          const result = this.impl.sendSignoutConfirmationData(params.arg_arg_data);
+          const result = this.impl.sendSignoutConfirmationData(params.arg_data);
           break;
         }
       }

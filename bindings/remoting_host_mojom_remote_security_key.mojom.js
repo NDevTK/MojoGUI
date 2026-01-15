@@ -177,7 +177,7 @@ mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec,
       mojo.internal.bindings.remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec,
-      [arg_request_data],
+      { arg_request_data: arg_request_data },
       false);
   }
 
@@ -246,13 +246,13 @@ mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSecurityKeyRequest');
-          const result = this.impl.onSecurityKeyRequest(params.arg_arg_request_data);
+          const result = this.impl.onSecurityKeyRequest(params.arg_request_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response_data' in response) ? response.arg_arg_response_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response_data' in response) ? response.arg_response_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec.$.structSpec, { 'arg_response_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onSecurityKeyRequest FAILED:', e));
           }

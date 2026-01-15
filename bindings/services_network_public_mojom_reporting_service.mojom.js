@@ -213,7 +213,7 @@ mojo.internal.bindings.network.mojom.ReportingApiObserverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec,
       null,
-      [arg_report],
+      { arg_report: arg_report },
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.network.mojom.ReportingApiObserverRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec,
       null,
-      [arg_report],
+      { arg_report: arg_report },
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.network.mojom.ReportingApiObserverRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec,
       null,
-      [arg_endpoints],
+      { arg_endpoints: arg_endpoints },
       false);
   }
 
@@ -302,21 +302,21 @@ mojo.internal.bindings.network.mojom.ReportingApiObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReportAdded');
-          const result = this.impl.onReportAdded(params.arg_arg_report);
+          const result = this.impl.onReportAdded(params.arg_report);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReportUpdated');
-          const result = this.impl.onReportUpdated(params.arg_arg_report);
+          const result = this.impl.onReportUpdated(params.arg_report);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEndpointsUpdatedForOrigin');
-          const result = this.impl.onEndpointsUpdatedForOrigin(params.arg_arg_endpoints);
+          const result = this.impl.onEndpointsUpdatedForOrigin(params.arg_endpoints);
           break;
         }
       }

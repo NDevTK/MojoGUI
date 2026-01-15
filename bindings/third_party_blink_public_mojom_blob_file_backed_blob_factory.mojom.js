@@ -185,7 +185,7 @@ mojo.internal.bindings.blink.mojom.FileBackedBlobFactoryRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec,
       null,
-      [arg_blob, arg_uuid, arg_content_type, arg_file],
+      { arg_blob: arg_blob, arg_uuid: arg_uuid, arg_content_type: arg_content_type, arg_file: arg_file },
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.FileBackedBlobFactoryRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ResponseParamsSpec,
-      [arg_blob, arg_uuid, arg_content_type, arg_file],
+      { arg_blob: arg_blob, arg_uuid: arg_uuid, arg_content_type: arg_content_type, arg_file: arg_file },
       false);
   }
 
@@ -264,19 +264,19 @@ mojo.internal.bindings.blink.mojom.FileBackedBlobFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerBlob');
-          const result = this.impl.registerBlob(params.arg_arg_blob, params.arg_arg_uuid, params.arg_arg_content_type, params.arg_arg_file);
+          const result = this.impl.registerBlob(params.arg_blob, params.arg_uuid, params.arg_content_type, params.arg_file);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerBlobSync');
-          const result = this.impl.registerBlobSync(params.arg_arg_blob, params.arg_arg_uuid, params.arg_arg_content_type, params.arg_arg_file);
+          const result = this.impl.registerBlobSync(params.arg_blob, params.arg_uuid, params.arg_content_type, params.arg_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] registerBlobSync FAILED:', e));
           }

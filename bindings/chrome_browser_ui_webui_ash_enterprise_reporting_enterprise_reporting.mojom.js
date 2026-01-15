@@ -185,7 +185,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactoryRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactoryReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -323,7 +323,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -332,7 +332,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec,
       mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec,
       mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordDebugState');
-          const result = this.impl.recordDebugState(params.arg_arg_state);
+          const result = this.impl.recordDebugState(params.arg_state);
           break;
         }
         case 1: {
@@ -424,8 +424,8 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response.arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec.$.structSpec, { 'arg_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDebugState FAILED:', e));
           }
@@ -440,8 +440,8 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_history_data' in response) ? response.arg_arg_history_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_history_data' in response) ? response.arg_history_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec.$.structSpec, { 'arg_history_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getErpHistoryData FAILED:', e));
           }
@@ -505,7 +505,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec,
       null,
-      [arg_history_data],
+      { arg_history_data: arg_history_data },
       false);
   }
 
@@ -574,7 +574,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setErpHistoryData');
-          const result = this.impl.setErpHistoryData(params.arg_arg_history_data);
+          const result = this.impl.setErpHistoryData(params.arg_history_data);
           break;
         }
       }

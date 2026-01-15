@@ -298,7 +298,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -307,7 +307,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -316,7 +316,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec,
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -325,7 +325,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec,
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec,
-      [arg_config],
+      { arg_config: arg_config },
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec,
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec,
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -417,14 +417,14 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_arg_observer);
+          const result = this.impl.addObserver(params.arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeEnabledStateChanges');
-          const result = this.impl.observeEnabledStateChanges(params.arg_arg_observer);
+          const result = this.impl.observeEnabledStateChanges(params.arg_observer);
           break;
         }
         case 2: {
@@ -436,8 +436,8 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigReceiver = clas
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_hotspot_info' in response) ? response.arg_arg_hotspot_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_hotspot_info' in response) ? response.arg_hotspot_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec.$.structSpec, { 'arg_hotspot_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getHotspotInfo FAILED:', e));
           }
@@ -447,13 +447,13 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHotspotConfig');
-          const result = this.impl.setHotspotConfig(params.arg_arg_config);
+          const result = this.impl.setHotspotConfig(params.arg_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setHotspotConfig FAILED:', e));
           }
@@ -468,8 +468,8 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigReceiver = clas
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] enableHotspot FAILED:', e));
           }
@@ -484,8 +484,8 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigReceiver = clas
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] disableHotspot FAILED:', e));
           }
@@ -549,7 +549,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserverRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserverRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -692,7 +692,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserverRemot
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec,
       null,
-      [arg_reason],
+      { arg_reason: arg_reason },
       false);
   }
 
@@ -769,7 +769,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserverRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHotspotTurnedOff');
-          const result = this.impl.onHotspotTurnedOff(params.arg_arg_reason);
+          const result = this.impl.onHotspotTurnedOff(params.arg_reason);
           break;
         }
       }

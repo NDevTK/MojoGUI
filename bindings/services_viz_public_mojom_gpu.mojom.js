@@ -196,7 +196,7 @@ mojo.internal.bindings.viz.mojom.GpuRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec,
       mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.viz.mojom.GpuRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec,
       null,
-      [arg_vea_provider],
+      { arg_vea_provider: arg_vea_provider },
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.viz.mojom.GpuReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec.$.structSpec, ['response.arg_arg_client_id', 'response.arg_arg_channel_handle', 'response.arg_arg_gpu_info', 'response.arg_arg_gpu_feature_info', 'response.arg_arg_shared_image_capabilities']);
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec.$.structSpec, { 'arg_client_id': response.arg_client_id, 'arg_channel_handle': response.arg_channel_handle, 'arg_gpu_info': response.arg_gpu_info, 'arg_gpu_feature_info': response.arg_gpu_feature_info, 'arg_shared_image_capabilities': response.arg_shared_image_capabilities });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] establishGpuChannel FAILED:', e));
           }
@@ -290,7 +290,7 @@ mojo.internal.bindings.viz.mojom.GpuReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createVideoEncodeAcceleratorProvider');
-          const result = this.impl.createVideoEncodeAcceleratorProvider(params.arg_arg_vea_provider);
+          const result = this.impl.createVideoEncodeAcceleratorProvider(params.arg_vea_provider);
           break;
         }
       }

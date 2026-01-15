@@ -247,7 +247,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerFactoryRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -256,7 +256,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerFactoryRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec,
       mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
         case 1: {
@@ -338,8 +338,8 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerFactoryReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_width' in response) ? response.arg_arg_width : response;
-              encoder.encodeStructInline(mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_width' in response) ? response.arg_width : response;
+              encoder.encodeStructInline(mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec.$.structSpec, { 'arg_width': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getTabStripInset FAILED:', e));
           }
@@ -419,7 +419,7 @@ mojo.internal.bindings.webui_browser.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.Page_SetFocusToLocationBar_ParamsSpec,
       null,
-      [arg_is_user_initiated],
+      { arg_is_user_initiated: arg_is_user_initiated },
       false);
   }
 
@@ -428,7 +428,7 @@ mojo.internal.bindings.webui_browser.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.Page_SetReloadStopState_ParamsSpec,
       null,
-      [arg_is_loading],
+      { arg_is_loading: arg_is_loading },
       false);
   }
 
@@ -437,7 +437,7 @@ mojo.internal.bindings.webui_browser.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.Page_ShowSidePanel_ParamsSpec,
       null,
-      [arg_guest_contents_id, arg_title],
+      { arg_guest_contents_id: arg_guest_contents_id, arg_title: arg_title },
       false);
   }
 
@@ -446,7 +446,7 @@ mojo.internal.bindings.webui_browser.mojom.PageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.Page_CloseSidePanel_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -455,7 +455,7 @@ mojo.internal.bindings.webui_browser.mojom.PageRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec,
       null,
-      [arg_is_fullscreen, arg_context],
+      { arg_is_fullscreen: arg_is_fullscreen, arg_context: arg_context },
       false);
   }
 
@@ -528,21 +528,21 @@ mojo.internal.bindings.webui_browser.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_browser.mojom.Page_SetFocusToLocationBar_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFocusToLocationBar');
-          const result = this.impl.setFocusToLocationBar(params.arg_arg_is_user_initiated);
+          const result = this.impl.setFocusToLocationBar(params.arg_is_user_initiated);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_browser.mojom.Page_SetReloadStopState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setReloadStopState');
-          const result = this.impl.setReloadStopState(params.arg_arg_is_loading);
+          const result = this.impl.setReloadStopState(params.arg_is_loading);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_browser.mojom.Page_ShowSidePanel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showSidePanel');
-          const result = this.impl.showSidePanel(params.arg_arg_guest_contents_id, params.arg_arg_title);
+          const result = this.impl.showSidePanel(params.arg_guest_contents_id, params.arg_title);
           break;
         }
         case 3: {
@@ -556,7 +556,7 @@ mojo.internal.bindings.webui_browser.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFullscreenModeChanged');
-          const result = this.impl.onFullscreenModeChanged(params.arg_arg_is_fullscreen, params.arg_arg_context);
+          const result = this.impl.onFullscreenModeChanged(params.arg_is_fullscreen, params.arg_context);
           break;
         }
       }
@@ -657,7 +657,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec,
       mojo.internal.bindings.webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec,
-      [arg_tab_id, arg_handler],
+      { arg_tab_id: arg_tab_id, arg_handler: arg_handler },
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_LoadTabSearch_ParamsSpec,
       mojo.internal.bindings.webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -675,7 +675,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec,
       null,
-      [arg_anchor_name],
+      { arg_anchor_name: arg_anchor_name },
       false);
   }
 
@@ -684,7 +684,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_OpenAppMenu_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -693,7 +693,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_OpenProfileMenu_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -702,7 +702,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_LaunchDevToolsForBrowser_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -711,7 +711,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_OnSidePanelClosed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -720,7 +720,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_Minimize_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -729,7 +729,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_Maximize_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -738,7 +738,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_Restore_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -747,7 +747,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_Close_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -826,13 +826,13 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getGuestIdForTabId');
-          const result = this.impl.getGuestIdForTabId(params.arg_arg_tab_id, params.arg_arg_handler);
+          const result = this.impl.getGuestIdForTabId(params.arg_tab_id, params.arg_handler);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_guest_id' in response) ? response.arg_arg_guest_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_guest_id' in response) ? response.arg_guest_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec.$.structSpec, { 'arg_guest_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getGuestIdForTabId FAILED:', e));
           }
@@ -847,8 +847,8 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_guest_id' in response) ? response.arg_arg_guest_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_guest_id' in response) ? response.arg_guest_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec.$.structSpec, { 'arg_guest_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] loadTabSearch FAILED:', e));
           }
@@ -858,7 +858,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_browser.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showTabSearchBubble');
-          const result = this.impl.showTabSearchBubble(params.arg_arg_anchor_name);
+          const result = this.impl.showTabSearchBubble(params.arg_anchor_name);
           break;
         }
         case 3: {
@@ -1007,7 +1007,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_Navigate_ParamsSpec,
       null,
-      [arg_src],
+      { arg_src: arg_src },
       false);
   }
 
@@ -1016,7 +1016,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_CanGoBack_ParamsSpec,
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1025,7 +1025,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_GoBack_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1034,7 +1034,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_CanGoForward_ParamsSpec,
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1043,7 +1043,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_GoForward_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1052,7 +1052,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_Reload_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1061,7 +1061,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_StopLoading_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1070,7 +1070,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_OpenPageInfoMenu_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1079,7 +1079,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_GetSecurityIcon_ParamsSpec,
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1156,7 +1156,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_browser.mojom.GuestHandler_Navigate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.navigate');
-          const result = this.impl.navigate(params.arg_arg_src);
+          const result = this.impl.navigate(params.arg_src);
           break;
         }
         case 1: {
@@ -1168,8 +1168,8 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_can_go_back' in response) ? response.arg_arg_can_go_back : response;
-              encoder.encodeStructInline(mojo.internal.bindings.webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_can_go_back' in response) ? response.arg_can_go_back : response;
+              encoder.encodeStructInline(mojo.internal.bindings.webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec.$.structSpec, { 'arg_can_go_back': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] canGoBack FAILED:', e));
           }
@@ -1191,8 +1191,8 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_can_go_forward' in response) ? response.arg_arg_can_go_forward : response;
-              encoder.encodeStructInline(mojo.internal.bindings.webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_can_go_forward' in response) ? response.arg_can_go_forward : response;
+              encoder.encodeStructInline(mojo.internal.bindings.webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec.$.structSpec, { 'arg_can_go_forward': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] canGoForward FAILED:', e));
           }
@@ -1235,8 +1235,8 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_security_icon' in response) ? response.arg_arg_security_icon : response;
-              encoder.encodeStructInline(mojo.internal.bindings.webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_security_icon' in response) ? response.arg_security_icon : response;
+              encoder.encodeStructInline(mojo.internal.bindings.webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec.$.structSpec, { 'arg_security_icon': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSecurityIcon FAILED:', e));
           }

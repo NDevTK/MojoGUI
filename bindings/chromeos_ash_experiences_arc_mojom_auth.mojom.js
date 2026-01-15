@@ -417,7 +417,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_OnAuthorizationResult_ParamsSpec,
       null,
-      [arg_result, arg_account],
+      { arg_result: arg_result, arg_account: arg_account },
       false);
   }
 
@@ -426,7 +426,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_ReportMetrics_ParamsSpec,
       null,
-      [arg_metrics_type, arg_value],
+      { arg_metrics_type: arg_metrics_type, arg_value: arg_value },
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_ReportAccountCheckStatus_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -444,7 +444,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_ReportManagementChangeStatus_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_RequestPrimaryAccount_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AuthHost_RequestPrimaryAccount_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_RequestPrimaryAccountInfo_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_RequestAccountInfo_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AuthHost_RequestAccountInfo_ResponseParamsSpec,
-      [arg_account_name],
+      { arg_account_name: arg_account_name },
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AuthHost_IsAccountManagerAvailable_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_HandleAddAccountRequest_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_HandleRemoveAccountRequest_ParamsSpec,
       null,
-      [arg_account_name],
+      { arg_account_name: arg_account_name },
       false);
   }
 
@@ -507,7 +507,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_HandleUpdateCredentialsRequest_ParamsSpec,
       null,
-      [arg_account_name],
+      { arg_account_name: arg_account_name },
       false);
   }
 
@@ -516,7 +516,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec,
       null,
-      [arg_reason],
+      { arg_reason: arg_reason },
       false);
   }
 
@@ -596,28 +596,28 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_OnAuthorizationResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAuthorizationResult');
-          const result = this.impl.onAuthorizationResult(params.arg_arg_result, params.arg_arg_account);
+          const result = this.impl.onAuthorizationResult(params.arg_result, params.arg_account);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_ReportMetrics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportMetrics');
-          const result = this.impl.reportMetrics(params.arg_arg_metrics_type, params.arg_arg_value);
+          const result = this.impl.reportMetrics(params.arg_metrics_type, params.arg_value);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_ReportAccountCheckStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAccountCheckStatus');
-          const result = this.impl.reportAccountCheckStatus(params.arg_arg_status);
+          const result = this.impl.reportAccountCheckStatus(params.arg_status);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_ReportManagementChangeStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportManagementChangeStatus');
-          const result = this.impl.reportManagementChangeStatus(params.arg_arg_status);
+          const result = this.impl.reportManagementChangeStatus(params.arg_status);
           break;
         }
         case 4: {
@@ -629,7 +629,7 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_RequestPrimaryAccount_ResponseParamsSpec.$.structSpec, ['response.arg_arg_account_name', 'response.arg_arg_account_type']);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_RequestPrimaryAccount_ResponseParamsSpec.$.structSpec, { 'arg_account_name': response.arg_account_name, 'arg_account_type': response.arg_account_type });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestPrimaryAccount FAILED:', e));
           }
@@ -644,7 +644,7 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_account_info']);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_account_info': response.arg_account_info });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestPrimaryAccountInfo FAILED:', e));
           }
@@ -654,12 +654,12 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_RequestAccountInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestAccountInfo');
-          const result = this.impl.requestAccountInfo(params.arg_arg_account_name);
+          const result = this.impl.requestAccountInfo(params.arg_account_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_RequestAccountInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_account_info', 'response.arg_arg_persistent_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_RequestAccountInfo_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_account_info': response.arg_account_info, 'arg_persistent_error': response.arg_persistent_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestAccountInfo FAILED:', e));
           }
@@ -674,8 +674,8 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_available' in response) ? response.arg_arg_is_available : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_IsAccountManagerAvailable_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_available' in response) ? response.arg_is_available : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_IsAccountManagerAvailable_ResponseParamsSpec.$.structSpec, { 'arg_is_available': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isAccountManagerAvailable FAILED:', e));
           }
@@ -692,21 +692,21 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_HandleRemoveAccountRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleRemoveAccountRequest');
-          const result = this.impl.handleRemoveAccountRequest(params.arg_arg_account_name);
+          const result = this.impl.handleRemoveAccountRequest(params.arg_account_name);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_HandleUpdateCredentialsRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleUpdateCredentialsRequest');
-          const result = this.impl.handleUpdateCredentialsRequest(params.arg_arg_account_name);
+          const result = this.impl.handleUpdateCredentialsRequest(params.arg_account_name);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAccountReauthReason');
-          const result = this.impl.reportAccountReauthReason(params.arg_arg_reason);
+          const result = this.impl.reportAccountReauthReason(params.arg_reason);
           break;
         }
       }
@@ -783,7 +783,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AuthInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -792,7 +792,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthInstance_OnAccountUpdated_ParamsSpec,
       null,
-      [arg_account_name, arg_update_type],
+      { arg_account_name: arg_account_name, arg_update_type: arg_update_type },
       false);
   }
 
@@ -801,7 +801,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthInstance_GetGoogleAccounts_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AuthInstance_GetGoogleAccounts_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -810,7 +810,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -819,7 +819,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthInstance_SetAccounts_ParamsSpec,
       null,
-      [arg_accounts],
+      { arg_accounts: arg_accounts },
       false);
   }
 
@@ -892,12 +892,12 @@ mojo.internal.bindings.arc.mojom.AuthInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AuthInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AuthInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -907,7 +907,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthInstance_OnAccountUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAccountUpdated');
-          const result = this.impl.onAccountUpdated(params.arg_arg_account_name, params.arg_arg_update_type);
+          const result = this.impl.onAccountUpdated(params.arg_account_name, params.arg_update_type);
           break;
         }
         case 2: {
@@ -919,8 +919,8 @@ mojo.internal.bindings.arc.mojom.AuthInstanceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_accounts' in response) ? response.arg_arg_accounts : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AuthInstance_GetGoogleAccounts_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_accounts' in response) ? response.arg_accounts : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AuthInstance_GetGoogleAccounts_ResponseParamsSpec.$.structSpec, { 'arg_accounts': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getGoogleAccounts FAILED:', e));
           }
@@ -935,8 +935,8 @@ mojo.internal.bindings.arc.mojom.AuthInstanceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMainAccountResolutionStatus FAILED:', e));
           }
@@ -946,7 +946,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AuthInstance_SetAccounts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAccounts');
-          const result = this.impl.setAccounts(params.arg_arg_accounts);
+          const result = this.impl.setAccounts(params.arg_accounts);
           break;
         }
       }

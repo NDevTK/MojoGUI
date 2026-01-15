@@ -218,7 +218,7 @@ mojo.internal.bindings.on_device_translation.mojom.FileOperationProxyRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec,
       mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec,
-      [arg_package_index, arg_relative_path],
+      { arg_package_index: arg_package_index, arg_relative_path: arg_relative_path },
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.on_device_translation.mojom.FileOperationProxyRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec,
       mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec,
-      [arg_package_index, arg_relative_path],
+      { arg_package_index: arg_package_index, arg_relative_path: arg_relative_path },
       false);
   }
 
@@ -297,12 +297,12 @@ mojo.internal.bindings.on_device_translation.mojom.FileOperationProxyReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fileExists');
-          const result = this.impl.fileExists(params.arg_arg_package_index, params.arg_arg_relative_path);
+          const result = this.impl.fileExists(params.arg_package_index, params.arg_relative_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec.$.structSpec, ['response.arg_arg_exists', 'response.arg_arg_is_directory']);
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec.$.structSpec, { 'arg_exists': response.arg_exists, 'arg_is_directory': response.arg_is_directory });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fileExists FAILED:', e));
           }
@@ -312,13 +312,13 @@ mojo.internal.bindings.on_device_translation.mojom.FileOperationProxyReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.open');
-          const result = this.impl.open(params.arg_arg_package_index, params.arg_arg_relative_path);
+          const result = this.impl.open(params.arg_package_index, params.arg_relative_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_file' in response) ? response.arg_arg_file : response;
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_file' in response) ? response.arg_file : response;
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec.$.structSpec, { 'arg_file': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] open FAILED:', e));
           }
@@ -390,7 +390,7 @@ mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationServiceRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec,
       null,
-      [arg_config],
+      { arg_config: arg_config },
       false);
   }
 
@@ -399,7 +399,7 @@ mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationServiceRem
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec,
       mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec,
-      [arg_source_lang, arg_target_lang, arg_receiver],
+      { arg_source_lang: arg_source_lang, arg_target_lang: arg_target_lang, arg_receiver: arg_receiver },
       false);
   }
 
@@ -408,7 +408,7 @@ mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationServiceRem
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec,
       mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec,
-      [arg_source_lang, arg_target_lang],
+      { arg_source_lang: arg_source_lang, arg_target_lang: arg_target_lang },
       false);
   }
 
@@ -479,20 +479,20 @@ mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationServiceRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setServiceConfig');
-          const result = this.impl.setServiceConfig(params.arg_arg_config);
+          const result = this.impl.setServiceConfig(params.arg_config);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTranslator');
-          const result = this.impl.createTranslator(params.arg_arg_source_lang, params.arg_arg_target_lang, params.arg_arg_receiver);
+          const result = this.impl.createTranslator(params.arg_source_lang, params.arg_target_lang, params.arg_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createTranslator FAILED:', e));
           }
@@ -502,13 +502,13 @@ mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationServiceRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canTranslate');
-          const result = this.impl.canTranslate(params.arg_arg_source_lang, params.arg_arg_target_lang);
+          const result = this.impl.canTranslate(params.arg_source_lang, params.arg_target_lang);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_can_stranslate' in response) ? response.arg_arg_can_stranslate : response;
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_can_stranslate' in response) ? response.arg_can_stranslate : response;
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec.$.structSpec, { 'arg_can_stranslate': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] canTranslate FAILED:', e));
           }

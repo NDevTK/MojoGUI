@@ -182,7 +182,7 @@ mojo.internal.bindings.ai.mojom.EnhancedCalendarServiceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec,
       mojo.internal.bindings.ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec,
-      [arg_request_params],
+      { arg_request_params: arg_request_params },
       false);
   }
 
@@ -251,13 +251,13 @@ mojo.internal.bindings.ai.mojom.EnhancedCalendarServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeEnhancedCalendarRequest');
-          const result = this.impl.executeEnhancedCalendarRequest(params.arg_arg_request_params);
+          const result = this.impl.executeEnhancedCalendarRequest(params.arg_request_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] executeEnhancedCalendarRequest FAILED:', e));
           }

@@ -190,7 +190,7 @@ mojo.internal.bindings.blink.mojom.ProgressClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ProgressClient_OnProgress_ParamsSpec,
       null,
-      [arg_delta],
+      { arg_delta: arg_delta },
       false);
   }
 
@@ -259,7 +259,7 @@ mojo.internal.bindings.blink.mojom.ProgressClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ProgressClient_OnProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
-          const result = this.impl.onProgress(params.arg_arg_delta);
+          const result = this.impl.onProgress(params.arg_delta);
           break;
         }
       }
@@ -324,7 +324,7 @@ mojo.internal.bindings.blink.mojom.BlobRegistryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ResponseParamsSpec,
-      [arg_blob, arg_uuid, arg_content_type, arg_content_disposition, arg_elements],
+      { arg_blob: arg_blob, arg_uuid: arg_uuid, arg_content_type: arg_content_type, arg_content_disposition: arg_content_disposition, arg_elements: arg_elements },
       false);
   }
 
@@ -333,7 +333,7 @@ mojo.internal.bindings.blink.mojom.BlobRegistryRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec,
-      [arg_content_type, arg_content_disposition, arg_length_hint, arg_data, arg_progress_client],
+      { arg_content_type: arg_content_type, arg_content_disposition: arg_content_disposition, arg_length_hint: arg_length_hint, arg_data: arg_data, arg_progress_client: arg_progress_client },
       false);
   }
 
@@ -403,12 +403,12 @@ mojo.internal.bindings.blink.mojom.BlobRegistryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.register');
-          const result = this.impl.register(params.arg_arg_blob, params.arg_arg_uuid, params.arg_arg_content_type, params.arg_arg_content_disposition, params.arg_arg_elements);
+          const result = this.impl.register(params.arg_blob, params.arg_uuid, params.arg_content_type, params.arg_content_disposition, params.arg_elements);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] register FAILED:', e));
           }
@@ -418,13 +418,13 @@ mojo.internal.bindings.blink.mojom.BlobRegistryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerFromStream');
-          const result = this.impl.registerFromStream(params.arg_arg_content_type, params.arg_arg_content_disposition, params.arg_arg_length_hint, params.arg_arg_data, params.arg_arg_progress_client);
+          const result = this.impl.registerFromStream(params.arg_content_type, params.arg_content_disposition, params.arg_length_hint, params.arg_data, params.arg_progress_client);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_blob' in response) ? response.arg_arg_blob : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_blob' in response) ? response.arg_blob : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec.$.structSpec, { 'arg_blob': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] registerFromStream FAILED:', e));
           }

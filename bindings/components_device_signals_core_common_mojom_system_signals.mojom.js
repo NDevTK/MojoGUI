@@ -216,7 +216,7 @@ mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec,
       mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec,
-      [arg_requests],
+      { arg_requests: arg_requests },
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec,
       mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec,
       mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -305,13 +305,13 @@ mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFileSystemSignals');
-          const result = this.impl.getFileSystemSignals(params.arg_arg_requests);
+          const result = this.impl.getFileSystemSignals(params.arg_requests);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_items' in response) ? response.arg_arg_items : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_items' in response) ? response.arg_items : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec.$.structSpec, { 'arg_items': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFileSystemSignals FAILED:', e));
           }
@@ -326,8 +326,8 @@ mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_av_signals' in response) ? response.arg_arg_av_signals : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_av_signals' in response) ? response.arg_av_signals : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec.$.structSpec, { 'arg_av_signals': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAntiVirusSignals FAILED:', e));
           }
@@ -342,8 +342,8 @@ mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_hotfix_signals' in response) ? response.arg_arg_hotfix_signals : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_hotfix_signals' in response) ? response.arg_hotfix_signals : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec.$.structSpec, { 'arg_hotfix_signals': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getHotfixSignals FAILED:', e));
           }

@@ -181,7 +181,7 @@ mojo.internal.bindings.network_hints.mojom.NetworkHintsHandlerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec,
       null,
-      [arg_url_list],
+      { arg_url_list: arg_url_list },
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.network_hints.mojom.NetworkHintsHandlerRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec,
       null,
-      [arg_url, arg_allow_credentials],
+      { arg_url: arg_url, arg_allow_credentials: arg_allow_credentials },
       false);
   }
 
@@ -260,14 +260,14 @@ mojo.internal.bindings.network_hints.mojom.NetworkHintsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prefetchDNS');
-          const result = this.impl.prefetchDNS(params.arg_arg_url_list);
+          const result = this.impl.prefetchDNS(params.arg_url_list);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.preconnect');
-          const result = this.impl.preconnect(params.arg_arg_url, params.arg_arg_allow_credentials);
+          const result = this.impl.preconnect(params.arg_url, params.arg_allow_credentials);
           break;
         }
       }

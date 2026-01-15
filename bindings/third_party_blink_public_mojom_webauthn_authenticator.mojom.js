@@ -379,7 +379,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ParamsSpec,
       mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -388,7 +388,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.Authenticator_GetCredential_ParamsSpec,
       mojo.internal.bindings.blink.mojom.Authenticator_GetCredential_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -397,7 +397,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec,
       mojo.internal.bindings.blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -406,7 +406,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec,
       mojo.internal.bindings.blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -415,7 +415,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.Authenticator_Report_ParamsSpec,
       mojo.internal.bindings.blink.mojom.Authenticator_Report_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -424,7 +424,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec,
       mojo.internal.bindings.blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -433,7 +433,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.Authenticator_Cancel_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -508,12 +508,12 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.makeCredential');
-          const result = this.impl.makeCredential(params.arg_arg_options);
+          const result = this.impl.makeCredential(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_credential', 'response.arg_arg_dom_exception_details']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_credential': response.arg_credential, 'arg_dom_exception_details': response.arg_dom_exception_details });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] makeCredential FAILED:', e));
           }
@@ -523,13 +523,13 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_GetCredential_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCredential');
-          const result = this.impl.getCredential(params.arg_arg_options);
+          const result = this.impl.getCredential(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_GetCredential_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_GetCredential_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCredential FAILED:', e));
           }
@@ -544,8 +544,8 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_available' in response) ? response.arg_arg_available : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_available' in response) ? response.arg_available : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec.$.structSpec, { 'arg_available': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isUserVerifyingPlatformAuthenticatorAvailable FAILED:', e));
           }
@@ -560,8 +560,8 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_available' in response) ? response.arg_arg_available : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_available' in response) ? response.arg_available : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec.$.structSpec, { 'arg_available': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isConditionalMediationAvailable FAILED:', e));
           }
@@ -571,12 +571,12 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_Report_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.report');
-          const result = this.impl.report(params.arg_arg_options);
+          const result = this.impl.report(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_Report_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_dom_exception_details']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_Report_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_dom_exception_details': response.arg_dom_exception_details });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] report FAILED:', e));
           }
@@ -591,8 +591,8 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_capabilities' in response) ? response.arg_arg_capabilities : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_capabilities' in response) ? response.arg_capabilities : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec.$.structSpec, { 'arg_capabilities': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getClientCapabilities FAILED:', e));
           }

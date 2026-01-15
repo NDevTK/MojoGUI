@@ -191,7 +191,7 @@ mojo.internal.bindings.blink.mojom.ImageDownloaderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImage_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec,
-      [arg_url, arg_is_favicon, arg_preferred_size, arg_max_bitmap_size, arg_bypass_cache],
+      { arg_url: arg_url, arg_is_favicon: arg_is_favicon, arg_preferred_size: arg_preferred_size, arg_max_bitmap_size: arg_max_bitmap_size, arg_bypass_cache: arg_bypass_cache },
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.blink.mojom.ImageDownloaderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec,
-      [arg_ax_node_id, arg_preferred_size, arg_max_bitmap_size, arg_bypass_cache],
+      { arg_ax_node_id: arg_ax_node_id, arg_preferred_size: arg_preferred_size, arg_max_bitmap_size: arg_max_bitmap_size, arg_bypass_cache: arg_bypass_cache },
       false);
   }
 
@@ -270,12 +270,12 @@ mojo.internal.bindings.blink.mojom.ImageDownloaderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.downloadImage');
-          const result = this.impl.downloadImage(params.arg_arg_url, params.arg_arg_is_favicon, params.arg_arg_preferred_size, params.arg_arg_max_bitmap_size, params.arg_arg_bypass_cache);
+          const result = this.impl.downloadImage(params.arg_url, params.arg_is_favicon, params.arg_preferred_size, params.arg_max_bitmap_size, params.arg_bypass_cache);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec.$.structSpec, ['response.arg_arg_http_status_code', 'response.arg_arg_images', 'response.arg_arg_original_image_sizes']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec.$.structSpec, { 'arg_http_status_code': response.arg_http_status_code, 'arg_images': response.arg_images, 'arg_original_image_sizes': response.arg_original_image_sizes });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] downloadImage FAILED:', e));
           }
@@ -285,12 +285,12 @@ mojo.internal.bindings.blink.mojom.ImageDownloaderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.downloadImageFromAxNode');
-          const result = this.impl.downloadImageFromAxNode(params.arg_arg_ax_node_id, params.arg_arg_preferred_size, params.arg_arg_max_bitmap_size, params.arg_arg_bypass_cache);
+          const result = this.impl.downloadImageFromAxNode(params.arg_ax_node_id, params.arg_preferred_size, params.arg_max_bitmap_size, params.arg_bypass_cache);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec.$.structSpec, ['response.arg_arg_http_status_code', 'response.arg_arg_images', 'response.arg_arg_original_image_sizes']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec.$.structSpec, { 'arg_http_status_code': response.arg_http_status_code, 'arg_images': response.arg_images, 'arg_original_image_sizes': response.arg_original_image_sizes });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] downloadImageFromAxNode FAILED:', e));
           }

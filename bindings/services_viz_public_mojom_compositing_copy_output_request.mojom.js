@@ -199,7 +199,7 @@ mojo.internal.bindings.viz.mojom.CopyOutputResultSenderRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec,
       null,
-      [arg_result],
+      { arg_result: arg_result },
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.viz.mojom.CopyOutputResultSenderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendResult');
-          const result = this.impl.sendResult(params.arg_arg_result);
+          const result = this.impl.sendResult(params.arg_result);
           break;
         }
       }

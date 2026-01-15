@@ -203,7 +203,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.service_manager.mojom.Service_OnStart_ParamsSpec,
       mojo.internal.bindings.service_manager.mojom.Service_OnStart_ResponseParamsSpec,
-      [arg_identity],
+      { arg_identity: arg_identity },
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ParamsSpec,
       mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ResponseParamsSpec,
-      [arg_source, arg_interface_name, arg_interface_pipe],
+      { arg_source: arg_source, arg_interface_name: arg_interface_name, arg_interface_pipe: arg_interface_pipe },
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec,
       null,
-      [arg_identity, arg_receiver, arg_metadata],
+      { arg_identity: arg_identity, arg_receiver: arg_receiver, arg_metadata: arg_metadata },
       false);
   }
 
@@ -292,12 +292,12 @@ mojo.internal.bindings.service_manager.mojom.ServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.Service_OnStart_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStart');
-          const result = this.impl.onStart(params.arg_arg_identity);
+          const result = this.impl.onStart(params.arg_identity);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.service_manager.mojom.Service_OnStart_ResponseParamsSpec.$.structSpec, ['response.arg_arg_connector_receiver', 'response.arg_arg_control_receiver']);
+              encoder.encodeStructInline(mojo.internal.bindings.service_manager.mojom.Service_OnStart_ResponseParamsSpec.$.structSpec, { 'arg_connector_receiver': response.arg_connector_receiver, 'arg_control_receiver': response.arg_control_receiver });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onStart FAILED:', e));
           }
@@ -307,12 +307,12 @@ mojo.internal.bindings.service_manager.mojom.ServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBindInterface');
-          const result = this.impl.onBindInterface(params.arg_arg_source, params.arg_arg_interface_name, params.arg_arg_interface_pipe);
+          const result = this.impl.onBindInterface(params.arg_source, params.arg_interface_name, params.arg_interface_pipe);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onBindInterface FAILED:', e));
           }
@@ -322,7 +322,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPackagedServiceInstance');
-          const result = this.impl.createPackagedServiceInstance(params.arg_arg_identity, params.arg_arg_receiver, params.arg_arg_metadata);
+          const result = this.impl.createPackagedServiceInstance(params.arg_identity, params.arg_receiver, params.arg_metadata);
           break;
         }
       }

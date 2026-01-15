@@ -203,7 +203,7 @@ mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec,
-      [arg_pdf_region, arg_pdf_settings, arg_pwg_raster_settings],
+      { arg_pdf_region: arg_pdf_region, arg_pdf_settings: arg_pdf_settings, arg_pwg_raster_settings: arg_pwg_raster_settings },
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
-      [arg_use_skia],
+      { arg_use_skia: arg_use_skia },
       false);
   }
 
@@ -282,12 +282,12 @@ mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.convert');
-          const result = this.impl.convert(params.arg_arg_pdf_region, params.arg_arg_pdf_settings, params.arg_arg_pwg_raster_settings);
+          const result = this.impl.convert(params.arg_pdf_region, params.arg_pdf_settings, params.arg_pwg_raster_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec.$.structSpec, ['response.arg_arg_pwg_raster_region', 'response.arg_arg_page_count']);
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec.$.structSpec, { 'arg_pwg_raster_region': response.arg_pwg_raster_region, 'arg_page_count': response.arg_page_count });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] convert FAILED:', e));
           }
@@ -297,7 +297,7 @@ mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUseSkiaRendererPolicy');
-          const result = this.impl.setUseSkiaRendererPolicy(params.arg_arg_use_skia);
+          const result = this.impl.setUseSkiaRendererPolicy(params.arg_use_skia);
           break;
         }
       }

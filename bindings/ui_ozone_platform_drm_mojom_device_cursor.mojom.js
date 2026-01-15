@@ -193,7 +193,7 @@ mojo.internal.bindings.ui.ozone.mojom.DeviceCursorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec,
       null,
-      [arg_window, arg_bitmaps, arg_point, arg_frame_delay],
+      { arg_window: arg_window, arg_bitmaps: arg_bitmaps, arg_point: arg_point, arg_frame_delay: arg_frame_delay },
       false);
   }
 
@@ -202,7 +202,7 @@ mojo.internal.bindings.ui.ozone.mojom.DeviceCursorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec,
       null,
-      [arg_window, arg_point],
+      { arg_window: arg_window, arg_point: arg_point },
       false);
   }
 
@@ -272,14 +272,14 @@ mojo.internal.bindings.ui.ozone.mojom.DeviceCursorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCursor');
-          const result = this.impl.setCursor(params.arg_arg_window, params.arg_arg_bitmaps, params.arg_arg_point, params.arg_arg_frame_delay);
+          const result = this.impl.setCursor(params.arg_window, params.arg_bitmaps, params.arg_point, params.arg_frame_delay);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.moveCursor');
-          const result = this.impl.moveCursor(params.arg_arg_window, params.arg_arg_point);
+          const result = this.impl.moveCursor(params.arg_window, params.arg_point);
           break;
         }
       }

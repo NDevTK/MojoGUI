@@ -188,7 +188,7 @@ mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactoryR
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactoryR
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -322,7 +322,7 @@ mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec,
       null,
-      [arg_package_index],
+      { arg_package_index: arg_package_index },
       false);
   }
 
@@ -331,7 +331,7 @@ mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerRemoteCa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec,
       null,
-      [arg_package_index],
+      { arg_package_index: arg_package_index },
       false);
   }
 
@@ -401,14 +401,14 @@ mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installLanguagePackage');
-          const result = this.impl.installLanguagePackage(params.arg_arg_package_index);
+          const result = this.impl.installLanguagePackage(params.arg_package_index);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.uninstallLanguagePackage');
-          const result = this.impl.uninstallLanguagePackage(params.arg_arg_package_index);
+          const result = this.impl.uninstallLanguagePackage(params.arg_package_index);
           break;
         }
       }
@@ -469,7 +469,7 @@ mojo.internal.bindings.on_device_translation_internals.mojom.PageRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -538,7 +538,7 @@ mojo.internal.bindings.on_device_translation_internals.mojom.PageReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLanguagePackStatus');
-          const result = this.impl.onLanguagePackStatus(params.arg_arg_status);
+          const result = this.impl.onLanguagePackStatus(params.arg_status);
           break;
         }
       }

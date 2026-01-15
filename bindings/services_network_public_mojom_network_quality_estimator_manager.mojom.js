@@ -183,7 +183,7 @@ mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClientRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec,
       null,
-      [arg_type, arg_http_rtt, arg_transport_rtt, arg_downlink_bandwidth_kbps],
+      { arg_type: arg_type, arg_http_rtt: arg_http_rtt, arg_transport_rtt: arg_transport_rtt, arg_downlink_bandwidth_kbps: arg_downlink_bandwidth_kbps },
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClientReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkQualityChanged');
-          const result = this.impl.onNetworkQualityChanged(params.arg_arg_type, params.arg_arg_http_rtt, params.arg_arg_transport_rtt, params.arg_arg_downlink_bandwidth_kbps);
+          const result = this.impl.onNetworkQualityChanged(params.arg_type, params.arg_http_rtt, params.arg_transport_rtt, params.arg_downlink_bandwidth_kbps);
           break;
         }
       }
@@ -313,7 +313,7 @@ mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec,
       null,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestNotifications');
-          const result = this.impl.requestNotifications(params.arg_arg_client);
+          const result = this.impl.requestNotifications(params.arg_client);
           break;
         }
       }

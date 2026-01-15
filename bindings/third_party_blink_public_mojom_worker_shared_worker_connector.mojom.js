@@ -189,7 +189,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerConnectorRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorkerConnector_Connect_ParamsSpec,
       null,
-      [arg_info, arg_client, arg_creation_context_type, arg_message_port, arg_blob_url_token],
+      { arg_info: arg_info, arg_client: arg_client, arg_creation_context_type: arg_creation_context_type, arg_message_port: arg_message_port, arg_blob_url_token: arg_blob_url_token },
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerConnector_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_arg_info, params.arg_arg_client, params.arg_arg_creation_context_type, params.arg_arg_message_port, params.arg_arg_blob_url_token);
+          const result = this.impl.connect(params.arg_info, params.arg_client, params.arg_creation_context_type, params.arg_message_port, params.arg_blob_url_token);
           break;
         }
       }

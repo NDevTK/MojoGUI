@@ -239,7 +239,7 @@ mojo.internal.bindings.media.mojom.AudioDecoderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.media.mojom.AudioDecoderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.AudioDecoder_Construct_ParamsSpec,
       null,
-      [arg_client, arg_media_log],
+      { arg_client: arg_client, arg_media_log: arg_media_log },
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.media.mojom.AudioDecoderRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.AudioDecoder_Initialize_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioDecoder_Initialize_ResponseParamsSpec,
-      [arg_config, arg_cdm_id],
+      { arg_config: arg_config, arg_cdm_id: arg_cdm_id },
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.media.mojom.AudioDecoderRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.AudioDecoder_SetDataSource_ParamsSpec,
       null,
-      [arg_receive_pipe],
+      { arg_receive_pipe: arg_receive_pipe },
       false);
   }
 
@@ -275,7 +275,7 @@ mojo.internal.bindings.media.mojom.AudioDecoderRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.AudioDecoder_Decode_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioDecoder_Decode_ResponseParamsSpec,
-      [arg_buffer],
+      { arg_buffer: arg_buffer },
       false);
   }
 
@@ -284,7 +284,7 @@ mojo.internal.bindings.media.mojom.AudioDecoderRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.AudioDecoder_Reset_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioDecoder_Reset_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -363,8 +363,8 @@ mojo.internal.bindings.media.mojom.AudioDecoderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_supported_configs' in response) ? response.arg_arg_supported_configs : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_supported_configs' in response) ? response.arg_supported_configs : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec.$.structSpec, { 'arg_supported_configs': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSupportedConfigs FAILED:', e));
           }
@@ -374,19 +374,19 @@ mojo.internal.bindings.media.mojom.AudioDecoderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioDecoder_Construct_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.construct');
-          const result = this.impl.construct(params.arg_arg_client, params.arg_arg_media_log);
+          const result = this.impl.construct(params.arg_client, params.arg_media_log);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioDecoder_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_arg_config, params.arg_arg_cdm_id);
+          const result = this.impl.initialize(params.arg_config, params.arg_cdm_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioDecoder_Initialize_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_needs_bitstream_conversion', 'response.arg_arg_decoder_type']);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioDecoder_Initialize_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_needs_bitstream_conversion': response.arg_needs_bitstream_conversion, 'arg_decoder_type': response.arg_decoder_type });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] initialize FAILED:', e));
           }
@@ -396,20 +396,20 @@ mojo.internal.bindings.media.mojom.AudioDecoderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioDecoder_SetDataSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDataSource');
-          const result = this.impl.setDataSource(params.arg_arg_receive_pipe);
+          const result = this.impl.setDataSource(params.arg_receive_pipe);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioDecoder_Decode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decode');
-          const result = this.impl.decode(params.arg_arg_buffer);
+          const result = this.impl.decode(params.arg_buffer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioDecoder_Decode_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioDecoder_Decode_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] decode FAILED:', e));
           }
@@ -424,7 +424,7 @@ mojo.internal.bindings.media.mojom.AudioDecoderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioDecoder_Reset_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioDecoder_Reset_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] reset FAILED:', e));
           }
@@ -492,7 +492,7 @@ mojo.internal.bindings.media.mojom.AudioDecoderClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec,
       null,
-      [arg_buffer],
+      { arg_buffer: arg_buffer },
       false);
   }
 
@@ -501,7 +501,7 @@ mojo.internal.bindings.media.mojom.AudioDecoderClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec,
       null,
-      [arg_reason],
+      { arg_reason: arg_reason },
       false);
   }
 
@@ -571,14 +571,14 @@ mojo.internal.bindings.media.mojom.AudioDecoderClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBufferDecoded');
-          const result = this.impl.onBufferDecoded(params.arg_arg_buffer);
+          const result = this.impl.onBufferDecoded(params.arg_buffer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWaiting');
-          const result = this.impl.onWaiting(params.arg_arg_reason);
+          const result = this.impl.onWaiting(params.arg_reason);
           break;
         }
       }

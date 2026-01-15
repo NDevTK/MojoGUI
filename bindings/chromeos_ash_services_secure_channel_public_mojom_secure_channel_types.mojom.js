@@ -191,7 +191,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec,
       null,
-      [arg_update],
+      { arg_update: arg_update },
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFileTransferUpdate');
-          const result = this.impl.onFileTransferUpdate(params.arg_arg_update);
+          const result = this.impl.onFileTransferUpdate(params.arg_update);
           break;
         }
       }

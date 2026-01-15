@@ -213,7 +213,7 @@ mojo.internal.bindings.blink.mojom.NonPersistentNotificationListenerRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.blink.mojom.NonPersistentNotificationListenerRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec,
       mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClick_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.blink.mojom.NonPersistentNotificationListenerRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec,
       mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClose_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -314,7 +314,7 @@ mojo.internal.bindings.blink.mojom.NonPersistentNotificationListenerReceiver = c
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClick_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClick_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onClick FAILED:', e));
           }
@@ -329,7 +329,7 @@ mojo.internal.bindings.blink.mojom.NonPersistentNotificationListenerReceiver = c
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClose_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClose_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onClose FAILED:', e));
           }
@@ -413,7 +413,7 @@ mojo.internal.bindings.blink.mojom.NotificationServiceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec,
       mojo.internal.bindings.blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -422,7 +422,7 @@ mojo.internal.bindings.blink.mojom.NotificationServiceRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec,
       null,
-      [arg_token, arg_notification_data, arg_notification_resources, arg_event_listener],
+      { arg_token: arg_token, arg_notification_data: arg_notification_data, arg_notification_resources: arg_notification_resources, arg_event_listener: arg_event_listener },
       false);
   }
 
@@ -431,7 +431,7 @@ mojo.internal.bindings.blink.mojom.NotificationServiceRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec,
       null,
-      [arg_token],
+      { arg_token: arg_token },
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.blink.mojom.NotificationServiceRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec,
       mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec,
-      [arg_service_worker_registration_id, arg_notification_data, arg_notification_resources],
+      { arg_service_worker_registration_id: arg_service_worker_registration_id, arg_notification_data: arg_notification_data, arg_notification_resources: arg_notification_resources },
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.blink.mojom.NotificationServiceRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec,
       null,
-      [arg_notification_id],
+      { arg_notification_id: arg_notification_id },
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.blink.mojom.NotificationServiceRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ParamsSpec,
       mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec,
-      [arg_service_worker_registration_id, arg_filter_tag, arg_include_triggered],
+      { arg_service_worker_registration_id: arg_service_worker_registration_id, arg_filter_tag: arg_filter_tag, arg_include_triggered: arg_include_triggered },
       false);
   }
 
@@ -537,8 +537,8 @@ mojo.internal.bindings.blink.mojom.NotificationServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPermissionStatus FAILED:', e));
           }
@@ -548,27 +548,27 @@ mojo.internal.bindings.blink.mojom.NotificationServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.displayNonPersistentNotification');
-          const result = this.impl.displayNonPersistentNotification(params.arg_arg_token, params.arg_arg_notification_data, params.arg_arg_notification_resources, params.arg_arg_event_listener);
+          const result = this.impl.displayNonPersistentNotification(params.arg_token, params.arg_notification_data, params.arg_notification_resources, params.arg_event_listener);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeNonPersistentNotification');
-          const result = this.impl.closeNonPersistentNotification(params.arg_arg_token);
+          const result = this.impl.closeNonPersistentNotification(params.arg_token);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.displayPersistentNotification');
-          const result = this.impl.displayPersistentNotification(params.arg_arg_service_worker_registration_id, params.arg_arg_notification_data, params.arg_arg_notification_resources);
+          const result = this.impl.displayPersistentNotification(params.arg_service_worker_registration_id, params.arg_notification_data, params.arg_notification_resources);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] displayPersistentNotification FAILED:', e));
           }
@@ -578,19 +578,19 @@ mojo.internal.bindings.blink.mojom.NotificationServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closePersistentNotification');
-          const result = this.impl.closePersistentNotification(params.arg_arg_notification_id);
+          const result = this.impl.closePersistentNotification(params.arg_notification_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNotifications');
-          const result = this.impl.getNotifications(params.arg_arg_service_worker_registration_id, params.arg_arg_filter_tag, params.arg_arg_include_triggered);
+          const result = this.impl.getNotifications(params.arg_service_worker_registration_id, params.arg_filter_tag, params.arg_include_triggered);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec.$.structSpec, ['response.arg_arg_notification_ids', 'response.arg_arg_notification_datas']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec.$.structSpec, { 'arg_notification_ids': response.arg_notification_ids, 'arg_notification_datas': response.arg_notification_datas });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNotifications FAILED:', e));
           }

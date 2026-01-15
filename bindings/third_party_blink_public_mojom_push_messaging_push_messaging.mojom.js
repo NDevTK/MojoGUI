@@ -213,7 +213,7 @@ mojo.internal.bindings.blink.mojom.PushMessagingRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec,
-      [arg_service_worker_registration_id, arg_options, arg_user_gesture],
+      { arg_service_worker_registration_id: arg_service_worker_registration_id, arg_options: arg_options, arg_user_gesture: arg_user_gesture },
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.blink.mojom.PushMessagingRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec,
-      [arg_service_worker_registration_id],
+      { arg_service_worker_registration_id: arg_service_worker_registration_id },
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.blink.mojom.PushMessagingRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec,
-      [arg_service_worker_registration_id],
+      { arg_service_worker_registration_id: arg_service_worker_registration_id },
       false);
   }
 
@@ -302,12 +302,12 @@ mojo.internal.bindings.blink.mojom.PushMessagingReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribe');
-          const result = this.impl.subscribe(params.arg_arg_service_worker_registration_id, params.arg_arg_options, params.arg_arg_user_gesture);
+          const result = this.impl.subscribe(params.arg_service_worker_registration_id, params.arg_options, params.arg_user_gesture);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_subscription']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_subscription': response.arg_subscription });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] subscribe FAILED:', e));
           }
@@ -317,12 +317,12 @@ mojo.internal.bindings.blink.mojom.PushMessagingReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unsubscribe');
-          const result = this.impl.unsubscribe(params.arg_arg_service_worker_registration_id);
+          const result = this.impl.unsubscribe(params.arg_service_worker_registration_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error_type', 'response.arg_arg_did_unsubscribe', 'response.arg_arg_error_message']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec.$.structSpec, { 'arg_error_type': response.arg_error_type, 'arg_did_unsubscribe': response.arg_did_unsubscribe, 'arg_error_message': response.arg_error_message });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] unsubscribe FAILED:', e));
           }
@@ -332,12 +332,12 @@ mojo.internal.bindings.blink.mojom.PushMessagingReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSubscription');
-          const result = this.impl.getSubscription(params.arg_arg_service_worker_registration_id);
+          const result = this.impl.getSubscription(params.arg_service_worker_registration_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_subscription']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_subscription': response.arg_subscription });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSubscription FAILED:', e));
           }

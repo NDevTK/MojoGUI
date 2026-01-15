@@ -175,7 +175,7 @@ mojo.internal.bindings.mirroring.mojom.CastMessageChannelRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.mirroring.mojom.CastMessageChannelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessage');
-          const result = this.impl.onMessage(params.arg_arg_message);
+          const result = this.impl.onMessage(params.arg_message);
           break;
         }
       }

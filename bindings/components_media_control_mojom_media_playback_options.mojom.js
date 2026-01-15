@@ -187,7 +187,7 @@ mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptionsRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec,
       null,
-      [arg_blocked],
+      { arg_blocked: arg_blocked },
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptionsRemote
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptionsRemote
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec,
       null,
-      [arg_type],
+      { arg_type: arg_type },
       false);
   }
 
@@ -276,21 +276,21 @@ mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptionsReceiv
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMediaLoadingBlocked');
-          const result = this.impl.setMediaLoadingBlocked(params.arg_arg_blocked);
+          const result = this.impl.setMediaLoadingBlocked(params.arg_blocked);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundVideoPlaybackEnabled');
-          const result = this.impl.setBackgroundVideoPlaybackEnabled(params.arg_arg_enabled);
+          const result = this.impl.setBackgroundVideoPlaybackEnabled(params.arg_enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRendererType');
-          const result = this.impl.setRendererType(params.arg_arg_type);
+          const result = this.impl.setRendererType(params.arg_type);
           break;
         }
       }

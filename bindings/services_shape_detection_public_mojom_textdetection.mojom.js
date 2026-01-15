@@ -185,7 +185,7 @@ mojo.internal.bindings.shape_detection.mojom.TextDetectionRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.shape_detection.mojom.TextDetection_Detect_ParamsSpec,
       mojo.internal.bindings.shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec,
-      [arg_bitmap_data],
+      { arg_bitmap_data: arg_bitmap_data },
       false);
   }
 
@@ -254,13 +254,13 @@ mojo.internal.bindings.shape_detection.mojom.TextDetectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.TextDetection_Detect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.detect');
-          const result = this.impl.detect(params.arg_arg_bitmap_data);
+          const result = this.impl.detect(params.arg_bitmap_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
-              encoder.encodeStructInline(mojo.internal.bindings.shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_results' in response) ? response.arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec.$.structSpec, { 'arg_results': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] detect FAILED:', e));
           }

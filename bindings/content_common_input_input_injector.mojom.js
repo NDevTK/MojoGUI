@@ -264,7 +264,7 @@ mojo.internal.bindings.content.mojom.InputInjectorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec,
       mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec,
-      [arg_drag],
+      { arg_drag: arg_drag },
       false);
   }
 
@@ -273,7 +273,7 @@ mojo.internal.bindings.content.mojom.InputInjectorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec,
       mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec,
-      [arg_scroll],
+      { arg_scroll: arg_scroll },
       false);
   }
 
@@ -282,7 +282,7 @@ mojo.internal.bindings.content.mojom.InputInjectorRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec,
       mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec,
-      [arg_pinch],
+      { arg_pinch: arg_pinch },
       false);
   }
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.content.mojom.InputInjectorRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec,
       mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec,
-      [arg_tap],
+      { arg_tap: arg_tap },
       false);
   }
 
@@ -300,7 +300,7 @@ mojo.internal.bindings.content.mojom.InputInjectorRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec,
       mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec,
-      [arg_pointer_action],
+      { arg_pointer_action: arg_pointer_action },
       false);
   }
 
@@ -373,12 +373,12 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueSyntheticSmoothDrag');
-          const result = this.impl.queueSyntheticSmoothDrag(params.arg_arg_drag);
+          const result = this.impl.queueSyntheticSmoothDrag(params.arg_drag);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] queueSyntheticSmoothDrag FAILED:', e));
           }
@@ -388,12 +388,12 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueSyntheticSmoothScroll');
-          const result = this.impl.queueSyntheticSmoothScroll(params.arg_arg_scroll);
+          const result = this.impl.queueSyntheticSmoothScroll(params.arg_scroll);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] queueSyntheticSmoothScroll FAILED:', e));
           }
@@ -403,12 +403,12 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueSyntheticPinch');
-          const result = this.impl.queueSyntheticPinch(params.arg_arg_pinch);
+          const result = this.impl.queueSyntheticPinch(params.arg_pinch);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] queueSyntheticPinch FAILED:', e));
           }
@@ -418,12 +418,12 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueSyntheticTap');
-          const result = this.impl.queueSyntheticTap(params.arg_arg_tap);
+          const result = this.impl.queueSyntheticTap(params.arg_tap);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] queueSyntheticTap FAILED:', e));
           }
@@ -433,12 +433,12 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueSyntheticPointerAction');
-          const result = this.impl.queueSyntheticPointerAction(params.arg_arg_pointer_action);
+          const result = this.impl.queueSyntheticPointerAction(params.arg_pointer_action);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] queueSyntheticPointerAction FAILED:', e));
           }

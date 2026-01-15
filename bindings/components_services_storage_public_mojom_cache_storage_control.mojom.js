@@ -216,7 +216,7 @@ mojo.internal.bindings.storage.mojom.CacheStorageObserverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec,
       null,
-      [arg_bucket_locator],
+      { arg_bucket_locator: arg_bucket_locator },
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.storage.mojom.CacheStorageObserverRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec,
       null,
-      [arg_bucket_locator, arg_cache_name],
+      { arg_bucket_locator: arg_bucket_locator, arg_cache_name: arg_cache_name },
       false);
   }
 
@@ -295,14 +295,14 @@ mojo.internal.bindings.storage.mojom.CacheStorageObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCacheListChanged');
-          const result = this.impl.onCacheListChanged(params.arg_arg_bucket_locator);
+          const result = this.impl.onCacheListChanged(params.arg_bucket_locator);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCacheContentChanged');
-          const result = this.impl.onCacheContentChanged(params.arg_arg_bucket_locator, params.arg_arg_cache_name);
+          const result = this.impl.onCacheContentChanged(params.arg_bucket_locator, params.arg_cache_name);
           break;
         }
       }
@@ -371,7 +371,7 @@ mojo.internal.bindings.storage.mojom.CacheStorageControlRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec,
       null,
-      [arg_cross_origin_embedder_policy, arg_coep_reporter, arg_document_isolation_policy, arg_dip_reporter, arg_bucket_locator, arg_owner, arg_receiver],
+      { arg_cross_origin_embedder_policy: arg_cross_origin_embedder_policy, arg_coep_reporter: arg_coep_reporter, arg_document_isolation_policy: arg_document_isolation_policy, arg_dip_reporter: arg_dip_reporter, arg_bucket_locator: arg_bucket_locator, arg_owner: arg_owner, arg_receiver: arg_receiver },
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.storage.mojom.CacheStorageControlRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.CacheStorageControl_AddObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.storage.mojom.CacheStorageControlRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec,
       null,
-      [arg_policy_updates],
+      { arg_policy_updates: arg_policy_updates },
       false);
   }
 
@@ -460,21 +460,21 @@ mojo.internal.bindings.storage.mojom.CacheStorageControlReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addReceiver');
-          const result = this.impl.addReceiver(params.arg_arg_cross_origin_embedder_policy, params.arg_arg_coep_reporter, params.arg_arg_document_isolation_policy, params.arg_arg_dip_reporter, params.arg_arg_bucket_locator, params.arg_arg_owner, params.arg_arg_receiver);
+          const result = this.impl.addReceiver(params.arg_cross_origin_embedder_policy, params.arg_coep_reporter, params.arg_document_isolation_policy, params.arg_dip_reporter, params.arg_bucket_locator, params.arg_owner, params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.CacheStorageControl_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_arg_observer);
+          const result = this.impl.addObserver(params.arg_observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyPolicyUpdates');
-          const result = this.impl.applyPolicyUpdates(params.arg_arg_policy_updates);
+          const result = this.impl.applyPolicyUpdates(params.arg_policy_updates);
           break;
         }
       }

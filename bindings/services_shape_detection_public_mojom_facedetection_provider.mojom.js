@@ -179,7 +179,7 @@ mojo.internal.bindings.shape_detection.mojom.FaceDetectionProviderRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec,
       null,
-      [arg_receiver, arg_options],
+      { arg_receiver: arg_receiver, arg_options: arg_options },
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.shape_detection.mojom.FaceDetectionProviderReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createFaceDetection');
-          const result = this.impl.createFaceDetection(params.arg_arg_receiver, params.arg_arg_options);
+          const result = this.impl.createFaceDetection(params.arg_receiver, params.arg_options);
           break;
         }
       }

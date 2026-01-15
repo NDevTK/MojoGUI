@@ -191,7 +191,7 @@ mojo.internal.bindings.content.mojom.RenderMessageFilterRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec,
       mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.content.mojom.RenderMessageFilterRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec,
       mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -275,8 +275,8 @@ mojo.internal.bindings.content.mojom.RenderMessageFilterReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] generateSingleFrameRoutingInfo FAILED:', e));
           }
@@ -291,8 +291,8 @@ mojo.internal.bindings.content.mojom.RenderMessageFilterReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info_array' in response) ? response.arg_arg_info_array : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info_array' in response) ? response.arg_info_array : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec.$.structSpec, { 'arg_info_array': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] generateFrameRoutingInfos FAILED:', e));
           }

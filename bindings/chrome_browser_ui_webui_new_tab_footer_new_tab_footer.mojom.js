@@ -209,7 +209,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactoryRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec,
       null,
-      [arg_document, arg_handler],
+      { arg_document: arg_document, arg_handler: arg_handler },
       false);
   }
 
@@ -278,7 +278,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactoryReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createNewTabFooterHandler');
-          const result = this.impl.createNewTabFooterHandler(params.arg_arg_document, params.arg_arg_handler);
+          const result = this.impl.createNewTabFooterHandler(params.arg_document, params.arg_handler);
           break;
         }
       }
@@ -371,7 +371,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -407,7 +407,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -416,7 +416,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -425,7 +425,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec,
       null,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -434,7 +434,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec,
       null,
-      [arg_point],
+      { arg_point: arg_point },
       false);
   }
 
@@ -443,7 +443,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -562,14 +562,14 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openUrlInCurrentTab');
-          const result = this.impl.openUrlInCurrentTab(params.arg_arg_url);
+          const result = this.impl.openUrlInCurrentTab(params.arg_url);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
-          const result = this.impl.showContextMenu(params.arg_arg_point);
+          const result = this.impl.showContextMenu(params.arg_point);
           break;
         }
         case 8: {
@@ -649,7 +649,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec,
       null,
-      [arg_name],
+      { arg_name: arg_name },
       false);
   }
 
@@ -658,7 +658,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec,
       null,
-      [arg_notice],
+      { arg_notice: arg_notice },
       false);
   }
 
@@ -667,7 +667,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec,
       null,
-      [arg_ntp_type, arg_can_customize_chrome],
+      { arg_ntp_type: arg_ntp_type, arg_can_customize_chrome: arg_can_customize_chrome },
       false);
   }
 
@@ -676,7 +676,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandle
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec,
       null,
-      [arg_background_image_attribution],
+      { arg_background_image_attribution: arg_background_image_attribution },
       false);
   }
 
@@ -748,28 +748,28 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNtpExtensionName');
-          const result = this.impl.setNtpExtensionName(params.arg_arg_name);
+          const result = this.impl.setNtpExtensionName(params.arg_name);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setManagementNotice');
-          const result = this.impl.setManagementNotice(params.arg_arg_notice);
+          const result = this.impl.setManagementNotice(params.arg_notice);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.attachedTabStateUpdated');
-          const result = this.impl.attachedTabStateUpdated(params.arg_arg_ntp_type, params.arg_arg_can_customize_chrome);
+          const result = this.impl.attachedTabStateUpdated(params.arg_ntp_type, params.arg_can_customize_chrome);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundAttribution');
-          const result = this.impl.setBackgroundAttribution(params.arg_arg_background_image_attribution);
+          const result = this.impl.setBackgroundAttribution(params.arg_background_image_attribution);
           break;
         }
       }

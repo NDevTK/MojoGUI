@@ -246,7 +246,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -255,7 +255,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec,
-      [arg_dict_id, arg_entry],
+      { arg_dict_id: arg_dict_id, arg_entry: arg_entry },
       false);
   }
 
@@ -264,7 +264,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec,
-      [arg_dict_id, arg_entry_index, arg_entry],
+      { arg_dict_id: arg_dict_id, arg_entry_index: arg_entry_index, arg_entry: arg_entry },
       false);
   }
 
@@ -273,7 +273,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec,
-      [arg_dict_id, arg_entry_index],
+      { arg_dict_id: arg_dict_id, arg_entry_index: arg_entry_index },
       false);
   }
 
@@ -282,7 +282,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec,
-      [arg_dictionary_name],
+      { arg_dictionary_name: arg_dictionary_name },
       false);
   }
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec,
-      [arg_dict_id, arg_dictionary_name],
+      { arg_dict_id: arg_dict_id, arg_dictionary_name: arg_dictionary_name },
       false);
   }
 
@@ -300,7 +300,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec,
-      [arg_dict_id],
+      { arg_dict_id: arg_dict_id },
       false);
   }
 
@@ -309,7 +309,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec,
-      [arg_dict_id],
+      { arg_dict_id: arg_dict_id },
       false);
   }
 
@@ -318,7 +318,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec,
-      [arg_dict_id, arg_tsv_data],
+      { arg_dict_id: arg_dict_id, arg_tsv_data: arg_tsv_data },
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec,
-      [arg_clear_conversion_history, arg_clear_suggestion_history],
+      { arg_clear_conversion_history: arg_clear_conversion_history, arg_clear_suggestion_history: arg_clear_suggestion_history },
       false);
   }
 
@@ -410,8 +410,8 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceReceiver = class 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fetchJapaneseDictionary FAILED:', e));
           }
@@ -421,13 +421,13 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addJapaneseDictionaryEntry');
-          const result = this.impl.addJapaneseDictionaryEntry(params.arg_arg_dict_id, params.arg_arg_entry);
+          const result = this.impl.addJapaneseDictionaryEntry(params.arg_dict_id, params.arg_entry);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addJapaneseDictionaryEntry FAILED:', e));
           }
@@ -437,13 +437,13 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.editJapaneseDictionaryEntry');
-          const result = this.impl.editJapaneseDictionaryEntry(params.arg_arg_dict_id, params.arg_arg_entry_index, params.arg_arg_entry);
+          const result = this.impl.editJapaneseDictionaryEntry(params.arg_dict_id, params.arg_entry_index, params.arg_entry);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] editJapaneseDictionaryEntry FAILED:', e));
           }
@@ -453,13 +453,13 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteJapaneseDictionaryEntry');
-          const result = this.impl.deleteJapaneseDictionaryEntry(params.arg_arg_dict_id, params.arg_arg_entry_index);
+          const result = this.impl.deleteJapaneseDictionaryEntry(params.arg_dict_id, params.arg_entry_index);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteJapaneseDictionaryEntry FAILED:', e));
           }
@@ -469,13 +469,13 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createJapaneseDictionary');
-          const result = this.impl.createJapaneseDictionary(params.arg_arg_dictionary_name);
+          const result = this.impl.createJapaneseDictionary(params.arg_dictionary_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createJapaneseDictionary FAILED:', e));
           }
@@ -485,13 +485,13 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.renameJapaneseDictionary');
-          const result = this.impl.renameJapaneseDictionary(params.arg_arg_dict_id, params.arg_arg_dictionary_name);
+          const result = this.impl.renameJapaneseDictionary(params.arg_dict_id, params.arg_dictionary_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] renameJapaneseDictionary FAILED:', e));
           }
@@ -501,13 +501,13 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteJapaneseDictionary');
-          const result = this.impl.deleteJapaneseDictionary(params.arg_arg_dict_id);
+          const result = this.impl.deleteJapaneseDictionary(params.arg_dict_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteJapaneseDictionary FAILED:', e));
           }
@@ -517,13 +517,13 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.exportJapaneseDictionary');
-          const result = this.impl.exportJapaneseDictionary(params.arg_arg_dict_id);
+          const result = this.impl.exportJapaneseDictionary(params.arg_dict_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] exportJapaneseDictionary FAILED:', e));
           }
@@ -533,13 +533,13 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.importJapaneseDictionary');
-          const result = this.impl.importJapaneseDictionary(params.arg_arg_dict_id, params.arg_arg_tsv_data);
+          const result = this.impl.importJapaneseDictionary(params.arg_dict_id, params.arg_tsv_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] importJapaneseDictionary FAILED:', e));
           }
@@ -549,13 +549,13 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearJapanesePersonalizationData');
-          const result = this.impl.clearJapanesePersonalizationData(params.arg_arg_clear_conversion_history, params.arg_arg_clear_suggestion_history);
+          const result = this.impl.clearJapanesePersonalizationData(params.arg_clear_conversion_history, params.arg_clear_suggestion_history);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] clearJapanesePersonalizationData FAILED:', e));
           }

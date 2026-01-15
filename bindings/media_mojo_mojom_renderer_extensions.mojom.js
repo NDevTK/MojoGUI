@@ -206,7 +206,7 @@ mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -275,7 +275,7 @@ mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRemotePlayStateChange');
-          const result = this.impl.onRemotePlayStateChange(params.arg_arg_state);
+          const result = this.impl.onRemotePlayStateChange(params.arg_state);
           break;
         }
       }
@@ -344,7 +344,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec,
-      [arg_rect],
+      { arg_rect: arg_rect },
       false);
   }
 
@@ -438,7 +438,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec.$.structSpec, ['response.arg_arg_token', 'response.arg_arg_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec.$.structSpec, { 'arg_token': response.arg_token, 'arg_error': response.arg_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDCOMPSurface FAILED:', e));
           }
@@ -448,20 +448,20 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVideoStreamEnabled');
-          const result = this.impl.setVideoStreamEnabled(params.arg_arg_enabled);
+          const result = this.impl.setVideoStreamEnabled(params.arg_enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOutputRect');
-          const result = this.impl.setOutputRect(params.arg_arg_rect);
+          const result = this.impl.setOutputRect(params.arg_rect);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setOutputRect FAILED:', e));
           }
@@ -634,7 +634,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -703,7 +703,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mediaFoundationRendererCreated');
-          const result = this.impl.mediaFoundationRendererCreated(params.arg_arg_observer);
+          const result = this.impl.mediaFoundationRendererCreated(params.arg_observer);
           break;
         }
       }

@@ -215,7 +215,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec,
       null,
-      [arg_info],
+      { arg_info: arg_info },
       false);
   }
 
@@ -284,7 +284,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksObserverReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPackStateChanged');
-          const result = this.impl.onPackStateChanged(params.arg_arg_info);
+          const result = this.impl.onPackStateChanged(params.arg_info);
           break;
         }
       }
@@ -361,7 +361,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec,
       mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec,
-      [arg_feature_id, arg_language],
+      { arg_feature_id: arg_feature_id, arg_language: arg_language },
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec,
       mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec,
-      [arg_feature_id, arg_language],
+      { arg_feature_id: arg_feature_id, arg_language: arg_language },
       false);
   }
 
@@ -379,7 +379,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec,
       mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec,
-      [arg_feature_id],
+      { arg_feature_id: arg_feature_id },
       false);
   }
 
@@ -388,7 +388,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec,
       mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ResponseParamsSpec,
-      [arg_feature_id, arg_language],
+      { arg_feature_id: arg_feature_id, arg_language: arg_language },
       false);
   }
 
@@ -397,7 +397,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -470,13 +470,13 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPackInfo');
-          const result = this.impl.getPackInfo(params.arg_arg_feature_id, params.arg_arg_language);
+          const result = this.impl.getPackInfo(params.arg_feature_id, params.arg_language);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPackInfo FAILED:', e));
           }
@@ -486,13 +486,13 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installPack');
-          const result = this.impl.installPack(params.arg_arg_feature_id, params.arg_arg_language);
+          const result = this.impl.installPack(params.arg_feature_id, params.arg_language);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] installPack FAILED:', e));
           }
@@ -502,13 +502,13 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installBasePack');
-          const result = this.impl.installBasePack(params.arg_arg_feature_id);
+          const result = this.impl.installBasePack(params.arg_feature_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] installBasePack FAILED:', e));
           }
@@ -518,12 +518,12 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.uninstallPack');
-          const result = this.impl.uninstallPack(params.arg_arg_feature_id, params.arg_arg_language);
+          const result = this.impl.uninstallPack(params.arg_feature_id, params.arg_language);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] uninstallPack FAILED:', e));
           }
@@ -533,7 +533,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_arg_observer);
+          const result = this.impl.addObserver(params.arg_observer);
           break;
         }
       }

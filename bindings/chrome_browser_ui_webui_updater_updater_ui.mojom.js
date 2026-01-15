@@ -178,7 +178,7 @@ mojo.internal.bindings.updater_ui.mojom.PageHandlerFactoryRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -247,7 +247,7 @@ mojo.internal.bindings.updater_ui.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -308,7 +308,7 @@ mojo.internal.bindings.updater_ui.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec,
       mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -382,8 +382,8 @@ mojo.internal.bindings.updater_ui.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_events' in response) ? response.arg_arg_events : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_events' in response) ? response.arg_events : response;
+              encoder.encodeStructInline(mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec.$.structSpec, { 'arg_events': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAllUpdaterEvents FAILED:', e));
           }

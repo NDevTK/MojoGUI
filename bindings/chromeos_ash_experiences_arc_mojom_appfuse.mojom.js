@@ -188,7 +188,7 @@ mojo.internal.bindings.arc.mojom.AppfuseHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ResponseParamsSpec,
-      [arg_uid, arg_mount_id],
+      { arg_uid: arg_uid, arg_mount_id: arg_mount_id },
       false);
   }
 
@@ -197,7 +197,7 @@ mojo.internal.bindings.arc.mojom.AppfuseHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec,
-      [arg_uid, arg_mount_id],
+      { arg_uid: arg_uid, arg_mount_id: arg_mount_id },
       false);
   }
 
@@ -206,7 +206,7 @@ mojo.internal.bindings.arc.mojom.AppfuseHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec,
-      [arg_uid, arg_mount_id, arg_file_id, arg_flags],
+      { arg_uid: arg_uid, arg_mount_id: arg_mount_id, arg_file_id: arg_file_id, arg_flags: arg_flags },
       false);
   }
 
@@ -277,13 +277,13 @@ mojo.internal.bindings.arc.mojom.AppfuseHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mount');
-          const result = this.impl.mount(params.arg_arg_uid, params.arg_arg_mount_id);
+          const result = this.impl.mount(params.arg_uid, params.arg_mount_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_fd' in response) ? response.arg_arg_fd : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_fd' in response) ? response.arg_fd : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ResponseParamsSpec.$.structSpec, { 'arg_fd': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] mount FAILED:', e));
           }
@@ -293,13 +293,13 @@ mojo.internal.bindings.arc.mojom.AppfuseHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unmount');
-          const result = this.impl.unmount(params.arg_arg_uid, params.arg_arg_mount_id);
+          const result = this.impl.unmount(params.arg_uid, params.arg_mount_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] unmount FAILED:', e));
           }
@@ -309,13 +309,13 @@ mojo.internal.bindings.arc.mojom.AppfuseHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFile');
-          const result = this.impl.openFile(params.arg_arg_uid, params.arg_arg_mount_id, params.arg_arg_file_id, params.arg_arg_flags);
+          const result = this.impl.openFile(params.arg_uid, params.arg_mount_id, params.arg_file_id, params.arg_flags);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_fd' in response) ? response.arg_arg_fd : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_fd' in response) ? response.arg_fd : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec.$.structSpec, { 'arg_fd': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openFile FAILED:', e));
           }
@@ -379,7 +379,7 @@ mojo.internal.bindings.arc.mojom.AppfuseInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -448,12 +448,12 @@ mojo.internal.bindings.arc.mojom.AppfuseInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }

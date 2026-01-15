@@ -314,7 +314,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec,
       null,
-      [arg_widget, arg_initial_bounds],
+      { arg_widget: arg_widget, arg_initial_bounds: arg_initial_bounds },
       false);
   }
 
@@ -323,7 +323,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec,
       null,
-      [arg_widget],
+      { arg_widget: arg_widget },
       false);
   }
 
@@ -332,7 +332,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec,
       null,
-      [arg_widget, arg_bounds],
+      { arg_widget: arg_widget, arg_bounds: arg_bounds },
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -350,7 +350,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec,
       null,
-      [arg_path, arg_fd_mojo_handle],
+      { arg_path: arg_path, arg_fd_mojo_handle: arg_fd_mojo_handle },
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec,
       null,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -386,7 +386,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec,
-      [arg_event_props],
+      { arg_event_props: arg_event_props },
       false);
   }
 
@@ -395,7 +395,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec,
-      [arg_config_requests, arg_modeset_flags],
+      { arg_config_requests: arg_config_requests, arg_modeset_flags: arg_modeset_flags },
       false);
   }
 
@@ -404,7 +404,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec,
-      [arg_display_id, arg_key],
+      { arg_display_id: arg_display_id, arg_key: arg_key },
       false);
   }
 
@@ -413,7 +413,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec,
-      [arg_display_id],
+      { arg_display_id: arg_display_id },
       false);
   }
 
@@ -422,7 +422,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec,
-      [arg_display_id, arg_state, arg_protection_method],
+      { arg_display_id: arg_display_id, arg_state: arg_state, arg_protection_method: arg_protection_method },
       false);
   }
 
@@ -431,7 +431,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec,
       null,
-      [arg_display_id, arg_cta],
+      { arg_display_id: arg_display_id, arg_cta: arg_cta },
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec,
       null,
-      [arg_display_id, arg_calibration],
+      { arg_display_id: arg_display_id, arg_calibration: arg_calibration },
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec,
       null,
-      [arg_display_id, arg_adjustment],
+      { arg_display_id: arg_display_id, arg_adjustment: arg_adjustment },
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec,
-      [arg_display_id, arg_enabled],
+      { arg_display_id: arg_display_id, arg_enabled: arg_enabled },
       false);
   }
 
@@ -467,7 +467,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec,
-      [arg_display_id],
+      { arg_display_id: arg_display_id },
       false);
   }
 
@@ -476,7 +476,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec,
       null,
-      [arg_cursor],
+      { arg_cursor: arg_cursor },
       false);
   }
 
@@ -563,21 +563,21 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWindow');
-          const result = this.impl.createWindow(params.arg_arg_widget, params.arg_arg_initial_bounds);
+          const result = this.impl.createWindow(params.arg_widget, params.arg_initial_bounds);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.destroyWindow');
-          const result = this.impl.destroyWindow(params.arg_arg_widget);
+          const result = this.impl.destroyWindow(params.arg_widget);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWindowBounds');
-          const result = this.impl.setWindowBounds(params.arg_arg_widget, params.arg_arg_bounds);
+          const result = this.impl.setWindowBounds(params.arg_widget, params.arg_bounds);
           break;
         }
         case 3: {
@@ -589,8 +589,8 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] takeDisplayControl FAILED:', e));
           }
@@ -605,8 +605,8 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] relinquishDisplayControl FAILED:', e));
           }
@@ -621,8 +621,8 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_display_snapshots' in response) ? response.arg_arg_display_snapshots : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_display_snapshots' in response) ? response.arg_display_snapshots : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec.$.structSpec, { 'arg_display_snapshots': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] refreshNativeDisplays FAILED:', e));
           }
@@ -632,27 +632,27 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addGraphicsDevice');
-          const result = this.impl.addGraphicsDevice(params.arg_arg_path, params.arg_arg_fd_mojo_handle);
+          const result = this.impl.addGraphicsDevice(params.arg_path, params.arg_fd_mojo_handle);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeGraphicsDevice');
-          const result = this.impl.removeGraphicsDevice(params.arg_arg_path);
+          const result = this.impl.removeGraphicsDevice(params.arg_path);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shouldDisplayEventTriggerConfiguration');
-          const result = this.impl.shouldDisplayEventTriggerConfiguration(params.arg_arg_event_props);
+          const result = this.impl.shouldDisplayEventTriggerConfiguration(params.arg_event_props);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_should_trigger' in response) ? response.arg_arg_should_trigger : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_should_trigger' in response) ? response.arg_should_trigger : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec.$.structSpec, { 'arg_should_trigger': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] shouldDisplayEventTriggerConfiguration FAILED:', e));
           }
@@ -662,12 +662,12 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.configureNativeDisplays');
-          const result = this.impl.configureNativeDisplays(params.arg_arg_config_requests, params.arg_arg_modeset_flags);
+          const result = this.impl.configureNativeDisplays(params.arg_config_requests, params.arg_modeset_flags);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec.$.structSpec, ['response.arg_arg_request_results', 'response.arg_arg_config_success']);
+              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec.$.structSpec, { 'arg_request_results': response.arg_request_results, 'arg_config_success': response.arg_config_success });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] configureNativeDisplays FAILED:', e));
           }
@@ -677,12 +677,12 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHdcpKeyProp');
-          const result = this.impl.setHdcpKeyProp(params.arg_arg_display_id, params.arg_arg_key);
+          const result = this.impl.setHdcpKeyProp(params.arg_display_id, params.arg_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec.$.structSpec, ['response.arg_arg_display_id', 'response.arg_arg_success']);
+              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec.$.structSpec, { 'arg_display_id': response.arg_display_id, 'arg_success': response.arg_success });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setHdcpKeyProp FAILED:', e));
           }
@@ -692,12 +692,12 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHDCPState');
-          const result = this.impl.getHDCPState(params.arg_arg_display_id);
+          const result = this.impl.getHDCPState(params.arg_display_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec.$.structSpec, ['response.arg_arg_display_id', 'response.arg_arg_success', 'response.arg_arg_state', 'response.arg_arg_protection_method']);
+              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec.$.structSpec, { 'arg_display_id': response.arg_display_id, 'arg_success': response.arg_success, 'arg_state': response.arg_state, 'arg_protection_method': response.arg_protection_method });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getHDCPState FAILED:', e));
           }
@@ -707,12 +707,12 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHDCPState');
-          const result = this.impl.setHDCPState(params.arg_arg_display_id, params.arg_arg_state, params.arg_arg_protection_method);
+          const result = this.impl.setHDCPState(params.arg_display_id, params.arg_state, params.arg_protection_method);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec.$.structSpec, ['response.arg_arg_display_id', 'response.arg_arg_success']);
+              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec.$.structSpec, { 'arg_display_id': response.arg_display_id, 'arg_success': response.arg_success });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setHDCPState FAILED:', e));
           }
@@ -722,34 +722,34 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setColorTemperatureAdjustment');
-          const result = this.impl.setColorTemperatureAdjustment(params.arg_arg_display_id, params.arg_arg_cta);
+          const result = this.impl.setColorTemperatureAdjustment(params.arg_display_id, params.arg_cta);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setColorCalibration');
-          const result = this.impl.setColorCalibration(params.arg_arg_display_id, params.arg_arg_calibration);
+          const result = this.impl.setColorCalibration(params.arg_display_id, params.arg_calibration);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setGammaAdjustment');
-          const result = this.impl.setGammaAdjustment(params.arg_arg_display_id, params.arg_arg_adjustment);
+          const result = this.impl.setGammaAdjustment(params.arg_display_id, params.arg_adjustment);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPrivacyScreen');
-          const result = this.impl.setPrivacyScreen(params.arg_arg_display_id, params.arg_arg_enabled);
+          const result = this.impl.setPrivacyScreen(params.arg_display_id, params.arg_enabled);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setPrivacyScreen FAILED:', e));
           }
@@ -759,13 +759,13 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSeamlessRefreshRates');
-          const result = this.impl.getSeamlessRefreshRates(params.arg_arg_display_id);
+          const result = this.impl.getSeamlessRefreshRates(params.arg_display_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_ranges' in response) ? response.arg_arg_ranges : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_ranges' in response) ? response.arg_ranges : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec.$.structSpec, { 'arg_ranges': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getSeamlessRefreshRates FAILED:', e));
           }
@@ -775,7 +775,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeviceCursor');
-          const result = this.impl.getDeviceCursor(params.arg_arg_cursor);
+          const result = this.impl.getDeviceCursor(params.arg_cursor);
           break;
         }
       }

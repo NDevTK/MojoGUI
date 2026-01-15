@@ -221,7 +221,7 @@ mojo.internal.bindings.ash.heartd.mojom.HeartdControlRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.ash.heartd.mojom.HeartdControlRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.ash.heartd.mojom.HeartdControlRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec,
       mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec,
-      [arg_action],
+      { arg_action: arg_action },
       false);
   }
 
@@ -324,13 +324,13 @@ mojo.internal.bindings.ash.heartd.mojom.HeartdControlReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runAction');
-          const result = this.impl.runAction(params.arg_arg_action);
+          const result = this.impl.runAction(params.arg_action);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runAction FAILED:', e));
           }
@@ -394,7 +394,7 @@ mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ParamsSpec,
       mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec,
-      [arg_name, arg_argument, arg_receiver],
+      { arg_name: arg_name, arg_argument: arg_argument, arg_receiver: arg_receiver },
       false);
   }
 
@@ -463,13 +463,13 @@ mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.register');
-          const result = this.impl.register(params.arg_arg_name, params.arg_arg_argument, params.arg_arg_receiver);
+          const result = this.impl.register(params.arg_name, params.arg_argument, params.arg_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] register FAILED:', e));
           }
@@ -537,7 +537,7 @@ mojo.internal.bindings.ash.heartd.mojom.PacemakerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec,
       mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -546,7 +546,7 @@ mojo.internal.bindings.ash.heartd.mojom.PacemakerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec,
       mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -621,8 +621,8 @@ mojo.internal.bindings.ash.heartd.mojom.PacemakerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendHeartbeat FAILED:', e));
           }
@@ -637,7 +637,7 @@ mojo.internal.bindings.ash.heartd.mojom.PacemakerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] stopMonitor FAILED:', e));
           }

@@ -207,7 +207,7 @@ mojo.internal.bindings.arc.mojom.ScreenCaptureHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ScreenCaptureHost_RequestPermission_ResponseParamsSpec,
-      [arg_display_name, arg_package_name],
+      { arg_display_name: arg_display_name, arg_package_name: arg_package_name },
       false);
   }
 
@@ -216,7 +216,7 @@ mojo.internal.bindings.arc.mojom.ScreenCaptureHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec,
       null,
-      [arg_package_name],
+      { arg_package_name: arg_package_name },
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.arc.mojom.ScreenCaptureHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ScreenCaptureHost_OpenSession_ResponseParamsSpec,
-      [arg_notifier, arg_package_name, arg_size],
+      { arg_notifier: arg_notifier, arg_package_name: arg_package_name, arg_size: arg_size },
       false);
   }
 
@@ -296,13 +296,13 @@ mojo.internal.bindings.arc.mojom.ScreenCaptureHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPermission');
-          const result = this.impl.requestPermission(params.arg_arg_display_name, params.arg_arg_package_name);
+          const result = this.impl.requestPermission(params.arg_display_name, params.arg_package_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_granted' in response) ? response.arg_arg_granted : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ScreenCaptureHost_RequestPermission_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_granted' in response) ? response.arg_granted : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ScreenCaptureHost_RequestPermission_ResponseParamsSpec.$.structSpec, { 'arg_granted': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestPermission FAILED:', e));
           }
@@ -312,20 +312,20 @@ mojo.internal.bindings.arc.mojom.ScreenCaptureHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.testModeAcceptPermission');
-          const result = this.impl.testModeAcceptPermission(params.arg_arg_package_name);
+          const result = this.impl.testModeAcceptPermission(params.arg_package_name);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openSession');
-          const result = this.impl.openSession(params.arg_arg_notifier, params.arg_arg_package_name, params.arg_arg_size);
+          const result = this.impl.openSession(params.arg_notifier, params.arg_package_name, params.arg_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_session' in response) ? response.arg_arg_session : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ScreenCaptureHost_OpenSession_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_session' in response) ? response.arg_session : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ScreenCaptureHost_OpenSession_ResponseParamsSpec.$.structSpec, { 'arg_session': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openSession FAILED:', e));
           }
@@ -393,7 +393,7 @@ mojo.internal.bindings.arc.mojom.ScreenCaptureSessionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ResponseParamsSpec,
-      [arg_graphics_buffer, arg_stride],
+      { arg_graphics_buffer: arg_graphics_buffer, arg_stride: arg_stride },
       false);
   }
 
@@ -402,7 +402,7 @@ mojo.internal.bindings.arc.mojom.ScreenCaptureSessionRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ScreenCaptureSession_SetOutputBuffer_ResponseParamsSpec,
-      [arg_graphics_buffer, arg_buffer_format, arg_buffer_format_modifier, arg_stride],
+      { arg_graphics_buffer: arg_graphics_buffer, arg_buffer_format: arg_buffer_format, arg_buffer_format_modifier: arg_buffer_format_modifier, arg_stride: arg_stride },
       false);
   }
 
@@ -472,12 +472,12 @@ mojo.internal.bindings.arc.mojom.ScreenCaptureSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOutputBufferDeprecated');
-          const result = this.impl.setOutputBufferDeprecated(params.arg_arg_graphics_buffer, params.arg_arg_stride);
+          const result = this.impl.setOutputBufferDeprecated(params.arg_graphics_buffer, params.arg_stride);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setOutputBufferDeprecated FAILED:', e));
           }
@@ -487,12 +487,12 @@ mojo.internal.bindings.arc.mojom.ScreenCaptureSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOutputBuffer');
-          const result = this.impl.setOutputBuffer(params.arg_arg_graphics_buffer, params.arg_arg_buffer_format, params.arg_arg_buffer_format_modifier, params.arg_arg_stride);
+          const result = this.impl.setOutputBuffer(params.arg_graphics_buffer, params.arg_buffer_format, params.arg_buffer_format_modifier, params.arg_stride);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ScreenCaptureSession_SetOutputBuffer_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ScreenCaptureSession_SetOutputBuffer_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setOutputBuffer FAILED:', e));
           }
@@ -556,7 +556,7 @@ mojo.internal.bindings.arc.mojom.ScreenCaptureInstanceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ScreenCaptureInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ScreenCaptureInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -625,12 +625,12 @@ mojo.internal.bindings.arc.mojom.ScreenCaptureInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ScreenCaptureInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ScreenCaptureInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ScreenCaptureInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -694,7 +694,7 @@ mojo.internal.bindings.arc.mojom.ScreenCaptureSessionNotifierRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

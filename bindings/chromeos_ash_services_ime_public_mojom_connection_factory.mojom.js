@@ -199,7 +199,7 @@ mojo.internal.bindings.ash.ime.mojom.ConnectionFactoryRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec,
-      [arg_ime_spec, arg_input_method, arg_input_method_host, arg_settings],
+      { arg_ime_spec: arg_ime_spec, arg_input_method: arg_input_method, arg_input_method_host: arg_input_method_host, arg_settings: arg_settings },
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.ash.ime.mojom.ConnectionFactoryRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec,
-      [arg_unused],
+      { arg_unused: arg_unused },
       false);
   }
 
@@ -278,13 +278,13 @@ mojo.internal.bindings.ash.ime.mojom.ConnectionFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToInputMethod');
-          const result = this.impl.connectToInputMethod(params.arg_arg_ime_spec, params.arg_arg_input_method, params.arg_arg_input_method_host, params.arg_arg_settings);
+          const result = this.impl.connectToInputMethod(params.arg_ime_spec, params.arg_input_method, params.arg_input_method_host, params.arg_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] connectToInputMethod FAILED:', e));
           }
@@ -294,13 +294,13 @@ mojo.internal.bindings.ash.ime.mojom.ConnectionFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unused');
-          const result = this.impl.unused(params.arg_arg_unused);
+          const result = this.impl.unused(params.arg_unused);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] unused FAILED:', e));
           }

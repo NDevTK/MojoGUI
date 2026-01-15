@@ -367,7 +367,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -376,7 +376,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_Start_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_ReplyToInquiry_ParamsSpec,
       null,
-      [arg_reply],
+      { arg_reply: arg_reply },
       false);
   }
 
@@ -461,8 +461,8 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlReceiver =
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response.arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ResponseParamsSpec.$.structSpec, { 'arg_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getState FAILED:', e));
           }
@@ -479,7 +479,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_ReplyToInquiry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.replyToInquiry');
-          const result = this.impl.replyToInquiry(params.arg_arg_reply);
+          const result = this.impl.replyToInquiry(params.arg_reply);
           break;
         }
       }
@@ -540,7 +540,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserverRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserver_OnRoutineStateChange_ParamsSpec,
       null,
-      [arg_state],
+      { arg_state: arg_state },
       false);
   }
 
@@ -609,7 +609,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserverReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserver_OnRoutineStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRoutineStateChange');
-          const result = this.impl.onRoutineStateChange(params.arg_arg_state);
+          const result = this.impl.onRoutineStateChange(params.arg_state);
           break;
         }
       }
@@ -674,7 +674,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec,
       null,
-      [arg_routine_argument, arg_routine_receiver, arg_routine_observer],
+      { arg_routine_argument: arg_routine_argument, arg_routine_receiver: arg_routine_receiver, arg_routine_observer: arg_routine_observer },
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec,
-      [arg_routine_argument],
+      { arg_routine_argument: arg_routine_argument },
       false);
   }
 
@@ -753,20 +753,20 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesServiceReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createRoutine');
-          const result = this.impl.createRoutine(params.arg_arg_routine_argument, params.arg_arg_routine_receiver, params.arg_arg_routine_observer);
+          const result = this.impl.createRoutine(params.arg_routine_argument, params.arg_routine_receiver, params.arg_routine_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isRoutineArgumentSupported');
-          const result = this.impl.isRoutineArgumentSupported(params.arg_arg_routine_argument);
+          const result = this.impl.isRoutineArgumentSupported(params.arg_routine_argument);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isRoutineArgumentSupported FAILED:', e));
           }

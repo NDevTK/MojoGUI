@@ -248,7 +248,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteObjectHost_GetObject_ParamsSpec,
       null,
-      [arg_object_id, arg_receiver],
+      { arg_object_id: arg_object_id, arg_receiver: arg_receiver },
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec,
       null,
-      [arg_object_id],
+      { arg_object_id: arg_object_id },
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec,
       null,
-      [arg_object_id],
+      { arg_object_id: arg_object_id },
       false);
   }
 
@@ -337,21 +337,21 @@ mojo.internal.bindings.blink.mojom.RemoteObjectHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteObjectHost_GetObject_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getObject');
-          const result = this.impl.getObject(params.arg_arg_object_id, params.arg_arg_receiver);
+          const result = this.impl.getObject(params.arg_object_id, params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.acquireObject');
-          const result = this.impl.acquireObject(params.arg_arg_object_id);
+          const result = this.impl.acquireObject(params.arg_object_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.releaseObject');
-          const result = this.impl.releaseObject(params.arg_arg_object_id);
+          const result = this.impl.releaseObject(params.arg_object_id);
           break;
         }
       }
@@ -424,7 +424,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ParamsSpec,
       mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec,
-      [arg_name],
+      { arg_name: arg_name },
       false);
   }
 
@@ -433,7 +433,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ParamsSpec,
       mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -442,7 +442,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ParamsSpec,
       mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec,
-      [arg_name, arg_arguments],
+      { arg_name: arg_name, arg_arguments: arg_arguments },
       false);
   }
 
@@ -451,7 +451,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -523,13 +523,13 @@ mojo.internal.bindings.blink.mojom.RemoteObjectReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasMethod');
-          const result = this.impl.hasMethod(params.arg_arg_name);
+          const result = this.impl.hasMethod(params.arg_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_method_exists' in response) ? response.arg_arg_method_exists : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_method_exists' in response) ? response.arg_method_exists : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec.$.structSpec, { 'arg_method_exists': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] hasMethod FAILED:', e));
           }
@@ -544,8 +544,8 @@ mojo.internal.bindings.blink.mojom.RemoteObjectReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_method_names' in response) ? response.arg_arg_method_names : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_method_names' in response) ? response.arg_method_names : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec.$.structSpec, { 'arg_method_names': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMethods FAILED:', e));
           }
@@ -555,13 +555,13 @@ mojo.internal.bindings.blink.mojom.RemoteObjectReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.invokeMethod');
-          const result = this.impl.invokeMethod(params.arg_arg_name, params.arg_arg_arguments);
+          const result = this.impl.invokeMethod(params.arg_name, params.arg_arguments);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] invokeMethod FAILED:', e));
           }
@@ -632,7 +632,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactoryRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec,
       null,
-      [arg_host, arg_gateway],
+      { arg_host: arg_host, arg_gateway: arg_gateway },
       false);
   }
 
@@ -701,7 +701,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createRemoteObjectGateway');
-          const result = this.impl.createRemoteObjectGateway(params.arg_arg_host, params.arg_arg_gateway);
+          const result = this.impl.createRemoteObjectGateway(params.arg_host, params.arg_gateway);
           break;
         }
       }
@@ -766,7 +766,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectGatewayRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec,
       null,
-      [arg_name, arg_object_id],
+      { arg_name: arg_name, arg_object_id: arg_object_id },
       false);
   }
 
@@ -775,7 +775,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectGatewayRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec,
       null,
-      [arg_name],
+      { arg_name: arg_name },
       false);
   }
 
@@ -845,14 +845,14 @@ mojo.internal.bindings.blink.mojom.RemoteObjectGatewayReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addNamedObject');
-          const result = this.impl.addNamedObject(params.arg_arg_name, params.arg_arg_object_id);
+          const result = this.impl.addNamedObject(params.arg_name, params.arg_object_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeNamedObject');
-          const result = this.impl.removeNamedObject(params.arg_arg_name);
+          const result = this.impl.removeNamedObject(params.arg_name);
           break;
         }
       }

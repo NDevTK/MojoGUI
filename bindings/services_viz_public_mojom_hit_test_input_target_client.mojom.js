@@ -180,7 +180,7 @@ mojo.internal.bindings.viz.mojom.InputTargetClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec,
       mojo.internal.bindings.viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec,
-      [arg_point, arg_trace_id],
+      { arg_point: arg_point, arg_trace_id: arg_trace_id },
       false);
   }
 
@@ -249,12 +249,12 @@ mojo.internal.bindings.viz.mojom.InputTargetClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.frameSinkIdAt');
-          const result = this.impl.frameSinkIdAt(params.arg_arg_point, params.arg_arg_trace_id);
+          const result = this.impl.frameSinkIdAt(params.arg_point, params.arg_trace_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec.$.structSpec, ['response.arg_arg_id', 'response.arg_arg_local_point']);
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec.$.structSpec, { 'arg_id': response.arg_id, 'arg_local_point': response.arg_local_point });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] frameSinkIdAt FAILED:', e));
           }

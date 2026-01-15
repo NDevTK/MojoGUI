@@ -175,7 +175,7 @@ mojo.internal.bindings.mojo_base.mojom.BinderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojo_base.mojom.Binder_Bind_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.mojo_base.mojom.BinderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojo_base.mojom.Binder_Bind_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bind');
-          const result = this.impl.bind(params.arg_arg_receiver);
+          const result = this.impl.bind(params.arg_receiver);
           break;
         }
       }

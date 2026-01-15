@@ -226,7 +226,7 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec,
-      [arg_package_name, arg_scope, arg_item_ids],
+      { arg_package_name: arg_package_name, arg_scope: arg_scope, arg_item_ids: arg_item_ids },
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec,
-      [arg_package_name, arg_scope, arg_purchase_token, arg_make_available_again],
+      { arg_package_name: arg_package_name, arg_scope: arg_scope, arg_purchase_token: arg_purchase_token, arg_make_available_again: arg_make_available_again },
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec,
-      [arg_package_name, arg_scope],
+      { arg_package_name: arg_package_name, arg_scope: arg_scope },
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec,
-      [arg_package_name, arg_scope],
+      { arg_package_name: arg_package_name, arg_scope: arg_scope },
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec,
-      [arg_package_name, arg_scope],
+      { arg_package_name: arg_package_name, arg_scope: arg_scope },
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec,
-      [arg_package_name, arg_scope, arg_purchase_token],
+      { arg_package_name: arg_package_name, arg_scope: arg_scope, arg_purchase_token: arg_purchase_token },
       false);
   }
 
@@ -345,12 +345,12 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDetails');
-          const result = this.impl.getDetails(params.arg_arg_package_name, params.arg_arg_scope, params.arg_arg_item_ids);
+          const result = this.impl.getDetails(params.arg_package_name, params.arg_scope, params.arg_item_ids);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec.$.structSpec, ['response.arg_arg_code', 'response.arg_arg_item_details_list']);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec.$.structSpec, { 'arg_code': response.arg_code, 'arg_item_details_list': response.arg_item_details_list });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDetails FAILED:', e));
           }
@@ -360,13 +360,13 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.acknowledge');
-          const result = this.impl.acknowledge(params.arg_arg_package_name, params.arg_arg_scope, params.arg_arg_purchase_token, params.arg_arg_make_available_again);
+          const result = this.impl.acknowledge(params.arg_package_name, params.arg_scope, params.arg_purchase_token, params.arg_make_available_again);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_code' in response) ? response.arg_arg_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_code' in response) ? response.arg_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec.$.structSpec, { 'arg_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] acknowledge FAILED:', e));
           }
@@ -376,12 +376,12 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deprecatedListPurchases');
-          const result = this.impl.deprecatedListPurchases(params.arg_arg_package_name, params.arg_arg_scope);
+          const result = this.impl.deprecatedListPurchases(params.arg_package_name, params.arg_scope);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec.$.structSpec, ['response.arg_arg_code', 'response.arg_arg_purchase_details_list']);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec.$.structSpec, { 'arg_code': response.arg_code, 'arg_purchase_details_list': response.arg_purchase_details_list });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deprecatedListPurchases FAILED:', e));
           }
@@ -391,12 +391,12 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listPurchases');
-          const result = this.impl.listPurchases(params.arg_arg_package_name, params.arg_arg_scope);
+          const result = this.impl.listPurchases(params.arg_package_name, params.arg_scope);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec.$.structSpec, ['response.arg_arg_code', 'response.arg_arg_purchase_reference_list']);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec.$.structSpec, { 'arg_code': response.arg_code, 'arg_purchase_reference_list': response.arg_purchase_reference_list });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] listPurchases FAILED:', e));
           }
@@ -406,12 +406,12 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listPurchaseHistory');
-          const result = this.impl.listPurchaseHistory(params.arg_arg_package_name, params.arg_arg_scope);
+          const result = this.impl.listPurchaseHistory(params.arg_package_name, params.arg_scope);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec.$.structSpec, ['response.arg_arg_code', 'response.arg_arg_purchase_reference_list']);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec.$.structSpec, { 'arg_code': response.arg_code, 'arg_purchase_reference_list': response.arg_purchase_reference_list });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] listPurchaseHistory FAILED:', e));
           }
@@ -421,13 +421,13 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.consume');
-          const result = this.impl.consume(params.arg_arg_package_name, params.arg_arg_scope, params.arg_arg_purchase_token);
+          const result = this.impl.consume(params.arg_package_name, params.arg_scope, params.arg_purchase_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_code' in response) ? response.arg_arg_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_code' in response) ? response.arg_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec.$.structSpec, { 'arg_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] consume FAILED:', e));
           }

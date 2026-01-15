@@ -256,7 +256,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageEntriesListenerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageEntriesListener_DidReadEntries_ParamsSpec,
       null,
-      [arg_success, arg_error_message, arg_entries, arg_has_more_entries, arg_total_queued_to_send],
+      { arg_success: arg_success, arg_error_message: arg_error_message, arg_entries: arg_entries, arg_has_more_entries: arg_has_more_entries, arg_total_queued_to_send: arg_total_queued_to_send },
       false);
   }
 
@@ -325,7 +325,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageEntriesListenerReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageEntriesListener_DidReadEntries_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didReadEntries');
-          const result = this.impl.didReadEntries(params.arg_arg_success, params.arg_arg_error_message, params.arg_arg_entries, params.arg_arg_has_more_entries, params.arg_arg_total_queued_to_send);
+          const result = this.impl.didReadEntries(params.arg_success, params.arg_error_message, params.arg_entries, params.arg_has_more_entries, params.arg_total_queued_to_send);
           break;
         }
       }
@@ -422,7 +422,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ResponseParamsSpec,
-      [arg_method_with_options],
+      { arg_method_with_options: arg_method_with_options },
       false);
   }
 
@@ -431,7 +431,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ResponseParamsSpec,
-      [arg_methods_with_options, arg_with_lock],
+      { arg_methods_with_options: arg_methods_with_options, arg_with_lock: arg_with_lock },
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ResponseParamsSpec,
-      [arg_key],
+      { arg_key: arg_key },
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageKeys_ParamsSpec,
       null,
-      [arg_listener],
+      { arg_listener: arg_listener },
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHa
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageEntries_ParamsSpec,
       null,
-      [arg_listener, arg_values_only],
+      { arg_listener: arg_listener, arg_values_only: arg_values_only },
       false);
   }
 
@@ -467,7 +467,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHa
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -476,7 +476,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHa
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -485,7 +485,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHa
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -494,7 +494,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHa
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_DidAddMessageToConsole_ParamsSpec,
       null,
-      [arg_log_level, arg_message],
+      { arg_log_level: arg_log_level, arg_message: arg_message },
       false);
   }
 
@@ -503,7 +503,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHa
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_RecordUseCounters_ParamsSpec,
       null,
-      [arg_features],
+      { arg_features: arg_features },
       false);
   }
 
@@ -581,13 +581,13 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageUpdate');
-          const result = this.impl.sharedStorageUpdate(params.arg_arg_method_with_options);
+          const result = this.impl.sharedStorageUpdate(params.arg_method_with_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_message' in response) ? response.arg_arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sharedStorageUpdate FAILED:', e));
           }
@@ -597,13 +597,13 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageBatchUpdate');
-          const result = this.impl.sharedStorageBatchUpdate(params.arg_arg_methods_with_options, params.arg_arg_with_lock);
+          const result = this.impl.sharedStorageBatchUpdate(params.arg_methods_with_options, params.arg_with_lock);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_message' in response) ? response.arg_arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sharedStorageBatchUpdate FAILED:', e));
           }
@@ -613,12 +613,12 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageGet');
-          const result = this.impl.sharedStorageGet(params.arg_arg_key);
+          const result = this.impl.sharedStorageGet(params.arg_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_error_message', 'response.arg_arg_value']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_error_message': response.arg_error_message, 'arg_value': response.arg_value });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sharedStorageGet FAILED:', e));
           }
@@ -628,14 +628,14 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageKeys_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageKeys');
-          const result = this.impl.sharedStorageKeys(params.arg_arg_listener);
+          const result = this.impl.sharedStorageKeys(params.arg_listener);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageEntries_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageEntries');
-          const result = this.impl.sharedStorageEntries(params.arg_arg_listener, params.arg_arg_values_only);
+          const result = this.impl.sharedStorageEntries(params.arg_listener, params.arg_values_only);
           break;
         }
         case 5: {
@@ -647,7 +647,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_error_message', 'response.arg_arg_length']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_error_message': response.arg_error_message, 'arg_length': response.arg_length });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sharedStorageLength FAILED:', e));
           }
@@ -662,7 +662,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_error_message', 'response.arg_arg_bits']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_error_message': response.arg_error_message, 'arg_bits': response.arg_bits });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sharedStorageRemainingBudget FAILED:', e));
           }
@@ -677,8 +677,8 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getInterestGroups FAILED:', e));
           }
@@ -688,14 +688,14 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_DidAddMessageToConsole_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didAddMessageToConsole');
-          const result = this.impl.didAddMessageToConsole(params.arg_arg_log_level, params.arg_arg_message);
+          const result = this.impl.didAddMessageToConsole(params.arg_log_level, params.arg_message);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_RecordUseCounters_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordUseCounters');
-          const result = this.impl.recordUseCounters(params.arg_arg_features);
+          const result = this.impl.recordUseCounters(params.arg_features);
           break;
         }
       }
@@ -768,7 +768,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_Initialize_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_Initialize_ResponseParamsSpec,
-      [arg_client, arg_permissions_policy_state, arg_embedder_context],
+      { arg_client: arg_client, arg_permissions_policy_state: arg_permissions_policy_state, arg_embedder_context: arg_embedder_context },
       false);
   }
 
@@ -777,7 +777,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_AddModule_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_AddModule_ResponseParamsSpec,
-      [arg_url_loader_factory, arg_script_source_url],
+      { arg_url_loader_factory: arg_url_loader_factory, arg_script_source_url: arg_script_source_url },
       false);
   }
 
@@ -786,7 +786,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ResponseParamsSpec,
-      [arg_name, arg_urls, arg_serialized_data, arg_pa_operation_details],
+      { arg_name: arg_name, arg_urls: arg_urls, arg_serialized_data: arg_serialized_data, arg_pa_operation_details: arg_pa_operation_details },
       false);
   }
 
@@ -795,7 +795,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunOperation_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunOperation_ResponseParamsSpec,
-      [arg_name, arg_serialized_data, arg_pa_operation_details],
+      { arg_name: arg_name, arg_serialized_data: arg_serialized_data, arg_pa_operation_details: arg_pa_operation_details },
       false);
   }
 
@@ -867,13 +867,13 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_arg_client, params.arg_arg_permissions_policy_state, params.arg_arg_embedder_context);
+          const result = this.impl.initialize(params.arg_client, params.arg_permissions_policy_state, params.arg_embedder_context);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_token' in response) ? response.arg_arg_token : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_Initialize_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_token' in response) ? response.arg_token : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_Initialize_ResponseParamsSpec.$.structSpec, { 'arg_token': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] initialize FAILED:', e));
           }
@@ -883,12 +883,12 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_AddModule_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addModule');
-          const result = this.impl.addModule(params.arg_arg_url_loader_factory, params.arg_arg_script_source_url);
+          const result = this.impl.addModule(params.arg_url_loader_factory, params.arg_script_source_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_AddModule_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_error_message']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_AddModule_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_error_message': response.arg_error_message });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addModule FAILED:', e));
           }
@@ -898,12 +898,12 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runURLSelectionOperation');
-          const result = this.impl.runURLSelectionOperation(params.arg_arg_name, params.arg_arg_urls, params.arg_arg_serialized_data, params.arg_arg_pa_operation_details);
+          const result = this.impl.runURLSelectionOperation(params.arg_name, params.arg_urls, params.arg_serialized_data, params.arg_pa_operation_details);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_error_message', 'response.arg_arg_index']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_error_message': response.arg_error_message, 'arg_index': response.arg_index });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runURLSelectionOperation FAILED:', e));
           }
@@ -913,12 +913,12 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunOperation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runOperation');
-          const result = this.impl.runOperation(params.arg_arg_name, params.arg_arg_serialized_data, params.arg_arg_pa_operation_details);
+          const result = this.impl.runOperation(params.arg_name, params.arg_serialized_data, params.arg_pa_operation_details);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunOperation_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_error_message']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunOperation_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_error_message': response.arg_error_message });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] runOperation FAILED:', e));
           }

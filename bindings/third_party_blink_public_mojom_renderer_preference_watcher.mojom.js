@@ -175,7 +175,7 @@ mojo.internal.bindings.blink.mojom.RendererPreferenceWatcherRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec,
       null,
-      [arg_new_prefs],
+      { arg_new_prefs: arg_new_prefs },
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.blink.mojom.RendererPreferenceWatcherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyUpdate');
-          const result = this.impl.notifyUpdate(params.arg_arg_new_prefs);
+          const result = this.impl.notifyUpdate(params.arg_new_prefs);
           break;
         }
       }

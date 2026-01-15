@@ -274,7 +274,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProviderRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec,
       mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -343,13 +343,13 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProviderReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHelpContents');
-          const result = this.impl.getHelpContents(params.arg_arg_request);
+          const result = this.impl.getHelpContents(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getHelpContents FAILED:', e));
           }
@@ -461,7 +461,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec,
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -470,7 +470,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec,
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -479,7 +479,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec,
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec,
-      [arg_report],
+      { arg_report: arg_report },
       false);
   }
 
@@ -488,7 +488,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -506,7 +506,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -515,7 +515,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -524,7 +524,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec,
       null,
-      [arg_autofill_metadata],
+      { arg_autofill_metadata: arg_autofill_metadata },
       false);
   }
 
@@ -533,7 +533,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec,
       null,
-      [arg_action],
+      { arg_action: arg_action },
       false);
   }
 
@@ -542,7 +542,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec,
       null,
-      [arg_action],
+      { arg_action: arg_action },
       false);
   }
 
@@ -551,7 +551,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec,
       null,
-      [arg_exit_path],
+      { arg_exit_path: arg_exit_path },
       false);
   }
 
@@ -560,7 +560,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec,
       null,
-      [arg_outcome],
+      { arg_outcome: arg_outcome },
       false);
   }
 
@@ -569,7 +569,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec,
       null,
-      [arg_count],
+      { arg_count: arg_count },
       false);
   }
 
@@ -655,8 +655,8 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_feedback_context' in response) ? response.arg_arg_feedback_context : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_feedback_context' in response) ? response.arg_feedback_context : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec.$.structSpec, { 'arg_feedback_context': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFeedbackContext FAILED:', e));
           }
@@ -671,8 +671,8 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_png_data' in response) ? response.arg_arg_png_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_png_data' in response) ? response.arg_png_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec.$.structSpec, { 'arg_png_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getScreenshotPng FAILED:', e));
           }
@@ -682,13 +682,13 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendReport');
-          const result = this.impl.sendReport(params.arg_arg_report);
+          const result = this.impl.sendReport(params.arg_report);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendReport FAILED:', e));
           }
@@ -726,42 +726,42 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openAutofillDialog');
-          const result = this.impl.openAutofillDialog(params.arg_arg_autofill_metadata);
+          const result = this.impl.openAutofillDialog(params.arg_autofill_metadata);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordPostSubmitAction');
-          const result = this.impl.recordPostSubmitAction(params.arg_arg_action);
+          const result = this.impl.recordPostSubmitAction(params.arg_action);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordPreSubmitAction');
-          const result = this.impl.recordPreSubmitAction(params.arg_arg_action);
+          const result = this.impl.recordPreSubmitAction(params.arg_action);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordExitPath');
-          const result = this.impl.recordExitPath(params.arg_arg_exit_path);
+          const result = this.impl.recordExitPath(params.arg_exit_path);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordHelpContentOutcome');
-          const result = this.impl.recordHelpContentOutcome(params.arg_arg_outcome);
+          const result = this.impl.recordHelpContentOutcome(params.arg_outcome);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordHelpContentSearchResultCount');
-          const result = this.impl.recordHelpContentSearchResultCount(params.arg_arg_count);
+          const result = this.impl.recordHelpContentSearchResultCount(params.arg_count);
           break;
         }
       }

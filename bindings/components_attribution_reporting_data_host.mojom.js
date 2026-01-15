@@ -214,7 +214,7 @@ mojo.internal.bindings.attribution_reporting.mojom.DataHostRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec,
       null,
-      [arg_reporting_origin, arg_data, arg_was_fetched_via_service_worker],
+      { arg_reporting_origin: arg_reporting_origin, arg_data: arg_data, arg_was_fetched_via_service_worker: arg_was_fetched_via_service_worker },
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.attribution_reporting.mojom.DataHostRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec,
       null,
-      [arg_reporting_origin, arg_data, arg_was_fetched_via_service_worker],
+      { arg_reporting_origin: arg_reporting_origin, arg_data: arg_data, arg_was_fetched_via_service_worker: arg_was_fetched_via_service_worker },
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.attribution_reporting.mojom.DataHostRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec,
       null,
-      [arg_registration, arg_was_fetched_via_service_worker],
+      { arg_registration: arg_registration, arg_was_fetched_via_service_worker: arg_was_fetched_via_service_worker },
       false);
   }
 
@@ -241,7 +241,7 @@ mojo.internal.bindings.attribution_reporting.mojom.DataHostRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec,
       null,
-      [arg_registration, arg_was_fetched_via_service_worker],
+      { arg_registration: arg_registration, arg_was_fetched_via_service_worker: arg_was_fetched_via_service_worker },
       false);
   }
 
@@ -250,7 +250,7 @@ mojo.internal.bindings.attribution_reporting.mojom.DataHostRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec,
       null,
-      [arg_reporting_origin, arg_error],
+      { arg_reporting_origin: arg_reporting_origin, arg_error: arg_error },
       false);
   }
 
@@ -323,35 +323,35 @@ mojo.internal.bindings.attribution_reporting.mojom.DataHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sourceDataAvailable');
-          const result = this.impl.sourceDataAvailable(params.arg_arg_reporting_origin, params.arg_arg_data, params.arg_arg_was_fetched_via_service_worker);
+          const result = this.impl.sourceDataAvailable(params.arg_reporting_origin, params.arg_data, params.arg_was_fetched_via_service_worker);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.triggerDataAvailable');
-          const result = this.impl.triggerDataAvailable(params.arg_arg_reporting_origin, params.arg_arg_data, params.arg_arg_was_fetched_via_service_worker);
+          const result = this.impl.triggerDataAvailable(params.arg_reporting_origin, params.arg_data, params.arg_was_fetched_via_service_worker);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.osSourceDataAvailable');
-          const result = this.impl.osSourceDataAvailable(params.arg_arg_registration, params.arg_arg_was_fetched_via_service_worker);
+          const result = this.impl.osSourceDataAvailable(params.arg_registration, params.arg_was_fetched_via_service_worker);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.osTriggerDataAvailable');
-          const result = this.impl.osTriggerDataAvailable(params.arg_arg_registration, params.arg_arg_was_fetched_via_service_worker);
+          const result = this.impl.osTriggerDataAvailable(params.arg_registration, params.arg_was_fetched_via_service_worker);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportRegistrationHeaderError');
-          const result = this.impl.reportRegistrationHeaderError(params.arg_arg_reporting_origin, params.arg_arg_error);
+          const result = this.impl.reportRegistrationHeaderError(params.arg_reporting_origin, params.arg_error);
           break;
         }
       }

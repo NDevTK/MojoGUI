@@ -176,7 +176,7 @@ mojo.internal.bindings.wl.mojom.ConfigTraitsTestServiceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec,
       mojo.internal.bindings.wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec,
-      [arg_t],
+      { arg_t: arg_t },
       false);
   }
 
@@ -245,13 +245,13 @@ mojo.internal.bindings.wl.mojom.ConfigTraitsTestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoTransform');
-          const result = this.impl.echoTransform(params.arg_arg_t);
+          const result = this.impl.echoTransform(params.arg_t);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pass' in response) ? response.arg_arg_pass : response;
-              encoder.encodeStructInline(mojo.internal.bindings.wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pass' in response) ? response.arg_pass : response;
+              encoder.encodeStructInline(mojo.internal.bindings.wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec.$.structSpec, { 'arg_pass': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoTransform FAILED:', e));
           }

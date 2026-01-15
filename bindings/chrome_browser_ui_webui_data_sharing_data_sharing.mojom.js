@@ -238,7 +238,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerFactoryRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -307,7 +307,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_sharing.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -404,7 +404,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandler_ShowUI_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -413,7 +413,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandler_CloseUI_ParamsSpec,
       null,
-      [arg_status_code],
+      { arg_status_code: arg_status_code },
       false);
   }
 
@@ -422,7 +422,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandler_ApiInitComplete_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -431,7 +431,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec,
       mojo.internal.bindings.data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec,
-      [arg_tab_group_id, arg_group_id, arg_access_token],
+      { arg_tab_group_id: arg_tab_group_id, arg_group_id: arg_group_id, arg_access_token: arg_access_token },
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec,
       mojo.internal.bindings.data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec,
-      [arg_group_id, arg_access_token],
+      { arg_group_id: arg_group_id, arg_access_token: arg_access_token },
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec,
       mojo.internal.bindings.data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec,
-      [arg_group_id, arg_access_token],
+      { arg_group_id: arg_group_id, arg_access_token: arg_access_token },
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandler_OpenTabGroup_ParamsSpec,
       null,
-      [arg_group_id],
+      { arg_group_id: arg_group_id },
       false);
   }
 
@@ -467,7 +467,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec,
       null,
-      [arg_tab_group_id],
+      { arg_tab_group_id: arg_tab_group_id },
       false);
   }
 
@@ -476,7 +476,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec,
       null,
-      [arg_tab_group_id],
+      { arg_tab_group_id: arg_tab_group_id },
       false);
   }
 
@@ -485,7 +485,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec,
       null,
-      [arg_action, arg_progress],
+      { arg_action: arg_action, arg_progress: arg_progress },
       false);
   }
 
@@ -570,7 +570,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_sharing.mojom.PageHandler_CloseUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeUI');
-          const result = this.impl.closeUI(params.arg_arg_status_code);
+          const result = this.impl.closeUI(params.arg_status_code);
           break;
         }
         case 2: {
@@ -584,13 +584,13 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.makeTabGroupShared');
-          const result = this.impl.makeTabGroupShared(params.arg_arg_tab_group_id, params.arg_arg_group_id, params.arg_arg_access_token);
+          const result = this.impl.makeTabGroupShared(params.arg_tab_group_id, params.arg_group_id, params.arg_access_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_url' in response) ? response.arg_arg_url : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_url' in response) ? response.arg_url : response;
+              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec.$.structSpec, { 'arg_url': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] makeTabGroupShared FAILED:', e));
           }
@@ -600,13 +600,13 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getShareLink');
-          const result = this.impl.getShareLink(params.arg_arg_group_id, params.arg_arg_access_token);
+          const result = this.impl.getShareLink(params.arg_group_id, params.arg_access_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_url' in response) ? response.arg_arg_url : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_url' in response) ? response.arg_url : response;
+              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec.$.structSpec, { 'arg_url': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getShareLink FAILED:', e));
           }
@@ -616,13 +616,13 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTabGroupPreview');
-          const result = this.impl.getTabGroupPreview(params.arg_arg_group_id, params.arg_arg_access_token);
+          const result = this.impl.getTabGroupPreview(params.arg_group_id, params.arg_access_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_group_preview' in response) ? response.arg_arg_group_preview : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_group_preview' in response) ? response.arg_group_preview : response;
+              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec.$.structSpec, { 'arg_group_preview': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getTabGroupPreview FAILED:', e));
           }
@@ -632,28 +632,28 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_sharing.mojom.PageHandler_OpenTabGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openTabGroup');
-          const result = this.impl.openTabGroup(params.arg_arg_group_id);
+          const result = this.impl.openTabGroup(params.arg_group_id);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.aboutToUnShareTabGroup');
-          const result = this.impl.aboutToUnShareTabGroup(params.arg_arg_tab_group_id);
+          const result = this.impl.aboutToUnShareTabGroup(params.arg_tab_group_id);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTabGroupUnShareComplete');
-          const result = this.impl.onTabGroupUnShareComplete(params.arg_arg_tab_group_id);
+          const result = this.impl.onTabGroupUnShareComplete(params.arg_tab_group_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGroupAction');
-          const result = this.impl.onGroupAction(params.arg_arg_action, params.arg_arg_progress);
+          const result = this.impl.onGroupAction(params.arg_action, params.arg_progress);
           break;
         }
       }
@@ -730,7 +730,7 @@ mojo.internal.bindings.data_sharing.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.Page_OnAccessTokenFetched_ParamsSpec,
       null,
-      [arg_access_token],
+      { arg_access_token: arg_access_token },
       false);
   }
 
@@ -739,7 +739,7 @@ mojo.internal.bindings.data_sharing.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.Page_ReadGroups_ParamsSpec,
       mojo.internal.bindings.data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec,
-      [arg_read_groups_params],
+      { arg_read_groups_params: arg_read_groups_params },
       false);
   }
 
@@ -748,7 +748,7 @@ mojo.internal.bindings.data_sharing.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec,
       mojo.internal.bindings.data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec,
-      [arg_param],
+      { arg_param: arg_param },
       false);
   }
 
@@ -757,7 +757,7 @@ mojo.internal.bindings.data_sharing.mojom.PageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.Page_DeleteGroup_ParamsSpec,
       mojo.internal.bindings.data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec,
-      [arg_group_id],
+      { arg_group_id: arg_group_id },
       false);
   }
 
@@ -766,7 +766,7 @@ mojo.internal.bindings.data_sharing.mojom.PageRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.Page_LeaveGroup_ParamsSpec,
       mojo.internal.bindings.data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec,
-      [arg_group_id],
+      { arg_group_id: arg_group_id },
       false);
   }
 
@@ -839,20 +839,20 @@ mojo.internal.bindings.data_sharing.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_sharing.mojom.Page_OnAccessTokenFetched_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAccessTokenFetched');
-          const result = this.impl.onAccessTokenFetched(params.arg_arg_access_token);
+          const result = this.impl.onAccessTokenFetched(params.arg_access_token);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_sharing.mojom.Page_ReadGroups_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readGroups');
-          const result = this.impl.readGroups(params.arg_arg_read_groups_params);
+          const result = this.impl.readGroups(params.arg_read_groups_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readGroups FAILED:', e));
           }
@@ -862,13 +862,13 @@ mojo.internal.bindings.data_sharing.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readGroupWithToken');
-          const result = this.impl.readGroupWithToken(params.arg_arg_param);
+          const result = this.impl.readGroupWithToken(params.arg_param);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] readGroupWithToken FAILED:', e));
           }
@@ -878,13 +878,13 @@ mojo.internal.bindings.data_sharing.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_sharing.mojom.Page_DeleteGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteGroup');
-          const result = this.impl.deleteGroup(params.arg_arg_group_id);
+          const result = this.impl.deleteGroup(params.arg_group_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status_code' in response) ? response.arg_arg_status_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status_code' in response) ? response.arg_status_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec.$.structSpec, { 'arg_status_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteGroup FAILED:', e));
           }
@@ -894,13 +894,13 @@ mojo.internal.bindings.data_sharing.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_sharing.mojom.Page_LeaveGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.leaveGroup');
-          const result = this.impl.leaveGroup(params.arg_arg_group_id);
+          const result = this.impl.leaveGroup(params.arg_group_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status_code' in response) ? response.arg_arg_status_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status_code' in response) ? response.arg_status_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec.$.structSpec, { 'arg_status_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] leaveGroup FAILED:', e));
           }

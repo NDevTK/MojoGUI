@@ -250,7 +250,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec,
       null,
-      [arg_firmware_updates],
+      { arg_firmware_updates: arg_firmware_updates },
       false);
   }
 
@@ -319,7 +319,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserverReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUpdateListChanged');
-          const result = this.impl.onUpdateListChanged(params.arg_arg_firmware_updates);
+          const result = this.impl.onUpdateListChanged(params.arg_firmware_updates);
           break;
         }
       }
@@ -380,7 +380,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserverRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec,
       null,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserverReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceRequest');
-          const result = this.impl.onDeviceRequest(params.arg_arg_request);
+          const result = this.impl.onDeviceRequest(params.arg_request);
           break;
         }
       }
@@ -510,7 +510,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserverRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec,
       null,
-      [arg_update],
+      { arg_update: arg_update },
       false);
   }
 
@@ -579,7 +579,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserverReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStatusChanged');
-          const result = this.impl.onStatusChanged(params.arg_arg_update);
+          const result = this.impl.onStatusChanged(params.arg_update);
           break;
         }
       }
@@ -648,7 +648,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec,
       mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec,
-      [arg_device_id],
+      { arg_device_id: arg_device_id },
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec,
       mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -737,20 +737,20 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observePeripheralUpdates');
-          const result = this.impl.observePeripheralUpdates(params.arg_arg_observer);
+          const result = this.impl.observePeripheralUpdates(params.arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prepareForUpdate');
-          const result = this.impl.prepareForUpdate(params.arg_arg_device_id);
+          const result = this.impl.prepareForUpdate(params.arg_device_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_controller' in response) ? response.arg_arg_controller : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_controller' in response) ? response.arg_controller : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec.$.structSpec, { 'arg_controller': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] prepareForUpdate FAILED:', e));
           }
@@ -765,8 +765,8 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderReceiver = class 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_update' in response) ? response.arg_arg_update : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_update' in response) ? response.arg_update : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec.$.structSpec, { 'arg_update': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fetchInProgressUpdate FAILED:', e));
           }
@@ -838,7 +838,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec,
       null,
-      [arg_device_id, arg_filepath],
+      { arg_device_id: arg_device_id, arg_filepath: arg_filepath },
       false);
   }
 
@@ -847,7 +847,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -856,7 +856,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -927,21 +927,21 @@ mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.beginUpdate');
-          const result = this.impl.beginUpdate(params.arg_arg_device_id, params.arg_arg_filepath);
+          const result = this.impl.beginUpdate(params.arg_device_id, params.arg_filepath);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDeviceRequestObserver');
-          const result = this.impl.addDeviceRequestObserver(params.arg_arg_observer);
+          const result = this.impl.addDeviceRequestObserver(params.arg_observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addUpdateProgressObserver');
-          const result = this.impl.addUpdateProgressObserver(params.arg_arg_observer);
+          const result = this.impl.addUpdateProgressObserver(params.arg_observer);
           break;
         }
       }
@@ -1002,7 +1002,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.SystemUtilsRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

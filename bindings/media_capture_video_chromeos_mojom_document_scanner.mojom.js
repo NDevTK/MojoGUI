@@ -182,7 +182,7 @@ mojo.internal.bindings.cros.mojom.CrosDocumentScannerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec,
-      [arg_nv12_image],
+      { arg_nv12_image: arg_nv12_image },
       false);
   }
 
@@ -251,13 +251,13 @@ mojo.internal.bindings.cros.mojom.CrosDocumentScannerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.detectCornersFromNV12Image');
-          const result = this.impl.detectCornersFromNV12Image(params.arg_arg_nv12_image);
+          const result = this.impl.detectCornersFromNV12Image(params.arg_nv12_image);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] detectCornersFromNV12Image FAILED:', e));
           }

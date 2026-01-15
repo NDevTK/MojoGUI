@@ -211,7 +211,7 @@ mojo.internal.bindings.blink.mojom.FileChooserRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -220,7 +220,7 @@ mojo.internal.bindings.blink.mojom.FileChooserRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec,
-      [arg_directory_path],
+      { arg_directory_path: arg_directory_path },
       false);
   }
 
@@ -290,13 +290,13 @@ mojo.internal.bindings.blink.mojom.FileChooserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFileChooser');
-          const result = this.impl.openFileChooser(params.arg_arg_params);
+          const result = this.impl.openFileChooser(params.arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openFileChooser FAILED:', e));
           }
@@ -306,13 +306,13 @@ mojo.internal.bindings.blink.mojom.FileChooserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enumerateChosenDirectory');
-          const result = this.impl.enumerateChosenDirectory(params.arg_arg_directory_path);
+          const result = this.impl.enumerateChosenDirectory(params.arg_directory_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] enumerateChosenDirectory FAILED:', e));
           }

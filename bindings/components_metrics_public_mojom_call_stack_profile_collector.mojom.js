@@ -187,7 +187,7 @@ mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec,
       null,
-      [arg_start_timestamp, arg_profile_type, arg_profile],
+      { arg_start_timestamp: arg_start_timestamp, arg_profile_type: arg_profile_type, arg_profile: arg_profile },
       false);
   }
 
@@ -256,7 +256,7 @@ mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.collect');
-          const result = this.impl.collect(params.arg_arg_start_timestamp, params.arg_arg_profile_type, params.arg_arg_profile);
+          const result = this.impl.collect(params.arg_start_timestamp, params.arg_profile_type, params.arg_profile);
           break;
         }
       }

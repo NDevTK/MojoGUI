@@ -548,7 +548,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrameHost_SetInheritedEffectiveTouchAction_ParamsSpec,
       null,
-      [arg_touch_action],
+      { arg_touch_action: arg_touch_action },
       false);
   }
 
@@ -557,7 +557,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrameHost_UpdateRenderThrottlingStatus_ParamsSpec,
       null,
-      [arg_is_throttled, arg_subtree_throttled, arg_display_locked],
+      { arg_is_throttled: arg_is_throttled, arg_subtree_throttled: arg_subtree_throttled, arg_display_locked: arg_display_locked },
       false);
   }
 
@@ -566,7 +566,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrameHost_VisibilityChanged_ParamsSpec,
       null,
-      [arg_visibility],
+      { arg_visibility: arg_visibility },
       false);
   }
 
@@ -575,7 +575,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrameHost_DidFocusFrame_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -584,7 +584,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrameHost_CheckCompleted_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -593,7 +593,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrameHost_CapturePaintPreviewOfCrossProcessSubframe_ParamsSpec,
       null,
-      [arg_clip_rect, arg_guid],
+      { arg_clip_rect: arg_clip_rect, arg_guid: arg_guid },
       false);
   }
 
@@ -602,7 +602,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrameHost_SetIsInert_ParamsSpec,
       null,
-      [arg_inert],
+      { arg_inert: arg_inert },
       false);
   }
 
@@ -611,7 +611,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrameHost_DidChangeOpener_ParamsSpec,
       null,
-      [arg_opener_frame],
+      { arg_opener_frame: arg_opener_frame },
       false);
   }
 
@@ -620,7 +620,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrameHost_AdvanceFocus_ParamsSpec,
       null,
-      [arg_focus_type, arg_source_frame_token],
+      { arg_focus_type: arg_focus_type, arg_source_frame_token: arg_source_frame_token },
       false);
   }
 
@@ -629,7 +629,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrameHost_RouteMessageEvent_ParamsSpec,
       null,
-      [arg_source_frame_token, arg_source_origin, arg_target_origin, arg_message],
+      { arg_source_frame_token: arg_source_frame_token, arg_source_origin: arg_source_origin, arg_target_origin: arg_target_origin, arg_message: arg_message },
       false);
   }
 
@@ -638,7 +638,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrameHost_PrintCrossProcessSubframe_ParamsSpec,
       null,
-      [arg_frame_content_rect, arg_document_cookie],
+      { arg_frame_content_rect: arg_frame_content_rect, arg_document_cookie: arg_document_cookie },
       false);
   }
 
@@ -647,7 +647,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrameHost_Detach_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -656,7 +656,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrameHost_UpdateViewportIntersection_ParamsSpec,
       null,
-      [arg_intersection_state, arg_visual_properties],
+      { arg_intersection_state: arg_intersection_state, arg_visual_properties: arg_visual_properties },
       false);
   }
 
@@ -665,7 +665,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrameHost_SynchronizeVisualProperties_ParamsSpec,
       null,
-      [arg_properties],
+      { arg_properties: arg_properties },
       false);
   }
 
@@ -674,7 +674,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrameHost_OpenURL_ParamsSpec,
       null,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -757,21 +757,21 @@ mojo.internal.bindings.blink.mojom.RemoteFrameHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrameHost_SetInheritedEffectiveTouchAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInheritedEffectiveTouchAction');
-          const result = this.impl.setInheritedEffectiveTouchAction(params.arg_arg_touch_action);
+          const result = this.impl.setInheritedEffectiveTouchAction(params.arg_touch_action);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrameHost_UpdateRenderThrottlingStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateRenderThrottlingStatus');
-          const result = this.impl.updateRenderThrottlingStatus(params.arg_arg_is_throttled, params.arg_arg_subtree_throttled, params.arg_arg_display_locked);
+          const result = this.impl.updateRenderThrottlingStatus(params.arg_is_throttled, params.arg_subtree_throttled, params.arg_display_locked);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrameHost_VisibilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.visibilityChanged');
-          const result = this.impl.visibilityChanged(params.arg_arg_visibility);
+          const result = this.impl.visibilityChanged(params.arg_visibility);
           break;
         }
         case 3: {
@@ -792,42 +792,42 @@ mojo.internal.bindings.blink.mojom.RemoteFrameHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrameHost_CapturePaintPreviewOfCrossProcessSubframe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.capturePaintPreviewOfCrossProcessSubframe');
-          const result = this.impl.capturePaintPreviewOfCrossProcessSubframe(params.arg_arg_clip_rect, params.arg_arg_guid);
+          const result = this.impl.capturePaintPreviewOfCrossProcessSubframe(params.arg_clip_rect, params.arg_guid);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrameHost_SetIsInert_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsInert');
-          const result = this.impl.setIsInert(params.arg_arg_inert);
+          const result = this.impl.setIsInert(params.arg_inert);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrameHost_DidChangeOpener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didChangeOpener');
-          const result = this.impl.didChangeOpener(params.arg_arg_opener_frame);
+          const result = this.impl.didChangeOpener(params.arg_opener_frame);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrameHost_AdvanceFocus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.advanceFocus');
-          const result = this.impl.advanceFocus(params.arg_arg_focus_type, params.arg_arg_source_frame_token);
+          const result = this.impl.advanceFocus(params.arg_focus_type, params.arg_source_frame_token);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrameHost_RouteMessageEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.routeMessageEvent');
-          const result = this.impl.routeMessageEvent(params.arg_arg_source_frame_token, params.arg_arg_source_origin, params.arg_arg_target_origin, params.arg_arg_message);
+          const result = this.impl.routeMessageEvent(params.arg_source_frame_token, params.arg_source_origin, params.arg_target_origin, params.arg_message);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrameHost_PrintCrossProcessSubframe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printCrossProcessSubframe');
-          const result = this.impl.printCrossProcessSubframe(params.arg_arg_frame_content_rect, params.arg_arg_document_cookie);
+          const result = this.impl.printCrossProcessSubframe(params.arg_frame_content_rect, params.arg_document_cookie);
           break;
         }
         case 11: {
@@ -841,21 +841,21 @@ mojo.internal.bindings.blink.mojom.RemoteFrameHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrameHost_UpdateViewportIntersection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateViewportIntersection');
-          const result = this.impl.updateViewportIntersection(params.arg_arg_intersection_state, params.arg_arg_visual_properties);
+          const result = this.impl.updateViewportIntersection(params.arg_intersection_state, params.arg_visual_properties);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrameHost_SynchronizeVisualProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.synchronizeVisualProperties');
-          const result = this.impl.synchronizeVisualProperties(params.arg_arg_properties);
+          const result = this.impl.synchronizeVisualProperties(params.arg_properties);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrameHost_OpenURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openURL');
-          const result = this.impl.openURL(params.arg_arg_params);
+          const result = this.impl.openURL(params.arg_params);
           break;
         }
       }
@@ -1048,7 +1048,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_WillEnterFullscreen_ParamsSpec,
       null,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -1057,7 +1057,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_EnforceInsecureNavigationsSet_ParamsSpec,
       null,
-      [arg_set],
+      { arg_set: arg_set },
       false);
   }
 
@@ -1066,7 +1066,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_SetFrameOwnerProperties_ParamsSpec,
       null,
-      [arg_properties],
+      { arg_properties: arg_properties },
       false);
   }
 
@@ -1075,7 +1075,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_EnforceInsecureRequestPolicy_ParamsSpec,
       null,
-      [arg_policy],
+      { arg_policy: arg_policy },
       false);
   }
 
@@ -1084,7 +1084,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_SetReplicatedOrigin_ParamsSpec,
       null,
-      [arg_origin, arg_is_potentially_trustworthy_unique_origin],
+      { arg_origin: arg_origin, arg_is_potentially_trustworthy_unique_origin: arg_is_potentially_trustworthy_unique_origin },
       false);
   }
 
@@ -1093,7 +1093,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_SetReplicatedIsAdFrame_ParamsSpec,
       null,
-      [arg_is_ad_frame],
+      { arg_is_ad_frame: arg_is_ad_frame },
       false);
   }
 
@@ -1102,7 +1102,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_SetReplicatedName_ParamsSpec,
       null,
-      [arg_name, arg_unique_name],
+      { arg_name: arg_name, arg_unique_name: arg_unique_name },
       false);
   }
 
@@ -1111,7 +1111,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_DispatchLoadEventForFrameOwner_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1120,7 +1120,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_SetNeedsOcclusionTracking_ParamsSpec,
       null,
-      [arg_needs_tracking],
+      { arg_needs_tracking: arg_needs_tracking },
       false);
   }
 
@@ -1129,7 +1129,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_Collapse_ParamsSpec,
       null,
-      [arg_collapsed],
+      { arg_collapsed: arg_collapsed },
       false);
   }
 
@@ -1138,7 +1138,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_Focus_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1147,7 +1147,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_SetHadStickyUserActivationBeforeNavigation_ParamsSpec,
       null,
-      [arg_has_gesture],
+      { arg_has_gesture: arg_has_gesture },
       false);
   }
 
@@ -1156,7 +1156,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_BubbleLogicalScroll_ParamsSpec,
       null,
-      [arg_direction, arg_granularity],
+      { arg_direction: arg_direction, arg_granularity: arg_granularity },
       false);
   }
 
@@ -1165,7 +1165,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_UpdateUserActivationState_ParamsSpec,
       null,
-      [arg_state_update_type, arg_notification_type],
+      { arg_state_update_type: arg_state_update_type, arg_notification_type: arg_notification_type },
       false);
   }
 
@@ -1174,7 +1174,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_SetEmbeddingToken_ParamsSpec,
       null,
-      [arg_embedding_token],
+      { arg_embedding_token: arg_embedding_token },
       false);
   }
 
@@ -1183,7 +1183,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_SetPageFocus_ParamsSpec,
       null,
-      [arg_is_focused],
+      { arg_is_focused: arg_is_focused },
       false);
   }
 
@@ -1192,7 +1192,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_RenderFallbackContent_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1201,7 +1201,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_AddResourceTimingFromChild_ParamsSpec,
       null,
-      [arg_timing],
+      { arg_timing: arg_timing },
       false);
   }
 
@@ -1210,7 +1210,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_ScrollRectToVisible_ParamsSpec,
       null,
-      [arg_rect, arg_params],
+      { arg_rect: arg_rect, arg_params: arg_params },
       false);
   }
 
@@ -1219,7 +1219,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_DidStartLoading_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1228,7 +1228,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_DidStopLoading_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1237,7 +1237,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_IntrinsicSizingInfoOfChildChanged_ParamsSpec,
       null,
-      [arg_sizing_info],
+      { arg_sizing_info: arg_sizing_info },
       false);
   }
 
@@ -1246,7 +1246,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_DidSetFramePolicyHeaders_ParamsSpec,
       null,
-      [arg_sandbox_flags, arg_parsed_permissions_policy],
+      { arg_sandbox_flags: arg_sandbox_flags, arg_parsed_permissions_policy: arg_parsed_permissions_policy },
       false);
   }
 
@@ -1255,7 +1255,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_DidUpdateFramePolicy_ParamsSpec,
       null,
-      [arg_frame_policy],
+      { arg_frame_policy: arg_frame_policy },
       false);
   }
 
@@ -1264,7 +1264,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_UpdateOpener_ParamsSpec,
       null,
-      [arg_opener_frame_token],
+      { arg_opener_frame_token: arg_opener_frame_token },
       false);
   }
 
@@ -1273,7 +1273,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_DetachAndDispose_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1282,7 +1282,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_EnableAutoResize_ParamsSpec,
       null,
-      [arg_min_size, arg_max_size],
+      { arg_min_size: arg_min_size, arg_max_size: arg_max_size },
       false);
   }
 
@@ -1291,7 +1291,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_DisableAutoResize_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1300,7 +1300,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_DidUpdateVisualProperties_ParamsSpec,
       null,
-      [arg_metadata],
+      { arg_metadata: arg_metadata },
       false);
   }
 
@@ -1309,7 +1309,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_SetFrameSinkId_ParamsSpec,
       null,
-      [arg_frame_sink_id, arg_allow_paint_holding],
+      { arg_frame_sink_id: arg_frame_sink_id, arg_allow_paint_holding: arg_allow_paint_holding },
       false);
   }
 
@@ -1318,7 +1318,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_ChildProcessGone_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1327,7 +1327,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_CreateRemoteChild_ParamsSpec,
       null,
-      [arg_token, arg_opener_frame_token, arg_tree_scope_type, arg_replication_state, arg_owner_properties, arg_is_loading, arg_devtools_frame_token, arg_remote_frame_interfaces],
+      { arg_token: arg_token, arg_opener_frame_token: arg_opener_frame_token, arg_tree_scope_type: arg_tree_scope_type, arg_replication_state: arg_replication_state, arg_owner_properties: arg_owner_properties, arg_is_loading: arg_is_loading, arg_devtools_frame_token: arg_devtools_frame_token, arg_remote_frame_interfaces: arg_remote_frame_interfaces },
       false);
   }
 
@@ -1336,7 +1336,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_CreateRemoteChildren_ParamsSpec,
       null,
-      [arg_params, arg_navigation_metrics_token],
+      { arg_params: arg_params, arg_navigation_metrics_token: arg_navigation_metrics_token },
       false);
   }
 
@@ -1345,7 +1345,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameRemoteCallHandler = class {
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteFrame_ForwardFencedFrameEventToEmbedder_ParamsSpec,
       null,
-      [arg_event_type],
+      { arg_event_type: arg_event_type },
       false);
   }
 
@@ -1447,49 +1447,49 @@ mojo.internal.bindings.blink.mojom.RemoteFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_WillEnterFullscreen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.willEnterFullscreen');
-          const result = this.impl.willEnterFullscreen(params.arg_arg_options);
+          const result = this.impl.willEnterFullscreen(params.arg_options);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_EnforceInsecureNavigationsSet_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enforceInsecureNavigationsSet');
-          const result = this.impl.enforceInsecureNavigationsSet(params.arg_arg_set);
+          const result = this.impl.enforceInsecureNavigationsSet(params.arg_set);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_SetFrameOwnerProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFrameOwnerProperties');
-          const result = this.impl.setFrameOwnerProperties(params.arg_arg_properties);
+          const result = this.impl.setFrameOwnerProperties(params.arg_properties);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_EnforceInsecureRequestPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enforceInsecureRequestPolicy');
-          const result = this.impl.enforceInsecureRequestPolicy(params.arg_arg_policy);
+          const result = this.impl.enforceInsecureRequestPolicy(params.arg_policy);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_SetReplicatedOrigin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setReplicatedOrigin');
-          const result = this.impl.setReplicatedOrigin(params.arg_arg_origin, params.arg_arg_is_potentially_trustworthy_unique_origin);
+          const result = this.impl.setReplicatedOrigin(params.arg_origin, params.arg_is_potentially_trustworthy_unique_origin);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_SetReplicatedIsAdFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setReplicatedIsAdFrame');
-          const result = this.impl.setReplicatedIsAdFrame(params.arg_arg_is_ad_frame);
+          const result = this.impl.setReplicatedIsAdFrame(params.arg_is_ad_frame);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_SetReplicatedName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setReplicatedName');
-          const result = this.impl.setReplicatedName(params.arg_arg_name, params.arg_arg_unique_name);
+          const result = this.impl.setReplicatedName(params.arg_name, params.arg_unique_name);
           break;
         }
         case 7: {
@@ -1503,14 +1503,14 @@ mojo.internal.bindings.blink.mojom.RemoteFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_SetNeedsOcclusionTracking_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNeedsOcclusionTracking');
-          const result = this.impl.setNeedsOcclusionTracking(params.arg_arg_needs_tracking);
+          const result = this.impl.setNeedsOcclusionTracking(params.arg_needs_tracking);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_Collapse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.collapse');
-          const result = this.impl.collapse(params.arg_arg_collapsed);
+          const result = this.impl.collapse(params.arg_collapsed);
           break;
         }
         case 10: {
@@ -1524,35 +1524,35 @@ mojo.internal.bindings.blink.mojom.RemoteFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_SetHadStickyUserActivationBeforeNavigation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHadStickyUserActivationBeforeNavigation');
-          const result = this.impl.setHadStickyUserActivationBeforeNavigation(params.arg_arg_has_gesture);
+          const result = this.impl.setHadStickyUserActivationBeforeNavigation(params.arg_has_gesture);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_BubbleLogicalScroll_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bubbleLogicalScroll');
-          const result = this.impl.bubbleLogicalScroll(params.arg_arg_direction, params.arg_arg_granularity);
+          const result = this.impl.bubbleLogicalScroll(params.arg_direction, params.arg_granularity);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_UpdateUserActivationState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateUserActivationState');
-          const result = this.impl.updateUserActivationState(params.arg_arg_state_update_type, params.arg_arg_notification_type);
+          const result = this.impl.updateUserActivationState(params.arg_state_update_type, params.arg_notification_type);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_SetEmbeddingToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setEmbeddingToken');
-          const result = this.impl.setEmbeddingToken(params.arg_arg_embedding_token);
+          const result = this.impl.setEmbeddingToken(params.arg_embedding_token);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_SetPageFocus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPageFocus');
-          const result = this.impl.setPageFocus(params.arg_arg_is_focused);
+          const result = this.impl.setPageFocus(params.arg_is_focused);
           break;
         }
         case 16: {
@@ -1566,14 +1566,14 @@ mojo.internal.bindings.blink.mojom.RemoteFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_AddResourceTimingFromChild_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addResourceTimingFromChild');
-          const result = this.impl.addResourceTimingFromChild(params.arg_arg_timing);
+          const result = this.impl.addResourceTimingFromChild(params.arg_timing);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_ScrollRectToVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.scrollRectToVisible');
-          const result = this.impl.scrollRectToVisible(params.arg_arg_rect, params.arg_arg_params);
+          const result = this.impl.scrollRectToVisible(params.arg_rect, params.arg_params);
           break;
         }
         case 19: {
@@ -1594,28 +1594,28 @@ mojo.internal.bindings.blink.mojom.RemoteFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_IntrinsicSizingInfoOfChildChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.intrinsicSizingInfoOfChildChanged');
-          const result = this.impl.intrinsicSizingInfoOfChildChanged(params.arg_arg_sizing_info);
+          const result = this.impl.intrinsicSizingInfoOfChildChanged(params.arg_sizing_info);
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_DidSetFramePolicyHeaders_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didSetFramePolicyHeaders');
-          const result = this.impl.didSetFramePolicyHeaders(params.arg_arg_sandbox_flags, params.arg_arg_parsed_permissions_policy);
+          const result = this.impl.didSetFramePolicyHeaders(params.arg_sandbox_flags, params.arg_parsed_permissions_policy);
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_DidUpdateFramePolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didUpdateFramePolicy');
-          const result = this.impl.didUpdateFramePolicy(params.arg_arg_frame_policy);
+          const result = this.impl.didUpdateFramePolicy(params.arg_frame_policy);
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_UpdateOpener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateOpener');
-          const result = this.impl.updateOpener(params.arg_arg_opener_frame_token);
+          const result = this.impl.updateOpener(params.arg_opener_frame_token);
           break;
         }
         case 25: {
@@ -1629,7 +1629,7 @@ mojo.internal.bindings.blink.mojom.RemoteFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_EnableAutoResize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableAutoResize');
-          const result = this.impl.enableAutoResize(params.arg_arg_min_size, params.arg_arg_max_size);
+          const result = this.impl.enableAutoResize(params.arg_min_size, params.arg_max_size);
           break;
         }
         case 27: {
@@ -1643,14 +1643,14 @@ mojo.internal.bindings.blink.mojom.RemoteFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_DidUpdateVisualProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didUpdateVisualProperties');
-          const result = this.impl.didUpdateVisualProperties(params.arg_arg_metadata);
+          const result = this.impl.didUpdateVisualProperties(params.arg_metadata);
           break;
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_SetFrameSinkId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFrameSinkId');
-          const result = this.impl.setFrameSinkId(params.arg_arg_frame_sink_id, params.arg_arg_allow_paint_holding);
+          const result = this.impl.setFrameSinkId(params.arg_frame_sink_id, params.arg_allow_paint_holding);
           break;
         }
         case 30: {
@@ -1664,21 +1664,21 @@ mojo.internal.bindings.blink.mojom.RemoteFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_CreateRemoteChild_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createRemoteChild');
-          const result = this.impl.createRemoteChild(params.arg_arg_token, params.arg_arg_opener_frame_token, params.arg_arg_tree_scope_type, params.arg_arg_replication_state, params.arg_arg_owner_properties, params.arg_arg_is_loading, params.arg_arg_devtools_frame_token, params.arg_arg_remote_frame_interfaces);
+          const result = this.impl.createRemoteChild(params.arg_token, params.arg_opener_frame_token, params.arg_tree_scope_type, params.arg_replication_state, params.arg_owner_properties, params.arg_is_loading, params.arg_devtools_frame_token, params.arg_remote_frame_interfaces);
           break;
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_CreateRemoteChildren_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createRemoteChildren');
-          const result = this.impl.createRemoteChildren(params.arg_arg_params, params.arg_arg_navigation_metrics_token);
+          const result = this.impl.createRemoteChildren(params.arg_params, params.arg_navigation_metrics_token);
           break;
         }
         case 33: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteFrame_ForwardFencedFrameEventToEmbedder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forwardFencedFrameEventToEmbedder');
-          const result = this.impl.forwardFencedFrameEventToEmbedder(params.arg_arg_event_type);
+          const result = this.impl.forwardFencedFrameEventToEmbedder(params.arg_event_type);
           break;
         }
       }
@@ -1739,7 +1739,7 @@ mojo.internal.bindings.blink.mojom.RemoteMainFrameRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteMainFrame_UpdateTextAutosizerPageInfo_ParamsSpec,
       null,
-      [arg_page_info],
+      { arg_page_info: arg_page_info },
       false);
   }
 
@@ -1808,7 +1808,7 @@ mojo.internal.bindings.blink.mojom.RemoteMainFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteMainFrame_UpdateTextAutosizerPageInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateTextAutosizerPageInfo');
-          const result = this.impl.updateTextAutosizerPageInfo(params.arg_arg_page_info);
+          const result = this.impl.updateTextAutosizerPageInfo(params.arg_page_info);
           break;
         }
       }
@@ -1881,7 +1881,7 @@ mojo.internal.bindings.blink.mojom.RemoteMainFrameHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteMainFrameHost_FocusPage_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1890,7 +1890,7 @@ mojo.internal.bindings.blink.mojom.RemoteMainFrameHostRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteMainFrameHost_TakeFocus_ParamsSpec,
       null,
-      [arg_reverse],
+      { arg_reverse: arg_reverse },
       false);
   }
 
@@ -1899,7 +1899,7 @@ mojo.internal.bindings.blink.mojom.RemoteMainFrameHostRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ParamsSpec,
       mojo.internal.bindings.blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -1908,7 +1908,7 @@ mojo.internal.bindings.blink.mojom.RemoteMainFrameHostRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteMainFrameHost_RouteCloseEvent_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1987,19 +1987,19 @@ mojo.internal.bindings.blink.mojom.RemoteMainFrameHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteMainFrameHost_TakeFocus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.takeFocus');
-          const result = this.impl.takeFocus(params.arg_arg_reverse);
+          const result = this.impl.takeFocus(params.arg_reverse);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateTargetURL');
-          const result = this.impl.updateTargetURL(params.arg_arg_url);
+          const result = this.impl.updateTargetURL(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateTargetURL FAILED:', e));
           }

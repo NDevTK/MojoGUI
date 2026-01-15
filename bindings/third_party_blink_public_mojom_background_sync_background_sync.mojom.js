@@ -227,7 +227,7 @@ mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec,
       mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec,
-      [arg_options, arg_service_worker_registration_id],
+      { arg_options: arg_options, arg_service_worker_registration_id: arg_service_worker_registration_id },
       false);
   }
 
@@ -236,7 +236,7 @@ mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec,
       null,
-      [arg_registration_info],
+      { arg_registration_info: arg_registration_info },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec,
       mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec,
-      [arg_service_worker_registration_id],
+      { arg_service_worker_registration_id: arg_service_worker_registration_id },
       false);
   }
 
@@ -316,12 +316,12 @@ mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.register');
-          const result = this.impl.register(params.arg_arg_options, params.arg_arg_service_worker_registration_id);
+          const result = this.impl.register(params.arg_options, params.arg_service_worker_registration_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec.$.structSpec, ['response.arg_arg_err', 'response.arg_arg_options']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec.$.structSpec, { 'arg_err': response.arg_err, 'arg_options': response.arg_options });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] register FAILED:', e));
           }
@@ -331,19 +331,19 @@ mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didResolveRegistration');
-          const result = this.impl.didResolveRegistration(params.arg_arg_registration_info);
+          const result = this.impl.didResolveRegistration(params.arg_registration_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRegistrations');
-          const result = this.impl.getRegistrations(params.arg_arg_service_worker_registration_id);
+          const result = this.impl.getRegistrations(params.arg_service_worker_registration_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec.$.structSpec, ['response.arg_arg_err', 'response.arg_arg_registrations']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec.$.structSpec, { 'arg_err': response.arg_err, 'arg_registrations': response.arg_registrations });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRegistrations FAILED:', e));
           }
@@ -415,7 +415,7 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec,
-      [arg_options, arg_service_worker_registration_id],
+      { arg_options: arg_options, arg_service_worker_registration_id: arg_service_worker_registration_id },
       false);
   }
 
@@ -424,7 +424,7 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec,
-      [arg_service_worker_registration_id, arg_tag],
+      { arg_service_worker_registration_id: arg_service_worker_registration_id, arg_tag: arg_tag },
       false);
   }
 
@@ -433,7 +433,7 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec,
-      [arg_service_worker_registration_id],
+      { arg_service_worker_registration_id: arg_service_worker_registration_id },
       false);
   }
 
@@ -504,12 +504,12 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.register');
-          const result = this.impl.register(params.arg_arg_options, params.arg_arg_service_worker_registration_id);
+          const result = this.impl.register(params.arg_options, params.arg_service_worker_registration_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec.$.structSpec, ['response.arg_arg_err', 'response.arg_arg_options']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec.$.structSpec, { 'arg_err': response.arg_err, 'arg_options': response.arg_options });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] register FAILED:', e));
           }
@@ -519,13 +519,13 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unregister');
-          const result = this.impl.unregister(params.arg_arg_service_worker_registration_id, params.arg_arg_tag);
+          const result = this.impl.unregister(params.arg_service_worker_registration_id, params.arg_tag);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_err' in response) ? response.arg_arg_err : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_err' in response) ? response.arg_err : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec.$.structSpec, { 'arg_err': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] unregister FAILED:', e));
           }
@@ -535,12 +535,12 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRegistrations');
-          const result = this.impl.getRegistrations(params.arg_arg_service_worker_registration_id);
+          const result = this.impl.getRegistrations(params.arg_service_worker_registration_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec.$.structSpec, ['response.arg_arg_err', 'response.arg_arg_registrations']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec.$.structSpec, { 'arg_err': response.arg_err, 'arg_registrations': response.arg_registrations });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRegistrations FAILED:', e));
           }

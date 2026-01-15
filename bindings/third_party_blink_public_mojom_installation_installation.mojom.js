@@ -170,7 +170,7 @@ mojo.internal.bindings.blink.mojom.InstallationServiceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.InstallationService_OnInstall_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

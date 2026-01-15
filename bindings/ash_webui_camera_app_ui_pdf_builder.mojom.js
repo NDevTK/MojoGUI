@@ -199,7 +199,7 @@ mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec,
       null,
-      [arg_jpeg, arg_page_index],
+      { arg_jpeg: arg_jpeg, arg_page_index: arg_page_index },
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec,
       null,
-      [arg_jpeg, arg_page_index],
+      { arg_jpeg: arg_jpeg, arg_page_index: arg_page_index },
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec,
       null,
-      [arg_page_index],
+      { arg_page_index: arg_page_index },
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -308,21 +308,21 @@ mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPage');
-          const result = this.impl.addPage(params.arg_arg_jpeg, params.arg_arg_page_index);
+          const result = this.impl.addPage(params.arg_jpeg, params.arg_page_index);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPageInline');
-          const result = this.impl.addPageInline(params.arg_arg_jpeg, params.arg_arg_page_index);
+          const result = this.impl.addPageInline(params.arg_jpeg, params.arg_page_index);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deletePage');
-          const result = this.impl.deletePage(params.arg_arg_page_index);
+          const result = this.impl.deletePage(params.arg_page_index);
           break;
         }
         case 3: {
@@ -334,8 +334,8 @@ mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pdf' in response) ? response.arg_arg_pdf : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pdf' in response) ? response.arg_pdf : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec.$.structSpec, { 'arg_pdf': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] save FAILED:', e));
           }
@@ -350,8 +350,8 @@ mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pdf' in response) ? response.arg_arg_pdf : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pdf' in response) ? response.arg_pdf : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec.$.structSpec, { 'arg_pdf': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] saveInline FAILED:', e));
           }

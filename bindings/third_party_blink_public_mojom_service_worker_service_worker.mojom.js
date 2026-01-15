@@ -403,7 +403,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec,
       null,
-      [arg_url, arg_data],
+      { arg_url: arg_url, arg_data: arg_data },
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec,
       null,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -421,7 +421,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec,
-      [arg_options],
+      { arg_options: arg_options },
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec,
-      [arg_client_uuid],
+      { arg_client_uuid: arg_client_uuid },
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -457,7 +457,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec,
       null,
-      [arg_client_uuid, arg_message],
+      { arg_client_uuid: arg_client_uuid, arg_message: arg_message },
       false);
   }
 
@@ -466,7 +466,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec,
-      [arg_client_uuid],
+      { arg_client_uuid: arg_client_uuid },
       false);
   }
 
@@ -475,7 +475,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec,
-      [arg_client_uuid, arg_url],
+      { arg_client_uuid: arg_client_uuid, arg_url: arg_url },
       false);
   }
 
@@ -484,7 +484,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -493,7 +493,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -502,7 +502,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec,
-      [arg_rules],
+      { arg_rules: arg_rules },
       false);
   }
 
@@ -582,27 +582,27 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCachedMetadata');
-          const result = this.impl.setCachedMetadata(params.arg_arg_url, params.arg_arg_data);
+          const result = this.impl.setCachedMetadata(params.arg_url, params.arg_data);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearCachedMetadata');
-          const result = this.impl.clearCachedMetadata(params.arg_arg_url);
+          const result = this.impl.clearCachedMetadata(params.arg_url);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getClients');
-          const result = this.impl.getClients(params.arg_arg_options);
+          const result = this.impl.getClients(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_clients' in response) ? response.arg_arg_clients : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_clients' in response) ? response.arg_clients : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec.$.structSpec, { 'arg_clients': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getClients FAILED:', e));
           }
@@ -612,13 +612,13 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getClient');
-          const result = this.impl.getClient(params.arg_arg_client_uuid);
+          const result = this.impl.getClient(params.arg_client_uuid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_client' in response) ? response.arg_arg_client : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_client' in response) ? response.arg_client : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec.$.structSpec, { 'arg_client': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getClient FAILED:', e));
           }
@@ -628,12 +628,12 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openNewTab');
-          const result = this.impl.openNewTab(params.arg_arg_url);
+          const result = this.impl.openNewTab(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_client', 'response.arg_arg_error_msg']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_client': response.arg_client, 'arg_error_msg': response.arg_error_msg });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openNewTab FAILED:', e));
           }
@@ -643,12 +643,12 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openPaymentHandlerWindow');
-          const result = this.impl.openPaymentHandlerWindow(params.arg_arg_url);
+          const result = this.impl.openPaymentHandlerWindow(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_client', 'response.arg_arg_error_msg']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_client': response.arg_client, 'arg_error_msg': response.arg_error_msg });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openPaymentHandlerWindow FAILED:', e));
           }
@@ -658,20 +658,20 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.postMessageToClient');
-          const result = this.impl.postMessageToClient(params.arg_arg_client_uuid, params.arg_arg_message);
+          const result = this.impl.postMessageToClient(params.arg_client_uuid, params.arg_message);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.focusClient');
-          const result = this.impl.focusClient(params.arg_arg_client_uuid);
+          const result = this.impl.focusClient(params.arg_client_uuid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] focusClient FAILED:', e));
           }
@@ -681,12 +681,12 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.navigateClient');
-          const result = this.impl.navigateClient(params.arg_arg_client_uuid, params.arg_arg_url);
+          const result = this.impl.navigateClient(params.arg_client_uuid, params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_client', 'response.arg_arg_error_msg']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_client': response.arg_client, 'arg_error_msg': response.arg_error_msg });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] navigateClient FAILED:', e));
           }
@@ -701,8 +701,8 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] skipWaiting FAILED:', e));
           }
@@ -717,7 +717,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_error_msg']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_error_msg': response.arg_error_msg });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] claimClients FAILED:', e));
           }
@@ -727,13 +727,13 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addRoutes');
-          const result = this.impl.addRoutes(params.arg_arg_rules);
+          const result = this.impl.addRoutes(params.arg_rules);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_parse_error' in response) ? response.arg_arg_is_parse_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_parse_error' in response) ? response.arg_is_parse_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec.$.structSpec, { 'arg_is_parse_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addRoutes FAILED:', e));
           }
@@ -901,7 +901,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec,
       null,
-      [arg_service_worker_host, arg_associated_interfaces_to_browser, arg_associated_interfaces_from_browser, arg_registration_info, arg_service_worker_info, arg_fetch_handler_existence, arg_ancestor_frame_type, arg_storage_key],
+      { arg_service_worker_host: arg_service_worker_host, arg_associated_interfaces_to_browser: arg_associated_interfaces_to_browser, arg_associated_interfaces_from_browser: arg_associated_interfaces_from_browser, arg_registration_info: arg_registration_info, arg_service_worker_info: arg_service_worker_info, arg_fetch_handler_existence: arg_fetch_handler_existence, arg_ancestor_frame_type: arg_ancestor_frame_type, arg_storage_key: arg_storage_key },
       false);
   }
 
@@ -910,7 +910,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -919,7 +919,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -928,7 +928,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec,
-      [arg_registration],
+      { arg_registration: arg_registration },
       false);
   }
 
@@ -937,7 +937,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec,
-      [arg_registration],
+      { arg_registration: arg_registration },
       false);
   }
 
@@ -946,7 +946,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec,
-      [arg_registration],
+      { arg_registration: arg_registration },
       false);
   }
 
@@ -955,7 +955,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec,
-      [arg_registration],
+      { arg_registration: arg_registration },
       false);
   }
 
@@ -964,7 +964,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec,
-      [arg_change],
+      { arg_change: arg_change },
       false);
   }
 
@@ -973,7 +973,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec,
-      [arg_params, arg_response_callback],
+      { arg_params: arg_params, arg_response_callback: arg_response_callback },
       false);
   }
 
@@ -982,7 +982,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec,
-      [arg_notification_id, arg_notification_data, arg_action_index, arg_reply],
+      { arg_notification_id: arg_notification_id, arg_notification_data: arg_notification_data, arg_action_index: arg_action_index, arg_reply: arg_reply },
       false);
   }
 
@@ -991,7 +991,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec,
-      [arg_notification_id, arg_notification_data],
+      { arg_notification_id: arg_notification_id, arg_notification_data: arg_notification_data },
       false);
   }
 
@@ -1000,7 +1000,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec,
-      [arg_payload],
+      { arg_payload: arg_payload },
       false);
   }
 
@@ -1009,7 +1009,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParamsSpec,
-      [arg_payload],
+      { arg_payload: arg_payload },
       false);
   }
 
@@ -1018,7 +1018,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec,
-      [arg_old_subscription, arg_new_subscription],
+      { arg_old_subscription: arg_old_subscription, arg_new_subscription: arg_new_subscription },
       false);
   }
 
@@ -1027,7 +1027,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec,
-      [arg_tag, arg_last_chance, arg_timeout],
+      { arg_tag: arg_tag, arg_last_chance: arg_last_chance, arg_timeout: arg_timeout },
       false);
   }
 
@@ -1036,7 +1036,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec,
-      [arg_tag, arg_timeout],
+      { arg_tag: arg_tag, arg_timeout: arg_timeout },
       false);
   }
 
@@ -1045,7 +1045,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec,
-      [arg_result_of_abort_payment],
+      { arg_result_of_abort_payment: arg_result_of_abort_payment },
       false);
   }
 
@@ -1054,7 +1054,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec,
-      [arg_event_data, arg_result_of_can_make_payment],
+      { arg_event_data: arg_event_data, arg_result_of_can_make_payment: arg_result_of_can_make_payment },
       false);
   }
 
@@ -1063,7 +1063,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec,
-      [arg_request_data, arg_response_callback],
+      { arg_request_data: arg_request_data, arg_response_callback: arg_response_callback },
       false);
   }
 
@@ -1072,7 +1072,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec,
-      [arg_event],
+      { arg_event: arg_event },
       false);
   }
 
@@ -1081,7 +1081,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -1090,7 +1090,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_Ping_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_Ping_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1099,7 +1099,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_SetIdleDelay_ParamsSpec,
       null,
-      [arg_delay],
+      { arg_delay: arg_delay },
       false);
   }
 
@@ -1108,7 +1108,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1117,7 +1117,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1126,7 +1126,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec,
       null,
-      [arg_level, arg_message],
+      { arg_level: arg_level, arg_message: arg_message },
       false);
   }
 
@@ -1135,7 +1135,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec,
-      [arg_javascript, arg_wants_result],
+      { arg_javascript: arg_javascript, arg_wants_result: arg_wants_result },
       false);
   }
 
@@ -1230,7 +1230,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeGlobalScope');
-          const result = this.impl.initializeGlobalScope(params.arg_arg_service_worker_host, params.arg_arg_associated_interfaces_to_browser, params.arg_arg_associated_interfaces_from_browser, params.arg_arg_registration_info, params.arg_arg_service_worker_info, params.arg_arg_fetch_handler_existence, params.arg_arg_ancestor_frame_type, params.arg_arg_storage_key);
+          const result = this.impl.initializeGlobalScope(params.arg_service_worker_host, params.arg_associated_interfaces_to_browser, params.arg_associated_interfaces_from_browser, params.arg_registration_info, params.arg_service_worker_info, params.arg_fetch_handler_existence, params.arg_ancestor_frame_type, params.arg_storage_key);
           break;
         }
         case 1: {
@@ -1242,7 +1242,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_fetch_count']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_fetch_count': response.arg_fetch_count });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchInstallEvent FAILED:', e));
           }
@@ -1257,8 +1257,8 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchActivateEvent FAILED:', e));
           }
@@ -1268,13 +1268,13 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchBackgroundFetchAbortEvent');
-          const result = this.impl.dispatchBackgroundFetchAbortEvent(params.arg_arg_registration);
+          const result = this.impl.dispatchBackgroundFetchAbortEvent(params.arg_registration);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchBackgroundFetchAbortEvent FAILED:', e));
           }
@@ -1284,13 +1284,13 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchBackgroundFetchClickEvent');
-          const result = this.impl.dispatchBackgroundFetchClickEvent(params.arg_arg_registration);
+          const result = this.impl.dispatchBackgroundFetchClickEvent(params.arg_registration);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchBackgroundFetchClickEvent FAILED:', e));
           }
@@ -1300,13 +1300,13 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchBackgroundFetchFailEvent');
-          const result = this.impl.dispatchBackgroundFetchFailEvent(params.arg_arg_registration);
+          const result = this.impl.dispatchBackgroundFetchFailEvent(params.arg_registration);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchBackgroundFetchFailEvent FAILED:', e));
           }
@@ -1316,13 +1316,13 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchBackgroundFetchSuccessEvent');
-          const result = this.impl.dispatchBackgroundFetchSuccessEvent(params.arg_arg_registration);
+          const result = this.impl.dispatchBackgroundFetchSuccessEvent(params.arg_registration);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchBackgroundFetchSuccessEvent FAILED:', e));
           }
@@ -1332,13 +1332,13 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchCookieChangeEvent');
-          const result = this.impl.dispatchCookieChangeEvent(params.arg_arg_change);
+          const result = this.impl.dispatchCookieChangeEvent(params.arg_change);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchCookieChangeEvent FAILED:', e));
           }
@@ -1348,13 +1348,13 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchFetchEventForMainResource');
-          const result = this.impl.dispatchFetchEventForMainResource(params.arg_arg_params, params.arg_arg_response_callback);
+          const result = this.impl.dispatchFetchEventForMainResource(params.arg_params, params.arg_response_callback);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchFetchEventForMainResource FAILED:', e));
           }
@@ -1364,13 +1364,13 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchNotificationClickEvent');
-          const result = this.impl.dispatchNotificationClickEvent(params.arg_arg_notification_id, params.arg_arg_notification_data, params.arg_arg_action_index, params.arg_arg_reply);
+          const result = this.impl.dispatchNotificationClickEvent(params.arg_notification_id, params.arg_notification_data, params.arg_action_index, params.arg_reply);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchNotificationClickEvent FAILED:', e));
           }
@@ -1380,13 +1380,13 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchNotificationCloseEvent');
-          const result = this.impl.dispatchNotificationCloseEvent(params.arg_arg_notification_id, params.arg_arg_notification_data);
+          const result = this.impl.dispatchNotificationCloseEvent(params.arg_notification_id, params.arg_notification_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchNotificationCloseEvent FAILED:', e));
           }
@@ -1396,13 +1396,13 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchPushEvent');
-          const result = this.impl.dispatchPushEvent(params.arg_arg_payload);
+          const result = this.impl.dispatchPushEvent(params.arg_payload);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchPushEvent FAILED:', e));
           }
@@ -1412,12 +1412,12 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchPushEventRecordingNetworkRequests');
-          const result = this.impl.dispatchPushEventRecordingNetworkRequests(params.arg_arg_payload);
+          const result = this.impl.dispatchPushEventRecordingNetworkRequests(params.arg_payload);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_requested_urls']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_requested_urls': response.arg_requested_urls });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchPushEventRecordingNetworkRequests FAILED:', e));
           }
@@ -1427,13 +1427,13 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchPushSubscriptionChangeEvent');
-          const result = this.impl.dispatchPushSubscriptionChangeEvent(params.arg_arg_old_subscription, params.arg_arg_new_subscription);
+          const result = this.impl.dispatchPushSubscriptionChangeEvent(params.arg_old_subscription, params.arg_new_subscription);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchPushSubscriptionChangeEvent FAILED:', e));
           }
@@ -1443,13 +1443,13 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchSyncEvent');
-          const result = this.impl.dispatchSyncEvent(params.arg_arg_tag, params.arg_arg_last_chance, params.arg_arg_timeout);
+          const result = this.impl.dispatchSyncEvent(params.arg_tag, params.arg_last_chance, params.arg_timeout);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchSyncEvent FAILED:', e));
           }
@@ -1459,13 +1459,13 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchPeriodicSyncEvent');
-          const result = this.impl.dispatchPeriodicSyncEvent(params.arg_arg_tag, params.arg_arg_timeout);
+          const result = this.impl.dispatchPeriodicSyncEvent(params.arg_tag, params.arg_timeout);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchPeriodicSyncEvent FAILED:', e));
           }
@@ -1475,13 +1475,13 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchAbortPaymentEvent');
-          const result = this.impl.dispatchAbortPaymentEvent(params.arg_arg_result_of_abort_payment);
+          const result = this.impl.dispatchAbortPaymentEvent(params.arg_result_of_abort_payment);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchAbortPaymentEvent FAILED:', e));
           }
@@ -1491,13 +1491,13 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchCanMakePaymentEvent');
-          const result = this.impl.dispatchCanMakePaymentEvent(params.arg_arg_event_data, params.arg_arg_result_of_can_make_payment);
+          const result = this.impl.dispatchCanMakePaymentEvent(params.arg_event_data, params.arg_result_of_can_make_payment);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchCanMakePaymentEvent FAILED:', e));
           }
@@ -1507,13 +1507,13 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchPaymentRequestEvent');
-          const result = this.impl.dispatchPaymentRequestEvent(params.arg_arg_request_data, params.arg_arg_response_callback);
+          const result = this.impl.dispatchPaymentRequestEvent(params.arg_request_data, params.arg_response_callback);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchPaymentRequestEvent FAILED:', e));
           }
@@ -1523,13 +1523,13 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchExtendableMessageEvent');
-          const result = this.impl.dispatchExtendableMessageEvent(params.arg_arg_event);
+          const result = this.impl.dispatchExtendableMessageEvent(params.arg_event);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchExtendableMessageEvent FAILED:', e));
           }
@@ -1539,13 +1539,13 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchContentDeleteEvent');
-          const result = this.impl.dispatchContentDeleteEvent(params.arg_arg_id);
+          const result = this.impl.dispatchContentDeleteEvent(params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchContentDeleteEvent FAILED:', e));
           }
@@ -1560,7 +1560,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_Ping_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_Ping_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] ping FAILED:', e));
           }
@@ -1570,7 +1570,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_SetIdleDelay_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIdleDelay');
-          const result = this.impl.setIdleDelay(params.arg_arg_delay);
+          const result = this.impl.setIdleDelay(params.arg_delay);
           break;
         }
         case 23: {
@@ -1591,19 +1591,19 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addMessageToConsole');
-          const result = this.impl.addMessageToConsole(params.arg_arg_level, params.arg_arg_message);
+          const result = this.impl.addMessageToConsole(params.arg_level, params.arg_message);
           break;
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeScriptForTest');
-          const result = this.impl.executeScriptForTest(params.arg_arg_javascript, params.arg_arg_wants_result);
+          const result = this.impl.executeScriptForTest(params.arg_javascript, params.arg_wants_result);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_error']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec.$.structSpec, { 'arg_result': response.arg_result, 'arg_error': response.arg_error });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] executeScriptForTest FAILED:', e));
           }

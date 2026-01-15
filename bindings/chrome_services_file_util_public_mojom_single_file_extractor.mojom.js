@@ -188,7 +188,7 @@ mojo.internal.bindings.chrome.mojom.SingleFileExtractorRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec,
-      [arg_src_file, arg_dst_file, arg_listener],
+      { arg_src_file: arg_src_file, arg_dst_file: arg_dst_file, arg_listener: arg_listener },
       false);
   }
 
@@ -257,13 +257,13 @@ mojo.internal.bindings.chrome.mojom.SingleFileExtractorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extract');
-          const result = this.impl.extract(params.arg_arg_src_file, params.arg_arg_dst_file, params.arg_arg_listener);
+          const result = this.impl.extract(params.arg_src_file, params.arg_dst_file, params.arg_listener);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] extract FAILED:', e));
           }
@@ -327,7 +327,7 @@ mojo.internal.bindings.chrome.mojom.SingleFileExtractorListenerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.SingleFileExtractorListener_OnProgress_ParamsSpec,
       null,
-      [arg_total_bytes, arg_progress_bytes],
+      { arg_total_bytes: arg_total_bytes, arg_progress_bytes: arg_progress_bytes },
       false);
   }
 
@@ -396,7 +396,7 @@ mojo.internal.bindings.chrome.mojom.SingleFileExtractorListenerReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.SingleFileExtractorListener_OnProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
-          const result = this.impl.onProgress(params.arg_arg_total_bytes, params.arg_arg_progress_bytes);
+          const result = this.impl.onProgress(params.arg_total_bytes, params.arg_progress_bytes);
           break;
         }
       }

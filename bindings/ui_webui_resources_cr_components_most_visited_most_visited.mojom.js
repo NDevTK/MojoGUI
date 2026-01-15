@@ -218,7 +218,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactoryRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactoryReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -408,7 +408,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec,
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec,
-      [arg_url, arg_title],
+      { arg_url: arg_url, arg_title: arg_title },
       false);
   }
 
@@ -417,7 +417,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec,
       null,
-      [arg_tile],
+      { arg_tile: arg_tile },
       false);
   }
 
@@ -426,7 +426,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec,
       null,
-      [arg_tile, arg_new_pos],
+      { arg_tile: arg_tile, arg_new_pos: arg_new_pos },
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec,
       null,
-      [arg_source],
+      { arg_source: arg_source },
       false);
   }
 
@@ -444,7 +444,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec,
       null,
-      [arg_source],
+      { arg_source: arg_source },
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec,
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec,
-      [arg_tile, arg_new_url, arg_new_title],
+      { arg_tile: arg_tile, arg_new_url: arg_new_url, arg_new_title: arg_new_title },
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec,
       null,
-      [arg_tile],
+      { arg_tile: arg_tile },
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec,
       null,
-      [arg_tile],
+      { arg_tile: arg_tile },
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec,
       null,
-      [arg_tile],
+      { arg_tile: arg_tile },
       false);
   }
 
@@ -507,7 +507,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -516,7 +516,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec,
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -525,7 +525,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec,
       null,
-      [arg_is_expanded],
+      { arg_is_expanded: arg_is_expanded },
       false);
   }
 
@@ -534,7 +534,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec,
       null,
-      [arg_tiles, arg_time],
+      { arg_tiles: arg_tiles, arg_time: arg_time },
       false);
   }
 
@@ -543,7 +543,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec,
       null,
-      [arg_tile, arg_index, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key],
+      { arg_tile: arg_tile, arg_index: arg_index, arg_mouse_button: arg_mouse_button, arg_alt_key: arg_alt_key, arg_ctrl_key: arg_ctrl_key, arg_meta_key: arg_meta_key, arg_shift_key: arg_shift_key },
       false);
   }
 
@@ -627,13 +627,13 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addMostVisitedTile');
-          const result = this.impl.addMostVisitedTile(params.arg_arg_url, params.arg_arg_title);
+          const result = this.impl.addMostVisitedTile(params.arg_url, params.arg_title);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addMostVisitedTile FAILED:', e));
           }
@@ -643,21 +643,21 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteMostVisitedTile');
-          const result = this.impl.deleteMostVisitedTile(params.arg_arg_tile);
+          const result = this.impl.deleteMostVisitedTile(params.arg_tile);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reorderMostVisitedTile');
-          const result = this.impl.reorderMostVisitedTile(params.arg_arg_tile, params.arg_arg_new_pos);
+          const result = this.impl.reorderMostVisitedTile(params.arg_tile, params.arg_new_pos);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restoreMostVisitedDefaults');
-          const result = this.impl.restoreMostVisitedDefaults(params.arg_arg_source);
+          const result = this.impl.restoreMostVisitedDefaults(params.arg_source);
           break;
         }
         case 4: {
@@ -671,7 +671,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.undoMostVisitedTileAction');
-          const result = this.impl.undoMostVisitedTileAction(params.arg_arg_source);
+          const result = this.impl.undoMostVisitedTileAction(params.arg_source);
           break;
         }
         case 6: {
@@ -685,13 +685,13 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateMostVisitedTile');
-          const result = this.impl.updateMostVisitedTile(params.arg_arg_tile, params.arg_arg_new_url, params.arg_arg_new_title);
+          const result = this.impl.updateMostVisitedTile(params.arg_tile, params.arg_new_url, params.arg_new_title);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateMostVisitedTile FAILED:', e));
           }
@@ -701,21 +701,21 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prerenderMostVisitedTile');
-          const result = this.impl.prerenderMostVisitedTile(params.arg_arg_tile);
+          const result = this.impl.prerenderMostVisitedTile(params.arg_tile);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prefetchMostVisitedTile');
-          const result = this.impl.prefetchMostVisitedTile(params.arg_arg_tile);
+          const result = this.impl.prefetchMostVisitedTile(params.arg_tile);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.preconnectMostVisitedTile');
-          const result = this.impl.preconnectMostVisitedTile(params.arg_arg_tile);
+          const result = this.impl.preconnectMostVisitedTile(params.arg_tile);
           break;
         }
         case 11: {
@@ -734,8 +734,8 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_expanded' in response) ? response.arg_arg_is_expanded : response;
-              encoder.encodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_expanded' in response) ? response.arg_is_expanded : response;
+              encoder.encodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec.$.structSpec, { 'arg_is_expanded': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMostVisitedExpandedState FAILED:', e));
           }
@@ -745,21 +745,21 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMostVisitedExpandedState');
-          const result = this.impl.setMostVisitedExpandedState(params.arg_arg_is_expanded);
+          const result = this.impl.setMostVisitedExpandedState(params.arg_is_expanded);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMostVisitedTilesRendered');
-          const result = this.impl.onMostVisitedTilesRendered(params.arg_arg_tiles, params.arg_arg_time);
+          const result = this.impl.onMostVisitedTilesRendered(params.arg_tiles, params.arg_time);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMostVisitedTileNavigation');
-          const result = this.impl.onMostVisitedTileNavigation(params.arg_arg_tile, params.arg_arg_index, params.arg_arg_mouse_button, params.arg_arg_alt_key, params.arg_arg_ctrl_key, params.arg_arg_meta_key, params.arg_arg_shift_key);
+          const result = this.impl.onMostVisitedTileNavigation(params.arg_tile, params.arg_index, params.arg_mouse_button, params.arg_alt_key, params.arg_ctrl_key, params.arg_meta_key, params.arg_shift_key);
           break;
         }
       }
@@ -824,7 +824,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec,
       null,
-      [arg_info],
+      { arg_info: arg_info },
       false);
   }
 
@@ -833,7 +833,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -903,7 +903,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMostVisitedInfo');
-          const result = this.impl.setMostVisitedInfo(params.arg_arg_info);
+          const result = this.impl.setMostVisitedInfo(params.arg_info);
           break;
         }
         case 1: {

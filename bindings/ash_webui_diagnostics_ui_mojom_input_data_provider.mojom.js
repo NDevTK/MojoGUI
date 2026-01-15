@@ -242,7 +242,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec,
       null,
-      [arg_event],
+      { arg_event: arg_event },
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -331,7 +331,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onKeyEvent');
-          const result = this.impl.onKeyEvent(params.arg_arg_event);
+          const result = this.impl.onKeyEvent(params.arg_event);
           break;
         }
         case 1: {
@@ -406,7 +406,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InternalDisplayPowerStateObserverRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerStateChanged_ParamsSpec,
       null,
-      [arg_is_display_on],
+      { arg_is_display_on: arg_is_display_on },
       false);
   }
 
@@ -475,7 +475,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InternalDisplayPowerStateObserverRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInternalDisplayPowerStateChanged');
-          const result = this.impl.onInternalDisplayPowerStateChanged(params.arg_arg_is_display_on);
+          const result = this.impl.onInternalDisplayPowerStateChanged(params.arg_is_display_on);
           break;
         }
       }
@@ -536,7 +536,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.TabletModeObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec,
       null,
-      [arg_is_tablet_mode],
+      { arg_is_tablet_mode: arg_is_tablet_mode },
       false);
   }
 
@@ -605,7 +605,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.TabletModeObserverReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTabletModeChanged');
-          const result = this.impl.onTabletModeChanged(params.arg_arg_is_tablet_mode);
+          const result = this.impl.onTabletModeChanged(params.arg_is_tablet_mode);
           break;
         }
       }
@@ -666,7 +666,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.LidStateObserverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec,
       null,
-      [arg_is_lid_open],
+      { arg_is_lid_open: arg_is_lid_open },
       false);
   }
 
@@ -735,7 +735,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.LidStateObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLidStateChanged');
-          const result = this.impl.onLidStateChanged(params.arg_arg_is_lid_open);
+          const result = this.impl.onLidStateChanged(params.arg_is_lid_open);
           break;
         }
       }
@@ -808,7 +808,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec,
       null,
-      [arg_new_keyboard],
+      { arg_new_keyboard: arg_new_keyboard },
       false);
   }
 
@@ -817,7 +817,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -826,7 +826,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec,
       null,
-      [arg_new_touch_device],
+      { arg_new_touch_device: arg_new_touch_device },
       false);
   }
 
@@ -835,7 +835,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallH
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -907,28 +907,28 @@ mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserverReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onKeyboardConnected');
-          const result = this.impl.onKeyboardConnected(params.arg_arg_new_keyboard);
+          const result = this.impl.onKeyboardConnected(params.arg_new_keyboard);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onKeyboardDisconnected');
-          const result = this.impl.onKeyboardDisconnected(params.arg_arg_id);
+          const result = this.impl.onKeyboardDisconnected(params.arg_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTouchDeviceConnected');
-          const result = this.impl.onTouchDeviceConnected(params.arg_arg_new_touch_device);
+          const result = this.impl.onTouchDeviceConnected(params.arg_new_touch_device);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTouchDeviceDisconnected');
-          const result = this.impl.onTouchDeviceDisconnected(params.arg_arg_id);
+          const result = this.impl.onTouchDeviceDisconnected(params.arg_id);
           break;
         }
       }
@@ -1021,7 +1021,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec,
       mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1030,7 +1030,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -1039,7 +1039,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec,
       null,
-      [arg_id, arg_observer],
+      { arg_id: arg_id, arg_observer: arg_observer },
       false);
   }
 
@@ -1048,7 +1048,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec,
       mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -1057,7 +1057,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderRemoteCallHandler 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec,
       mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -1066,7 +1066,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderRemoteCallHandler 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -1075,7 +1075,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderRemoteCallHandler 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec,
       null,
-      [arg_evdev_id],
+      { arg_evdev_id: arg_evdev_id },
       false);
   }
 
@@ -1084,7 +1084,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderRemoteCallHandler 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -1093,7 +1093,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderRemoteCallHandler 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -1175,8 +1175,8 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_devices' in response) ? response.arg_arg_devices : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_devices' in response) ? response.arg_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec.$.structSpec, { 'arg_devices': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getConnectedDevices FAILED:', e));
           }
@@ -1186,27 +1186,27 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeConnectedDevices');
-          const result = this.impl.observeConnectedDevices(params.arg_arg_observer);
+          const result = this.impl.observeConnectedDevices(params.arg_observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeKeyEvents');
-          const result = this.impl.observeKeyEvents(params.arg_arg_id, params.arg_arg_observer);
+          const result = this.impl.observeKeyEvents(params.arg_id, params.arg_observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeTabletMode');
-          const result = this.impl.observeTabletMode(params.arg_arg_observer);
+          const result = this.impl.observeTabletMode(params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_tablet_mode' in response) ? response.arg_arg_is_tablet_mode : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_tablet_mode' in response) ? response.arg_is_tablet_mode : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec.$.structSpec, { 'arg_is_tablet_mode': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] observeTabletMode FAILED:', e));
           }
@@ -1216,13 +1216,13 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeLidState');
-          const result = this.impl.observeLidState(params.arg_arg_observer);
+          const result = this.impl.observeLidState(params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_lid_open' in response) ? response.arg_arg_is_lid_open : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_lid_open' in response) ? response.arg_is_lid_open : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec.$.structSpec, { 'arg_is_lid_open': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] observeLidState FAILED:', e));
           }
@@ -1232,14 +1232,14 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeInternalDisplayPowerState');
-          const result = this.impl.observeInternalDisplayPowerState(params.arg_arg_observer);
+          const result = this.impl.observeInternalDisplayPowerState(params.arg_observer);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.moveAppToTestingScreen');
-          const result = this.impl.moveAppToTestingScreen(params.arg_arg_evdev_id);
+          const result = this.impl.moveAppToTestingScreen(params.arg_evdev_id);
           break;
         }
         case 7: {
@@ -1253,7 +1253,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setA11yTouchPassthrough');
-          const result = this.impl.setA11yTouchPassthrough(params.arg_arg_enabled);
+          const result = this.impl.setA11yTouchPassthrough(params.arg_enabled);
           break;
         }
       }

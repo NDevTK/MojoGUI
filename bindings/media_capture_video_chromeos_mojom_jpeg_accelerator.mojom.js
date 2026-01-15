@@ -186,7 +186,7 @@ mojo.internal.bindings.cros.mojom.JpegAcceleratorProviderRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec,
       null,
-      [arg_jea],
+      { arg_jea: arg_jea },
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.cros.mojom.JpegAcceleratorProviderRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec,
       null,
-      [arg_jda],
+      { arg_jda: arg_jda },
       false);
   }
 
@@ -265,14 +265,14 @@ mojo.internal.bindings.cros.mojom.JpegAcceleratorProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getJpegEncodeAccelerator');
-          const result = this.impl.getJpegEncodeAccelerator(params.arg_arg_jea);
+          const result = this.impl.getJpegEncodeAccelerator(params.arg_jea);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMjpegDecodeAccelerator');
-          const result = this.impl.getMjpegDecodeAccelerator(params.arg_arg_jda);
+          const result = this.impl.getMjpegDecodeAccelerator(params.arg_jda);
           break;
         }
       }

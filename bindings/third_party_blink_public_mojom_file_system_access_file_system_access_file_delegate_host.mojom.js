@@ -198,7 +198,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec,
-      [arg_offset, arg_bytes_to_read],
+      { arg_offset: arg_offset, arg_bytes_to_read: arg_bytes_to_read },
       false);
   }
 
@@ -207,7 +207,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec,
-      [arg_offset, arg_data],
+      { arg_offset: arg_offset, arg_data: arg_data },
       false);
   }
 
@@ -216,7 +216,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec,
-      [arg_length],
+      { arg_length: arg_length },
       false);
   }
 
@@ -297,12 +297,12 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.read');
-          const result = this.impl.read(params.arg_arg_offset, params.arg_arg_bytes_to_read);
+          const result = this.impl.read(params.arg_offset, params.arg_bytes_to_read);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec.$.structSpec, ['response.arg_arg_data', 'response.arg_arg_error', 'response.arg_arg_bytes_read']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec.$.structSpec, { 'arg_data': response.arg_data, 'arg_error': response.arg_error, 'arg_bytes_read': response.arg_bytes_read });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] read FAILED:', e));
           }
@@ -312,12 +312,12 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.write');
-          const result = this.impl.write(params.arg_arg_offset, params.arg_arg_data);
+          const result = this.impl.write(params.arg_offset, params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_bytes_written']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_bytes_written': response.arg_bytes_written });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] write FAILED:', e));
           }
@@ -332,7 +332,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostReceiver = cl
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_length']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_length': response.arg_length });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getLength FAILED:', e));
           }
@@ -342,13 +342,13 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setLength');
-          const result = this.impl.setLength(params.arg_arg_length);
+          const result = this.impl.setLength(params.arg_length);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setLength FAILED:', e));
           }

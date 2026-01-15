@@ -186,7 +186,7 @@ mojo.internal.bindings.codelabs.mojom.ObjectARemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.codelabs.mojom.ObjectA_DoA_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -316,7 +316,7 @@ mojo.internal.bindings.codelabs.mojom.ObjectBRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.codelabs.mojom.ObjectB_DoB_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -446,7 +446,7 @@ mojo.internal.bindings.codelabs.mojom.AssociatedProcessRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec,
       null,
-      [arg_process],
+      { arg_process: arg_process },
       false);
   }
 
@@ -515,7 +515,7 @@ mojo.internal.bindings.codelabs.mojom.AssociatedProcessReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setProcess');
-          const result = this.impl.setProcess(params.arg_arg_process);
+          const result = this.impl.setProcess(params.arg_process);
           break;
         }
       }
@@ -689,7 +689,7 @@ mojo.internal.bindings.codelabs.mojom.ProcessRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.codelabs.mojom.Process_SayHello_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -698,7 +698,7 @@ mojo.internal.bindings.codelabs.mojom.ProcessRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec,
       null,
-      [arg_name, arg_receiver],
+      { arg_name: arg_name, arg_receiver: arg_receiver },
       false);
   }
 
@@ -775,7 +775,7 @@ mojo.internal.bindings.codelabs.mojom.ProcessReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAssociatedInterface');
-          const result = this.impl.getAssociatedInterface(params.arg_arg_name, params.arg_arg_receiver);
+          const result = this.impl.getAssociatedInterface(params.arg_name, params.arg_receiver);
           break;
         }
       }

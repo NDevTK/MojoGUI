@@ -183,7 +183,7 @@ mojo.internal.bindings.ai.mojom.AIPrototypingServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec,
       mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.ai.mojom.AIPrototypingServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec,
       mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -262,12 +262,12 @@ mojo.internal.bindings.ai.mojom.AIPrototypingServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeServerQuery');
-          const result = this.impl.executeServerQuery(params.arg_arg_request);
+          const result = this.impl.executeServerQuery(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec.$.structSpec, ['response.arg_arg_output', 'response.arg_arg_logging_data']);
+              encoder.encodeStructInline(mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec.$.structSpec, { 'arg_output': response.arg_output, 'arg_logging_data': response.arg_logging_data });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] executeServerQuery FAILED:', e));
           }
@@ -277,13 +277,13 @@ mojo.internal.bindings.ai.mojom.AIPrototypingServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeOnDeviceQuery');
-          const result = this.impl.executeOnDeviceQuery(params.arg_arg_request);
+          const result = this.impl.executeOnDeviceQuery(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_output' in response) ? response.arg_arg_output : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_output' in response) ? response.arg_output : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec.$.structSpec, { 'arg_output': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] executeOnDeviceQuery FAILED:', e));
           }

@@ -218,7 +218,7 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec,
       mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec,
-      [arg_id, arg_guid],
+      { arg_id: arg_id, arg_guid: arg_guid },
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec,
       mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec,
-      [arg_id, arg_mapping_ctrl],
+      { arg_id: arg_id, arg_mapping_ctrl: arg_mapping_ctrl },
       false);
   }
 
@@ -236,7 +236,7 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec,
       mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec,
-      [arg_id, arg_ctrl, arg_fn],
+      { arg_id: arg_id, arg_ctrl: arg_ctrl, arg_fn: arg_fn },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec,
       mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec,
-      [arg_id, arg_ctrl, arg_data],
+      { arg_id: arg_id, arg_ctrl: arg_ctrl, arg_data: arg_data },
       false);
   }
 
@@ -317,12 +317,12 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUnitId');
-          const result = this.impl.getUnitId(params.arg_arg_id, params.arg_arg_guid);
+          const result = this.impl.getUnitId(params.arg_id, params.arg_guid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error_code', 'response.arg_arg_unit_id']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec.$.structSpec, { 'arg_error_code': response.arg_error_code, 'arg_unit_id': response.arg_unit_id });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUnitId FAILED:', e));
           }
@@ -332,13 +332,13 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mapCtrl');
-          const result = this.impl.mapCtrl(params.arg_arg_id, params.arg_arg_mapping_ctrl);
+          const result = this.impl.mapCtrl(params.arg_id, params.arg_mapping_ctrl);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_code' in response) ? response.arg_arg_error_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response.arg_error_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec.$.structSpec, { 'arg_error_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] mapCtrl FAILED:', e));
           }
@@ -348,12 +348,12 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCtrl');
-          const result = this.impl.getCtrl(params.arg_arg_id, params.arg_arg_ctrl, params.arg_arg_fn);
+          const result = this.impl.getCtrl(params.arg_id, params.arg_ctrl, params.arg_fn);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error_code', 'response.arg_arg_data']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec.$.structSpec, { 'arg_error_code': response.arg_error_code, 'arg_data': response.arg_data });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCtrl FAILED:', e));
           }
@@ -363,13 +363,13 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCtrl');
-          const result = this.impl.setCtrl(params.arg_arg_id, params.arg_arg_ctrl, params.arg_arg_data);
+          const result = this.impl.setCtrl(params.arg_id, params.arg_ctrl, params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_code' in response) ? response.arg_arg_error_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response.arg_error_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec.$.structSpec, { 'arg_error_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setCtrl FAILED:', e));
           }

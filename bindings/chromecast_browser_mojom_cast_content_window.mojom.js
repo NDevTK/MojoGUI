@@ -214,7 +214,7 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec,
       null,
-      [arg_visibility_type],
+      { arg_visibility_type: arg_visibility_type },
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -293,7 +293,7 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVisibilityChange');
-          const result = this.impl.onVisibilityChange(params.arg_arg_visibility_type);
+          const result = this.impl.onVisibilityChange(params.arg_visibility_type);
           break;
         }
         case 1: {
@@ -381,7 +381,7 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec,
       null,
-      [arg_z_order, arg_priority],
+      { arg_z_order: arg_z_order, arg_priority: arg_priority },
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -399,7 +399,7 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -408,7 +408,7 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -417,7 +417,7 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec,
       null,
-      [arg_priority],
+      { arg_priority: arg_priority },
       false);
   }
 
@@ -426,7 +426,7 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -500,14 +500,14 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWindow');
-          const result = this.impl.createWindow(params.arg_arg_z_order, params.arg_arg_priority);
+          const result = this.impl.createWindow(params.arg_z_order, params.arg_priority);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_arg_observer);
+          const result = this.impl.addObserver(params.arg_observer);
           break;
         }
         case 2: {
@@ -528,14 +528,14 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestVisibility');
-          const result = this.impl.requestVisibility(params.arg_arg_priority);
+          const result = this.impl.requestVisibility(params.arg_priority);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableTouchInput');
-          const result = this.impl.enableTouchInput(params.arg_arg_enabled);
+          const result = this.impl.enableTouchInput(params.arg_enabled);
           break;
         }
       }

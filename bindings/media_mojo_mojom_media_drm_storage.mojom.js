@@ -207,7 +207,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -216,7 +216,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec,
-      [arg_session_id, arg_session_data],
+      { arg_session_id: arg_session_id, arg_session_data: arg_session_data },
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec,
-      [arg_session_id],
+      { arg_session_id: arg_session_id },
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec,
-      [arg_session_id],
+      { arg_session_id: arg_session_id },
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_origin_id']);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_origin_id': response.arg_origin_id });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] initialize FAILED:', e));
           }
@@ -336,8 +336,8 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onProvisioned FAILED:', e));
           }
@@ -347,13 +347,13 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.savePersistentSession');
-          const result = this.impl.savePersistentSession(params.arg_arg_session_id, params.arg_arg_session_data);
+          const result = this.impl.savePersistentSession(params.arg_session_id, params.arg_session_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] savePersistentSession FAILED:', e));
           }
@@ -363,13 +363,13 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadPersistentSession');
-          const result = this.impl.loadPersistentSession(params.arg_arg_session_id);
+          const result = this.impl.loadPersistentSession(params.arg_session_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_session_data' in response) ? response.arg_arg_session_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_session_data' in response) ? response.arg_session_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec.$.structSpec, { 'arg_session_data': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] loadPersistentSession FAILED:', e));
           }
@@ -379,13 +379,13 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removePersistentSession');
-          const result = this.impl.removePersistentSession(params.arg_arg_session_id);
+          const result = this.impl.removePersistentSession(params.arg_session_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] removePersistentSession FAILED:', e));
           }

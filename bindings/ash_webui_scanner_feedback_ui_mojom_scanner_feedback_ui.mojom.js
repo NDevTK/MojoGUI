@@ -189,7 +189,7 @@ mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec,
       mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -198,7 +198,7 @@ mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -207,7 +207,7 @@ mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec,
       null,
-      [arg_user_description],
+      { arg_user_description: arg_user_description },
       false);
   }
 
@@ -283,8 +283,8 @@ mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerReceiver = class
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_feedback_info' in response) ? response.arg_arg_feedback_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_feedback_info' in response) ? response.arg_feedback_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec.$.structSpec, { 'arg_feedback_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFeedbackInfo FAILED:', e));
           }
@@ -301,7 +301,7 @@ mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendFeedback');
-          const result = this.impl.sendFeedback(params.arg_arg_user_description);
+          const result = this.impl.sendFeedback(params.arg_user_description);
           break;
         }
       }

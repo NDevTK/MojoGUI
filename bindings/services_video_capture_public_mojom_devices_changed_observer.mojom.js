@@ -170,7 +170,7 @@ mojo.internal.bindings.video_capture.mojom.DevicesChangedObserverRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

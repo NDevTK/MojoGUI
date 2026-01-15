@@ -235,7 +235,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec,
       null,
-      [arg_service_name, arg_service_provider],
+      { arg_service_name: arg_service_name, arg_service_provider: arg_service_provider },
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerRemoteC
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec,
       null,
-      [arg_service_name, arg_timeout, arg_receiver],
+      { arg_service_name: arg_service_name, arg_timeout: arg_timeout, arg_receiver: arg_receiver },
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerRemoteC
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec,
       mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ResponseParamsSpec,
-      [arg_service_name],
+      { arg_service_name: arg_service_name },
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerRemoteC
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -334,27 +334,27 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.register');
-          const result = this.impl.register(params.arg_arg_service_name, params.arg_arg_service_provider);
+          const result = this.impl.register(params.arg_service_name, params.arg_service_provider);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.request');
-          const result = this.impl.request(params.arg_arg_service_name, params.arg_arg_timeout, params.arg_arg_receiver);
+          const result = this.impl.request(params.arg_service_name, params.arg_timeout, params.arg_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.query');
-          const result = this.impl.query(params.arg_arg_service_name);
+          const result = this.impl.query(params.arg_service_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] query FAILED:', e));
           }
@@ -364,7 +364,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addServiceObserver');
-          const result = this.impl.addServiceObserver(params.arg_arg_observer);
+          const result = this.impl.addServiceObserver(params.arg_observer);
           break;
         }
       }
@@ -425,7 +425,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProviderRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec,
       null,
-      [arg_client_identity, arg_receiver],
+      { arg_client_identity: arg_client_identity, arg_receiver: arg_receiver },
       false);
   }
 
@@ -494,7 +494,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProviderReceiv
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.request');
-          const result = this.impl.request(params.arg_arg_client_identity, params.arg_arg_receiver);
+          const result = this.impl.request(params.arg_client_identity, params.arg_receiver);
           break;
         }
       }
@@ -555,7 +555,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserverRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec,
       null,
-      [arg_event],
+      { arg_event: arg_event },
       false);
   }
 
@@ -624,7 +624,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserverReceiv
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onServiceEvent');
-          const result = this.impl.onServiceEvent(params.arg_arg_event);
+          const result = this.impl.onServiceEvent(params.arg_event);
           break;
         }
       }

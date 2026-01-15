@@ -229,7 +229,7 @@ mojo.internal.bindings.device.mojom.GeolocationInternalsObserverRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec,
       null,
-      [arg_diagnostics],
+      { arg_diagnostics: arg_diagnostics },
       false);
   }
 
@@ -238,7 +238,7 @@ mojo.internal.bindings.device.mojom.GeolocationInternalsObserverRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec,
       null,
-      [arg_access_point_data],
+      { arg_access_point_data: arg_access_point_data },
       false);
   }
 
@@ -247,7 +247,7 @@ mojo.internal.bindings.device.mojom.GeolocationInternalsObserverRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec,
       null,
-      [arg_response],
+      { arg_response: arg_response },
       false);
   }
 
@@ -318,21 +318,21 @@ mojo.internal.bindings.device.mojom.GeolocationInternalsObserverReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDiagnosticsChanged');
-          const result = this.impl.onDiagnosticsChanged(params.arg_arg_diagnostics);
+          const result = this.impl.onDiagnosticsChanged(params.arg_diagnostics);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkLocationRequested');
-          const result = this.impl.onNetworkLocationRequested(params.arg_arg_access_point_data);
+          const result = this.impl.onNetworkLocationRequested(params.arg_access_point_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkLocationReceived');
-          const result = this.impl.onNetworkLocationReceived(params.arg_arg_response);
+          const result = this.impl.onNetworkLocationReceived(params.arg_response);
           break;
         }
       }
@@ -393,7 +393,7 @@ mojo.internal.bindings.device.mojom.GeolocationInternalsRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec,
       mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -462,13 +462,13 @@ mojo.internal.bindings.device.mojom.GeolocationInternalsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addInternalsObserver');
-          const result = this.impl.addInternalsObserver(params.arg_arg_observer);
+          const result = this.impl.addInternalsObserver(params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_diagnostics' in response) ? response.arg_arg_diagnostics : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_diagnostics' in response) ? response.arg_diagnostics : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec.$.structSpec, { 'arg_diagnostics': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addInternalsObserver FAILED:', e));
           }

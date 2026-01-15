@@ -176,7 +176,7 @@ mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInterface');
-          const result = this.impl.getInterface(params.arg_arg_receiver);
+          const result = this.impl.getInterface(params.arg_receiver);
           break;
         }
       }

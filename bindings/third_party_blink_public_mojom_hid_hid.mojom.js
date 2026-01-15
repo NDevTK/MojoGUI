@@ -225,7 +225,7 @@ mojo.internal.bindings.blink.mojom.HidServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.HidService_RegisterClient_ParamsSpec,
       null,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.blink.mojom.HidServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.HidService_GetDevices_ParamsSpec,
       mojo.internal.bindings.blink.mojom.HidService_GetDevices_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.blink.mojom.HidServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ParamsSpec,
       mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ResponseParamsSpec,
-      [arg_filters, arg_exclusion_filters],
+      { arg_filters: arg_filters, arg_exclusion_filters: arg_exclusion_filters },
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.blink.mojom.HidServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.HidService_Connect_ParamsSpec,
       mojo.internal.bindings.blink.mojom.HidService_Connect_ResponseParamsSpec,
-      [arg_device_guid, arg_client],
+      { arg_device_guid: arg_device_guid, arg_client: arg_client },
       false);
   }
 
@@ -261,7 +261,7 @@ mojo.internal.bindings.blink.mojom.HidServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.HidService_Forget_ParamsSpec,
       mojo.internal.bindings.blink.mojom.HidService_Forget_ResponseParamsSpec,
-      [arg_device_info],
+      { arg_device_info: arg_device_info },
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.blink.mojom.HidServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.HidService_RegisterClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerClient');
-          const result = this.impl.registerClient(params.arg_arg_client);
+          const result = this.impl.registerClient(params.arg_client);
           break;
         }
         case 1: {
@@ -346,8 +346,8 @@ mojo.internal.bindings.blink.mojom.HidServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_devices' in response) ? response.arg_arg_devices : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.HidService_GetDevices_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_devices' in response) ? response.arg_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.HidService_GetDevices_ResponseParamsSpec.$.structSpec, { 'arg_devices': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDevices FAILED:', e));
           }
@@ -357,13 +357,13 @@ mojo.internal.bindings.blink.mojom.HidServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestDevice');
-          const result = this.impl.requestDevice(params.arg_arg_filters, params.arg_arg_exclusion_filters);
+          const result = this.impl.requestDevice(params.arg_filters, params.arg_exclusion_filters);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_devices' in response) ? response.arg_arg_devices : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_devices' in response) ? response.arg_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ResponseParamsSpec.$.structSpec, { 'arg_devices': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestDevice FAILED:', e));
           }
@@ -373,13 +373,13 @@ mojo.internal.bindings.blink.mojom.HidServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.HidService_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_arg_device_guid, params.arg_arg_client);
+          const result = this.impl.connect(params.arg_device_guid, params.arg_client);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_connection' in response) ? response.arg_arg_connection : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.HidService_Connect_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_connection' in response) ? response.arg_connection : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.HidService_Connect_ResponseParamsSpec.$.structSpec, { 'arg_connection': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] connect FAILED:', e));
           }
@@ -389,12 +389,12 @@ mojo.internal.bindings.blink.mojom.HidServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.HidService_Forget_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forget');
-          const result = this.impl.forget(params.arg_arg_device_info);
+          const result = this.impl.forget(params.arg_device_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.HidService_Forget_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.HidService_Forget_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] forget FAILED:', e));
           }

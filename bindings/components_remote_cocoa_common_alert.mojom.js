@@ -191,7 +191,7 @@ mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -270,12 +270,12 @@ mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.show');
-          const result = this.impl.show(params.arg_arg_params);
+          const result = this.impl.show(params.arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec.$.structSpec, ['response.arg_arg_disposition', 'response.arg_arg_text_field_value', 'response.arg_arg_check_box_value']);
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec.$.structSpec, { 'arg_disposition': response.arg_disposition, 'arg_text_field_value': response.arg_text_field_value, 'arg_check_box_value': response.arg_check_box_value });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] show FAILED:', e));
           }

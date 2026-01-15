@@ -180,7 +180,7 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsAgentRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -189,7 +189,7 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsAgentRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec,
       null,
-      [arg_renderer_settings],
+      { arg_renderer_settings: arg_renderer_settings },
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsAgentReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendRendererContentSettingRules');
-          const result = this.impl.sendRendererContentSettingRules(params.arg_arg_renderer_settings);
+          const result = this.impl.sendRendererContentSettingRules(params.arg_renderer_settings);
           break;
         }
       }

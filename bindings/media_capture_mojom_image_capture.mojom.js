@@ -228,7 +228,7 @@ mojo.internal.bindings.media.mojom.ImageCaptureRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ParamsSpec,
       mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec,
-      [arg_source_id],
+      { arg_source_id: arg_source_id },
       false);
   }
 
@@ -237,7 +237,7 @@ mojo.internal.bindings.media.mojom.ImageCaptureRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec,
       mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec,
-      [arg_source_id, arg_settings],
+      { arg_source_id: arg_source_id, arg_settings: arg_settings },
       false);
   }
 
@@ -246,7 +246,7 @@ mojo.internal.bindings.media.mojom.ImageCaptureRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ParamsSpec,
       mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec,
-      [arg_source_id],
+      { arg_source_id: arg_source_id },
       false);
   }
 
@@ -317,13 +317,13 @@ mojo.internal.bindings.media.mojom.ImageCaptureReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPhotoState');
-          const result = this.impl.getPhotoState(params.arg_arg_source_id);
+          const result = this.impl.getPhotoState(params.arg_source_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response.arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec.$.structSpec, { 'arg_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPhotoState FAILED:', e));
           }
@@ -333,13 +333,13 @@ mojo.internal.bindings.media.mojom.ImageCaptureReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPhotoOptions');
-          const result = this.impl.setPhotoOptions(params.arg_arg_source_id, params.arg_arg_settings);
+          const result = this.impl.setPhotoOptions(params.arg_source_id, params.arg_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setPhotoOptions FAILED:', e));
           }
@@ -349,13 +349,13 @@ mojo.internal.bindings.media.mojom.ImageCaptureReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.takePhoto');
-          const result = this.impl.takePhoto(params.arg_arg_source_id);
+          const result = this.impl.takePhoto(params.arg_source_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_blob' in response) ? response.arg_arg_blob : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_blob' in response) ? response.arg_blob : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec.$.structSpec, { 'arg_blob': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] takePhoto FAILED:', e));
           }

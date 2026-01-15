@@ -356,7 +356,7 @@ mojo.internal.bindings.network.mojom.GssapiLibraryLoadObserverRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.GssapiLibraryLoadObserver_OnBeforeGssapiLibraryLoad_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -614,7 +614,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetParams_ParamsSpec,
       null,
-      [arg_params],
+      { arg_params: arg_params },
       false);
   }
 
@@ -623,7 +623,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_StartNetLog_ParamsSpec,
       null,
-      [arg_file, arg_max_total_size, arg_capture_mode, arg_constants, arg_duration],
+      { arg_file: arg_file, arg_max_total_size: arg_max_total_size, arg_capture_mode: arg_capture_mode, arg_constants: arg_constants, arg_duration: arg_duration },
       false);
   }
 
@@ -632,7 +632,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_AttachNetLogProxy_ParamsSpec,
       null,
-      [arg_proxy_source, arg_proxy_sink],
+      { arg_proxy_source: arg_proxy_source, arg_proxy_sink: arg_proxy_sink },
       false);
   }
 
@@ -641,7 +641,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetSSLKeyLogFile_ParamsSpec,
       null,
-      [arg_file],
+      { arg_file: arg_file },
       false);
   }
 
@@ -650,7 +650,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_CreateNetworkContext_ParamsSpec,
       null,
-      [arg_context, arg_params],
+      { arg_context: arg_context, arg_params: arg_params },
       false);
   }
 
@@ -659,7 +659,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_ConfigureStubHostResolver_ParamsSpec,
       null,
-      [arg_insecure_dns_client_enabled, arg_happy_eyeballs_v3_enabled, arg_secure_dns_mode, arg_dns_over_https_config, arg_additional_dns_types_enabled, arg_fallback_doh_nameservers],
+      { arg_insecure_dns_client_enabled: arg_insecure_dns_client_enabled, arg_happy_eyeballs_v3_enabled: arg_happy_eyeballs_v3_enabled, arg_secure_dns_mode: arg_secure_dns_mode, arg_dns_over_https_config: arg_dns_over_https_config, arg_additional_dns_types_enabled: arg_additional_dns_types_enabled, arg_fallback_doh_nameservers: arg_fallback_doh_nameservers },
       false);
   }
 
@@ -668,7 +668,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_DisableQuic_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -677,7 +677,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetUpHttpAuth_ParamsSpec,
       null,
-      [arg_http_auth_static_params],
+      { arg_http_auth_static_params: arg_http_auth_static_params },
       false);
   }
 
@@ -686,7 +686,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_ConfigureHttpAuthPrefs_ParamsSpec,
       null,
-      [arg_http_auth_dynamic_params],
+      { arg_http_auth_dynamic_params: arg_http_auth_dynamic_params },
       false);
   }
 
@@ -695,7 +695,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetRawHeadersAccess_ParamsSpec,
       null,
-      [arg_process_id, arg_origins],
+      { arg_process_id: arg_process_id, arg_origins: arg_origins },
       false);
   }
 
@@ -704,7 +704,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetMaxConnectionsPerProxyChain_ParamsSpec,
       null,
-      [arg_max_connections],
+      { arg_max_connections: arg_max_connections },
       false);
   }
 
@@ -713,7 +713,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_GetNetworkChangeManager_ParamsSpec,
       null,
-      [arg_network_change_manager],
+      { arg_network_change_manager: arg_network_change_manager },
       false);
   }
 
@@ -722,7 +722,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_GetNetworkQualityEstimatorManager_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -731,7 +731,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_GetDnsConfigChangeManager_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -740,7 +740,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_GetNetworkList_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkService_GetNetworkList_ResponseParamsSpec,
-      [arg_policy],
+      { arg_policy: arg_policy },
       false);
   }
 
@@ -749,7 +749,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_OnTrustStoreChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -758,7 +758,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -767,7 +767,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetEncryptionKey_ParamsSpec,
       null,
-      [arg_encryption_key],
+      { arg_encryption_key: arg_encryption_key },
       false);
   }
 
@@ -776,7 +776,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec,
       null,
-      [arg_count],
+      { arg_count: arg_count },
       false);
   }
 
@@ -785,7 +785,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkService_SetTrustTokenKeyCommitments_ResponseParamsSpec,
-      [arg_raw_commitments],
+      { arg_raw_commitments: arg_raw_commitments },
       false);
   }
 
@@ -794,7 +794,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec,
       null,
-      [arg_pin_list, arg_update_time],
+      { arg_pin_list: arg_pin_list, arg_update_time: arg_update_time },
       false);
   }
 
@@ -803,7 +803,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -812,7 +812,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetFirstPartySets_ParamsSpec,
       null,
-      [arg_sets],
+      { arg_sets: arg_sets },
       false);
   }
 
@@ -821,7 +821,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetExplicitlyAllowedPorts_ParamsSpec,
       null,
-      [arg_ports],
+      { arg_ports: arg_ports },
       false);
   }
 
@@ -830,7 +830,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_ParseHeaders_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkService_ParseHeaders_ResponseParamsSpec,
-      [arg_url, arg_headers],
+      { arg_url: arg_url, arg_headers: arg_headers },
       false);
   }
 
@@ -839,7 +839,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_EnableDataUseUpdates_ParamsSpec,
       null,
-      [arg_enable],
+      { arg_enable: arg_enable },
       false);
   }
 
@@ -848,7 +848,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec,
       null,
-      [arg_reachability_override],
+      { arg_reachability_override: arg_reachability_override },
       false);
   }
 
@@ -857,7 +857,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec,
       null,
-      [arg_remote],
+      { arg_remote: arg_remote },
       false);
   }
 
@@ -866,7 +866,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetTpcdMetadataGrants_ParamsSpec,
       null,
-      [arg_settings],
+      { arg_settings: arg_settings },
       false);
   }
 
@@ -875,7 +875,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec,
       null,
-      [arg_content_encoding_types, arg_source_body, arg_dest_body, arg_source_url_loader, arg_source_url_loader_client, arg_dest_url_loader, arg_dest_url_loader_client],
+      { arg_content_encoding_types: arg_content_encoding_types, arg_source_body: arg_source_body, arg_dest_body: arg_dest_body, arg_source_url_loader: arg_source_url_loader, arg_source_url_loader_client: arg_source_url_loader_client, arg_dest_url_loader: arg_dest_url_loader, arg_dest_url_loader_client: arg_dest_url_loader_client },
       false);
   }
 
@@ -884,7 +884,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_DecodeContentEncoding_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkService_DecodeContentEncoding_ResponseParamsSpec,
-      [arg_content_encoding_types, arg_source_body, arg_dest_body],
+      { arg_content_encoding_types: arg_content_encoding_types, arg_source_body: arg_source_body, arg_dest_body: arg_dest_body },
       false);
   }
 
@@ -893,7 +893,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetTLS13EarlyDataEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -902,7 +902,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -1003,42 +1003,42 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setParams');
-          const result = this.impl.setParams(params.arg_arg_params);
+          const result = this.impl.setParams(params.arg_params);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_StartNetLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startNetLog');
-          const result = this.impl.startNetLog(params.arg_arg_file, params.arg_arg_max_total_size, params.arg_arg_capture_mode, params.arg_arg_constants, params.arg_arg_duration);
+          const result = this.impl.startNetLog(params.arg_file, params.arg_max_total_size, params.arg_capture_mode, params.arg_constants, params.arg_duration);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_AttachNetLogProxy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.attachNetLogProxy');
-          const result = this.impl.attachNetLogProxy(params.arg_arg_proxy_source, params.arg_arg_proxy_sink);
+          const result = this.impl.attachNetLogProxy(params.arg_proxy_source, params.arg_proxy_sink);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetSSLKeyLogFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSSLKeyLogFile');
-          const result = this.impl.setSSLKeyLogFile(params.arg_arg_file);
+          const result = this.impl.setSSLKeyLogFile(params.arg_file);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_CreateNetworkContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createNetworkContext');
-          const result = this.impl.createNetworkContext(params.arg_arg_context, params.arg_arg_params);
+          const result = this.impl.createNetworkContext(params.arg_context, params.arg_params);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_ConfigureStubHostResolver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.configureStubHostResolver');
-          const result = this.impl.configureStubHostResolver(params.arg_arg_insecure_dns_client_enabled, params.arg_arg_happy_eyeballs_v3_enabled, params.arg_arg_secure_dns_mode, params.arg_arg_dns_over_https_config, params.arg_arg_additional_dns_types_enabled, params.arg_arg_fallback_doh_nameservers);
+          const result = this.impl.configureStubHostResolver(params.arg_insecure_dns_client_enabled, params.arg_happy_eyeballs_v3_enabled, params.arg_secure_dns_mode, params.arg_dns_over_https_config, params.arg_additional_dns_types_enabled, params.arg_fallback_doh_nameservers);
           break;
         }
         case 6: {
@@ -1052,62 +1052,62 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetUpHttpAuth_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUpHttpAuth');
-          const result = this.impl.setUpHttpAuth(params.arg_arg_http_auth_static_params);
+          const result = this.impl.setUpHttpAuth(params.arg_http_auth_static_params);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_ConfigureHttpAuthPrefs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.configureHttpAuthPrefs');
-          const result = this.impl.configureHttpAuthPrefs(params.arg_arg_http_auth_dynamic_params);
+          const result = this.impl.configureHttpAuthPrefs(params.arg_http_auth_dynamic_params);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetRawHeadersAccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRawHeadersAccess');
-          const result = this.impl.setRawHeadersAccess(params.arg_arg_process_id, params.arg_arg_origins);
+          const result = this.impl.setRawHeadersAccess(params.arg_process_id, params.arg_origins);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetMaxConnectionsPerProxyChain_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMaxConnectionsPerProxyChain');
-          const result = this.impl.setMaxConnectionsPerProxyChain(params.arg_arg_max_connections);
+          const result = this.impl.setMaxConnectionsPerProxyChain(params.arg_max_connections);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_GetNetworkChangeManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNetworkChangeManager');
-          const result = this.impl.getNetworkChangeManager(params.arg_arg_network_change_manager);
+          const result = this.impl.getNetworkChangeManager(params.arg_network_change_manager);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_GetNetworkQualityEstimatorManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNetworkQualityEstimatorManager');
-          const result = this.impl.getNetworkQualityEstimatorManager(params.arg_arg_receiver);
+          const result = this.impl.getNetworkQualityEstimatorManager(params.arg_receiver);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_GetDnsConfigChangeManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDnsConfigChangeManager');
-          const result = this.impl.getDnsConfigChangeManager(params.arg_arg_receiver);
+          const result = this.impl.getDnsConfigChangeManager(params.arg_receiver);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_GetNetworkList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNetworkList');
-          const result = this.impl.getNetworkList(params.arg_arg_policy);
+          const result = this.impl.getNetworkList(params.arg_policy);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_networks' in response) ? response.arg_arg_networks : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_GetNetworkList_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_networks' in response) ? response.arg_networks : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_GetNetworkList_ResponseParamsSpec.$.structSpec, { 'arg_networks': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNetworkList FAILED:', e));
           }
@@ -1131,26 +1131,26 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetEncryptionKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setEncryptionKey');
-          const result = this.impl.setEncryptionKey(params.arg_arg_encryption_key);
+          const result = this.impl.setEncryptionKey(params.arg_encryption_key);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPeerToPeerConnectionsCountChange');
-          const result = this.impl.onPeerToPeerConnectionsCountChange(params.arg_arg_count);
+          const result = this.impl.onPeerToPeerConnectionsCountChange(params.arg_count);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTrustTokenKeyCommitments');
-          const result = this.impl.setTrustTokenKeyCommitments(params.arg_arg_raw_commitments);
+          const result = this.impl.setTrustTokenKeyCommitments(params.arg_raw_commitments);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetTrustTokenKeyCommitments_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetTrustTokenKeyCommitments_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setTrustTokenKeyCommitments FAILED:', e));
           }
@@ -1160,41 +1160,41 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateKeyPinsList');
-          const result = this.impl.updateKeyPinsList(params.arg_arg_pin_list, params.arg_arg_update_time);
+          const result = this.impl.updateKeyPinsList(params.arg_pin_list, params.arg_update_time);
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTestInterfaceForTesting');
-          const result = this.impl.bindTestInterfaceForTesting(params.arg_arg_receiver);
+          const result = this.impl.bindTestInterfaceForTesting(params.arg_receiver);
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetFirstPartySets_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFirstPartySets');
-          const result = this.impl.setFirstPartySets(params.arg_arg_sets);
+          const result = this.impl.setFirstPartySets(params.arg_sets);
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetExplicitlyAllowedPorts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setExplicitlyAllowedPorts');
-          const result = this.impl.setExplicitlyAllowedPorts(params.arg_arg_ports);
+          const result = this.impl.setExplicitlyAllowedPorts(params.arg_ports);
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_ParseHeaders_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseHeaders');
-          const result = this.impl.parseHeaders(params.arg_arg_url, params.arg_arg_headers);
+          const result = this.impl.parseHeaders(params.arg_url, params.arg_headers);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_parsed_headers' in response) ? response.arg_arg_parsed_headers : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_ParseHeaders_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_parsed_headers' in response) ? response.arg_parsed_headers : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_ParseHeaders_ResponseParamsSpec.$.structSpec, { 'arg_parsed_headers': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] parseHeaders FAILED:', e));
           }
@@ -1204,48 +1204,48 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_EnableDataUseUpdates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableDataUseUpdates');
-          const result = this.impl.enableDataUseUpdates(params.arg_arg_enable);
+          const result = this.impl.enableDataUseUpdates(params.arg_enable);
           break;
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIPv6ReachabilityOverride');
-          const result = this.impl.setIPv6ReachabilityOverride(params.arg_arg_reachability_override);
+          const result = this.impl.setIPv6ReachabilityOverride(params.arg_reachability_override);
           break;
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNetworkAnnotationMonitor');
-          const result = this.impl.setNetworkAnnotationMonitor(params.arg_arg_remote);
+          const result = this.impl.setNetworkAnnotationMonitor(params.arg_remote);
           break;
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetTpcdMetadataGrants_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTpcdMetadataGrants');
-          const result = this.impl.setTpcdMetadataGrants(params.arg_arg_settings);
+          const result = this.impl.setTpcdMetadataGrants(params.arg_settings);
           break;
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.interceptUrlLoaderForBodyDecoding');
-          const result = this.impl.interceptUrlLoaderForBodyDecoding(params.arg_arg_content_encoding_types, params.arg_arg_source_body, params.arg_arg_dest_body, params.arg_arg_source_url_loader, params.arg_arg_source_url_loader_client, params.arg_arg_dest_url_loader, params.arg_arg_dest_url_loader_client);
+          const result = this.impl.interceptUrlLoaderForBodyDecoding(params.arg_content_encoding_types, params.arg_source_body, params.arg_dest_body, params.arg_source_url_loader, params.arg_source_url_loader_client, params.arg_dest_url_loader, params.arg_dest_url_loader_client);
           break;
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_DecodeContentEncoding_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeContentEncoding');
-          const result = this.impl.decodeContentEncoding(params.arg_arg_content_encoding_types, params.arg_arg_source_body, params.arg_arg_dest_body);
+          const result = this.impl.decodeContentEncoding(params.arg_content_encoding_types, params.arg_source_body, params.arg_dest_body);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error_code' in response) ? response.arg_arg_error_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_DecodeContentEncoding_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response.arg_error_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_DecodeContentEncoding_ResponseParamsSpec.$.structSpec, { 'arg_error_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] decodeContentEncoding FAILED:', e));
           }
@@ -1255,14 +1255,14 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetTLS13EarlyDataEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTLS13EarlyDataEnabled');
-          const result = this.impl.setTLS13EarlyDataEnabled(params.arg_arg_enabled);
+          const result = this.impl.setTLS13EarlyDataEnabled(params.arg_enabled);
           break;
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDurableMessageCollector');
-          const result = this.impl.addDurableMessageCollector(params.arg_arg_receiver);
+          const result = this.impl.addDurableMessageCollector(params.arg_receiver);
           break;
         }
       }
@@ -1335,7 +1335,7 @@ mojo.internal.bindings.network.mojom.DurableMessageCollectorRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.DurableMessageCollector_Configure_ParamsSpec,
       mojo.internal.bindings.network.mojom.DurableMessageCollector_Configure_ResponseParamsSpec,
-      [arg_config],
+      { arg_config: arg_config },
       false);
   }
 
@@ -1344,7 +1344,7 @@ mojo.internal.bindings.network.mojom.DurableMessageCollectorRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.DurableMessageCollector_EnableForProfile_ParamsSpec,
       mojo.internal.bindings.network.mojom.DurableMessageCollector_EnableForProfile_ResponseParamsSpec,
-      [arg_throttling_profile_id],
+      { arg_throttling_profile_id: arg_throttling_profile_id },
       false);
   }
 
@@ -1353,7 +1353,7 @@ mojo.internal.bindings.network.mojom.DurableMessageCollectorRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.DurableMessageCollector_DisableForProfile_ParamsSpec,
       mojo.internal.bindings.network.mojom.DurableMessageCollector_DisableForProfile_ResponseParamsSpec,
-      [arg_throttling_profile_id],
+      { arg_throttling_profile_id: arg_throttling_profile_id },
       false);
   }
 
@@ -1362,7 +1362,7 @@ mojo.internal.bindings.network.mojom.DurableMessageCollectorRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.DurableMessageCollector_Retrieve_ParamsSpec,
       mojo.internal.bindings.network.mojom.DurableMessageCollector_Retrieve_ResponseParamsSpec,
-      [arg_devtools_request_id],
+      { arg_devtools_request_id: arg_devtools_request_id },
       false);
   }
 
@@ -1434,12 +1434,12 @@ mojo.internal.bindings.network.mojom.DurableMessageCollectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DurableMessageCollector_Configure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.configure');
-          const result = this.impl.configure(params.arg_arg_config);
+          const result = this.impl.configure(params.arg_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DurableMessageCollector_Configure_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DurableMessageCollector_Configure_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] configure FAILED:', e));
           }
@@ -1449,12 +1449,12 @@ mojo.internal.bindings.network.mojom.DurableMessageCollectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DurableMessageCollector_EnableForProfile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableForProfile');
-          const result = this.impl.enableForProfile(params.arg_arg_throttling_profile_id);
+          const result = this.impl.enableForProfile(params.arg_throttling_profile_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DurableMessageCollector_EnableForProfile_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DurableMessageCollector_EnableForProfile_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] enableForProfile FAILED:', e));
           }
@@ -1464,12 +1464,12 @@ mojo.internal.bindings.network.mojom.DurableMessageCollectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DurableMessageCollector_DisableForProfile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disableForProfile');
-          const result = this.impl.disableForProfile(params.arg_arg_throttling_profile_id);
+          const result = this.impl.disableForProfile(params.arg_throttling_profile_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DurableMessageCollector_DisableForProfile_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DurableMessageCollector_DisableForProfile_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] disableForProfile FAILED:', e));
           }
@@ -1479,13 +1479,13 @@ mojo.internal.bindings.network.mojom.DurableMessageCollectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DurableMessageCollector_Retrieve_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.retrieve');
-          const result = this.impl.retrieve(params.arg_arg_devtools_request_id);
+          const result = this.impl.retrieve(params.arg_devtools_request_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_message' in response) ? response.arg_arg_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DurableMessageCollector_Retrieve_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_message' in response) ? response.arg_message : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DurableMessageCollector_Retrieve_ResponseParamsSpec.$.structSpec, { 'arg_message': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] retrieve FAILED:', e));
           }

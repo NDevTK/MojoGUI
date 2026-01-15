@@ -282,7 +282,7 @@ mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec,
       null,
-      [arg_name, arg_receiver],
+      { arg_name: arg_name, arg_receiver: arg_receiver },
       false);
   }
 
@@ -351,7 +351,7 @@ mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAssociatedInterface');
-          const result = this.impl.getAssociatedInterface(params.arg_arg_name, params.arg_arg_receiver);
+          const result = this.impl.getAssociatedInterface(params.arg_name, params.arg_receiver);
           break;
         }
       }

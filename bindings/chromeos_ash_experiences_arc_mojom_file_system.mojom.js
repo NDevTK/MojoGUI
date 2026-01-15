@@ -372,7 +372,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileName_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileName_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileSize_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileSize_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetLastModified_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetLastModified_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -399,7 +399,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileType_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileType_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -408,7 +408,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_OnDocumentChanged_ParamsSpec,
       null,
-      [arg_watcher_id, arg_type],
+      { arg_watcher_id: arg_watcher_id, arg_type: arg_type },
       false);
   }
 
@@ -417,7 +417,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_OnRootsChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -426,7 +426,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetVirtualFileId_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetVirtualFileId_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_HandleIdReleased_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_HandleIdReleased_ResponseParamsSpec,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -444,7 +444,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_OpenFileToRead_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_OpenFileToRead_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_SelectFiles_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_SelectFiles_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_OnFileSelectorEvent_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_OnFileSelectorEvent_ResponseParamsSpec,
-      [arg_event],
+      { arg_event: arg_event },
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileSelectorElements_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileSelectorElements_ResponseParamsSpec,
-      [arg_request],
+      { arg_request: arg_request },
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_OnMediaStoreUriAdded_ParamsSpec,
       null,
-      [arg_uri, arg_metadata],
+      { arg_uri: arg_uri, arg_metadata: arg_metadata },
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_CreateMoniker_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_CreateMoniker_ResponseParamsSpec,
-      [arg_content_uri, arg_read_only],
+      { arg_content_uri: arg_content_uri, arg_read_only: arg_read_only },
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_DestroyMoniker_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_DestroyMoniker_ResponseParamsSpec,
-      [arg_moniker],
+      { arg_moniker: arg_moniker },
       false);
   }
 
@@ -581,13 +581,13 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFileName');
-          const result = this.impl.getFileName(params.arg_arg_url);
+          const result = this.impl.getFileName(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_name' in response) ? response.arg_arg_name : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileName_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_name' in response) ? response.arg_name : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileName_ResponseParamsSpec.$.structSpec, { 'arg_name': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFileName FAILED:', e));
           }
@@ -597,13 +597,13 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFileSize');
-          const result = this.impl.getFileSize(params.arg_arg_url);
+          const result = this.impl.getFileSize(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_size' in response) ? response.arg_arg_size : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileSize_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_size' in response) ? response.arg_size : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileSize_ResponseParamsSpec.$.structSpec, { 'arg_size': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFileSize FAILED:', e));
           }
@@ -613,13 +613,13 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_GetLastModified_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getLastModified');
-          const result = this.impl.getLastModified(params.arg_arg_url);
+          const result = this.impl.getLastModified(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_last_modified' in response) ? response.arg_arg_last_modified : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_GetLastModified_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_last_modified' in response) ? response.arg_last_modified : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_GetLastModified_ResponseParamsSpec.$.structSpec, { 'arg_last_modified': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getLastModified FAILED:', e));
           }
@@ -629,13 +629,13 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFileType');
-          const result = this.impl.getFileType(params.arg_arg_url);
+          const result = this.impl.getFileType(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_mime_type' in response) ? response.arg_arg_mime_type : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileType_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_mime_type' in response) ? response.arg_mime_type : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileType_ResponseParamsSpec.$.structSpec, { 'arg_mime_type': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFileType FAILED:', e));
           }
@@ -645,7 +645,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_OnDocumentChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDocumentChanged');
-          const result = this.impl.onDocumentChanged(params.arg_arg_watcher_id, params.arg_arg_type);
+          const result = this.impl.onDocumentChanged(params.arg_watcher_id, params.arg_type);
           break;
         }
         case 5: {
@@ -659,13 +659,13 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_GetVirtualFileId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVirtualFileId');
-          const result = this.impl.getVirtualFileId(params.arg_arg_url);
+          const result = this.impl.getVirtualFileId(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_id' in response) ? response.arg_arg_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_GetVirtualFileId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_id' in response) ? response.arg_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_GetVirtualFileId_ResponseParamsSpec.$.structSpec, { 'arg_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getVirtualFileId FAILED:', e));
           }
@@ -675,13 +675,13 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_HandleIdReleased_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleIdReleased');
-          const result = this.impl.handleIdReleased(params.arg_arg_id);
+          const result = this.impl.handleIdReleased(params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_HandleIdReleased_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_HandleIdReleased_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] handleIdReleased FAILED:', e));
           }
@@ -691,13 +691,13 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_OpenFileToRead_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFileToRead');
-          const result = this.impl.openFileToRead(params.arg_arg_url);
+          const result = this.impl.openFileToRead(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_fd' in response) ? response.arg_arg_fd : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_OpenFileToRead_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_fd' in response) ? response.arg_fd : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_OpenFileToRead_ResponseParamsSpec.$.structSpec, { 'arg_fd': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openFileToRead FAILED:', e));
           }
@@ -707,13 +707,13 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_SelectFiles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectFiles');
-          const result = this.impl.selectFiles(params.arg_arg_request);
+          const result = this.impl.selectFiles(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_SelectFiles_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_SelectFiles_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] selectFiles FAILED:', e));
           }
@@ -723,12 +723,12 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_OnFileSelectorEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFileSelectorEvent');
-          const result = this.impl.onFileSelectorEvent(params.arg_arg_event);
+          const result = this.impl.onFileSelectorEvent(params.arg_event);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_OnFileSelectorEvent_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_OnFileSelectorEvent_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] onFileSelectorEvent FAILED:', e));
           }
@@ -738,13 +738,13 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileSelectorElements_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFileSelectorElements');
-          const result = this.impl.getFileSelectorElements(params.arg_arg_request);
+          const result = this.impl.getFileSelectorElements(params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_elements' in response) ? response.arg_arg_elements : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileSelectorElements_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_elements' in response) ? response.arg_elements : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileSelectorElements_ResponseParamsSpec.$.structSpec, { 'arg_elements': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFileSelectorElements FAILED:', e));
           }
@@ -754,20 +754,20 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_OnMediaStoreUriAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMediaStoreUriAdded');
-          const result = this.impl.onMediaStoreUriAdded(params.arg_arg_uri, params.arg_arg_metadata);
+          const result = this.impl.onMediaStoreUriAdded(params.arg_uri, params.arg_metadata);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_CreateMoniker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createMoniker');
-          const result = this.impl.createMoniker(params.arg_arg_content_uri, params.arg_arg_read_only);
+          const result = this.impl.createMoniker(params.arg_content_uri, params.arg_read_only);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_moniker' in response) ? response.arg_arg_moniker : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_CreateMoniker_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_moniker' in response) ? response.arg_moniker : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_CreateMoniker_ResponseParamsSpec.$.structSpec, { 'arg_moniker': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createMoniker FAILED:', e));
           }
@@ -777,13 +777,13 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_DestroyMoniker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.destroyMoniker');
-          const result = this.impl.destroyMoniker(params.arg_arg_moniker);
+          const result = this.impl.destroyMoniker(params.arg_moniker);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_DestroyMoniker_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemHost_DestroyMoniker_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] destroyMoniker FAILED:', e));
           }
@@ -935,7 +935,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_AddWatcher_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_AddWatcher_ResponseParamsSpec,
-      [arg_authority, arg_document_id],
+      { arg_authority: arg_authority, arg_document_id: arg_document_id },
       false);
   }
 
@@ -944,7 +944,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetChildDocuments_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetChildDocuments_ResponseParamsSpec,
-      [arg_authority, arg_parent_document_id],
+      { arg_authority: arg_authority, arg_parent_document_id: arg_parent_document_id },
       false);
   }
 
@@ -953,7 +953,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetDocument_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetDocument_ResponseParamsSpec,
-      [arg_authority, arg_document_id],
+      { arg_authority: arg_authority, arg_document_id: arg_document_id },
       false);
   }
 
@@ -962,7 +962,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetFileSize_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetFileSize_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -971,7 +971,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetMimeType_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetMimeType_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -980,7 +980,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRecentDocuments_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRecentDocuments_ResponseParamsSpec,
-      [arg_authority, arg_root_id],
+      { arg_authority: arg_authority, arg_root_id: arg_root_id },
       false);
   }
 
@@ -989,7 +989,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRoots_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRoots_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -998,7 +998,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRootSize_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRootSize_ResponseParamsSpec,
-      [arg_authority, arg_root_id],
+      { arg_authority: arg_authority, arg_root_id: arg_root_id },
       false);
   }
 
@@ -1007,7 +1007,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_DeleteDocument_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_DeleteDocument_ResponseParamsSpec,
-      [arg_authority, arg_document_id],
+      { arg_authority: arg_authority, arg_document_id: arg_document_id },
       false);
   }
 
@@ -1016,7 +1016,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_RenameDocument_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_RenameDocument_ResponseParamsSpec,
-      [arg_authority, arg_document_id, arg_display_name],
+      { arg_authority: arg_authority, arg_document_id: arg_document_id, arg_display_name: arg_display_name },
       false);
   }
 
@@ -1025,7 +1025,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_CreateDocument_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_CreateDocument_ResponseParamsSpec,
-      [arg_authority, arg_parent_document_id, arg_mime_type, arg_display_name],
+      { arg_authority: arg_authority, arg_parent_document_id: arg_parent_document_id, arg_mime_type: arg_mime_type, arg_display_name: arg_display_name },
       false);
   }
 
@@ -1034,7 +1034,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_CopyDocument_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_CopyDocument_ResponseParamsSpec,
-      [arg_authority, arg_source_document_id, arg_target_parent_document_id],
+      { arg_authority: arg_authority, arg_source_document_id: arg_source_document_id, arg_target_parent_document_id: arg_target_parent_document_id },
       false);
   }
 
@@ -1043,7 +1043,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_MoveDocument_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_MoveDocument_ResponseParamsSpec,
-      [arg_authority, arg_source_document_id, arg_source_parent_document_id, arg_target_parent_document_id],
+      { arg_authority: arg_authority, arg_source_document_id: arg_source_document_id, arg_source_parent_document_id: arg_source_parent_document_id, arg_target_parent_document_id: arg_target_parent_document_id },
       false);
   }
 
@@ -1052,7 +1052,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -1061,7 +1061,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenThumbnail_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenThumbnail_ResponseParamsSpec,
-      [arg_url, arg_size_hint],
+      { arg_url: arg_url, arg_size_hint: arg_size_hint },
       false);
   }
 
@@ -1070,7 +1070,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_CloseFileSession_ParamsSpec,
       null,
-      [arg_url_id, arg_error_message],
+      { arg_url_id: arg_url_id, arg_error_message: arg_error_message },
       false);
   }
 
@@ -1079,7 +1079,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -1088,7 +1088,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenFileSessionToRead_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenFileSessionToRead_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -1097,7 +1097,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_RemoveWatcher_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_RemoveWatcher_ResponseParamsSpec,
-      [arg_watcher_id],
+      { arg_watcher_id: arg_watcher_id },
       false);
   }
 
@@ -1106,7 +1106,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_RequestMediaScan_ParamsSpec,
       null,
-      [arg_paths],
+      { arg_paths: arg_paths },
       false);
   }
 
@@ -1115,7 +1115,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_ReindexDirectory_ParamsSpec,
       null,
-      [arg_directory_path],
+      { arg_directory_path: arg_directory_path },
       false);
   }
 
@@ -1124,7 +1124,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_RequestFileRemovalScan_ParamsSpec,
       null,
-      [arg_directory_paths],
+      { arg_directory_paths: arg_directory_paths },
       false);
   }
 
@@ -1133,7 +1133,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ResponseParamsSpec,
-      [arg_request, arg_window_info],
+      { arg_request: arg_request, arg_window_info: arg_window_info },
       false);
   }
 
@@ -1224,13 +1224,13 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_AddWatcher_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addWatcher');
-          const result = this.impl.addWatcher(params.arg_arg_authority, params.arg_arg_document_id);
+          const result = this.impl.addWatcher(params.arg_authority, params.arg_document_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_watcher_id' in response) ? response.arg_arg_watcher_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_AddWatcher_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_watcher_id' in response) ? response.arg_watcher_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_AddWatcher_ResponseParamsSpec.$.structSpec, { 'arg_watcher_id': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addWatcher FAILED:', e));
           }
@@ -1240,13 +1240,13 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_GetChildDocuments_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getChildDocuments');
-          const result = this.impl.getChildDocuments(params.arg_arg_authority, params.arg_arg_parent_document_id);
+          const result = this.impl.getChildDocuments(params.arg_authority, params.arg_parent_document_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_documents' in response) ? response.arg_arg_documents : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_GetChildDocuments_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_documents' in response) ? response.arg_documents : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_GetChildDocuments_ResponseParamsSpec.$.structSpec, { 'arg_documents': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getChildDocuments FAILED:', e));
           }
@@ -1256,13 +1256,13 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_GetDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDocument');
-          const result = this.impl.getDocument(params.arg_arg_authority, params.arg_arg_document_id);
+          const result = this.impl.getDocument(params.arg_authority, params.arg_document_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_document' in response) ? response.arg_arg_document : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_GetDocument_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_document' in response) ? response.arg_document : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_GetDocument_ResponseParamsSpec.$.structSpec, { 'arg_document': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDocument FAILED:', e));
           }
@@ -1272,13 +1272,13 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_GetFileSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFileSize');
-          const result = this.impl.getFileSize(params.arg_arg_url);
+          const result = this.impl.getFileSize(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_size' in response) ? response.arg_arg_size : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_GetFileSize_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_size' in response) ? response.arg_size : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_GetFileSize_ResponseParamsSpec.$.structSpec, { 'arg_size': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFileSize FAILED:', e));
           }
@@ -1288,13 +1288,13 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_GetMimeType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMimeType');
-          const result = this.impl.getMimeType(params.arg_arg_url);
+          const result = this.impl.getMimeType(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_mime_type' in response) ? response.arg_arg_mime_type : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_GetMimeType_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_mime_type' in response) ? response.arg_mime_type : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_GetMimeType_ResponseParamsSpec.$.structSpec, { 'arg_mime_type': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMimeType FAILED:', e));
           }
@@ -1304,13 +1304,13 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRecentDocuments_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRecentDocuments');
-          const result = this.impl.getRecentDocuments(params.arg_arg_authority, params.arg_arg_root_id);
+          const result = this.impl.getRecentDocuments(params.arg_authority, params.arg_root_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_documents' in response) ? response.arg_arg_documents : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRecentDocuments_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_documents' in response) ? response.arg_documents : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRecentDocuments_ResponseParamsSpec.$.structSpec, { 'arg_documents': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRecentDocuments FAILED:', e));
           }
@@ -1325,8 +1325,8 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_roots' in response) ? response.arg_arg_roots : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRoots_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_roots' in response) ? response.arg_roots : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRoots_ResponseParamsSpec.$.structSpec, { 'arg_roots': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRoots FAILED:', e));
           }
@@ -1336,13 +1336,13 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRootSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRootSize');
-          const result = this.impl.getRootSize(params.arg_arg_authority, params.arg_arg_root_id);
+          const result = this.impl.getRootSize(params.arg_authority, params.arg_root_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_root_size' in response) ? response.arg_arg_root_size : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRootSize_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_root_size' in response) ? response.arg_root_size : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRootSize_ResponseParamsSpec.$.structSpec, { 'arg_root_size': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRootSize FAILED:', e));
           }
@@ -1352,13 +1352,13 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_DeleteDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteDocument');
-          const result = this.impl.deleteDocument(params.arg_arg_authority, params.arg_arg_document_id);
+          const result = this.impl.deleteDocument(params.arg_authority, params.arg_document_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_DeleteDocument_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_DeleteDocument_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] deleteDocument FAILED:', e));
           }
@@ -1368,13 +1368,13 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_RenameDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.renameDocument');
-          const result = this.impl.renameDocument(params.arg_arg_authority, params.arg_arg_document_id, params.arg_arg_display_name);
+          const result = this.impl.renameDocument(params.arg_authority, params.arg_document_id, params.arg_display_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_document' in response) ? response.arg_arg_document : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_RenameDocument_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_document' in response) ? response.arg_document : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_RenameDocument_ResponseParamsSpec.$.structSpec, { 'arg_document': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] renameDocument FAILED:', e));
           }
@@ -1384,13 +1384,13 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_CreateDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDocument');
-          const result = this.impl.createDocument(params.arg_arg_authority, params.arg_arg_parent_document_id, params.arg_arg_mime_type, params.arg_arg_display_name);
+          const result = this.impl.createDocument(params.arg_authority, params.arg_parent_document_id, params.arg_mime_type, params.arg_display_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_document' in response) ? response.arg_arg_document : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_CreateDocument_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_document' in response) ? response.arg_document : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_CreateDocument_ResponseParamsSpec.$.structSpec, { 'arg_document': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createDocument FAILED:', e));
           }
@@ -1400,13 +1400,13 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_CopyDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.copyDocument');
-          const result = this.impl.copyDocument(params.arg_arg_authority, params.arg_arg_source_document_id, params.arg_arg_target_parent_document_id);
+          const result = this.impl.copyDocument(params.arg_authority, params.arg_source_document_id, params.arg_target_parent_document_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_document' in response) ? response.arg_arg_document : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_CopyDocument_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_document' in response) ? response.arg_document : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_CopyDocument_ResponseParamsSpec.$.structSpec, { 'arg_document': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] copyDocument FAILED:', e));
           }
@@ -1416,13 +1416,13 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_MoveDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.moveDocument');
-          const result = this.impl.moveDocument(params.arg_arg_authority, params.arg_arg_source_document_id, params.arg_arg_source_parent_document_id, params.arg_arg_target_parent_document_id);
+          const result = this.impl.moveDocument(params.arg_authority, params.arg_source_document_id, params.arg_source_parent_document_id, params.arg_target_parent_document_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_document' in response) ? response.arg_arg_document : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_MoveDocument_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_document' in response) ? response.arg_document : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_MoveDocument_ResponseParamsSpec.$.structSpec, { 'arg_document': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] moveDocument FAILED:', e));
           }
@@ -1432,12 +1432,12 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -1447,13 +1447,13 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenThumbnail_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openThumbnail');
-          const result = this.impl.openThumbnail(params.arg_arg_url, params.arg_arg_size_hint);
+          const result = this.impl.openThumbnail(params.arg_url, params.arg_size_hint);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_fd' in response) ? response.arg_arg_fd : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenThumbnail_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_fd' in response) ? response.arg_fd : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenThumbnail_ResponseParamsSpec.$.structSpec, { 'arg_fd': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openThumbnail FAILED:', e));
           }
@@ -1463,20 +1463,20 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_CloseFileSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeFileSession');
-          const result = this.impl.closeFileSession(params.arg_arg_url_id, params.arg_arg_error_message);
+          const result = this.impl.closeFileSession(params.arg_url_id, params.arg_error_message);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFileSessionToWrite');
-          const result = this.impl.openFileSessionToWrite(params.arg_arg_url);
+          const result = this.impl.openFileSessionToWrite(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_file_session' in response) ? response.arg_arg_file_session : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_file_session' in response) ? response.arg_file_session : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ResponseParamsSpec.$.structSpec, { 'arg_file_session': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openFileSessionToWrite FAILED:', e));
           }
@@ -1486,13 +1486,13 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenFileSessionToRead_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFileSessionToRead');
-          const result = this.impl.openFileSessionToRead(params.arg_arg_url);
+          const result = this.impl.openFileSessionToRead(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_file_session' in response) ? response.arg_arg_file_session : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenFileSessionToRead_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_file_session' in response) ? response.arg_file_session : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenFileSessionToRead_ResponseParamsSpec.$.structSpec, { 'arg_file_session': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openFileSessionToRead FAILED:', e));
           }
@@ -1502,13 +1502,13 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_RemoveWatcher_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeWatcher');
-          const result = this.impl.removeWatcher(params.arg_arg_watcher_id);
+          const result = this.impl.removeWatcher(params.arg_watcher_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_RemoveWatcher_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_RemoveWatcher_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] removeWatcher FAILED:', e));
           }
@@ -1518,33 +1518,33 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_RequestMediaScan_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestMediaScan');
-          const result = this.impl.requestMediaScan(params.arg_arg_paths);
+          const result = this.impl.requestMediaScan(params.arg_paths);
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_ReindexDirectory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reindexDirectory');
-          const result = this.impl.reindexDirectory(params.arg_arg_directory_path);
+          const result = this.impl.reindexDirectory(params.arg_directory_path);
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_RequestFileRemovalScan_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestFileRemovalScan');
-          const result = this.impl.requestFileRemovalScan(params.arg_arg_directory_paths);
+          const result = this.impl.requestFileRemovalScan(params.arg_directory_paths);
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openUrlsWithPermissionAndWindowInfo');
-          const result = this.impl.openUrlsWithPermissionAndWindowInfo(params.arg_arg_request, params.arg_arg_window_info);
+          const result = this.impl.openUrlsWithPermissionAndWindowInfo(params.arg_request, params.arg_window_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] openUrlsWithPermissionAndWindowInfo FAILED:', e));
           }

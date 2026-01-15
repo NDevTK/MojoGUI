@@ -244,7 +244,7 @@ mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClientRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec,
       null,
-      [arg_error, arg_result],
+      { arg_error: arg_error, arg_result: arg_result },
       false);
   }
 
@@ -313,7 +313,7 @@ mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClientReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportResult');
-          const result = this.impl.reportResult(params.arg_arg_error, params.arg_arg_result);
+          const result = this.impl.reportResult(params.arg_error, params.arg_result);
           break;
         }
       }
@@ -374,7 +374,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec,
       null,
-      [arg_url, arg_network_anonymization_key, arg_client],
+      { arg_url: arg_url, arg_network_anonymization_key: arg_network_anonymization_key, arg_client: arg_client },
       false);
   }
 
@@ -443,7 +443,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getProxyForUrl');
-          const result = this.impl.getProxyForUrl(params.arg_arg_url, params.arg_arg_network_anonymization_key, params.arg_arg_client);
+          const result = this.impl.getProxyForUrl(params.arg_url, params.arg_network_anonymization_key, params.arg_client);
           break;
         }
       }
@@ -516,7 +516,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClientRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec,
       null,
-      [arg_error, arg_proxy_info],
+      { arg_error: arg_error, arg_proxy_info: arg_proxy_info },
       false);
   }
 
@@ -525,7 +525,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClientRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec,
       null,
-      [arg_error],
+      { arg_error: arg_error },
       false);
   }
 
@@ -534,7 +534,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClientRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec,
       null,
-      [arg_line_number, arg_error],
+      { arg_line_number: arg_line_number, arg_error: arg_error },
       false);
   }
 
@@ -543,7 +543,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClientRemoteCall
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec,
       null,
-      [arg_host, arg_operation, arg_network_anonymization_key, arg_client],
+      { arg_host: arg_host, arg_operation: arg_operation, arg_network_anonymization_key: arg_network_anonymization_key, arg_client: arg_client },
       false);
   }
 
@@ -615,28 +615,28 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClientReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportResult');
-          const result = this.impl.reportResult(params.arg_arg_error, params.arg_arg_proxy_info);
+          const result = this.impl.reportResult(params.arg_error, params.arg_proxy_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.alert');
-          const result = this.impl.alert(params.arg_arg_error);
+          const result = this.impl.alert(params.arg_error);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_line_number, params.arg_arg_error);
+          const result = this.impl.onError(params.arg_line_number, params.arg_error);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolveDns');
-          const result = this.impl.resolveDns(params.arg_arg_host, params.arg_arg_operation, params.arg_arg_network_anonymization_key, params.arg_arg_client);
+          const result = this.impl.resolveDns(params.arg_host, params.arg_operation, params.arg_network_anonymization_key, params.arg_client);
           break;
         }
       }
@@ -697,7 +697,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec,
       null,
-      [arg_pac_script, arg_receiver, arg_client],
+      { arg_pac_script: arg_pac_script, arg_receiver: arg_receiver, arg_client: arg_client },
       false);
   }
 
@@ -766,7 +766,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createResolver');
-          const result = this.impl.createResolver(params.arg_arg_pac_script, params.arg_arg_receiver, params.arg_arg_client);
+          const result = this.impl.createResolver(params.arg_pac_script, params.arg_receiver, params.arg_client);
           break;
         }
       }
@@ -839,7 +839,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec,
       null,
-      [arg_error],
+      { arg_error: arg_error },
       false);
   }
 
@@ -848,7 +848,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientRem
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec,
       null,
-      [arg_error],
+      { arg_error: arg_error },
       false);
   }
 
@@ -857,7 +857,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientRem
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec,
       null,
-      [arg_line_number, arg_error],
+      { arg_line_number: arg_line_number, arg_error: arg_error },
       false);
   }
 
@@ -866,7 +866,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientRem
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec,
       null,
-      [arg_host, arg_operation, arg_network_anonymization_key, arg_client],
+      { arg_host: arg_host, arg_operation: arg_operation, arg_network_anonymization_key: arg_network_anonymization_key, arg_client: arg_client },
       false);
   }
 
@@ -938,28 +938,28 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportResult');
-          const result = this.impl.reportResult(params.arg_arg_error);
+          const result = this.impl.reportResult(params.arg_error);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.alert');
-          const result = this.impl.alert(params.arg_arg_error);
+          const result = this.impl.alert(params.arg_error);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_line_number, params.arg_arg_error);
+          const result = this.impl.onError(params.arg_line_number, params.arg_error);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolveDns');
-          const result = this.impl.resolveDns(params.arg_arg_host, params.arg_arg_operation, params.arg_arg_network_anonymization_key, params.arg_arg_client);
+          const result = this.impl.resolveDns(params.arg_host, params.arg_operation, params.arg_network_anonymization_key, params.arg_client);
           break;
         }
       }
@@ -1020,7 +1020,7 @@ mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec,
       mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec,
-      [arg_url],
+      { arg_url: arg_url },
       false);
   }
 
@@ -1089,12 +1089,12 @@ mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolverReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getProxyForUrl');
-          const result = this.impl.getProxyForUrl(params.arg_arg_url);
+          const result = this.impl.getProxyForUrl(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec.$.structSpec, ['response.arg_arg_proxy_list', 'response.arg_arg_status']);
+              encoder.encodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec.$.structSpec, { 'arg_proxy_list': response.arg_proxy_list, 'arg_status': response.arg_status });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getProxyForUrl FAILED:', e));
           }

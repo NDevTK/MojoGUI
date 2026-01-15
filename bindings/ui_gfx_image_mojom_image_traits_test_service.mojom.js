@@ -185,7 +185,7 @@ mojo.internal.bindings.gfx.mojom.ImageTraitsTestServiceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec,
       mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec,
-      [arg_in],
+      { arg_in: arg_in },
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.gfx.mojom.ImageTraitsTestServiceRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec,
       mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec,
-      [arg_in],
+      { arg_in: arg_in },
       false);
   }
 
@@ -264,13 +264,13 @@ mojo.internal.bindings.gfx.mojom.ImageTraitsTestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoImageSkiaRep');
-          const result = this.impl.echoImageSkiaRep(params.arg_arg_in);
+          const result = this.impl.echoImageSkiaRep(params.arg_in);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_out' in response) ? response.arg_arg_out : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_out' in response) ? response.arg_out : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec.$.structSpec, { 'arg_out': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoImageSkiaRep FAILED:', e));
           }
@@ -280,13 +280,13 @@ mojo.internal.bindings.gfx.mojom.ImageTraitsTestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoImageSkia');
-          const result = this.impl.echoImageSkia(params.arg_arg_in);
+          const result = this.impl.echoImageSkia(params.arg_in);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_out' in response) ? response.arg_arg_out : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_out' in response) ? response.arg_out : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec.$.structSpec, { 'arg_out': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoImageSkia FAILED:', e));
           }

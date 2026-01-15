@@ -171,7 +171,7 @@ mojo.internal.bindings.content.mojom.MainFrameCounterTestRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec,
       mojo.internal.bindings.content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -245,8 +245,8 @@ mojo.internal.bindings.content.mojom.MainFrameCounterTestReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_has_main_frame' in response) ? response.arg_arg_has_main_frame : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_has_main_frame' in response) ? response.arg_has_main_frame : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec.$.structSpec, { 'arg_has_main_frame': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] hasMainFrame FAILED:', e));
           }

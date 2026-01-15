@@ -199,7 +199,7 @@ mojo.internal.bindings.printing.mojom.PrintingServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.printing.mojom.PrintingServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.printing.mojom.PrintingServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -288,21 +288,21 @@ mojo.internal.bindings.printing.mojom.PrintingServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindPdfNupConverter');
-          const result = this.impl.bindPdfNupConverter(params.arg_arg_receiver);
+          const result = this.impl.bindPdfNupConverter(params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindPdfToPwgRasterConverter');
-          const result = this.impl.bindPdfToPwgRasterConverter(params.arg_arg_receiver);
+          const result = this.impl.bindPdfToPwgRasterConverter(params.arg_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindPdfToEmfConverterFactory');
-          const result = this.impl.bindPdfToEmfConverterFactory(params.arg_arg_receiver);
+          const result = this.impl.bindPdfToEmfConverterFactory(params.arg_receiver);
           break;
         }
       }

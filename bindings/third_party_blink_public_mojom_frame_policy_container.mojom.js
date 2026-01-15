@@ -202,7 +202,7 @@ mojo.internal.bindings.blink.mojom.PolicyContainerHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec,
       null,
-      [arg_referrer_policy],
+      { arg_referrer_policy: arg_referrer_policy },
       false);
   }
 
@@ -211,7 +211,7 @@ mojo.internal.bindings.blink.mojom.PolicyContainerHostRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec,
       null,
-      [arg_content_security_policies],
+      { arg_content_security_policies: arg_content_security_policies },
       false);
   }
 
@@ -281,14 +281,14 @@ mojo.internal.bindings.blink.mojom.PolicyContainerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setReferrerPolicy');
-          const result = this.impl.setReferrerPolicy(params.arg_arg_referrer_policy);
+          const result = this.impl.setReferrerPolicy(params.arg_referrer_policy);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addContentSecurityPolicies');
-          const result = this.impl.addContentSecurityPolicies(params.arg_arg_content_security_policies);
+          const result = this.impl.addContentSecurityPolicies(params.arg_content_security_policies);
           break;
         }
       }

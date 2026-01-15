@@ -208,7 +208,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec,
-      [arg_device_id],
+      { arg_device_id: arg_device_id },
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec,
-      [arg_device_id, arg_name],
+      { arg_device_id: arg_device_id, arg_name: arg_name },
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec,
-      [arg_device_id, arg_name, arg_value],
+      { arg_device_id: arg_device_id, arg_name: arg_name, arg_value: arg_value },
       false);
   }
 
@@ -312,8 +312,8 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] listDevices FAILED:', e));
           }
@@ -323,13 +323,13 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listProperties');
-          const result = this.impl.listProperties(params.arg_arg_device_id);
+          const result = this.impl.listProperties(params.arg_device_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_properties' in response) ? response.arg_arg_properties : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_properties' in response) ? response.arg_properties : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec.$.structSpec, { 'arg_properties': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] listProperties FAILED:', e));
           }
@@ -339,12 +339,12 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getProperty');
-          const result = this.impl.getProperty(params.arg_arg_device_id, params.arg_arg_name);
+          const result = this.impl.getProperty(params.arg_device_id, params.arg_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec.$.structSpec, ['response.arg_arg_is_read_only', 'response.arg_arg_value']);
+              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec.$.structSpec, { 'arg_is_read_only': response.arg_is_read_only, 'arg_value': response.arg_value });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getProperty FAILED:', e));
           }
@@ -354,13 +354,13 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setProperty');
-          const result = this.impl.setProperty(params.arg_arg_device_id, params.arg_arg_name, params.arg_arg_value);
+          const result = this.impl.setProperty(params.arg_device_id, params.arg_name, params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setProperty FAILED:', e));
           }

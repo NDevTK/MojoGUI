@@ -270,7 +270,7 @@ mojo.internal.bindings.dlp_internals.mojom.ReportingObserverRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec,
       null,
-      [arg_event],
+      { arg_event: arg_event },
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.dlp_internals.mojom.ReportingObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReportEvent');
-          const result = this.impl.onReportEvent(params.arg_arg_event);
+          const result = this.impl.onReportEvent(params.arg_event);
           break;
         }
       }
@@ -416,7 +416,7 @@ mojo.internal.bindings.dlp_internals.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec,
       mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -425,7 +425,7 @@ mojo.internal.bindings.dlp_internals.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec,
       mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -434,7 +434,7 @@ mojo.internal.bindings.dlp_internals.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -443,7 +443,7 @@ mojo.internal.bindings.dlp_internals.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec,
       mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -452,7 +452,7 @@ mojo.internal.bindings.dlp_internals.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec,
       mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec,
-      [arg_file_name],
+      { arg_file_name: arg_file_name },
       false);
   }
 
@@ -530,8 +530,8 @@ mojo.internal.bindings.dlp_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_source' in response) ? response.arg_arg_source : response;
-              encoder.encodeStructInline(mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_source' in response) ? response.arg_source : response;
+              encoder.encodeStructInline(mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec.$.structSpec, { 'arg_source': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getClipboardDataSource FAILED:', e));
           }
@@ -546,8 +546,8 @@ mojo.internal.bindings.dlp_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_web_contents_info' in response) ? response.arg_arg_web_contents_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_web_contents_info' in response) ? response.arg_web_contents_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec.$.structSpec, { 'arg_web_contents_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getContentRestrictionsInfo FAILED:', e));
           }
@@ -557,7 +557,7 @@ mojo.internal.bindings.dlp_internals.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeReporting');
-          const result = this.impl.observeReporting(params.arg_arg_observer);
+          const result = this.impl.observeReporting(params.arg_observer);
           break;
         }
         case 3: {
@@ -569,8 +569,8 @@ mojo.internal.bindings.dlp_internals.mojom.PageHandlerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_db_entries' in response) ? response.arg_arg_db_entries : response;
-              encoder.encodeStructInline(mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_db_entries' in response) ? response.arg_db_entries : response;
+              encoder.encodeStructInline(mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec.$.structSpec, { 'arg_db_entries': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFilesDatabaseEntries FAILED:', e));
           }
@@ -580,13 +580,13 @@ mojo.internal.bindings.dlp_internals.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFileInode');
-          const result = this.impl.getFileInode(params.arg_arg_file_name);
+          const result = this.impl.getFileInode(params.arg_file_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_inode' in response) ? response.arg_arg_inode : response;
-              encoder.encodeStructInline(mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_inode' in response) ? response.arg_inode : response;
+              encoder.encodeStructInline(mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec.$.structSpec, { 'arg_inode': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFileInode FAILED:', e));
           }

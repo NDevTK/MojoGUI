@@ -192,7 +192,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactoryRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -261,7 +261,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactoryReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -342,7 +342,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -351,7 +351,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -360,7 +360,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -369,7 +369,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -378,7 +378,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerRemoteCallHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -387,7 +387,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerRemoteCallHandler
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -565,7 +565,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec,
       null,
-      [arg_progress_fraction, arg_label],
+      { arg_progress_fraction: arg_progress_fraction, arg_label: arg_label },
       false);
   }
 
@@ -574,7 +574,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec,
       null,
-      [arg_error],
+      { arg_error: arg_error },
       false);
   }
 
@@ -583,7 +583,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -654,14 +654,14 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgressUpdate');
-          const result = this.impl.onProgressUpdate(params.arg_arg_progress_fraction, params.arg_arg_label);
+          const result = this.impl.onProgressUpdate(params.arg_progress_fraction, params.arg_label);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInstallFinished');
-          const result = this.impl.onInstallFinished(params.arg_arg_error);
+          const result = this.impl.onInstallFinished(params.arg_error);
           break;
         }
         case 2: {

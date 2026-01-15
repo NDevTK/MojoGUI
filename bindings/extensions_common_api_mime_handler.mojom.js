@@ -183,7 +183,7 @@ mojo.internal.bindings.extensions.mime_handler.MimeHandlerServiceRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec,
       mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.extensions.mime_handler.MimeHandlerServiceRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec,
       null,
-      [arg_pdf_plugin_attributes],
+      { arg_pdf_plugin_attributes: arg_pdf_plugin_attributes },
       false);
   }
 
@@ -267,8 +267,8 @@ mojo.internal.bindings.extensions.mime_handler.MimeHandlerServiceReceiver = clas
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_stream_info' in response) ? response.arg_arg_stream_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_stream_info' in response) ? response.arg_stream_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec.$.structSpec, { 'arg_stream_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getStreamInfo FAILED:', e));
           }
@@ -278,7 +278,7 @@ mojo.internal.bindings.extensions.mime_handler.MimeHandlerServiceReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPdfPluginAttributes');
-          const result = this.impl.setPdfPluginAttributes(params.arg_arg_pdf_plugin_attributes);
+          const result = this.impl.setPdfPluginAttributes(params.arg_pdf_plugin_attributes);
           break;
         }
       }
@@ -339,7 +339,7 @@ mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec,
       mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec,
-      [arg_show_dialog],
+      { arg_show_dialog: arg_show_dialog },
       false);
   }
 
@@ -408,12 +408,12 @@ mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setShowBeforeUnloadDialog');
-          const result = this.impl.setShowBeforeUnloadDialog(params.arg_arg_show_dialog);
+          const result = this.impl.setShowBeforeUnloadDialog(params.arg_show_dialog);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setShowBeforeUnloadDialog FAILED:', e));
           }

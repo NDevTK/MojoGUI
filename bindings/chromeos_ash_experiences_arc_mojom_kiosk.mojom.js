@@ -180,7 +180,7 @@ mojo.internal.bindings.arc.mojom.KioskHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec,
       null,
-      [arg_session_id],
+      { arg_session_id: arg_session_id },
       false);
   }
 
@@ -189,7 +189,7 @@ mojo.internal.bindings.arc.mojom.KioskHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec,
       null,
-      [arg_session_id, arg_succeeded],
+      { arg_session_id: arg_session_id, arg_succeeded: arg_succeeded },
       false);
   }
 
@@ -259,14 +259,14 @@ mojo.internal.bindings.arc.mojom.KioskHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMaintenanceSessionCreated');
-          const result = this.impl.onMaintenanceSessionCreated(params.arg_arg_session_id);
+          const result = this.impl.onMaintenanceSessionCreated(params.arg_session_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMaintenanceSessionFinished');
-          const result = this.impl.onMaintenanceSessionFinished(params.arg_arg_session_id, params.arg_arg_succeeded);
+          const result = this.impl.onMaintenanceSessionFinished(params.arg_session_id, params.arg_succeeded);
           break;
         }
       }
@@ -327,7 +327,7 @@ mojo.internal.bindings.arc.mojom.KioskInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.KioskInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KioskInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -396,12 +396,12 @@ mojo.internal.bindings.arc.mojom.KioskInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.KioskInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KioskInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.KioskInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }

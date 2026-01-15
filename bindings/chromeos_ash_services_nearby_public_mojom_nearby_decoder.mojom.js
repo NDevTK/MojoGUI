@@ -185,7 +185,7 @@ mojo.internal.bindings.sharing.mojom.NearbySharingDecoderRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec,
       mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.sharing.mojom.NearbySharingDecoderRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec,
       mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec,
-      [arg_data],
+      { arg_data: arg_data },
       false);
   }
 
@@ -264,13 +264,13 @@ mojo.internal.bindings.sharing.mojom.NearbySharingDecoderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeAdvertisement');
-          const result = this.impl.decodeAdvertisement(params.arg_arg_data);
+          const result = this.impl.decodeAdvertisement(params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_advertisement' in response) ? response.arg_arg_advertisement : response;
-              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_advertisement' in response) ? response.arg_advertisement : response;
+              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec.$.structSpec, { 'arg_advertisement': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] decodeAdvertisement FAILED:', e));
           }
@@ -280,13 +280,13 @@ mojo.internal.bindings.sharing.mojom.NearbySharingDecoderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeFrame');
-          const result = this.impl.decodeFrame(params.arg_arg_data);
+          const result = this.impl.decodeFrame(params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_frame' in response) ? response.arg_arg_frame : response;
-              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_frame' in response) ? response.arg_frame : response;
+              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec.$.structSpec, { 'arg_frame': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] decodeFrame FAILED:', e));
           }

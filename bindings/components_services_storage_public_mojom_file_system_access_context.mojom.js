@@ -191,7 +191,7 @@ mojo.internal.bindings.storage.mojom.FileSystemAccessContextRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec,
       mojo.internal.bindings.storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec,
-      [arg_token],
+      { arg_token: arg_token },
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.storage.mojom.FileSystemAccessContextRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec,
       null,
-      [arg_storage_key, arg_bits, arg_token],
+      { arg_storage_key: arg_storage_key, arg_bits: arg_bits, arg_token: arg_token },
       false);
   }
 
@@ -209,7 +209,7 @@ mojo.internal.bindings.storage.mojom.FileSystemAccessContextRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.FileSystemAccessContext_Clone_ParamsSpec,
       null,
-      [arg_receiever],
+      { arg_receiever: arg_receiever },
       false);
   }
 
@@ -280,13 +280,13 @@ mojo.internal.bindings.storage.mojom.FileSystemAccessContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.serializeHandle');
-          const result = this.impl.serializeHandle(params.arg_arg_token);
+          const result = this.impl.serializeHandle(params.arg_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_bits' in response) ? response.arg_arg_bits : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_bits' in response) ? response.arg_bits : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec.$.structSpec, { 'arg_bits': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] serializeHandle FAILED:', e));
           }
@@ -296,14 +296,14 @@ mojo.internal.bindings.storage.mojom.FileSystemAccessContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deserializeHandle');
-          const result = this.impl.deserializeHandle(params.arg_arg_storage_key, params.arg_arg_bits, params.arg_arg_token);
+          const result = this.impl.deserializeHandle(params.arg_storage_key, params.arg_bits, params.arg_token);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.FileSystemAccessContext_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_receiever);
+          const result = this.impl.clone(params.arg_receiever);
           break;
         }
       }

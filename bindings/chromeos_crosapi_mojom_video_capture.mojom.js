@@ -458,7 +458,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -467,7 +467,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec,
       null,
-      [arg_buffer_id, arg_buffer_handle],
+      { arg_buffer_id: arg_buffer_id, arg_buffer_handle: arg_buffer_handle },
       false);
   }
 
@@ -476,7 +476,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_DEPRECATED_OnFrameReadyInBuffer_ParamsSpec,
       null,
-      [arg_buffer, arg_scaled_buffers],
+      { arg_buffer: arg_buffer, arg_scaled_buffers: arg_scaled_buffers },
       false);
   }
 
@@ -485,7 +485,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec,
       null,
-      [arg_buffer],
+      { arg_buffer: arg_buffer },
       false);
   }
 
@@ -494,7 +494,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec,
       null,
-      [arg_buffer_id],
+      { arg_buffer_id: arg_buffer_id },
       false);
   }
 
@@ -503,7 +503,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnError_ParamsSpec,
       null,
-      [arg_error],
+      { arg_error: arg_error },
       false);
   }
 
@@ -512,7 +512,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec,
       null,
-      [arg_reason],
+      { arg_reason: arg_reason },
       false);
   }
 
@@ -521,7 +521,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_DEPRECATED_OnNewCropVersion_ParamsSpec,
       null,
-      [arg_crop_version],
+      { arg_crop_version: arg_crop_version },
       false);
   }
 
@@ -530,7 +530,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_DEPRECATED_OnNewSubCaptureTargetVersion_ParamsSpec,
       null,
-      [arg_sub_capture_target_version],
+      { arg_sub_capture_target_version: arg_sub_capture_target_version },
       false);
   }
 
@@ -539,7 +539,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec,
       null,
-      [arg_capture_version],
+      { arg_capture_version: arg_capture_version },
       false);
   }
 
@@ -548,7 +548,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -557,7 +557,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnLog_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -566,7 +566,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnStarted_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -575,7 +575,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -584,7 +584,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnStopped_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -674,63 +674,63 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewBuffer');
-          const result = this.impl.onNewBuffer(params.arg_arg_buffer_id, params.arg_arg_buffer_handle);
+          const result = this.impl.onNewBuffer(params.arg_buffer_id, params.arg_buffer_handle);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_DEPRECATED_OnFrameReadyInBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_OnFrameReadyInBuffer');
-          const result = this.impl.dEPRECATED_OnFrameReadyInBuffer(params.arg_arg_buffer, params.arg_arg_scaled_buffers);
+          const result = this.impl.dEPRECATED_OnFrameReadyInBuffer(params.arg_buffer, params.arg_scaled_buffers);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameReadyInBuffer');
-          const result = this.impl.onFrameReadyInBuffer(params.arg_arg_buffer);
+          const result = this.impl.onFrameReadyInBuffer(params.arg_buffer);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBufferRetired');
-          const result = this.impl.onBufferRetired(params.arg_arg_buffer_id);
+          const result = this.impl.onBufferRetired(params.arg_buffer_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_arg_error);
+          const result = this.impl.onError(params.arg_error);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameDropped');
-          const result = this.impl.onFrameDropped(params.arg_arg_reason);
+          const result = this.impl.onFrameDropped(params.arg_reason);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_DEPRECATED_OnNewCropVersion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_OnNewCropVersion');
-          const result = this.impl.dEPRECATED_OnNewCropVersion(params.arg_arg_crop_version);
+          const result = this.impl.dEPRECATED_OnNewCropVersion(params.arg_crop_version);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_DEPRECATED_OnNewSubCaptureTargetVersion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_OnNewSubCaptureTargetVersion');
-          const result = this.impl.dEPRECATED_OnNewSubCaptureTargetVersion(params.arg_arg_sub_capture_target_version);
+          const result = this.impl.dEPRECATED_OnNewSubCaptureTargetVersion(params.arg_sub_capture_target_version);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewCaptureVersion');
-          const result = this.impl.onNewCaptureVersion(params.arg_arg_capture_version);
+          const result = this.impl.onNewCaptureVersion(params.arg_capture_version);
           break;
         }
         case 10: {
@@ -744,7 +744,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLog');
-          const result = this.impl.onLog(params.arg_arg_message);
+          const result = this.impl.onLog(params.arg_message);
           break;
         }
         case 12: {
@@ -854,7 +854,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_Start_ParamsSpec,
       null,
-      [arg_requested_settings, arg_handler],
+      { arg_requested_settings: arg_requested_settings, arg_handler: arg_handler },
       false);
   }
 
@@ -863,7 +863,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_MaybeSuspend_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -872,7 +872,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_Resume_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -881,7 +881,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_GetPhotoState_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_GetPhotoState_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -890,7 +890,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ResponseParamsSpec,
-      [arg_settings],
+      { arg_settings: arg_settings },
       false);
   }
 
@@ -899,7 +899,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_TakePhoto_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_TakePhoto_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -908,7 +908,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_ProcessFeedback_ParamsSpec,
       null,
-      [arg_feedback],
+      { arg_feedback: arg_feedback },
       false);
   }
 
@@ -917,7 +917,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_RequestRefreshFrame_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -993,7 +993,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start(params.arg_arg_requested_settings, params.arg_arg_handler);
+          const result = this.impl.start(params.arg_requested_settings, params.arg_handler);
           break;
         }
         case 1: {
@@ -1019,8 +1019,8 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_capabilities' in response) ? response.arg_arg_capabilities : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_GetPhotoState_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_capabilities' in response) ? response.arg_capabilities : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_GetPhotoState_ResponseParamsSpec.$.structSpec, { 'arg_capabilities': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPhotoState FAILED:', e));
           }
@@ -1030,13 +1030,13 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPhotoOptions');
-          const result = this.impl.setPhotoOptions(params.arg_arg_settings);
+          const result = this.impl.setPhotoOptions(params.arg_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setPhotoOptions FAILED:', e));
           }
@@ -1051,8 +1051,8 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_blob' in response) ? response.arg_arg_blob : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_TakePhoto_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_blob' in response) ? response.arg_blob : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_TakePhoto_ResponseParamsSpec.$.structSpec, { 'arg_blob': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] takePhoto FAILED:', e));
           }
@@ -1062,7 +1062,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_ProcessFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.processFeedback');
-          const result = this.impl.processFeedback(params.arg_arg_feedback);
+          const result = this.impl.processFeedback(params.arg_feedback);
           break;
         }
         case 7: {
@@ -1134,7 +1134,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactoryRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1143,7 +1143,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactoryRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ResponseParamsSpec,
-      [arg_device_id, arg_device_receiver],
+      { arg_device_id: arg_device_id, arg_device_receiver: arg_device_receiver },
       false);
   }
 
@@ -1218,8 +1218,8 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactoryReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_device_infos' in response) ? response.arg_arg_device_infos : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_device_infos' in response) ? response.arg_device_infos : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ResponseParamsSpec.$.structSpec, { 'arg_device_infos': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDeviceInfos FAILED:', e));
           }
@@ -1229,13 +1229,13 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDevice');
-          const result = this.impl.createDevice(params.arg_arg_device_id, params.arg_arg_device_receiver);
+          const result = this.impl.createDevice(params.arg_device_id, params.arg_device_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result_code' in response) ? response.arg_arg_result_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result_code' in response) ? response.arg_result_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ResponseParamsSpec.$.structSpec, { 'arg_result_code': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createDevice FAILED:', e));
           }

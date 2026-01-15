@@ -197,7 +197,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec,
       null,
-      [arg_target],
+      { arg_target: arg_target },
       false);
   }
 
@@ -206,7 +206,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec,
       null,
-      [arg_target, arg_mouse_data],
+      { arg_target: arg_target, arg_mouse_data: arg_mouse_data },
       false);
   }
 
@@ -215,7 +215,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec,
       null,
-      [arg_target, arg_mouse_data],
+      { arg_target: arg_target, arg_mouse_data: arg_mouse_data },
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec,
       null,
-      [arg_target],
+      { arg_target: arg_target },
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostRemoteCallHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec,
       null,
-      [arg_targets],
+      { arg_targets: arg_targets },
       false);
   }
 
@@ -306,35 +306,35 @@ mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPointerDown');
-          const result = this.impl.onPointerDown(params.arg_arg_target);
+          const result = this.impl.onPointerDown(params.arg_target);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPointerHoverEager');
-          const result = this.impl.onPointerHoverEager(params.arg_arg_target, params.arg_arg_mouse_data);
+          const result = this.impl.onPointerHoverEager(params.arg_target, params.arg_mouse_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPointerHoverModerate');
-          const result = this.impl.onPointerHoverModerate(params.arg_arg_target, params.arg_arg_mouse_data);
+          const result = this.impl.onPointerHoverModerate(params.arg_target, params.arg_mouse_data);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onModerateViewportHeuristicTriggered');
-          const result = this.impl.onModerateViewportHeuristicTriggered(params.arg_arg_target);
+          const result = this.impl.onModerateViewportHeuristicTriggered(params.arg_target);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEagerViewportHeuristicTriggered');
-          const result = this.impl.onEagerViewportHeuristicTriggered(params.arg_arg_targets);
+          const result = this.impl.onEagerViewportHeuristicTriggered(params.arg_targets);
           break;
         }
       }

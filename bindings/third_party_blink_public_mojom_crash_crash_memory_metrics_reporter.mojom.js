@@ -176,7 +176,7 @@ mojo.internal.bindings.blink.mojom.CrashMemoryMetricsReporterRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec,
       null,
-      [arg_shared_metrics_buffer],
+      { arg_shared_metrics_buffer: arg_shared_metrics_buffer },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.blink.mojom.CrashMemoryMetricsReporterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSharedMemory');
-          const result = this.impl.setSharedMemory(params.arg_arg_shared_metrics_buffer);
+          const result = this.impl.setSharedMemory(params.arg_shared_metrics_buffer);
           break;
         }
       }

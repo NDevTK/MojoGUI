@@ -176,7 +176,7 @@ mojo.internal.bindings.network.mojom.TraitsTestServiceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec,
       mojo.internal.bindings.network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec,
-      [arg_headers],
+      { arg_headers: arg_headers },
       false);
   }
 
@@ -245,13 +245,13 @@ mojo.internal.bindings.network.mojom.TraitsTestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoHttpRequestHeaders');
-          const result = this.impl.echoHttpRequestHeaders(params.arg_arg_headers);
+          const result = this.impl.echoHttpRequestHeaders(params.arg_headers);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pass' in response) ? response.arg_arg_pass : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pass' in response) ? response.arg_pass : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec.$.structSpec, { 'arg_pass': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] echoHttpRequestHeaders FAILED:', e));
           }

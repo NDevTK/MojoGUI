@@ -181,7 +181,7 @@ mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_arg_observer);
+          const result = this.impl.addObserver(params.arg_observer);
           break;
         }
       }
@@ -328,7 +328,7 @@ mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec,
       null,
-      [arg_is_app_enabled],
+      { arg_is_app_enabled: arg_is_app_enabled },
       false);
   }
 
@@ -397,7 +397,7 @@ mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGraduationAppUpdated');
-          const result = this.impl.onGraduationAppUpdated(params.arg_arg_is_app_enabled);
+          const result = this.impl.onGraduationAppUpdated(params.arg_is_app_enabled);
           break;
         }
       }

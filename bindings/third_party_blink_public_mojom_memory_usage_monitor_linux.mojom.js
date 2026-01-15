@@ -176,7 +176,7 @@ mojo.internal.bindings.blink.mojom.MemoryUsageMonitorLinuxRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec,
       null,
-      [arg_statm_file, arg_status_file],
+      { arg_statm_file: arg_statm_file, arg_status_file: arg_status_file },
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.blink.mojom.MemoryUsageMonitorLinuxReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setProcFiles');
-          const result = this.impl.setProcFiles(params.arg_arg_statm_file, params.arg_arg_status_file);
+          const result = this.impl.setProcFiles(params.arg_statm_file, params.arg_status_file);
           break;
         }
       }

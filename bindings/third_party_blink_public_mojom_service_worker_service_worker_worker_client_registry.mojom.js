@@ -181,7 +181,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec,
       null,
-      [arg_client],
+      { arg_client: arg_client },
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec,
       null,
-      [arg_host],
+      { arg_host: arg_host },
       false);
   }
 
@@ -260,14 +260,14 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerWorkerClient');
-          const result = this.impl.registerWorkerClient(params.arg_arg_client);
+          const result = this.impl.registerWorkerClient(params.arg_client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cloneWorkerClientRegistry');
-          const result = this.impl.cloneWorkerClientRegistry(params.arg_arg_host);
+          const result = this.impl.cloneWorkerClientRegistry(params.arg_host);
           break;
         }
       }

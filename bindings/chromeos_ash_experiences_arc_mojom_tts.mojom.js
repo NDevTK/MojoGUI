@@ -195,7 +195,7 @@ mojo.internal.bindings.arc.mojom.TtsHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.TtsHost_OnVoicesChanged_ParamsSpec,
       null,
-      [arg_voices],
+      { arg_voices: arg_voices },
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.arc.mojom.TtsHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.TtsHost_OnTtsEvent_ParamsSpec,
       null,
-      [arg_utteranceId, arg_event_type, arg_char_index, arg_length, arg_error_msg],
+      { arg_utteranceId: arg_utteranceId, arg_event_type: arg_event_type, arg_char_index: arg_char_index, arg_length: arg_length, arg_error_msg: arg_error_msg },
       false);
   }
 
@@ -274,14 +274,14 @@ mojo.internal.bindings.arc.mojom.TtsHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TtsHost_OnVoicesChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVoicesChanged');
-          const result = this.impl.onVoicesChanged(params.arg_arg_voices);
+          const result = this.impl.onVoicesChanged(params.arg_voices);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TtsHost_OnTtsEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTtsEvent');
-          const result = this.impl.onTtsEvent(params.arg_arg_utteranceId, params.arg_arg_event_type, params.arg_arg_char_index, params.arg_arg_length, params.arg_arg_error_msg);
+          const result = this.impl.onTtsEvent(params.arg_utteranceId, params.arg_event_type, params.arg_char_index, params.arg_length, params.arg_error_msg);
           break;
         }
       }
@@ -354,7 +354,7 @@ mojo.internal.bindings.arc.mojom.TtsInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.TtsInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.TtsInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.arc.mojom.TtsInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.TtsInstance_Speak_ParamsSpec,
       null,
-      [arg_utterance],
+      { arg_utterance: arg_utterance },
       false);
   }
 
@@ -372,7 +372,7 @@ mojo.internal.bindings.arc.mojom.TtsInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.TtsInstance_Stop_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.arc.mojom.TtsInstanceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.TtsInstance_RefreshVoices_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -453,12 +453,12 @@ mojo.internal.bindings.arc.mojom.TtsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TtsInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.TtsInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.TtsInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -468,7 +468,7 @@ mojo.internal.bindings.arc.mojom.TtsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TtsInstance_Speak_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.speak');
-          const result = this.impl.speak(params.arg_arg_utterance);
+          const result = this.impl.speak(params.arg_utterance);
           break;
         }
         case 2: {

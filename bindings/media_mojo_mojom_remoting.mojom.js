@@ -231,7 +231,7 @@ mojo.internal.bindings.media.mojom.RemoterFactoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.RemoterFactory_Create_ParamsSpec,
       null,
-      [arg_source, arg_remoter],
+      { arg_source: arg_source, arg_remoter: arg_remoter },
       false);
   }
 
@@ -300,7 +300,7 @@ mojo.internal.bindings.media.mojom.RemoterFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RemoterFactory_Create_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
-          const result = this.impl.create(params.arg_arg_source, params.arg_arg_remoter);
+          const result = this.impl.create(params.arg_source, params.arg_remoter);
           break;
         }
       }
@@ -365,7 +365,7 @@ mojo.internal.bindings.media.mojom.RemotingDataStreamSenderRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec,
       mojo.internal.bindings.media.mojom.RemotingDataStreamSender_SendFrame_ResponseParamsSpec,
-      [arg_frame],
+      { arg_frame: arg_frame },
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.media.mojom.RemotingDataStreamSenderRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -444,12 +444,12 @@ mojo.internal.bindings.media.mojom.RemotingDataStreamSenderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendFrame');
-          const result = this.impl.sendFrame(params.arg_arg_frame);
+          const result = this.impl.sendFrame(params.arg_frame);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.RemotingDataStreamSender_SendFrame_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.RemotingDataStreamSender_SendFrame_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendFrame FAILED:', e));
           }
@@ -540,7 +540,7 @@ mojo.internal.bindings.media.mojom.RemoterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.Remoter_Start_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -549,7 +549,7 @@ mojo.internal.bindings.media.mojom.RemoterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -558,7 +558,7 @@ mojo.internal.bindings.media.mojom.RemoterRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.Remoter_StartDataStreams_ParamsSpec,
       null,
-      [arg_audio_pipe, arg_video_pipe, arg_audio_sender, arg_video_sender],
+      { arg_audio_pipe: arg_audio_pipe, arg_video_pipe: arg_video_pipe, arg_audio_sender: arg_audio_sender, arg_video_sender: arg_video_sender },
       false);
   }
 
@@ -567,7 +567,7 @@ mojo.internal.bindings.media.mojom.RemoterRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.Remoter_Stop_ParamsSpec,
       null,
-      [arg_reason],
+      { arg_reason: arg_reason },
       false);
   }
 
@@ -576,7 +576,7 @@ mojo.internal.bindings.media.mojom.RemoterRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.Remoter_SendMessageToSink_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -585,7 +585,7 @@ mojo.internal.bindings.media.mojom.RemoterRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec,
       mojo.internal.bindings.media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -673,21 +673,21 @@ mojo.internal.bindings.media.mojom.RemoterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Remoter_StartDataStreams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDataStreams');
-          const result = this.impl.startDataStreams(params.arg_arg_audio_pipe, params.arg_arg_video_pipe, params.arg_arg_audio_sender, params.arg_arg_video_sender);
+          const result = this.impl.startDataStreams(params.arg_audio_pipe, params.arg_video_pipe, params.arg_audio_sender, params.arg_video_sender);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Remoter_Stop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stop');
-          const result = this.impl.stop(params.arg_arg_reason);
+          const result = this.impl.stop(params.arg_reason);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Remoter_SendMessageToSink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendMessageToSink');
-          const result = this.impl.sendMessageToSink(params.arg_arg_message);
+          const result = this.impl.sendMessageToSink(params.arg_message);
           break;
         }
         case 5: {
@@ -699,8 +699,8 @@ mojo.internal.bindings.media.mojom.RemoterReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_rate' in response) ? response.arg_arg_rate : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_rate' in response) ? response.arg_rate : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec.$.structSpec, { 'arg_rate': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] estimateTransmissionCapacity FAILED:', e));
           }
@@ -784,7 +784,7 @@ mojo.internal.bindings.media.mojom.RemotingSourceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec,
       null,
-      [arg_metadata],
+      { arg_metadata: arg_metadata },
       false);
   }
 
@@ -793,7 +793,7 @@ mojo.internal.bindings.media.mojom.RemotingSourceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingSource_OnSinkGone_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -802,7 +802,7 @@ mojo.internal.bindings.media.mojom.RemotingSourceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingSource_OnStarted_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -811,7 +811,7 @@ mojo.internal.bindings.media.mojom.RemotingSourceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingSource_OnStartFailed_ParamsSpec,
       null,
-      [arg_reason],
+      { arg_reason: arg_reason },
       false);
   }
 
@@ -820,7 +820,7 @@ mojo.internal.bindings.media.mojom.RemotingSourceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -829,7 +829,7 @@ mojo.internal.bindings.media.mojom.RemotingSourceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingSource_OnStopped_ParamsSpec,
       null,
-      [arg_reason],
+      { arg_reason: arg_reason },
       false);
   }
 
@@ -903,7 +903,7 @@ mojo.internal.bindings.media.mojom.RemotingSourceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSinkAvailable');
-          const result = this.impl.onSinkAvailable(params.arg_arg_metadata);
+          const result = this.impl.onSinkAvailable(params.arg_metadata);
           break;
         }
         case 1: {
@@ -924,21 +924,21 @@ mojo.internal.bindings.media.mojom.RemotingSourceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RemotingSource_OnStartFailed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStartFailed');
-          const result = this.impl.onStartFailed(params.arg_arg_reason);
+          const result = this.impl.onStartFailed(params.arg_reason);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessageFromSink');
-          const result = this.impl.onMessageFromSink(params.arg_arg_message);
+          const result = this.impl.onMessageFromSink(params.arg_message);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RemotingSource_OnStopped_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStopped');
-          const result = this.impl.onStopped(params.arg_arg_reason);
+          const result = this.impl.onStopped(params.arg_reason);
           break;
         }
       }
@@ -1015,7 +1015,7 @@ mojo.internal.bindings.media.mojom.RemoteeRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec,
       null,
-      [arg_sink],
+      { arg_sink: arg_sink },
       false);
   }
 
@@ -1024,7 +1024,7 @@ mojo.internal.bindings.media.mojom.RemoteeRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.Remotee_SendMessageToSource_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -1033,7 +1033,7 @@ mojo.internal.bindings.media.mojom.RemoteeRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.Remotee_StartDataStreams_ParamsSpec,
       null,
-      [arg_audio_stream, arg_video_stream],
+      { arg_audio_stream: arg_audio_stream, arg_video_stream: arg_video_stream },
       false);
   }
 
@@ -1042,7 +1042,7 @@ mojo.internal.bindings.media.mojom.RemoteeRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.Remotee_OnFlushUntil_ParamsSpec,
       null,
-      [arg_audio_frame_count, arg_video_frame_count],
+      { arg_audio_frame_count: arg_audio_frame_count, arg_video_frame_count: arg_video_frame_count },
       false);
   }
 
@@ -1051,7 +1051,7 @@ mojo.internal.bindings.media.mojom.RemoteeRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec,
       null,
-      [arg_size],
+      { arg_size: arg_size },
       false);
   }
 
@@ -1124,35 +1124,35 @@ mojo.internal.bindings.media.mojom.RemoteeReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRemotingSinkReady');
-          const result = this.impl.onRemotingSinkReady(params.arg_arg_sink);
+          const result = this.impl.onRemotingSinkReady(params.arg_sink);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Remotee_SendMessageToSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendMessageToSource');
-          const result = this.impl.sendMessageToSource(params.arg_arg_message);
+          const result = this.impl.sendMessageToSource(params.arg_message);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Remotee_StartDataStreams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDataStreams');
-          const result = this.impl.startDataStreams(params.arg_arg_audio_stream, params.arg_arg_video_stream);
+          const result = this.impl.startDataStreams(params.arg_audio_stream, params.arg_video_stream);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Remotee_OnFlushUntil_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFlushUntil');
-          const result = this.impl.onFlushUntil(params.arg_arg_audio_frame_count, params.arg_arg_video_frame_count);
+          const result = this.impl.onFlushUntil(params.arg_audio_frame_count, params.arg_video_frame_count);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVideoNaturalSizeChange');
-          const result = this.impl.onVideoNaturalSizeChange(params.arg_arg_size);
+          const result = this.impl.onVideoNaturalSizeChange(params.arg_size);
           break;
         }
       }
@@ -1213,7 +1213,7 @@ mojo.internal.bindings.media.mojom.RemotingSinkRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec,
       null,
-      [arg_message],
+      { arg_message: arg_message },
       false);
   }
 
@@ -1282,7 +1282,7 @@ mojo.internal.bindings.media.mojom.RemotingSinkReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessageFromSource');
-          const result = this.impl.onMessageFromSource(params.arg_arg_message);
+          const result = this.impl.onMessageFromSource(params.arg_message);
           break;
         }
       }
@@ -1351,7 +1351,7 @@ mojo.internal.bindings.media.mojom.RemotingDataStreamReceiverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec,
       null,
-      [arg_data_pipe],
+      { arg_data_pipe: arg_data_pipe },
       false);
   }
 
@@ -1360,7 +1360,7 @@ mojo.internal.bindings.media.mojom.RemotingDataStreamReceiverRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec,
       null,
-      [arg_frame_count, arg_buffer],
+      { arg_frame_count: arg_frame_count, arg_buffer: arg_buffer },
       false);
   }
 
@@ -1369,7 +1369,7 @@ mojo.internal.bindings.media.mojom.RemotingDataStreamReceiverRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec,
       null,
-      [arg_frame_count],
+      { arg_frame_count: arg_frame_count },
       false);
   }
 
@@ -1440,21 +1440,21 @@ mojo.internal.bindings.media.mojom.RemotingDataStreamReceiverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeDataPipe');
-          const result = this.impl.initializeDataPipe(params.arg_arg_data_pipe);
+          const result = this.impl.initializeDataPipe(params.arg_data_pipe);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.receiveFrame');
-          const result = this.impl.receiveFrame(params.arg_arg_frame_count, params.arg_arg_buffer);
+          const result = this.impl.receiveFrame(params.arg_frame_count, params.arg_buffer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flushUntil');
-          const result = this.impl.flushUntil(params.arg_arg_frame_count);
+          const result = this.impl.flushUntil(params.arg_frame_count);
           break;
         }
       }

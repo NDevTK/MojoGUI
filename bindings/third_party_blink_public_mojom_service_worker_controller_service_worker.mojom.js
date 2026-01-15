@@ -242,7 +242,7 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec,
-      [arg_params, arg_response_callback],
+      { arg_params: arg_params, arg_response_callback: arg_response_callback },
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ControllerServiceWorker_Clone_ParamsSpec,
       null,
-      [arg_receiver, arg_cross_origin_embedder_policy, arg_coep_reporter, arg_document_isolation_policy, arg_dip_reporter],
+      { arg_receiver: arg_receiver, arg_cross_origin_embedder_policy: arg_cross_origin_embedder_policy, arg_coep_reporter: arg_coep_reporter, arg_document_isolation_policy: arg_document_isolation_policy, arg_dip_reporter: arg_dip_reporter },
       false);
   }
 
@@ -321,13 +321,13 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchFetchEventForSubresource');
-          const result = this.impl.dispatchFetchEventForSubresource(params.arg_arg_params, params.arg_arg_response_callback);
+          const result = this.impl.dispatchFetchEventForSubresource(params.arg_params, params.arg_response_callback);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] dispatchFetchEventForSubresource FAILED:', e));
           }
@@ -337,7 +337,7 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ControllerServiceWorker_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_receiver, params.arg_arg_cross_origin_embedder_policy, params.arg_arg_coep_reporter, params.arg_arg_document_isolation_policy, params.arg_arg_dip_reporter);
+          const result = this.impl.clone(params.arg_receiver, params.arg_cross_origin_embedder_policy, params.arg_coep_reporter, params.arg_document_isolation_policy, params.arg_dip_reporter);
           break;
         }
       }
@@ -398,7 +398,7 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnectorRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec,
       null,
-      [arg_controller],
+      { arg_controller: arg_controller },
       false);
   }
 
@@ -467,7 +467,7 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnectorReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateController');
-          const result = this.impl.updateController(params.arg_arg_controller);
+          const result = this.impl.updateController(params.arg_controller);
           break;
         }
       }

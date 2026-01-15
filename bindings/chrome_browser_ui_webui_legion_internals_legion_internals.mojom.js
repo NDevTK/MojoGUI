@@ -184,7 +184,7 @@ mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandlerRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec,
       mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ResponseParamsSpec,
-      [arg_url, arg_api_key],
+      { arg_url: arg_url, arg_api_key: arg_api_key },
       false);
   }
 
@@ -193,7 +193,7 @@ mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandlerRemoteCa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec,
       mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Close_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -202,7 +202,7 @@ mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandlerRemoteCa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec,
       mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec,
-      [arg_feature_name, arg_request],
+      { arg_feature_name: arg_feature_name, arg_request: arg_request },
       false);
   }
 
@@ -273,12 +273,12 @@ mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandlerReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_arg_url, params.arg_arg_api_key);
+          const result = this.impl.connect(params.arg_url, params.arg_api_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] connect FAILED:', e));
           }
@@ -293,7 +293,7 @@ mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandlerReceiver
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Close_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Close_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] close FAILED:', e));
           }
@@ -303,13 +303,13 @@ mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandlerReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendRequest');
-          const result = this.impl.sendRequest(params.arg_arg_feature_name, params.arg_arg_request);
+          const result = this.impl.sendRequest(params.arg_feature_name, params.arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
-              encoder.encodeStructInline(mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response.arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec.$.structSpec, { 'arg_response': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] sendRequest FAILED:', e));
           }

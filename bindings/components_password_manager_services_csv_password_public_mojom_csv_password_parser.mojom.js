@@ -188,7 +188,7 @@ mojo.internal.bindings.password_manager.mojom.CSVPasswordParserRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec,
       mojo.internal.bindings.password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec,
-      [arg_raw_csv],
+      { arg_raw_csv: arg_raw_csv },
       false);
   }
 
@@ -257,13 +257,13 @@ mojo.internal.bindings.password_manager.mojom.CSVPasswordParserReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseCSV');
-          const result = this.impl.parseCSV(params.arg_arg_raw_csv);
+          const result = this.impl.parseCSV(params.arg_raw_csv);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_sequence' in response) ? response.arg_arg_sequence : response;
-              encoder.encodeStructInline(mojo.internal.bindings.password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_sequence' in response) ? response.arg_sequence : response;
+              encoder.encodeStructInline(mojo.internal.bindings.password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec.$.structSpec, { 'arg_sequence': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] parseCSV FAILED:', e));
           }

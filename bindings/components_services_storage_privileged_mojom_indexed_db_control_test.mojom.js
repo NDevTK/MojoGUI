@@ -221,7 +221,7 @@ mojo.internal.bindings.storage.mojom.MockFailureInjectorRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.MockFailureInjector_FailOperation_ParamsSpec,
       null,
-      [arg_failure_class, arg_failure_method, arg_instance_num, arg_call_num],
+      { arg_failure_class: arg_failure_class, arg_failure_method: arg_failure_method, arg_instance_num: arg_instance_num, arg_call_num: arg_call_num },
       false);
   }
 
@@ -290,7 +290,7 @@ mojo.internal.bindings.storage.mojom.MockFailureInjectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.MockFailureInjector_FailOperation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.failOperation');
-          const result = this.impl.failOperation(params.arg_arg_failure_class, params.arg_arg_failure_method, params.arg_arg_instance_num, params.arg_arg_call_num);
+          const result = this.impl.failOperation(params.arg_failure_class, params.arg_failure_method, params.arg_instance_num, params.arg_call_num);
           break;
         }
       }
@@ -383,7 +383,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec,
-      [arg_bucket_locator, arg_for_sqlite],
+      { arg_bucket_locator: arg_bucket_locator, arg_for_sqlite: arg_for_sqlite },
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec,
-      [arg_bucket_locator, arg_database_id, arg_blob_number],
+      { arg_bucket_locator: arg_bucket_locator, arg_database_id: arg_database_id, arg_blob_number: arg_blob_number },
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ResponseParamsSpec,
-      [arg_bucket_locator],
+      { arg_bucket_locator: arg_bucket_locator },
       false);
   }
 
@@ -428,7 +428,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ResponseParamsSpec,
-      [arg_bucket_locator],
+      { arg_bucket_locator: arg_bucket_locator },
       false);
   }
 
@@ -437,7 +437,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -446,7 +446,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -455,7 +455,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestRemoteCallHandler = cla
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -537,8 +537,8 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_path' in response) ? response.arg_arg_path : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_path' in response) ? response.arg_path : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec.$.structSpec, { 'arg_path': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getBaseDataPathForTesting FAILED:', e));
           }
@@ -548,13 +548,13 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFilePathForTesting');
-          const result = this.impl.getFilePathForTesting(params.arg_arg_bucket_locator, params.arg_arg_for_sqlite);
+          const result = this.impl.getFilePathForTesting(params.arg_bucket_locator, params.arg_for_sqlite);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_path' in response) ? response.arg_arg_path : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_path' in response) ? response.arg_path : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec.$.structSpec, { 'arg_path': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFilePathForTesting FAILED:', e));
           }
@@ -569,7 +569,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] resetCachesForTesting FAILED:', e));
           }
@@ -579,13 +579,13 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPathForBlobForTesting');
-          const result = this.impl.getPathForBlobForTesting(params.arg_arg_bucket_locator, params.arg_arg_database_id, params.arg_arg_blob_number);
+          const result = this.impl.getPathForBlobForTesting(params.arg_bucket_locator, params.arg_database_id, params.arg_blob_number);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_path' in response) ? response.arg_arg_path : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_path' in response) ? response.arg_path : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec.$.structSpec, { 'arg_path': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPathForBlobForTesting FAILED:', e));
           }
@@ -595,12 +595,12 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flushBackingStoreForTesting');
-          const result = this.impl.flushBackingStoreForTesting(params.arg_arg_bucket_locator);
+          const result = this.impl.flushBackingStoreForTesting(params.arg_bucket_locator);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] flushBackingStoreForTesting FAILED:', e));
           }
@@ -610,12 +610,12 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flushBucketSequenceForTesting');
-          const result = this.impl.flushBucketSequenceForTesting(params.arg_arg_bucket_locator);
+          const result = this.impl.flushBucketSequenceForTesting(params.arg_bucket_locator);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] flushBucketSequenceForTesting FAILED:', e));
           }
@@ -630,8 +630,8 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_total_usage' in response) ? response.arg_arg_total_usage : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_total_usage' in response) ? response.arg_total_usage : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec.$.structSpec, { 'arg_total_usage': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getUsageForTesting FAILED:', e));
           }
@@ -641,7 +641,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindMockFailureSingletonForTesting');
-          const result = this.impl.bindMockFailureSingletonForTesting(params.arg_arg_receiver);
+          const result = this.impl.bindMockFailureSingletonForTesting(params.arg_receiver);
           break;
         }
         case 8: {
@@ -653,7 +653,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] forceInitializeFromFilesForTesting FAILED:', e));
           }

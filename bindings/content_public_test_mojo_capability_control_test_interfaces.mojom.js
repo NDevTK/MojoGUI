@@ -184,7 +184,7 @@ mojo.internal.bindings.content.mojom.TestInterfaceForDeferRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.content.mojom.TestInterfaceForDeferReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] ping FAILED:', e));
           }
@@ -649,7 +649,7 @@ mojo.internal.bindings.content.mojom.MojoContextProviderRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.MojoContextProvider_GrantAll_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 

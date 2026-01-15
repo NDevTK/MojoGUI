@@ -192,7 +192,7 @@ mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserverRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSpec,
       null,
-      [arg_details],
+      { arg_details: arg_details },
       false);
   }
 
@@ -201,7 +201,7 @@ mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserverRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -271,14 +271,14 @@ mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserverReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSharedDictionaryAccessed');
-          const result = this.impl.onSharedDictionaryAccessed(params.arg_arg_details);
+          const result = this.impl.onSharedDictionaryAccessed(params.arg_details);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_observer);
+          const result = this.impl.clone(params.arg_observer);
           break;
         }
       }

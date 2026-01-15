@@ -199,7 +199,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactoryRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactoryReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -345,7 +345,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec,
       null,
-      [arg_disk_size, arg_username],
+      { arg_disk_size: arg_disk_size, arg_username: arg_username },
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -372,7 +372,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerRemoteCallHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec,
       mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -454,7 +454,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.install');
-          const result = this.impl.install(params.arg_arg_disk_size, params.arg_arg_username);
+          const result = this.impl.install(params.arg_disk_size, params.arg_username);
           break;
         }
         case 1: {
@@ -487,7 +487,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerReceiver = class 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec.$.structSpec, ['response.arg_arg_ticks', 'response.arg_arg_default_index', 'response.arg_arg_is_low_space_available']);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec.$.structSpec, { 'arg_ticks': response.arg_ticks, 'arg_default_index': response.arg_default_index, 'arg_is_low_space_available': response.arg_is_low_space_available });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] requestAmountOfFreeDiskSpace FAILED:', e));
           }
@@ -563,7 +563,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec,
       null,
-      [arg_install_state, arg_progress_fraction],
+      { arg_install_state: arg_install_state, arg_progress_fraction: arg_progress_fraction },
       false);
   }
 
@@ -572,7 +572,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec,
       null,
-      [arg_error],
+      { arg_error: arg_error },
       false);
   }
 
@@ -581,7 +581,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -590,7 +590,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -662,14 +662,14 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgressUpdate');
-          const result = this.impl.onProgressUpdate(params.arg_arg_install_state, params.arg_arg_progress_fraction);
+          const result = this.impl.onProgressUpdate(params.arg_install_state, params.arg_progress_fraction);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInstallFinished');
-          const result = this.impl.onInstallFinished(params.arg_arg_error);
+          const result = this.impl.onInstallFinished(params.arg_error);
           break;
         }
         case 2: {

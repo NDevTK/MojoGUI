@@ -278,7 +278,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnTokenUpserted_ParamsSpec,
       null,
-      [arg_account],
+      { arg_account: arg_account },
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerObserverRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnAccountRemoved_ParamsSpec,
       null,
-      [arg_account],
+      { arg_account: arg_account },
       false);
   }
 
@@ -296,7 +296,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerObserverRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_ParamsSpec,
       null,
-      [arg_account, arg_error],
+      { arg_account: arg_account, arg_error: arg_error },
       false);
   }
 
@@ -305,7 +305,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerObserverRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnSigninDialogClosed_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -377,21 +377,21 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnTokenUpserted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTokenUpserted');
-          const result = this.impl.onTokenUpserted(params.arg_arg_account);
+          const result = this.impl.onTokenUpserted(params.arg_account);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnAccountRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAccountRemoved');
-          const result = this.impl.onAccountRemoved(params.arg_arg_account);
+          const result = this.impl.onAccountRemoved(params.arg_account);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAuthErrorChanged');
-          const result = this.impl.onAuthErrorChanged(params.arg_arg_account, params.arg_arg_error);
+          const result = this.impl.onAuthErrorChanged(params.arg_account, params.arg_error);
           break;
         }
         case 3: {
@@ -491,7 +491,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManager_IsInitialized_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.AccountManager_IsInitialized_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -500,7 +500,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManager_AddObserver_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.AccountManager_AddObserver_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -509,7 +509,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManager_GetAccounts_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.AccountManager_GetAccounts_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -518,7 +518,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParamsSpec,
-      [arg_add_account_options],
+      { arg_add_account_options: arg_add_account_options },
       false);
   }
 
@@ -527,7 +527,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParamsSpec,
-      [arg_email],
+      { arg_email: arg_email },
       false);
   }
 
@@ -536,7 +536,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManager_ShowManageAccountsSettings_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -545,7 +545,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParamsSpec,
-      [arg_account],
+      { arg_account: arg_account },
       false);
   }
 
@@ -554,7 +554,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParamsSpec,
-      [arg_account_key, arg_oauth_consumer_name],
+      { arg_account_key: arg_account_key, arg_oauth_consumer_name: arg_oauth_consumer_name },
       false);
   }
 
@@ -563,7 +563,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManager_ReportAuthError_ParamsSpec,
       null,
-      [arg_account, arg_error],
+      { arg_account: arg_account, arg_error: arg_error },
       false);
   }
 
@@ -645,8 +645,8 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_is_initialized' in response) ? response.arg_arg_is_initialized : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_IsInitialized_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_is_initialized' in response) ? response.arg_is_initialized : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_IsInitialized_ResponseParamsSpec.$.structSpec, { 'arg_is_initialized': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isInitialized FAILED:', e));
           }
@@ -661,8 +661,8 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_receiver' in response) ? response.arg_arg_receiver : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_AddObserver_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_receiver' in response) ? response.arg_receiver : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_AddObserver_ResponseParamsSpec.$.structSpec, { 'arg_receiver': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] addObserver FAILED:', e));
           }
@@ -677,8 +677,8 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_accounts' in response) ? response.arg_arg_accounts : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_GetAccounts_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_accounts' in response) ? response.arg_accounts : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_GetAccounts_ResponseParamsSpec.$.structSpec, { 'arg_accounts': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getAccounts FAILED:', e));
           }
@@ -688,13 +688,13 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showAddAccountDialog');
-          const result = this.impl.showAddAccountDialog(params.arg_arg_add_account_options);
+          const result = this.impl.showAddAccountDialog(params.arg_add_account_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] showAddAccountDialog FAILED:', e));
           }
@@ -704,13 +704,13 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showReauthAccountDialog');
-          const result = this.impl.showReauthAccountDialog(params.arg_arg_email);
+          const result = this.impl.showReauthAccountDialog(params.arg_email);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] showReauthAccountDialog FAILED:', e));
           }
@@ -727,13 +727,13 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPersistentErrorForAccount');
-          const result = this.impl.getPersistentErrorForAccount(params.arg_arg_account);
+          const result = this.impl.getPersistentErrorForAccount(params.arg_account);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPersistentErrorForAccount FAILED:', e));
           }
@@ -743,13 +743,13 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAccessTokenFetcher');
-          const result = this.impl.createAccessTokenFetcher(params.arg_arg_account_key, params.arg_arg_oauth_consumer_name);
+          const result = this.impl.createAccessTokenFetcher(params.arg_account_key, params.arg_oauth_consumer_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_access_token_fetcher' in response) ? response.arg_arg_access_token_fetcher : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_access_token_fetcher' in response) ? response.arg_access_token_fetcher : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParamsSpec.$.structSpec, { 'arg_access_token_fetcher': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] createAccessTokenFetcher FAILED:', e));
           }
@@ -759,7 +759,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_ReportAuthError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAuthError');
-          const result = this.impl.reportAuthError(params.arg_arg_account, params.arg_arg_error);
+          const result = this.impl.reportAuthError(params.arg_account, params.arg_error);
           break;
         }
       }
@@ -820,7 +820,7 @@ mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ResponseParamsSpec,
-      [arg_scopes],
+      { arg_scopes: arg_scopes },
       false);
   }
 
@@ -889,13 +889,13 @@ mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start(params.arg_arg_scopes);
+          const result = this.impl.start(params.arg_scopes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] start FAILED:', e));
           }

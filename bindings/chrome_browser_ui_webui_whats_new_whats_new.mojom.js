@@ -238,7 +238,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerFactoryRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [arg_page, arg_handler],
+      { arg_page: arg_page, arg_handler: arg_handler },
       false);
   }
 
@@ -307,7 +307,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -452,7 +452,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec,
       mojo.internal.bindings.whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec,
-      [arg_is_staging],
+      { arg_is_staging: arg_is_staging },
       false);
   }
 
@@ -461,7 +461,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec,
       null,
-      [arg_time],
+      { arg_time: arg_time },
       false);
   }
 
@@ -470,7 +470,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec,
       null,
-      [arg_is_auto_open],
+      { arg_is_auto_open: arg_is_auto_open },
       false);
   }
 
@@ -479,7 +479,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec,
       null,
-      [arg_page_uid, arg_is_auto_open],
+      { arg_page_uid: arg_page_uid, arg_is_auto_open: arg_is_auto_open },
       false);
   }
 
@@ -488,7 +488,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec,
       null,
-      [arg_module_name, arg_position],
+      { arg_module_name: arg_module_name, arg_position: arg_position },
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec,
       null,
-      [arg_expanded],
+      { arg_expanded: arg_expanded },
       false);
   }
 
@@ -506,7 +506,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec,
       null,
-      [arg_depth],
+      { arg_depth: arg_depth },
       false);
   }
 
@@ -515,7 +515,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec,
       null,
-      [arg_time],
+      { arg_time: arg_time },
       false);
   }
 
@@ -524,7 +524,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec,
       null,
-      [arg_module_name, arg_position],
+      { arg_module_name: arg_module_name, arg_position: arg_position },
       false);
   }
 
@@ -533,7 +533,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec,
       null,
-      [arg_module_name, arg_position],
+      { arg_module_name: arg_module_name, arg_position: arg_position },
       false);
   }
 
@@ -542,7 +542,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec,
       null,
-      [arg_module_name, arg_position],
+      { arg_module_name: arg_module_name, arg_position: arg_position },
       false);
   }
 
@@ -551,7 +551,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec,
       null,
-      [arg_module_name, arg_position],
+      { arg_module_name: arg_module_name, arg_position: arg_position },
       false);
   }
 
@@ -560,7 +560,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec,
       null,
-      [arg_module_name, arg_position],
+      { arg_module_name: arg_module_name, arg_position: arg_position },
       false);
   }
 
@@ -569,7 +569,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec,
       null,
-      [arg_module_name, arg_position],
+      { arg_module_name: arg_module_name, arg_position: arg_position },
       false);
   }
 
@@ -578,7 +578,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -587,7 +587,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec,
       null,
-      [arg_expanded],
+      { arg_expanded: arg_expanded },
       false);
   }
 
@@ -596,7 +596,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -605,7 +605,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -614,7 +614,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -623,7 +623,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec,
       null,
-      [arg_module_name, arg_expanded],
+      { arg_module_name: arg_module_name, arg_expanded: arg_expanded },
       false);
   }
 
@@ -632,7 +632,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -641,7 +641,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -731,13 +731,13 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getServerUrl');
-          const result = this.impl.getServerUrl(params.arg_arg_is_staging);
+          const result = this.impl.getServerUrl(params.arg_is_staging);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_url' in response) ? response.arg_arg_url : response;
-              encoder.encodeStructInline(mojo.internal.bindings.whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_url' in response) ? response.arg_url : response;
+              encoder.encodeStructInline(mojo.internal.bindings.whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec.$.structSpec, { 'arg_url': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getServerUrl FAILED:', e));
           }
@@ -747,91 +747,91 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordTimeToLoadContent');
-          const result = this.impl.recordTimeToLoadContent(params.arg_arg_time);
+          const result = this.impl.recordTimeToLoadContent(params.arg_time);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordVersionPageLoaded');
-          const result = this.impl.recordVersionPageLoaded(params.arg_arg_is_auto_open);
+          const result = this.impl.recordVersionPageLoaded(params.arg_is_auto_open);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordEditionPageLoaded');
-          const result = this.impl.recordEditionPageLoaded(params.arg_arg_page_uid, params.arg_arg_is_auto_open);
+          const result = this.impl.recordEditionPageLoaded(params.arg_page_uid, params.arg_is_auto_open);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordModuleImpression');
-          const result = this.impl.recordModuleImpression(params.arg_arg_module_name, params.arg_arg_position);
+          const result = this.impl.recordModuleImpression(params.arg_module_name, params.arg_position);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordExploreMoreToggled');
-          const result = this.impl.recordExploreMoreToggled(params.arg_arg_expanded);
+          const result = this.impl.recordExploreMoreToggled(params.arg_expanded);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordScrollDepth');
-          const result = this.impl.recordScrollDepth(params.arg_arg_depth);
+          const result = this.impl.recordScrollDepth(params.arg_depth);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordTimeOnPage');
-          const result = this.impl.recordTimeOnPage(params.arg_arg_time);
+          const result = this.impl.recordTimeOnPage(params.arg_time);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordModuleLinkClicked');
-          const result = this.impl.recordModuleLinkClicked(params.arg_arg_module_name, params.arg_arg_position);
+          const result = this.impl.recordModuleLinkClicked(params.arg_module_name, params.arg_position);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordModuleVideoStarted');
-          const result = this.impl.recordModuleVideoStarted(params.arg_arg_module_name, params.arg_arg_position);
+          const result = this.impl.recordModuleVideoStarted(params.arg_module_name, params.arg_position);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordModuleVideoEnded');
-          const result = this.impl.recordModuleVideoEnded(params.arg_arg_module_name, params.arg_arg_position);
+          const result = this.impl.recordModuleVideoEnded(params.arg_module_name, params.arg_position);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordModulePlayClicked');
-          const result = this.impl.recordModulePlayClicked(params.arg_arg_module_name, params.arg_arg_position);
+          const result = this.impl.recordModulePlayClicked(params.arg_module_name, params.arg_position);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordModulePauseClicked');
-          const result = this.impl.recordModulePauseClicked(params.arg_arg_module_name, params.arg_arg_position);
+          const result = this.impl.recordModulePauseClicked(params.arg_module_name, params.arg_position);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordModuleRestartClicked');
-          const result = this.impl.recordModuleRestartClicked(params.arg_arg_module_name, params.arg_arg_position);
+          const result = this.impl.recordModuleRestartClicked(params.arg_module_name, params.arg_position);
           break;
         }
         case 14: {
@@ -845,7 +845,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordQrCodeToggled');
-          const result = this.impl.recordQrCodeToggled(params.arg_arg_expanded);
+          const result = this.impl.recordQrCodeToggled(params.arg_expanded);
           break;
         }
         case 16: {
@@ -873,7 +873,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordExpandMediaToggled');
-          const result = this.impl.recordExpandMediaToggled(params.arg_arg_module_name, params.arg_arg_expanded);
+          const result = this.impl.recordExpandMediaToggled(params.arg_module_name, params.arg_expanded);
           break;
         }
         case 20: {

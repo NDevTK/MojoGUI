@@ -191,7 +191,7 @@ mojo.internal.bindings.legion.mojom.OakSessionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ParamsSpec,
       mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.legion.mojom.OakSessionRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ParamsSpec,
       mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec,
-      [arg_response],
+      { arg_response: arg_response },
       false);
   }
 
@@ -209,7 +209,7 @@ mojo.internal.bindings.legion.mojom.OakSessionRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ParamsSpec,
       mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ResponseParamsSpec,
-      [arg_input],
+      { arg_input: arg_input },
       false);
   }
 
@@ -218,7 +218,7 @@ mojo.internal.bindings.legion.mojom.OakSessionRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ParamsSpec,
       mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ResponseParamsSpec,
-      [arg_input],
+      { arg_input: arg_input },
       false);
   }
 
@@ -295,8 +295,8 @@ mojo.internal.bindings.legion.mojom.OakSessionReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_request' in response) ? response.arg_arg_request : response;
-              encoder.encodeStructInline(mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_request' in response) ? response.arg_request : response;
+              encoder.encodeStructInline(mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec.$.structSpec, { 'arg_request': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] initiateHandshake FAILED:', e));
           }
@@ -306,13 +306,13 @@ mojo.internal.bindings.legion.mojom.OakSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.completeHandshake');
-          const result = this.impl.completeHandshake(params.arg_arg_response);
+          const result = this.impl.completeHandshake(params.arg_response);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] completeHandshake FAILED:', e));
           }
@@ -322,13 +322,13 @@ mojo.internal.bindings.legion.mojom.OakSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.encrypt');
-          const result = this.impl.encrypt(params.arg_arg_input);
+          const result = this.impl.encrypt(params.arg_input);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_output' in response) ? response.arg_arg_output : response;
-              encoder.encodeStructInline(mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_output' in response) ? response.arg_output : response;
+              encoder.encodeStructInline(mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ResponseParamsSpec.$.structSpec, { 'arg_output': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] encrypt FAILED:', e));
           }
@@ -338,13 +338,13 @@ mojo.internal.bindings.legion.mojom.OakSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decrypt');
-          const result = this.impl.decrypt(params.arg_arg_input);
+          const result = this.impl.decrypt(params.arg_input);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_output' in response) ? response.arg_arg_output : response;
-              encoder.encodeStructInline(mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_output' in response) ? response.arg_output : response;
+              encoder.encodeStructInline(mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ResponseParamsSpec.$.structSpec, { 'arg_output': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] decrypt FAILED:', e));
           }

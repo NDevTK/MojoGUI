@@ -263,7 +263,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserverRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec,
       null,
-      [arg_upload_total, arg_uploaded, arg_download_total, arg_downloaded, arg_result, arg_failure_reason],
+      { arg_upload_total: arg_upload_total, arg_uploaded: arg_uploaded, arg_download_total: arg_download_total, arg_downloaded: arg_downloaded, arg_result: arg_result, arg_failure_reason: arg_failure_reason },
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserverRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserverRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec,
       null,
-      [arg_request, arg_response],
+      { arg_request: arg_request, arg_response: arg_response },
       false);
   }
 
@@ -352,7 +352,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserverReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
-          const result = this.impl.onProgress(params.arg_arg_upload_total, params.arg_arg_uploaded, params.arg_arg_download_total, params.arg_arg_downloaded, params.arg_arg_result, params.arg_arg_failure_reason);
+          const result = this.impl.onProgress(params.arg_upload_total, params.arg_uploaded, params.arg_download_total, params.arg_downloaded, params.arg_result, params.arg_failure_reason);
           break;
         }
         case 1: {
@@ -366,7 +366,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserverReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRequestCompleted');
-          const result = this.impl.onRequestCompleted(params.arg_arg_request, params.arg_arg_response);
+          const result = this.impl.onRequestCompleted(params.arg_request, params.arg_response);
           break;
         }
       }
@@ -439,7 +439,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec,
-      [arg_service_worker_registration_id, arg_developer_id, arg_requests, arg_options, arg_icon, arg_ukm_data],
+      { arg_service_worker_registration_id: arg_service_worker_registration_id, arg_developer_id: arg_developer_id, arg_requests: arg_requests, arg_options: arg_options, arg_icon: arg_icon, arg_ukm_data: arg_ukm_data },
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec,
-      [arg_service_worker_registration_id, arg_developer_id],
+      { arg_service_worker_registration_id: arg_service_worker_registration_id, arg_developer_id: arg_developer_id },
       false);
   }
 
@@ -457,7 +457,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec,
-      [arg_service_worker_registration_id],
+      { arg_service_worker_registration_id: arg_service_worker_registration_id },
       false);
   }
 
@@ -466,7 +466,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -538,12 +538,12 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetch');
-          const result = this.impl.fetch(params.arg_arg_service_worker_registration_id, params.arg_arg_developer_id, params.arg_arg_requests, params.arg_arg_options, params.arg_arg_icon, params.arg_arg_ukm_data);
+          const result = this.impl.fetch(params.arg_service_worker_registration_id, params.arg_developer_id, params.arg_requests, params.arg_options, params.arg_icon, params.arg_ukm_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_registration']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_registration': response.arg_registration });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fetch FAILED:', e));
           }
@@ -553,12 +553,12 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRegistration');
-          const result = this.impl.getRegistration(params.arg_arg_service_worker_registration_id, params.arg_arg_developer_id);
+          const result = this.impl.getRegistration(params.arg_service_worker_registration_id, params.arg_developer_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_registration']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_registration': response.arg_registration });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRegistration FAILED:', e));
           }
@@ -568,12 +568,12 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeveloperIds');
-          const result = this.impl.getDeveloperIds(params.arg_arg_service_worker_registration_id);
+          const result = this.impl.getDeveloperIds(params.arg_service_worker_registration_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_developer_ids']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec.$.structSpec, { 'arg_error': response.arg_error, 'arg_developer_ids': response.arg_developer_ids });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDeveloperIds FAILED:', e));
           }
@@ -588,8 +588,8 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_icon_size_pixels' in response) ? response.arg_arg_icon_size_pixels : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_icon_size_pixels' in response) ? response.arg_icon_size_pixels : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec.$.structSpec, { 'arg_icon_size_pixels': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getIconDisplaySize FAILED:', e));
           }
@@ -665,7 +665,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec,
-      [arg_title, arg_icon],
+      { arg_title: arg_title, arg_icon: arg_icon },
       false);
   }
 
@@ -674,7 +674,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec,
-      [arg_request_to_match, arg_cache_query_options, arg_match_all],
+      { arg_request_to_match: arg_request_to_match, arg_cache_query_options: arg_cache_query_options, arg_match_all: arg_match_all },
       false);
   }
 
@@ -692,7 +692,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceRemoteCallH
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -764,13 +764,13 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateUI');
-          const result = this.impl.updateUI(params.arg_arg_title, params.arg_arg_icon);
+          const result = this.impl.updateUI(params.arg_title, params.arg_icon);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] updateUI FAILED:', e));
           }
@@ -785,8 +785,8 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceReceiver = 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] abort FAILED:', e));
           }
@@ -796,13 +796,13 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.matchRequests');
-          const result = this.impl.matchRequests(params.arg_arg_request_to_match, params.arg_arg_cache_query_options, params.arg_arg_match_all);
+          const result = this.impl.matchRequests(params.arg_request_to_match, params.arg_cache_query_options, params.arg_match_all);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_fetches' in response) ? response.arg_arg_fetches : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_fetches' in response) ? response.arg_fetches : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec.$.structSpec, { 'arg_fetches': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] matchRequests FAILED:', e));
           }
@@ -812,7 +812,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addRegistrationObserver');
-          const result = this.impl.addRegistrationObserver(params.arg_arg_observer);
+          const result = this.impl.addRegistrationObserver(params.arg_observer);
           break;
         }
       }

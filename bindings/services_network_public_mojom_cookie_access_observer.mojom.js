@@ -201,7 +201,7 @@ mojo.internal.bindings.network.mojom.CookieAccessObserverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec,
       null,
-      [arg_details],
+      { arg_details: arg_details },
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.network.mojom.CookieAccessObserverRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.CookieAccessObserver_Clone_ParamsSpec,
       null,
-      [arg_listener],
+      { arg_listener: arg_listener },
       false);
   }
 
@@ -280,14 +280,14 @@ mojo.internal.bindings.network.mojom.CookieAccessObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCookiesAccessed');
-          const result = this.impl.onCookiesAccessed(params.arg_arg_details);
+          const result = this.impl.onCookiesAccessed(params.arg_details);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieAccessObserver_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_arg_listener);
+          const result = this.impl.clone(params.arg_listener);
           break;
         }
       }

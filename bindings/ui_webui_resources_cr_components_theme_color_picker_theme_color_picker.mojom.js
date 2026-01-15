@@ -197,7 +197,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec,
       null,
-      [arg_handler, arg_client],
+      { arg_handler: arg_handler, arg_client: arg_client },
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createThemeColorPickerHandler');
-          const result = this.impl.createThemeColorPickerHandler(params.arg_arg_handler, params.arg_arg_client);
+          const result = this.impl.createThemeColorPickerHandler(params.arg_handler, params.arg_client);
           break;
         }
       }
@@ -351,7 +351,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec,
       mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec,
-      [arg_is_dark_mode],
+      { arg_is_dark_mode: arg_is_dark_mode },
       false);
   }
 
@@ -360,7 +360,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -369,7 +369,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCal
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -378,7 +378,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCal
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -387,7 +387,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCal
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec,
       null,
-      [arg_seed_color, arg_variant],
+      { arg_seed_color: arg_seed_color, arg_variant: arg_variant },
       false);
   }
 
@@ -396,7 +396,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCal
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec,
       null,
-      [arg_hue],
+      { arg_hue: arg_hue },
       false);
   }
 
@@ -405,7 +405,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCal
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -480,13 +480,13 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getChromeColors');
-          const result = this.impl.getChromeColors(params.arg_arg_is_dark_mode);
+          const result = this.impl.getChromeColors(params.arg_is_dark_mode);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_colors' in response) ? response.arg_arg_colors : response;
-              encoder.encodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_colors' in response) ? response.arg_colors : response;
+              encoder.encodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec.$.structSpec, { 'arg_colors': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getChromeColors FAILED:', e));
           }
@@ -517,14 +517,14 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSeedColor');
-          const result = this.impl.setSeedColor(params.arg_arg_seed_color, params.arg_arg_variant);
+          const result = this.impl.setSeedColor(params.arg_seed_color, params.arg_variant);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSeedColorFromHue');
-          const result = this.impl.setSeedColorFromHue(params.arg_arg_hue);
+          const result = this.impl.setSeedColorFromHue(params.arg_hue);
           break;
         }
         case 6: {
@@ -592,7 +592,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec,
       null,
-      [arg_theme],
+      { arg_theme: arg_theme },
       false);
   }
 
@@ -661,7 +661,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTheme');
-          const result = this.impl.setTheme(params.arg_arg_theme);
+          const result = this.impl.setTheme(params.arg_theme);
           break;
         }
       }

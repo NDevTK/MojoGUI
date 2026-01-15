@@ -185,7 +185,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec,
       null,
-      [arg_certificates],
+      { arg_certificates: arg_certificates },
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec,
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -264,7 +264,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateAdditionalCertificates');
-          const result = this.impl.updateAdditionalCertificates(params.arg_arg_certificates);
+          const result = this.impl.updateAdditionalCertificates(params.arg_certificates);
           break;
         }
         case 1: {
@@ -276,7 +276,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterReceiver = 
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] waitUntilNextUpdateForTesting FAILED:', e));
           }

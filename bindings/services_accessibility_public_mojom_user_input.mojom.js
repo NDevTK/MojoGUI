@@ -200,7 +200,7 @@ mojo.internal.bindings.ax.mojom.UserInputRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec,
       null,
-      [arg_key_event],
+      { arg_key_event: arg_key_event },
       false);
   }
 
@@ -209,7 +209,7 @@ mojo.internal.bindings.ax.mojom.UserInputRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec,
       null,
-      [arg_mouse_event],
+      { arg_mouse_event: arg_mouse_event },
       false);
   }
 
@@ -279,14 +279,14 @@ mojo.internal.bindings.ax.mojom.UserInputReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendSyntheticKeyEventForShortcutOrNavigation');
-          const result = this.impl.sendSyntheticKeyEventForShortcutOrNavigation(params.arg_arg_key_event);
+          const result = this.impl.sendSyntheticKeyEventForShortcutOrNavigation(params.arg_key_event);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendSyntheticMouseEvent');
-          const result = this.impl.sendSyntheticMouseEvent(params.arg_arg_mouse_event);
+          const result = this.impl.sendSyntheticMouseEvent(params.arg_mouse_event);
           break;
         }
       }

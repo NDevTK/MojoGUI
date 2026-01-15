@@ -209,7 +209,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec,
       null,
-      [arg_guid, arg_state],
+      { arg_guid: arg_guid, arg_state: arg_state },
       false);
   }
 
@@ -218,7 +218,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverRemote
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec,
       null,
-      [arg_guid, arg_signal_strength],
+      { arg_guid: arg_guid, arg_signal_strength: arg_signal_strength },
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverRemote
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec,
       null,
-      [arg_networks],
+      { arg_networks: arg_networks },
       false);
   }
 
@@ -298,21 +298,21 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverReceiv
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnectionStateChanged');
-          const result = this.impl.onConnectionStateChanged(params.arg_arg_guid, params.arg_arg_state);
+          const result = this.impl.onConnectionStateChanged(params.arg_guid, params.arg_state);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSignalStrengthChanged');
-          const result = this.impl.onSignalStrengthChanged(params.arg_arg_guid, params.arg_arg_signal_strength);
+          const result = this.impl.onSignalStrengthChanged(params.arg_guid, params.arg_signal_strength);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkListChanged');
-          const result = this.impl.onNetworkListChanged(params.arg_arg_networks);
+          const result = this.impl.onNetworkListChanged(params.arg_networks);
           break;
         }
       }
@@ -385,7 +385,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceRemoteC
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec,
       mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceRemoteC
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ParamsSpec,
       mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceRemoteC
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ParamsSpec,
       mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -484,7 +484,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_arg_observer);
+          const result = this.impl.addObserver(params.arg_observer);
           break;
         }
         case 1: {
@@ -496,8 +496,8 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceReceive
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_networks' in response) ? response.arg_arg_networks : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_networks' in response) ? response.arg_networks : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec.$.structSpec, { 'arg_networks': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getNetworkList FAILED:', e));
           }
@@ -512,8 +512,8 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceReceive
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response.arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec.$.structSpec, { 'arg_state': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getHealthSnapshot FAILED:', e));
           }
@@ -528,8 +528,8 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceReceive
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_guids' in response) ? response.arg_arg_guids : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_guids' in response) ? response.arg_guids : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec.$.structSpec, { 'arg_guids': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getRecentlyActiveNetworks FAILED:', e));
           }

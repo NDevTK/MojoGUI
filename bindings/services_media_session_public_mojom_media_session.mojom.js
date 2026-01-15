@@ -350,7 +350,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_ParamsSpec,
       null,
-      [arg_info],
+      { arg_info: arg_info },
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionObserverRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionMetadataChanged_ParamsSpec,
       null,
-      [arg_metadata],
+      { arg_metadata: arg_metadata },
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionObserverRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionActionsChanged_ParamsSpec,
       null,
-      [arg_action],
+      { arg_action: arg_action },
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionObserverRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionImagesChanged_ParamsSpec,
       null,
-      [arg_images],
+      { arg_images: arg_images },
       false);
   }
 
@@ -386,7 +386,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionObserverRemoteCallHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionPositionChanged_ParamsSpec,
       null,
-      [arg_position],
+      { arg_position: arg_position },
       false);
   }
 
@@ -459,35 +459,35 @@ mojo.internal.bindings.media_session.mojom.MediaSessionObserverReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionInfoChanged');
-          const result = this.impl.mediaSessionInfoChanged(params.arg_arg_info);
+          const result = this.impl.mediaSessionInfoChanged(params.arg_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionMetadataChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionMetadataChanged');
-          const result = this.impl.mediaSessionMetadataChanged(params.arg_arg_metadata);
+          const result = this.impl.mediaSessionMetadataChanged(params.arg_metadata);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionActionsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionActionsChanged');
-          const result = this.impl.mediaSessionActionsChanged(params.arg_arg_action);
+          const result = this.impl.mediaSessionActionsChanged(params.arg_action);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionImagesChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionImagesChanged');
-          const result = this.impl.mediaSessionImagesChanged(params.arg_arg_images);
+          const result = this.impl.mediaSessionImagesChanged(params.arg_images);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionPositionChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionPositionChanged');
-          const result = this.impl.mediaSessionPositionChanged(params.arg_arg_position);
+          const result = this.impl.mediaSessionPositionChanged(params.arg_position);
           break;
         }
       }
@@ -656,7 +656,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaSessionInfo_ParamsSpec,
       mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -665,7 +665,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_GetDebugInfo_ParamsSpec,
       mojo.internal.bindings.media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -674,7 +674,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_StartDucking_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_StopDucking_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -692,7 +692,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_Suspend_ParamsSpec,
       null,
-      [arg_suspend_type],
+      { arg_suspend_type: arg_suspend_type },
       false);
   }
 
@@ -701,7 +701,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_Resume_ParamsSpec,
       null,
-      [arg_suspend_type],
+      { arg_suspend_type: arg_suspend_type },
       false);
   }
 
@@ -710,7 +710,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_AddObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -719,7 +719,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_PreviousTrack_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -728,7 +728,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_NextTrack_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -737,7 +737,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_Seek_ParamsSpec,
       null,
-      [arg_seek_time],
+      { arg_seek_time: arg_seek_time },
       false);
   }
 
@@ -746,7 +746,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_Stop_ParamsSpec,
       null,
-      [arg_suspend_type],
+      { arg_suspend_type: arg_suspend_type },
       false);
   }
 
@@ -755,7 +755,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_SkipAd_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -764,7 +764,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec,
       mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec,
-      [arg_image, arg_minimum_size_px, arg_desired_size_px],
+      { arg_image: arg_image, arg_minimum_size_px: arg_minimum_size_px, arg_desired_size_px: arg_desired_size_px },
       false);
   }
 
@@ -773,7 +773,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_SeekTo_ParamsSpec,
       null,
-      [arg_seek_time],
+      { arg_seek_time: arg_seek_time },
       false);
   }
 
@@ -782,7 +782,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_ScrubTo_ParamsSpec,
       null,
-      [arg_seek_time],
+      { arg_seek_time: arg_seek_time },
       false);
   }
 
@@ -791,7 +791,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_EnterPictureInPicture_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -800,7 +800,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_ExitPictureInPicture_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -809,7 +809,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_SetAudioSinkId_ParamsSpec,
       null,
-      [arg_id],
+      { arg_id: arg_id },
       false);
   }
 
@@ -818,7 +818,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_ToggleMicrophone_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -827,7 +827,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_ToggleCamera_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -836,7 +836,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_HangUp_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -845,7 +845,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_Raise_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -854,7 +854,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_SetMute_ParamsSpec,
       null,
-      [arg_mute],
+      { arg_mute: arg_mute },
       false);
   }
 
@@ -863,7 +863,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_RequestMediaRemoting_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -872,7 +872,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_PreviousSlide_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -881,7 +881,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_NextSlide_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -890,7 +890,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_EnterAutoPictureInPicture_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -899,7 +899,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ParamsSpec,
       mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -1000,8 +1000,8 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMediaSessionInfo FAILED:', e));
           }
@@ -1016,8 +1016,8 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getDebugInfo FAILED:', e));
           }
@@ -1041,21 +1041,21 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_Suspend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.suspend');
-          const result = this.impl.suspend(params.arg_arg_suspend_type);
+          const result = this.impl.suspend(params.arg_suspend_type);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_Resume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resume');
-          const result = this.impl.resume(params.arg_arg_suspend_type);
+          const result = this.impl.resume(params.arg_suspend_type);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_arg_observer);
+          const result = this.impl.addObserver(params.arg_observer);
           break;
         }
         case 7: {
@@ -1076,14 +1076,14 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_Seek_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.seek');
-          const result = this.impl.seek(params.arg_arg_seek_time);
+          const result = this.impl.seek(params.arg_seek_time);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_Stop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stop');
-          const result = this.impl.stop(params.arg_arg_suspend_type);
+          const result = this.impl.stop(params.arg_suspend_type);
           break;
         }
         case 11: {
@@ -1097,13 +1097,13 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMediaImageBitmap');
-          const result = this.impl.getMediaImageBitmap(params.arg_arg_image, params.arg_arg_minimum_size_px, params.arg_arg_desired_size_px);
+          const result = this.impl.getMediaImageBitmap(params.arg_image, params.arg_minimum_size_px, params.arg_desired_size_px);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_image' in response) ? response.arg_arg_image : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_image' in response) ? response.arg_image : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec.$.structSpec, { 'arg_image': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMediaImageBitmap FAILED:', e));
           }
@@ -1113,14 +1113,14 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_SeekTo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.seekTo');
-          const result = this.impl.seekTo(params.arg_arg_seek_time);
+          const result = this.impl.seekTo(params.arg_seek_time);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_ScrubTo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.scrubTo');
-          const result = this.impl.scrubTo(params.arg_arg_seek_time);
+          const result = this.impl.scrubTo(params.arg_seek_time);
           break;
         }
         case 15: {
@@ -1141,7 +1141,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_SetAudioSinkId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAudioSinkId');
-          const result = this.impl.setAudioSinkId(params.arg_arg_id);
+          const result = this.impl.setAudioSinkId(params.arg_id);
           break;
         }
         case 18: {
@@ -1176,7 +1176,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_SetMute_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMute');
-          const result = this.impl.setMute(params.arg_arg_mute);
+          const result = this.impl.setMute(params.arg_mute);
           break;
         }
         case 23: {
@@ -1216,8 +1216,8 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_has_sufficiently_visible_video' in response) ? response.arg_arg_has_sufficiently_visible_video : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_has_sufficiently_visible_video' in response) ? response.arg_has_sufficiently_visible_video : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec.$.structSpec, { 'arg_has_sufficiently_visible_video': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getVisibility FAILED:', e));
           }

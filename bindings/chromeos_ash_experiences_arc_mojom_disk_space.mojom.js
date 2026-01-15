@@ -212,7 +212,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec,
-      [arg_uid],
+      { arg_uid: arg_uid },
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec,
-      [arg_gid],
+      { arg_gid: arg_gid },
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec,
-      [arg_project_id],
+      { arg_project_id: arg_project_id },
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec,
-      [arg_uids, arg_gids, arg_project_ids],
+      { arg_uids: arg_uids, arg_gids: arg_gids, arg_project_ids: arg_project_ids },
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -336,8 +336,8 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_supported' in response) ? response.arg_arg_supported : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_supported' in response) ? response.arg_supported : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec.$.structSpec, { 'arg_supported': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] isQuotaSupported FAILED:', e));
           }
@@ -347,13 +347,13 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getQuotaCurrentSpaceForUid');
-          const result = this.impl.getQuotaCurrentSpaceForUid(params.arg_arg_uid);
+          const result = this.impl.getQuotaCurrentSpaceForUid(params.arg_uid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_cur_space' in response) ? response.arg_arg_cur_space : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_cur_space' in response) ? response.arg_cur_space : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec.$.structSpec, { 'arg_cur_space': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getQuotaCurrentSpaceForUid FAILED:', e));
           }
@@ -363,13 +363,13 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getQuotaCurrentSpaceForGid');
-          const result = this.impl.getQuotaCurrentSpaceForGid(params.arg_arg_gid);
+          const result = this.impl.getQuotaCurrentSpaceForGid(params.arg_gid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_cur_space' in response) ? response.arg_arg_cur_space : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_cur_space' in response) ? response.arg_cur_space : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec.$.structSpec, { 'arg_cur_space': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getQuotaCurrentSpaceForGid FAILED:', e));
           }
@@ -379,13 +379,13 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getQuotaCurrentSpaceForProjectId');
-          const result = this.impl.getQuotaCurrentSpaceForProjectId(params.arg_arg_project_id);
+          const result = this.impl.getQuotaCurrentSpaceForProjectId(params.arg_project_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_cur_space' in response) ? response.arg_arg_cur_space : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_cur_space' in response) ? response.arg_cur_space : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec.$.structSpec, { 'arg_cur_space': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getQuotaCurrentSpaceForProjectId FAILED:', e));
           }
@@ -395,13 +395,13 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getQuotaCurrentSpacesForIds');
-          const result = this.impl.getQuotaCurrentSpacesForIds(params.arg_arg_uids, params.arg_arg_gids, params.arg_arg_project_ids);
+          const result = this.impl.getQuotaCurrentSpacesForIds(params.arg_uids, params.arg_gids, params.arg_project_ids);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_quota_spaces' in response) ? response.arg_arg_quota_spaces : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_quota_spaces' in response) ? response.arg_quota_spaces : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec.$.structSpec, { 'arg_quota_spaces': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getQuotaCurrentSpacesForIds FAILED:', e));
           }
@@ -416,8 +416,8 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_free_space' in response) ? response.arg_arg_free_space : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_free_space' in response) ? response.arg_free_space : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec.$.structSpec, { 'arg_free_space': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getFreeDiskSpace FAILED:', e));
           }
@@ -489,7 +489,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -507,7 +507,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec,
       null,
-      [arg_free_space_bytes],
+      { arg_free_space_bytes: arg_free_space_bytes },
       false);
   }
 
@@ -578,12 +578,12 @@ mojo.internal.bindings.arc.mojom.DiskSpaceInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -598,7 +598,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceInstanceReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec.$.structSpec, ['response.arg_arg_succeeded', 'response.arg_arg_applications_size']);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec.$.structSpec, { 'arg_succeeded': response.arg_succeeded, 'arg_applications_size': response.arg_applications_size });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getApplicationsSize FAILED:', e));
           }
@@ -608,7 +608,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resizeStorageBalloon');
-          const result = this.impl.resizeStorageBalloon(params.arg_arg_free_space_bytes);
+          const result = this.impl.resizeStorageBalloon(params.arg_free_space_bytes);
           break;
         }
       }

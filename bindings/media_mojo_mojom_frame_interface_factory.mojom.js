@@ -202,7 +202,7 @@ mojo.internal.bindings.media.mojom.MuteStateObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec,
       null,
-      [arg_muted],
+      { arg_muted: arg_muted },
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.media.mojom.MuteStateObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMuteStateChange');
-          const result = this.impl.onMuteStateChange(params.arg_arg_muted);
+          const result = this.impl.onMuteStateChange(params.arg_muted);
           break;
         }
       }
@@ -352,7 +352,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec,
       null,
-      [arg_provision_fetcher],
+      { arg_provision_fetcher: arg_provision_fetcher },
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec,
       null,
-      [arg_cdm_storage],
+      { arg_cdm_storage: arg_cdm_storage },
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec,
       null,
-      [arg_site_mute_observer],
+      { arg_site_mute_observer: arg_site_mute_observer },
       false);
   }
 
@@ -379,7 +379,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec,
       null,
-      [arg_registry],
+      { arg_registry: arg_registry },
       false);
   }
 
@@ -388,7 +388,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec,
       mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -397,7 +397,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemoteCallHandler = clas
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec,
       null,
-      [arg_receiver],
+      { arg_receiver: arg_receiver },
       false);
   }
 
@@ -471,28 +471,28 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createProvisionFetcher');
-          const result = this.impl.createProvisionFetcher(params.arg_arg_provision_fetcher);
+          const result = this.impl.createProvisionFetcher(params.arg_provision_fetcher);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCdmStorage');
-          const result = this.impl.createCdmStorage(params.arg_arg_cdm_storage);
+          const result = this.impl.createCdmStorage(params.arg_cdm_storage);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerMuteStateObserver');
-          const result = this.impl.registerMuteStateObserver(params.arg_arg_site_mute_observer);
+          const result = this.impl.registerMuteStateObserver(params.arg_site_mute_observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDCOMPSurfaceRegistry');
-          const result = this.impl.createDCOMPSurfaceRegistry(params.arg_arg_registry);
+          const result = this.impl.createDCOMPSurfaceRegistry(params.arg_registry);
           break;
         }
         case 4: {
@@ -504,8 +504,8 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_cdm_origin' in response) ? response.arg_arg_cdm_origin : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_cdm_origin' in response) ? response.arg_cdm_origin : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec.$.structSpec, { 'arg_cdm_origin': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getCdmOrigin FAILED:', e));
           }
@@ -515,7 +515,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindEmbedderReceiver');
-          const result = this.impl.bindEmbedderReceiver(params.arg_arg_receiver);
+          const result = this.impl.bindEmbedderReceiver(params.arg_receiver);
           break;
         }
       }

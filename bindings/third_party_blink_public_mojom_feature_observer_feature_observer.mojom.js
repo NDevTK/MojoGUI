@@ -289,7 +289,7 @@ mojo.internal.bindings.blink.mojom.FeatureObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FeatureObserver_Register_ParamsSpec,
       null,
-      [arg_feature, arg_type],
+      { arg_feature: arg_feature, arg_type: arg_type },
       false);
   }
 
@@ -358,7 +358,7 @@ mojo.internal.bindings.blink.mojom.FeatureObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FeatureObserver_Register_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.register');
-          const result = this.impl.register(params.arg_arg_feature, params.arg_arg_type);
+          const result = this.impl.register(params.arg_feature, params.arg_type);
           break;
         }
       }

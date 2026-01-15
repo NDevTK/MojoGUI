@@ -216,7 +216,7 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec,
-      [arg_cache_type],
+      { arg_cache_type: arg_cache_type },
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec,
       null,
-      [arg_cache_type, arg_url, arg_expected_response_time, arg_data],
+      { arg_cache_type: arg_cache_type, arg_url: arg_url, arg_expected_response_time: arg_expected_response_time, arg_data: arg_data },
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec,
-      [arg_cache_type, arg_url],
+      { arg_cache_type: arg_cache_type, arg_url: arg_url },
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec,
       null,
-      [arg_cache_type, arg_url],
+      { arg_cache_type: arg_cache_type, arg_url: arg_url },
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec,
       null,
-      [arg_url, arg_expected_response_time, arg_data, arg_cache_storage_cache_name],
+      { arg_url: arg_url, arg_expected_response_time: arg_expected_response_time, arg_data: arg_data, arg_cache_storage_cache_name: arg_cache_storage_cache_name },
       false);
   }
 
@@ -325,13 +325,13 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPendingBackend');
-          const result = this.impl.getPendingBackend(params.arg_arg_cache_type);
+          const result = this.impl.getPendingBackend(params.arg_cache_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_pending_backend' in response) ? response.arg_arg_pending_backend : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_pending_backend' in response) ? response.arg_pending_backend : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec.$.structSpec, { 'arg_pending_backend': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getPendingBackend FAILED:', e));
           }
@@ -341,19 +341,19 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didGenerateCacheableMetadata');
-          const result = this.impl.didGenerateCacheableMetadata(params.arg_arg_cache_type, params.arg_arg_url, params.arg_arg_expected_response_time, params.arg_arg_data);
+          const result = this.impl.didGenerateCacheableMetadata(params.arg_cache_type, params.arg_url, params.arg_expected_response_time, params.arg_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchCachedCode');
-          const result = this.impl.fetchCachedCode(params.arg_arg_cache_type, params.arg_arg_url);
+          const result = this.impl.fetchCachedCode(params.arg_cache_type, params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec.$.structSpec, ['response.arg_arg_response_time', 'response.arg_arg_data']);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec.$.structSpec, { 'arg_response_time': response.arg_response_time, 'arg_data': response.arg_data });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] fetchCachedCode FAILED:', e));
           }
@@ -363,14 +363,14 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearCodeCacheEntry');
-          const result = this.impl.clearCodeCacheEntry(params.arg_arg_cache_type, params.arg_arg_url);
+          const result = this.impl.clearCodeCacheEntry(params.arg_cache_type, params.arg_url);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didGenerateCacheableMetadataInCacheStorage');
-          const result = this.impl.didGenerateCacheableMetadataInCacheStorage(params.arg_arg_url, params.arg_arg_expected_response_time, params.arg_arg_data, params.arg_arg_cache_storage_cache_name);
+          const result = this.impl.didGenerateCacheableMetadataInCacheStorage(params.arg_url, params.arg_expected_response_time, params.arg_data, params.arg_cache_storage_cache_name);
           break;
         }
       }

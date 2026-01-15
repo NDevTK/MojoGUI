@@ -231,7 +231,7 @@ mojo.internal.bindings.network.mojom.TCPBoundSocketRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ParamsSpec,
       mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec,
-      [arg_backlog, arg_socket],
+      { arg_backlog: arg_backlog, arg_socket: arg_socket },
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.network.mojom.TCPBoundSocketRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ParamsSpec,
       mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec,
-      [arg_remote_addr_list, arg_tcp_connected_socket_options, arg_socket, arg_observer],
+      { arg_remote_addr_list: arg_remote_addr_list, arg_tcp_connected_socket_options: arg_tcp_connected_socket_options, arg_socket: arg_socket, arg_observer: arg_observer },
       false);
   }
 
@@ -310,13 +310,13 @@ mojo.internal.bindings.network.mojom.TCPBoundSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listen');
-          const result = this.impl.listen(params.arg_arg_backlog, params.arg_arg_socket);
+          const result = this.impl.listen(params.arg_backlog, params.arg_socket);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_net_error' in response) ? response.arg_arg_net_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_net_error' in response) ? response.arg_net_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec.$.structSpec, { 'arg_net_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] listen FAILED:', e));
           }
@@ -326,12 +326,12 @@ mojo.internal.bindings.network.mojom.TCPBoundSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_arg_remote_addr_list, params.arg_arg_tcp_connected_socket_options, params.arg_arg_socket, params.arg_arg_observer);
+          const result = this.impl.connect(params.arg_remote_addr_list, params.arg_tcp_connected_socket_options, params.arg_socket, params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec.$.structSpec, ['response.arg_arg_net_error', 'response.arg_arg_local_addr', 'response.arg_arg_peer_addr', 'response.arg_arg_receive_stream', 'response.arg_arg_send_stream']);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec.$.structSpec, { 'arg_net_error': response.arg_net_error, 'arg_local_addr': response.arg_local_addr, 'arg_peer_addr': response.arg_peer_addr, 'arg_receive_stream': response.arg_receive_stream, 'arg_send_stream': response.arg_send_stream });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] connect FAILED:', e));
           }
@@ -411,7 +411,7 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec,
       mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec,
-      [arg_host_port_pair, arg_options, arg_traffic_annotation, arg_receiver, arg_observer],
+      { arg_host_port_pair: arg_host_port_pair, arg_options: arg_options, arg_traffic_annotation: arg_traffic_annotation, arg_receiver: arg_receiver, arg_observer: arg_observer },
       false);
   }
 
@@ -420,7 +420,7 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec,
       mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec,
-      [arg_send_buffer_size],
+      { arg_send_buffer_size: arg_send_buffer_size },
       false);
   }
 
@@ -429,7 +429,7 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec,
       mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec,
-      [arg_receive_buffer_size],
+      { arg_receive_buffer_size: arg_receive_buffer_size },
       false);
   }
 
@@ -438,7 +438,7 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec,
       mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec,
-      [arg_no_delay],
+      { arg_no_delay: arg_no_delay },
       false);
   }
 
@@ -447,7 +447,7 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec,
       mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec,
-      [arg_enable, arg_delay_secs],
+      { arg_enable: arg_enable, arg_delay_secs: arg_delay_secs },
       false);
   }
 
@@ -520,12 +520,12 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.upgradeToTLS');
-          const result = this.impl.upgradeToTLS(params.arg_arg_host_port_pair, params.arg_arg_options, params.arg_arg_traffic_annotation, params.arg_arg_receiver, params.arg_arg_observer);
+          const result = this.impl.upgradeToTLS(params.arg_host_port_pair, params.arg_options, params.arg_traffic_annotation, params.arg_receiver, params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec.$.structSpec, ['response.arg_arg_net_error', 'response.arg_arg_receive_stream', 'response.arg_arg_send_stream', 'response.arg_arg_ssl_info']);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec.$.structSpec, { 'arg_net_error': response.arg_net_error, 'arg_receive_stream': response.arg_receive_stream, 'arg_send_stream': response.arg_send_stream, 'arg_ssl_info': response.arg_ssl_info });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] upgradeToTLS FAILED:', e));
           }
@@ -535,13 +535,13 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSendBufferSize');
-          const result = this.impl.setSendBufferSize(params.arg_arg_send_buffer_size);
+          const result = this.impl.setSendBufferSize(params.arg_send_buffer_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_net_error' in response) ? response.arg_arg_net_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_net_error' in response) ? response.arg_net_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec.$.structSpec, { 'arg_net_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setSendBufferSize FAILED:', e));
           }
@@ -551,13 +551,13 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setReceiveBufferSize');
-          const result = this.impl.setReceiveBufferSize(params.arg_arg_receive_buffer_size);
+          const result = this.impl.setReceiveBufferSize(params.arg_receive_buffer_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_net_error' in response) ? response.arg_arg_net_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_net_error' in response) ? response.arg_net_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec.$.structSpec, { 'arg_net_error': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setReceiveBufferSize FAILED:', e));
           }
@@ -567,13 +567,13 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNoDelay');
-          const result = this.impl.setNoDelay(params.arg_arg_no_delay);
+          const result = this.impl.setNoDelay(params.arg_no_delay);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setNoDelay FAILED:', e));
           }
@@ -583,13 +583,13 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setKeepAlive');
-          const result = this.impl.setKeepAlive(params.arg_arg_enable, params.arg_arg_delay_secs);
+          const result = this.impl.setKeepAlive(params.arg_enable, params.arg_delay_secs);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] setKeepAlive FAILED:', e));
           }
@@ -657,7 +657,7 @@ mojo.internal.bindings.network.mojom.SocketObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.SocketObserver_OnReadError_ParamsSpec,
       null,
-      [arg_net_error],
+      { arg_net_error: arg_net_error },
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.network.mojom.SocketObserverRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.SocketObserver_OnWriteError_ParamsSpec,
       null,
-      [arg_net_error],
+      { arg_net_error: arg_net_error },
       false);
   }
 
@@ -736,14 +736,14 @@ mojo.internal.bindings.network.mojom.SocketObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SocketObserver_OnReadError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReadError');
-          const result = this.impl.onReadError(params.arg_arg_net_error);
+          const result = this.impl.onReadError(params.arg_net_error);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SocketObserver_OnWriteError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWriteError');
-          const result = this.impl.onWriteError(params.arg_arg_net_error);
+          const result = this.impl.onWriteError(params.arg_net_error);
           break;
         }
       }
@@ -804,7 +804,7 @@ mojo.internal.bindings.network.mojom.TCPServerSocketRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ParamsSpec,
       mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ResponseParamsSpec,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -873,12 +873,12 @@ mojo.internal.bindings.network.mojom.TCPServerSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.accept');
-          const result = this.impl.accept(params.arg_arg_observer);
+          const result = this.impl.accept(params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ResponseParamsSpec.$.structSpec, ['response.arg_arg_net_error', 'response.arg_arg_remote_addr', 'response.arg_arg_connected_socket', 'response.arg_arg_send_stream', 'response.arg_arg_receive_stream']);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ResponseParamsSpec.$.structSpec, { 'arg_net_error': response.arg_net_error, 'arg_remote_addr': response.arg_remote_addr, 'arg_connected_socket': response.arg_connected_socket, 'arg_send_stream': response.arg_send_stream, 'arg_receive_stream': response.arg_receive_stream });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] accept FAILED:', e));
           }

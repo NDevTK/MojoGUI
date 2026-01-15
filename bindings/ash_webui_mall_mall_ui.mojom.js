@@ -178,7 +178,7 @@ mojo.internal.bindings.ash.mall.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec,
       mojo.internal.bindings.ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec,
-      [arg_path],
+      { arg_path: arg_path },
       false);
   }
 
@@ -247,13 +247,13 @@ mojo.internal.bindings.ash.mall.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMallEmbedUrl');
-          const result = this.impl.getMallEmbedUrl(params.arg_arg_path);
+          const result = this.impl.getMallEmbedUrl(params.arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_url' in response) ? response.arg_arg_url : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_url' in response) ? response.arg_url : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec.$.structSpec, { 'arg_url': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getMallEmbedUrl FAILED:', e));
           }

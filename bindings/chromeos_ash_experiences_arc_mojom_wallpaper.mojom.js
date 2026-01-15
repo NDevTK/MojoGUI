@@ -187,7 +187,7 @@ mojo.internal.bindings.arc.mojom.WallpaperHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec,
       mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec,
-      [],
+      {  },
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.arc.mojom.WallpaperHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec,
       null,
-      [arg_data, arg_wallpaper_id],
+      { arg_data: arg_data, arg_wallpaper_id: arg_wallpaper_id },
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.arc.mojom.WallpaperHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -281,8 +281,8 @@ mojo.internal.bindings.arc.mojom.WallpaperHostReceiver = class {
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_wallpaper' in response) ? response.arg_arg_wallpaper : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_wallpaper' in response) ? response.arg_wallpaper : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec.$.structSpec, { 'arg_wallpaper': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] getWallpaper FAILED:', e));
           }
@@ -292,7 +292,7 @@ mojo.internal.bindings.arc.mojom.WallpaperHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWallpaper');
-          const result = this.impl.setWallpaper(params.arg_arg_data, params.arg_arg_wallpaper_id);
+          const result = this.impl.setWallpaper(params.arg_data, params.arg_wallpaper_id);
           break;
         }
         case 2: {
@@ -364,7 +364,7 @@ mojo.internal.bindings.arc.mojom.WallpaperInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ResponseParamsSpec,
-      [arg_host_remote],
+      { arg_host_remote: arg_host_remote },
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.arc.mojom.WallpaperInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec,
       null,
-      [arg_wallpaper_id],
+      { arg_wallpaper_id: arg_wallpaper_id },
       false);
   }
 
@@ -443,12 +443,12 @@ mojo.internal.bindings.arc.mojom.WallpaperInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_arg_host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ResponseParamsSpec.$.structSpec, {  });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
@@ -458,7 +458,7 @@ mojo.internal.bindings.arc.mojom.WallpaperInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWallpaperChanged');
-          const result = this.impl.onWallpaperChanged(params.arg_arg_wallpaper_id);
+          const result = this.impl.onWallpaperChanged(params.arg_wallpaper_id);
           break;
         }
       }

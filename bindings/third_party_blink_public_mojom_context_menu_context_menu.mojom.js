@@ -233,7 +233,7 @@ mojo.internal.bindings.blink.mojom.ContextMenuClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec,
       null,
-      [arg_action],
+      { arg_action: arg_action },
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.blink.mojom.ContextMenuClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec,
       null,
-      [arg_link_followed, arg_impression],
+      { arg_link_followed: arg_link_followed, arg_impression: arg_impression },
       false);
   }
 
@@ -312,14 +312,14 @@ mojo.internal.bindings.blink.mojom.ContextMenuClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.customContextMenuAction');
-          const result = this.impl.customContextMenuAction(params.arg_arg_action);
+          const result = this.impl.customContextMenuAction(params.arg_action);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.contextMenuClosed');
-          const result = this.impl.contextMenuClosed(params.arg_arg_link_followed, params.arg_arg_impression);
+          const result = this.impl.contextMenuClosed(params.arg_link_followed, params.arg_impression);
           break;
         }
       }

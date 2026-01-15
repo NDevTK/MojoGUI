@@ -203,7 +203,7 @@ mojo.internal.bindings.patch.mojom.FilePatcherRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec,
       mojo.internal.bindings.patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec,
-      [arg_input_file, arg_patch_file, arg_output_file],
+      { arg_input_file: arg_input_file, arg_patch_file: arg_patch_file, arg_output_file: arg_output_file },
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.patch.mojom.FilePatcherRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec,
       mojo.internal.bindings.patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec,
-      [arg_input_file, arg_patch_file, arg_output_file],
+      { arg_input_file: arg_input_file, arg_patch_file: arg_patch_file, arg_output_file: arg_output_file },
       false);
   }
 
@@ -282,13 +282,13 @@ mojo.internal.bindings.patch.mojom.FilePatcherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.patchFilePuffPatch');
-          const result = this.impl.patchFilePuffPatch(params.arg_arg_input_file, params.arg_arg_patch_file, params.arg_arg_output_file);
+          const result = this.impl.patchFilePuffPatch(params.arg_input_file, params.arg_patch_file, params.arg_output_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] patchFilePuffPatch FAILED:', e));
           }
@@ -298,13 +298,13 @@ mojo.internal.bindings.patch.mojom.FilePatcherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.patchFileZucchini');
-          const result = this.impl.patchFileZucchini(params.arg_arg_input_file, params.arg_arg_patch_file, params.arg_arg_output_file);
+          const result = this.impl.patchFileZucchini(params.arg_input_file, params.arg_patch_file, params.arg_output_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec.$.structSpec, [val]);
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
               this.router_.sendMessage(encoder.finish());
             }).catch(e => console.error('[GeneratedReceiver] patchFileZucchini FAILED:', e));
           }

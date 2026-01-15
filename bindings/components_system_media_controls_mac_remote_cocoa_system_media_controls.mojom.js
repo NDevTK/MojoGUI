@@ -261,7 +261,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -270,7 +270,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -279,7 +279,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -288,7 +288,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -297,7 +297,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec,
       null,
-      [arg_enabled],
+      { arg_enabled: arg_enabled },
       false);
   }
 
@@ -306,7 +306,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec,
       null,
-      [arg_status],
+      { arg_status: arg_status },
       false);
   }
 
@@ -315,7 +315,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec,
       null,
-      [arg_title],
+      { arg_title: arg_title },
       false);
   }
 
@@ -324,7 +324,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec,
       null,
-      [arg_artist],
+      { arg_artist: arg_artist },
       false);
   }
 
@@ -333,7 +333,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec,
       null,
-      [arg_album],
+      { arg_album: arg_album },
       false);
   }
 
@@ -342,7 +342,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec,
       null,
-      [arg_thumbnail],
+      { arg_thumbnail: arg_thumbnail },
       false);
   }
 
@@ -351,7 +351,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec,
       null,
-      [arg_position],
+      { arg_position: arg_position },
       false);
   }
 
@@ -360,7 +360,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -440,77 +440,77 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsNextEnabled');
-          const result = this.impl.setIsNextEnabled(params.arg_arg_enabled);
+          const result = this.impl.setIsNextEnabled(params.arg_enabled);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsPreviousEnabled');
-          const result = this.impl.setIsPreviousEnabled(params.arg_arg_enabled);
+          const result = this.impl.setIsPreviousEnabled(params.arg_enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsPlayPauseEnabled');
-          const result = this.impl.setIsPlayPauseEnabled(params.arg_arg_enabled);
+          const result = this.impl.setIsPlayPauseEnabled(params.arg_enabled);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsStopEnabled');
-          const result = this.impl.setIsStopEnabled(params.arg_arg_enabled);
+          const result = this.impl.setIsStopEnabled(params.arg_enabled);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsSeekToEnabled');
-          const result = this.impl.setIsSeekToEnabled(params.arg_arg_enabled);
+          const result = this.impl.setIsSeekToEnabled(params.arg_enabled);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPlaybackStatus');
-          const result = this.impl.setPlaybackStatus(params.arg_arg_status);
+          const result = this.impl.setPlaybackStatus(params.arg_status);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTitle');
-          const result = this.impl.setTitle(params.arg_arg_title);
+          const result = this.impl.setTitle(params.arg_title);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setArtist');
-          const result = this.impl.setArtist(params.arg_arg_artist);
+          const result = this.impl.setArtist(params.arg_artist);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAlbum');
-          const result = this.impl.setAlbum(params.arg_arg_album);
+          const result = this.impl.setAlbum(params.arg_album);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setThumbnail');
-          const result = this.impl.setThumbnail(params.arg_arg_thumbnail);
+          const result = this.impl.setThumbnail(params.arg_thumbnail);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPosition');
-          const result = this.impl.setPosition(params.arg_arg_position);
+          const result = this.impl.setPosition(params.arg_position);
           break;
         }
         case 11: {
@@ -610,7 +610,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -619,7 +619,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -628,7 +628,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRe
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -637,7 +637,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRe
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -646,7 +646,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRe
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -655,7 +655,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRe
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -664,7 +664,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRe
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec,
       null,
-      [arg_seek_time],
+      { arg_seek_time: arg_seek_time },
       false);
   }
 
@@ -673,7 +673,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRe
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -682,7 +682,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRe
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -801,7 +801,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSeekTo');
-          const result = this.impl.onSeekTo(params.arg_arg_seek_time);
+          const result = this.impl.onSeekTo(params.arg_seek_time);
           break;
         }
         case 7: {

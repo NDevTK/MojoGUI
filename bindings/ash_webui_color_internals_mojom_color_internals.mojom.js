@@ -182,7 +182,7 @@ mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserverRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec,
       null,
-      [arg_colors],
+      { arg_colors: arg_colors },
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserverReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWallpaperColorsChanged');
-          const result = this.impl.onWallpaperColorsChanged(params.arg_arg_colors);
+          const result = this.impl.onWallpaperColorsChanged(params.arg_colors);
           break;
         }
       }
@@ -312,7 +312,7 @@ mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandlerRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandlerReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWallpaperColorsObserver');
-          const result = this.impl.setWallpaperColorsObserver(params.arg_arg_observer);
+          const result = this.impl.setWallpaperColorsObserver(params.arg_observer);
           break;
         }
       }

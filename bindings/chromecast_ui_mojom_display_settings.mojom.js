@@ -220,7 +220,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec,
       null,
-      [arg_kelvin],
+      { arg_kelvin: arg_kelvin },
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec,
       null,
-      [arg_kelvin, arg_duration],
+      { arg_kelvin: arg_kelvin, arg_duration: arg_duration },
       false);
   }
 
@@ -238,7 +238,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -247,7 +247,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec,
       null,
-      [arg_brightness],
+      { arg_brightness: arg_brightness },
       false);
   }
 
@@ -256,7 +256,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec,
       null,
-      [arg_brightness, arg_duration],
+      { arg_brightness: arg_brightness, arg_duration: arg_duration },
       false);
   }
 
@@ -265,7 +265,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec,
       null,
-      [],
+      {  },
       false);
   }
 
@@ -274,7 +274,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec,
       null,
-      [arg_display_on],
+      { arg_display_on: arg_display_on },
       false);
   }
 
@@ -283,7 +283,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec,
       null,
-      [arg_allow_power_off],
+      { arg_allow_power_off: arg_allow_power_off },
       false);
   }
 
@@ -292,7 +292,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec,
       null,
-      [arg_observer],
+      { arg_observer: arg_observer },
       false);
   }
 
@@ -369,14 +369,14 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setColorTemperature');
-          const result = this.impl.setColorTemperature(params.arg_arg_kelvin);
+          const result = this.impl.setColorTemperature(params.arg_kelvin);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setColorTemperatureSmooth');
-          const result = this.impl.setColorTemperatureSmooth(params.arg_arg_kelvin, params.arg_arg_duration);
+          const result = this.impl.setColorTemperatureSmooth(params.arg_kelvin, params.arg_duration);
           break;
         }
         case 2: {
@@ -390,14 +390,14 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBrightness');
-          const result = this.impl.setBrightness(params.arg_arg_brightness);
+          const result = this.impl.setBrightness(params.arg_brightness);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBrightnessSmooth');
-          const result = this.impl.setBrightnessSmooth(params.arg_arg_brightness, params.arg_arg_duration);
+          const result = this.impl.setBrightnessSmooth(params.arg_brightness, params.arg_duration);
           break;
         }
         case 5: {
@@ -411,21 +411,21 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setScreenOn');
-          const result = this.impl.setScreenOn(params.arg_arg_display_on);
+          const result = this.impl.setScreenOn(params.arg_display_on);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAllowScreenPowerOff');
-          const result = this.impl.setAllowScreenPowerOff(params.arg_arg_allow_power_off);
+          const result = this.impl.setAllowScreenPowerOff(params.arg_allow_power_off);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDisplaySettingsObserver');
-          const result = this.impl.addDisplaySettingsObserver(params.arg_arg_observer);
+          const result = this.impl.addDisplaySettingsObserver(params.arg_observer);
           break;
         }
       }
@@ -486,7 +486,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec,
       null,
-      [arg_brightness],
+      { arg_brightness: arg_brightness },
       false);
   }
 
@@ -555,7 +555,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserverReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDisplayBrightnessChanged');
-          const result = this.impl.onDisplayBrightnessChanged(params.arg_arg_brightness);
+          const result = this.impl.onDisplayBrightnessChanged(params.arg_brightness);
           break;
         }
       }
