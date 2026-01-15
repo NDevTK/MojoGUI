@@ -372,12 +372,13 @@ def parse_mojom(file_path):
     # Extract structs (regular and native ;)
     # Fix: Use manual brace counting to handle nested enums/structs correctly
     
-    # Universal Fix 4.0: Parse Native/Forward-Declared Structs (e.g. "struct Foo;")
-    native_struct_pattern = r'struct\s+(\w+)\s*;'
+    # Universal Fix 4.0: Parse Native/Forward-Declared Structs (e.g. "[Native] struct Foo;")
+    native_struct_pattern = r'(?:\[[^\]]+\]\s*)?struct\s+(\w+)\s*;'
     for match in re.finditer(native_struct_pattern, content_no_comments):
          struct_name = match.group(1)
-         # Add as empty struct (opaque handle/native type behavior)
-         result['structs'].append({'name': struct_name, 'fields': []})
+         # Check if already added to avoid duplicates
+         if not any(s['name'] == struct_name for s in result['structs']):
+             result['structs'].append({'name': struct_name, 'fields': []})
 
     struct_start_pattern = r'struct\s+(\w+)[^{]*\{'
     for match in re.finditer(struct_start_pattern, content_no_comments):
@@ -721,8 +722,10 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
             res_type = f"mojo.internal.bindings.{mod_prefix}.{iface_name}{suffix}"
             
             # Track external reference for stub generation
+            # Sanity check: clean_name shouldn't contain parentheses or angle brackets
             if mod_prefix != module or iface_name not in valid_types:
-                external_type_refs.add((mod_prefix, iface_name, kind or 'struct'))
+                if '(' not in mod_prefix and '<' not in mod_prefix and '(' not in iface_name:
+                    external_type_refs.add((mod_prefix, iface_name, kind or 'struct'))
             
             if kind == 'interface': return f"mojo.internal.InterfaceProxy({res_type})"
             return res_type
@@ -801,7 +804,8 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
             if kind == 'interface': suffix = 'Remote'
             # Track external reference
             if target_mod != module or clean_name not in valid_types:
-                external_type_refs.add((target_mod, clean_name, kind or 'struct'))
+                if '(' not in target_mod and '<' not in target_mod and '(' not in clean_name:
+                    external_type_refs.add((target_mod, clean_name, kind or 'struct'))
             return f"mojo.internal.bindings.{target_mod}.{clean_name}{suffix}"
 
         # Fallback heuristic
@@ -1227,21 +1231,40 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
     js_code += "\n"
     
     # Pre-declare all Spec objects to handle circular dependencies
+    declared_specs = set()
     for enum in parsed.get('enums', []):
-        js_code += f"{current_ns}.{enum['name']}Spec = {{ $: mojo.internal.Enum().$ }};\n"
+        spec_line = f"{current_ns}.{enum['name']}Spec = {{ $: mojo.internal.Enum().$ }};\n"
+        if spec_line not in declared_specs:
+            js_code += spec_line
+            declared_specs.add(spec_line)
     for union in parsed.get('unions', []):
-        js_code += f"{current_ns}.{union['name']}Spec = {{ $: {{}} }};\n"
+        spec_line = f"{current_ns}.{union['name']}Spec = {{ $: {{}} }};\n"
+        if spec_line not in declared_specs:
+            js_code += spec_line
+            declared_specs.add(spec_line)
     for struct in parsed.get('structs', []):
-        js_code += f"{current_ns}.{struct['name']}Spec = {{ $: {{}} }};\n"
+        spec_line = f"{current_ns}.{struct['name']}Spec = {{ $: {{}} }};\n"
+        if spec_line not in declared_specs:
+            js_code += spec_line
+            declared_specs.add(spec_line)
     for interface in parsed.get('interfaces', []):
         iface_name = interface['name']
         js_code += f"{current_ns}.{iface_name} = {{}};\n"
-        js_code += f"{current_ns}.{iface_name}Spec = {{ $ : {{}} }};\n"
+        spec_line = f"{current_ns}.{iface_name}Spec = {{ $ : {{}} }};\n"
+        if spec_line not in declared_specs:
+            js_code += spec_line
+            declared_specs.add(spec_line)
         js_code += f"{current_ns}.{iface_name}.$interfaceName = '{module}.{iface_name}';\n"
         for method in interface.get('methods', []):
-            js_code += f"{current_ns}.{iface_name}_{method['name']}_ParamsSpec = {{ $: {{}} }};\n"
+            spec_line = f"{current_ns}.{iface_name}_{method['name']}_ParamsSpec = {{ $: {{}} }};\n"
+            if spec_line not in declared_specs:
+                js_code += spec_line
+                declared_specs.add(spec_line)
             if not method.get('is_one_way'):
-                js_code += f"{current_ns}.{iface_name}_{method['name']}_ResponseParamsSpec = {{ $: {{}} }};\n"
+                spec_line = f"{current_ns}.{iface_name}_{method['name']}_ResponseParamsSpec = {{ $: {{}} }};\n"
+                if spec_line not in declared_specs:
+                    js_code += spec_line
+                    declared_specs.add(spec_line)
 
     # Pre-process structs, unions, interfaces to collect external type refs
     # We call resolve_mojo_type on all fields to populate external_type_refs
