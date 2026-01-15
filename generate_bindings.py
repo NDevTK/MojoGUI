@@ -172,18 +172,77 @@ def parse_mojom(file_path):
         'constants': []
     }
 
-    # Extract module name
-    module_match = re.search(r'module\s+([\w.]+)\s*;', content)
+
+
+    # Robust comment stripping that respects string literals
+    clean_chars = []
+    i = 0
+    n = len(content)
+    in_quote = False
+    quote_char = ''
+    in_line_comment = False
+    in_block_comment = False
+
+    while i < n:
+        char = content[i]
+        
+        if in_line_comment:
+            if char == '\n':
+                in_line_comment = False
+                clean_chars.append(char)
+            i += 1
+            continue
+            
+        if in_block_comment:
+            if char == '*' and i + 1 < n and content[i+1] == '/':
+                in_block_comment = False
+                i += 2
+            else:
+                i += 1
+            continue
+            
+        if in_quote:
+            clean_chars.append(char)
+            if char == '\\':
+                if i + 1 < n:
+                    clean_chars.append(content[i+1])
+                    i += 1
+            elif char == quote_char:
+                in_quote = False
+            i += 1
+            continue
+            
+        # Not in comment or quote
+        if char == '"' or char == "'":
+            in_quote = True
+            quote_char = char
+            clean_chars.append(char)
+            i += 1
+            continue
+            
+        if char == '/' and i + 1 < n:
+            if content[i+1] == '/':
+                in_line_comment = True
+                i += 2
+                continue
+            elif content[i+1] == '*':
+                in_block_comment = True
+                i += 2
+                continue
+        
+        clean_chars.append(char)
+        i += 1
+
+    content_no_comments = "".join(clean_chars)
+
+    # Extract module name (now safe from comments)
+    module_match = re.search(r'module\s+([\w.]+)\s*;', content_no_comments)
     if module_match:
         result['module'] = module_match.group(1)
 
-    # Extract imports
-    imports = re.findall(r'import\s+"([^"]+)"', content)
+    # Extract imports (now safe from comments)
+    imports = re.findall(r'import\s+"([^"]+)"', content_no_comments)
     result['imports'] = imports
-
-    # Remove comments for cleaner parsing
-    content_no_comments = re.sub(r'//[^\n]*', '', content)
-    content_no_comments = re.sub(r'/\*.*?\*/', '', content_no_comments, flags=re.DOTALL)
 
     # Extract interfaces with their methods
     # Fix: Allow inheritance (e.g. interface A : B {) by matching usually non-brace chars until {
@@ -372,31 +431,47 @@ def parse_mojom(file_path):
     return result
 
 def parse_params(params_str):
-    """Parse parameter string into list of param objects."""
+    """Parse parameter string into list of param objects, respecting quotes."""
     if not params_str:
         return []
     
     params = []
+    current = []
     depth = 0
-    current = ""
-    for char in params_str:
-        if char in '<([':
-            depth += 1
-        elif char in '>)]':
-            depth -= 1
-        elif (char == ',' or char == ';') and depth == 0:
-            if current.strip():
-                p = parse_single_param(current.strip())
-                if p:
-                    params.append(p)
-            current = ""
-            continue
-        current += char
+    in_quote = False
+    quote_char = ''
     
-    if current.strip():
-        p = parse_single_param(current.strip())
-        if p:
-            params.append(p)
+    for char in params_str:
+        if in_quote:
+            current.append(char)
+            # Simple escape check: if char is quote, check previous
+            if char == quote_char and (not current or len(current) < 2 or current[-2] != '\\'):
+                in_quote = False
+        else:
+            if char == '"' or char == "'":
+                in_quote = True
+                quote_char = char
+                current.append(char)
+            elif char in '([{<':
+                depth += 1
+                current.append(char)
+            elif char in ')]}>':
+                depth -= 1
+                current.append(char)
+            elif (char == ',' or char == ';') and depth == 0:
+                param_text = "".join(current).strip()
+                if param_text:
+                    p = parse_single_param(param_text)
+                    if p: params.append(p)
+                current = []
+                continue
+            else:
+                current.append(char)
+                
+    final_text = "".join(current).strip()
+    if final_text:
+        p = parse_single_param(final_text)
+        if p: params.append(p)
     
     return params
 
@@ -406,7 +481,7 @@ def parse_single_param(param_str):
     if not param_str:
         return None
     
-    param_str = re.sub(r'//.*$', '', param_str, flags=re.MULTILINE).strip()
+
     
     # Extract MinVersion
     min_version_match = re.search(r'\[MinVersion=(\d+)\]', param_str)
@@ -436,24 +511,35 @@ def parse_single_param(param_str):
         param_str = f"pending_receiver<{param_str[:-1].strip()}>"
     
     parts = param_str.split()
-    
     if len(parts) >= 2:
         param_type = ' '.join(parts[:-1])
         raw_name = parts[-1]
+        
         if raw_name.startswith('arg_'):
             param_name = raw_name
         else:
-            param_name = "arg_" + raw_name 
+            param_name = "arg_" + raw_name
+            
+        return {
+            'name': param_name,
+            'type': param_type,
+            'optional': optional,
+            'min_version': min_version,
+            'ordinal': ordinal,
+            'default_value': default_value
+        }
     elif len(parts) == 1:
-        param_type = parts[0]
-        param_name = "arg_val"
-    else:
-        return None
-    
-    if param_name and not re.match(r'^[a-zA-Z_][a-zA-Z0-9_]*$', param_name):
-        return None
-    
-    return {'type': param_type, 'name': param_name, 'optional': optional, 'ordinal': ordinal, 'min_version': min_version, 'default_value': default_value}
+        # Fallback for when type/name are missing or merged incorrectly
+        return {
+            'name': 'arg_val',
+            'type': parts[0],
+            'optional': optional,
+            'min_version': min_version,
+            'ordinal': ordinal,
+            'default_value': default_value
+        }
+        
+    return None
 
 def to_camel_case(name):
     """Convert PascalCase to camelCase."""
