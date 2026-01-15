@@ -1493,20 +1493,20 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
                 js_code += f"          const expectsResponse = header.expectsResponse || (header.flags & 1);\n"
                 js_code += f"          if (expectsResponse) {{\n"
                 js_code += f"            Promise.resolve(result).then(response => {{\n"
-                js_code += f"              const encoder = new mojo.internal.Encoder(header.requestId, true);\n"
-                # Use object for ResponseParamsSpec
                 returns = method.get('returns') or []
                 if len(returns) == 1:
                     r_name = returns[0]['name']
-                    js_code += f"              const val = (response && typeof response === 'object' && '{r_name}' in response) ? response.{r_name} : response;\n"
-                    js_code += f"              encoder.encodeStructInline({current_ns}.{resp_struct_name}Spec.$.structSpec, {{ '{r_name}': val }});\n"
+                    # Use bracket notation for r_name to avoid issues if it has special chars (unlikely but safe)
+                    js_code += f"              const val = (response && typeof response === 'object' && '{r_name}' in response) ? response['{r_name}'] : response;\n"
+                    js_code += f"              const resp_obj = {{ '{r_name}': val }};\n"
                 else:
-                    ret_obj_list = [f"'{r['name']}': response.{r['name']}" for r in returns if r and r.get('name')]
-                    ret_obj_str = ", ".join(ret_obj_list)
-                    js_code += f"              encoder.encodeStructInline({current_ns}.{resp_struct_name}Spec.$.structSpec, {{ {ret_obj_str} }});\n"
+                    js_code += f"              const resp_obj = response;\n"
                 
-                js_code += "              this.router_.sendMessage(encoder.finish());\n"
-                js_code += f"            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));\n"
+                js_code += f"              const message = new mojo.internal.Message(\n"
+                js_code += f"                this.router_, 0, mojo.internal.kMessageFlagIsResponse,\n"
+                js_code += f"                header.ordinal, header.requestId, {current_ns}.{resp_struct_name}Spec.$.structSpec, resp_obj);\n"
+                js_code += "              this.router_.send(message);\n"
+                js_code += "            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));\n"
                 js_code += "          }\n"
                 
             js_code += "          break;\n"
