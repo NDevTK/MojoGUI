@@ -596,7 +596,7 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
             return f"mojo.internal.InterfaceProxy({resolve_mojo_type_raw(inner)})"
         if type_name.startswith('pending_receiver<'):
             inner = type_name[17:-1].strip()
-            return f"mojo.internal.InterfaceRequest({resolve_mojo_type_raw(inner)})"
+            return f"mojo.internal.InterfaceRequest({resolve_mojo_type_raw(inner, interface_suffix='PendingReceiver')})"
         
         if type_name.startswith('pending_associated_remote<'):
             inner = type_name[26:-1].strip()
@@ -604,7 +604,7 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
 
         if type_name.startswith('pending_associated_receiver<'):
             inner = type_name[28:-1].strip()
-            return f"mojo.internal.AssociatedInterfaceRequest({resolve_mojo_type_raw(inner)})"
+            return f"mojo.internal.AssociatedInterfaceRequest({resolve_mojo_type_raw(inner, interface_suffix='PendingReceiver')})"
         
         # Check local types or imports
         clean_name = type_name.replace('?', '').strip()
@@ -1207,6 +1207,9 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
             if ext_kind == 'interface':
                 remote_name = f"{ext_ns}.{ext_name}Remote"
                 js_code += f"{remote_name} = {remote_name} || class {{}};\n"
+                
+                receiver_name = f"{ext_ns}.{ext_name}PendingReceiver"
+                js_code += f"{receiver_name} = {receiver_name} || class {{ constructor(handle) {{ this.handle = handle; }} }};\n"
 
     # Buffer specs to append at the end (to avoid capturing undefined in InterfaceProxy)
     specs_code = ""
