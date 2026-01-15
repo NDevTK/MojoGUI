@@ -830,7 +830,7 @@
     };
 
     function renderInput(param, value, options = {}) {
-        const { isInterceptor, index, interceptId, parentName, isTemplate } = options;
+        const { isInterceptor, index, interceptId, parentName, isTemplate, depth } = options;
 
         let inputType = MojoParser.getInputType(param.type);
 
