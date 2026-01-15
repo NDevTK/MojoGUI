@@ -1227,6 +1227,7 @@
 
         nodes.forEach((node) => {
             let group = node;
+
             if (!group.classList.contains('form-group')) {
                 const inner = group.querySelector('.form-group');
                 if (inner) group = inner;
@@ -1263,13 +1264,8 @@
                     // The active field is a .form-group wrapper, so we need to recurse into it?
                     // But collectFormData iterates children.
                     // Let's create a temporary container or just target the input/content directly?
-                    // Actually, activeContent contains the rendered input for that tag. 
+                    // Actually, activeContent contains the rendered input from renderInput.
                     // We can just call collectFormData on activeContent.parentNode? No.
-
-                    // Simplified: The active content IS the form group for the value. 
-                    // We can scrape the value from it. 
-                    // But collectFormData expects a container of groups.
-                    // Let's wrap it in a mock container if needed or just handle single item.
 
                     // Better: The union-field div CONTAINS the rendered input from renderInput.
                     // renderInput returns a .form-group.
@@ -1427,7 +1423,7 @@
 
         // Debug logging for description field specifically (Safe check)
         if (mojomType && mojomType.$ && mojomType.$.name && mojomType.$.name.includes('String16')) {
-            console.log('[MojoGUI] Found String16-like type:', mojomType.$.name, mojomType);
+            // console.log('[MojoGUI] Found String16-like type:', mojomType.$.name, mojomType);
         }
 
         // Fallback: Check function name directly just in case (though less reliable)
@@ -1492,7 +1488,7 @@
 
         if (!Array.isArray(fields) && typeof fields === 'object') {
             // Handle Union/Object-based fields: convert to array
-            console.log('[MojoGUI] Converting Object fields to Array:', fields);
+            // console.log('[MojoGUI] Converting Object fields to Array:', fields);
             fieldsArray = Object.entries(fields).map(([key, spec]) => {
                 // Ensure name property exists
                 return { name: key, ...spec };
@@ -1502,7 +1498,7 @@
         }
 
         if (!Array.isArray(fieldsArray)) {
-            console.warn('[MojoGUI] mapFieldsToUIParams: fields is not an array', fields);
+            // console.warn('[MojoGUI] mapFieldsToUIParams: fields is not an array', fields);
             return [];
         }
 
@@ -2192,8 +2188,8 @@
                         result[key] = values[key];
                     });
                 } else {
-                    // Fallback if no def? This shouldn't happen if formContainer exists
-                    console.warn('Form container exists but no def found for mapping?');
+                    // Fallback if no def found (shouldn't happen)
+                    // console.warn('Form container exists but no def found for mapping?');
                     result = values;
                 }
             } else {
@@ -2211,7 +2207,7 @@
                 const methodDef = findMethodDefinition(iface, method);
 
                 if (result === null && methodDef && methodDef.responseParams && methodDef.responseParams.length > 0) {
-                    console.warn('[UI] Response is null but method expects parameters. Defaulting to empty object {} to prevent crash.');
+                    // console.warn('[UI] Response is null but method expects parameters. Defaulting to empty object {} to prevent crash.');
                     result = {};
                 }
             }
@@ -2230,7 +2226,7 @@
             const originalResult = (row && row.__details) ? row.__details.result : null;
             const restoredResult = reconcileKeys(result, originalResult);
 
-            console.log(`[UI] Sending Response for ${id}`, restoredResult);
+            // console.log(`[UI] Sending Response for ${id}`, restoredResult);
             proxy.sendResponse(id, restoredResult);
             updateActivityRow(id, 'Done', restoredResult);
             showToast('Response Sent', 'success');
@@ -2461,7 +2457,7 @@
         let paramsHtml;
 
         if (methodDef && methodDef.parameters) {
-            paramsHtml = `<div class="params-form-container" id="interceptForm_${id}">
+            paramsHtml = `<div class="params-form-container">
                            ${renderInterceptorForm(methodDef.parameters, params, id)}
                            </div>`;
         } else {
@@ -2706,12 +2702,15 @@
 
                 // Fix: params might be JSON strings
                 if (Array.isArray(params)) {
+                    // console.log('[Replay] Params before execution:', params);
                     params = params.map(p => {
                         if (typeof p === 'string') {
                             try { return JSON.parse(p); } catch (e) { return p; }
                         }
                         return p;
                     });
+                } else {
+                    // console.log('[Replay] Params is NOT array:', params);
                 }
 
                 // Restore Mojo handles if present
