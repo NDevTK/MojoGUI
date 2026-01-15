@@ -1121,9 +1121,10 @@
 
         if (param.type === 'string16') {
             inputType = 'text';
-            if (value && value.data && Array.isArray(value.data)) {
+            const arrayData = value ? (value.arg_data || value.data) : null;
+            if (arrayData && Array.isArray(arrayData)) {
                 // Convert char codes back to string
-                displayValue = String.fromCharCode(...value.data);
+                displayValue = String.fromCharCode(...arrayData);
             }
         }
 
