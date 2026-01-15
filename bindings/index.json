@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-01-14T09:42:01.327510Z",
-  "version": "146.0.7633.0",
+  "generated_at": "2026-01-15T00:05:46.042133Z",
+  "version": "146.0.7634.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -12863,6 +12863,7 @@
       "file": "components_spellcheck_common_spellcheck.mojom.js",
       "methods": [
         "NotifyChecked",
+        "CallSpellingService",
         "RequestTextCheck",
         "CheckSpelling",
         "FillSuggestionList",
@@ -12977,7 +12978,7 @@
         "FromWrappedSigningKey",
         "Sign",
         "GetAllSigningKeysForGarbageCollection",
-        "DeleteKey",
+        "DeleteKeys",
         "DeleteAllKeys"
       ]
     },
@@ -24743,6 +24744,7 @@
         "services/viz/public/mojom/compositing/local_surface_id.mojom",
         "services/viz/public/mojom/compositing/selection.mojom",
         "services/viz/public/mojom/compositing/vertical_scroll_direction.mojom",
+        "cc/mojom/tracked_element_bounds.mojom",
         "skia/public/mojom/skcolor4f.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
@@ -24772,6 +24774,15 @@
       "source": "cc/mojom/touch_action.mojom",
       "module": "cc.mojom",
       "imports": []
+    },
+    {
+      "filename": "cc_mojom_tracked_element_bounds.mojom.js",
+      "source": "cc/mojom/tracked_element_bounds.mojom",
+      "module": "cc.mojom",
+      "imports": [
+        "ui/gfx/geometry/mojom/geometry.mojom",
+        "mojo/public/mojom/base/token.mojom"
+      ]
     },
     {
       "filename": "cc_mojom_ui_resource_id.mojom.js",

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7633.0';
+        const versionStr = window.mojoVersion || '146.0.7634.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -138,6 +138,9 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameM
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
+mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
+mojo.internal.bindings.cc.mojom.TrackedElementBoundsSpec = mojo.internal.bindings.cc.mojom.TrackedElementBoundsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.PointFSpec = mojo.internal.bindings.gfx.mojom.PointFSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -195,15 +198,16 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_new_vertical_scroll_direction', 72, 0, mojo.internal.bindings.viz.mojom.VerticalScrollDirectionSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_bottom_controls_height', 76, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_primary_main_frame_item_sequence_number', 80, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bottom_controls_shown_ratio', 88, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_top_controls_min_height_offset', 92, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bottom_controls_min_height_offset', 96, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_min_page_scale_factor', 100, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_max_page_scale_factor', 104, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_scrollable_viewport_size', 112, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_root_layer_size', 120, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tracked_element_bounds', 88, 0, mojo.internal.bindings.cc.mojom.TrackedElementBoundsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bottom_controls_shown_ratio', 96, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_top_controls_min_height_offset', 100, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bottom_controls_min_height_offset', 104, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_min_page_scale_factor', 108, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_page_scale_factor', 112, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_scrollable_viewport_size', 120, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_root_layer_size', 128, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec, null, false, 0, undefined),
     ],
-    [[0, 136]]);
+    [[0, 144]]);
 
 // Interface: RenderFrameMetadataObserver
 mojo.internal.Struct(

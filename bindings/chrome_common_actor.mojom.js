@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7633.0';
+        const versionStr = window.mojoVersion || '146.0.7634.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -143,6 +143,7 @@ mojo.internal.bindings.actor.mojom.DragAndReleaseActionSpec = { $: {} };
 mojo.internal.bindings.actor.mojom.ScriptToolActionSpec = { $: {} };
 mojo.internal.bindings.actor.mojom.TaskIdSpec = { $: {} };
 mojo.internal.bindings.actor.mojom.ToolInvocationSpec = { $: {} };
+mojo.internal.bindings.actor.mojom.ScriptToolResponseSpec = { $: {} };
 mojo.internal.bindings.actor.mojom.ActionResultSpec = { $: {} };
 mojo.internal.bindings.actor.mojom.JournalDetailsSpec = { $: {} };
 mojo.internal.bindings.actor.mojom.JournalEntrySpec = { $: {} };
@@ -447,13 +448,22 @@ mojo.internal.Struct(
     ],
     [[0, 56]]);
 
+// Struct: ScriptToolResponse
+mojo.internal.Struct(
+    mojo.internal.bindings.actor.mojom.ScriptToolResponseSpec, 'actor.mojom.ScriptToolResponse', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_arguments', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
 // Struct: ActionResult
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.ActionResultSpec, 'actor.mojom.ActionResult', [
       mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.actor.mojom.ActionResultCodeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_requires_page_stabilization', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_script_tool_response', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_script_tool_response', 16, 0, mojo.internal.bindings.actor.mojom.ScriptToolResponseSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_execution_end_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);

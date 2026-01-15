@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7633.0';
+        const versionStr = window.mojoVersion || '146.0.7634.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -134,8 +134,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GenerateSi
 mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec = { $: {} };
 mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec = { $: {} };
 mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec = { $: {} };
-mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec = { $: {} };
-mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKeys_ParamsSpec = { $: {} };
 mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
@@ -222,17 +221,11 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec, 'unexportable_keys.mojom.UnexportableKeyService_DeleteKey_Params', [
-      mojo.internal.StructField('arg_key_id', 0, 0, mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyIdSpec, null, false, 0, undefined),
+    mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKeys_ParamsSpec, 'unexportable_keys.mojom.UnexportableKeyService_DeleteKeys_Params', [
+      mojo.internal.StructField('arg_key_ids', 0, 0, mojo.internal.Array(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyIdSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_priority', 8, 0, mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPrioritySpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ResponseParamsSpec, 'unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.unexportable_keys.mojom.ServiceErrorSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec, 'unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_Params', [
@@ -277,8 +270,8 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRemote = cl
   getAllSigningKeysForGarbageCollection(arg_priority) {
     return this.$.getAllSigningKeysForGarbageCollection(arg_priority);
   }
-  deleteKey(arg_key_id, arg_priority) {
-    return this.$.deleteKey(arg_key_id, arg_priority);
+  deleteKeys(arg_key_ids, arg_priority) {
+    return this.$.deleteKeys(arg_key_ids, arg_priority);
   }
   deleteAllKeys(arg_priority) {
     return this.$.deleteAllKeys(arg_priority);
@@ -334,12 +327,12 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRemoteCallH
       false);
   }
 
-  deleteKey(arg_key_id, arg_priority) {
+  deleteKeys(arg_key_ids, arg_priority) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec,
-      mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ResponseParamsSpec,
-      [arg_key_id, arg_priority],
+      mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKeys_ParamsSpec,
+      null,
+      [arg_key_ids, arg_priority],
       false);
   }
 
@@ -448,15 +441,9 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceReceiver = 
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.deleteKey');
-          const result = this.impl.deleteKey(params.arg_key_id, params.arg_priority);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DeleteKey FAILED:', e));
-          }
+          const params = decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKeys_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.deleteKeys');
+          const result = this.impl.deleteKeys(params.arg_key_ids, params.arg_priority);
           break;
         }
         case 5: {
