@@ -642,10 +642,12 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_results': response.arg_results });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] callSpellingService FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -657,11 +659,13 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_results' in response) ? response.arg_results : response;
-              encoder.encodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec.$.structSpec, { 'arg_results': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] requestTextCheck FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_results' in response) ? response['arg_results'] : response;
+              const resp_obj = { 'arg_results': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -673,11 +677,13 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_correct' in response) ? response.arg_correct : response;
-              encoder.encodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec.$.structSpec, { 'arg_correct': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] checkSpelling FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_correct' in response) ? response['arg_correct'] : response;
+              const resp_obj = { 'arg_correct': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -689,11 +695,13 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_suggestions' in response) ? response.arg_suggestions : response;
-              encoder.encodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec.$.structSpec, { 'arg_suggestions': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] fillSuggestionList FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_suggestions' in response) ? response['arg_suggestions'] : response;
+              const resp_obj = { 'arg_suggestions': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -705,10 +713,12 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec.$.structSpec, { 'arg_dictionaries': response.arg_dictionaries, 'arg_custom_words': response.arg_custom_words, 'arg_enable': response.arg_enable });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] initializeDictionaries FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

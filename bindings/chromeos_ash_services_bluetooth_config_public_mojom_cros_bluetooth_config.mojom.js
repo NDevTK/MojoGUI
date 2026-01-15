@@ -1007,11 +1007,13 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateReceiver 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_pin_code' in response) ? response.arg_pin_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ResponseParamsSpec.$.structSpec, { 'arg_pin_code': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] requestPinCode FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_pin_code' in response) ? response['arg_pin_code'] : response;
+              const resp_obj = { 'arg_pin_code': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1023,11 +1025,13 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateReceiver 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_passkey' in response) ? response.arg_passkey : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ResponseParamsSpec.$.structSpec, { 'arg_passkey': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] requestPasskey FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_passkey' in response) ? response['arg_passkey'] : response;
+              const resp_obj = { 'arg_passkey': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1053,11 +1057,13 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateReceiver 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_confirmed' in response) ? response.arg_confirmed : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ResponseParamsSpec.$.structSpec, { 'arg_confirmed': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] confirmPasskey FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_confirmed' in response) ? response['arg_confirmed'] : response;
+              const resp_obj = { 'arg_confirmed': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1069,11 +1075,13 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateReceiver 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_confirmed' in response) ? response.arg_confirmed : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ResponseParamsSpec.$.structSpec, { 'arg_confirmed': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] authorizePairing FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_confirmed' in response) ? response['arg_confirmed'] : response;
+              const resp_obj = { 'arg_confirmed': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1222,11 +1230,13 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandlerReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] pairDevice FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response['arg_result'] : response;
+              const resp_obj = { 'arg_result': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1238,11 +1248,13 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandlerReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_device' in response) ? response.arg_device : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ResponseParamsSpec.$.structSpec, { 'arg_device': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] fetchDevice FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_device' in response) ? response['arg_device'] : response;
+              const resp_obj = { 'arg_device': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1738,11 +1750,13 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] connect FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1754,11 +1768,13 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] disconnect FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1770,11 +1786,13 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] forget FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

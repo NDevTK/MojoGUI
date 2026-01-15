@@ -282,11 +282,13 @@ mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContextReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_is_multichannel_supported' in response) ? response.arg_is_multichannel_supported : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ResponseParamsSpec.$.structSpec, { 'arg_is_multichannel_supported': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] bindAudioSourceFetcher FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_is_multichannel_supported' in response) ? response['arg_is_multichannel_supported'] : response;
+              const resp_obj = { 'arg_is_multichannel_supported': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

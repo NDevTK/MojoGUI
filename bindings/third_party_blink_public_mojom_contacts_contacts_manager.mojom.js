@@ -252,11 +252,13 @@ mojo.internal.bindings.blink.mojom.ContactsManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_contacts' in response) ? response.arg_contacts : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ContactsManager_Select_ResponseParamsSpec.$.structSpec, { 'arg_contacts': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] select FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_contacts' in response) ? response['arg_contacts'] : response;
+              const resp_obj = { 'arg_contacts': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ContactsManager_Select_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

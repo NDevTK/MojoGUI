@@ -1957,11 +1957,13 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_granted' in response) ? response.arg_granted : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrameHost_EnterFullscreen_ResponseParamsSpec.$.structSpec, { 'arg_granted': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] enterFullscreen FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_granted' in response) ? response['arg_granted'] : response;
+              const resp_obj = { 'arg_granted': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_EnterFullscreen_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -2239,10 +2241,12 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrameHost_RunModalAlertDialog_ResponseParamsSpec.$.structSpec, {  });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] runModalAlertDialog FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_RunModalAlertDialog_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -2254,11 +2258,13 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrameHost_RunModalConfirmDialog_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] runModalConfirmDialog FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_RunModalConfirmDialog_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -2270,10 +2276,12 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrameHost_RunModalPromptDialog_ResponseParamsSpec.$.structSpec, { 'arg_success': response.arg_success, 'arg_result': response.arg_result });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] runModalPromptDialog FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_RunModalPromptDialog_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -2285,11 +2293,13 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrameHost_RunBeforeUnloadConfirm_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] runBeforeUnloadConfirm FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_RunBeforeUnloadConfirm_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -2462,10 +2472,12 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrameHost_DisableUntrustedNetworkInFencedFrame_ResponseParamsSpec.$.structSpec, {  });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] disableUntrustedNetworkInFencedFrame FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_DisableUntrustedNetworkInFencedFrame_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -2477,10 +2489,12 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrameHost_ExemptUrlFromNetworkRevocationForTesting_ResponseParamsSpec.$.structSpec, {  });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] exemptUrlFromNetworkRevocationForTesting FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_ExemptUrlFromNetworkRevocationForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -2576,11 +2590,13 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_region' in response) ? response.arg_region : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ResponseParamsSpec.$.structSpec, { 'arg_region': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] initializeCrashReportContext FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_region' in response) ? response['arg_region'] : response;
+              const resp_obj = { 'arg_region': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -3531,10 +3547,12 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrame_GetTextSurroundingSelection_ResponseParamsSpec.$.structSpec, { 'arg_content': response.arg_content, 'arg_start_offset': response.arg_start_offset, 'arg_end_offset': response.arg_end_offset });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getTextSurroundingSelection FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_GetTextSurroundingSelection_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -3665,10 +3683,12 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrame_BeforeUnload_ResponseParamsSpec.$.structSpec, { 'arg_proceed': response.arg_proceed, 'arg_before_unload_start_time': response.arg_before_unload_start_time, 'arg_before_unload_end_time': response.arg_before_unload_end_time });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] beforeUnload FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_BeforeUnload_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -3687,10 +3707,12 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrame_RequestVideoFrameAtWithBoundsHint_ResponseParamsSpec.$.structSpec, { 'arg_bitmap': response.arg_bitmap, 'arg_bounds': response.arg_bounds });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] requestVideoFrameAtWithBoundsHint FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_RequestVideoFrameAtWithBoundsHint_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -3751,11 +3773,13 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptMethodExecuteRequest_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] javaScriptMethodExecuteRequest FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response['arg_result'] : response;
+              const resp_obj = { 'arg_result': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptMethodExecuteRequest_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -3767,11 +3791,13 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptExecuteRequest_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] javaScriptExecuteRequest FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response['arg_result'] : response;
+              const resp_obj = { 'arg_result': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptExecuteRequest_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -3783,10 +3809,12 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptExecuteRequestForTests_ResponseParamsSpec.$.structSpec, { 'arg_result_type': response.arg_result_type, 'arg_result': response.arg_result });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] javaScriptExecuteRequestForTests FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptExecuteRequestForTests_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -3798,11 +3826,13 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptExecuteRequestInIsolatedWorld_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] javaScriptExecuteRequestInIsolatedWorld FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response['arg_result'] : response;
+              const resp_obj = { 'arg_result': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptExecuteRequestInIsolatedWorld_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -3828,11 +3858,13 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_reply' in response) ? response.arg_reply : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrame_GetSavableResourceLinks_ResponseParamsSpec.$.structSpec, { 'arg_reply': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getSavableResourceLinks FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_reply' in response) ? response['arg_reply'] : response;
+              const resp_obj = { 'arg_reply': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_GetSavableResourceLinks_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -3865,11 +3897,13 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_canonical_url' in response) ? response.arg_canonical_url : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrame_GetCanonicalUrlForSharing_ResponseParamsSpec.$.structSpec, { 'arg_canonical_url': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getCanonicalUrlForSharing FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_canonical_url' in response) ? response['arg_canonical_url'] : response;
+              const resp_obj = { 'arg_canonical_url': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_GetCanonicalUrlForSharing_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -3881,11 +3915,13 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_metadata' in response) ? response.arg_metadata : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrame_GetOpenGraphMetadata_ResponseParamsSpec.$.structSpec, { 'arg_metadata': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getOpenGraphMetadata FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_metadata' in response) ? response['arg_metadata'] : response;
+              const resp_obj = { 'arg_metadata': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_GetOpenGraphMetadata_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -3904,10 +3940,12 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrame_UpdatePrerenderURL_ResponseParamsSpec.$.structSpec, {  });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] updatePrerenderURL FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_UpdatePrerenderURL_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -3940,11 +3978,13 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_view_transition_state' in response) ? response.arg_view_transition_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotDocumentForViewTransition_ResponseParamsSpec.$.structSpec, { 'arg_view_transition_state': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] snapshotDocumentForViewTransition FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_view_transition_state' in response) ? response['arg_view_transition_state'] : response;
+              const resp_obj = { 'arg_view_transition_state': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotDocumentForViewTransition_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -3977,11 +4017,13 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_scroll_position' in response) ? response.arg_scroll_position : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrame_GetScrollPosition_ResponseParamsSpec.$.structSpec, { 'arg_scroll_position': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getScrollPosition FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_scroll_position' in response) ? response['arg_scroll_position'] : response;
+              const resp_obj = { 'arg_scroll_position': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_GetScrollPosition_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -4284,10 +4326,12 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalMainFrame_ClosePage_ResponseParamsSpec.$.structSpec, {  });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] closePage FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalMainFrame_ClosePage_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -4299,11 +4343,13 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_full_page_size' in response) ? response.arg_full_page_size : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalMainFrame_GetFullPageSize_ResponseParamsSpec.$.structSpec, { 'arg_full_page_size': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getFullPageSize FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_full_page_size' in response) ? response['arg_full_page_size'] : response;
+              const resp_obj = { 'arg_full_page_size': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalMainFrame_GetFullPageSize_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -4357,10 +4403,12 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalMainFrame_Discard_ResponseParamsSpec.$.structSpec, {  });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] discard FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalMainFrame_Discard_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -4761,10 +4809,12 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalMainFrameHost_UpdateTargetURL_ResponseParamsSpec.$.structSpec, {  });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] updateTargetURL FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalMainFrameHost_UpdateTargetURL_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -4783,10 +4833,12 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ShowCreatedWindow_ResponseParamsSpec.$.structSpec, {  });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] showCreatedWindow FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ShowCreatedWindow_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -4798,10 +4850,12 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LocalMainFrameHost_SetWindowRect_ResponseParamsSpec.$.structSpec, {  });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] setWindowRect FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalMainFrameHost_SetWindowRect_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

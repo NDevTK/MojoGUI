@@ -519,11 +519,13 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] rEMOVED_0 FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response['arg_error'] : response;
+              const resp_obj = { 'arg_error': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -535,11 +537,13 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] rEMOVED_4 FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response['arg_error'] : response;
+              const resp_obj = { 'arg_error': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -551,11 +555,13 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] rEMOVED_5 FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response['arg_error'] : response;
+              const resp_obj = { 'arg_error': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -567,11 +573,13 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] rEMOVED_6 FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response['arg_error'] : response;
+              const resp_obj = { 'arg_error': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -583,11 +591,13 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] rEMOVED_7 FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response['arg_error'] : response;
+              const resp_obj = { 'arg_error': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -599,11 +609,13 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] rEMOVED_10 FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response['arg_error'] : response;
+              const resp_obj = { 'arg_error': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -615,11 +627,13 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] rEMOVED_12 FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response['arg_error'] : response;
+              const resp_obj = { 'arg_error': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

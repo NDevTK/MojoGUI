@@ -588,11 +588,13 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_url' in response) ? response.arg_url : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec.$.structSpec, { 'arg_url': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] makeTabGroupShared FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_url' in response) ? response['arg_url'] : response;
+              const resp_obj = { 'arg_url': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -604,11 +606,13 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_url' in response) ? response.arg_url : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec.$.structSpec, { 'arg_url': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getShareLink FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_url' in response) ? response['arg_url'] : response;
+              const resp_obj = { 'arg_url': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -620,11 +624,13 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_group_preview' in response) ? response.arg_group_preview : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec.$.structSpec, { 'arg_group_preview': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getTabGroupPreview FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_group_preview' in response) ? response['arg_group_preview'] : response;
+              const resp_obj = { 'arg_group_preview': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -850,11 +856,13 @@ mojo.internal.bindings.data_sharing.mojom.PageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] readGroups FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response['arg_result'] : response;
+              const resp_obj = { 'arg_result': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -866,11 +874,13 @@ mojo.internal.bindings.data_sharing.mojom.PageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] readGroupWithToken FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response['arg_result'] : response;
+              const resp_obj = { 'arg_result': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -882,11 +892,13 @@ mojo.internal.bindings.data_sharing.mojom.PageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_status_code' in response) ? response.arg_status_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec.$.structSpec, { 'arg_status_code': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] deleteGroup FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_status_code' in response) ? response['arg_status_code'] : response;
+              const resp_obj = { 'arg_status_code': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -898,11 +910,13 @@ mojo.internal.bindings.data_sharing.mojom.PageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_status_code' in response) ? response.arg_status_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec.$.structSpec, { 'arg_status_code': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] leaveGroup FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_status_code' in response) ? response['arg_status_code'] : response;
+              const resp_obj = { 'arg_status_code': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

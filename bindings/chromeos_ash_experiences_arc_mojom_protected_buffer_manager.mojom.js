@@ -304,11 +304,13 @@ mojo.internal.bindings.arc.mojom.ProtectedBufferManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_shared_memory_handle' in response) ? response.arg_shared_memory_handle : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec.$.structSpec, { 'arg_shared_memory_handle': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] deprecatedGetProtectedSharedMemoryFromHandle FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_shared_memory_handle' in response) ? response['arg_shared_memory_handle'] : response;
+              const resp_obj = { 'arg_shared_memory_handle': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -320,11 +322,13 @@ mojo.internal.bindings.arc.mojom.ProtectedBufferManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_unsafe_region' in response) ? response.arg_unsafe_region : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec.$.structSpec, { 'arg_unsafe_region': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getProtectedSharedMemoryFromHandle FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_unsafe_region' in response) ? response['arg_unsafe_region'] : response;
+              const resp_obj = { 'arg_unsafe_region': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -336,11 +340,13 @@ mojo.internal.bindings.arc.mojom.ProtectedBufferManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_native_pixmap_handle' in response) ? response.arg_native_pixmap_handle : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec.$.structSpec, { 'arg_native_pixmap_handle': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getProtectedNativePixmapHandleFromHandle FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_native_pixmap_handle' in response) ? response['arg_native_pixmap_handle'] : response;
+              const resp_obj = { 'arg_native_pixmap_handle': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -352,11 +358,13 @@ mojo.internal.bindings.arc.mojom.ProtectedBufferManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_is_protected' in response) ? response.arg_is_protected : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec.$.structSpec, { 'arg_is_protected': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] isProtectedNativePixmapHandle FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_is_protected' in response) ? response['arg_is_protected'] : response;
+              const resp_obj = { 'arg_is_protected': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

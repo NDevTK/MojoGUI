@@ -999,11 +999,13 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getMediaSessionInfo FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response['arg_info'] : response;
+              const resp_obj = { 'arg_info': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1015,11 +1017,13 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response.arg_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec.$.structSpec, { 'arg_info': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getDebugInfo FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response['arg_info'] : response;
+              const resp_obj = { 'arg_info': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1101,11 +1105,13 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_image' in response) ? response.arg_image : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec.$.structSpec, { 'arg_image': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getMediaImageBitmap FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_image' in response) ? response['arg_image'] : response;
+              const resp_obj = { 'arg_image': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1215,11 +1221,13 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_has_sufficiently_visible_video' in response) ? response.arg_has_sufficiently_visible_video : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec.$.structSpec, { 'arg_has_sufficiently_visible_video': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getVisibility FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_has_sufficiently_visible_video' in response) ? response['arg_has_sufficiently_visible_video'] : response;
+              const resp_obj = { 'arg_has_sufficiently_visible_video': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

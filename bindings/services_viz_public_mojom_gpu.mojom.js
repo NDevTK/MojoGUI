@@ -279,10 +279,12 @@ mojo.internal.bindings.viz.mojom.GpuReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec.$.structSpec, { 'arg_client_id': response.arg_client_id, 'arg_channel_handle': response.arg_channel_handle, 'arg_gpu_info': response.arg_gpu_info, 'arg_gpu_feature_info': response.arg_gpu_feature_info, 'arg_shared_image_capabilities': response.arg_shared_image_capabilities });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] establishGpuChannel FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

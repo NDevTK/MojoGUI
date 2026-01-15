@@ -656,11 +656,13 @@ mojo.internal.bindings.tab_strip.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.tab_strip.mojom.PageHandler_GetGroupVisualData_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getGroupVisualData FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response['arg_data'] : response;
+              const resp_obj = { 'arg_data': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.tab_strip.mojom.PageHandler_GetGroupVisualData_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -672,11 +674,13 @@ mojo.internal.bindings.tab_strip.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_tabs' in response) ? response.arg_tabs : response;
-              encoder.encodeStructInline(mojo.internal.bindings.tab_strip.mojom.PageHandler_GetTabs_ResponseParamsSpec.$.structSpec, { 'arg_tabs': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getTabs FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_tabs' in response) ? response['arg_tabs'] : response;
+              const resp_obj = { 'arg_tabs': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.tab_strip.mojom.PageHandler_GetTabs_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -730,11 +734,13 @@ mojo.internal.bindings.tab_strip.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_layout' in response) ? response.arg_layout : response;
-              encoder.encodeStructInline(mojo.internal.bindings.tab_strip.mojom.PageHandler_GetLayout_ResponseParamsSpec.$.structSpec, { 'arg_layout': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getLayout FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_layout' in response) ? response['arg_layout'] : response;
+              const resp_obj = { 'arg_layout': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.tab_strip.mojom.PageHandler_GetLayout_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

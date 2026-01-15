@@ -714,11 +714,13 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] hasPermission FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response['arg_status'] : response;
+              const resp_obj = { 'arg_status': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -737,11 +739,13 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] requestPageEmbeddedPermission FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response['arg_status'] : response;
+              const resp_obj = { 'arg_status': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -753,11 +757,13 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] requestPermission FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response['arg_status'] : response;
+              const resp_obj = { 'arg_status': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -769,11 +775,13 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_statuses' in response) ? response.arg_statuses : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec.$.structSpec, { 'arg_statuses': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] requestPermissions FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_statuses' in response) ? response['arg_statuses'] : response;
+              const resp_obj = { 'arg_statuses': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -785,11 +793,13 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response.arg_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec.$.structSpec, { 'arg_status': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] revokePermission FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response['arg_status'] : response;
+              const resp_obj = { 'arg_status': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

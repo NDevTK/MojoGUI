@@ -302,11 +302,13 @@ mojo.internal.bindings.network.mojom.NetLogExporterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_net_error' in response) ? response.arg_net_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetLogExporter_Start_ResponseParamsSpec.$.structSpec, { 'arg_net_error': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] start FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_net_error' in response) ? response['arg_net_error'] : response;
+              const resp_obj = { 'arg_net_error': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetLogExporter_Start_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -318,11 +320,13 @@ mojo.internal.bindings.network.mojom.NetLogExporterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_net_error' in response) ? response.arg_net_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ResponseParamsSpec.$.structSpec, { 'arg_net_error': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] stop FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_net_error' in response) ? response['arg_net_error'] : response;
+              const resp_obj = { 'arg_net_error': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

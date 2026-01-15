@@ -413,11 +413,13 @@ mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_meta_key' in response) ? response.arg_meta_key : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec.$.structSpec, { 'arg_meta_key': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getMetaKeyToDisplay FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_meta_key' in response) ? response['arg_meta_key'] : response;
+              const resp_obj = { 'arg_meta_key': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

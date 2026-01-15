@@ -535,11 +535,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_tutorial_infos' in response) ? response.arg_tutorial_infos : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParamsSpec.$.structSpec, { 'arg_tutorial_infos': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getTutorials FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_tutorial_infos' in response) ? response['arg_tutorial_infos'] : response;
+              const resp_obj = { 'arg_tutorial_infos': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -551,11 +553,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] startTutorial FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response['arg_error_message'] : response;
+              const resp_obj = { 'arg_error_message': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -567,11 +571,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_session_data' in response) ? response.arg_session_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ResponseParamsSpec.$.structSpec, { 'arg_session_data': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getSessionData FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_session_data' in response) ? response['arg_session_data'] : response;
+              const resp_obj = { 'arg_session_data': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -583,11 +589,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_feature_promos' in response) ? response.arg_feature_promos : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ResponseParamsSpec.$.structSpec, { 'arg_feature_promos': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getFeaturePromos FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_feature_promos' in response) ? response['arg_feature_promos'] : response;
+              const resp_obj = { 'arg_feature_promos': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -599,11 +607,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] showFeaturePromo FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response['arg_error_message'] : response;
+              const resp_obj = { 'arg_error_message': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -615,11 +625,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] clearFeaturePromoData FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response['arg_error_message'] : response;
+              const resp_obj = { 'arg_error_message': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -631,11 +643,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] clearSessionData FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response['arg_error_message'] : response;
+              const resp_obj = { 'arg_error_message': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -647,11 +661,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] forceNewSession FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response['arg_error_message'] : response;
+              const resp_obj = { 'arg_error_message': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -663,11 +679,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] removeGracePeriods FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response['arg_error_message'] : response;
+              const resp_obj = { 'arg_error_message': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -679,11 +697,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_new_badges' in response) ? response.arg_new_badges : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParamsSpec.$.structSpec, { 'arg_new_badges': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getNewBadges FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_new_badges' in response) ? response['arg_new_badges'] : response;
+              const resp_obj = { 'arg_new_badges': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -695,11 +715,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_whats_new_modules' in response) ? response.arg_whats_new_modules : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParamsSpec.$.structSpec, { 'arg_whats_new_modules': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getWhatsNewModules FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_whats_new_modules' in response) ? response['arg_whats_new_modules'] : response;
+              const resp_obj = { 'arg_whats_new_modules': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -711,11 +733,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_whats_new_editions' in response) ? response.arg_whats_new_editions : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParamsSpec.$.structSpec, { 'arg_whats_new_editions': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getWhatsNewEditions FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_whats_new_editions' in response) ? response['arg_whats_new_editions'] : response;
+              const resp_obj = { 'arg_whats_new_editions': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -727,11 +751,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_ntp_promos' in response) ? response.arg_ntp_promos : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParamsSpec.$.structSpec, { 'arg_ntp_promos': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getNtpPromos FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_ntp_promos' in response) ? response['arg_ntp_promos'] : response;
+              const resp_obj = { 'arg_ntp_promos': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -743,11 +769,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_ntp_promo_preferences' in response) ? response.arg_ntp_promo_preferences : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParamsSpec.$.structSpec, { 'arg_ntp_promo_preferences': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getNtpPromoPreferences FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_ntp_promo_preferences' in response) ? response['arg_ntp_promo_preferences'] : response;
+              const resp_obj = { 'arg_ntp_promo_preferences': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -759,11 +787,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] clearNewBadgeData FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response['arg_error_message'] : response;
+              const resp_obj = { 'arg_error_message': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -775,11 +805,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] clearWhatsNewData FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response['arg_error_message'] : response;
+              const resp_obj = { 'arg_error_message': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -791,11 +823,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] clearNtpPromoData FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response['arg_error_message'] : response;
+              const resp_obj = { 'arg_error_message': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -807,11 +841,13 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response.arg_error_message : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ResponseParamsSpec.$.structSpec, { 'arg_error_message': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] clearNtpPromoPreferences FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response['arg_error_message'] : response;
+              const resp_obj = { 'arg_error_message': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

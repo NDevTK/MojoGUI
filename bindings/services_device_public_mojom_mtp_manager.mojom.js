@@ -584,11 +584,13 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_storages' in response) ? response.arg_storages : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec.$.structSpec, { 'arg_storages': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] enumerateStoragesAndSetClient FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_storages' in response) ? response['arg_storages'] : response;
+              const resp_obj = { 'arg_storages': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -600,11 +602,13 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_storage_info' in response) ? response.arg_storage_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec.$.structSpec, { 'arg_storage_info': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getStorageInfo FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_storage_info' in response) ? response['arg_storage_info'] : response;
+              const resp_obj = { 'arg_storage_info': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -616,10 +620,12 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec.$.structSpec, { 'arg_storage_info': response.arg_storage_info, 'arg_error': response.arg_error });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getStorageInfoFromDevice FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -631,10 +637,12 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ResponseParamsSpec.$.structSpec, { 'arg_storage_handle': response.arg_storage_handle, 'arg_error': response.arg_error });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] openStorage FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -646,11 +654,13 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] closeStorage FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response['arg_error'] : response;
+              const resp_obj = { 'arg_error': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -662,11 +672,13 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] createDirectory FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response['arg_error'] : response;
+              const resp_obj = { 'arg_error': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -678,10 +690,12 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec.$.structSpec, { 'arg_file_ids': response.arg_file_ids, 'arg_error': response.arg_error });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] readDirectoryEntryIds FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -693,10 +707,12 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec.$.structSpec, { 'arg_data': response.arg_data, 'arg_error': response.arg_error });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] readFileChunk FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -708,10 +724,12 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec.$.structSpec, { 'arg_file_entries': response.arg_file_entries, 'arg_error': response.arg_error });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getFileInfo FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -723,11 +741,13 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] renameObject FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response['arg_error'] : response;
+              const resp_obj = { 'arg_error': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -739,11 +759,13 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] copyFileFromLocal FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response['arg_error'] : response;
+              const resp_obj = { 'arg_error': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -755,11 +777,13 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response.arg_error : response;
-              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ResponseParamsSpec.$.structSpec, { 'arg_error': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] deleteObject FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response['arg_error'] : response;
+              const resp_obj = { 'arg_error': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

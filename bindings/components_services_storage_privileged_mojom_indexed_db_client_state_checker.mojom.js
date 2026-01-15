@@ -271,11 +271,13 @@ mojo.internal.bindings.storage.mojom.IndexedDBClientStateCheckerReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_was_active' in response) ? response.arg_was_active : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec.$.structSpec, { 'arg_was_active': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] disallowInactiveClient FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_was_active' in response) ? response['arg_was_active'] : response;
+              const resp_obj = { 'arg_was_active': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

@@ -332,11 +332,13 @@ mojo.internal.bindings.blink.mojom.FileSystemCancellableOperationReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response.arg_error_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemCancellableOperation_Cancel_ResponseParamsSpec.$.structSpec, { 'arg_error_code': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] cancel FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response['arg_error_code'] : response;
+              const resp_obj = { 'arg_error_code': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemCancellableOperation_Cancel_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -997,10 +999,12 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Open_ResponseParamsSpec.$.structSpec, { 'arg_name': response.arg_name, 'arg_root_url': response.arg_root_url, 'arg_error_code': response.arg_error_code });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] open FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemManager_Open_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1012,10 +1016,12 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_ResolveURL_ResponseParamsSpec.$.structSpec, { 'arg_info': response.arg_info, 'arg_file_path': response.arg_file_path, 'arg_is_directory': response.arg_is_directory, 'arg_error_code': response.arg_error_code });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] resolveURL FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemManager_ResolveURL_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1027,11 +1033,13 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response.arg_error_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Move_ResponseParamsSpec.$.structSpec, { 'arg_error_code': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] move FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response['arg_error_code'] : response;
+              const resp_obj = { 'arg_error_code': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemManager_Move_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1043,11 +1051,13 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response.arg_error_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Copy_ResponseParamsSpec.$.structSpec, { 'arg_error_code': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] copy FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response['arg_error_code'] : response;
+              const resp_obj = { 'arg_error_code': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemManager_Copy_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1059,11 +1069,13 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response.arg_error_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Remove_ResponseParamsSpec.$.structSpec, { 'arg_error_code': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] remove FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response['arg_error_code'] : response;
+              const resp_obj = { 'arg_error_code': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemManager_Remove_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1075,10 +1087,12 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_ReadMetadata_ResponseParamsSpec.$.structSpec, { 'arg_file_info': response.arg_file_info, 'arg_error_code': response.arg_error_code });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] readMetadata FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemManager_ReadMetadata_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1090,11 +1104,13 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response.arg_error_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Create_ResponseParamsSpec.$.structSpec, { 'arg_error_code': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] create FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response['arg_error_code'] : response;
+              const resp_obj = { 'arg_error_code': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemManager_Create_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1106,11 +1122,13 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response.arg_error_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Exists_ResponseParamsSpec.$.structSpec, { 'arg_error_code': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] exists FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response['arg_error_code'] : response;
+              const resp_obj = { 'arg_error_code': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemManager_Exists_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1129,10 +1147,12 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_ReadDirectorySync_ResponseParamsSpec.$.structSpec, { 'arg_entries': response.arg_entries, 'arg_error_code': response.arg_error_code });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] readDirectorySync FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemManager_ReadDirectorySync_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1151,10 +1171,12 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_WriteSync_ResponseParamsSpec.$.structSpec, { 'arg_byte_count': response.arg_byte_count, 'arg_error_code': response.arg_error_code });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] writeSync FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemManager_WriteSync_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1166,11 +1188,13 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response.arg_error_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_Truncate_ResponseParamsSpec.$.structSpec, { 'arg_error_code': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] truncate FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response['arg_error_code'] : response;
+              const resp_obj = { 'arg_error_code': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemManager_Truncate_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1182,11 +1206,13 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response.arg_error_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_TruncateSync_ResponseParamsSpec.$.structSpec, { 'arg_error_code': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] truncateSync FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_error_code' in response) ? response['arg_error_code'] : response;
+              const resp_obj = { 'arg_error_code': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemManager_TruncateSync_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1198,10 +1224,12 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_CreateSnapshotFile_ResponseParamsSpec.$.structSpec, { 'arg_file_info': response.arg_file_info, 'arg_platform_path': response.arg_platform_path, 'arg_error_code': response.arg_error_code, 'arg_snapshot_listener': response.arg_snapshot_listener });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] createSnapshotFile FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemManager_CreateSnapshotFile_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1213,11 +1241,13 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_platform_path' in response) ? response.arg_platform_path : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_GetPlatformPath_ResponseParamsSpec.$.structSpec, { 'arg_platform_path': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getPlatformPath FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_platform_path' in response) ? response['arg_platform_path'] : response;
+              const resp_obj = { 'arg_platform_path': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemManager_GetPlatformPath_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1229,11 +1259,13 @@ mojo.internal.bindings.blink.mojom.FileSystemManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_blob' in response) ? response.arg_blob : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemManager_RegisterBlob_ResponseParamsSpec.$.structSpec, { 'arg_blob': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] registerBlob FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_blob' in response) ? response['arg_blob'] : response;
+              const resp_obj = { 'arg_blob': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemManager_RegisterBlob_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

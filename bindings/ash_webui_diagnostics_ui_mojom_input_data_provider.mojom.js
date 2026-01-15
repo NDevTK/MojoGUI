@@ -1174,11 +1174,13 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_devices' in response) ? response.arg_devices : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec.$.structSpec, { 'arg_devices': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getConnectedDevices FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_devices' in response) ? response['arg_devices'] : response;
+              const resp_obj = { 'arg_devices': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1204,11 +1206,13 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_is_tablet_mode' in response) ? response.arg_is_tablet_mode : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec.$.structSpec, { 'arg_is_tablet_mode': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] observeTabletMode FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_is_tablet_mode' in response) ? response['arg_is_tablet_mode'] : response;
+              const resp_obj = { 'arg_is_tablet_mode': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1220,11 +1224,13 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_is_lid_open' in response) ? response.arg_is_lid_open : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec.$.structSpec, { 'arg_is_lid_open': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] observeLidState FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_is_lid_open' in response) ? response['arg_is_lid_open'] : response;
+              const resp_obj = { 'arg_is_lid_open': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

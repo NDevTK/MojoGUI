@@ -342,11 +342,13 @@ mojo.internal.bindings.blink.mojom.SerialServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_ports' in response) ? response.arg_ports : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ResponseParamsSpec.$.structSpec, { 'arg_ports': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getPorts FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_ports' in response) ? response['arg_ports'] : response;
+              const resp_obj = { 'arg_ports': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -358,11 +360,13 @@ mojo.internal.bindings.blink.mojom.SerialServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_port' in response) ? response.arg_port : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ResponseParamsSpec.$.structSpec, { 'arg_port': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] requestPort FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_port' in response) ? response['arg_port'] : response;
+              const resp_obj = { 'arg_port': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -374,11 +378,13 @@ mojo.internal.bindings.blink.mojom.SerialServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_port' in response) ? response.arg_port : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ResponseParamsSpec.$.structSpec, { 'arg_port': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] openPort FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_port' in response) ? response['arg_port'] : response;
+              const resp_obj = { 'arg_port': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -390,10 +396,12 @@ mojo.internal.bindings.blink.mojom.SerialServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ResponseParamsSpec.$.structSpec, {  });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] forgetPort FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

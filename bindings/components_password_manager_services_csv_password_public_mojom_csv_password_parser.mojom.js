@@ -261,11 +261,13 @@ mojo.internal.bindings.password_manager.mojom.CSVPasswordParserReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_sequence' in response) ? response.arg_sequence : response;
-              encoder.encodeStructInline(mojo.internal.bindings.password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec.$.structSpec, { 'arg_sequence': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] parseCSV FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_sequence' in response) ? response['arg_sequence'] : response;
+              const resp_obj = { 'arg_sequence': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

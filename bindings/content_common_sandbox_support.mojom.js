@@ -320,10 +320,12 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec.$.structSpec, { 'arg_lcid': response.arg_lcid, 'arg_first_day_of_week': response.arg_first_day_of_week });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] lcidAndFirstDayOfWeek FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -335,10 +337,12 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec.$.structSpec, { 'arg_digit_substitution': response.arg_digit_substitution, 'arg_digits': response.arg_digits, 'arg_decimal': response.arg_decimal, 'arg_thousand': response.arg_thousand, 'arg_negative_sign': response.arg_negative_sign, 'arg_negnumber': response.arg_negnumber });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] digitsAndSigns FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -350,11 +354,13 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_str' in response) ? response.arg_str : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec.$.structSpec, { 'arg_str': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] localeString FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_str' in response) ? response['arg_str'] : response;
+              const resp_obj = { 'arg_str': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -366,11 +372,13 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_strings' in response) ? response.arg_strings : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec.$.structSpec, { 'arg_strings': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] localeStrings FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_strings' in response) ? response['arg_strings'] : response;
+              const resp_obj = { 'arg_strings': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

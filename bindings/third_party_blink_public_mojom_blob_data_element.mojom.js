@@ -297,11 +297,13 @@ mojo.internal.bindings.blink.mojom.BytesProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] requestAsReply FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response['arg_data'] : response;
+              const resp_obj = { 'arg_data': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -320,11 +322,13 @@ mojo.internal.bindings.blink.mojom.BytesProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_time_file_modified' in response) ? response.arg_time_file_modified : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec.$.structSpec, { 'arg_time_file_modified': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] requestAsFile FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_time_file_modified' in response) ? response['arg_time_file_modified'] : response;
+              const resp_obj = { 'arg_time_file_modified': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

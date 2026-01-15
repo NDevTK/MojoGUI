@@ -278,11 +278,13 @@ mojo.internal.bindings.pdf.mojom.PdfThumbnailerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_bitmap' in response) ? response.arg_bitmap : response;
-              encoder.encodeStructInline(mojo.internal.bindings.pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec.$.structSpec, { 'arg_bitmap': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getThumbnail FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_bitmap' in response) ? response['arg_bitmap'] : response;
+              const resp_obj = { 'arg_bitmap': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

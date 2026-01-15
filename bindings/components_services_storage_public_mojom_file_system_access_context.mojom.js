@@ -284,11 +284,13 @@ mojo.internal.bindings.storage.mojom.FileSystemAccessContextReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_bits' in response) ? response.arg_bits : response;
-              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec.$.structSpec, { 'arg_bits': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] serializeHandle FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_bits' in response) ? response['arg_bits'] : response;
+              const resp_obj = { 'arg_bits': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

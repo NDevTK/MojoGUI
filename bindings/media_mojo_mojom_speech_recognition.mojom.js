@@ -368,11 +368,13 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionContextReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_is_multichannel_supported' in response) ? response.arg_is_multichannel_supported : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognitionContext_BindRecognizer_ResponseParamsSpec.$.structSpec, { 'arg_is_multichannel_supported': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] bindRecognizer FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_is_multichannel_supported' in response) ? response['arg_is_multichannel_supported'] : response;
+              const resp_obj = { 'arg_is_multichannel_supported': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.SpeechRecognitionContext_BindRecognizer_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -770,11 +772,13 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionRecognizerClientReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_continue_recognition' in response) ? response.arg_continue_recognition : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ResponseParamsSpec.$.structSpec, { 'arg_continue_recognition': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] onSpeechRecognitionRecognitionEvent FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_continue_recognition' in response) ? response['arg_continue_recognition'] : response;
+              const resp_obj = { 'arg_continue_recognition': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1123,11 +1127,13 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSurfaceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_bounds' in response) ? response.arg_bounds : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognitionSurface_GetBounds_ResponseParamsSpec.$.structSpec, { 'arg_bounds': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getBounds FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_bounds' in response) ? response['arg_bounds'] : response;
+              const resp_obj = { 'arg_bounds': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.SpeechRecognitionSurface_GetBounds_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

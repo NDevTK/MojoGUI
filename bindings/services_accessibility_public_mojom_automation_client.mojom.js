@@ -297,11 +297,13 @@ mojo.internal.bindings.ax.mojom.AutomationClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_desktop_id' in response) ? response.arg_desktop_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ResponseParamsSpec.$.structSpec, { 'arg_desktop_id': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] enable FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_desktop_id' in response) ? response['arg_desktop_id'] : response;
+              const resp_obj = { 'arg_desktop_id': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

@@ -315,11 +315,13 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRece
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_downloaded_models_info' in response) ? response.arg_downloaded_models_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec.$.structSpec, { 'arg_downloaded_models_info': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] requestDownloadedModelsInfo FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_downloaded_models_info' in response) ? response['arg_downloaded_models_info'] : response;
+              const resp_obj = { 'arg_downloaded_models_info': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -331,11 +333,13 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRece
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_logged_client_ids' in response) ? response.arg_logged_client_ids : response;
-              encoder.encodeStructInline(mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec.$.structSpec, { 'arg_logged_client_ids': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] requestLoggedModelQualityClientIds FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_logged_client_ids' in response) ? response['arg_logged_client_ids'] : response;
+              const resp_obj = { 'arg_logged_client_ids': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -347,11 +351,13 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRece
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_mqls_logs' in response) ? response.arg_mqls_logs : response;
-              encoder.encodeStructInline(mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec.$.structSpec, { 'arg_mqls_logs': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] requestMqlsLogs FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_mqls_logs' in response) ? response['arg_mqls_logs'] : response;
+              const resp_obj = { 'arg_mqls_logs': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

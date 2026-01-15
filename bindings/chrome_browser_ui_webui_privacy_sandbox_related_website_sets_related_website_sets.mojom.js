@@ -260,11 +260,13 @@ mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandlerR
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_related_website_sets_info' in response) ? response.arg_related_website_sets_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec.$.structSpec, { 'arg_related_website_sets_info': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getRelatedWebsiteSets FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_related_website_sets_info' in response) ? response['arg_related_website_sets_info'] : response;
+              const resp_obj = { 'arg_related_website_sets_info': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

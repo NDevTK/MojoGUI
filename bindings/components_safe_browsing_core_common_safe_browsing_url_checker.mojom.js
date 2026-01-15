@@ -250,10 +250,12 @@ mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlCheckerReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec.$.structSpec, { 'arg_proceed': response.arg_proceed, 'arg_showed_interstitial': response.arg_showed_interstitial });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] checkUrl FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

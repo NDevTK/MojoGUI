@@ -249,11 +249,13 @@ mojo.internal.bindings.webapps.mojom.WebPageMetadataAgentReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_web_page_metadata' in response) ? response.arg_web_page_metadata : response;
-              encoder.encodeStructInline(mojo.internal.bindings.webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec.$.structSpec, { 'arg_web_page_metadata': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getWebPageMetadata FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_web_page_metadata' in response) ? response['arg_web_page_metadata'] : response;
+              const resp_obj = { 'arg_web_page_metadata': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

@@ -250,11 +250,13 @@ mojo.internal.bindings.network.mojom.CacheEncryptionProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_encryptor' in response) ? response.arg_encryptor : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec.$.structSpec, { 'arg_encryptor': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getEncryptor FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_encryptor' in response) ? response['arg_encryptor'] : response;
+              const resp_obj = { 'arg_encryptor': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

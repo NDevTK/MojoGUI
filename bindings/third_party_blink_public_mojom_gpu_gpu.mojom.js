@@ -250,11 +250,13 @@ mojo.internal.bindings.blink.mojom.GpuDataManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_blocked' in response) ? response.arg_blocked : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ResponseParamsSpec.$.structSpec, { 'arg_blocked': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] are3DAPIsBlockedForUrl FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_blocked' in response) ? response['arg_blocked'] : response;
+              const resp_obj = { 'arg_blocked': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

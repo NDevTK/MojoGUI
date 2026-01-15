@@ -1332,10 +1332,12 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_Init_ResponseParamsSpec.$.structSpec, {  });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_Init_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1389,11 +1391,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_icon_png_data' in response) ? response.arg_icon_png_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec.$.structSpec, { 'arg_icon_png_data': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] requestAppIcon FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_icon_png_data' in response) ? response['arg_icon_png_data'] : response;
+              const resp_obj = { 'arg_icon_png_data': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1405,11 +1409,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_icon' in response) ? response.arg_icon : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppIcon_ResponseParamsSpec.$.structSpec, { 'arg_icon': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getAppIcon FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_icon' in response) ? response['arg_icon'] : response;
+              const resp_obj = { 'arg_icon': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_GetAppIcon_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1421,11 +1427,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_icon_png_data' in response) ? response.arg_icon_png_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec.$.structSpec, { 'arg_icon_png_data': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] requestShortcutIcon FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_icon_png_data' in response) ? response['arg_icon_png_data'] : response;
+              const resp_obj = { 'arg_icon_png_data': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1437,11 +1445,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_icon' in response) ? response.arg_icon : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec.$.structSpec, { 'arg_icon': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getAppShortcutIcon FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_icon' in response) ? response['arg_icon'] : response;
+              const resp_obj = { 'arg_icon': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1453,11 +1463,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_icon_png_data' in response) ? response.arg_icon_png_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec.$.structSpec, { 'arg_icon_png_data': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] requestPackageIcon FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_icon_png_data' in response) ? response['arg_icon_png_data'] : response;
+              const resp_obj = { 'arg_icon_png_data': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1469,11 +1481,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_icon' in response) ? response.arg_icon : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec.$.structSpec, { 'arg_icon': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getPackageIcon FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_icon' in response) ? response['arg_icon'] : response;
+              const resp_obj = { 'arg_icon': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1527,11 +1541,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response.arg_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec.$.structSpec, { 'arg_state': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] startPaiFlow FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_state' in response) ? response['arg_state'] : response;
+              const resp_obj = { 'arg_state': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1564,11 +1580,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_android_id' in response) ? response.arg_android_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAndroidId_ResponseParamsSpec.$.structSpec, { 'arg_android_id': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getAndroidId FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_android_id' in response) ? response['arg_android_id'] : response;
+              const resp_obj = { 'arg_android_id': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_GetAndroidId_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1580,11 +1598,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_shortcut_items' in response) ? response.arg_shortcut_items : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec.$.structSpec, { 'arg_shortcut_items': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getAppShortcutGlobalQueryItems FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_shortcut_items' in response) ? response['arg_shortcut_items'] : response;
+              const resp_obj = { 'arg_shortcut_items': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1596,11 +1616,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_shortcut_items' in response) ? response.arg_shortcut_items : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec.$.structSpec, { 'arg_shortcut_items': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getAppShortcutItems FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_shortcut_items' in response) ? response['arg_shortcut_items'] : response;
+              const resp_obj = { 'arg_shortcut_items': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1612,10 +1634,12 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec.$.structSpec, { 'arg_state': response.arg_state, 'arg_results': response.arg_results });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getRecentAndSuggestedAppsFromPlayStore FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1627,11 +1651,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_is_installable' in response) ? response.arg_is_installable : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_IsInstallable_ResponseParamsSpec.$.structSpec, { 'arg_is_installable': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] isInstallable FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_is_installable' in response) ? response['arg_is_installable'] : response;
+              const resp_obj = { 'arg_is_installable': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_IsInstallable_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -1643,11 +1669,13 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_category' in response) ? response.arg_category : response;
-              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppInstance_GetAppCategory_ResponseParamsSpec.$.structSpec, { 'arg_category': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getAppCategory FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_category' in response) ? response['arg_category'] : response;
+              const resp_obj = { 'arg_category': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_GetAppCategory_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

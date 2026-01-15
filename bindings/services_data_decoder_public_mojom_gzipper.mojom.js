@@ -298,11 +298,13 @@ mojo.internal.bindings.data_decoder.mojom.GzipperReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_deflated_data' in response) ? response.arg_deflated_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec.$.structSpec, { 'arg_deflated_data': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] deflate FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_deflated_data' in response) ? response['arg_deflated_data'] : response;
+              const resp_obj = { 'arg_deflated_data': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -314,11 +316,13 @@ mojo.internal.bindings.data_decoder.mojom.GzipperReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_inflated_data' in response) ? response.arg_inflated_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec.$.structSpec, { 'arg_inflated_data': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] inflate FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_inflated_data' in response) ? response['arg_inflated_data'] : response;
+              const resp_obj = { 'arg_inflated_data': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -330,11 +334,13 @@ mojo.internal.bindings.data_decoder.mojom.GzipperReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_compressed_data' in response) ? response.arg_compressed_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec.$.structSpec, { 'arg_compressed_data': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] compress FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_compressed_data' in response) ? response['arg_compressed_data'] : response;
+              const resp_obj = { 'arg_compressed_data': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -346,11 +352,13 @@ mojo.internal.bindings.data_decoder.mojom.GzipperReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response.arg_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec.$.structSpec, { 'arg_data': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] uncompress FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response['arg_data'] : response;
+              const resp_obj = { 'arg_data': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

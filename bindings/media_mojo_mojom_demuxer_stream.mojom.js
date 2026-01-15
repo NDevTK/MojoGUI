@@ -296,10 +296,12 @@ mojo.internal.bindings.media.mojom.DemuxerStreamReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ResponseParamsSpec.$.structSpec, { 'arg_type': response.arg_type, 'arg_pipe': response.arg_pipe, 'arg_audio_config': response.arg_audio_config, 'arg_video_config': response.arg_video_config });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] initialize FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -311,10 +313,12 @@ mojo.internal.bindings.media.mojom.DemuxerStreamReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.DemuxerStream_Read_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_batch_buffers': response.arg_batch_buffers, 'arg_audio_config': response.arg_audio_config, 'arg_video_config': response.arg_video_config });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] read FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.DemuxerStream_Read_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

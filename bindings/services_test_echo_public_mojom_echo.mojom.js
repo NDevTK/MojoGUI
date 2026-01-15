@@ -359,11 +359,13 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_echoed_input' in response) ? response.arg_echoed_input : response;
-              encoder.encodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_EchoString_ResponseParamsSpec.$.structSpec, { 'arg_echoed_input': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] echoString FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_echoed_input' in response) ? response['arg_echoed_input'] : response;
+              const resp_obj = { 'arg_echoed_input': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.echo.mojom.EchoService_EchoString_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -403,10 +405,12 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec.$.structSpec, { 'arg_status': response.arg_status, 'arg_error_code': response.arg_error_code });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] loadNativeLibrary FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -418,11 +422,13 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_output' in response) ? response.arg_output : response;
-              encoder.encodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec.$.structSpec, { 'arg_output': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] decryptEncrypt FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_output' in response) ? response['arg_output'] : response;
+              const resp_obj = { 'arg_output': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

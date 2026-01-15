@@ -245,11 +245,13 @@ mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandlerR
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_private_state_tokens_count' in response) ? response.arg_private_state_tokens_count : response;
-              encoder.encodeStructInline(mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec.$.structSpec, { 'arg_private_state_tokens_count': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getIssuerTokenCounts FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_private_state_tokens_count' in response) ? response['arg_private_state_tokens_count'] : response;
+              const resp_obj = { 'arg_private_state_tokens_count': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

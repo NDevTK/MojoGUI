@@ -489,10 +489,12 @@ mojo.internal.bindings.auction_worklet.mojom.SellerWorkletReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ReportResult_ResponseParamsSpec.$.structSpec, { 'arg_signals_for_winner': response.arg_signals_for_winner, 'arg_report_url': response.arg_report_url, 'arg_ad_beacon_map': response.arg_ad_beacon_map, 'arg_pa_requests': response.arg_pa_requests, 'arg_time_metrics': response.arg_time_metrics, 'arg_error_msgs': response.arg_error_msgs });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] reportResult FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ReportResult_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

@@ -244,11 +244,13 @@ mojo.internal.bindings.chromecast.mojom.AudioSocketBrokerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_fd' in response) ? response.arg_fd : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec.$.structSpec, { 'arg_fd': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getSocketDescriptor FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_fd' in response) ? response['arg_fd'] : response;
+              const resp_obj = { 'arg_fd': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

@@ -250,11 +250,13 @@ mojo.internal.bindings.content.mojom.RenderFrameTestHelperReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_token' in response) ? response.arg_token : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec.$.structSpec, { 'arg_token': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getDocumentToken FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_token' in response) ? response['arg_token'] : response;
+              const resp_obj = { 'arg_token': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

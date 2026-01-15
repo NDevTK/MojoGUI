@@ -746,11 +746,13 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_config' in response) ? response.arg_config : response;
-              encoder.encodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec.$.structSpec, { 'arg_config': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getPlaceholderConfig FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_config' in response) ? response['arg_config'] : response;
+              const resp_obj = { 'arg_config': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -762,11 +764,13 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_tabs' in response) ? response.arg_tabs : response;
-              encoder.encodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec.$.structSpec, { 'arg_tabs': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getRecentTabs FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_tabs' in response) ? response['arg_tabs'] : response;
+              const resp_obj = { 'arg_tabs': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -778,11 +782,13 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_preview_data_url' in response) ? response.arg_preview_data_url : response;
-              encoder.encodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec.$.structSpec, { 'arg_preview_data_url': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getTabPreview FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_preview_data_url' in response) ? response['arg_preview_data_url'] : response;
+              const resp_obj = { 'arg_preview_data_url': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -808,11 +814,13 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_token' in response) ? response.arg_token : response;
-              encoder.encodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec.$.structSpec, { 'arg_token': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] addFileContext FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_token' in response) ? response['arg_token'] : response;
+              const resp_obj = { 'arg_token': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -824,11 +832,13 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_token' in response) ? response.arg_token : response;
-              encoder.encodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec.$.structSpec, { 'arg_token': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] addTabContext FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_token' in response) ? response['arg_token'] : response;
+              const resp_obj = { 'arg_token': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

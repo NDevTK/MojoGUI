@@ -614,11 +614,13 @@ mojo.internal.bindings.viz.mojom.GpuHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_isolation_key' in response) ? response.arg_isolation_key : response;
-              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec.$.structSpec, { 'arg_isolation_key': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getIsolationKey FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_isolation_key' in response) ? response['arg_isolation_key'] : response;
+              const resp_obj = { 'arg_isolation_key': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -644,11 +646,13 @@ mojo.internal.bindings.viz.mojom.GpuHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_ep_package_info' in response) ? response.arg_ep_package_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec.$.structSpec, { 'arg_ep_package_info': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] ensureWebNNExecutionProvidersReady FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_ep_package_info' in response) ? response['arg_ep_package_info'] : response;
+              const resp_obj = { 'arg_ep_package_info': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -660,11 +664,13 @@ mojo.internal.bindings.viz.mojom.GpuHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_file' in response) ? response.arg_file : response;
-              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec.$.structSpec, { 'arg_file': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] createWebNNWeightsFile FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_file' in response) ? response['arg_file'] : response;
+              const resp_obj = { 'arg_file': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

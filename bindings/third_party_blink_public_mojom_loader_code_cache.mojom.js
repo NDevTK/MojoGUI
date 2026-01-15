@@ -329,11 +329,13 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_pending_backend' in response) ? response.arg_pending_backend : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec.$.structSpec, { 'arg_pending_backend': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getPendingBackend FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_pending_backend' in response) ? response['arg_pending_backend'] : response;
+              const resp_obj = { 'arg_pending_backend': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -352,10 +354,12 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec.$.structSpec, { 'arg_response_time': response.arg_response_time, 'arg_data': response.arg_data });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] fetchCachedCode FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

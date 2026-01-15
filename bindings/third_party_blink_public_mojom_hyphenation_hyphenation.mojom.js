@@ -250,11 +250,13 @@ mojo.internal.bindings.blink.mojom.HyphenationReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_hyphenation_dictionary_handle' in response) ? response.arg_hyphenation_dictionary_handle : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec.$.structSpec, { 'arg_hyphenation_dictionary_handle': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] openDictionary FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_hyphenation_dictionary_handle' in response) ? response['arg_hyphenation_dictionary_handle'] : response;
+              const resp_obj = { 'arg_hyphenation_dictionary_handle': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

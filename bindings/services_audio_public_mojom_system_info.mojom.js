@@ -366,11 +366,13 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_params' in response) ? response.arg_params : response;
-              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec.$.structSpec, { 'arg_params': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getInputStreamParameters FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_params' in response) ? response['arg_params'] : response;
+              const resp_obj = { 'arg_params': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -382,11 +384,13 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_params' in response) ? response.arg_params : response;
-              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec.$.structSpec, { 'arg_params': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getOutputStreamParameters FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_params' in response) ? response['arg_params'] : response;
+              const resp_obj = { 'arg_params': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -398,11 +402,13 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_has_input_devices' in response) ? response.arg_has_input_devices : response;
-              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec.$.structSpec, { 'arg_has_input_devices': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] hasInputDevices FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_has_input_devices' in response) ? response['arg_has_input_devices'] : response;
+              const resp_obj = { 'arg_has_input_devices': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -414,11 +420,13 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_has_output_devices' in response) ? response.arg_has_output_devices : response;
-              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec.$.structSpec, { 'arg_has_output_devices': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] hasOutputDevices FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_has_output_devices' in response) ? response['arg_has_output_devices'] : response;
+              const resp_obj = { 'arg_has_output_devices': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -430,11 +438,13 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_device_descriptions' in response) ? response.arg_device_descriptions : response;
-              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec.$.structSpec, { 'arg_device_descriptions': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getInputDeviceDescriptions FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_device_descriptions' in response) ? response['arg_device_descriptions'] : response;
+              const resp_obj = { 'arg_device_descriptions': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -446,11 +456,13 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_device_descriptions' in response) ? response.arg_device_descriptions : response;
-              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec.$.structSpec, { 'arg_device_descriptions': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getOutputDeviceDescriptions FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_device_descriptions' in response) ? response['arg_device_descriptions'] : response;
+              const resp_obj = { 'arg_device_descriptions': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -462,11 +474,13 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_associated_output_device_id' in response) ? response.arg_associated_output_device_id : response;
-              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec.$.structSpec, { 'arg_associated_output_device_id': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getAssociatedOutputDeviceID FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_associated_output_device_id' in response) ? response['arg_associated_output_device_id'] : response;
+              const resp_obj = { 'arg_associated_output_device_id': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -478,10 +492,12 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec.$.structSpec, { 'arg_input_params': response.arg_input_params, 'arg_associated_output_device_id': response.arg_associated_output_device_id });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getInputDeviceInfo FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

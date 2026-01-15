@@ -294,11 +294,13 @@ mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifierReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_searchified_pdf' in response) ? response.arg_searchified_pdf : response;
-              encoder.encodeStructInline(mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec.$.structSpec, { 'arg_searchified_pdf': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] save FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_searchified_pdf' in response) ? response['arg_searchified_pdf'] : response;
+              const resp_obj = { 'arg_searchified_pdf': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

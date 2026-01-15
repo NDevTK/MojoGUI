@@ -549,11 +549,13 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_version' in response) ? response.arg_version : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetVersion_ResponseParamsSpec.$.structSpec, { 'arg_version': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getVersion FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_version' in response) ? response['arg_version'] : response;
+              const resp_obj = { 'arg_version': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_GetVersion_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -565,11 +567,13 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_FetchPolicies_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] fetchPolicies FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response['arg_result'] : response;
+              const resp_obj = { 'arg_result': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_FetchPolicies_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -581,11 +585,13 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response.arg_result : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_RegisterApp_ResponseParamsSpec.$.structSpec, { 'arg_result': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] registerApp FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response['arg_result'] : response;
+              const resp_obj = { 'arg_result': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_RegisterApp_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -597,11 +603,13 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_app_states' in response) ? response.arg_app_states : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetAppStates_ResponseParamsSpec.$.structSpec, { 'arg_app_states': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getAppStates FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_app_states' in response) ? response['arg_app_states'] : response;
+              const resp_obj = { 'arg_app_states': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_GetAppStates_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -613,10 +621,12 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_RunPeriodicTasks_ResponseParamsSpec.$.structSpec, {  });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] runPeriodicTasks FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_RunPeriodicTasks_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -628,11 +638,13 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_observer' in response) ? response.arg_observer : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_UpdateAll_ResponseParamsSpec.$.structSpec, { 'arg_observer': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] updateAll FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_observer' in response) ? response['arg_observer'] : response;
+              const resp_obj = { 'arg_observer': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_UpdateAll_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -644,11 +656,13 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_observer' in response) ? response.arg_observer : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_Update_ResponseParamsSpec.$.structSpec, { 'arg_observer': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] update FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_observer' in response) ? response['arg_observer'] : response;
+              const resp_obj = { 'arg_observer': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_Update_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -660,11 +674,13 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_observer' in response) ? response.arg_observer : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_Install_ResponseParamsSpec.$.structSpec, { 'arg_observer': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] install FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_observer' in response) ? response['arg_observer'] : response;
+              const resp_obj = { 'arg_observer': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_Install_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -683,11 +699,13 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_observer' in response) ? response.arg_observer : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_RunInstaller_ResponseParamsSpec.$.structSpec, { 'arg_observer': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] runInstaller FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_observer' in response) ? response['arg_observer'] : response;
+              const resp_obj = { 'arg_observer': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_RunInstaller_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -699,11 +717,13 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_observer' in response) ? response.arg_observer : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec.$.structSpec, { 'arg_observer': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] checkForUpdate FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_observer' in response) ? response['arg_observer'] : response;
+              const resp_obj = { 'arg_observer': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -715,11 +735,13 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_updater_state' in response) ? response.arg_updater_state : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec.$.structSpec, { 'arg_updater_state': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getUpdaterState FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_updater_state' in response) ? response['arg_updater_state'] : response;
+              const resp_obj = { 'arg_updater_state': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -731,11 +753,13 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_updater_policies' in response) ? response.arg_updater_policies : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec.$.structSpec, { 'arg_updater_policies': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getUpdaterPolicies FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_updater_policies' in response) ? response['arg_updater_policies'] : response;
+              const resp_obj = { 'arg_updater_policies': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -747,11 +771,13 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_app_policies' in response) ? response.arg_app_policies : response;
-              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec.$.structSpec, { 'arg_app_policies': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getAppPolicies FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_app_policies' in response) ? response['arg_app_policies'] : response;
+              const resp_obj = { 'arg_app_policies': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

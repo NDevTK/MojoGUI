@@ -285,11 +285,13 @@ mojo.internal.bindings.extensions.mojom.GuestViewReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_allowed' in response) ? response.arg_allowed : response;
-              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec.$.structSpec, { 'arg_allowed': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] canExecuteContentScript FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_allowed' in response) ? response['arg_allowed'] : response;
+              const resp_obj = { 'arg_allowed': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -473,11 +475,13 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerReceiver 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_before_unload_control' in response) ? response.arg_before_unload_control : response;
-              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec.$.structSpec, { 'arg_before_unload_control': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] createBeforeUnloadControl FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_before_unload_control' in response) ? response['arg_before_unload_control'] : response;
+              const resp_obj = { 'arg_before_unload_control': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

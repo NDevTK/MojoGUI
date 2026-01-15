@@ -306,11 +306,13 @@ mojo.internal.bindings.gfx.mojom.TraitsTestServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_pass' in response) ? response.arg_pass : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec.$.structSpec, { 'arg_pass': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] echoSelectionBound FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_pass' in response) ? response['arg_pass'] : response;
+              const resp_obj = { 'arg_pass': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -322,11 +324,13 @@ mojo.internal.bindings.gfx.mojom.TraitsTestServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_pass' in response) ? response.arg_pass : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec.$.structSpec, { 'arg_pass': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] echoTransform FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_pass' in response) ? response['arg_pass'] : response;
+              const resp_obj = { 'arg_pass': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -338,11 +342,13 @@ mojo.internal.bindings.gfx.mojom.TraitsTestServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_pass' in response) ? response.arg_pass : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec.$.structSpec, { 'arg_pass': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] echoGpuMemoryBufferHandle FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_pass' in response) ? response['arg_pass'] : response;
+              const resp_obj = { 'arg_pass': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -354,11 +360,13 @@ mojo.internal.bindings.gfx.mojom.TraitsTestServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_pass' in response) ? response.arg_pass : response;
-              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec.$.structSpec, { 'arg_pass': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] echoRRectF FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_pass' in response) ? response['arg_pass'] : response;
+              const resp_obj = { 'arg_pass': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

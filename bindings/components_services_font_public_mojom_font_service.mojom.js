@@ -368,10 +368,12 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec.$.structSpec, { 'arg_identity': response.arg_identity, 'arg_family_name': response.arg_family_name, 'arg_style': response.arg_style });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] matchFamilyName FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -383,11 +385,13 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_font_handle' in response) ? response.arg_font_handle : response;
-              encoder.encodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ResponseParamsSpec.$.structSpec, { 'arg_font_handle': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] openStream FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_font_handle' in response) ? response['arg_font_handle'] : response;
+              const resp_obj = { 'arg_font_handle': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -399,10 +403,12 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec.$.structSpec, { 'arg_identity': response.arg_identity, 'arg_family_name': response.arg_family_name, 'arg_is_bold': response.arg_is_bold, 'arg_is_italic': response.arg_is_italic });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] fallbackFontForCharacter FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -414,11 +420,13 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_font_render_style' in response) ? response.arg_font_render_style : response;
-              encoder.encodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec.$.structSpec, { 'arg_font_render_style': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] fontRenderStyleForStrike FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_font_render_style' in response) ? response['arg_font_render_style'] : response;
+              const resp_obj = { 'arg_font_render_style': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -430,11 +438,13 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_identity' in response) ? response.arg_identity : response;
-              encoder.encodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec.$.structSpec, { 'arg_identity': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] matchFontByPostscriptNameOrFullFontName FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_identity' in response) ? response['arg_identity'] : response;
+              const resp_obj = { 'arg_identity': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -446,11 +456,13 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_families' in response) ? response.arg_families : response;
-              encoder.encodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ResponseParamsSpec.$.structSpec, { 'arg_families': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] listFamilies FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_families' in response) ? response['arg_families'] : response;
+              const resp_obj = { 'arg_families': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -462,11 +474,13 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_font_file_handle' in response) ? response.arg_font_file_handle : response;
-              encoder.encodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec.$.structSpec, { 'arg_font_file_handle': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] matchFontWithFallback FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_font_file_handle' in response) ? response['arg_font_file_handle'] : response;
+              const resp_obj = { 'arg_font_file_handle': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

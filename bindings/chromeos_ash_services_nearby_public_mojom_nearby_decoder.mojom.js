@@ -268,11 +268,13 @@ mojo.internal.bindings.sharing.mojom.NearbySharingDecoderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_advertisement' in response) ? response.arg_advertisement : response;
-              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec.$.structSpec, { 'arg_advertisement': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] decodeAdvertisement FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_advertisement' in response) ? response['arg_advertisement'] : response;
+              const resp_obj = { 'arg_advertisement': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -284,11 +286,13 @@ mojo.internal.bindings.sharing.mojom.NearbySharingDecoderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_frame' in response) ? response.arg_frame : response;
-              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec.$.structSpec, { 'arg_frame': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] decodeFrame FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_frame' in response) ? response['arg_frame'] : response;
+              const resp_obj = { 'arg_frame': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

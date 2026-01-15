@@ -329,11 +329,13 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_version' in response) ? response.arg_version : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec.$.structSpec, { 'arg_version': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getMlModelVersion FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_version' in response) ? response['arg_version'] : response;
+              const resp_obj = { 'arg_version': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -345,11 +347,13 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_score' in response) ? response.arg_score : response;
-              encoder.encodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec.$.structSpec, { 'arg_score': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] startMl FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_score' in response) ? response['arg_score'] : response;
+              const resp_obj = { 'arg_score': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

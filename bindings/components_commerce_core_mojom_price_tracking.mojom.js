@@ -395,11 +395,13 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerReceive
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_productInfos' in response) ? response.arg_productInfos : response;
-              encoder.encodeStructInline(mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec.$.structSpec, { 'arg_productInfos': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getAllShoppingBookmarkProductInfo FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_productInfos' in response) ? response['arg_productInfos'] : response;
+              const resp_obj = { 'arg_productInfos': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -411,11 +413,13 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerReceive
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_productInfos' in response) ? response.arg_productInfos : response;
-              encoder.encodeStructInline(mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec.$.structSpec, { 'arg_productInfos': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getAllPriceTrackedBookmarkProductInfo FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_productInfos' in response) ? response['arg_productInfos'] : response;
+              const resp_obj = { 'arg_productInfos': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -427,11 +431,13 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerReceive
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_collectionId' in response) ? response.arg_collectionId : response;
-              encoder.encodeStructInline(mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec.$.structSpec, { 'arg_collectionId': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getShoppingCollectionBookmarkFolderId FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_collectionId' in response) ? response['arg_collectionId'] : response;
+              const resp_obj = { 'arg_collectionId': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -443,11 +449,13 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerReceive
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_name' in response) ? response.arg_name : response;
-              encoder.encodeStructInline(mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec.$.structSpec, { 'arg_name': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getParentBookmarkFolderNameForCurrentUrl FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_name' in response) ? response['arg_name'] : response;
+              const resp_obj = { 'arg_name': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

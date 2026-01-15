@@ -397,11 +397,13 @@ mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_context_clusters_json' in response) ? response.arg_context_clusters_json : response;
-              encoder.encodeStructInline(mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec.$.structSpec, { 'arg_context_clusters_json': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getContextClustersJson FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_context_clusters_json' in response) ? response['arg_context_clusters_json'] : response;
+              const resp_obj = { 'arg_context_clusters_json': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

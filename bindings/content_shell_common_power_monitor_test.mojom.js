@@ -251,11 +251,13 @@ mojo.internal.bindings.content.mojom.PowerMonitorTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_battery_power_status' in response) ? response.arg_battery_power_status : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec.$.structSpec, { 'arg_battery_power_status': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] queryNextState FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_battery_power_status' in response) ? response['arg_battery_power_status'] : response;
+              const resp_obj = { 'arg_battery_power_status': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

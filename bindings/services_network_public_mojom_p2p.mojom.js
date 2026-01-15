@@ -481,11 +481,13 @@ mojo.internal.bindings.network.mojom.P2PSocketManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_addresses' in response) ? response.arg_addresses : response;
-              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec.$.structSpec, { 'arg_addresses': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getHostAddress FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_addresses' in response) ? response['arg_addresses'] : response;
+              const resp_obj = { 'arg_addresses': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

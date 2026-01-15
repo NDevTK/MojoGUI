@@ -274,11 +274,13 @@ mojo.internal.bindings.chrome.mojom.NetworkEasterEggReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_high_score' in response) ? response.arg_high_score : response;
-              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec.$.structSpec, { 'arg_high_score': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getHighScore FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_high_score' in response) ? response['arg_high_score'] : response;
+              const resp_obj = { 'arg_high_score': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

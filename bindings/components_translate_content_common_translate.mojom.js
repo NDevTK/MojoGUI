@@ -294,10 +294,12 @@ mojo.internal.bindings.translate.mojom.TranslateAgentReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              encoder.encodeStructInline(mojo.internal.bindings.translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec.$.structSpec, { 'arg_cancelled': response.arg_cancelled, 'arg_original_lang': response.arg_original_lang, 'arg_translated_lang': response.arg_translated_lang, 'arg_error': response.arg_error });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] translateFrame FAILED:', e));
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

@@ -290,11 +290,13 @@ mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_show' in response) ? response.arg_show : response;
-              encoder.encodeStructInline(mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec.$.structSpec, { 'arg_show': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] canShowModule FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_show' in response) ? response['arg_show'] : response;
+              const resp_obj = { 'arg_show': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

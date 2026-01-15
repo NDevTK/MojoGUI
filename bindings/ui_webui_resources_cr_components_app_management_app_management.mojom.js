@@ -740,11 +740,13 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_apps' in response) ? response.arg_apps : response;
-              encoder.encodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_GetApps_ResponseParamsSpec.$.structSpec, { 'arg_apps': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getApps FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_apps' in response) ? response['arg_apps'] : response;
+              const resp_obj = { 'arg_apps': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.app_management.mojom.PageHandler_GetApps_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -756,11 +758,13 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_app' in response) ? response.arg_app : response;
-              encoder.encodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_GetApp_ResponseParamsSpec.$.structSpec, { 'arg_app': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getApp FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_app' in response) ? response['arg_app'] : response;
+              const resp_obj = { 'arg_app': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.app_management.mojom.PageHandler_GetApp_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -772,11 +776,13 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_sub_app_to_parent_map' in response) ? response.arg_sub_app_to_parent_map : response;
-              encoder.encodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec.$.structSpec, { 'arg_sub_app_to_parent_map': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getSubAppToParentMap FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_sub_app_to_parent_map' in response) ? response['arg_sub_app_to_parent_map'] : response;
+              const resp_obj = { 'arg_sub_app_to_parent_map': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -788,11 +794,13 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_messages' in response) ? response.arg_messages : response;
-              encoder.encodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParamsSpec.$.structSpec, { 'arg_messages': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getExtensionAppPermissionMessages FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_messages' in response) ? response['arg_messages'] : response;
+              const resp_obj = { 'arg_messages': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -846,11 +854,13 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_app_ids' in response) ? response.arg_app_ids : response;
-              encoder.encodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec.$.structSpec, { 'arg_app_ids': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getOverlappingPreferredApps FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_app_ids' in response) ? response['arg_app_ids'] : response;
+              const resp_obj = { 'arg_app_ids': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.app_management.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

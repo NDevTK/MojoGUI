@@ -290,11 +290,13 @@ mojo.internal.bindings.content.mojom.RendererHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_histogram_json' in response) ? response.arg_histogram_json : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec.$.structSpec, { 'arg_histogram_json': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getBrowserHistogram FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_histogram_json' in response) ? response['arg_histogram_json'] : response;
+              const resp_obj = { 'arg_histogram_json': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -320,11 +322,13 @@ mojo.internal.bindings.content.mojom.RendererHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_has_gpu_process' in response) ? response.arg_has_gpu_process : response;
-              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec.$.structSpec, { 'arg_has_gpu_process': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] hasGpuProcess FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_has_gpu_process' in response) ? response['arg_has_gpu_process'] : response;
+              const resp_obj = { 'arg_has_gpu_process': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

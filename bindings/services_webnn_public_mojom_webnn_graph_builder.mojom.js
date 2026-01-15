@@ -315,11 +315,13 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_is_valid' in response) ? response.arg_is_valid : response;
-              encoder.encodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec.$.structSpec, { 'arg_is_valid': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] isValidGraphForTesting FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_is_valid' in response) ? response['arg_is_valid'] : response;
+              const resp_obj = { 'arg_is_valid': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

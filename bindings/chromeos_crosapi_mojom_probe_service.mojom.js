@@ -499,11 +499,13 @@ mojo.internal.bindings.crosapi.mojom.TelemetryProbeServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_telemetry_info' in response) ? response.arg_telemetry_info : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec.$.structSpec, { 'arg_telemetry_info': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] probeTelemetryInfo FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_telemetry_info' in response) ? response['arg_telemetry_info'] : response;
+              const resp_obj = { 'arg_telemetry_info': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -515,11 +517,13 @@ mojo.internal.bindings.crosapi.mojom.TelemetryProbeServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_oem_data' in response) ? response.arg_oem_data : response;
-              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec.$.structSpec, { 'arg_oem_data': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getOemData FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_oem_data' in response) ? response['arg_oem_data'] : response;
+              const resp_obj = { 'arg_oem_data': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

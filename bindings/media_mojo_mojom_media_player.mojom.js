@@ -596,11 +596,13 @@ mojo.internal.bindings.media.mojom.MediaPlayerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_has_sufficiently_visible_video' in response) ? response.arg_has_sufficiently_visible_video : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec.$.structSpec, { 'arg_has_sufficiently_visible_video': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] requestVisibility FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_has_sufficiently_visible_video' in response) ? response['arg_has_sufficiently_visible_video'] : response;
+              const resp_obj = { 'arg_has_sufficiently_visible_video': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -742,11 +744,13 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_has_played_before' in response) ? response.arg_has_played_before : response;
-              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec.$.structSpec, { 'arg_has_played_before': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getHasPlayedBefore FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_has_played_before' in response) ? response['arg_has_played_before'] : response;
+              const resp_obj = { 'arg_has_played_before': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

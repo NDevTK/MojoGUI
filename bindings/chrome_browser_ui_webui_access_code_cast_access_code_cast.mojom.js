@@ -430,11 +430,13 @@ mojo.internal.bindings.access_code_cast.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_result_code' in response) ? response.arg_result_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec.$.structSpec, { 'arg_result_code': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] addSink FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_result_code' in response) ? response['arg_result_code'] : response;
+              const resp_obj = { 'arg_result_code': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -446,11 +448,13 @@ mojo.internal.bindings.access_code_cast.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_result_code' in response) ? response.arg_result_code : response;
-              encoder.encodeStructInline(mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec.$.structSpec, { 'arg_result_code': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] castToSink FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_result_code' in response) ? response['arg_result_code'] : response;
+              const resp_obj = { 'arg_result_code': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

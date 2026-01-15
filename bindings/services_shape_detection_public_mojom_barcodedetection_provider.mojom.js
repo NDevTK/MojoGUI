@@ -276,11 +276,13 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderReceiver = 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_supported_formats' in response) ? response.arg_supported_formats : response;
-              encoder.encodeStructInline(mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec.$.structSpec, { 'arg_supported_formats': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] enumerateSupportedFormats FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_supported_formats' in response) ? response['arg_supported_formats'] : response;
+              const resp_obj = { 'arg_supported_formats': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

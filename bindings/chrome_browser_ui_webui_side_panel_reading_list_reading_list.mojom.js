@@ -555,11 +555,13 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_entries' in response) ? response.arg_entries : response;
-              encoder.encodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec.$.structSpec, { 'arg_entries': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getReadLaterEntries FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_entries' in response) ? response['arg_entries'] : response;
+              const resp_obj = { 'arg_entries': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -634,11 +636,13 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_windows' in response) ? response.arg_windows : response;
-              encoder.encodeStructInline(mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec.$.structSpec, { 'arg_windows': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] getWindowData FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_windows' in response) ? response['arg_windows'] : response;
+              const resp_obj = { 'arg_windows': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

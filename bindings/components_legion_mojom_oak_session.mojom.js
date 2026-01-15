@@ -294,11 +294,13 @@ mojo.internal.bindings.legion.mojom.OakSessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_request' in response) ? response.arg_request : response;
-              encoder.encodeStructInline(mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec.$.structSpec, { 'arg_request': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] initiateHandshake FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_request' in response) ? response['arg_request'] : response;
+              const resp_obj = { 'arg_request': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -310,11 +312,13 @@ mojo.internal.bindings.legion.mojom.OakSessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response.arg_success : response;
-              encoder.encodeStructInline(mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec.$.structSpec, { 'arg_success': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] completeHandshake FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -326,11 +330,13 @@ mojo.internal.bindings.legion.mojom.OakSessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_output' in response) ? response.arg_output : response;
-              encoder.encodeStructInline(mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ResponseParamsSpec.$.structSpec, { 'arg_output': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] encrypt FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_output' in response) ? response['arg_output'] : response;
+              const resp_obj = { 'arg_output': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -342,11 +348,13 @@ mojo.internal.bindings.legion.mojom.OakSessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_output' in response) ? response.arg_output : response;
-              encoder.encodeStructInline(mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ResponseParamsSpec.$.structSpec, { 'arg_output': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] decrypt FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_output' in response) ? response['arg_output'] : response;
+              const resp_obj = { 'arg_output': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

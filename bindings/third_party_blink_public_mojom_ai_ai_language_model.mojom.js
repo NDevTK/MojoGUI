@@ -544,11 +544,13 @@ mojo.internal.bindings.blink.mojom.AILanguageModelReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_number_of_tokens' in response) ? response.arg_number_of_tokens : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec.$.structSpec, { 'arg_number_of_tokens': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] measureInputUsage FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_number_of_tokens' in response) ? response['arg_number_of_tokens'] : response;
+              const resp_obj = { 'arg_number_of_tokens': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

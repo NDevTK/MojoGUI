@@ -624,11 +624,13 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_will_be_terminated' in response) ? response.arg_will_be_terminated : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec.$.structSpec, { 'arg_will_be_terminated': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] requestTermination FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_will_be_terminated' in response) ? response['arg_will_be_terminated'] : response;
+              const resp_obj = { 'arg_will_be_terminated': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

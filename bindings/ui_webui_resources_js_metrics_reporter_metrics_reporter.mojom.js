@@ -308,11 +308,13 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_marked_time' in response) ? response.arg_marked_time : response;
-              encoder.encodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec.$.structSpec, { 'arg_marked_time': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] onGetMark FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_marked_time' in response) ? response['arg_marked_time'] : response;
+              const resp_obj = { 'arg_marked_time': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -475,11 +477,13 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_marked_time' in response) ? response.arg_marked_time : response;
-              encoder.encodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec.$.structSpec, { 'arg_marked_time': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] onGetMark FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_marked_time' in response) ? response['arg_marked_time'] : response;
+              const resp_obj = { 'arg_marked_time': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

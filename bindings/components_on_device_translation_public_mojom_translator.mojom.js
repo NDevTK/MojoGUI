@@ -260,11 +260,13 @@ mojo.internal.bindings.on_device_translation.mojom.TranslatorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_output' in response) ? response.arg_output : response;
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ResponseParamsSpec.$.structSpec, { 'arg_output': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] translate FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_output' in response) ? response['arg_output'] : response;
+              const resp_obj = { 'arg_output': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -276,11 +278,13 @@ mojo.internal.bindings.on_device_translation.mojom.TranslatorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_sentences' in response) ? response.arg_sentences : response;
-              encoder.encodeStructInline(mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec.$.structSpec, { 'arg_sentences': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] splitSentences FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_sentences' in response) ? response['arg_sentences'] : response;
+              const resp_obj = { 'arg_sentences': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

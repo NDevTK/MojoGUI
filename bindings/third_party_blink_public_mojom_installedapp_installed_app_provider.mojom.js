@@ -253,11 +253,13 @@ mojo.internal.bindings.blink.mojom.InstalledAppProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_installed_apps' in response) ? response.arg_installed_apps : response;
-              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec.$.structSpec, { 'arg_installed_apps': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] filterInstalledApps FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_installed_apps' in response) ? response['arg_installed_apps'] : response;
+              const resp_obj = { 'arg_installed_apps': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }

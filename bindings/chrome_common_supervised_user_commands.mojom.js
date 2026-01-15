@@ -282,11 +282,13 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_request_issued' in response) ? response.arg_request_issued : response;
-              encoder.encodeStructInline(mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec.$.structSpec, { 'arg_request_issued': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] requestUrlAccessRemote FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_request_issued' in response) ? response['arg_request_issued'] : response;
+              const resp_obj = { 'arg_request_issued': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
@@ -298,11 +300,13 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const encoder = new mojo.internal.Encoder(header.requestId, true);
-              const val = (response && typeof response === 'object' && 'arg_request_issued' in response) ? response.arg_request_issued : response;
-              encoder.encodeStructInline(mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec.$.structSpec, { 'arg_request_issued': val });
-              this.router_.sendMessage(encoder.finish());
-            }).catch(e => console.error('[GeneratedReceiver] requestUrlAccessLocal FAILED:', e));
+              const val = (response && typeof response === 'object' && 'arg_request_issued' in response) ? response['arg_request_issued'] : response;
+              const resp_obj = { 'arg_request_issued': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
           }
           break;
         }
