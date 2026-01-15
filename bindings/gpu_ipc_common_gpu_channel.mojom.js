@@ -142,6 +142,7 @@ mojo.internal.bindings.gpu.mojom.GLESCreationAttribsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.WebGPUCreationAttribsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.CreateCommandBufferParamsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.CommandBufferStateSpec = { $: {} };
+mojo.internal.bindings.gpu.mojom.SwapBuffersCompleteParamsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.DeferredRequestSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.DeferredCommandBufferRequestSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.AsyncFlushParamsSpec = { $: {} };
@@ -268,25 +269,14 @@ mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.MailboxSpec = mojo.internal.bindings.gpu.mojom.MailboxSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
-mojo.internal.bindings.gpu.mojom.OnConsoleMessage(stringSpec = mojo.internal.bindings.gpu.mojom.OnConsoleMessage(stringSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
-mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
-mojo.internal.bindings.gpu.mojom.OnDestroyed(ContextLostReason reason, ErrorSpec = mojo.internal.bindings.gpu.mojom.OnDestroyed(ContextLostReason reason, ErrorSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
-mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.OnGpuSwitched()Spec = mojo.internal.bindings.gpu.mojom.OnGpuSwitched()Spec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
-mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
-mojo.internal.bindings.gpu.mojom.OnReturnData(array<uint8>Spec = mojo.internal.bindings.gpu.mojom.OnReturnData(array<uint8>Spec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
-mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
-mojo.internal.bindings.gpu.mojom.OnSignalAck(uint32 signal_id, CommandBufferStateSpec = mojo.internal.bindings.gpu.mojom.OnSignalAck(uint32 signal_id, CommandBufferStateSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.SharedImageMetadataSpec = mojo.internal.bindings.gpu.mojom.SharedImageMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfaceSpec = mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfaceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfaceRemote = mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfaceRemote || class {};
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.SharedImagePoolIdSpec = mojo.internal.bindings.gpu.mojom.SharedImagePoolIdSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -526,13 +516,9 @@ mojo.internal.Struct(
 // Struct: SwapBuffersCompleteParams
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.SwapBuffersCompleteParamsSpec, 'gpu.mojom.SwapBuffersCompleteParams', [
-      mojo.internal.StructField('arg_message)', 0, 0, mojo.internal.bindings.gpu.mojom.OnConsoleMessage(stringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.bindings.gpu.mojom.OnGpuSwitched()Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error)', 16, 0, mojo.internal.bindings.gpu.mojom.OnDestroyed(ContextLostReason reason, ErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data)', 24, 0, mojo.internal.bindings.gpu.mojom.OnReturnData(array<uint8>Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state)', 32, 0, mojo.internal.bindings.gpu.mojom.OnSignalAck(uint32 signal_id, CommandBufferStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 0, 0, mojo.internal.bindings.gpu.mojom.OnGpuSwitched()Spec, null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 16]]);
 
 // Struct: DeferredRequest
 mojo.internal.Struct(

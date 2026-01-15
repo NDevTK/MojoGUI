@@ -131,6 +131,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorker
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRemote = mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRemote || class {};
 
 // Interface: ServiceWorkerWorkerClientRegistry
 mojo.internal.Struct(

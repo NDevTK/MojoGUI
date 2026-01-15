@@ -129,6 +129,7 @@ mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerSpec = mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRemote = mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRemote || class {};
 
 // Struct: DidCommitProvisionalLoadInterfaceParams
 mojo.internal.Struct(

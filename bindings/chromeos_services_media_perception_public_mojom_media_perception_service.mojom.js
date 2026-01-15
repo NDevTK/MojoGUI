@@ -141,9 +141,11 @@ mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.media_perception = mojo.internal.bindings.chromeos.media_perception || {};
 mojo.internal.bindings.chromeos.media_perception.mojom = mojo.internal.bindings.chromeos.media_perception.mojom || {};
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionSpec = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionRemote = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionRemote || class {};
 mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
 mojo.internal.bindings.video_capture.mojom.VideoSourceProviderSpec = mojo.internal.bindings.video_capture.mojom.VideoSourceProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemote = mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemote || class {};
 
 // Interface: MediaPerceptionService
 mojo.internal.Struct(

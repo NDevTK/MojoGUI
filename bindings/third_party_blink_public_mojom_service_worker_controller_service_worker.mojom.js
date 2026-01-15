@@ -140,6 +140,7 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector_UpdateContro
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.CacheStorageSpec = mojo.internal.bindings.blink.mojom.CacheStorageSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.CacheStorageRemote = mojo.internal.bindings.blink.mojom.CacheStorageRemote || class {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ControllerServiceWorkerModeSpec = mojo.internal.bindings.blink.mojom.ControllerServiceWorkerModeSpec || { $: mojo.internal.Enum().$ };
@@ -161,6 +162,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerFetchHandlerTypeSpec = mojo.inte
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallbackSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallbackSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallbackRemote = mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallbackRemote || class {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -170,6 +172,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRulesSpec = mojo.internal.
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallbackSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallbackSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallbackRemote = mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallbackRemote || class {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.WebFeatureSpec = mojo.internal.bindings.blink.mojom.WebFeatureSpec || { $: mojo.internal.Enum().$ };
@@ -182,12 +185,14 @@ mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec = mojo.intern
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterSpec = mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterRemote = mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterRemote || class {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec = mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.DocumentIsolationPolicyReporterSpec = mojo.internal.bindings.network.mojom.DocumentIsolationPolicyReporterSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network.mojom.DocumentIsolationPolicyReporterRemote = mojo.internal.bindings.network.mojom.DocumentIsolationPolicyReporterRemote || class {};
 
 // Struct: ServiceWorkerRouterData
 mojo.internal.Struct(

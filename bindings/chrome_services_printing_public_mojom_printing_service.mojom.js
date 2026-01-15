@@ -133,12 +133,15 @@ mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToEmfConverterFacto
 mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.printing.mojom.PdfNupConverterSpec = mojo.internal.bindings.printing.mojom.PdfNupConverterSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.printing.mojom.PdfNupConverterRemote = mojo.internal.bindings.printing.mojom.PdfNupConverterRemote || class {};
 mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactorySpec = mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryRemote = mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryRemote || class {};
 mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterSpec = mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterRemote = mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterRemote || class {};
 
 mojo.internal.bindings.printing.mojom.kPrintingServiceSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kPdfConversion;
 

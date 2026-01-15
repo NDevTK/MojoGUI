@@ -153,6 +153,7 @@ mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.Siz
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.MediaPlayerSpec = mojo.internal.bindings.media.mojom.MediaPlayerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.MediaPlayerRemote = mojo.internal.bindings.media.mojom.MediaPlayerRemote || class {};
 mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
 mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
 mojo.internal.bindings.media_session.mojom.MediaPositionSpec = mojo.internal.bindings.media_session.mojom.MediaPositionSpec || { $: mojo.internal.OpaqueStruct.$ };

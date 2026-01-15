@@ -197,6 +197,7 @@ mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec = mojo.internal.bind
 mojo.internal.bindings.safe_browsing = mojo.internal.bindings.safe_browsing || {};
 mojo.internal.bindings.safe_browsing.mojom = mojo.internal.bindings.safe_browsing.mojom || {};
 mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlCheckerSpec = mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlCheckerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlCheckerRemote = mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlCheckerRemote || class {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };

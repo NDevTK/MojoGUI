@@ -153,6 +153,7 @@ mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.secure_channel = mojo.internal.bindings.ash.secure_channel || {};
 mojo.internal.bindings.ash.secure_channel.mojom = mojo.internal.bindings.ash.secure_channel.mojom || {};
 mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerSpec = mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerRemote = mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerRemote || class {};
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.secure_channel = mojo.internal.bindings.ash.secure_channel || {};
 mojo.internal.bindings.ash.secure_channel.mojom = mojo.internal.bindings.ash.secure_channel.mojom || {};

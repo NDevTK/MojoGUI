@@ -129,6 +129,7 @@ mojo.internal.bindings.blink.mojom.CloneableMessageSpec = { $: {} };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote = mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote || class {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.SerializedBlobSpec = mojo.internal.bindings.blink.mojom.SerializedBlobSpec || { $: mojo.internal.OpaqueStruct.$ };

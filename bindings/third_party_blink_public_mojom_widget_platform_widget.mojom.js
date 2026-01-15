@@ -172,15 +172,19 @@ mojo.internal.bindings.blink.mojom.VisualPropertiesSpec = mojo.internal.bindings
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.WidgetInputHandlerSpec = mojo.internal.bindings.blink.mojom.WidgetInputHandlerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemote = mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemote || class {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostSpec = mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostRemote = mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostRemote || class {};
 mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverSpec = mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverRemote = mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverRemote || class {};
 mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientSpec = mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientRemote = mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientRemote || class {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.PointSpec = mojo.internal.bindings.gfx.mojom.PointSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -205,12 +209,15 @@ mojo.internal.bindings.ui.mojom.TextInputStateSpec = mojo.internal.bindings.ui.m
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.CompositorFrameSinkSpec = mojo.internal.bindings.viz.mojom.CompositorFrameSinkSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemote = mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemote || class {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientSpec = mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemote = mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemote || class {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.InputTargetClientSpec = mojo.internal.bindings.viz.mojom.InputTargetClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz.mojom.InputTargetClientRemote = mojo.internal.bindings.viz.mojom.InputTargetClientRemote || class {};
 
 // Interface: WidgetCompositor
 mojo.internal.Struct(

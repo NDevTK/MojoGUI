@@ -139,12 +139,15 @@ mojo.internal.bindings.sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_Pa
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.MdnsResponderSpec = mojo.internal.bindings.network.mojom.MdnsResponderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network.mojom.MdnsResponderRemote = mojo.internal.bindings.network.mojom.MdnsResponderRemote || class {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.P2PSocketManagerSpec = mojo.internal.bindings.network.mojom.P2PSocketManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network.mojom.P2PSocketManagerRemote = mojo.internal.bindings.network.mojom.P2PSocketManagerRemote || class {};
 mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
 mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
 mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerSpec = mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerRemote = mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerRemote || class {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };

@@ -132,6 +132,7 @@ mojo.internal.bindings.device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec =
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.NFCSpec = mojo.internal.bindings.device.mojom.NFCSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device.mojom.NFCRemote = mojo.internal.bindings.device.mojom.NFCRemote || class {};
 
 // Interface: NFCProvider
 mojo.internal.Struct(

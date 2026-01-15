@@ -151,6 +151,7 @@ mojo.internal.bindings.webnn.mojom.ErrorSpec = mojo.internal.bindings.webnn.mojo
 mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.WebNNContextSpec = mojo.internal.bindings.webnn.mojom.WebNNContextSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn.mojom.WebNNContextRemote = mojo.internal.bindings.webnn.mojom.WebNNContextRemote || class {};
 
 // Enum: PowerPreference
 mojo.internal.bindings.webnn.mojom.PowerPreference = {

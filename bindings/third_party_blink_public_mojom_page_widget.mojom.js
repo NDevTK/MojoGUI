@@ -200,6 +200,7 @@ mojo.internal.bindings.blink.mojom.VisualPropertiesSpec = mojo.internal.bindings
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.WidgetCompositorSpec = mojo.internal.bindings.blink.mojom.WidgetCompositorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.WidgetCompositorRemote = mojo.internal.bindings.blink.mojom.WidgetCompositorRemote || class {};
 mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
 mojo.internal.bindings.cc.mojom.TouchActionSpec = mojo.internal.bindings.cc.mojom.TouchActionSpec || { $: mojo.internal.Enum().$ };

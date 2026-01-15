@@ -166,6 +166,7 @@ mojo.internal.bindings.media.mojom.VideoFrameInfoSpec = mojo.internal.bindings.m
 mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
 mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandlerSpec = mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandlerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandlerRemote = mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandlerRemote || class {};
 
 // Interface: SharedMemoryVirtualDevice
 mojo.internal.Struct(

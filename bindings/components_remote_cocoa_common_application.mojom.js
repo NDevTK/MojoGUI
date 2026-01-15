@@ -140,21 +140,27 @@ mojo.internal.bindings.remote_cocoa.mojom.Application_ForwardCutCopyPaste_Params
 mojo.internal.bindings.remote_cocoa = mojo.internal.bindings.remote_cocoa || {};
 mojo.internal.bindings.remote_cocoa.mojom = mojo.internal.bindings.remote_cocoa.mojom || {};
 mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeSpec = mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeRemote = mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeRemote || class {};
 mojo.internal.bindings.remote_cocoa = mojo.internal.bindings.remote_cocoa || {};
 mojo.internal.bindings.remote_cocoa.mojom = mojo.internal.bindings.remote_cocoa.mojom || {};
 mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowSpec = mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowRemote = mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowRemote || class {};
 mojo.internal.bindings.remote_cocoa = mojo.internal.bindings.remote_cocoa || {};
 mojo.internal.bindings.remote_cocoa.mojom = mojo.internal.bindings.remote_cocoa.mojom || {};
 mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostSpec = mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemote = mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemote || class {};
 mojo.internal.bindings.remote_cocoa = mojo.internal.bindings.remote_cocoa || {};
 mojo.internal.bindings.remote_cocoa.mojom = mojo.internal.bindings.remote_cocoa.mojom || {};
 mojo.internal.bindings.remote_cocoa.mojom.TextInputHostSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHostSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemote = mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemote || class {};
 mojo.internal.bindings.system_media_controls = mojo.internal.bindings.system_media_controls || {};
 mojo.internal.bindings.system_media_controls.mojom = mojo.internal.bindings.system_media_controls.mojom || {};
 mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemote = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemote || class {};
 mojo.internal.bindings.system_media_controls = mojo.internal.bindings.system_media_controls || {};
 mojo.internal.bindings.system_media_controls.mojom = mojo.internal.bindings.system_media_controls.mojom || {};
 mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRemote = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRemote || class {};
 
 // Enum: CutCopyPasteCommand
 mojo.internal.bindings.remote_cocoa.mojom.CutCopyPasteCommand = {

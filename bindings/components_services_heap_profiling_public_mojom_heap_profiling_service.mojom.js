@@ -135,6 +135,7 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_Res
 mojo.internal.bindings.heap_profiling = mojo.internal.bindings.heap_profiling || {};
 mojo.internal.bindings.heap_profiling.mojom = mojo.internal.bindings.heap_profiling.mojom || {};
 mojo.internal.bindings.heap_profiling.mojom.ProfilingClientSpec = mojo.internal.bindings.heap_profiling.mojom.ProfilingClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.heap_profiling.mojom.ProfilingClientRemote = mojo.internal.bindings.heap_profiling.mojom.ProfilingClientRemote || class {};
 mojo.internal.bindings.heap_profiling = mojo.internal.bindings.heap_profiling || {};
 mojo.internal.bindings.heap_profiling.mojom = mojo.internal.bindings.heap_profiling.mojom || {};
 mojo.internal.bindings.heap_profiling.mojom.ProfilingParamsSpec = mojo.internal.bindings.heap_profiling.mojom.ProfilingParamsSpec || { $: mojo.internal.OpaqueStruct.$ };

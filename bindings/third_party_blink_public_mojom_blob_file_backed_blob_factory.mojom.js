@@ -132,6 +132,7 @@ mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlobSync_Respon
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.BlobSpec = mojo.internal.bindings.blink.mojom.BlobSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.BlobRemote = mojo.internal.bindings.blink.mojom.BlobRemote || class {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.DataElementFileSpec = mojo.internal.bindings.blink.mojom.DataElementFileSpec || { $: mojo.internal.OpaqueStruct.$ };

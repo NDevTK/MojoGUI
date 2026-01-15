@@ -139,6 +139,7 @@ mojo.internal.bindings.blink.mojom.WebUsbService_SetClient_ParamsSpec = { $: {} 
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.UsbDeviceSpec = mojo.internal.bindings.device.mojom.UsbDeviceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device.mojom.UsbDeviceRemote = mojo.internal.bindings.device.mojom.UsbDeviceRemote || class {};
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.UsbDeviceFilterSpec = mojo.internal.bindings.device.mojom.UsbDeviceFilterSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -148,6 +149,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec = mojo.internal.bindings.d
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.UsbDeviceManagerClientSpec = mojo.internal.bindings.device.mojom.UsbDeviceManagerClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device.mojom.UsbDeviceManagerClientRemote = mojo.internal.bindings.device.mojom.UsbDeviceManagerClientRemote || class {};
 
 // Struct: WebUsbRequestDeviceOptions
 mojo.internal.Struct(

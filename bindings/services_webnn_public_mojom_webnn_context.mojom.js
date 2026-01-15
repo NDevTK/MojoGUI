@@ -160,9 +160,11 @@ mojo.internal.bindings.webnn.mojom.TensorInfoSpec = mojo.internal.bindings.webnn
 mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderSpec = mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderRemote = mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderRemote || class {};
 mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.WebNNTensorSpec = mojo.internal.bindings.webnn.mojom.WebNNTensorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn.mojom.WebNNTensorRemote = mojo.internal.bindings.webnn.mojom.WebNNTensorRemote || class {};
 
 // Union: CreateTensorResult
 mojo.internal.Union(

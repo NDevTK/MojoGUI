@@ -132,6 +132,7 @@ mojo.internal.bindings.arc.mojom.MediaSessionInstance_DisableAudioFocus_ParamsSp
 mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
 mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
 mojo.internal.bindings.media_session.mojom.AudioFocusManagerSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemote = mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemote || class {};
 
 // Interface: MediaSessionInstance
 mojo.internal.Struct(

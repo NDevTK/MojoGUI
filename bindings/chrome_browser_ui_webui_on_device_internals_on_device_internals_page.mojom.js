@@ -185,6 +185,7 @@ mojo.internal.bindings.on_device_model.mojom.ModelPerformanceHintSpec = mojo.int
 mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote || class {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec = mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec || { $: mojo.internal.OpaqueStruct.$ };

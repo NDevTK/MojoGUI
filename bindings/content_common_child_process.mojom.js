@@ -160,6 +160,7 @@ mojo.internal.bindings.mojo_base.mojom.MemoryPressureLevelSpec = mojo.internal.b
 mojo.internal.bindings.tracing = mojo.internal.bindings.tracing || {};
 mojo.internal.bindings.tracing.mojom = mojo.internal.bindings.tracing.mojom || {};
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderSpec = mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderRemote = mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderRemote || class {};
 
 // Struct: LoggingSettings
 mojo.internal.Struct(

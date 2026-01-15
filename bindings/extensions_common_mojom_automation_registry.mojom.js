@@ -131,6 +131,7 @@ mojo.internal.bindings.extensions.mojom.RendererAutomationRegistry_BindAutomatio
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.ax.mojom.AutomationSpec = mojo.internal.bindings.ax.mojom.AutomationSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax.mojom.AutomationRemote = mojo.internal.bindings.ax.mojom.AutomationRemote || class {};
 
 // Interface: RendererAutomationRegistry
 mojo.internal.Struct(

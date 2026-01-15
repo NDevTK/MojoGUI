@@ -124,6 +124,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec = { $: {} };
+mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec = { $: {} };
 mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.URLLoader = {};
 mojo.internal.bindings.network.mojom.URLLoaderSpec = { $ : {} };
@@ -156,9 +157,6 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.RequestPrioritySpec = mojo.internal.bindings.network.mojom.RequestPrioritySpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
-mojo.internal.bindings.network.mojom.SetPriority(RequestPriority priority, int32Spec = mojo.internal.bindings.network.mojom.SetPriority(RequestPriority priority, int32Spec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.network = mojo.internal.bindings.network || {};
-mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.URLLoaderCompletionStatusSpec = mojo.internal.bindings.network.mojom.URLLoaderCompletionStatusSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
@@ -179,10 +177,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec, 'network.mojom.URLRequestRedirectInfo', [
       mojo.internal.StructField('arg_kClientDisconnectReason', 0, 0, mojo.internal.OpaqueStruct, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_new_url)', 8, 0, mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network.mojom.HttpRequestHeaders modified_cors_exempt_headers, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_intra_priority_value)', 16, 0, mojo.internal.bindings.network.mojom.SetPriority(RequestPriority priority, int32Spec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 16]]);
 
 // Struct: URLLoaderClientEndpoints
 mojo.internal.Struct(

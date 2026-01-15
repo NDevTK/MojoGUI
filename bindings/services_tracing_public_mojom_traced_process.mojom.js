@@ -132,6 +132,7 @@ mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_Respo
 mojo.internal.bindings.tracing = mojo.internal.bindings.tracing || {};
 mojo.internal.bindings.tracing.mojom = mojo.internal.bindings.tracing.mojom || {};
 mojo.internal.bindings.tracing.mojom.PerfettoServiceSpec = mojo.internal.bindings.tracing.mojom.PerfettoServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.tracing.mojom.PerfettoServiceRemote = mojo.internal.bindings.tracing.mojom.PerfettoServiceRemote || class {};
 
 // Struct: ConnectToTracingRequest
 mojo.internal.Struct(

@@ -141,6 +141,7 @@ mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorRemote = mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorRemote || class {};
 
 // Enum: BuiltinModelId
 mojo.internal.bindings.chromeos.machine_learning.mojom.BuiltinModelId = {

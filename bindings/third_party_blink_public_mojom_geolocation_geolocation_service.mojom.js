@@ -135,6 +135,7 @@ mojo.internal.bindings.blink.mojom.PermissionStatusSpec = mojo.internal.bindings
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.GeolocationSpec = mojo.internal.bindings.device.mojom.GeolocationSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device.mojom.GeolocationRemote = mojo.internal.bindings.device.mojom.GeolocationRemote || class {};
 
 // Interface: GeolocationService
 mojo.internal.Struct(

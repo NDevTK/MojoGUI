@@ -124,8 +124,17 @@ mojo.internal.bindings.ash.cros_healthd.mojom = mojo.internal.bindings.ash.cros_
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.cros_healthd.mojom.DeviceTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.cros_healthd.mojom.InputTouchButtonSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrashTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.cros_healthd.mojom.EventCategoryEnumSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadEventInfoSpec = { $: {} };

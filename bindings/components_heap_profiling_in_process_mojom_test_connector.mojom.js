@@ -135,9 +135,11 @@ mojo.internal.bindings.heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec 
 mojo.internal.bindings.heap_profiling = mojo.internal.bindings.heap_profiling || {};
 mojo.internal.bindings.heap_profiling.mojom = mojo.internal.bindings.heap_profiling.mojom || {};
 mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerSpec = mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerRemote = mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerRemote || class {};
 mojo.internal.bindings.metrics = mojo.internal.bindings.metrics || {};
 mojo.internal.bindings.metrics.mojom = mojo.internal.bindings.metrics.mojom || {};
 mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorSpec = mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorRemote = mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorRemote || class {};
 
 // Interface: TestConnector
 mojo.internal.Struct(

@@ -160,6 +160,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateClientErrorSpec = mojo.interna
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec = mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote = mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote || class {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec = mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec || { $: mojo.internal.OpaqueStruct.$ };

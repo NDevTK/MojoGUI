@@ -171,6 +171,7 @@ mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionResultCodeSpec 
 mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
 mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerSpec = mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemote = mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemote || class {};
 
 // Enum: CreatePushSubscriptionSuccessCode
 mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionSuccessCode = {

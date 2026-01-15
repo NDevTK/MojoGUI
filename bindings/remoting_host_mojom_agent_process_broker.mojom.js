@@ -136,6 +136,7 @@ mojo.internal.bindings.remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_
 mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 mojo.internal.bindings.remoting.mojom.RemotingHostControlSpec = mojo.internal.bindings.remoting.mojom.RemotingHostControlSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.remoting.mojom.RemotingHostControlRemote = mojo.internal.bindings.remoting.mojom.RemotingHostControlRemote || class {};
 
 // Interface: AgentProcess
 mojo.internal.Struct(

@@ -141,12 +141,15 @@ mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_Respons
 mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
 mojo.internal.bindings.chromecast.mojom.CastContentWindowSpec = mojo.internal.bindings.chromecast.mojom.CastContentWindowSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromecast.mojom.CastContentWindowRemote = mojo.internal.bindings.chromecast.mojom.CastContentWindowRemote || class {};
 mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
 mojo.internal.bindings.chromecast.mojom.CastWebContentsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContentsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromecast.mojom.CastWebContentsRemote = mojo.internal.bindings.chromecast.mojom.CastWebContentsRemote || class {};
 mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
 mojo.internal.bindings.chromecast.mojom.WebUiClientSpec = mojo.internal.bindings.chromecast.mojom.WebUiClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromecast.mojom.WebUiClientRemote = mojo.internal.bindings.chromecast.mojom.WebUiClientRemote || class {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };

@@ -133,9 +133,11 @@ mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtra
 mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
 mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerSpec = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerRemote = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerRemote || class {};
 mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
 mojo.internal.bindings.chrome.mojom.SingleFileExtractorSpec = mojo.internal.bindings.chrome.mojom.SingleFileExtractorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chrome.mojom.SingleFileExtractorRemote = mojo.internal.bindings.chrome.mojom.SingleFileExtractorRemote || class {};
 
 // Interface: FileUtilService
 mojo.internal.Struct(

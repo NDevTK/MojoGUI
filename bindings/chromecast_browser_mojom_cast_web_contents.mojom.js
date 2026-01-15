@@ -162,9 +162,11 @@ mojo.internal.bindings.chromecast.mojom.CastWebContents_GetMainFramePid_Response
 mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
 mojo.internal.bindings.chromecast.mojom.ApiBindingsSpec = mojo.internal.bindings.chromecast.mojom.ApiBindingsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromecast.mojom.ApiBindingsRemote = mojo.internal.bindings.chromecast.mojom.ApiBindingsRemote || class {};
 mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
 mojo.internal.bindings.chromecast.mojom.RemoteInterfacesSpec = mojo.internal.bindings.chromecast.mojom.RemoteInterfacesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromecast.mojom.RemoteInterfacesRemote = mojo.internal.bindings.chromecast.mojom.RemoteInterfacesRemote || class {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec = mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec || { $: mojo.internal.OpaqueStruct.$ };

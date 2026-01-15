@@ -138,15 +138,18 @@ mojo.internal.bindings.service_manager.mojom.CapabilitySetSpec = mojo.internal.b
 mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};
 mojo.internal.bindings.service_manager.mojom = mojo.internal.bindings.service_manager.mojom || {};
 mojo.internal.bindings.service_manager.mojom.ConnectorSpec = mojo.internal.bindings.service_manager.mojom.ConnectorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.service_manager.mojom.ConnectorRemote = mojo.internal.bindings.service_manager.mojom.ConnectorRemote || class {};
 mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};
 mojo.internal.bindings.service_manager.mojom = mojo.internal.bindings.service_manager.mojom || {};
 mojo.internal.bindings.service_manager.mojom.IdentitySpec = mojo.internal.bindings.service_manager.mojom.IdentitySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};
 mojo.internal.bindings.service_manager.mojom = mojo.internal.bindings.service_manager.mojom || {};
 mojo.internal.bindings.service_manager.mojom.ProcessMetadataSpec = mojo.internal.bindings.service_manager.mojom.ProcessMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.service_manager.mojom.ProcessMetadataRemote = mojo.internal.bindings.service_manager.mojom.ProcessMetadataRemote || class {};
 mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};
 mojo.internal.bindings.service_manager.mojom = mojo.internal.bindings.service_manager.mojom || {};
 mojo.internal.bindings.service_manager.mojom.ServiceControlSpec = mojo.internal.bindings.service_manager.mojom.ServiceControlSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.service_manager.mojom.ServiceControlRemote = mojo.internal.bindings.service_manager.mojom.ServiceControlRemote || class {};
 
 // Struct: BindSourceInfo
 mojo.internal.Struct(

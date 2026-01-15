@@ -153,6 +153,7 @@ mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.moj
 mojo.internal.bindings.screen_ai = mojo.internal.bindings.screen_ai || {};
 mojo.internal.bindings.screen_ai.mojom = mojo.internal.bindings.screen_ai.mojom || {};
 mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorSpec = mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorRemote = mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorRemote || class {};
 
 // Enum: ResponseStatus
 mojo.internal.bindings.mahi.mojom.ResponseStatus = {

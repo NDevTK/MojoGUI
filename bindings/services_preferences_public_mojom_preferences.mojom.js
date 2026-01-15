@@ -142,6 +142,7 @@ mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.moj
 mojo.internal.bindings.prefs = mojo.internal.bindings.prefs || {};
 mojo.internal.bindings.prefs.mojom = mojo.internal.bindings.prefs.mojom || {};
 mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateSpec = mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateRemote = mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateRemote || class {};
 
 // Enum: EnforcementLevel
 mojo.internal.bindings.prefs.mojom.EnforcementLevel = {

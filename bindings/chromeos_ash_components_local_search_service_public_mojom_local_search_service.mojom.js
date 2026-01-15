@@ -141,6 +141,7 @@ mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.local_search_service = mojo.internal.bindings.ash.local_search_service || {};
 mojo.internal.bindings.ash.local_search_service.mojom = mojo.internal.bindings.ash.local_search_service.mojom || {};
 mojo.internal.bindings.ash.local_search_service.mojom.IndexSpec = mojo.internal.bindings.ash.local_search_service.mojom.IndexSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash.local_search_service.mojom.IndexRemote = mojo.internal.bindings.ash.local_search_service.mojom.IndexRemote || class {};
 
 // Enum: IndexId
 mojo.internal.bindings.ash.local_search_service.mojom.IndexId = {

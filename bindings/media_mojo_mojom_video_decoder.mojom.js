@@ -128,6 +128,7 @@ mojo.internal.bindings.media.mojom.CdmSpec = { $: {} };
 mojo.internal.bindings.media.mojom.OverlayInfoSpec = { $: {} };
 mojo.internal.bindings.media.mojom.SupportedVideoDecoderConfigSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CommandBufferIdSpec = { $: {} };
+mojo.internal.bindings.media.mojom.OverlayInfoSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoFrameHandleReleaser = {};
 mojo.internal.bindings.media.mojom.VideoFrameHandleReleaserSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.VideoFrameHandleReleaser.$interfaceName = 'media.mojom.VideoFrameHandleReleaser';
@@ -171,6 +172,7 @@ mojo.internal.bindings.media.mojom.CdmSpec = mojo.internal.bindings.media.mojom.
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.CdmContextForOOPVDSpec = mojo.internal.bindings.media.mojom.CdmContextForOOPVDSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.CdmContextForOOPVDRemote = mojo.internal.bindings.media.mojom.CdmContextForOOPVDRemote || class {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.DecoderBufferSpec = mojo.internal.bindings.media.mojom.DecoderBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -180,6 +182,7 @@ mojo.internal.bindings.media.mojom.DecoderStatusSpec = mojo.internal.bindings.me
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.MediaLogSpec = mojo.internal.bindings.media.mojom.MediaLogSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.MediaLogRemote = mojo.internal.bindings.media.mojom.MediaLogRemote || class {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec = mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -240,9 +243,8 @@ mojo.internal.Struct(
 // Struct: OverlayInfo
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.OverlayInfoSpec, 'media.mojom.OverlayInfo', [
-      mojo.internal.StructField('arg_release_export_result)', 0, 0, mojo.internal.bindings.ReleaseVideoFrame(mojo_base.mojom.UnguessableToken release_token, gpu.mojom.SharedImageExportResultSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 8]]);
 
 // Interface: VideoFrameHandleReleaser
 mojo.internal.Struct(

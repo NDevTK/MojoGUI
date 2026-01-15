@@ -135,9 +135,11 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec = mojo.internal.bin
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.FileSystemAccessObserverSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.FileSystemAccessObserverRemote = mojo.internal.bindings.blink.mojom.FileSystemAccessObserverRemote || class {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote = mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote || class {};
 
 // Interface: FileSystemAccessObserverHost
 mojo.internal.Struct(

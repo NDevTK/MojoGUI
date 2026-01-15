@@ -143,6 +143,7 @@ mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_ba
 mojo.internal.bindings.new_tab_page = mojo.internal.bindings.new_tab_page || {};
 mojo.internal.bindings.new_tab_page.mojom = mojo.internal.bindings.new_tab_page.mojom || {};
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote || class {};
 
 // Struct: AccessToken
 mojo.internal.Struct(

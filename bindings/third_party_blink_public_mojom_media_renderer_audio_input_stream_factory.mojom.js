@@ -137,9 +137,11 @@ mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient_StreamC
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.AudioInputStreamSpec = mojo.internal.bindings.media.mojom.AudioInputStreamSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.AudioInputStreamRemote = mojo.internal.bindings.media.mojom.AudioInputStreamRemote || class {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.AudioInputStreamClientSpec = mojo.internal.bindings.media.mojom.AudioInputStreamClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.AudioInputStreamClientRemote = mojo.internal.bindings.media.mojom.AudioInputStreamClientRemote || class {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.AudioParametersSpec = mojo.internal.bindings.media.mojom.AudioParametersSpec || { $: mojo.internal.OpaqueStruct.$ };

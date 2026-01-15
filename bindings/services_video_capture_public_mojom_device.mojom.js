@@ -156,6 +156,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec = mojo.internal.bindin
 mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
 mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerSpec = mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemote = mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemote || class {};
 
 // Interface: Device
 mojo.internal.Struct(

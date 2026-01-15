@@ -147,6 +147,7 @@ mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfigurationOnProc
 mojo.internal.bindings.content_settings = mojo.internal.bindings.content_settings || {};
 mojo.internal.bindings.content_settings.mojom = mojo.internal.bindings.content_settings.mojom || {};
 mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerSpec = mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemote = mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemote || class {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };

@@ -144,6 +144,7 @@ mojo.internal.bindings.viz.mojom.BitmapInSharedMemorySpec = mojo.internal.bindin
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.TextureReleaserSpec = mojo.internal.bindings.viz.mojom.TextureReleaserSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz.mojom.TextureReleaserRemote = mojo.internal.bindings.viz.mojom.TextureReleaserRemote || class {};
 
 // Enum: CopyOutputResultFormat
 mojo.internal.bindings.viz.mojom.CopyOutputResultFormat = {

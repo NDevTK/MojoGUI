@@ -130,6 +130,7 @@ mojo.internal.bindings.cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec = { $:
 mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
 mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
 mojo.internal.bindings.cros.mojom.CameraModuleSpec = mojo.internal.bindings.cros.mojom.CameraModuleSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.cros.mojom.CameraModuleRemote = mojo.internal.bindings.cros.mojom.CameraModuleRemote || class {};
 
 // Interface: CameraHalClient
 mojo.internal.Struct(

@@ -160,6 +160,7 @@ mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec = mojo.internal.bindings
 mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
 mojo.internal.bindings.storage.mojom.DirectorySpec = mojo.internal.bindings.storage.mojom.DirectorySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage.mojom.DirectoryRemote = mojo.internal.bindings.storage.mojom.DirectoryRemote || class {};
 
 // Struct: UnzipOptions
 mojo.internal.Struct(

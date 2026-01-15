@@ -130,6 +130,7 @@ mojo.internal.bindings.shape_detection.mojom.FaceDetectionProvider_CreateFaceDet
 mojo.internal.bindings.shape_detection = mojo.internal.bindings.shape_detection || {};
 mojo.internal.bindings.shape_detection.mojom = mojo.internal.bindings.shape_detection.mojom || {};
 mojo.internal.bindings.shape_detection.mojom.FaceDetectionSpec = mojo.internal.bindings.shape_detection.mojom.FaceDetectionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.shape_detection.mojom.FaceDetectionRemote = mojo.internal.bindings.shape_detection.mojom.FaceDetectionRemote || class {};
 mojo.internal.bindings.shape_detection = mojo.internal.bindings.shape_detection || {};
 mojo.internal.bindings.shape_detection.mojom = mojo.internal.bindings.shape_detection.mojom || {};
 mojo.internal.bindings.shape_detection.mojom.FaceDetectorOptionsSpec = mojo.internal.bindings.shape_detection.mojom.FaceDetectorOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };

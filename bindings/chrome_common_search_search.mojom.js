@@ -127,6 +127,7 @@ mojo.internal.bindings.search.mojom.OmniboxFocusStateSpec = { $: mojo.internal.E
 mojo.internal.bindings.search.mojom.OmniboxFocusChangeReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec = { $: {} };
 mojo.internal.bindings.search.mojom.NtpThemeSpec = { $: {} };
+mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec = { $: {} };
 mojo.internal.bindings.search.mojom.EmbeddedSearchConnector = {};
 mojo.internal.bindings.search.mojom.EmbeddedSearchConnectorSpec = { $ : {} };
 mojo.internal.bindings.search.mojom.EmbeddedSearchConnector.$interfaceName = 'search.mojom.EmbeddedSearchConnector';
@@ -148,21 +149,6 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetInputInProgress_Para
 mojo.internal.bindings.search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
-mojo.internal.bindings.search = mojo.internal.bindings.search || {};
-mojo.internal.bindings.search.mojom = mojo.internal.bindings.search.mojom || {};
-mojo.internal.bindings.search.mojom.FocusChanged(OmniboxFocusState new_focus_state, OmniboxFocusChangeReasonSpec = mojo.internal.bindings.search.mojom.FocusChanged(OmniboxFocusState new_focus_state, OmniboxFocusChangeReasonSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.search = mojo.internal.bindings.search || {};
-mojo.internal.bindings.search.mojom = mojo.internal.bindings.search.mojom || {};
-mojo.internal.bindings.search.mojom.MostVisitedInfoChanged(InstantMostVisitedInfoSpec = mojo.internal.bindings.search.mojom.MostVisitedInfoChanged(InstantMostVisitedInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.search = mojo.internal.bindings.search || {};
-mojo.internal.bindings.search.mojom = mojo.internal.bindings.search.mojom || {};
-mojo.internal.bindings.search.mojom.SetInputInProgress(boolSpec = mojo.internal.bindings.search.mojom.SetInputInProgress(boolSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.search = mojo.internal.bindings.search || {};
-mojo.internal.bindings.search.mojom = mojo.internal.bindings.search.mojom || {};
-mojo.internal.bindings.search.mojom.SetPageSequenceNumber(int32Spec = mojo.internal.bindings.search.mojom.SetPageSequenceNumber(int32Spec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.search = mojo.internal.bindings.search || {};
-mojo.internal.bindings.search.mojom = mojo.internal.bindings.search.mojom || {};
-mojo.internal.bindings.search.mojom.ThemeChanged(NtpThemeSpec = mojo.internal.bindings.search.mojom.ThemeChanged(NtpThemeSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -194,13 +180,8 @@ mojo.internal.Struct(
 // Struct: InstantMostVisitedInfo
 mojo.internal.Struct(
     mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec, 'search.mojom.InstantMostVisitedInfo', [
-      mojo.internal.StructField('arg_page_seq_no)', 0, 0, mojo.internal.bindings.search.mojom.SetPageSequenceNumber(int32Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reason)', 8, 0, mojo.internal.bindings.search.mojom.FocusChanged(OmniboxFocusState new_focus_state, OmniboxFocusChangeReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_most_visited_info)', 16, 0, mojo.internal.bindings.search.mojom.MostVisitedInfoChanged(InstantMostVisitedInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_in_progress)', 24, 0, mojo.internal.bindings.search.mojom.SetInputInProgress(boolSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_theme)', 32, 0, mojo.internal.bindings.search.mojom.ThemeChanged(NtpThemeSpec, null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 8]]);
 
 // Interface: EmbeddedSearchConnector
 mojo.internal.Struct(

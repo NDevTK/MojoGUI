@@ -140,6 +140,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManager_BindNetworkInterfaceCh
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.NetworkInterfaceChangeListenerSpec = mojo.internal.bindings.network.mojom.NetworkInterfaceChangeListenerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network.mojom.NetworkInterfaceChangeListenerRemote = mojo.internal.bindings.network.mojom.NetworkInterfaceChangeListenerRemote || class {};
 
 // Enum: ConnectionType
 mojo.internal.bindings.network.mojom.ConnectionType = {

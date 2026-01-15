@@ -172,6 +172,7 @@ mojo.internal.bindings.blink.mojom.AuctionAdConfigNonSharedParamsSpec = mojo.int
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.DevToolsAgentSpec = mojo.internal.bindings.blink.mojom.DevToolsAgentSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.DevToolsAgentRemote = mojo.internal.bindings.blink.mojom.DevToolsAgentRemote || class {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };

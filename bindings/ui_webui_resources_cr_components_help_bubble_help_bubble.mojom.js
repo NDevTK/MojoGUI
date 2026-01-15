@@ -157,6 +157,7 @@ mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mo
 mojo.internal.bindings.tracked_element = mojo.internal.bindings.tracked_element || {};
 mojo.internal.bindings.tracked_element.mojom = mojo.internal.bindings.tracked_element.mojom || {};
 mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerSpec = mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerRemote = mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerRemote || class {};
 
 // Enum: HelpBubbleArrowPosition
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleArrowPosition = {

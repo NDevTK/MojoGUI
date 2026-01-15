@@ -131,15 +131,16 @@ mojo.internal.bindings.zero_state_promo.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.zero_state_promo.mojom.PageHandler.$interfaceName = 'zero_state_promo.mojom.PageHandler';
 mojo.internal.bindings.zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec = { $: {} };
 
-mojo.internal.bindings.zero_state_promo.mojom.kDiscoverExtensionWebStoreUrl = "https://chromewebstore.google.com/";
+mojo.internal.bindings.zero_state_promo.mojom.kDiscoverExtensionWebStoreUrl = "https:
+const string kCouponWebStoreUrl = "https:
+const string kWritingWebStoreUrl = "https:
+const string kProductivityWebStoreUrl = "https:
+const string kAiWebStoreUrl = "https:
 
-mojo.internal.bindings.zero_state_promo.mojom.kCouponWebStoreUrl = "https://chromewebstore.google.com/category/extensions/lifestyle/shopping";
 
-mojo.internal.bindings.zero_state_promo.mojom.kWritingWebStoreUrl = "https://chromewebstore.google.com/collection/writing_essentials";
-
-mojo.internal.bindings.zero_state_promo.mojom.kProductivityWebStoreUrl = "https://chromewebstore.google.com/collection/productivity";
-
-mojo.internal.bindings.zero_state_promo.mojom.kAiWebStoreUrl = "https://chromewebstore.google.com/collection/ai_productivity";
+interface PageHandlerFactory {
+  
+  CreatePageHandler(pending_receiver<PageHandler> handler);
 
 // Enum: WebStoreLinkClicked
 mojo.internal.bindings.zero_state_promo.mojom.WebStoreLinkClicked = {

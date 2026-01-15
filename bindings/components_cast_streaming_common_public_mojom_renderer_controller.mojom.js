@@ -132,6 +132,7 @@ mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackContro
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.RendererSpec = mojo.internal.bindings.media.mojom.RendererSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.RendererRemote = mojo.internal.bindings.media.mojom.RendererRemote || class {};
 
 // Interface: RendererController
 mojo.internal.Struct(

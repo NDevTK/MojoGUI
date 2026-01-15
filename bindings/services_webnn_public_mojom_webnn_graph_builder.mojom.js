@@ -154,6 +154,7 @@ mojo.internal.bindings.webnn.mojom.GraphInfoSpec = mojo.internal.bindings.webnn.
 mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.WebNNGraphSpec = mojo.internal.bindings.webnn.mojom.WebNNGraphSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn.mojom.WebNNGraphRemote = mojo.internal.bindings.webnn.mojom.WebNNGraphRemote || class {};
 
 // Struct: CreateGraphSuccess
 mojo.internal.Struct(

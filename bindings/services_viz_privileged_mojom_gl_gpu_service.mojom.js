@@ -195,6 +195,7 @@ mojo.internal.bindings.gpu.mojom.VideoMemoryUsageStatsSpec = mojo.internal.bindi
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderSpec = mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderRemote = mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderRemote || class {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ByteStringSpec = mojo.internal.bindings.mojo_base.mojom.ByteStringSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -210,6 +211,7 @@ mojo.internal.bindings.persistent_cache.mojom.PendingReadWriteBackendSpec = mojo
 mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.WebNNContextProviderSpec = mojo.internal.bindings.webnn.mojom.WebNNContextProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn.mojom.WebNNContextProviderRemote = mojo.internal.bindings.webnn.mojom.WebNNContextProviderRemote || class {};
 
 // Interface: GpuService
 mojo.internal.Struct(

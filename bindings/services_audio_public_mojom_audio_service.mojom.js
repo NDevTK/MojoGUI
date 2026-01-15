@@ -138,24 +138,31 @@ mojo.internal.bindings.audio.mojom.AudioService_BindMlModelManager_ParamsSpec = 
 mojo.internal.bindings.audio = mojo.internal.bindings.audio || {};
 mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
 mojo.internal.bindings.audio.mojom.DebugRecordingSpec = mojo.internal.bindings.audio.mojom.DebugRecordingSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.audio.mojom.DebugRecordingRemote = mojo.internal.bindings.audio.mojom.DebugRecordingRemote || class {};
 mojo.internal.bindings.audio = mojo.internal.bindings.audio || {};
 mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
 mojo.internal.bindings.audio.mojom.DeviceNotifierSpec = mojo.internal.bindings.audio.mojom.DeviceNotifierSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.audio.mojom.DeviceNotifierRemote = mojo.internal.bindings.audio.mojom.DeviceNotifierRemote || class {};
 mojo.internal.bindings.audio = mojo.internal.bindings.audio || {};
 mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
 mojo.internal.bindings.audio.mojom.LogFactoryManagerSpec = mojo.internal.bindings.audio.mojom.LogFactoryManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.audio.mojom.LogFactoryManagerRemote = mojo.internal.bindings.audio.mojom.LogFactoryManagerRemote || class {};
 mojo.internal.bindings.audio = mojo.internal.bindings.audio || {};
 mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
 mojo.internal.bindings.audio.mojom.MlModelManagerSpec = mojo.internal.bindings.audio.mojom.MlModelManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.audio.mojom.MlModelManagerRemote = mojo.internal.bindings.audio.mojom.MlModelManagerRemote || class {};
 mojo.internal.bindings.audio = mojo.internal.bindings.audio || {};
 mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
 mojo.internal.bindings.audio.mojom.SystemInfoSpec = mojo.internal.bindings.audio.mojom.SystemInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.audio.mojom.SystemInfoRemote = mojo.internal.bindings.audio.mojom.SystemInfoRemote || class {};
 mojo.internal.bindings.audio = mojo.internal.bindings.audio || {};
 mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
 mojo.internal.bindings.audio.mojom.TestingApiSpec = mojo.internal.bindings.audio.mojom.TestingApiSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.audio.mojom.TestingApiRemote = mojo.internal.bindings.audio.mojom.TestingApiRemote || class {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.AudioStreamFactorySpec = mojo.internal.bindings.media.mojom.AudioStreamFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote = mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote || class {};
 
 // Interface: AudioService
 mojo.internal.Struct(

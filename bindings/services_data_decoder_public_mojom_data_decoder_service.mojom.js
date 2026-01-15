@@ -139,25 +139,32 @@ mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindPixCodeValidato
 mojo.internal.bindings.data_decoder = mojo.internal.bindings.data_decoder || {};
 mojo.internal.bindings.data_decoder.mojom = mojo.internal.bindings.data_decoder.mojom || {};
 mojo.internal.bindings.data_decoder.mojom.CborParserSpec = mojo.internal.bindings.data_decoder.mojom.CborParserSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.data_decoder.mojom.CborParserRemote = mojo.internal.bindings.data_decoder.mojom.CborParserRemote || class {};
 mojo.internal.bindings.data_decoder = mojo.internal.bindings.data_decoder || {};
 mojo.internal.bindings.data_decoder.mojom = mojo.internal.bindings.data_decoder.mojom || {};
 mojo.internal.bindings.data_decoder.mojom.GzipperSpec = mojo.internal.bindings.data_decoder.mojom.GzipperSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.data_decoder.mojom.GzipperRemote = mojo.internal.bindings.data_decoder.mojom.GzipperRemote || class {};
 mojo.internal.bindings.data_decoder = mojo.internal.bindings.data_decoder || {};
 mojo.internal.bindings.data_decoder.mojom = mojo.internal.bindings.data_decoder.mojom || {};
 mojo.internal.bindings.data_decoder.mojom.ImageDecoderSpec = mojo.internal.bindings.data_decoder.mojom.ImageDecoderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.data_decoder.mojom.ImageDecoderRemote = mojo.internal.bindings.data_decoder.mojom.ImageDecoderRemote || class {};
 mojo.internal.bindings.data_decoder = mojo.internal.bindings.data_decoder || {};
 mojo.internal.bindings.data_decoder.mojom = mojo.internal.bindings.data_decoder.mojom || {};
 mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserSpec = mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserRemote = mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserRemote || class {};
 mojo.internal.bindings.data_decoder = mojo.internal.bindings.data_decoder || {};
 mojo.internal.bindings.data_decoder.mojom = mojo.internal.bindings.data_decoder.mojom || {};
 mojo.internal.bindings.data_decoder.mojom.XmlParserSpec = mojo.internal.bindings.data_decoder.mojom.XmlParserSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.data_decoder.mojom.XmlParserRemote = mojo.internal.bindings.data_decoder.mojom.XmlParserRemote || class {};
 mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
 mojo.internal.bindings.payments.facilitated = mojo.internal.bindings.payments.facilitated || {};
 mojo.internal.bindings.payments.facilitated.mojom = mojo.internal.bindings.payments.facilitated.mojom || {};
 mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidatorSpec = mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidatorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidatorRemote = mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidatorRemote || class {};
 mojo.internal.bindings.web_package = mojo.internal.bindings.web_package || {};
 mojo.internal.bindings.web_package.mojom = mojo.internal.bindings.web_package.mojom || {};
 mojo.internal.bindings.web_package.mojom.WebBundleParserFactorySpec = mojo.internal.bindings.web_package.mojom.WebBundleParserFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.web_package.mojom.WebBundleParserFactoryRemote = mojo.internal.bindings.web_package.mojom.WebBundleParserFactoryRemote || class {};
 
 // Interface: DataDecoderService
 mojo.internal.Struct(

@@ -136,12 +136,15 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyF
 mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerSpec = mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerRemote = mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerRemote || class {};
 mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderSpec = mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderRemote = mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderRemote || class {};
 mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 mojo.internal.bindings.remoting.mojom.WebAuthnProxySpec = mojo.internal.bindings.remoting.mojom.WebAuthnProxySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.remoting.mojom.WebAuthnProxyRemote = mojo.internal.bindings.remoting.mojom.WebAuthnProxyRemote || class {};
 
 // Interface: ChromotingHostServices
 mojo.internal.Struct(

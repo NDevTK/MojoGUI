@@ -130,6 +130,7 @@ mojo.internal.bindings.device.mojom.WakeLockContext_GetWakeLock_ParamsSpec = { $
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.WakeLockSpec = mojo.internal.bindings.device.mojom.WakeLockSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device.mojom.WakeLockRemote = mojo.internal.bindings.device.mojom.WakeLockRemote || class {};
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.WakeLockReasonSpec = mojo.internal.bindings.device.mojom.WakeLockReasonSpec || { $: mojo.internal.Enum().$ };

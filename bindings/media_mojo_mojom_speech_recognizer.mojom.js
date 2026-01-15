@@ -156,6 +156,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_Ended_ParamsSp
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderRemote = mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderRemote || class {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.SpeechRecognitionErrorSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionErrorSpec || { $: mojo.internal.OpaqueStruct.$ };

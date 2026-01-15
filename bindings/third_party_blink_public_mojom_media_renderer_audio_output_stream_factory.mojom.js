@@ -133,6 +133,7 @@ mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDevic
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.AudioOutputStreamProviderSpec = mojo.internal.bindings.media.mojom.AudioOutputStreamProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.AudioOutputStreamProviderRemote = mojo.internal.bindings.media.mojom.AudioOutputStreamProviderRemote || class {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.AudioParametersSpec = mojo.internal.bindings.media.mojom.AudioParametersSpec || { $: mojo.internal.OpaqueStruct.$ };

@@ -132,6 +132,7 @@ mojo.internal.bindings.audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec = 
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.AudioLogFactorySpec = mojo.internal.bindings.media.mojom.AudioLogFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.AudioLogFactoryRemote = mojo.internal.bindings.media.mojom.AudioLogFactoryRemote || class {};
 
 // Interface: LogFactoryManager
 mojo.internal.Struct(

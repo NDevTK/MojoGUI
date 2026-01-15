@@ -133,6 +133,7 @@ mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.quick_pair = mojo.internal.bindings.ash.quick_pair || {};
 mojo.internal.bindings.ash.quick_pair.mojom = mojo.internal.bindings.ash.quick_pair.mojom || {};
 mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserSpec = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRemote = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRemote || class {};
 
 // Interface: QuickPairService
 mojo.internal.Struct(

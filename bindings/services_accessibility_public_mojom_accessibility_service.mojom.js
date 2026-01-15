@@ -149,33 +149,42 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAccessibilityFile
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderSpec = mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderRemote = mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderRemote || class {};
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.ax.mojom.AssistiveTechnologyTypeSpec = mojo.internal.bindings.ax.mojom.AssistiveTechnologyTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.ax.mojom.AutoclickClientSpec = mojo.internal.bindings.ax.mojom.AutoclickClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax.mojom.AutoclickClientRemote = mojo.internal.bindings.ax.mojom.AutoclickClientRemote || class {};
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.ax.mojom.AutomationSpec = mojo.internal.bindings.ax.mojom.AutomationSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax.mojom.AutomationRemote = mojo.internal.bindings.ax.mojom.AutomationRemote || class {};
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.ax.mojom.AutomationClientSpec = mojo.internal.bindings.ax.mojom.AutomationClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax.mojom.AutomationClientRemote = mojo.internal.bindings.ax.mojom.AutomationClientRemote || class {};
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.ax.mojom.SpeechRecognitionSpec = mojo.internal.bindings.ax.mojom.SpeechRecognitionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax.mojom.SpeechRecognitionRemote = mojo.internal.bindings.ax.mojom.SpeechRecognitionRemote || class {};
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.ax.mojom.TtsSpec = mojo.internal.bindings.ax.mojom.TtsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax.mojom.TtsRemote = mojo.internal.bindings.ax.mojom.TtsRemote || class {};
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.ax.mojom.UserInputSpec = mojo.internal.bindings.ax.mojom.UserInputSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax.mojom.UserInputRemote = mojo.internal.bindings.ax.mojom.UserInputRemote || class {};
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.ax.mojom.UserInterfaceSpec = mojo.internal.bindings.ax.mojom.UserInterfaceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax.mojom.UserInterfaceRemote = mojo.internal.bindings.ax.mojom.UserInterfaceRemote || class {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.DevToolsAgentSpec = mojo.internal.bindings.blink.mojom.DevToolsAgentSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.DevToolsAgentRemote = mojo.internal.bindings.blink.mojom.DevToolsAgentRemote || class {};
 
 // Interface: AssistiveTechnologyController
 mojo.internal.Struct(

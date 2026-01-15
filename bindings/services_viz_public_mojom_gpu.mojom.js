@@ -146,6 +146,7 @@ mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec = mojo.internal.bin
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderSpec = mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderRemote = mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderRemote || class {};
 
 // Interface: Gpu
 mojo.internal.Struct(

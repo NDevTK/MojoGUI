@@ -204,6 +204,7 @@ mojo.internal.bindings.device.mojom.XRVisibilityStateSpec = mojo.internal.bindin
 mojo.internal.bindings.device_test = mojo.internal.bindings.device_test || {};
 mojo.internal.bindings.device_test.mojom = mojo.internal.bindings.device_test.mojom || {};
 mojo.internal.bindings.device_test.mojom.XRServiceTestHookSpec = mojo.internal.bindings.device_test.mojom.XRServiceTestHookSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device_test.mojom.XRServiceTestHookRemote = mojo.internal.bindings.device_test.mojom.XRServiceTestHookRemote || class {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec = mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -222,6 +223,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkIdSpec = mojo.internal.bindings.viz.mo
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.GpuSpec = mojo.internal.bindings.viz.mojom.GpuSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz.mojom.GpuRemote = mojo.internal.bindings.viz.mojom.GpuRemote || class {};
 
 mojo.internal.bindings.device.mojom.kXrSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kXrCompositing;
 

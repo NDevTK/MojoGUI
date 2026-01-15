@@ -168,6 +168,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug_GetDebugInfoFo
 mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
 mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
 mojo.internal.bindings.media_session.mojom.MediaSessionSpec = mojo.internal.bindings.media_session.mojom.MediaSessionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media_session.mojom.MediaSessionRemote = mojo.internal.bindings.media_session.mojom.MediaSessionRemote || class {};
 mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
 mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
 mojo.internal.bindings.media_session.mojom.MediaSessionDebugInfoSpec = mojo.internal.bindings.media_session.mojom.MediaSessionDebugInfoSpec || { $: mojo.internal.OpaqueStruct.$ };

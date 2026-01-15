@@ -174,6 +174,7 @@ mojo.internal.bindings.payments.mojom.PaymentDetailsModifierSpec = mojo.internal
 mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
 mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
 mojo.internal.bindings.payments.mojom.PaymentHandlerHostSpec = mojo.internal.bindings.payments.mojom.PaymentHandlerHostSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.payments.mojom.PaymentHandlerHostRemote = mojo.internal.bindings.payments.mojom.PaymentHandlerHostRemote || class {};
 mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
 mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
 mojo.internal.bindings.payments.mojom.PaymentMethodDataSpec = mojo.internal.bindings.payments.mojom.PaymentMethodDataSpec || { $: mojo.internal.OpaqueStruct.$ };

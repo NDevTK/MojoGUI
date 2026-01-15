@@ -138,6 +138,7 @@ mojo.internal.bindings.blink.mojom.BlobRegistry_RegisterFromStream_ResponseParam
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.BlobSpec = mojo.internal.bindings.blink.mojom.BlobSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.BlobRemote = mojo.internal.bindings.blink.mojom.BlobRemote || class {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.DataElementSpec = mojo.internal.bindings.blink.mojom.DataElementSpec || { $: mojo.internal.OpaqueStruct.$ };

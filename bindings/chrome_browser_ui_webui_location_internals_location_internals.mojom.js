@@ -130,6 +130,7 @@ mojo.internal.bindings.mojom.LocationInternalsHandler_BindInternalsInterface_Par
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.GeolocationInternalsSpec = mojo.internal.bindings.device.mojom.GeolocationInternalsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device.mojom.GeolocationInternalsRemote = mojo.internal.bindings.device.mojom.GeolocationInternalsRemote || class {};
 
 // Interface: LocationInternalsHandler
 mojo.internal.Struct(

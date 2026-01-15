@@ -152,6 +152,7 @@ mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec = { $: {} 
 mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
 mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom || {};
 mojo.internal.bindings.bluetooth.mojom.AdapterSpec = mojo.internal.bindings.bluetooth.mojom.AdapterSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.bluetooth.mojom.AdapterRemote = mojo.internal.bindings.bluetooth.mojom.AdapterRemote || class {};
 
 // Interface: DebugLogsChangeHandler
 mojo.internal.Struct(

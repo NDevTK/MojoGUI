@@ -208,6 +208,7 @@ mojo.internal.bindings.blink.mojom.RemoteMainFrameHost_RouteCloseEvent_ParamsSpe
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.BlobURLTokenSpec = mojo.internal.bindings.blink.mojom.BlobURLTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.BlobURLTokenRemote = mojo.internal.bindings.blink.mojom.BlobURLTokenRemote || class {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.FocusTypeSpec = mojo.internal.bindings.blink.mojom.FocusTypeSpec || { $: mojo.internal.Enum().$ };

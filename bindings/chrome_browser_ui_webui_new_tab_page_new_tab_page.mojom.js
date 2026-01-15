@@ -206,6 +206,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedThemeSpec = mojo.internal.b
 mojo.internal.bindings.new_tab_page = mojo.internal.bindings.new_tab_page || {};
 mojo.internal.bindings.new_tab_page.mojom = mojo.internal.bindings.new_tab_page.mojom || {};
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote || class {};
 mojo.internal.bindings.new_tab_page = mojo.internal.bindings.new_tab_page || {};
 mojo.internal.bindings.new_tab_page.mojom = mojo.internal.bindings.new_tab_page.mojom || {};
 mojo.internal.bindings.new_tab_page.mojom.PromoPartSpec = mojo.internal.bindings.new_tab_page.mojom.PromoPartSpec || { $: mojo.internal.OpaqueStruct.$ };

@@ -150,6 +150,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponsePar
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote = mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote || class {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };

@@ -135,6 +135,7 @@ mojo.internal.bindings.device.mojom.GeolocationContext_ClearOverride_ParamsSpec 
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.GeolocationSpec = mojo.internal.bindings.device.mojom.GeolocationSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device.mojom.GeolocationRemote = mojo.internal.bindings.device.mojom.GeolocationRemote || class {};
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.GeolocationClientIdSpec = mojo.internal.bindings.device.mojom.GeolocationClientIdSpec || { $: mojo.internal.Enum().$ };

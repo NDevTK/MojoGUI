@@ -249,6 +249,7 @@ mojo.internal.bindings.blink.mojom.InputEventResultStateSpec = mojo.internal.bin
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.PointerLockContextSpec = mojo.internal.bindings.blink.mojom.PointerLockContextSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.PointerLockContextRemote = mojo.internal.bindings.blink.mojom.PointerLockContextRemote || class {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.PointerLockResultSpec = mojo.internal.bindings.blink.mojom.PointerLockResultSpec || { $: mojo.internal.Enum().$ };

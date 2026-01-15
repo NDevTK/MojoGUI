@@ -194,6 +194,7 @@ mojo.internal.bindings.media.mojom.EncoderStatusSpec = mojo.internal.bindings.me
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.MediaLogSpec = mojo.internal.bindings.media.mojom.MediaLogSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.MediaLogRemote = mojo.internal.bindings.media.mojom.MediaLogRemote || class {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.OptionalMetadataSpec = mojo.internal.bindings.media.mojom.OptionalMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };

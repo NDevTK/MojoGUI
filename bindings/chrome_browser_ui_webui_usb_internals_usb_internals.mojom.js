@@ -131,9 +131,11 @@ mojo.internal.bindings.mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpe
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.UsbDeviceManagerSpec = mojo.internal.bindings.device.mojom.UsbDeviceManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device.mojom.UsbDeviceManagerRemote = mojo.internal.bindings.device.mojom.UsbDeviceManagerRemote || class {};
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.UsbDeviceManagerTestSpec = mojo.internal.bindings.device.mojom.UsbDeviceManagerTestSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device.mojom.UsbDeviceManagerTestRemote = mojo.internal.bindings.device.mojom.UsbDeviceManagerTestRemote || class {};
 
 // Interface: UsbInternalsPageHandler
 mojo.internal.Struct(

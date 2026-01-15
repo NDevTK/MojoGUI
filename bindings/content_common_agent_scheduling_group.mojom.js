@@ -141,6 +141,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec = mojo.internal.bindings.
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceSpec = mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceRemote = mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceRemote || class {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.WorkletGlobalScopeCreationParamsSpec = mojo.internal.bindings.blink.mojom.WorkletGlobalScopeCreationParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -153,6 +154,7 @@ mojo.internal.bindings.content.mojom.CreateViewParamsSpec = mojo.internal.bindin
 mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
 mojo.internal.bindings.content.mojom.RouteProviderSpec = mojo.internal.bindings.content.mojom.RouteProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.content.mojom.RouteProviderRemote = mojo.internal.bindings.content.mojom.RouteProviderRemote || class {};
 
 // Interface: AgentSchedulingGroupHost
 mojo.internal.Struct(

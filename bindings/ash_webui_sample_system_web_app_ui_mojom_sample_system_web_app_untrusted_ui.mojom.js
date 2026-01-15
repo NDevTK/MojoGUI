@@ -132,10 +132,12 @@ mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
 mojo.internal.bindings.ash.mojom.sample_swa = mojo.internal.bindings.ash.mojom.sample_swa || {};
 mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageSpec = mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageRemote = mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageRemote || class {};
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
 mojo.internal.bindings.ash.mojom.sample_swa = mojo.internal.bindings.ash.mojom.sample_swa || {};
 mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageSpec = mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageRemote = mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageRemote || class {};
 
 // Interface: UntrustedPageInterfacesFactory
 mojo.internal.Struct(

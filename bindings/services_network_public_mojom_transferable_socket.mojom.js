@@ -122,6 +122,7 @@
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
 mojo.internal.bindings.network.mojom.TransferableSocketSpec = { $: {} };
+mojo.internal.bindings.network.mojom.TransferableSocketSpec = { $: {} };
 
 // Struct: TransferableSocket
 mojo.internal.Struct(

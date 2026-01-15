@@ -135,6 +135,7 @@ mojo.internal.bindings.network.mojom.WebTransportCertificateFingerprintSpec = mo
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.WebTransportHandshakeClientSpec = mojo.internal.bindings.network.mojom.WebTransportHandshakeClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network.mojom.WebTransportHandshakeClientRemote = mojo.internal.bindings.network.mojom.WebTransportHandshakeClientRemote || class {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };

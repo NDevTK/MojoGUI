@@ -129,6 +129,7 @@ mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PPacketInfoSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PPortRangeSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PSendPacketMetricsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PReceivedPacketSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PSendPacketSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient = {};

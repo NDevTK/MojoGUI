@@ -139,6 +139,7 @@ mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpe
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.BlobSpec = mojo.internal.bindings.blink.mojom.BlobSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.BlobRemote = mojo.internal.bindings.blink.mojom.BlobRemote || class {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.FileSpec = mojo.internal.bindings.mojo_base.mojom.FileSpec || { $: mojo.internal.OpaqueStruct.$ };

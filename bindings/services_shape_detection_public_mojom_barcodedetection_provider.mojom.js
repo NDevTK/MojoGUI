@@ -133,6 +133,7 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateS
 mojo.internal.bindings.shape_detection = mojo.internal.bindings.shape_detection || {};
 mojo.internal.bindings.shape_detection.mojom = mojo.internal.bindings.shape_detection.mojom || {};
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionSpec = mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionRemote = mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionRemote || class {};
 mojo.internal.bindings.shape_detection = mojo.internal.bindings.shape_detection || {};
 mojo.internal.bindings.shape_detection.mojom = mojo.internal.bindings.shape_detection.mojom || {};
 mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec = mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec || { $: mojo.internal.Enum().$ };

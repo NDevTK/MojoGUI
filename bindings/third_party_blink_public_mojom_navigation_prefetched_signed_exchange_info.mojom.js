@@ -134,6 +134,7 @@ mojo.internal.bindings.mojo_base.mojom.ByteStringSpec = mojo.internal.bindings.m
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.URLLoaderFactorySpec = mojo.internal.bindings.network.mojom.URLLoaderFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote = mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote || class {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.URLResponseHeadSpec = mojo.internal.bindings.network.mojom.URLResponseHeadSpec || { $: mojo.internal.OpaqueStruct.$ };

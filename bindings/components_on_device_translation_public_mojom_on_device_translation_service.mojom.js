@@ -152,6 +152,7 @@ mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec = mojo.internal.bindings
 mojo.internal.bindings.on_device_translation = mojo.internal.bindings.on_device_translation || {};
 mojo.internal.bindings.on_device_translation.mojom = mojo.internal.bindings.on_device_translation.mojom || {};
 mojo.internal.bindings.on_device_translation.mojom.TranslatorSpec = mojo.internal.bindings.on_device_translation.mojom.TranslatorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.on_device_translation.mojom.TranslatorRemote = mojo.internal.bindings.on_device_translation.mojom.TranslatorRemote || class {};
 
 mojo.internal.bindings.on_device_translation.mojom.kOnDeviceTranslationSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kOnDeviceTranslation;
 

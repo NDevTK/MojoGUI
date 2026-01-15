@@ -141,6 +141,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControl_ForceKeepSessionState_P
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.StorageAreaSpec = mojo.internal.bindings.blink.mojom.StorageAreaSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.StorageAreaRemote = mojo.internal.bindings.blink.mojom.StorageAreaRemote || class {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.StorageKeySpec = mojo.internal.bindings.blink.mojom.StorageKeySpec || { $: mojo.internal.OpaqueStruct.$ };

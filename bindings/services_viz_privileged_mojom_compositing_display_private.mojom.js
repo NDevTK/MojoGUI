@@ -158,6 +158,7 @@ mojo.internal.bindings.display.mojom.VariableRefreshRateStateSpec = mojo.interna
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.DelegatedInkPointRendererSpec = mojo.internal.bindings.gfx.mojom.DelegatedInkPointRendererSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx.mojom.DelegatedInkPointRendererRemote = mojo.internal.bindings.gfx.mojom.DelegatedInkPointRendererRemote || class {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.DisplayColorSpacesSpec = mojo.internal.bindings.gfx.mojom.DisplayColorSpacesSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -179,12 +180,15 @@ mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mo
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.BeginFrameObserverSpec = mojo.internal.bindings.viz.mojom.BeginFrameObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz.mojom.BeginFrameObserverRemote = mojo.internal.bindings.viz.mojom.BeginFrameObserverRemote || class {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.LayeredWindowUpdaterSpec = mojo.internal.bindings.viz.mojom.LayeredWindowUpdaterSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz.mojom.LayeredWindowUpdaterRemote = mojo.internal.bindings.viz.mojom.LayeredWindowUpdaterRemote || class {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.VSyncParameterObserverSpec = mojo.internal.bindings.viz.mojom.VSyncParameterObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz.mojom.VSyncParameterObserverRemote = mojo.internal.bindings.viz.mojom.VSyncParameterObserverRemote || class {};
 
 // Interface: DisplayPrivate
 mojo.internal.Struct(

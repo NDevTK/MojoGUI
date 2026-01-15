@@ -161,6 +161,7 @@ mojo.internal.bindings.arc.mojom.CameraInstance_Init_ResponseParamsSpec = { $: {
 mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
 mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
 mojo.internal.bindings.cros.mojom.CameraHalClientSpec = mojo.internal.bindings.cros.mojom.CameraHalClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.cros.mojom.CameraHalClientRemote = mojo.internal.bindings.cros.mojom.CameraHalClientRemote || class {};
 
 // Struct: CameraDeviceInfo
 mojo.internal.Struct(

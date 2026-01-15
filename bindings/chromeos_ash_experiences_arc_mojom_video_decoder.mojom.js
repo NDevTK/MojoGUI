@@ -158,6 +158,7 @@ mojo.internal.bindings.arc.mojom.VideoCodecProfileSpec = mojo.internal.bindings.
 mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.arc.mojom.VideoFramePoolSpec = mojo.internal.bindings.arc.mojom.VideoFramePoolSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc.mojom.VideoFramePoolRemote = mojo.internal.bindings.arc.mojom.VideoFramePoolRemote || class {};
 
 // Enum: DecoderStatus
 mojo.internal.bindings.arc.mojom.DecoderStatus = {

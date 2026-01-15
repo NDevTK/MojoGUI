@@ -150,12 +150,14 @@ mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec = mojo.internal.bindings
 mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
 mojo.internal.bindings.on_device_model.mojom.SessionSpec = mojo.internal.bindings.on_device_model.mojom.SessionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.on_device_model.mojom.SessionRemote = mojo.internal.bindings.on_device_model.mojom.SessionRemote || class {};
 mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
 mojo.internal.bindings.on_device_model.mojom.SessionParamsSpec = mojo.internal.bindings.on_device_model.mojom.SessionParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
 mojo.internal.bindings.on_device_model.mojom.TextSafetySessionSpec = mojo.internal.bindings.on_device_model.mojom.TextSafetySessionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.on_device_model.mojom.TextSafetySessionRemote = mojo.internal.bindings.on_device_model.mojom.TextSafetySessionRemote || class {};
 
 // Enum: OnDeviceFeature
 mojo.internal.bindings.optimization_guide.mojom.OnDeviceFeature = {

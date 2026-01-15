@@ -153,6 +153,7 @@ mojo.internal.bindings.network.mojom.IPAddressSpec = mojo.internal.bindings.netw
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.SocketConnectionTrackerSpec = mojo.internal.bindings.network.mojom.SocketConnectionTrackerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network.mojom.SocketConnectionTrackerRemote = mojo.internal.bindings.network.mojom.SocketConnectionTrackerRemote || class {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.UDPSocketOptionsSpec = mojo.internal.bindings.network.mojom.UDPSocketOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };

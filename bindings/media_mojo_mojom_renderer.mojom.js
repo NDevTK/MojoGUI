@@ -168,6 +168,7 @@ mojo.internal.bindings.media.mojom.BufferingStateChangeReasonSpec = mojo.interna
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.DemuxerStreamSpec = mojo.internal.bindings.media.mojom.DemuxerStreamSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.DemuxerStreamRemote = mojo.internal.bindings.media.mojom.DemuxerStreamRemote || class {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.PipelineStatisticsSpec = mojo.internal.bindings.media.mojom.PipelineStatisticsSpec || { $: mojo.internal.OpaqueStruct.$ };

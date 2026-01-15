@@ -134,6 +134,7 @@ mojo.internal.bindings.storage.mojom.FileSystemAccessContext_Clone_ParamsSpec = 
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote = mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote || class {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.StorageKeySpec = mojo.internal.bindings.blink.mojom.StorageKeySpec || { $: mojo.internal.OpaqueStruct.$ };

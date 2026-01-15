@@ -130,6 +130,7 @@ mojo.internal.bindings.ui.mojom.ScenicGpuService_Initialize_ParamsSpec = { $: {}
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 mojo.internal.bindings.ui.mojom.ScenicGpuHostSpec = mojo.internal.bindings.ui.mojom.ScenicGpuHostSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ui.mojom.ScenicGpuHostRemote = mojo.internal.bindings.ui.mojom.ScenicGpuHostRemote || class {};
 
 // Interface: ScenicGpuService
 mojo.internal.Struct(

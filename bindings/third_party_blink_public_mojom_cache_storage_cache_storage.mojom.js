@@ -159,6 +159,7 @@ mojo.internal.bindings.blink.mojom.CacheStorage_Open_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.BlobReaderClientSpec = mojo.internal.bindings.blink.mojom.BlobReaderClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.BlobReaderClientRemote = mojo.internal.bindings.blink.mojom.BlobReaderClientRemote || class {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec = mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec || { $: mojo.internal.OpaqueStruct.$ };

@@ -147,22 +147,28 @@ mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAl
 mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.arc.mojom.ProtectedBufferManagerSpec = mojo.internal.bindings.arc.mojom.ProtectedBufferManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc.mojom.ProtectedBufferManagerRemote = mojo.internal.bindings.arc.mojom.ProtectedBufferManagerRemote || class {};
 mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorSpec = mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorRemote = mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorRemote || class {};
 mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.arc.mojom.VideoDecoderSpec = mojo.internal.bindings.arc.mojom.VideoDecoderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc.mojom.VideoDecoderRemote = mojo.internal.bindings.arc.mojom.VideoDecoderRemote || class {};
 mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorSpec = mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorRemote = mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorRemote || class {};
 mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.arc.mojom.VideoProtectedBufferAllocatorSpec = mojo.internal.bindings.arc.mojom.VideoProtectedBufferAllocatorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc.mojom.VideoProtectedBufferAllocatorRemote = mojo.internal.bindings.arc.mojom.VideoProtectedBufferAllocatorRemote || class {};
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.cdm = mojo.internal.bindings.chromeos.cdm || {};
 mojo.internal.bindings.chromeos.cdm.mojom = mojo.internal.bindings.chromeos.cdm.mojom || {};
 mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactorySpec = mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemote = mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemote || class {};
 
 // Interface: VideoHost
 mojo.internal.Struct(

@@ -138,9 +138,11 @@ mojo.internal.bindings.device.mojom.WakeLockObserver_OnWakeLockDeactivated_Param
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.WakeLockSpec = mojo.internal.bindings.device.mojom.WakeLockSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device.mojom.WakeLockRemote = mojo.internal.bindings.device.mojom.WakeLockRemote || class {};
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.WakeLockContextSpec = mojo.internal.bindings.device.mojom.WakeLockContextSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device.mojom.WakeLockContextRemote = mojo.internal.bindings.device.mojom.WakeLockContextRemote || class {};
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.WakeLockReasonSpec = mojo.internal.bindings.device.mojom.WakeLockReasonSpec || { $: mojo.internal.Enum().$ };

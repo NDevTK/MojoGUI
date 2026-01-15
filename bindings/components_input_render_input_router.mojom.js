@@ -161,6 +161,7 @@ mojo.internal.bindings.blink.mojom.InputEventResultStateSpec = mojo.internal.bin
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.RenderInputRouterClientSpec = mojo.internal.bindings.blink.mojom.RenderInputRouterClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.RenderInputRouterClientRemote = mojo.internal.bindings.blink.mojom.RenderInputRouterClientRemote || class {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };

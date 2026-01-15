@@ -152,21 +152,26 @@ mojo.internal.bindings.network.mojom.IPEndPointSpec = mojo.internal.bindings.net
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.RestrictedUDPSocketSpec = mojo.internal.bindings.network.mojom.RestrictedUDPSocketSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemote = mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemote || class {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.SocketObserverSpec = mojo.internal.bindings.network.mojom.SocketObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network.mojom.SocketObserverRemote = mojo.internal.bindings.network.mojom.SocketObserverRemote || class {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.TCPConnectedSocketSpec = mojo.internal.bindings.network.mojom.TCPConnectedSocketSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network.mojom.TCPConnectedSocketRemote = mojo.internal.bindings.network.mojom.TCPConnectedSocketRemote || class {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.TCPKeepAliveOptionsSpec = mojo.internal.bindings.network.mojom.TCPKeepAliveOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.TCPServerSocketSpec = mojo.internal.bindings.network.mojom.TCPServerSocketSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network.mojom.TCPServerSocketRemote = mojo.internal.bindings.network.mojom.TCPServerSocketRemote || class {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.UDPSocketListenerSpec = mojo.internal.bindings.network.mojom.UDPSocketListenerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network.mojom.UDPSocketListenerRemote = mojo.internal.bindings.network.mojom.UDPSocketListenerRemote || class {};
 
 // Struct: DirectTCPSocketOptions
 mojo.internal.Struct(

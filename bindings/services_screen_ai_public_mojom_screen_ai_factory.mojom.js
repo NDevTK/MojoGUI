@@ -150,9 +150,11 @@ mojo.internal.bindings.mojo_base.mojom.RelativeFilePathSpec = mojo.internal.bind
 mojo.internal.bindings.screen_ai = mojo.internal.bindings.screen_ai || {};
 mojo.internal.bindings.screen_ai.mojom = mojo.internal.bindings.screen_ai.mojom || {};
 mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceSpec = mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceRemote = mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceRemote || class {};
 mojo.internal.bindings.screen_ai = mojo.internal.bindings.screen_ai || {};
 mojo.internal.bindings.screen_ai.mojom = mojo.internal.bindings.screen_ai.mojom || {};
 mojo.internal.bindings.screen_ai.mojom.OCRServiceSpec = mojo.internal.bindings.screen_ai.mojom.OCRServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.screen_ai.mojom.OCRServiceRemote = mojo.internal.bindings.screen_ai.mojom.OCRServiceRemote || class {};
 
 // Interface: ScreenAIServiceShutdownHandler
 mojo.internal.Struct(

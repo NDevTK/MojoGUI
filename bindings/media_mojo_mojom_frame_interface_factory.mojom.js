@@ -142,12 +142,15 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_Pa
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.CdmStorageSpec = mojo.internal.bindings.media.mojom.CdmStorageSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.CdmStorageRemote = mojo.internal.bindings.media.mojom.CdmStorageRemote || class {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistrySpec = mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistrySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistryRemote = mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistryRemote || class {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.ProvisionFetcherSpec = mojo.internal.bindings.media.mojom.ProvisionFetcherSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.ProvisionFetcherRemote = mojo.internal.bindings.media.mojom.ProvisionFetcherRemote || class {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec = mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec || { $: mojo.internal.OpaqueStruct.$ };

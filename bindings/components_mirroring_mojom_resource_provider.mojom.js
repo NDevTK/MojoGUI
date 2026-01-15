@@ -143,9 +143,11 @@ mojo.internal.bindings.mirroring.mojom.ResourceProvider_ConnectToRemotingSource_
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.AudioInputStreamSpec = mojo.internal.bindings.media.mojom.AudioInputStreamSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.AudioInputStreamRemote = mojo.internal.bindings.media.mojom.AudioInputStreamRemote || class {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.AudioInputStreamClientSpec = mojo.internal.bindings.media.mojom.AudioInputStreamClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.AudioInputStreamClientRemote = mojo.internal.bindings.media.mojom.AudioInputStreamClientRemote || class {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.AudioParametersSpec = mojo.internal.bindings.media.mojom.AudioParametersSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -155,21 +157,27 @@ mojo.internal.bindings.media.mojom.ReadWriteAudioDataPipeSpec = mojo.internal.bi
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.RemoterSpec = mojo.internal.bindings.media.mojom.RemoterSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.RemoterRemote = mojo.internal.bindings.media.mojom.RemoterRemote || class {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.RemotingSourceSpec = mojo.internal.bindings.media.mojom.RemotingSourceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.RemotingSourceRemote = mojo.internal.bindings.media.mojom.RemotingSourceRemote || class {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.VideoCaptureHostSpec = mojo.internal.bindings.media.mojom.VideoCaptureHostSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.VideoCaptureHostRemote = mojo.internal.bindings.media.mojom.VideoCaptureHostRemote || class {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderSpec = mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderRemote = mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderRemote || class {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.NetworkContextSpec = mojo.internal.bindings.network.mojom.NetworkContextSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network.mojom.NetworkContextRemote = mojo.internal.bindings.network.mojom.NetworkContextRemote || class {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.GpuSpec = mojo.internal.bindings.viz.mojom.GpuSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz.mojom.GpuRemote = mojo.internal.bindings.viz.mojom.GpuRemote || class {};
 
 // Interface: AudioStreamCreatorClient
 mojo.internal.Struct(

@@ -131,9 +131,11 @@ mojo.internal.bindings.media.mojom.MediaService_CreateInterfaceFactory_ParamsSpe
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.FrameInterfaceFactorySpec = mojo.internal.bindings.media.mojom.FrameInterfaceFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemote = mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemote || class {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.InterfaceFactorySpec = mojo.internal.bindings.media.mojom.InterfaceFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media.mojom.InterfaceFactoryRemote = mojo.internal.bindings.media.mojom.InterfaceFactoryRemote || class {};
 
 mojo.internal.bindings.media.mojom.kMediaSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kNoSandbox;
 

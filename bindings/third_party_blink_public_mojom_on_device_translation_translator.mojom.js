@@ -131,6 +131,7 @@ mojo.internal.bindings.blink.mojom.Translator_TranslateStreaming_ParamsSpec = { 
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec = mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote = mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote || class {};
 
 // Interface: Translator
 mojo.internal.Struct(

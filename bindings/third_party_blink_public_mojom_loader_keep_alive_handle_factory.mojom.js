@@ -130,6 +130,7 @@ mojo.internal.bindings.blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_P
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.KeepAliveHandleSpec = mojo.internal.bindings.blink.mojom.KeepAliveHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.KeepAliveHandleRemote = mojo.internal.bindings.blink.mojom.KeepAliveHandleRemote || class {};
 
 // Interface: KeepAliveHandleFactory
 mojo.internal.Struct(

@@ -124,7 +124,9 @@ mojo.internal.bindings.nearby_share = mojo.internal.bindings.nearby_share || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.sharing.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.sharing.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.sharing.mojom.SecurityTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.sharing.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.sharing.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.sharing.mojom.FrameSpec = { $: {} };
 mojo.internal.bindings.sharing.mojom.V1FrameSpec = { $: {} };

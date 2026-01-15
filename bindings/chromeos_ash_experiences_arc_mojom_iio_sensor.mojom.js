@@ -138,6 +138,7 @@ mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.sensors = mojo.internal.bindings.chromeos.sensors || {};
 mojo.internal.bindings.chromeos.sensors.mojom = mojo.internal.bindings.chromeos.sensors.mojom || {};
 mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientRemote = mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientRemote || class {};
 
 // Interface: IioSensorHost
 mojo.internal.Struct(

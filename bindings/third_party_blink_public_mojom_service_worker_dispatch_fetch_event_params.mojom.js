@@ -131,9 +131,11 @@ mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec = mojo.internal.bindings.
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.URLLoaderClientSpec = mojo.internal.bindings.network.mojom.URLLoaderClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network.mojom.URLLoaderClientRemote = mojo.internal.bindings.network.mojom.URLLoaderClientRemote || class {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.URLLoaderFactorySpec = mojo.internal.bindings.network.mojom.URLLoaderFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote = mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote || class {};
 
 // Struct: DispatchFetchEventParams
 mojo.internal.Struct(

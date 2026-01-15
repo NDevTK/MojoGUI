@@ -183,6 +183,7 @@ mojo.internal.bindings.blink.mojom.BiddingBrowserSignalsSpec = mojo.internal.bin
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.DevToolsAgentSpec = mojo.internal.bindings.blink.mojom.DevToolsAgentSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.DevToolsAgentRemote = mojo.internal.bindings.blink.mojom.DevToolsAgentRemote || class {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.InterestGroupAdSpec = mojo.internal.bindings.blink.mojom.InterestGroupAdSpec || { $: mojo.internal.OpaqueStruct.$ };

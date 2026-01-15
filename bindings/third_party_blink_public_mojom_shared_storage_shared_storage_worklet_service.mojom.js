@@ -176,6 +176,7 @@ mojo.internal.bindings.blink.mojom.GetInterestGroupsResultSpec = mojo.internal.b
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.PrivateAggregationHostSpec = mojo.internal.bindings.blink.mojom.PrivateAggregationHostSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.PrivateAggregationHostRemote = mojo.internal.bindings.blink.mojom.PrivateAggregationHostRemote || class {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.SharedStorageGetStatusSpec = mojo.internal.bindings.blink.mojom.SharedStorageGetStatusSpec || { $: mojo.internal.Enum().$ };
@@ -206,6 +207,7 @@ mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec 
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.URLLoaderFactorySpec = mojo.internal.bindings.network.mojom.URLLoaderFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote = mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote || class {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
