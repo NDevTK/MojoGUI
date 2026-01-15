@@ -494,11 +494,17 @@
 
         elements.interfaceList.innerHTML = safeHTML(interfaces.map(iface => {
             const isSynced = window.MojoLearnedProtocols && window.MojoLearnedProtocols.has(iface.name);
+            const usage = iface.usage || [];
+            const isAssociated = usage.includes('associated');
+            // If it's ONLY associated (not direct), maybe emphasize it? 
+            // For now, just show a Link icon or badge.
+
             return `
             <div class="interface-item" data-name="${escapeHtml(iface.name)}" data-module="${escapeHtml(iface.module)}">
                 <span class="name">${escapeHtml(iface.name)}</span>
                 <span class="module">${escapeHtml(iface.module)}</span>
                 <span class="method-count">${iface.methods?.length || 0} methods</span>
+                ${isAssociated ? '<span class="associated-badge" title="Associated Interface">🔗</span>' : ''}
                 ${isSynced ? '<span class="sync-badge" title="Protocol Synchronized">✓</span>' : ''}
             </div>
         `;
@@ -529,7 +535,27 @@
         });
 
         elements.selectedInterfaceName.textContent = iface.name;
-        elements.selectedModule.textContent = iface.module;
+
+        // Show Usage in Module Line
+        let usageText = iface.module;
+        if (iface.usage && iface.usage.length > 0) {
+            usageText += ` • ${iface.usage.join(', ')}`;
+        }
+
+        // Append Security Info
+        if (iface.security) {
+            const secParts = [];
+            if (iface.security.ServiceSandbox) secParts.push(`Sandbox: ${iface.security.ServiceSandbox}`);
+            if (iface.security.RequireContext) secParts.push(`Context: ${iface.security.RequireContext}`);
+            if (iface.security.AllowedFrom) secParts.push(`AllowedFrom: ${iface.security.AllowedFrom}`);
+
+            if (secParts.length > 0) {
+                // Creating a more structured display might be better, but text appending is safest for now
+                usageText += ` • 🛡️ ${secParts.join(' | ')}`;
+            }
+        }
+
+        elements.selectedModule.textContent = usageText;
 
         // Auto-load the binding file
         if (iface.file && typeof MojoBindings !== 'undefined') {
