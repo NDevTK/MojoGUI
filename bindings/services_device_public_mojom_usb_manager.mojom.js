@@ -332,7 +332,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] enumerateDevicesAndSetClient FAILED:', e));
           }
           break;
         }
@@ -350,7 +350,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDevices FAILED:', e));
           }
           break;
         }

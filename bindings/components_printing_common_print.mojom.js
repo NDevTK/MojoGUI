@@ -380,7 +380,7 @@ mojo.internal.bindings.printing.mojom.PrintRendererReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createPreviewDocument FAILED:', e));
           }
           break;
         }
@@ -1007,7 +1007,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] printFrameContent FAILED:', e));
           }
           break;
         }
@@ -1344,7 +1344,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDefaultPrintSettings FAILED:', e));
           }
           break;
         }
@@ -1369,7 +1369,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] didPrintDocument FAILED:', e));
           }
           break;
         }
@@ -1387,7 +1387,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isPrintingEnabled FAILED:', e));
           }
           break;
         }
@@ -1405,7 +1405,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] scriptedPrint FAILED:', e));
           }
           break;
         }
@@ -1430,7 +1430,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updatePrintSettings FAILED:', e));
           }
           break;
         }
@@ -1447,7 +1447,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setupScriptedPrintPreview FAILED:', e));
           }
           break;
         }
@@ -1479,7 +1479,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] checkForCancel FAILED:', e));
           }
           break;
         }

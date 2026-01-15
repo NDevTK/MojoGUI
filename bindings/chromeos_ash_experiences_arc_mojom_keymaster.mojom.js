@@ -329,7 +329,7 @@ mojo.internal.bindings.arc.mojom.KeymasterHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.KeymasterHost_GetServer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getServer FAILED:', e));
           }
           break;
         }
@@ -469,7 +469,7 @@ mojo.internal.bindings.arc.mojom.KeymasterInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.KeymasterInstance_Init_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -799,7 +799,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.KeymasterServer_AddRngEntropy_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addRngEntropy FAILED:', e));
           }
           break;
         }
@@ -817,7 +817,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.KeymasterServer_GetKeyCharacteristics_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getKeyCharacteristics FAILED:', e));
           }
           break;
         }
@@ -835,7 +835,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.KeymasterServer_GenerateKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] generateKey FAILED:', e));
           }
           break;
         }
@@ -853,7 +853,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.KeymasterServer_ImportKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] importKey FAILED:', e));
           }
           break;
         }
@@ -871,7 +871,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.KeymasterServer_ExportKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] exportKey FAILED:', e));
           }
           break;
         }
@@ -889,7 +889,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.KeymasterServer_AttestKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] attestKey FAILED:', e));
           }
           break;
         }
@@ -907,7 +907,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.KeymasterServer_UpgradeKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] upgradeKey FAILED:', e));
           }
           break;
         }
@@ -925,7 +925,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.KeymasterServer_DeleteKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteKey FAILED:', e));
           }
           break;
         }
@@ -943,7 +943,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.KeymasterServer_DeleteAllKeys_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteAllKeys FAILED:', e));
           }
           break;
         }
@@ -961,7 +961,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.KeymasterServer_Begin_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] begin FAILED:', e));
           }
           break;
         }
@@ -979,7 +979,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.KeymasterServer_Update_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] update FAILED:', e));
           }
           break;
         }
@@ -997,7 +997,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.KeymasterServer_Finish_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] finish FAILED:', e));
           }
           break;
         }
@@ -1015,7 +1015,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.KeymasterServer_Abort_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] abort FAILED:', e));
           }
           break;
         }

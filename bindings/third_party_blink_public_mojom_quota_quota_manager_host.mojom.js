@@ -257,7 +257,7 @@ mojo.internal.bindings.blink.mojom.QuotaManagerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] queryStorageUsageAndQuota FAILED:', e));
           }
           break;
         }

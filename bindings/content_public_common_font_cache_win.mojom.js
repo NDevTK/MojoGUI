@@ -270,7 +270,7 @@ mojo.internal.bindings.content.mojom.FontCacheWinReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.FontCacheWin_PreCacheFont_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] preCacheFont FAILED:', e));
           }
           break;
         }

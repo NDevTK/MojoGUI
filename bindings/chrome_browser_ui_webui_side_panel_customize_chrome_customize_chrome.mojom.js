@@ -895,7 +895,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getBackgroundCollections FAILED:', e));
           }
           break;
         }
@@ -913,7 +913,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getReplacementCollectionPreviewImage FAILED:', e));
           }
           break;
         }
@@ -931,7 +931,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getBackgroundImages FAILED:', e));
           }
           break;
         }
@@ -991,7 +991,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] chooseLocalCustomBackground FAILED:', e));
           }
           break;
         }

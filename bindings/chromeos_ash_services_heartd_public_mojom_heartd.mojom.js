@@ -334,7 +334,7 @@ mojo.internal.bindings.ash.heartd.mojom.HeartdControlReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runAction FAILED:', e));
           }
           break;
         }
@@ -475,7 +475,7 @@ mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] register FAILED:', e));
           }
           break;
         }
@@ -630,7 +630,7 @@ mojo.internal.bindings.ash.heartd.mojom.PacemakerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendHeartbeat FAILED:', e));
           }
           break;
         }
@@ -647,7 +647,7 @@ mojo.internal.bindings.ash.heartd.mojom.PacemakerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] stopMonitor FAILED:', e));
           }
           break;
         }

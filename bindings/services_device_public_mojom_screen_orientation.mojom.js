@@ -278,7 +278,7 @@ mojo.internal.bindings.device.mojom.ScreenOrientationReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] lockOrientation FAILED:', e));
           }
           break;
         }
@@ -426,7 +426,7 @@ mojo.internal.bindings.device.mojom.ScreenOrientationListenerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isAutoRotateEnabledByUser FAILED:', e));
           }
           break;
         }

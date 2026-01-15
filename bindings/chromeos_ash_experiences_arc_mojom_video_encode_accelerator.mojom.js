@@ -398,7 +398,7 @@ mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSupportedProfiles FAILED:', e));
           }
           break;
         }
@@ -416,7 +416,7 @@ mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] initialize FAILED:', e));
           }
           break;
         }
@@ -433,7 +433,7 @@ mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Encode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] encode FAILED:', e));
           }
           break;
         }
@@ -450,7 +450,7 @@ mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] useBitstreamBuffer FAILED:', e));
           }
           break;
         }
@@ -482,7 +482,7 @@ mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] flush FAILED:', e));
           }
           break;
         }

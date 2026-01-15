@@ -522,7 +522,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] executeCode FAILED:', e));
           }
           break;
         }
@@ -554,7 +554,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchOnConnect FAILED:', e));
           }
           break;
         }
@@ -863,7 +863,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestScriptInjectionPermission FAILED:', e));
           }
           break;
         }
@@ -881,7 +881,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAppInstallState FAILED:', e));
           }
           break;
         }
@@ -898,7 +898,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] request FAILED:', e));
           }
           break;
         }

@@ -492,7 +492,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openFeedbackDialog FAILED:', e));
           }
           break;
         }
@@ -509,7 +509,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] toggleBrowserFullscreenMode FAILED:', e));
           }
           break;
         }
@@ -526,7 +526,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] maybeTriggerPdfHats FAILED:', e));
           }
           break;
         }
@@ -544,7 +544,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isFileArcWritable FAILED:', e));
           }
           break;
         }
@@ -562,7 +562,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isFileBrowserWritable FAILED:', e));
           }
           break;
         }
@@ -579,7 +579,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] editInPhotos FAILED:', e));
           }
           break;
         }
@@ -596,7 +596,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] submitForm FAILED:', e));
           }
           break;
         }

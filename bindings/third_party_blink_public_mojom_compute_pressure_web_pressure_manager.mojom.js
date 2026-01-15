@@ -266,7 +266,7 @@ mojo.internal.bindings.blink.mojom.WebPressureManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addClient FAILED:', e));
           }
           break;
         }

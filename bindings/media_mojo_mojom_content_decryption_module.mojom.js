@@ -438,7 +438,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setServerCertificate FAILED:', e));
           }
           break;
         }
@@ -455,7 +455,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getStatusForPolicy FAILED:', e));
           }
           break;
         }
@@ -472,7 +472,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createSessionAndGenerateRequest FAILED:', e));
           }
           break;
         }
@@ -489,7 +489,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadSession FAILED:', e));
           }
           break;
         }
@@ -507,7 +507,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateSession FAILED:', e));
           }
           break;
         }
@@ -525,7 +525,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] closeSession FAILED:', e));
           }
           break;
         }
@@ -543,7 +543,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] removeSession FAILED:', e));
           }
           break;
         }
@@ -876,7 +876,7 @@ mojo.internal.bindings.media.mojom.CdmFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createCdm FAILED:', e));
           }
           break;
         }

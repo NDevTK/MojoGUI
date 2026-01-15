@@ -577,7 +577,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] toggleVisibility FAILED:', e));
           }
           break;
         }
@@ -609,7 +609,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] hideVisits FAILED:', e));
           }
           break;
         }
@@ -627,7 +627,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] removeVisits FAILED:', e));
           }
           break;
         }
@@ -645,7 +645,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] removeVisitByUrlAndTime FAILED:', e));
           }
           break;
         }

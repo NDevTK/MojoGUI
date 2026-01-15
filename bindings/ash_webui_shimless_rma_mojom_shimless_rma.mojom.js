@@ -3066,7 +3066,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCurrentState FAILED:', e));
           }
           break;
         }
@@ -3084,7 +3084,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getStateProperties FAILED:', e));
           }
           break;
         }
@@ -3102,7 +3102,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] transitionPreviousState FAILED:', e));
           }
           break;
         }
@@ -3120,7 +3120,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] abortRma FAILED:', e));
           }
           break;
         }
@@ -3138,7 +3138,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] beginFinalization FAILED:', e));
           }
           break;
         }
@@ -3163,7 +3163,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] networkSelectionComplete FAILED:', e));
           }
           break;
         }
@@ -3181,7 +3181,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCurrentOsVersion FAILED:', e));
           }
           break;
         }
@@ -3198,7 +3198,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] checkForOsUpdates FAILED:', e));
           }
           break;
         }
@@ -3216,7 +3216,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateOs FAILED:', e));
           }
           break;
         }
@@ -3234,7 +3234,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateOsSkipped FAILED:', e));
           }
           break;
         }
@@ -3252,7 +3252,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setSameOwner FAILED:', e));
           }
           break;
         }
@@ -3270,7 +3270,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setDifferentOwner FAILED:', e));
           }
           break;
         }
@@ -3288,7 +3288,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setWipeDevice FAILED:', e));
           }
           break;
         }
@@ -3306,7 +3306,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setManuallyDisableWriteProtect FAILED:', e));
           }
           break;
         }
@@ -3324,7 +3324,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setRsuDisableWriteProtect FAILED:', e));
           }
           break;
         }
@@ -3342,7 +3342,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRsuDisableWriteProtectChallenge FAILED:', e));
           }
           break;
         }
@@ -3360,7 +3360,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRsuDisableWriteProtectHwid FAILED:', e));
           }
           break;
         }
@@ -3378,7 +3378,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRsuDisableWriteProtectChallengeQrCode FAILED:', e));
           }
           break;
         }
@@ -3396,7 +3396,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setRsuDisableWriteProtectCode FAILED:', e));
           }
           break;
         }
@@ -3414,7 +3414,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] writeProtectManuallyDisabled FAILED:', e));
           }
           break;
         }
@@ -3432,7 +3432,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getWriteProtectDisableCompleteAction FAILED:', e));
           }
           break;
         }
@@ -3450,7 +3450,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] confirmManualWpDisableComplete FAILED:', e));
           }
           break;
         }
@@ -3468,7 +3468,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getComponentList FAILED:', e));
           }
           break;
         }
@@ -3486,7 +3486,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setComponentList FAILED:', e));
           }
           break;
         }
@@ -3504,7 +3504,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] reworkMainboard FAILED:', e));
           }
           break;
         }
@@ -3522,7 +3522,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] roFirmwareUpdateComplete FAILED:', e));
           }
           break;
         }
@@ -3540,7 +3540,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] shutdownForRestock FAILED:', e));
           }
           break;
         }
@@ -3558,7 +3558,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] continueFinalizationAfterRestock FAILED:', e));
           }
           break;
         }
@@ -3576,7 +3576,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRegionList FAILED:', e));
           }
           break;
         }
@@ -3594,7 +3594,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSkuList FAILED:', e));
           }
           break;
         }
@@ -3612,7 +3612,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCustomLabelList FAILED:', e));
           }
           break;
         }
@@ -3630,7 +3630,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSkuDescriptionList FAILED:', e));
           }
           break;
         }
@@ -3648,7 +3648,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOriginalSerialNumber FAILED:', e));
           }
           break;
         }
@@ -3666,7 +3666,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOriginalRegion FAILED:', e));
           }
           break;
         }
@@ -3684,7 +3684,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOriginalSku FAILED:', e));
           }
           break;
         }
@@ -3702,7 +3702,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOriginalCustomLabel FAILED:', e));
           }
           break;
         }
@@ -3720,7 +3720,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOriginalDramPartNumber FAILED:', e));
           }
           break;
         }
@@ -3738,7 +3738,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOriginalFeatureLevel FAILED:', e));
           }
           break;
         }
@@ -3756,7 +3756,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setDeviceInformation FAILED:', e));
           }
           break;
         }
@@ -3774,7 +3774,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCalibrationComponentList FAILED:', e));
           }
           break;
         }
@@ -3792,7 +3792,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCalibrationSetupInstructions FAILED:', e));
           }
           break;
         }
@@ -3810,7 +3810,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] startCalibration FAILED:', e));
           }
           break;
         }
@@ -3828,7 +3828,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runCalibrationStep FAILED:', e));
           }
           break;
         }
@@ -3846,7 +3846,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] continueCalibration FAILED:', e));
           }
           break;
         }
@@ -3864,7 +3864,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] calibrationComplete FAILED:', e));
           }
           break;
         }
@@ -3882,7 +3882,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] retryProvisioning FAILED:', e));
           }
           break;
         }
@@ -3900,7 +3900,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] provisioningComplete FAILED:', e));
           }
           break;
         }
@@ -3918,7 +3918,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] retryFinalization FAILED:', e));
           }
           break;
         }
@@ -3936,7 +3936,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] finalizationComplete FAILED:', e));
           }
           break;
         }
@@ -3954,7 +3954,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] writeProtectManuallyEnabled FAILED:', e));
           }
           break;
         }
@@ -3971,7 +3971,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getLog FAILED:', e));
           }
           break;
         }
@@ -3988,7 +3988,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] saveLog FAILED:', e));
           }
           break;
         }
@@ -4006,7 +4006,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPowerwashRequired FAILED:', e));
           }
           break;
         }
@@ -4031,7 +4031,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] endRma FAILED:', e));
           }
           break;
         }
@@ -4056,7 +4056,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] criticalErrorExitToLogin FAILED:', e));
           }
           break;
         }
@@ -4074,7 +4074,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] criticalErrorReboot FAILED:', e));
           }
           break;
         }
@@ -4092,7 +4092,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] get3pDiagnosticsProvider FAILED:', e));
           }
           break;
         }
@@ -4110,7 +4110,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getInstallable3pDiagnosticsAppPath FAILED:', e));
           }
           break;
         }
@@ -4128,7 +4128,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] installLastFound3pDiagnosticsApp FAILED:', e));
           }
           break;
         }
@@ -4145,7 +4145,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] completeLast3pDiagnosticsInstallation FAILED:', e));
           }
           break;
         }
@@ -4163,7 +4163,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] show3pDiagnosticsApp FAILED:', e));
           }
           break;
         }

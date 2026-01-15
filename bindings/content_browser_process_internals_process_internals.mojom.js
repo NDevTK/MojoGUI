@@ -364,7 +364,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getProcessCountInfo FAILED:', e));
           }
           break;
         }
@@ -382,7 +382,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getIsolationMode FAILED:', e));
           }
           break;
         }
@@ -400,7 +400,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getProcessPerSiteMode FAILED:', e));
           }
           break;
         }
@@ -418,7 +418,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUserTriggeredIsolatedOrigins FAILED:', e));
           }
           break;
         }
@@ -436,7 +436,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getWebTriggeredIsolatedOrigins FAILED:', e));
           }
           break;
         }
@@ -454,7 +454,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getGloballyIsolatedOrigins FAILED:', e));
           }
           break;
         }
@@ -472,7 +472,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAllWebContentsInfo FAILED:', e));
           }
           break;
         }

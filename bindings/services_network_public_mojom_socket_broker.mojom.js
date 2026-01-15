@@ -273,7 +273,7 @@ mojo.internal.bindings.network.mojom.SocketBrokerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createTcpSocket FAILED:', e));
           }
           break;
         }
@@ -290,7 +290,7 @@ mojo.internal.bindings.network.mojom.SocketBrokerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createUdpSocket FAILED:', e));
           }
           break;
         }

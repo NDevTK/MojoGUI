@@ -406,7 +406,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] suspend FAILED:', e));
           }
           break;
         }
@@ -431,7 +431,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPhotoState FAILED:', e));
           }
           break;
         }
@@ -449,7 +449,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setPhotoOptions FAILED:', e));
           }
           break;
         }
@@ -467,7 +467,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] takePhoto FAILED:', e));
           }
           break;
         }
@@ -484,7 +484,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] close FAILED:', e));
           }
           break;
         }
@@ -631,7 +631,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createPushSubscription FAILED:', e));
           }
           break;
         }

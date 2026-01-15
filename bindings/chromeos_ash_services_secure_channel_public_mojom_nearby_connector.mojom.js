@@ -454,7 +454,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSenderReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendMessage FAILED:', e));
           }
           break;
         }
@@ -725,7 +725,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandlerReceiver
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] registerPayloadFile FAILED:', e));
           }
           break;
         }
@@ -865,7 +865,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] connect FAILED:', e));
           }
           break;
         }

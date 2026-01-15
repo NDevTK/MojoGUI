@@ -675,7 +675,7 @@ mojo.internal.bindings.device.mojom.VRServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.VRService_RequestSession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestSession FAILED:', e));
           }
           break;
         }
@@ -693,7 +693,7 @@ mojo.internal.bindings.device.mojom.VRServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.VRService_SupportsSession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] supportsSession FAILED:', e));
           }
           break;
         }
@@ -710,7 +710,7 @@ mojo.internal.bindings.device.mojom.VRServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.VRService_ExitPresent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] exitPresent FAILED:', e));
           }
           break;
         }
@@ -735,7 +735,7 @@ mojo.internal.bindings.device.mojom.VRServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] makeXrCompatible FAILED:', e));
           }
           break;
         }
@@ -1192,7 +1192,7 @@ mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] subscribeToHitTest FAILED:', e));
           }
           break;
         }
@@ -1210,7 +1210,7 @@ mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] subscribeToHitTestForTransientInput FAILED:', e));
           }
           break;
         }
@@ -1235,7 +1235,7 @@ mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createAnchor FAILED:', e));
           }
           break;
         }
@@ -1397,7 +1397,7 @@ mojo.internal.bindings.device.mojom.XRFrameDataProviderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFrameData FAILED:', e));
           }
           break;
         }
@@ -2124,7 +2124,7 @@ mojo.internal.bindings.device.mojom.XRLayerManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createCompositionLayer FAILED:', e));
           }
           break;
         }

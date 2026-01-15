@@ -265,7 +265,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceInternalReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Run_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] run FAILED:', e));
           }
           break;
         }
@@ -282,7 +282,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceInternalReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Hello_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] hello FAILED:', e));
           }
           break;
         }

@@ -312,7 +312,7 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRece
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getTouchscreenDevices FAILED:', e));
           }
           break;
         }
@@ -330,7 +330,7 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRece
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getTouchpadLibraryName FAILED:', e));
           }
           break;
         }
@@ -348,7 +348,7 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRece
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setPrivacyScreenState FAILED:', e));
           }
           break;
         }
@@ -366,7 +366,7 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRece
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_SetAudioOutputMute FAILED:', e));
           }
           break;
         }

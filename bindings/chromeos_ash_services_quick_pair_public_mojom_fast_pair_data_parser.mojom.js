@@ -358,7 +358,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getHexModelIdFromServiceData FAILED:', e));
           }
           break;
         }
@@ -376,7 +376,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] parseDecryptedResponse FAILED:', e));
           }
           break;
         }
@@ -394,7 +394,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] parseDecryptedPasskey FAILED:', e));
           }
           break;
         }
@@ -412,7 +412,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] parseNotDiscoverableAdvertisement FAILED:', e));
           }
           break;
         }
@@ -430,7 +430,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] parseMessageStreamMessages FAILED:', e));
           }
           break;
         }

@@ -827,7 +827,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createAdRequest FAILED:', e));
           }
           break;
         }
@@ -845,7 +845,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] finalizeAd FAILED:', e));
           }
           break;
         }
@@ -862,7 +862,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runAdAuction FAILED:', e));
           }
           break;
         }
@@ -880,7 +880,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] joinInterestGroup FAILED:', e));
           }
           break;
         }
@@ -898,7 +898,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] leaveInterestGroup FAILED:', e));
           }
           break;
         }
@@ -923,7 +923,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearOriginJoinedInterestGroups FAILED:', e));
           }
           break;
         }
@@ -948,7 +948,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deprecatedGetURLFromURN FAILED:', e));
           }
           break;
         }
@@ -965,7 +965,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deprecatedReplaceInURN FAILED:', e));
           }
           break;
         }
@@ -982,7 +982,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getInterestGroupAdAuctionData FAILED:', e));
           }
           break;
         }

@@ -444,7 +444,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSupportedRoutines FAILED:', e));
           }
           break;
         }

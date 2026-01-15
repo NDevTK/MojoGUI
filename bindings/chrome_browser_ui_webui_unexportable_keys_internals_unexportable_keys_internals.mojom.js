@@ -414,7 +414,7 @@ mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandlerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUnexportableKeysInfo FAILED:', e));
           }
           break;
         }
@@ -432,7 +432,7 @@ mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandlerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteKey FAILED:', e));
           }
           break;
         }

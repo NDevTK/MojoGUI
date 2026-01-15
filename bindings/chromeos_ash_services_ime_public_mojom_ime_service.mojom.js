@@ -304,7 +304,7 @@ mojo.internal.bindings.ash.ime.mojom.InputEngineManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] connectToImeEngine FAILED:', e));
           }
           break;
         }
@@ -322,7 +322,7 @@ mojo.internal.bindings.ash.ime.mojom.InputEngineManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] initializeConnectionFactory FAILED:', e));
           }
           break;
         }
@@ -463,7 +463,7 @@ mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] downloadImeFileTo FAILED:', e));
           }
           break;
         }

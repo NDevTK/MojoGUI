@@ -691,7 +691,7 @@ mojo.internal.bindings.blink.mojom.WebPrinterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fetchAttributes FAILED:', e));
           }
           break;
         }
@@ -709,7 +709,7 @@ mojo.internal.bindings.blink.mojom.WebPrinterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.WebPrinter_Print_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] print FAILED:', e));
           }
           break;
         }
@@ -850,7 +850,7 @@ mojo.internal.bindings.blink.mojom.WebPrintingServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPrinters FAILED:', e));
           }
           break;
         }

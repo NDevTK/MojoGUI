@@ -266,7 +266,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryManagementServiceReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setAudioGain FAILED:', e));
           }
           break;
         }
@@ -284,7 +284,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryManagementServiceReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setAudioVolume FAILED:', e));
           }
           break;
         }

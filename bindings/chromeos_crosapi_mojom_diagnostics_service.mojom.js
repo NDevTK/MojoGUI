@@ -857,7 +857,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAvailableRoutines FAILED:', e));
           }
           break;
         }
@@ -875,7 +875,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRoutineUpdate FAILED:', e));
           }
           break;
         }
@@ -893,7 +893,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runBatteryCapacityRoutine FAILED:', e));
           }
           break;
         }
@@ -911,7 +911,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runBatteryHealthRoutine FAILED:', e));
           }
           break;
         }
@@ -929,7 +929,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runSmartctlCheckRoutine FAILED:', e));
           }
           break;
         }
@@ -947,7 +947,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runAcPowerRoutine FAILED:', e));
           }
           break;
         }
@@ -965,7 +965,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runCpuCacheRoutine FAILED:', e));
           }
           break;
         }
@@ -983,7 +983,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runCpuStressRoutine FAILED:', e));
           }
           break;
         }
@@ -1001,7 +1001,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runFloatingPointAccuracyRoutine FAILED:', e));
           }
           break;
         }
@@ -1019,7 +1019,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_RunNvmeWearLevelRoutine FAILED:', e));
           }
           break;
         }
@@ -1037,7 +1037,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runNvmeSelfTestRoutine FAILED:', e));
           }
           break;
         }
@@ -1055,7 +1055,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runDiskReadRoutine FAILED:', e));
           }
           break;
         }
@@ -1073,7 +1073,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runPrimeSearchRoutine FAILED:', e));
           }
           break;
         }
@@ -1091,7 +1091,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runBatteryDischargeRoutine FAILED:', e));
           }
           break;
         }
@@ -1109,7 +1109,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runBatteryChargeRoutine FAILED:', e));
           }
           break;
         }
@@ -1127,7 +1127,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runMemoryRoutine FAILED:', e));
           }
           break;
         }
@@ -1145,7 +1145,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runLanConnectivityRoutine FAILED:', e));
           }
           break;
         }
@@ -1163,7 +1163,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runDnsResolutionRoutine FAILED:', e));
           }
           break;
         }
@@ -1181,7 +1181,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runSignalStrengthRoutine FAILED:', e));
           }
           break;
         }
@@ -1199,7 +1199,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runGatewayCanBePingedRoutine FAILED:', e));
           }
           break;
         }
@@ -1217,7 +1217,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runDnsResolverPresentRoutine FAILED:', e));
           }
           break;
         }
@@ -1235,7 +1235,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runSensitiveSensorRoutine FAILED:', e));
           }
           break;
         }
@@ -1253,7 +1253,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runFingerprintAliveRoutine FAILED:', e));
           }
           break;
         }
@@ -1271,7 +1271,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runEmmcLifetimeRoutine FAILED:', e));
           }
           break;
         }
@@ -1289,7 +1289,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runBluetoothPowerRoutine FAILED:', e));
           }
           break;
         }
@@ -1307,7 +1307,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runUfsLifetimeRoutine FAILED:', e));
           }
           break;
         }
@@ -1325,7 +1325,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runPowerButtonRoutine FAILED:', e));
           }
           break;
         }
@@ -1343,7 +1343,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runAudioDriverRoutine FAILED:', e));
           }
           break;
         }
@@ -1361,7 +1361,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runBluetoothDiscoveryRoutine FAILED:', e));
           }
           break;
         }
@@ -1379,7 +1379,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runBluetoothScanningRoutine FAILED:', e));
           }
           break;
         }
@@ -1397,7 +1397,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runBluetoothPairingRoutine FAILED:', e));
           }
           break;
         }
@@ -1415,7 +1415,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runFanRoutine FAILED:', e));
           }
           break;
         }

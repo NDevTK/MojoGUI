@@ -250,7 +250,7 @@ mojo.internal.bindings.chromecast.mojom.AudioSocketBrokerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSocketDescriptor FAILED:', e));
           }
           break;
         }

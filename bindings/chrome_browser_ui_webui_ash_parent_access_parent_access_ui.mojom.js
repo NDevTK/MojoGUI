@@ -381,7 +381,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOauthToken FAILED:', e));
           }
           break;
         }
@@ -399,7 +399,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onParentAccessCallbackReceived FAILED:', e));
           }
           break;
         }
@@ -417,7 +417,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getParentAccessParams FAILED:', e));
           }
           break;
         }
@@ -435,7 +435,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getParentAccessUrl FAILED:', e));
           }
           break;
         }
@@ -452,7 +452,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onParentAccessDone FAILED:', e));
           }
           break;
         }
@@ -469,7 +469,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onBeforeScreenDone FAILED:', e));
           }
           break;
         }

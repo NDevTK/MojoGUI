@@ -504,7 +504,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] demandDrawHw FAILED:', e));
           }
           break;
         }
@@ -521,7 +521,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setSharedMemory FAILED:', e));
           }
           break;
         }
@@ -538,7 +538,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] demandDrawSw FAILED:', e));
           }
           break;
         }
@@ -570,7 +570,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] zoomBy FAILED:', e));
           }
           break;
         }

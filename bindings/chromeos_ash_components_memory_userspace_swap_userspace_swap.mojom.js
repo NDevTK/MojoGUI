@@ -257,7 +257,7 @@ mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitializationReceiver 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] transferUserfaultFD FAILED:', e));
           }
           break;
         }
@@ -440,7 +440,7 @@ mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPartitionAllocSuperPagesUsed FAILED:', e));
           }
           break;
         }

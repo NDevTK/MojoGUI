@@ -743,7 +743,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] startTraceSession FAILED:', e));
           }
           break;
         }
@@ -760,7 +760,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] cloneTraceSession FAILED:', e));
           }
           break;
         }
@@ -778,7 +778,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] stopTraceSession FAILED:', e));
           }
           break;
         }
@@ -796,7 +796,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getTrackEventCategories FAILED:', e));
           }
           break;
         }
@@ -813,7 +813,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getBufferUsage FAILED:', e));
           }
           break;
         }
@@ -831,7 +831,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAllTraceReports FAILED:', e));
           }
           break;
         }
@@ -849,7 +849,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteSingleTrace FAILED:', e));
           }
           break;
         }
@@ -867,7 +867,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteAllTraces FAILED:', e));
           }
           break;
         }
@@ -885,7 +885,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] userUploadSingleTrace FAILED:', e));
           }
           break;
         }
@@ -903,7 +903,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] downloadTrace FAILED:', e));
           }
           break;
         }
@@ -921,7 +921,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAllScenarios FAILED:', e));
           }
           break;
         }
@@ -939,7 +939,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setEnabledScenarios FAILED:', e));
           }
           break;
         }
@@ -957,7 +957,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setScenariosConfigFromString FAILED:', e));
           }
           break;
         }
@@ -975,7 +975,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setScenariosConfigFromBuffer FAILED:', e));
           }
           break;
         }
@@ -993,7 +993,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPrivacyFilterEnabled FAILED:', e));
           }
           break;
         }
@@ -1017,7 +1017,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSystemTracingState FAILED:', e));
           }
           break;
         }
@@ -1035,7 +1035,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSecurityShieldIconUrl FAILED:', e));
           }
           break;
         }
@@ -1053,7 +1053,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] enableSystemTracing FAILED:', e));
           }
           break;
         }
@@ -1071,7 +1071,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] disableSystemTracing FAILED:', e));
           }
           break;
         }

@@ -787,7 +787,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onFocus FAILED:', e));
           }
           break;
         }
@@ -812,7 +812,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] processKeyEvent FAILED:', e));
           }
           break;
         }
@@ -858,7 +858,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isReadyForTesting FAILED:', e));
           }
           break;
         }

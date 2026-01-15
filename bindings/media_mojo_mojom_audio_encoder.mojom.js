@@ -314,7 +314,7 @@ mojo.internal.bindings.media.mojom.AudioEncoderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] initialize FAILED:', e));
           }
           break;
         }
@@ -332,7 +332,7 @@ mojo.internal.bindings.media.mojom.AudioEncoderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] encode FAILED:', e));
           }
           break;
         }
@@ -350,7 +350,7 @@ mojo.internal.bindings.media.mojom.AudioEncoderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] flush FAILED:', e));
           }
           break;
         }

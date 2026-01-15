@@ -768,7 +768,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSequenceNumber FAILED:', e));
           }
           break;
         }
@@ -786,7 +786,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isFormatAvailable FAILED:', e));
           }
           break;
         }
@@ -804,7 +804,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] readAvailableTypes FAILED:', e));
           }
           break;
         }
@@ -822,7 +822,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] readText FAILED:', e));
           }
           break;
         }
@@ -839,7 +839,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] readHtml FAILED:', e));
           }
           break;
         }
@@ -857,7 +857,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] readSvg FAILED:', e));
           }
           break;
         }
@@ -875,7 +875,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] readRtf FAILED:', e));
           }
           break;
         }
@@ -893,7 +893,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] readPng FAILED:', e));
           }
           break;
         }
@@ -911,7 +911,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] readFiles FAILED:', e));
           }
           break;
         }
@@ -929,7 +929,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] readDataTransferCustomData FAILED:', e));
           }
           break;
         }
@@ -947,7 +947,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] readAvailableCustomAndStandardFormats FAILED:', e));
           }
           break;
         }
@@ -965,7 +965,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] readUnsanitizedCustomFormat FAILED:', e));
           }
           break;
         }

@@ -337,7 +337,7 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openTCPSocket FAILED:', e));
           }
           break;
         }
@@ -354,7 +354,7 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openConnectedUDPSocket FAILED:', e));
           }
           break;
         }
@@ -371,7 +371,7 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openBoundUDPSocket FAILED:', e));
           }
           break;
         }
@@ -388,7 +388,7 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openTCPServerSocket FAILED:', e));
           }
           break;
         }

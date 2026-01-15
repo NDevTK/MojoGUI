@@ -369,7 +369,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getApps FAILED:', e));
           }
           break;
         }
@@ -387,7 +387,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSystemAppsThatUseCamera FAILED:', e));
           }
           break;
         }
@@ -405,7 +405,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSystemAppsThatUseMicrophone FAILED:', e));
           }
           break;
         }

@@ -306,7 +306,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] read FAILED:', e));
           }
           break;
         }
@@ -323,7 +323,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] write FAILED:', e));
           }
           break;
         }
@@ -340,7 +340,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getLength FAILED:', e));
           }
           break;
         }
@@ -358,7 +358,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setLength FAILED:', e));
           }
           break;
         }

@@ -382,7 +382,7 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] queueSyntheticSmoothDrag FAILED:', e));
           }
           break;
         }
@@ -399,7 +399,7 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] queueSyntheticSmoothScroll FAILED:', e));
           }
           break;
         }
@@ -416,7 +416,7 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] queueSyntheticPinch FAILED:', e));
           }
           break;
         }
@@ -433,7 +433,7 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] queueSyntheticTap FAILED:', e));
           }
           break;
         }
@@ -450,7 +450,7 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] queueSyntheticPointerAction FAILED:', e));
           }
           break;
         }

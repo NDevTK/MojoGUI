@@ -494,7 +494,7 @@ mojo.internal.bindings.ax.mojom.TtsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ax.mojom.Tts_Speak_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] speak FAILED:', e));
           }
           break;
         }
@@ -533,7 +533,7 @@ mojo.internal.bindings.ax.mojom.TtsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ax.mojom.Tts_IsSpeaking_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isSpeaking FAILED:', e));
           }
           break;
         }
@@ -551,7 +551,7 @@ mojo.internal.bindings.ax.mojom.TtsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ax.mojom.Tts_GetVoices_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getVoices FAILED:', e));
           }
           break;
         }

@@ -429,7 +429,7 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCurrentBorderGlowVisibility FAILED:', e));
           }
           break;
         }
@@ -646,7 +646,7 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] moveCursorTo FAILED:', e));
           }
           break;
         }
@@ -663,7 +663,7 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] triggerClickAnimation FAILED:', e));
           }
           break;
         }

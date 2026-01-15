@@ -282,7 +282,7 @@ mojo.internal.bindings.image_annotation.mojom.ImageProcessorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getJpgImageData FAILED:', e));
           }
           break;
         }
@@ -423,7 +423,7 @@ mojo.internal.bindings.image_annotation.mojom.AnnotatorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] annotateImage FAILED:', e));
           }
           break;
         }

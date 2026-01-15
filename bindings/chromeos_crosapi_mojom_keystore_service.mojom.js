@@ -691,7 +691,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] challengeAttestationOnlyKeystore FAILED:', e));
           }
           break;
         }
@@ -709,7 +709,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyStores_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getKeyStores FAILED:', e));
           }
           break;
         }
@@ -727,7 +727,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_SelectClientCertificates_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] selectClientCertificates FAILED:', e));
           }
           break;
         }
@@ -745,7 +745,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_GetCertificates_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCertificates FAILED:', e));
           }
           break;
         }
@@ -762,7 +762,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_AddCertificate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addCertificate FAILED:', e));
           }
           break;
         }
@@ -779,7 +779,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveCertificate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] removeCertificate FAILED:', e));
           }
           break;
         }
@@ -797,7 +797,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_GetPublicKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPublicKey FAILED:', e));
           }
           break;
         }
@@ -815,7 +815,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_GenerateKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] generateKey FAILED:', e));
           }
           break;
         }
@@ -832,7 +832,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] removeKey FAILED:', e));
           }
           break;
         }
@@ -850,7 +850,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_Sign_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sign FAILED:', e));
           }
           break;
         }
@@ -868,7 +868,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyTags_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getKeyTags FAILED:', e));
           }
           break;
         }
@@ -885,7 +885,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_AddKeyTags_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addKeyTags FAILED:', e));
           }
           break;
         }
@@ -903,7 +903,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] canUserGrantPermissionForKey FAILED:', e));
           }
           break;
         }
@@ -920,7 +920,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_SetAttributeForKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setAttributeForKey FAILED:', e));
           }
           break;
         }
@@ -938,7 +938,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_ExtensionGenerateKey FAILED:', e));
           }
           break;
         }
@@ -956,7 +956,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_ExtensionSign FAILED:', e));
           }
           break;
         }
@@ -974,7 +974,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_GetPublicKey FAILED:', e));
           }
           break;
         }
@@ -992,7 +992,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_GetKeyStores FAILED:', e));
           }
           break;
         }
@@ -1010,7 +1010,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_GetCertificates FAILED:', e));
           }
           break;
         }
@@ -1028,7 +1028,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_AddCertificate FAILED:', e));
           }
           break;
         }
@@ -1046,7 +1046,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_RemoveCertificate FAILED:', e));
           }
           break;
         }
@@ -1064,7 +1064,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_ChallengeAttestationOnlyKeystore FAILED:', e));
           }
           break;
         }

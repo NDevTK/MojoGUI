@@ -291,7 +291,7 @@ mojo.internal.bindings.extensions.mojom.GuestViewReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] canExecuteContentScript FAILED:', e));
           }
           break;
         }
@@ -481,7 +481,7 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerReceiver 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createBeforeUnloadControl FAILED:', e));
           }
           break;
         }

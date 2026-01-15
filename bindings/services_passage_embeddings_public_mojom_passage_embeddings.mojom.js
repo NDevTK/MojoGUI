@@ -274,7 +274,7 @@ mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] generateEmbeddings FAILED:', e));
           }
           break;
         }
@@ -415,7 +415,7 @@ mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsServiceReceiver
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadModels FAILED:', e));
           }
           break;
         }

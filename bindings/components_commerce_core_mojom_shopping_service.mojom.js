@@ -730,7 +730,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getProductInfoForCurrentUrl FAILED:', e));
           }
           break;
         }
@@ -747,7 +747,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getProductInfoForUrl FAILED:', e));
           }
           break;
         }
@@ -765,7 +765,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrls_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getProductInfoForUrls FAILED:', e));
           }
           break;
         }
@@ -783,7 +783,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPriceInsightsInfoForCurrentUrl FAILED:', e));
           }
           break;
         }
@@ -800,7 +800,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPriceInsightsInfoForUrl FAILED:', e));
           }
           break;
         }
@@ -818,7 +818,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getProductSpecificationsForUrls FAILED:', e));
           }
           break;
         }
@@ -836,7 +836,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUrlInfosForProductTabs FAILED:', e));
           }
           break;
         }
@@ -854,7 +854,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUrlInfosForRecentlyViewedTabs FAILED:', e));
           }
           break;
         }
@@ -872,7 +872,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_IsShoppingListEligible_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isShoppingListEligible FAILED:', e));
           }
           break;
         }
@@ -890,7 +890,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetPriceTrackingStatusForCurrentUrl_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPriceTrackingStatusForCurrentUrl FAILED:', e));
           }
           break;
         }
@@ -922,7 +922,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetAllProductSpecificationsSets_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAllProductSpecificationsSets FAILED:', e));
           }
           break;
         }
@@ -940,7 +940,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getProductSpecificationsSetByUuid FAILED:', e));
           }
           break;
         }
@@ -958,7 +958,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addProductSpecificationsSet FAILED:', e));
           }
           break;
         }
@@ -983,7 +983,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setNameForProductSpecificationsSet FAILED:', e));
           }
           break;
         }
@@ -1001,7 +1001,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setUrlsForProductSpecificationsSet FAILED:', e));
           }
           break;
         }
@@ -1026,7 +1026,7 @@ mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getProductSpecificationsFeatureState FAILED:', e));
           }
           break;
         }

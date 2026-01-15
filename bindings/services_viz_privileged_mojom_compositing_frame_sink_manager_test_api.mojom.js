@@ -307,7 +307,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApiReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] hasUnclaimedViewTransitionResources FAILED:', e));
           }
           break;
         }
@@ -324,7 +324,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApiReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setSameDocNavigationScreenshotSize FAILED:', e));
           }
           break;
         }
@@ -342,7 +342,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApiReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getForceEnableZoomState FAILED:', e));
           }
           break;
         }
@@ -359,7 +359,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApiReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] waitForSurfaceAnimationManager FAILED:', e));
           }
           break;
         }

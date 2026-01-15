@@ -441,7 +441,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getHotspotInfo FAILED:', e));
           }
           break;
         }
@@ -459,7 +459,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setHotspotConfig FAILED:', e));
           }
           break;
         }
@@ -477,7 +477,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] enableHotspot FAILED:', e));
           }
           break;
         }
@@ -495,7 +495,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] disableHotspot FAILED:', e));
           }
           break;
         }

@@ -298,7 +298,7 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] allowIndexedDB FAILED:', e));
           }
           break;
         }
@@ -316,7 +316,7 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] allowCacheStorage FAILED:', e));
           }
           break;
         }
@@ -334,7 +334,7 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] allowWebLocks FAILED:', e));
           }
           break;
         }
@@ -352,7 +352,7 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestFileSystemAccessSync FAILED:', e));
           }
           break;
         }

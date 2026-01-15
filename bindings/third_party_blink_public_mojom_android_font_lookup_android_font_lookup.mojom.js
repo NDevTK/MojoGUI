@@ -288,7 +288,7 @@ mojo.internal.bindings.blink.mojom.AndroidFontLookupReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUniqueNameLookupTable FAILED:', e));
           }
           break;
         }
@@ -306,7 +306,7 @@ mojo.internal.bindings.blink.mojom.AndroidFontLookupReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] matchLocalFontByUniqueName FAILED:', e));
           }
           break;
         }
@@ -324,7 +324,7 @@ mojo.internal.bindings.blink.mojom.AndroidFontLookupReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fetchAllFontFiles FAILED:', e));
           }
           break;
         }

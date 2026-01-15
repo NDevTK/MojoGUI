@@ -341,7 +341,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isQuotaSupported FAILED:', e));
           }
           break;
         }
@@ -359,7 +359,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getQuotaCurrentSpaceForUid FAILED:', e));
           }
           break;
         }
@@ -377,7 +377,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getQuotaCurrentSpaceForGid FAILED:', e));
           }
           break;
         }
@@ -395,7 +395,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getQuotaCurrentSpaceForProjectId FAILED:', e));
           }
           break;
         }
@@ -413,7 +413,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getQuotaCurrentSpacesForIds FAILED:', e));
           }
           break;
         }
@@ -431,7 +431,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFreeDiskSpace FAILED:', e));
           }
           break;
         }
@@ -599,7 +599,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -616,7 +616,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getApplicationsSize FAILED:', e));
           }
           break;
         }

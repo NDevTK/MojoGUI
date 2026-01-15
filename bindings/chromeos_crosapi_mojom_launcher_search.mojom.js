@@ -491,7 +491,7 @@ mojo.internal.bindings.crosapi.mojom.SearchControllerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.SearchController_Search_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] search FAILED:', e));
           }
           break;
         }

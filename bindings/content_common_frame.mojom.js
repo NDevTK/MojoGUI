@@ -816,7 +816,7 @@ mojo.internal.bindings.content.mojom.FrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.Frame_CommitSameDocumentNavigation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] commitSameDocumentNavigation FAILED:', e));
           }
           break;
         }
@@ -876,7 +876,7 @@ mojo.internal.bindings.content.mojom.FrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] snapshotAccessibilityTree FAILED:', e));
           }
           break;
         }
@@ -1528,7 +1528,7 @@ mojo.internal.bindings.content.mojom.FrameHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.FrameHost_CreateNewWindow_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createNewWindow FAILED:', e));
           }
           break;
         }

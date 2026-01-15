@@ -401,7 +401,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDevices FAILED:', e));
           }
           break;
         }
@@ -419,7 +419,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openPort FAILED:', e));
           }
           break;
         }
@@ -857,7 +857,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.SerialPort_Flush_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] flush FAILED:', e));
           }
           break;
         }
@@ -874,7 +874,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.SerialPort_Drain_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] drain FAILED:', e));
           }
           break;
         }
@@ -892,7 +892,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getControlSignals FAILED:', e));
           }
           break;
         }
@@ -910,7 +910,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setControlSignals FAILED:', e));
           }
           break;
         }
@@ -928,7 +928,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] configurePort FAILED:', e));
           }
           break;
         }
@@ -946,7 +946,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPortInfo FAILED:', e));
           }
           break;
         }
@@ -963,7 +963,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.SerialPort_Close_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] close FAILED:', e));
           }
           break;
         }

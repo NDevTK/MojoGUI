@@ -426,7 +426,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isKeySystemSupported FAILED:', e));
           }
           break;
         }
@@ -588,7 +588,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceBrokerReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateGpuInfo FAILED:', e));
           }
           break;
         }

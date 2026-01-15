@@ -491,7 +491,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestAmountOfFreeDiskSpace FAILED:', e));
           }
           break;
         }

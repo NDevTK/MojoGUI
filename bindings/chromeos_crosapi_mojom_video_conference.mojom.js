@@ -350,7 +350,7 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMediaApps FAILED:', e));
           }
           break;
         }
@@ -368,7 +368,7 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] returnToApp FAILED:', e));
           }
           break;
         }
@@ -386,7 +386,7 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setSystemMediaDeviceStatus FAILED:', e));
           }
           break;
         }

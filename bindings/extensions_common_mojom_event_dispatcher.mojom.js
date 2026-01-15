@@ -265,7 +265,7 @@ mojo.internal.bindings.extensions.mojom.EventDispatcherReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchEvent FAILED:', e));
           }
           break;
         }

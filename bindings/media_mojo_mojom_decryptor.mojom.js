@@ -410,7 +410,7 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] decrypt FAILED:', e));
           }
           break;
         }
@@ -435,7 +435,7 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] initializeAudioDecoder FAILED:', e));
           }
           break;
         }
@@ -453,7 +453,7 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] initializeVideoDecoder FAILED:', e));
           }
           break;
         }
@@ -470,7 +470,7 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] decryptAndDecodeAudio FAILED:', e));
           }
           break;
         }
@@ -487,7 +487,7 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] decryptAndDecodeVideo FAILED:', e));
           }
           break;
         }

@@ -317,7 +317,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setUpExternalStorageMountPoints FAILED:', e));
           }
           break;
         }
@@ -492,7 +492,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.VolumeMounterInstance_Init_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -517,7 +517,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] prepareForRemovableMediaUnmount FAILED:', e));
           }
           break;
         }

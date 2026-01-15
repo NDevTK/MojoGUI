@@ -313,7 +313,7 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] authenticateWebview FAILED:', e));
           }
           break;
         }
@@ -331,7 +331,7 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getProfileInfo FAILED:', e));
           }
           break;
         }

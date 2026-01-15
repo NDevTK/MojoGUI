@@ -285,7 +285,7 @@ mojo.internal.bindings.unzip.mojom.UnzipFilterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] shouldUnzipFile FAILED:', e));
           }
           break;
         }
@@ -598,7 +598,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] unzip FAILED:', e));
           }
           break;
         }
@@ -616,7 +616,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] detectEncoding FAILED:', e));
           }
           break;
         }
@@ -634,7 +634,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getExtractedInfo FAILED:', e));
           }
           break;
         }
@@ -652,7 +652,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] decodeXz FAILED:', e));
           }
           break;
         }

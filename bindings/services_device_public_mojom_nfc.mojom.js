@@ -396,7 +396,7 @@ mojo.internal.bindings.device.mojom.NFCReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.NFC_Push_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] push FAILED:', e));
           }
           break;
         }
@@ -421,7 +421,7 @@ mojo.internal.bindings.device.mojom.NFCReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.NFC_MakeReadOnly_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] makeReadOnly FAILED:', e));
           }
           break;
         }
@@ -446,7 +446,7 @@ mojo.internal.bindings.device.mojom.NFCReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.NFC_Watch_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] watch FAILED:', e));
           }
           break;
         }

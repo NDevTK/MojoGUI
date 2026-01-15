@@ -343,7 +343,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getTabStripInset FAILED:', e));
           }
           break;
         }
@@ -838,7 +838,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getGuestIdForTabId FAILED:', e));
           }
           break;
         }
@@ -856,7 +856,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadTabSearch FAILED:', e));
           }
           break;
         }
@@ -1179,7 +1179,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] canGoBack FAILED:', e));
           }
           break;
         }
@@ -1204,7 +1204,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] canGoForward FAILED:', e));
           }
           break;
         }
@@ -1250,7 +1250,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSecurityIcon FAILED:', e));
           }
           break;
         }

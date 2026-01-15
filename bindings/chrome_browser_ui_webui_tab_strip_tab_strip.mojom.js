@@ -662,7 +662,7 @@ mojo.internal.bindings.tab_strip.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.tab_strip.mojom.PageHandler_GetGroupVisualData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getGroupVisualData FAILED:', e));
           }
           break;
         }
@@ -680,7 +680,7 @@ mojo.internal.bindings.tab_strip.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.tab_strip.mojom.PageHandler_GetTabs_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getTabs FAILED:', e));
           }
           break;
         }
@@ -740,7 +740,7 @@ mojo.internal.bindings.tab_strip.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.tab_strip.mojom.PageHandler_GetLayout_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getLayout FAILED:', e));
           }
           break;
         }

@@ -650,7 +650,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.AccountManager_IsInitialized_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isInitialized FAILED:', e));
           }
           break;
         }
@@ -668,7 +668,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.AccountManager_AddObserver_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addObserver FAILED:', e));
           }
           break;
         }
@@ -686,7 +686,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.AccountManager_GetAccounts_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAccounts FAILED:', e));
           }
           break;
         }
@@ -704,7 +704,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] showAddAccountDialog FAILED:', e));
           }
           break;
         }
@@ -722,7 +722,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] showReauthAccountDialog FAILED:', e));
           }
           break;
         }
@@ -747,7 +747,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPersistentErrorForAccount FAILED:', e));
           }
           break;
         }
@@ -765,7 +765,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createAccessTokenFetcher FAILED:', e));
           }
           break;
         }
@@ -913,7 +913,7 @@ mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] start FAILED:', e));
           }
           break;
         }

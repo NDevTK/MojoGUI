@@ -563,7 +563,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isSupported FAILED:', e));
           }
           break;
         }
@@ -581,7 +581,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isConfigured FAILED:', e));
           }
           break;
         }
@@ -599,7 +599,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getManagementType FAILED:', e));
           }
           break;
         }
@@ -617,7 +617,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isEditable FAILED:', e));
           }
           break;
         }
@@ -765,7 +765,7 @@ mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] configure FAILED:', e));
           }
           break;
         }
@@ -962,7 +962,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setPin FAILED:', e));
           }
           break;
         }
@@ -980,7 +980,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updatePin FAILED:', e));
           }
           break;
         }
@@ -998,7 +998,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] removePin FAILED:', e));
           }
           break;
         }
@@ -1016,7 +1016,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getConfiguredPinFactor FAILED:', e));
           }
           break;
         }
@@ -1034,7 +1034,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] checkPinComplexity FAILED:', e));
           }
           break;
         }
@@ -1245,7 +1245,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateOrSetLocalPassword FAILED:', e));
           }
           break;
         }
@@ -1263,7 +1263,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateOrSetOnlinePassword FAILED:', e));
           }
           break;
         }
@@ -1281,7 +1281,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setLocalPassword FAILED:', e));
           }
           break;
         }
@@ -1299,7 +1299,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setOnlinePassword FAILED:', e));
           }
           break;
         }
@@ -1317,7 +1317,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] checkLocalPasswordComplexity FAILED:', e));
           }
           break;
         }
@@ -1335,7 +1335,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] removePassword FAILED:', e));
           }
           break;
         }

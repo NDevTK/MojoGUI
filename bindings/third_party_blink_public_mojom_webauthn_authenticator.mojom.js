@@ -517,7 +517,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] makeCredential FAILED:', e));
           }
           break;
         }
@@ -535,7 +535,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.Authenticator_GetCredential_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCredential FAILED:', e));
           }
           break;
         }
@@ -553,7 +553,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isUserVerifyingPlatformAuthenticatorAvailable FAILED:', e));
           }
           break;
         }
@@ -571,7 +571,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isConditionalMediationAvailable FAILED:', e));
           }
           break;
         }
@@ -588,7 +588,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.Authenticator_Report_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] report FAILED:', e));
           }
           break;
         }
@@ -606,7 +606,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getClientCapabilities FAILED:', e));
           }
           break;
         }

@@ -278,7 +278,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnosticsReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCrosHealthdTelemetry FAILED:', e));
           }
           break;
         }
@@ -296,7 +296,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnosticsReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCrosHealthdProcessInfo FAILED:', e));
           }
           break;
         }

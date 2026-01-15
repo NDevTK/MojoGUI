@@ -852,7 +852,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetEnabled_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getEnabled FAILED:', e));
           }
           break;
         }
@@ -877,7 +877,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isOnboardingComplete FAILED:', e));
           }
           break;
         }
@@ -902,7 +902,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFastInitiationNotificationState FAILED:', e));
           }
           break;
         }
@@ -927,7 +927,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getIsFastInitiationHardwareSupported FAILED:', e));
           }
           break;
         }
@@ -945,7 +945,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetDeviceName_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDeviceName FAILED:', e));
           }
           break;
         }
@@ -963,7 +963,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] validateDeviceName FAILED:', e));
           }
           break;
         }
@@ -981,7 +981,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetDeviceName_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setDeviceName FAILED:', e));
           }
           break;
         }
@@ -999,7 +999,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetDataUsage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDataUsage FAILED:', e));
           }
           break;
         }
@@ -1024,7 +1024,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetVisibility_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getVisibility FAILED:', e));
           }
           break;
         }
@@ -1049,7 +1049,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAllowedContacts FAILED:', e));
           }
           break;
         }

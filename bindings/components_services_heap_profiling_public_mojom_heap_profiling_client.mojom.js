@@ -282,7 +282,7 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] startProfiling FAILED:', e));
           }
           break;
         }
@@ -300,7 +300,7 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] retrieveHeapProfile FAILED:', e));
           }
           break;
         }

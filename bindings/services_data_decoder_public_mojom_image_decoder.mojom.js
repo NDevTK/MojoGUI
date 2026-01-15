@@ -293,7 +293,7 @@ mojo.internal.bindings.data_decoder.mojom.ImageDecoderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] decodeImage FAILED:', e));
           }
           break;
         }
@@ -311,7 +311,7 @@ mojo.internal.bindings.data_decoder.mojom.ImageDecoderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] decodeAnimation FAILED:', e));
           }
           break;
         }

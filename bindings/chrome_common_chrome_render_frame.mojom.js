@@ -522,7 +522,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestBitmapForContextNode FAILED:', e));
           }
           break;
         }
@@ -539,7 +539,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestBitmapForContextNodeWithBoundsHint FAILED:', e));
           }
           break;
         }
@@ -557,7 +557,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestBoundsHintForAllImages FAILED:', e));
           }
           break;
         }
@@ -574,7 +574,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestImageForContextNode FAILED:', e));
           }
           break;
         }
@@ -599,7 +599,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMediaFeedURL FAILED:', e));
           }
           break;
         }
@@ -631,7 +631,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] invokeTool FAILED:', e));
           }
           break;
         }

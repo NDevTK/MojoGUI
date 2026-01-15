@@ -321,7 +321,7 @@ mojo.internal.bindings.storage.mojom.FileLockReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.FileLock_Release_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] release FAILED:', e));
           }
           break;
         }
@@ -595,7 +595,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.Directory_PathExists_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] pathExists FAILED:', e));
           }
           break;
         }
@@ -612,7 +612,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.Directory_GetEntries_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getEntries FAILED:', e));
           }
           break;
         }
@@ -629,7 +629,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.Directory_OpenFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openFile FAILED:', e));
           }
           break;
         }
@@ -647,7 +647,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createDirectory FAILED:', e));
           }
           break;
         }
@@ -665,7 +665,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteFile FAILED:', e));
           }
           break;
         }
@@ -683,7 +683,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFileInfo FAILED:', e));
           }
           break;
         }
@@ -701,7 +701,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPathAccess FAILED:', e));
           }
           break;
         }
@@ -719,7 +719,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.Directory_RenameFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] renameFile FAILED:', e));
           }
           break;
         }
@@ -736,7 +736,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.Directory_LockFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] lockFile FAILED:', e));
           }
           break;
         }

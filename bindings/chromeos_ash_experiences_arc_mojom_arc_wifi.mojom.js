@@ -310,7 +310,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getWifiEnabledState FAILED:', e));
           }
           break;
         }
@@ -328,7 +328,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setWifiEnabledState FAILED:', e));
           }
           break;
         }
@@ -353,7 +353,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getScanResults FAILED:', e));
           }
           break;
         }
@@ -521,7 +521,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }

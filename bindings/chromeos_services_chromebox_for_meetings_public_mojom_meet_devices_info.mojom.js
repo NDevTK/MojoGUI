@@ -312,7 +312,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPolicyInfo FAILED:', e));
           }
           break;
         }
@@ -330,7 +330,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSysInfo FAILED:', e));
           }
           break;
         }
@@ -348,7 +348,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMachineStatisticsInfo FAILED:', e));
           }
           break;
         }

@@ -644,7 +644,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] purgeResourceCache FAILED:', e));
           }
           break;
         }
@@ -675,7 +675,7 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] writeClangProfilingProfile FAILED:', e));
           }
           break;
         }

@@ -487,7 +487,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] disableSwapUntilResize FAILED:', e));
           }
           break;
         }

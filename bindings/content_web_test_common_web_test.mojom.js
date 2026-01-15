@@ -548,7 +548,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] synchronouslyCompositeAfterTest FAILED:', e));
           }
           break;
         }
@@ -566,7 +566,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.WebTestRenderFrame_DumpFrameLayout_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dumpFrameLayout FAILED:', e));
           }
           break;
         }
@@ -1414,7 +1414,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getBluetoothManualChooserEvents FAILED:', e));
           }
           break;
         }
@@ -1467,7 +1467,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.WebTestControlHost_GetWritableDirectory_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getWritableDirectory FAILED:', e));
           }
           break;
         }
@@ -1492,7 +1492,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createSubresourceFilterRulesetFile FAILED:', e));
           }
           break;
         }
@@ -1516,7 +1516,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setTrustTokenKeyCommitments FAILED:', e));
           }
           break;
         }
@@ -1533,7 +1533,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.WebTestControlHost_ClearTrustTokenState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearTrustTokenState FAILED:', e));
           }
           break;
         }
@@ -1579,7 +1579,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] registerIsolatedFileSystem FAILED:', e));
           }
           break;
         }

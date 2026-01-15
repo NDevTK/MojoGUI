@@ -960,7 +960,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] observeTabletMode FAILED:', e));
           }
           break;
         }
@@ -985,7 +985,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] observeDisplayBrightnessSettings FAILED:', e));
           }
           break;
         }
@@ -1003,7 +1003,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] observeAmbientLightSensor FAILED:', e));
           }
           break;
         }
@@ -1056,7 +1056,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] hasAmbientLightSensor FAILED:', e));
           }
           break;
         }

@@ -327,7 +327,7 @@ mojo.internal.bindings.media.mojom.ImageCaptureReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPhotoState FAILED:', e));
           }
           break;
         }
@@ -345,7 +345,7 @@ mojo.internal.bindings.media.mojom.ImageCaptureReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setPhotoOptions FAILED:', e));
           }
           break;
         }
@@ -363,7 +363,7 @@ mojo.internal.bindings.media.mojom.ImageCaptureReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] takePhoto FAILED:', e));
           }
           break;
         }

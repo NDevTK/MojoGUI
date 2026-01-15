@@ -362,7 +362,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] documentHasImage FAILED:', e));
           }
           break;
         }
@@ -559,7 +559,7 @@ mojo.internal.bindings.android_webview.mojom.FrameHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] shouldOverrideUrlLoading FAILED:', e));
           }
           break;
         }

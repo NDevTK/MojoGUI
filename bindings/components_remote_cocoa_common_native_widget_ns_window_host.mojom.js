@@ -1094,7 +1094,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSheetOffsetY FAILED:', e));
           }
           break;
         }
@@ -1154,7 +1154,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchKeyEventRemote FAILED:', e));
           }
           break;
         }
@@ -1171,7 +1171,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchKeyEventToMenuControllerRemote FAILED:', e));
           }
           break;
         }
@@ -1189,7 +1189,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchMonitorEvent FAILED:', e));
           }
           break;
         }
@@ -1207,7 +1207,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getHasMenuController FAILED:', e));
           }
           break;
         }
@@ -1225,7 +1225,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getHitTestResult FAILED:', e));
           }
           break;
         }
@@ -1243,7 +1243,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getTooltipTextAt FAILED:', e));
           }
           break;
         }
@@ -1261,7 +1261,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getWidgetIsModal FAILED:', e));
           }
           break;
         }
@@ -1279,7 +1279,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getIsFocusedViewTextual FAILED:', e));
           }
           break;
         }
@@ -1422,7 +1422,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDialogButtonInfo FAILED:', e));
           }
           break;
         }
@@ -1440,7 +1440,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDoDialogButtonsExist FAILED:', e));
           }
           break;
         }
@@ -1458,7 +1458,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getShouldShowWindowTitle FAILED:', e));
           }
           break;
         }
@@ -1476,7 +1476,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCanWindowBecomeKey FAILED:', e));
           }
           break;
         }
@@ -1494,7 +1494,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAlwaysRenderWindowAsKey FAILED:', e));
           }
           break;
         }
@@ -1512,7 +1512,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onWindowCloseRequested FAILED:', e));
           }
           break;
         }
@@ -1529,7 +1529,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getWindowFrameTitlebarHeight FAILED:', e));
           }
           break;
         }
@@ -1560,7 +1560,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRootViewAccessibilityToken FAILED:', e));
           }
           break;
         }
@@ -1578,7 +1578,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] validateUserInterfaceItem FAILED:', e));
           }
           break;
         }
@@ -1596,7 +1596,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] willExecuteCommand FAILED:', e));
           }
           break;
         }
@@ -1614,7 +1614,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] executeCommand FAILED:', e));
           }
           break;
         }
@@ -1632,7 +1632,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] handleAccelerator FAILED:', e));
           }
           break;
         }

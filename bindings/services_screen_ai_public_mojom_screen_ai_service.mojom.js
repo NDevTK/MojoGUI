@@ -379,7 +379,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] performOcrAndReturnAnnotation FAILED:', e));
           }
           break;
         }
@@ -404,7 +404,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMaxImageDimension FAILED:', e));
           }
           break;
         }
@@ -429,7 +429,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isOCRBusy FAILED:', e));
           }
           break;
         }
@@ -612,7 +612,7 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] extractMainContent FAILED:', e));
           }
           break;
         }
@@ -630,7 +630,7 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] extractMainNode FAILED:', e));
           }
           break;
         }
@@ -647,7 +647,7 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] identifyMainNode FAILED:', e));
           }
           break;
         }

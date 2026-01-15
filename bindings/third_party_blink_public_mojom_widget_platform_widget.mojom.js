@@ -341,7 +341,7 @@ mojo.internal.bindings.blink.mojom.WidgetCompositorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] visualStateRequest FAILED:', e));
           }
           break;
         }
@@ -856,7 +856,7 @@ mojo.internal.bindings.blink.mojom.WidgetReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] forceRedraw FAILED:', e));
           }
           break;
         }
@@ -880,7 +880,7 @@ mojo.internal.bindings.blink.mojom.WidgetReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateScreenRects FAILED:', e));
           }
           break;
         }

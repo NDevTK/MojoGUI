@@ -555,7 +555,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_GetVersion_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getVersion FAILED:', e));
           }
           break;
         }
@@ -573,7 +573,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_FetchPolicies_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fetchPolicies FAILED:', e));
           }
           break;
         }
@@ -591,7 +591,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_RegisterApp_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] registerApp FAILED:', e));
           }
           break;
         }
@@ -609,7 +609,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_GetAppStates_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAppStates FAILED:', e));
           }
           break;
         }
@@ -626,7 +626,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_RunPeriodicTasks_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runPeriodicTasks FAILED:', e));
           }
           break;
         }
@@ -644,7 +644,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_UpdateAll_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateAll FAILED:', e));
           }
           break;
         }
@@ -662,7 +662,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_Update_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] update FAILED:', e));
           }
           break;
         }
@@ -680,7 +680,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_Install_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] install FAILED:', e));
           }
           break;
         }
@@ -705,7 +705,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_RunInstaller_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runInstaller FAILED:', e));
           }
           break;
         }
@@ -723,7 +723,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] checkForUpdate FAILED:', e));
           }
           break;
         }
@@ -741,7 +741,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUpdaterState FAILED:', e));
           }
           break;
         }
@@ -759,7 +759,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUpdaterPolicies FAILED:', e));
           }
           break;
         }
@@ -777,7 +777,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAppPolicies FAILED:', e));
           }
           break;
         }

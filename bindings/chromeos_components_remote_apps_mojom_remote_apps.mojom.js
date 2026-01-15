@@ -339,7 +339,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addFolder FAILED:', e));
           }
           break;
         }
@@ -357,7 +357,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addApp FAILED:', e));
           }
           break;
         }
@@ -375,7 +375,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteApp FAILED:', e));
           }
           break;
         }
@@ -393,7 +393,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sortLauncherWithRemoteAppsFirst FAILED:', e));
           }
           break;
         }
@@ -411,7 +411,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setPinnedApps FAILED:', e));
           }
           break;
         }

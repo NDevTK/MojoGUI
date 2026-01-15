@@ -1487,7 +1487,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] startAdvertising FAILED:', e));
           }
           break;
         }
@@ -1505,7 +1505,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] stopAdvertising FAILED:', e));
           }
           break;
         }
@@ -1523,7 +1523,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] startDiscovery FAILED:', e));
           }
           break;
         }
@@ -1541,7 +1541,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] stopDiscovery FAILED:', e));
           }
           break;
         }
@@ -1559,7 +1559,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] injectBluetoothEndpoint FAILED:', e));
           }
           break;
         }
@@ -1577,7 +1577,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestConnection FAILED:', e));
           }
           break;
         }
@@ -1595,7 +1595,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] acceptConnection FAILED:', e));
           }
           break;
         }
@@ -1613,7 +1613,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] rejectConnection FAILED:', e));
           }
           break;
         }
@@ -1631,7 +1631,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] disconnectFromEndpoint FAILED:', e));
           }
           break;
         }
@@ -1649,7 +1649,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendPayload FAILED:', e));
           }
           break;
         }
@@ -1667,7 +1667,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] cancelPayload FAILED:', e));
           }
           break;
         }
@@ -1685,7 +1685,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] stopAllEndpoints FAILED:', e));
           }
           break;
         }
@@ -1703,7 +1703,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] initiateBandwidthUpgrade FAILED:', e));
           }
           break;
         }
@@ -1721,7 +1721,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] registerPayloadFile FAILED:', e));
           }
           break;
         }
@@ -1739,7 +1739,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestConnectionV3 FAILED:', e));
           }
           break;
         }
@@ -1757,7 +1757,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] acceptConnectionV3 FAILED:', e));
           }
           break;
         }
@@ -1775,7 +1775,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] rejectConnectionV3 FAILED:', e));
           }
           break;
         }
@@ -1793,7 +1793,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] disconnectFromDeviceV3 FAILED:', e));
           }
           break;
         }

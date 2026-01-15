@@ -304,7 +304,7 @@ mojo.internal.bindings.data_decoder.mojom.GzipperReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deflate FAILED:', e));
           }
           break;
         }
@@ -322,7 +322,7 @@ mojo.internal.bindings.data_decoder.mojom.GzipperReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] inflate FAILED:', e));
           }
           break;
         }
@@ -340,7 +340,7 @@ mojo.internal.bindings.data_decoder.mojom.GzipperReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] compress FAILED:', e));
           }
           break;
         }
@@ -358,7 +358,7 @@ mojo.internal.bindings.data_decoder.mojom.GzipperReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] uncompress FAILED:', e));
           }
           break;
         }

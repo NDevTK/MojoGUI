@@ -280,7 +280,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onSearchPerformed FAILED:', e));
           }
           break;
         }
@@ -421,7 +421,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServiceReceiver
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] bindIndex FAILED:', e));
           }
           break;
         }

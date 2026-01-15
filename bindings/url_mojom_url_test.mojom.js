@@ -274,7 +274,7 @@ mojo.internal.bindings.url.mojom.UrlTestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] bounceUrl FAILED:', e));
           }
           break;
         }
@@ -292,7 +292,7 @@ mojo.internal.bindings.url.mojom.UrlTestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] bounceOrigin FAILED:', e));
           }
           break;
         }

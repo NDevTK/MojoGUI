@@ -262,7 +262,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] check FAILED:', e));
           }
           break;
         }

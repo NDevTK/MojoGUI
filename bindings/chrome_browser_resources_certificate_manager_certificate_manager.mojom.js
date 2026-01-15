@@ -534,7 +534,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCertificates FAILED:', e));
           }
           break;
         }
@@ -552,7 +552,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCertManagementMetadata FAILED:', e));
           }
           break;
         }
@@ -584,7 +584,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] importCertificate FAILED:', e));
           }
           break;
         }
@@ -602,7 +602,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] importAndBindCertificate FAILED:', e));
           }
           break;
         }
@@ -620,7 +620,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteCertificate FAILED:', e));
           }
           break;
         }
@@ -810,7 +810,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageReceiver 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] askForImportPassword FAILED:', e));
           }
           break;
         }
@@ -828,7 +828,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageReceiver 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] askForConfirmation FAILED:', e));
           }
           break;
         }

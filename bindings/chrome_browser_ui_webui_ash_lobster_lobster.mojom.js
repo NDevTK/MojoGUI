@@ -436,7 +436,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestCandidates FAILED:', e));
           }
           break;
         }
@@ -454,7 +454,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] downloadCandidate FAILED:', e));
           }
           break;
         }
@@ -472,7 +472,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] commitAsInsert FAILED:', e));
           }
           break;
         }
@@ -490,7 +490,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] commitAsDownload FAILED:', e));
           }
           break;
         }
@@ -508,7 +508,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] previewFeedback FAILED:', e));
           }
           break;
         }
@@ -526,7 +526,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] submitFeedback FAILED:', e));
           }
           break;
         }

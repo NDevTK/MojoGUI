@@ -723,7 +723,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] acceptComposeResult FAILED:', e));
           }
           break;
         }
@@ -741,7 +741,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestInitialState FAILED:', e));
           }
           break;
         }
@@ -759,7 +759,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] undo FAILED:', e));
           }
           break;
         }
@@ -777,7 +777,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] recoverFromErrorState FAILED:', e));
           }
           break;
         }
@@ -795,7 +795,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] redo FAILED:', e));
           }
           break;
         }
@@ -855,7 +855,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] editResult FAILED:', e));
           }
           break;
         }

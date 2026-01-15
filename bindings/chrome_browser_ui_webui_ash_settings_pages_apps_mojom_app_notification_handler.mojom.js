@@ -376,7 +376,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getApps FAILED:', e));
           }
           break;
         }
@@ -394,7 +394,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getQuietMode FAILED:', e));
           }
           break;
         }

@@ -369,7 +369,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSize FAILED:', e));
           }
           break;
         }
@@ -386,7 +386,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addOrUpdate FAILED:', e));
           }
           break;
         }
@@ -404,7 +404,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] delete FAILED:', e));
           }
           break;
         }
@@ -422,7 +422,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateDocuments FAILED:', e));
           }
           break;
         }
@@ -439,7 +439,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] find FAILED:', e));
           }
           break;
         }
@@ -456,7 +456,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearIndex FAILED:', e));
           }
           break;
         }
@@ -473,7 +473,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setSearchParams FAILED:', e));
           }
           break;
         }

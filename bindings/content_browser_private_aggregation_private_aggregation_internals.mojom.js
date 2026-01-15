@@ -464,7 +464,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getReports FAILED:', e));
           }
           break;
         }
@@ -481,7 +481,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendReports FAILED:', e));
           }
           break;
         }
@@ -498,7 +498,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearStorage FAILED:', e));
           }
           break;
         }

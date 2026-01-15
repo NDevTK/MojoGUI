@@ -412,7 +412,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestProcessList FAILED:', e));
           }
           break;
         }
@@ -430,7 +430,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestApplicationProcessMemoryInfo FAILED:', e));
           }
           break;
         }
@@ -448,7 +448,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestSystemProcessMemoryInfo FAILED:', e));
           }
           break;
         }
@@ -465,7 +465,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] applyHostMemoryPressureDeprecated FAILED:', e));
           }
           break;
         }
@@ -482,7 +482,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] applyHostMemoryPressure FAILED:', e));
           }
           break;
         }
@@ -500,7 +500,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestLowMemoryKillCounts FAILED:', e));
           }
           break;
         }

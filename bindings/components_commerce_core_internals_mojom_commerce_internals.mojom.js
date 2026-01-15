@@ -504,7 +504,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getIsShoppingListEligible FAILED:', e));
           }
           break;
         }
@@ -529,7 +529,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getProductInfoForUrl FAILED:', e));
           }
           break;
         }
@@ -547,7 +547,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSubscriptionDetails FAILED:', e));
           }
           break;
         }
@@ -565,7 +565,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getProductSpecificationsDetails FAILED:', e));
           }
           break;
         }
@@ -590,7 +590,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getShoppingEligibilityDetails FAILED:', e));
           }
           break;
         }

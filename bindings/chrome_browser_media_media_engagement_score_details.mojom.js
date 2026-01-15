@@ -274,7 +274,7 @@ mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMediaEngagementScoreDetails FAILED:', e));
           }
           break;
         }
@@ -292,7 +292,7 @@ mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMediaEngagementConfig FAILED:', e));
           }
           break;
         }

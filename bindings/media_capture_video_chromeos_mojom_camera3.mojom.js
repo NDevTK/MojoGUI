@@ -479,7 +479,7 @@ mojo.internal.bindings.cros.mojom.Camera3CallbackOpsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestStreamBuffers FAILED:', e));
           }
           break;
         }
@@ -781,7 +781,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_Initialize_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] initialize FAILED:', e));
           }
           break;
         }
@@ -798,7 +798,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_ConfigureStreams_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] configureStreams FAILED:', e));
           }
           break;
         }
@@ -816,7 +816,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] constructDefaultRequestSettings FAILED:', e));
           }
           break;
         }
@@ -834,7 +834,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] processCaptureRequest FAILED:', e));
           }
           break;
         }
@@ -859,7 +859,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_Flush_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] flush FAILED:', e));
           }
           break;
         }
@@ -877,7 +877,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_RegisterBuffer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] registerBuffer FAILED:', e));
           }
           break;
         }
@@ -895,7 +895,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_Close_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] close FAILED:', e));
           }
           break;
         }
@@ -912,7 +912,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] configureStreamsAndGetAllocatedBuffers FAILED:', e));
           }
           break;
         }
@@ -937,7 +937,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_OnNewBuffer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onNewBuffer FAILED:', e));
           }
           break;
         }

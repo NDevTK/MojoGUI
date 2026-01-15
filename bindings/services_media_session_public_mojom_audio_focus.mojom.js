@@ -517,7 +517,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusRequestClientReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestAudioFocus FAILED:', e));
           }
           break;
         }
@@ -826,7 +826,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestAudioFocus_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestAudioFocus FAILED:', e));
           }
           break;
         }
@@ -844,7 +844,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestGroupedAudioFocus FAILED:', e));
           }
           break;
         }
@@ -862,7 +862,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetFocusRequests_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFocusRequests FAILED:', e));
           }
           break;
         }
@@ -908,7 +908,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSourceFocusRequests FAILED:', e));
           }
           break;
         }
@@ -946,7 +946,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media_session.mojom.AudioFocusManager_FlushForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] flushForTesting FAILED:', e));
           }
           break;
         }
@@ -1087,7 +1087,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebugReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDebugInfoForRequest FAILED:', e));
           }
           break;
         }

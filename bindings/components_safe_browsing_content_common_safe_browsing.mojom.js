@@ -389,7 +389,7 @@ mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createCheckerAndCheck FAILED:', e));
           }
           break;
         }
@@ -537,7 +537,7 @@ mojo.internal.bindings.safe_browsing.mojom.ThreatReporterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getThreatDOMDetails FAILED:', e));
           }
           break;
         }
@@ -677,7 +677,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] startPhishingDetection FAILED:', e));
           }
           break;
         }
@@ -964,7 +964,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setTestObserver FAILED:', e));
           }
           break;
         }
@@ -1234,7 +1234,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] startImageEmbedding FAILED:', e));
           }
           break;
         }

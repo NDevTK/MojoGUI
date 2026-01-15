@@ -703,7 +703,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProviderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSystemInfo FAILED:', e));
           }
           break;
         }
@@ -1065,7 +1065,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProviderReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isAccessibilityEnabled FAILED:', e));
           }
           break;
         }
@@ -1262,7 +1262,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] performAction FAILED:', e));
           }
           break;
         }
@@ -1280,7 +1280,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] refreshWithExtraData FAILED:', e));
           }
           break;
         }
@@ -1421,7 +1421,7 @@ mojo.internal.bindings.ash.eche_app.mojom.UidGeneratorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUid FAILED:', e));
           }
           break;
         }

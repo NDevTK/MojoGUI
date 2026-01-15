@@ -429,7 +429,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDebugState FAILED:', e));
           }
           break;
         }
@@ -447,7 +447,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getErpHistoryData FAILED:', e));
           }
           break;
         }

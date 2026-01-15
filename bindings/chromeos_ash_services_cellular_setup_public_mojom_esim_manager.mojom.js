@@ -543,7 +543,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAvailableEuiccs FAILED:', e));
           }
           break;
         }
@@ -754,7 +754,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getProperties FAILED:', e));
           }
           break;
         }
@@ -772,7 +772,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getProfileList FAILED:', e));
           }
           break;
         }
@@ -789,7 +789,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestAvailableProfiles FAILED:', e));
           }
           break;
         }
@@ -807,7 +807,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] refreshInstalledProfiles FAILED:', e));
           }
           break;
         }
@@ -824,7 +824,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] installProfileFromActivationCode FAILED:', e));
           }
           break;
         }
@@ -842,7 +842,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getEidQRCode FAILED:', e));
           }
           break;
         }
@@ -1025,7 +1025,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getProperties FAILED:', e));
           }
           break;
         }
@@ -1043,7 +1043,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] installProfile FAILED:', e));
           }
           break;
         }
@@ -1061,7 +1061,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] uninstallProfile FAILED:', e));
           }
           break;
         }
@@ -1079,7 +1079,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setProfileNickname FAILED:', e));
           }
           break;
         }

@@ -525,7 +525,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] rEMOVED_0 FAILED:', e));
           }
           break;
         }
@@ -543,7 +543,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] rEMOVED_4 FAILED:', e));
           }
           break;
         }
@@ -561,7 +561,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] rEMOVED_5 FAILED:', e));
           }
           break;
         }
@@ -579,7 +579,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] rEMOVED_6 FAILED:', e));
           }
           break;
         }
@@ -597,7 +597,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] rEMOVED_7 FAILED:', e));
           }
           break;
         }
@@ -615,7 +615,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] rEMOVED_10 FAILED:', e));
           }
           break;
         }
@@ -633,7 +633,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] rEMOVED_12 FAILED:', e));
           }
           break;
         }

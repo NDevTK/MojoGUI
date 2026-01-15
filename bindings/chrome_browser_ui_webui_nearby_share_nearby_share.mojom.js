@@ -873,7 +873,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] startDiscovery FAILED:', e));
           }
           break;
         }
@@ -890,7 +890,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] stopDiscovery FAILED:', e));
           }
           break;
         }
@@ -907,7 +907,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] selectShareTarget FAILED:', e));
           }
           break;
         }
@@ -925,7 +925,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPayloadPreview FAILED:', e));
           }
           break;
         }
@@ -1094,7 +1094,7 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] accept FAILED:', e));
           }
           break;
         }
@@ -1112,7 +1112,7 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] reject FAILED:', e));
           }
           break;
         }
@@ -1130,7 +1130,7 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] cancel FAILED:', e));
           }
           break;
         }
@@ -1555,7 +1555,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isInHighVisibility FAILED:', e));
           }
           break;
         }
@@ -1573,7 +1573,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] registerForegroundReceiveSurface FAILED:', e));
           }
           break;
         }
@@ -1591,7 +1591,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] unregisterForegroundReceiveSurface FAILED:', e));
           }
           break;
         }
@@ -1609,7 +1609,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] accept FAILED:', e));
           }
           break;
         }
@@ -1627,7 +1627,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] reject FAILED:', e));
           }
           break;
         }

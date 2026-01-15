@@ -323,7 +323,7 @@ mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegateReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestPrintPreview FAILED:', e));
           }
           break;
         }
@@ -341,7 +341,7 @@ mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegateReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] printPreviewDone FAILED:', e));
           }
           break;
         }
@@ -496,7 +496,7 @@ mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] generatePrintPreview FAILED:', e));
           }
           break;
         }
@@ -514,7 +514,7 @@ mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] handleDialogClosed FAILED:', e));
           }
           break;
         }

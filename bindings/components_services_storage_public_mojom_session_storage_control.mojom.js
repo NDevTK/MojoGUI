@@ -438,7 +438,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUsage FAILED:', e));
           }
           break;
         }
@@ -455,7 +455,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteStorage FAILED:', e));
           }
           break;
         }
@@ -472,7 +472,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] cleanUpStorage FAILED:', e));
           }
           break;
         }

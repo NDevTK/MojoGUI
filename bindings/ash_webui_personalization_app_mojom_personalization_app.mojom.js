@@ -1116,7 +1116,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fetchCollections FAILED:', e));
           }
           break;
         }
@@ -1134,7 +1134,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fetchImagesForCollection FAILED:', e));
           }
           break;
         }
@@ -1152,7 +1152,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fetchGooglePhotosAlbums FAILED:', e));
           }
           break;
         }
@@ -1170,7 +1170,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fetchGooglePhotosSharedAlbums FAILED:', e));
           }
           break;
         }
@@ -1188,7 +1188,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fetchGooglePhotosEnabled FAILED:', e));
           }
           break;
         }
@@ -1206,7 +1206,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fetchGooglePhotosPhotos FAILED:', e));
           }
           break;
         }
@@ -1224,7 +1224,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getLocalImages FAILED:', e));
           }
           break;
         }
@@ -1242,7 +1242,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDefaultImageThumbnail FAILED:', e));
           }
           break;
         }
@@ -1260,7 +1260,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getLocalImageThumbnail FAILED:', e));
           }
           break;
         }
@@ -1285,7 +1285,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] selectWallpaper FAILED:', e));
           }
           break;
         }
@@ -1303,7 +1303,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] selectDefaultImage FAILED:', e));
           }
           break;
         }
@@ -1321,7 +1321,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] selectLocalImage FAILED:', e));
           }
           break;
         }
@@ -1339,7 +1339,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] selectGooglePhotosPhoto FAILED:', e));
           }
           break;
         }
@@ -1357,7 +1357,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] selectGooglePhotosAlbum FAILED:', e));
           }
           break;
         }
@@ -1375,7 +1375,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getGooglePhotosDailyRefreshAlbumId FAILED:', e));
           }
           break;
         }
@@ -1400,7 +1400,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setDailyRefreshCollectionId FAILED:', e));
           }
           break;
         }
@@ -1418,7 +1418,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDailyRefreshCollectionId FAILED:', e));
           }
           break;
         }
@@ -1436,7 +1436,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateDailyRefreshWallpaper FAILED:', e));
           }
           break;
         }
@@ -1454,7 +1454,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isInTabletMode FAILED:', e));
           }
           break;
         }
@@ -1486,7 +1486,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] shouldShowTimeOfDayWallpaperDialog FAILED:', e));
           }
           break;
         }
@@ -2093,7 +2093,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getColorScheme FAILED:', e));
           }
           break;
         }
@@ -2111,7 +2111,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getStaticColor FAILED:', e));
           }
           break;
         }
@@ -2129,7 +2129,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] generateSampleColorSchemes FAILED:', e));
           }
           break;
         }
@@ -2147,7 +2147,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isColorModeAutoScheduleEnabled FAILED:', e));
           }
           break;
         }
@@ -2165,7 +2165,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isDarkModeEnabled FAILED:', e));
           }
           break;
         }
@@ -2183,7 +2183,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isGeolocationEnabledForSystemServices FAILED:', e));
           }
           break;
         }
@@ -2201,7 +2201,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isGeolocationUserModifiable FAILED:', e));
           }
           break;
         }
@@ -2640,7 +2640,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUserInfo FAILED:', e));
           }
           break;
         }
@@ -2658,7 +2658,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDefaultUserImages FAILED:', e));
           }
           break;
         }
@@ -3363,7 +3363,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isAmbientModeEnabled FAILED:', e));
           }
           break;
         }
@@ -3451,7 +3451,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] shouldShowTimeOfDayBanner FAILED:', e));
           }
           break;
         }
@@ -3476,7 +3476,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isGeolocationEnabledForSystemServices FAILED:', e));
           }
           break;
         }
@@ -3494,7 +3494,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isGeolocationUserModifiable FAILED:', e));
           }
           break;
         }
@@ -3870,7 +3870,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] shouldShowNudge FAILED:', e));
           }
           break;
         }

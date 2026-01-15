@@ -287,7 +287,7 @@ mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandlerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getEvents FAILED:', e));
           }
           break;
         }

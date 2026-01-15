@@ -1011,7 +1011,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNetworkState FAILED:', e));
           }
           break;
         }
@@ -1029,7 +1029,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNetworkStateList FAILED:', e));
           }
           break;
         }
@@ -1047,7 +1047,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDeviceStateList FAILED:', e));
           }
           break;
         }
@@ -1065,7 +1065,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getManagedProperties FAILED:', e));
           }
           break;
         }
@@ -1082,7 +1082,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setProperties FAILED:', e));
           }
           break;
         }
@@ -1099,7 +1099,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] configureNetwork FAILED:', e));
           }
           break;
         }
@@ -1117,7 +1117,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] forgetNetwork FAILED:', e));
           }
           break;
         }
@@ -1135,7 +1135,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setNetworkTypeEnabledState FAILED:', e));
           }
           break;
         }
@@ -1153,7 +1153,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setCellularSimState FAILED:', e));
           }
           break;
         }
@@ -1171,7 +1171,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] selectCellularMobileNetwork FAILED:', e));
           }
           break;
         }
@@ -1196,7 +1196,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getGlobalPolicy FAILED:', e));
           }
           break;
         }
@@ -1213,7 +1213,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] startConnect FAILED:', e));
           }
           break;
         }
@@ -1231,7 +1231,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] startDisconnect FAILED:', e));
           }
           break;
         }
@@ -1256,7 +1256,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getVpnProviders FAILED:', e));
           }
           break;
         }
@@ -1273,7 +1273,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNetworkCertificates FAILED:', e));
           }
           break;
         }
@@ -1291,7 +1291,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAlwaysOnVpn FAILED:', e));
           }
           break;
         }
@@ -1316,7 +1316,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSupportedVpnTypes FAILED:', e));
           }
           break;
         }
@@ -1334,7 +1334,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestTrafficCounters FAILED:', e));
           }
           break;
         }
@@ -1359,7 +1359,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setTrafficCountersResetDay FAILED:', e));
           }
           break;
         }
@@ -1377,7 +1377,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createCustomApn FAILED:', e));
           }
           break;
         }
@@ -1395,7 +1395,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createExclusivelyEnabledCustomApn FAILED:', e));
           }
           break;
         }

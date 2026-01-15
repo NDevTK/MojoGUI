@@ -298,7 +298,7 @@ mojo.internal.bindings.handwriting.mojom.HandwritingRecognizerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPrediction FAILED:', e));
           }
           break;
         }
@@ -452,7 +452,7 @@ mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionServiceReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createHandwritingRecognizer FAILED:', e));
           }
           break;
         }
@@ -470,7 +470,7 @@ mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionServiceReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] queryHandwritingRecognizer FAILED:', e));
           }
           break;
         }

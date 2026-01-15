@@ -276,7 +276,7 @@ mojo.internal.bindings.quarantine.mojom.QuarantineReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] quarantineFile FAILED:', e));
           }
           break;
         }

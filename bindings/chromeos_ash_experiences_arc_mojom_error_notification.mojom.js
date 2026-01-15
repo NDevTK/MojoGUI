@@ -272,7 +272,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendErrorDetails FAILED:', e));
           }
           break;
         }
@@ -412,7 +412,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }

@@ -453,7 +453,7 @@ mojo.internal.bindings.media.mojom.RemotingDataStreamSenderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.RemotingDataStreamSender_SendFrame_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendFrame FAILED:', e));
           }
           break;
         }
@@ -706,7 +706,7 @@ mojo.internal.bindings.media.mojom.RemoterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] estimateTransmissionCapacity FAILED:', e));
           }
           break;
         }

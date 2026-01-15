@@ -423,7 +423,7 @@ mojo.internal.bindings.tracing.mojom.ProducerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] commitData FAILED:', e));
           }
           break;
         }
@@ -654,7 +654,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] startDataSource FAILED:', e));
           }
           break;
         }
@@ -671,7 +671,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] stopDataSource FAILED:', e));
           }
           break;
         }
@@ -976,7 +976,7 @@ mojo.internal.bindings.tracing.mojom.ConsumerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] cloneSession FAILED:', e));
           }
           break;
         }
@@ -1186,7 +1186,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.tracing.mojom.TracingSessionHost_ReadBuffers_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] readBuffers FAILED:', e));
           }
           break;
         }
@@ -1203,7 +1203,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestBufferUsage FAILED:', e));
           }
           break;
         }
@@ -1220,7 +1220,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] disableTracingAndEmitJson FAILED:', e));
           }
           break;
         }

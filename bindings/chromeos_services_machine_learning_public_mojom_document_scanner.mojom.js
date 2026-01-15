@@ -310,7 +310,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] detectCornersFromNV12Image FAILED:', e));
           }
           break;
         }
@@ -328,7 +328,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] detectCornersFromJPEGImage FAILED:', e));
           }
           break;
         }
@@ -346,7 +346,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] doPostProcessing FAILED:', e));
           }
           break;
         }

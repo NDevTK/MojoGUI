@@ -389,7 +389,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDisplayedNotifications FAILED:', e));
           }
           break;
         }
@@ -428,7 +428,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] okayToTerminateService FAILED:', e));
           }
           break;
         }

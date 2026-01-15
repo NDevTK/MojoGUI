@@ -591,7 +591,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileName_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFileName FAILED:', e));
           }
           break;
         }
@@ -609,7 +609,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileSize_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFileSize FAILED:', e));
           }
           break;
         }
@@ -627,7 +627,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_GetLastModified_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getLastModified FAILED:', e));
           }
           break;
         }
@@ -645,7 +645,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileType_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFileType FAILED:', e));
           }
           break;
         }
@@ -677,7 +677,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_GetVirtualFileId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getVirtualFileId FAILED:', e));
           }
           break;
         }
@@ -695,7 +695,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_HandleIdReleased_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] handleIdReleased FAILED:', e));
           }
           break;
         }
@@ -713,7 +713,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_OpenFileToRead_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openFileToRead FAILED:', e));
           }
           break;
         }
@@ -731,7 +731,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_SelectFiles_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] selectFiles FAILED:', e));
           }
           break;
         }
@@ -748,7 +748,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_OnFileSelectorEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onFileSelectorEvent FAILED:', e));
           }
           break;
         }
@@ -766,7 +766,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileSelectorElements_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFileSelectorElements FAILED:', e));
           }
           break;
         }
@@ -791,7 +791,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_CreateMoniker_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createMoniker FAILED:', e));
           }
           break;
         }
@@ -809,7 +809,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_DestroyMoniker_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] destroyMoniker FAILED:', e));
           }
           break;
         }
@@ -1258,7 +1258,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_AddWatcher_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addWatcher FAILED:', e));
           }
           break;
         }
@@ -1276,7 +1276,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetChildDocuments_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getChildDocuments FAILED:', e));
           }
           break;
         }
@@ -1294,7 +1294,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetDocument_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDocument FAILED:', e));
           }
           break;
         }
@@ -1312,7 +1312,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetFileSize_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFileSize FAILED:', e));
           }
           break;
         }
@@ -1330,7 +1330,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetMimeType_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMimeType FAILED:', e));
           }
           break;
         }
@@ -1348,7 +1348,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRecentDocuments_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRecentDocuments FAILED:', e));
           }
           break;
         }
@@ -1366,7 +1366,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRoots_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRoots FAILED:', e));
           }
           break;
         }
@@ -1384,7 +1384,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRootSize_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRootSize FAILED:', e));
           }
           break;
         }
@@ -1402,7 +1402,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_DeleteDocument_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteDocument FAILED:', e));
           }
           break;
         }
@@ -1420,7 +1420,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_RenameDocument_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] renameDocument FAILED:', e));
           }
           break;
         }
@@ -1438,7 +1438,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_CreateDocument_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createDocument FAILED:', e));
           }
           break;
         }
@@ -1456,7 +1456,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_CopyDocument_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] copyDocument FAILED:', e));
           }
           break;
         }
@@ -1474,7 +1474,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_MoveDocument_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] moveDocument FAILED:', e));
           }
           break;
         }
@@ -1491,7 +1491,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_Init_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -1509,7 +1509,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenThumbnail_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openThumbnail FAILED:', e));
           }
           break;
         }
@@ -1534,7 +1534,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openFileSessionToWrite FAILED:', e));
           }
           break;
         }
@@ -1552,7 +1552,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenFileSessionToRead_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openFileSessionToRead FAILED:', e));
           }
           break;
         }
@@ -1570,7 +1570,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_RemoveWatcher_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] removeWatcher FAILED:', e));
           }
           break;
         }
@@ -1608,7 +1608,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openUrlsWithPermissionAndWindowInfo FAILED:', e));
           }
           break;
         }

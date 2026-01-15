@@ -827,7 +827,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] generateStreams FAILED:', e));
           }
           break;
         }
@@ -865,7 +865,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openDevice FAILED:', e));
           }
           break;
         }
@@ -897,7 +897,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] applySubCaptureTarget FAILED:', e));
           }
           break;
         }
@@ -922,7 +922,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateZoomLevel FAILED:', e));
           }
           break;
         }
@@ -940,7 +940,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestCapturedSurfaceControlPermission FAILED:', e));
           }
           break;
         }
@@ -957,7 +957,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOpenDevice FAILED:', e));
           }
           break;
         }
@@ -975,7 +975,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] keepDeviceAliveForTransfer FAILED:', e));
           }
           break;
         }

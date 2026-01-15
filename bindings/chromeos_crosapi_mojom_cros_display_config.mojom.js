@@ -493,7 +493,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDisplayLayoutInfo FAILED:', e));
           }
           break;
         }
@@ -511,7 +511,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setDisplayLayoutInfo FAILED:', e));
           }
           break;
         }
@@ -529,7 +529,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDisplayUnitInfoList FAILED:', e));
           }
           break;
         }
@@ -547,7 +547,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setDisplayProperties FAILED:', e));
           }
           break;
         }
@@ -572,7 +572,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] overscanCalibration FAILED:', e));
           }
           break;
         }
@@ -590,7 +590,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] touchCalibration FAILED:', e));
           }
           break;
         }

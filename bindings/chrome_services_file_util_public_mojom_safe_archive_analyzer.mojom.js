@@ -346,7 +346,7 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] analyzeZipFile FAILED:', e));
           }
           break;
         }
@@ -364,7 +364,7 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] analyzeDmgFile FAILED:', e));
           }
           break;
         }
@@ -382,7 +382,7 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] analyzeRarFile FAILED:', e));
           }
           break;
         }
@@ -400,7 +400,7 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] analyzeSevenZipFile FAILED:', e));
           }
           break;
         }
@@ -418,7 +418,7 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] analyzeObfuscatedZipFile FAILED:', e));
           }
           break;
         }
@@ -436,7 +436,7 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] analyzeObfuscatedRarFile FAILED:', e));
           }
           break;
         }
@@ -577,7 +577,7 @@ mojo.internal.bindings.chrome.mojom.TemporaryFileGetterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestTemporaryFile FAILED:', e));
           }
           break;
         }

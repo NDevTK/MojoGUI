@@ -297,7 +297,7 @@ mojo.internal.bindings.printing.mojom.PdfToEmfConverterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] convertPage FAILED:', e));
           }
           break;
         }
@@ -451,7 +451,7 @@ mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createConverter FAILED:', e));
           }
           break;
         }

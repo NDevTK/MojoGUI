@@ -592,7 +592,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragEnter_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dragTargetDragEnter FAILED:', e));
           }
           break;
         }
@@ -609,7 +609,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragOver_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dragTargetDragOver FAILED:', e));
           }
           break;
         }
@@ -633,7 +633,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDrop_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dragTargetDrop FAILED:', e));
           }
           break;
         }
@@ -650,7 +650,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FrameWidget_DragSourceEndedAt_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dragSourceEndedAt FAILED:', e));
           }
           break;
         }
@@ -675,7 +675,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onStartStylusWriting FAILED:', e));
           }
           break;
         }
@@ -1183,7 +1183,7 @@ mojo.internal.bindings.blink.mojom.PopupWidgetHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.PopupWidgetHost_ShowPopup_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] showPopup FAILED:', e));
           }
           break;
         }
@@ -1200,7 +1200,7 @@ mojo.internal.bindings.blink.mojom.PopupWidgetHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.PopupWidgetHost_SetPopupBounds_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setPopupBounds FAILED:', e));
           }
           break;
         }

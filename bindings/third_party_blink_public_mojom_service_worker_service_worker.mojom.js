@@ -606,7 +606,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getClients FAILED:', e));
           }
           break;
         }
@@ -624,7 +624,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getClient FAILED:', e));
           }
           break;
         }
@@ -641,7 +641,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openNewTab FAILED:', e));
           }
           break;
         }
@@ -658,7 +658,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openPaymentHandlerWindow FAILED:', e));
           }
           break;
         }
@@ -683,7 +683,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] focusClient FAILED:', e));
           }
           break;
         }
@@ -700,7 +700,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] navigateClient FAILED:', e));
           }
           break;
         }
@@ -718,7 +718,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] skipWaiting FAILED:', e));
           }
           break;
         }
@@ -735,7 +735,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] claimClients FAILED:', e));
           }
           break;
         }
@@ -753,7 +753,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addRoutes FAILED:', e));
           }
           break;
         }
@@ -1264,7 +1264,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchInstallEvent FAILED:', e));
           }
           break;
         }
@@ -1282,7 +1282,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchActivateEvent FAILED:', e));
           }
           break;
         }
@@ -1300,7 +1300,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchBackgroundFetchAbortEvent FAILED:', e));
           }
           break;
         }
@@ -1318,7 +1318,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchBackgroundFetchClickEvent FAILED:', e));
           }
           break;
         }
@@ -1336,7 +1336,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchBackgroundFetchFailEvent FAILED:', e));
           }
           break;
         }
@@ -1354,7 +1354,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchBackgroundFetchSuccessEvent FAILED:', e));
           }
           break;
         }
@@ -1372,7 +1372,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchCookieChangeEvent FAILED:', e));
           }
           break;
         }
@@ -1390,7 +1390,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchFetchEventForMainResource FAILED:', e));
           }
           break;
         }
@@ -1408,7 +1408,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchNotificationClickEvent FAILED:', e));
           }
           break;
         }
@@ -1426,7 +1426,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchNotificationCloseEvent FAILED:', e));
           }
           break;
         }
@@ -1444,7 +1444,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchPushEvent FAILED:', e));
           }
           break;
         }
@@ -1461,7 +1461,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchPushEventRecordingNetworkRequests FAILED:', e));
           }
           break;
         }
@@ -1479,7 +1479,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchPushSubscriptionChangeEvent FAILED:', e));
           }
           break;
         }
@@ -1497,7 +1497,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchSyncEvent FAILED:', e));
           }
           break;
         }
@@ -1515,7 +1515,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchPeriodicSyncEvent FAILED:', e));
           }
           break;
         }
@@ -1533,7 +1533,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchAbortPaymentEvent FAILED:', e));
           }
           break;
         }
@@ -1551,7 +1551,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchCanMakePaymentEvent FAILED:', e));
           }
           break;
         }
@@ -1569,7 +1569,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchPaymentRequestEvent FAILED:', e));
           }
           break;
         }
@@ -1587,7 +1587,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchExtendableMessageEvent FAILED:', e));
           }
           break;
         }
@@ -1605,7 +1605,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchContentDeleteEvent FAILED:', e));
           }
           break;
         }
@@ -1622,7 +1622,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_Ping_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] ping FAILED:', e));
           }
           break;
         }
@@ -1667,7 +1667,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] executeScriptForTest FAILED:', e));
           }
           break;
         }

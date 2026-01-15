@@ -285,7 +285,7 @@ mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createWavFile FAILED:', e));
           }
           break;
         }
@@ -303,7 +303,7 @@ mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createAecdumpFile FAILED:', e));
           }
           break;
         }

@@ -565,7 +565,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetupReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] startActivation FAILED:', e));
           }
           break;
         }

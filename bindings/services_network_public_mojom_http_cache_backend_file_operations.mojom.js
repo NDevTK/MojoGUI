@@ -310,7 +310,7 @@ mojo.internal.bindings.network.mojom.FileEnumeratorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNext FAILED:', e));
           }
           break;
         }
@@ -563,7 +563,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createDirectory FAILED:', e));
           }
           break;
         }
@@ -581,7 +581,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] pathExists FAILED:', e));
           }
           break;
         }
@@ -599,7 +599,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] directoryExists FAILED:', e));
           }
           break;
         }
@@ -616,7 +616,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openFile FAILED:', e));
           }
           break;
         }
@@ -634,7 +634,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteFile FAILED:', e));
           }
           break;
         }
@@ -652,7 +652,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] renameFile FAILED:', e));
           }
           break;
         }
@@ -670,7 +670,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFileInfo FAILED:', e));
           }
           break;
         }
@@ -695,7 +695,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] cleanupDirectory FAILED:', e));
           }
           break;
         }

@@ -488,7 +488,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deletePaymentInstrument FAILED:', e));
           }
           break;
         }
@@ -505,7 +505,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPaymentInstrument FAILED:', e));
           }
           break;
         }
@@ -522,7 +522,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] keysOfPaymentInstruments FAILED:', e));
           }
           break;
         }
@@ -540,7 +540,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] hasPaymentInstrument FAILED:', e));
           }
           break;
         }
@@ -558,7 +558,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setPaymentInstrument FAILED:', e));
           }
           break;
         }
@@ -576,7 +576,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearPaymentInstruments FAILED:', e));
           }
           break;
         }
@@ -601,7 +601,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] enableDelegations FAILED:', e));
           }
           break;
         }

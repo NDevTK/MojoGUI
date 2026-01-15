@@ -415,7 +415,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fetchJapaneseDictionary FAILED:', e));
           }
           break;
         }
@@ -433,7 +433,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addJapaneseDictionaryEntry FAILED:', e));
           }
           break;
         }
@@ -451,7 +451,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] editJapaneseDictionaryEntry FAILED:', e));
           }
           break;
         }
@@ -469,7 +469,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteJapaneseDictionaryEntry FAILED:', e));
           }
           break;
         }
@@ -487,7 +487,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createJapaneseDictionary FAILED:', e));
           }
           break;
         }
@@ -505,7 +505,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] renameJapaneseDictionary FAILED:', e));
           }
           break;
         }
@@ -523,7 +523,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteJapaneseDictionary FAILED:', e));
           }
           break;
         }
@@ -541,7 +541,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] exportJapaneseDictionary FAILED:', e));
           }
           break;
         }
@@ -559,7 +559,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] importJapaneseDictionary FAILED:', e));
           }
           break;
         }
@@ -577,7 +577,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearJapanesePersonalizationData FAILED:', e));
           }
           break;
         }

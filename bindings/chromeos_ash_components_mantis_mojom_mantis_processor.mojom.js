@@ -368,7 +368,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] inpainting FAILED:', e));
           }
           break;
         }
@@ -386,7 +386,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] generativeFill FAILED:', e));
           }
           break;
         }
@@ -404,7 +404,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] segmentation FAILED:', e));
           }
           break;
         }
@@ -422,7 +422,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] classifyImageSafety FAILED:', e));
           }
           break;
         }
@@ -440,7 +440,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] outpainting FAILED:', e));
           }
           break;
         }
@@ -458,7 +458,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] inferSegmentationMode FAILED:', e));
           }
           break;
         }

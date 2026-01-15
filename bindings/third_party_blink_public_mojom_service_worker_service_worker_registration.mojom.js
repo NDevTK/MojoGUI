@@ -342,7 +342,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] update FAILED:', e));
           }
           break;
         }
@@ -359,7 +359,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] unregister FAILED:', e));
           }
           break;
         }
@@ -376,7 +376,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] enableNavigationPreload FAILED:', e));
           }
           break;
         }
@@ -393,7 +393,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNavigationPreloadState FAILED:', e));
           }
           break;
         }
@@ -410,7 +410,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setNavigationPreloadHeader FAILED:', e));
           }
           break;
         }

@@ -1963,7 +1963,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_EnterFullscreen_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] enterFullscreen FAILED:', e));
           }
           break;
         }
@@ -2246,7 +2246,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_RunModalAlertDialog_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runModalAlertDialog FAILED:', e));
           }
           break;
         }
@@ -2264,7 +2264,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_RunModalConfirmDialog_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runModalConfirmDialog FAILED:', e));
           }
           break;
         }
@@ -2281,7 +2281,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_RunModalPromptDialog_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runModalPromptDialog FAILED:', e));
           }
           break;
         }
@@ -2299,7 +2299,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_RunBeforeUnloadConfirm_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runBeforeUnloadConfirm FAILED:', e));
           }
           break;
         }
@@ -2477,7 +2477,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_DisableUntrustedNetworkInFencedFrame_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] disableUntrustedNetworkInFencedFrame FAILED:', e));
           }
           break;
         }
@@ -2494,7 +2494,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_ExemptUrlFromNetworkRevocationForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] exemptUrlFromNetworkRevocationForTesting FAILED:', e));
           }
           break;
         }
@@ -2596,7 +2596,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] initializeCrashReportContext FAILED:', e));
           }
           break;
         }
@@ -3552,7 +3552,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_GetTextSurroundingSelection_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getTextSurroundingSelection FAILED:', e));
           }
           break;
         }
@@ -3688,7 +3688,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_BeforeUnload_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] beforeUnload FAILED:', e));
           }
           break;
         }
@@ -3712,7 +3712,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_RequestVideoFrameAtWithBoundsHint_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestVideoFrameAtWithBoundsHint FAILED:', e));
           }
           break;
         }
@@ -3779,7 +3779,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptMethodExecuteRequest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] javaScriptMethodExecuteRequest FAILED:', e));
           }
           break;
         }
@@ -3797,7 +3797,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptExecuteRequest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] javaScriptExecuteRequest FAILED:', e));
           }
           break;
         }
@@ -3814,7 +3814,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptExecuteRequestForTests_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] javaScriptExecuteRequestForTests FAILED:', e));
           }
           break;
         }
@@ -3832,7 +3832,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptExecuteRequestInIsolatedWorld_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] javaScriptExecuteRequestInIsolatedWorld FAILED:', e));
           }
           break;
         }
@@ -3864,7 +3864,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_GetSavableResourceLinks_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSavableResourceLinks FAILED:', e));
           }
           break;
         }
@@ -3903,7 +3903,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_GetCanonicalUrlForSharing_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCanonicalUrlForSharing FAILED:', e));
           }
           break;
         }
@@ -3921,7 +3921,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_GetOpenGraphMetadata_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOpenGraphMetadata FAILED:', e));
           }
           break;
         }
@@ -3945,7 +3945,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_UpdatePrerenderURL_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updatePrerenderURL FAILED:', e));
           }
           break;
         }
@@ -3984,7 +3984,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotDocumentForViewTransition_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] snapshotDocumentForViewTransition FAILED:', e));
           }
           break;
         }
@@ -4023,7 +4023,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_GetScrollPosition_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getScrollPosition FAILED:', e));
           }
           break;
         }
@@ -4331,7 +4331,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalMainFrame_ClosePage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] closePage FAILED:', e));
           }
           break;
         }
@@ -4349,7 +4349,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalMainFrame_GetFullPageSize_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFullPageSize FAILED:', e));
           }
           break;
         }
@@ -4408,7 +4408,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalMainFrame_Discard_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] discard FAILED:', e));
           }
           break;
         }
@@ -4814,7 +4814,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalMainFrameHost_UpdateTargetURL_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateTargetURL FAILED:', e));
           }
           break;
         }
@@ -4838,7 +4838,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ShowCreatedWindow_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] showCreatedWindow FAILED:', e));
           }
           break;
         }
@@ -4855,7 +4855,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalMainFrameHost_SetWindowRect_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setWindowRect FAILED:', e));
           }
           break;
         }

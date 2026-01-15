@@ -1298,7 +1298,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetMetadata_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMetadata FAILED:', e));
           }
           break;
         }
@@ -1316,7 +1316,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_SetPinned_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setPinned FAILED:', e));
           }
           break;
         }
@@ -1341,7 +1341,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_ResetCache_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] resetCache FAILED:', e));
           }
           break;
         }
@@ -1359,7 +1359,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetThumbnail_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getThumbnail FAILED:', e));
           }
           break;
         }
@@ -1377,7 +1377,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_CopyFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] copyFile FAILED:', e));
           }
           break;
         }
@@ -1415,7 +1415,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNativeMessageRequest FAILED:', e));
           }
           break;
         }
@@ -1433,7 +1433,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_SetStartupArguments_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setStartupArguments FAILED:', e));
           }
           break;
         }
@@ -1451,7 +1451,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetStartupArguments_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getStartupArguments FAILED:', e));
           }
           break;
         }
@@ -1511,7 +1511,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] locateFilesByItemIds FAILED:', e));
           }
           break;
         }
@@ -1528,7 +1528,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getQuotaUsage FAILED:', e));
           }
           break;
         }
@@ -1546,7 +1546,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] toggleMirroring FAILED:', e));
           }
           break;
         }
@@ -1564,7 +1564,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] toggleSyncForPath FAILED:', e));
           }
           break;
         }
@@ -1581,7 +1581,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSyncingPaths FAILED:', e));
           }
           break;
         }
@@ -1605,7 +1605,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPooledQuotaUsage FAILED:', e));
           }
           break;
         }
@@ -1623,7 +1623,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setPinnedByStableId FAILED:', e));
           }
           break;
         }
@@ -1640,7 +1640,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMetadataByStableId FAILED:', e));
           }
           break;
         }
@@ -1664,7 +1664,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setDocsOfflineEnabled FAILED:', e));
           }
           break;
         }
@@ -1681,7 +1681,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOfflineFilesSpaceUsage FAILED:', e));
           }
           break;
         }
@@ -1699,7 +1699,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearOfflineFiles FAILED:', e));
           }
           break;
         }
@@ -1717,7 +1717,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] immediatelyUpload FAILED:', e));
           }
           break;
         }
@@ -1735,7 +1735,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateFromPairedDoc FAILED:', e));
           }
           break;
         }
@@ -1753,7 +1753,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getItemFromCloudStore FAILED:', e));
           }
           break;
         }
@@ -1770,7 +1770,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDocsOfflineStats FAILED:', e));
           }
           break;
         }
@@ -1788,7 +1788,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMirrorSyncStatusForFile FAILED:', e));
           }
           break;
         }
@@ -1806,7 +1806,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMirrorSyncStatusForDirectory FAILED:', e));
           }
           break;
         }
@@ -2212,7 +2212,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAccessToken FAILED:', e));
           }
           break;
         }
@@ -2293,7 +2293,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] connectToExtension FAILED:', e));
           }
           break;
         }
@@ -2311,7 +2311,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] displayConfirmDialog FAILED:', e));
           }
           break;
         }
@@ -2336,7 +2336,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetMachineRootID_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMachineRootID FAILED:', e));
           }
           break;
         }
@@ -2374,7 +2374,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAccessTokenWithExpiry FAILED:', e));
           }
           break;
         }
@@ -2528,7 +2528,7 @@ mojo.internal.bindings.drivefs.mojom.SearchQueryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.drivefs.mojom.SearchQuery_GetNextPage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNextPage FAILED:', e));
           }
           break;
         }

@@ -259,7 +259,7 @@ mojo.internal.bindings.blink.mojom.FileUtilitiesHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFileInfo FAILED:', e));
           }
           break;
         }

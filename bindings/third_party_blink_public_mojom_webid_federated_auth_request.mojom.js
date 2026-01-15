@@ -482,7 +482,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestToken FAILED:', e));
           }
           break;
         }
@@ -499,7 +499,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestUserInfo FAILED:', e));
           }
           break;
         }
@@ -524,7 +524,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] resolveTokenRequest FAILED:', e));
           }
           break;
         }
@@ -541,7 +541,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setIdpSigninStatus FAILED:', e));
           }
           break;
         }
@@ -559,7 +559,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] registerIdP FAILED:', e));
           }
           break;
         }
@@ -577,7 +577,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] unregisterIdP FAILED:', e));
           }
           break;
         }
@@ -601,7 +601,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] preventSilentAccess FAILED:', e));
           }
           break;
         }
@@ -619,7 +619,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] disconnect FAILED:', e));
           }
           break;
         }

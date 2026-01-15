@@ -269,7 +269,7 @@ mojo.internal.bindings.chrome.mojom.UtilReadIconReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] readIcon FAILED:', e));
           }
           break;
         }

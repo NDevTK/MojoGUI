@@ -637,7 +637,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addMostVisitedTile FAILED:', e));
           }
           break;
         }
@@ -697,7 +697,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateMostVisitedTile FAILED:', e));
           }
           break;
         }
@@ -743,7 +743,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMostVisitedExpandedState FAILED:', e));
           }
           break;
         }

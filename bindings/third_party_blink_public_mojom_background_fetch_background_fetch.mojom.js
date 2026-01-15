@@ -547,7 +547,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fetch FAILED:', e));
           }
           break;
         }
@@ -564,7 +564,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRegistration FAILED:', e));
           }
           break;
         }
@@ -581,7 +581,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDeveloperIds FAILED:', e));
           }
           break;
         }
@@ -599,7 +599,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getIconDisplaySize FAILED:', e));
           }
           break;
         }
@@ -782,7 +782,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateUI FAILED:', e));
           }
           break;
         }
@@ -800,7 +800,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] abort FAILED:', e));
           }
           break;
         }
@@ -818,7 +818,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] matchRequests FAILED:', e));
           }
           break;
         }

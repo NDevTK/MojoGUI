@@ -262,7 +262,7 @@ mojo.internal.bindings.quick_answers.mojom.SpellCheckServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createDictionary FAILED:', e));
           }
           break;
         }
@@ -403,7 +403,7 @@ mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionaryReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] checkSpelling FAILED:', e));
           }
           break;
         }

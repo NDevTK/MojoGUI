@@ -310,7 +310,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getBucketUsage FAILED:', e));
           }
           break;
         }
@@ -328,7 +328,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDefaultStorageKeys FAILED:', e));
           }
           break;
         }
@@ -346,7 +346,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteBucketData FAILED:', e));
           }
           break;
         }
@@ -363,7 +363,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] performStorageCleanup FAILED:', e));
           }
           break;
         }

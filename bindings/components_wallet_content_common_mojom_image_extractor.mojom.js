@@ -256,7 +256,7 @@ mojo.internal.bindings.wallet.mojom.ImageExtractorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] extractImages FAILED:', e));
           }
           break;
         }

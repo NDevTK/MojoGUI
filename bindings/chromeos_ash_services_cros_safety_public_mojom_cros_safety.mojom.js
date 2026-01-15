@@ -305,7 +305,7 @@ mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] classifyTextSafety FAILED:', e));
           }
           break;
         }
@@ -323,7 +323,7 @@ mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] classifyImageSafety FAILED:', e));
           }
           break;
         }
@@ -478,7 +478,7 @@ mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] classifyTextSafety FAILED:', e));
           }
           break;
         }
@@ -496,7 +496,7 @@ mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] classifyImageSafety FAILED:', e));
           }
           break;
         }

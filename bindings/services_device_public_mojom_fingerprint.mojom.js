@@ -675,7 +675,7 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRecordsForUser FAILED:', e));
           }
           break;
         }
@@ -700,7 +700,7 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] cancelCurrentEnrollSession FAILED:', e));
           }
           break;
         }
@@ -718,7 +718,7 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestRecordLabel FAILED:', e));
           }
           break;
         }
@@ -736,7 +736,7 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setRecordLabel FAILED:', e));
           }
           break;
         }
@@ -754,7 +754,7 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] removeRecord FAILED:', e));
           }
           break;
         }
@@ -779,7 +779,7 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] endCurrentAuthSession FAILED:', e));
           }
           break;
         }
@@ -797,7 +797,7 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] destroyAllRecords FAILED:', e));
           }
           break;
         }
@@ -822,7 +822,7 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestType FAILED:', e));
           }
           break;
         }

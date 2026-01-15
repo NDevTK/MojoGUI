@@ -478,7 +478,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setPageLifecycleState FAILED:', e));
           }
           break;
         }
@@ -502,7 +502,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] activatePrerenderedPage FAILED:', e));
           }
           break;
         }

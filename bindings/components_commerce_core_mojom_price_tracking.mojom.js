@@ -401,7 +401,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerReceive
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAllShoppingBookmarkProductInfo FAILED:', e));
           }
           break;
         }
@@ -419,7 +419,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerReceive
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAllPriceTrackedBookmarkProductInfo FAILED:', e));
           }
           break;
         }
@@ -437,7 +437,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerReceive
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getShoppingCollectionBookmarkFolderId FAILED:', e));
           }
           break;
         }
@@ -455,7 +455,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerReceive
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getParentBookmarkFolderNameForCurrentUrl FAILED:', e));
           }
           break;
         }

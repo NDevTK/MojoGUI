@@ -525,7 +525,7 @@ mojo.internal.bindings.chrome.mojom.AppShimReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestNotificationPermission FAILED:', e));
           }
           break;
         }
@@ -991,7 +991,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onShimConnected FAILED:', e));
           }
           break;
         }

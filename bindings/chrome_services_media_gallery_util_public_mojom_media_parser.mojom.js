@@ -319,7 +319,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] parseMediaMetadata FAILED:', e));
           }
           break;
         }
@@ -337,7 +337,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] checkMediaFile FAILED:', e));
           }
           break;
         }
@@ -354,7 +354,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCpuInfo FAILED:', e));
           }
           break;
         }
@@ -495,7 +495,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createMediaParser FAILED:', e));
           }
           break;
         }
@@ -636,7 +636,7 @@ mojo.internal.bindings.chrome.mojom.MediaDataSourceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] read FAILED:', e));
           }
           break;
         }

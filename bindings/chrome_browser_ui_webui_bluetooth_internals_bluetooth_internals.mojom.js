@@ -491,7 +491,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAdapter FAILED:', e));
           }
           break;
         }
@@ -508,7 +508,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDebugLogsChangeHandler FAILED:', e));
           }
           break;
         }
@@ -525,7 +525,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] checkSystemPermissions FAILED:', e));
           }
           break;
         }
@@ -542,7 +542,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestSystemPermissions FAILED:', e));
           }
           break;
         }
@@ -559,7 +559,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestLocationServices FAILED:', e));
           }
           break;
         }
@@ -577,7 +577,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] startBtsnoop FAILED:', e));
           }
           break;
         }
@@ -595,7 +595,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isBtsnoopFeatureEnabled FAILED:', e));
           }
           break;
         }
@@ -736,7 +736,7 @@ mojo.internal.bindings.mojom.BluetoothBtsnoopReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] stop FAILED:', e));
           }
           break;
         }

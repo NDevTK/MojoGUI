@@ -394,7 +394,7 @@ mojo.internal.bindings.content.mojom.NavigationClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] commitNavigation FAILED:', e));
           }
           break;
         }
@@ -411,7 +411,7 @@ mojo.internal.bindings.content.mojom.NavigationClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] commitFailedNavigation FAILED:', e));
           }
           break;
         }

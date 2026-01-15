@@ -985,7 +985,7 @@ mojo.internal.bindings.network.mojom.CustomProxyConfigClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onCustomProxyConfigUpdated FAILED:', e));
           }
           break;
         }
@@ -1139,7 +1139,7 @@ mojo.internal.bindings.network.mojom.TrustedHeaderClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onBeforeSendHeaders FAILED:', e));
           }
           break;
         }
@@ -1156,7 +1156,7 @@ mojo.internal.bindings.network.mojom.TrustedHeaderClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.TrustedHeaderClient_OnHeadersReceived_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onHeadersReceived FAILED:', e));
           }
           break;
         }
@@ -2823,7 +2823,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_ClearTrustTokenData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearTrustTokenData FAILED:', e));
           }
           break;
         }
@@ -2841,7 +2841,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearTrustTokenSessionOnlyData FAILED:', e));
           }
           break;
         }
@@ -2859,7 +2859,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_GetStoredTrustTokenCounts_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getStoredTrustTokenCounts FAILED:', e));
           }
           break;
         }
@@ -2877,7 +2877,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPrivateStateTokenRedemptionRecords FAILED:', e));
           }
           break;
         }
@@ -2895,7 +2895,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_DeleteStoredTrustTokens_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteStoredTrustTokens FAILED:', e));
           }
           break;
         }
@@ -2919,7 +2919,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_ClearNetworkingHistoryBetween_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearNetworkingHistoryBetween FAILED:', e));
           }
           break;
         }
@@ -2936,7 +2936,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_ClearHttpCache_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearHttpCache FAILED:', e));
           }
           break;
         }
@@ -2953,7 +2953,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_ComputeHttpCacheSize_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] computeHttpCacheSize FAILED:', e));
           }
           break;
         }
@@ -2984,7 +2984,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_ClearHostCache_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearHostCache FAILED:', e));
           }
           break;
         }
@@ -3001,7 +3001,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_ClearHttpAuthCache_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearHttpAuthCache FAILED:', e));
           }
           break;
         }
@@ -3018,7 +3018,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_ClearCorsPreflightCache_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearCorsPreflightCache FAILED:', e));
           }
           break;
         }
@@ -3035,7 +3035,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_ClearReportingCacheReports_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearReportingCacheReports FAILED:', e));
           }
           break;
         }
@@ -3052,7 +3052,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_ClearReportingCacheClients_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearReportingCacheClients FAILED:', e));
           }
           break;
         }
@@ -3069,7 +3069,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_ClearNetworkErrorLogging_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearNetworkErrorLogging FAILED:', e));
           }
           break;
         }
@@ -3086,7 +3086,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_ClearDomainReliability_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearDomainReliability FAILED:', e));
           }
           break;
         }
@@ -3103,7 +3103,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_ClearSharedDictionaryCache_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearSharedDictionaryCache FAILED:', e));
           }
           break;
         }
@@ -3120,7 +3120,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_ClearSharedDictionaryCacheForIsolationKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearSharedDictionaryCacheForIsolationKey FAILED:', e));
           }
           break;
         }
@@ -3172,7 +3172,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_CloseAllConnections_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] closeAllConnections FAILED:', e));
           }
           break;
         }
@@ -3189,7 +3189,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_CloseIdleConnections_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] closeIdleConnections FAILED:', e));
           }
           break;
         }
@@ -3234,7 +3234,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_CreateRestrictedUDPSocket_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createRestrictedUDPSocket FAILED:', e));
           }
           break;
         }
@@ -3251,7 +3251,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_CreateTCPServerSocket_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createTCPServerSocket FAILED:', e));
           }
           break;
         }
@@ -3268,7 +3268,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_CreateTCPConnectedSocket_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createTCPConnectedSocket FAILED:', e));
           }
           break;
         }
@@ -3285,7 +3285,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_CreateTCPBoundSocket_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createTCPBoundSocket FAILED:', e));
           }
           break;
         }
@@ -3316,7 +3316,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_ForceReloadProxyConfig_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] forceReloadProxyConfig FAILED:', e));
           }
           break;
         }
@@ -3333,7 +3333,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_ClearBadProxiesCache_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearBadProxiesCache FAILED:', e));
           }
           break;
         }
@@ -3399,7 +3399,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_VerifyCert_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] verifyCert FAILED:', e));
           }
           break;
         }
@@ -3416,7 +3416,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_VerifyCertForSignedExchange_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] verifyCertForSignedExchange FAILED:', e));
           }
           break;
         }
@@ -3434,7 +3434,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_Verify2QwacCertBinding_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] verify2QwacCertBinding FAILED:', e));
           }
           break;
         }
@@ -3451,7 +3451,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_AddHSTS_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addHSTS FAILED:', e));
           }
           break;
         }
@@ -3469,7 +3469,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_IsHSTSActiveForHost_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isHSTSActiveForHost FAILED:', e));
           }
           break;
         }
@@ -3487,7 +3487,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_GetHSTSState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getHSTSState FAILED:', e));
           }
           break;
         }
@@ -3504,7 +3504,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_SetCorsOriginAccessListsForOrigin_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setCorsOriginAccessListsForOrigin FAILED:', e));
           }
           break;
         }
@@ -3522,7 +3522,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_DeleteDynamicDataForHost_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteDynamicDataForHost FAILED:', e));
           }
           break;
         }
@@ -3547,7 +3547,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] saveHttpAuthCacheProxyEntries FAILED:', e));
           }
           break;
         }
@@ -3564,7 +3564,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_LoadHttpAuthCacheProxyEntries_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadHttpAuthCacheProxyEntries FAILED:', e));
           }
           break;
         }
@@ -3581,7 +3581,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_AddAuthCacheEntry_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addAuthCacheEntry FAILED:', e));
           }
           break;
         }
@@ -3605,7 +3605,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_EnableStaticKeyPinningForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] enableStaticKeyPinningForTesting FAILED:', e));
           }
           break;
         }
@@ -3623,7 +3623,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_VerifyCertificateForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] verifyCertificateForTesting FAILED:', e));
           }
           break;
         }
@@ -3641,7 +3641,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getTrustAnchorIDsForTesting FAILED:', e));
           }
           break;
         }
@@ -3658,7 +3658,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_AddDomainReliabilityContextForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addDomainReliabilityContextForTesting FAILED:', e));
           }
           break;
         }
@@ -3675,7 +3675,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_ForceDomainReliabilityUploadsForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] forceDomainReliabilityUploadsForTesting FAILED:', e));
           }
           break;
         }
@@ -3700,7 +3700,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSharedDictionaryUsageInfo FAILED:', e));
           }
           break;
         }
@@ -3718,7 +3718,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_GetSharedDictionaryInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSharedDictionaryInfo FAILED:', e));
           }
           break;
         }
@@ -3736,7 +3736,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSharedDictionaryOriginsBetween FAILED:', e));
           }
           break;
         }
@@ -3768,7 +3768,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] hasPreloadedSharedDictionaryInfoForTesting FAILED:', e));
           }
           break;
         }
@@ -3806,7 +3806,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_RevokeNetworkForNonces_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] revokeNetworkForNonces FAILED:', e));
           }
           break;
         }
@@ -3830,7 +3830,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_ExemptUrlFromNetworkRevocationForNonce_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] exemptUrlFromNetworkRevocationForNonce FAILED:', e));
           }
           break;
         }
@@ -3855,7 +3855,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContext_GetBoundNetworkForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getBoundNetworkForTesting FAILED:', e));
           }
           break;
         }

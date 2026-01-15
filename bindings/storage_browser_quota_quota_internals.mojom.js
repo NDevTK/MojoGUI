@@ -340,7 +340,7 @@ mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDiskAvailabilityAndTempPoolSize FAILED:', e));
           }
           break;
         }
@@ -358,7 +358,7 @@ mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getStatistics FAILED:', e));
           }
           break;
         }
@@ -383,7 +383,7 @@ mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] retrieveBucketsTable FAILED:', e));
           }
           break;
         }
@@ -400,7 +400,7 @@ mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getGlobalUsageForInternals FAILED:', e));
           }
           break;
         }
@@ -418,7 +418,7 @@ mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isSimulateStoragePressureAvailable FAILED:', e));
           }
           break;
         }

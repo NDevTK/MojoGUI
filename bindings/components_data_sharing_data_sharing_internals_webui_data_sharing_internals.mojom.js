@@ -418,7 +418,7 @@ mojo.internal.bindings.data_sharing_internals.mojom.PageHandlerReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isEmptyService FAILED:', e));
           }
           break;
         }
@@ -435,7 +435,7 @@ mojo.internal.bindings.data_sharing_internals.mojom.PageHandlerReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAllGroups FAILED:', e));
           }
           break;
         }

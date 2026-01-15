@@ -811,7 +811,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPaperPrintableArea FAILED:', e));
           }
           break;
         }
@@ -856,7 +856,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] startPrinting FAILED:', e));
           }
           break;
         }
@@ -874,7 +874,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] renderPrintedPage FAILED:', e));
           }
           break;
         }
@@ -892,7 +892,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] renderPrintedDocument FAILED:', e));
           }
           break;
         }
@@ -910,7 +910,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] documentDone FAILED:', e));
           }
           break;
         }
@@ -927,7 +927,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PrintBackendService_Cancel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] cancel FAILED:', e));
           }
           break;
         }

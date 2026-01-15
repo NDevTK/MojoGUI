@@ -288,7 +288,7 @@ mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.StateReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] lastCallHasNext FAILED:', e));
           }
           break;
         }
@@ -305,7 +305,7 @@ mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.StateReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] waitLastCall FAILED:', e));
           }
           break;
         }

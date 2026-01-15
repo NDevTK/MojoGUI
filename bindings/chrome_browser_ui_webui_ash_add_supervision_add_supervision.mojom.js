@@ -334,7 +334,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestClose FAILED:', e));
           }
           break;
         }
@@ -352,7 +352,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getInstalledArcApps FAILED:', e));
           }
           break;
         }
@@ -369,7 +369,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOAuthToken FAILED:', e));
           }
           break;
         }

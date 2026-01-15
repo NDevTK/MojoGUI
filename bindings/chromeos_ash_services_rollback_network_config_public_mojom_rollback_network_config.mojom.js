@@ -267,7 +267,7 @@ mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfigRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] rollbackConfigImport FAILED:', e));
           }
           break;
         }
@@ -285,7 +285,7 @@ mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfigRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] rollbackConfigExport FAILED:', e));
           }
           break;
         }

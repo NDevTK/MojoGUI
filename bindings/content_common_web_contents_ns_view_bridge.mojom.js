@@ -755,7 +755,7 @@ mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHostReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] draggingEntered FAILED:', e));
           }
           break;
         }
@@ -780,7 +780,7 @@ mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHostReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] draggingUpdated FAILED:', e));
           }
           break;
         }
@@ -798,7 +798,7 @@ mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHostReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] performDragOperation FAILED:', e));
           }
           break;
         }
@@ -816,7 +816,7 @@ mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHostReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dragPromisedFileTo FAILED:', e));
           }
           break;
         }

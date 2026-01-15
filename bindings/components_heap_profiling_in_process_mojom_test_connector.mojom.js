@@ -291,7 +291,7 @@ mojo.internal.bindings.heap_profiling.mojom.TestConnectorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] connectSnapshotController FAILED:', e));
           }
           break;
         }
@@ -308,7 +308,7 @@ mojo.internal.bindings.heap_profiling.mojom.TestConnectorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] connectProfileCollector FAILED:', e));
           }
           break;
         }

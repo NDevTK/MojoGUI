@@ -464,7 +464,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNewScreencastPrecondition FAILED:', e));
           }
           break;
         }
@@ -482,7 +482,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] shouldDownloadSoda FAILED:', e));
           }
           break;
         }
@@ -500,7 +500,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] installSoda FAILED:', e));
           }
           break;
         }
@@ -518,7 +518,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPendingScreencasts FAILED:', e));
           }
           break;
         }
@@ -536,7 +536,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUserPref FAILED:', e));
           }
           break;
         }
@@ -553,7 +553,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setUserPref FAILED:', e));
           }
           break;
         }
@@ -570,7 +570,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openFeedbackDialog FAILED:', e));
           }
           break;
         }
@@ -588,7 +588,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] startProjectorSession FAILED:', e));
           }
           break;
         }
@@ -606,7 +606,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendXhr FAILED:', e));
           }
           break;
         }
@@ -624,7 +624,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAccounts FAILED:', e));
           }
           break;
         }
@@ -642,7 +642,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getVideo FAILED:', e));
           }
           break;
         }

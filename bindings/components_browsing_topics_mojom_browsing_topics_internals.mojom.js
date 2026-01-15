@@ -323,7 +323,7 @@ mojo.internal.bindings.browsing_topics.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getBrowsingTopicsConfiguration FAILED:', e));
           }
           break;
         }
@@ -341,7 +341,7 @@ mojo.internal.bindings.browsing_topics.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getBrowsingTopicsState FAILED:', e));
           }
           break;
         }
@@ -359,7 +359,7 @@ mojo.internal.bindings.browsing_topics.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getModelInfo FAILED:', e));
           }
           break;
         }
@@ -377,7 +377,7 @@ mojo.internal.bindings.browsing_topics.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] classifyHosts FAILED:', e));
           }
           break;
         }

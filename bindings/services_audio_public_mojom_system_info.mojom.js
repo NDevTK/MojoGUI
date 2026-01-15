@@ -372,7 +372,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getInputStreamParameters FAILED:', e));
           }
           break;
         }
@@ -390,7 +390,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOutputStreamParameters FAILED:', e));
           }
           break;
         }
@@ -408,7 +408,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] hasInputDevices FAILED:', e));
           }
           break;
         }
@@ -426,7 +426,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] hasOutputDevices FAILED:', e));
           }
           break;
         }
@@ -444,7 +444,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getInputDeviceDescriptions FAILED:', e));
           }
           break;
         }
@@ -462,7 +462,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOutputDeviceDescriptions FAILED:', e));
           }
           break;
         }
@@ -480,7 +480,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAssociatedOutputDeviceID FAILED:', e));
           }
           break;
         }
@@ -497,7 +497,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getInputDeviceInfo FAILED:', e));
           }
           break;
         }

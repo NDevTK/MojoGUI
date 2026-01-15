@@ -318,7 +318,7 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] stopFrameCounting FAILED:', e));
           }
           break;
         }
@@ -343,7 +343,7 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] stopOverdrawTracking FAILED:', e));
           }
           break;
         }

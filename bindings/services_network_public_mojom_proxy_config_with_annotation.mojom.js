@@ -289,7 +289,7 @@ mojo.internal.bindings.network.mojom.ProxyConfigClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] flushProxyConfig FAILED:', e));
           }
           break;
         }

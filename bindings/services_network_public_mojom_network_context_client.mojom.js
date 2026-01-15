@@ -297,7 +297,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onFileUploadRequested FAILED:', e));
           }
           break;
         }
@@ -315,7 +315,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onCanSendReportingReports FAILED:', e));
           }
           break;
         }
@@ -333,7 +333,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onCanSendDomainReliabilityUpload FAILED:', e));
           }
           break;
         }

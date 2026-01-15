@@ -509,7 +509,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] parseIntegrityBlock FAILED:', e));
           }
           break;
         }
@@ -526,7 +526,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] parseMetadata FAILED:', e));
           }
           break;
         }
@@ -543,7 +543,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] parseResponse FAILED:', e));
           }
           break;
         }
@@ -560,7 +560,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.web_package.mojom.WebBundleParser_Close_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] close FAILED:', e));
           }
           break;
         }
@@ -743,7 +743,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.web_package.mojom.BundleDataSource_Read_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] read FAILED:', e));
           }
           break;
         }
@@ -761,7 +761,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.web_package.mojom.BundleDataSource_Length_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] length FAILED:', e));
           }
           break;
         }
@@ -779,7 +779,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isRandomAccessContext FAILED:', e));
           }
           break;
         }
@@ -796,7 +796,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.web_package.mojom.BundleDataSource_Close_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] close FAILED:', e));
           }
           break;
         }

@@ -297,7 +297,7 @@ mojo.internal.bindings.chrome.mojom.NetBenchmarkingReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.NetBenchmarking_CloseCurrentConnections_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] closeCurrentConnections FAILED:', e));
           }
           break;
         }
@@ -314,7 +314,7 @@ mojo.internal.bindings.chrome.mojom.NetBenchmarkingReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearCache_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearCache FAILED:', e));
           }
           break;
         }
@@ -331,7 +331,7 @@ mojo.internal.bindings.chrome.mojom.NetBenchmarkingReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearHostResolverCache_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearHostResolverCache FAILED:', e));
           }
           break;
         }
@@ -348,7 +348,7 @@ mojo.internal.bindings.chrome.mojom.NetBenchmarkingReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearPredictorCache_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearPredictorCache FAILED:', e));
           }
           break;
         }

@@ -394,7 +394,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestChromeMemoryDump FAILED:', e));
           }
           break;
         }
@@ -411,7 +411,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestOSMemoryDump FAILED:', e));
           }
           break;
         }
@@ -552,7 +552,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dumpProcessesForTracing FAILED:', e));
           }
           break;
         }
@@ -693,7 +693,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getVmRegionsForHeapProfiler FAILED:', e));
           }
           break;
         }
@@ -875,7 +875,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestGlobalMemoryDump FAILED:', e));
           }
           break;
         }
@@ -892,7 +892,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestGlobalMemoryDumpForPid FAILED:', e));
           }
           break;
         }
@@ -909,7 +909,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestPrivateMemoryFootprint FAILED:', e));
           }
           break;
         }
@@ -926,7 +926,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestGlobalMemoryDumpAndAppendToTrace FAILED:', e));
           }
           break;
         }

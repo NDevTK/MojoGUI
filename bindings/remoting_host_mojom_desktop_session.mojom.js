@@ -868,7 +868,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionAgentReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] start FAILED:', e));
           }
           break;
         }
@@ -1023,7 +1023,7 @@ mojo.internal.bindings.remoting.mojom.FileWriterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] writeChunk FAILED:', e));
           }
           break;
         }
@@ -1041,7 +1041,7 @@ mojo.internal.bindings.remoting.mojom.FileWriterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] closeFile FAILED:', e));
           }
           break;
         }
@@ -1182,7 +1182,7 @@ mojo.internal.bindings.remoting.mojom.FileReaderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] readChunk FAILED:', e));
           }
           break;
         }
@@ -1505,7 +1505,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createVideoCapturer FAILED:', e));
           }
           break;
         }
@@ -1593,7 +1593,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] beginFileRead FAILED:', e));
           }
           break;
         }
@@ -1611,7 +1611,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] beginFileWrite FAILED:', e));
           }
           break;
         }

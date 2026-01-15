@@ -311,7 +311,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsBootstrapReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] mountShare FAILED:', e));
           }
           break;
         }
@@ -466,7 +466,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] removeSavedCredentials FAILED:', e));
           }
           break;
         }
@@ -484,7 +484,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteRecursively FAILED:', e));
           }
           break;
         }
@@ -625,7 +625,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsDelegateReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestCredentials FAILED:', e));
           }
           break;
         }

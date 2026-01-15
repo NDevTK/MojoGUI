@@ -511,7 +511,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getThreadUrl FAILED:', e));
           }
           break;
         }
@@ -529,7 +529,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUrlForTask FAILED:', e));
           }
           break;
         }
@@ -554,7 +554,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsZeroState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isZeroState FAILED:', e));
           }
           break;
         }
@@ -593,7 +593,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isShownInTab FAILED:', e));
           }
           break;
         }
@@ -653,7 +653,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCommonSearchParams FAILED:', e));
           }
           break;
         }

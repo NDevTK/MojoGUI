@@ -466,7 +466,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getState FAILED:', e));
           }
           break;
         }
@@ -772,7 +772,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesServiceReceiver 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isRoutineArgumentSupported FAILED:', e));
           }
           break;
         }

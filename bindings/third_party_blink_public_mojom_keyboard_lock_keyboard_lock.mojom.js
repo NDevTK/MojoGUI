@@ -300,7 +300,7 @@ mojo.internal.bindings.blink.mojom.KeyboardLockServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestKeyboardLock FAILED:', e));
           }
           break;
         }
@@ -325,7 +325,7 @@ mojo.internal.bindings.blink.mojom.KeyboardLockServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getKeyboardLayoutMap FAILED:', e));
           }
           break;
         }

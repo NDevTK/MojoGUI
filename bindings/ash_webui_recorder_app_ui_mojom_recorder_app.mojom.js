@@ -824,7 +824,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getModelInfo FAILED:', e));
           }
           break;
         }
@@ -842,7 +842,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadModel FAILED:', e));
           }
           break;
         }
@@ -860,7 +860,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] formatModelInput FAILED:', e));
           }
           break;
         }
@@ -878,7 +878,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] validateSafetyResult FAILED:', e));
           }
           break;
         }
@@ -896,7 +896,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addModelMonitor FAILED:', e));
           }
           break;
         }
@@ -914,7 +914,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAvailableLangPacks FAILED:', e));
           }
           break;
         }
@@ -932,7 +932,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDefaultLanguage FAILED:', e));
           }
           break;
         }
@@ -950,7 +950,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addSodaMonitor FAILED:', e));
           }
           break;
         }
@@ -967,7 +967,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_InstallSoda_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] installSoda FAILED:', e));
           }
           break;
         }
@@ -985,7 +985,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadSpeechRecognizer FAILED:', e));
           }
           break;
         }
@@ -1010,7 +1010,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMicrophoneInfo FAILED:', e));
           }
           break;
         }
@@ -1028,7 +1028,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addQuietModeMonitor FAILED:', e));
           }
           break;
         }
@@ -1053,7 +1053,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] canUseSpeakerLabel FAILED:', e));
           }
           break;
         }
@@ -1078,7 +1078,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] canCaptureSystemAudioWithLoopback FAILED:', e));
           }
           break;
         }

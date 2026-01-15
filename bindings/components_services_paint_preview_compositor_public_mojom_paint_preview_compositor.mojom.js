@@ -377,7 +377,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] beginSeparatedFrameComposite FAILED:', e));
           }
           break;
         }
@@ -394,7 +394,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] bitmapForSeparatedFrame FAILED:', e));
           }
           break;
         }
@@ -411,7 +411,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] beginMainFrameComposite FAILED:', e));
           }
           break;
         }
@@ -428,7 +428,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] bitmapForMainFrame FAILED:', e));
           }
           break;
         }
@@ -611,7 +611,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createCompositor FAILED:', e));
           }
           break;
         }
@@ -629,7 +629,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] listCompositors FAILED:', e));
           }
           break;
         }

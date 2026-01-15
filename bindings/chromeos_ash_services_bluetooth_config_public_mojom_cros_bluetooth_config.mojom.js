@@ -1013,7 +1013,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateReceiver 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestPinCode FAILED:', e));
           }
           break;
         }
@@ -1031,7 +1031,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateReceiver 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestPasskey FAILED:', e));
           }
           break;
         }
@@ -1063,7 +1063,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateReceiver 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] confirmPasskey FAILED:', e));
           }
           break;
         }
@@ -1081,7 +1081,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateReceiver 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] authorizePairing FAILED:', e));
           }
           break;
         }
@@ -1236,7 +1236,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandlerReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] pairDevice FAILED:', e));
           }
           break;
         }
@@ -1254,7 +1254,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandlerReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fetchDevice FAILED:', e));
           }
           break;
         }
@@ -1756,7 +1756,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] connect FAILED:', e));
           }
           break;
         }
@@ -1774,7 +1774,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] disconnect FAILED:', e));
           }
           break;
         }
@@ -1792,7 +1792,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] forget FAILED:', e));
           }
           break;
         }

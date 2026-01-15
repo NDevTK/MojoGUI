@@ -480,7 +480,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPackInfo FAILED:', e));
           }
           break;
         }
@@ -498,7 +498,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] installPack FAILED:', e));
           }
           break;
         }
@@ -516,7 +516,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] installBasePack FAILED:', e));
           }
           break;
         }
@@ -533,7 +533,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] uninstallPack FAILED:', e));
           }
           break;
         }

@@ -680,7 +680,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_AddObserver_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addObserver FAILED:', e));
           }
           break;
         }
@@ -698,7 +698,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] forceEnrollmentNow FAILED:', e));
           }
           break;
         }
@@ -716,7 +716,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceSyncNow_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] forceSyncNow FAILED:', e));
           }
           break;
         }
@@ -734,7 +734,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getGroupPrivateKeyStatus FAILED:', e));
           }
           break;
         }
@@ -752,7 +752,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getBetterTogetherMetadataStatus FAILED:', e));
           }
           break;
         }
@@ -770,7 +770,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSyncedDevices FAILED:', e));
           }
           break;
         }
@@ -788,7 +788,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getLocalDeviceMetadata FAILED:', e));
           }
           break;
         }
@@ -806,7 +806,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setSoftwareFeatureState FAILED:', e));
           }
           break;
         }
@@ -824,7 +824,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setFeatureStatus FAILED:', e));
           }
           break;
         }
@@ -841,7 +841,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] findEligibleDevices FAILED:', e));
           }
           break;
         }
@@ -859,7 +859,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_NotifyDevices_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] notifyDevices FAILED:', e));
           }
           break;
         }
@@ -876,7 +876,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDevicesActivityStatus FAILED:', e));
           }
           break;
         }
@@ -894,7 +894,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDebugInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDebugInfo FAILED:', e));
           }
           break;
         }

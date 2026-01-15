@@ -300,7 +300,7 @@ mojo.internal.bindings.blink.mojom.DigitalIdentityRequestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] get FAILED:', e));
           }
           break;
         }
@@ -317,7 +317,7 @@ mojo.internal.bindings.blink.mojom.DigitalIdentityRequestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] create FAILED:', e));
           }
           break;
         }

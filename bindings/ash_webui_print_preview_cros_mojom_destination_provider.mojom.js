@@ -263,7 +263,7 @@ mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProviderRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fetchCapabilities FAILED:', e));
           }
           break;
         }

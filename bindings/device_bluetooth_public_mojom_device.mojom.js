@@ -431,7 +431,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.Device_GetInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getInfo FAILED:', e));
           }
           break;
         }
@@ -449,7 +449,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.Device_GetServices_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getServices FAILED:', e));
           }
           break;
         }
@@ -467,7 +467,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.Device_GetCharacteristics_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCharacteristics FAILED:', e));
           }
           break;
         }
@@ -484,7 +484,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForCharacteristic_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] readValueForCharacteristic FAILED:', e));
           }
           break;
         }
@@ -502,7 +502,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForCharacteristic_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] writeValueForCharacteristic FAILED:', e));
           }
           break;
         }
@@ -520,7 +520,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.Device_GetDescriptors_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDescriptors FAILED:', e));
           }
           break;
         }
@@ -537,7 +537,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForDescriptor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] readValueForDescriptor FAILED:', e));
           }
           break;
         }
@@ -555,7 +555,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForDescriptor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] writeValueForDescriptor FAILED:', e));
           }
           break;
         }

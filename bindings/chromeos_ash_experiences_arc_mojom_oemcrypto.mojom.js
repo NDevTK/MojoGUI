@@ -1623,7 +1623,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_InitializeDeprecated_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] initializeDeprecated FAILED:', e));
           }
           break;
         }
@@ -1641,7 +1641,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_Initialize_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] initialize FAILED:', e));
           }
           break;
         }
@@ -1659,7 +1659,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_Terminate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] terminate FAILED:', e));
           }
           break;
         }
@@ -1676,7 +1676,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_OpenSession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openSession FAILED:', e));
           }
           break;
         }
@@ -1694,7 +1694,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_CloseSession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] closeSession FAILED:', e));
           }
           break;
         }
@@ -1712,7 +1712,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GenerateDerivedKeys_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] generateDerivedKeys FAILED:', e));
           }
           break;
         }
@@ -1729,7 +1729,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GenerateNonce_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] generateNonce FAILED:', e));
           }
           break;
         }
@@ -1746,7 +1746,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GenerateSignature_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] generateSignature FAILED:', e));
           }
           break;
         }
@@ -1764,7 +1764,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadKeysV11OrV12_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadKeysV11OrV12 FAILED:', e));
           }
           break;
         }
@@ -1782,7 +1782,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_RefreshKeysV14_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] refreshKeysV14 FAILED:', e));
           }
           break;
         }
@@ -1799,7 +1799,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_QueryKeyControl_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] queryKeyControl FAILED:', e));
           }
           break;
         }
@@ -1817,7 +1817,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_SelectKeyV13_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] selectKeyV13 FAILED:', e));
           }
           break;
         }
@@ -1834,7 +1834,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_DecryptCencV15_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] decryptCencV15 FAILED:', e));
           }
           break;
         }
@@ -1851,7 +1851,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GenericEncrypt_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] genericEncrypt FAILED:', e));
           }
           break;
         }
@@ -1868,7 +1868,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GenericDecrypt_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] genericDecrypt FAILED:', e));
           }
           break;
         }
@@ -1885,7 +1885,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GenericSign_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] genericSign FAILED:', e));
           }
           break;
         }
@@ -1903,7 +1903,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GenericVerify_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] genericVerify FAILED:', e));
           }
           break;
         }
@@ -1921,7 +1921,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_CopyBufferV14_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] copyBufferV14 FAILED:', e));
           }
           break;
         }
@@ -1939,7 +1939,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadTestKeyboxV13_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadTestKeyboxV13 FAILED:', e));
           }
           break;
         }
@@ -1957,7 +1957,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isRootKeyCertificateValid FAILED:', e));
           }
           break;
         }
@@ -1974,7 +1974,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GetDeviceId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDeviceId FAILED:', e));
           }
           break;
         }
@@ -1991,7 +1991,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GetKeyData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getKeyData FAILED:', e));
           }
           break;
         }
@@ -2008,7 +2008,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GetRandom_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRandom FAILED:', e));
           }
           break;
         }
@@ -2025,7 +2025,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNumberOfOpenSessions FAILED:', e));
           }
           break;
         }
@@ -2042,7 +2042,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMaxNumberOfSessions FAILED:', e));
           }
           break;
         }
@@ -2059,7 +2059,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] rewrapDeviceRsaKey FAILED:', e));
           }
           break;
         }
@@ -2077,7 +2077,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadDeviceRsaKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadDeviceRsaKey FAILED:', e));
           }
           break;
         }
@@ -2094,7 +2094,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GenerateRsaSignature_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] generateRsaSignature FAILED:', e));
           }
           break;
         }
@@ -2112,7 +2112,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deriveKeysFromSessionKey FAILED:', e));
           }
           break;
         }
@@ -2130,7 +2130,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_SecurityPatchLevel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] securityPatchLevel FAILED:', e));
           }
           break;
         }
@@ -2147,7 +2147,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GetHdcpCapability_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getHdcpCapability FAILED:', e));
           }
           break;
         }
@@ -2165,7 +2165,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_UpdateUsageTable_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateUsageTable FAILED:', e));
           }
           break;
         }
@@ -2183,7 +2183,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deactivateUsageEntryV12 FAILED:', e));
           }
           break;
         }
@@ -2200,7 +2200,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_ReportUsage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] reportUsage FAILED:', e));
           }
           break;
         }
@@ -2218,7 +2218,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_DeleteUsageEntry_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteUsageEntry FAILED:', e));
           }
           break;
         }
@@ -2236,7 +2236,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] forceDeleteUsageEntry FAILED:', e));
           }
           break;
         }
@@ -2254,7 +2254,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_DeleteOldUsageTable_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteOldUsageTable FAILED:', e));
           }
           break;
         }
@@ -2272,7 +2272,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GetProvisioningMethod_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getProvisioningMethod FAILED:', e));
           }
           break;
         }
@@ -2290,7 +2290,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_SupportedCertificates_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] supportedCertificates FAILED:', e));
           }
           break;
         }
@@ -2308,7 +2308,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_IsSrmUpdateSupported_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isSrmUpdateSupported FAILED:', e));
           }
           break;
         }
@@ -2325,7 +2325,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GetCurrentSrmVersion_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCurrentSrmVersion FAILED:', e));
           }
           break;
         }
@@ -2343,7 +2343,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadSrm_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadSrm FAILED:', e));
           }
           break;
         }
@@ -2361,7 +2361,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_RemoveSrm_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] removeSrm FAILED:', e));
           }
           break;
         }
@@ -2378,7 +2378,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_CreateUsageTableHeader_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createUsageTableHeader FAILED:', e));
           }
           break;
         }
@@ -2396,7 +2396,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadUsageTableHeader_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadUsageTableHeader FAILED:', e));
           }
           break;
         }
@@ -2413,7 +2413,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_CreateNewUsageEntry_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createNewUsageEntry FAILED:', e));
           }
           break;
         }
@@ -2431,7 +2431,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadUsageEntry_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadUsageEntry FAILED:', e));
           }
           break;
         }
@@ -2448,7 +2448,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_UpdateUsageEntry_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateUsageEntry FAILED:', e));
           }
           break;
         }
@@ -2466,7 +2466,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_DeactivateUsageEntry_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deactivateUsageEntry FAILED:', e));
           }
           break;
         }
@@ -2483,7 +2483,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] shrinkUsageTableHeader FAILED:', e));
           }
           break;
         }
@@ -2501,7 +2501,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_MoveEntry_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] moveEntry FAILED:', e));
           }
           break;
         }
@@ -2519,7 +2519,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_CopyOldUsageEntry_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] copyOldUsageEntry FAILED:', e));
           }
           break;
         }
@@ -2537,7 +2537,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_CreateOldUsageEntry_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createOldUsageEntry FAILED:', e));
           }
           break;
         }
@@ -2555,7 +2555,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GetAnalogOutputFlags_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAnalogOutputFlags FAILED:', e));
           }
           break;
         }
@@ -2573,7 +2573,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadTestKeybox_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadTestKeybox FAILED:', e));
           }
           break;
         }
@@ -2591,7 +2591,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadEntitledContentKeysV14 FAILED:', e));
           }
           break;
         }
@@ -2609,7 +2609,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_SelectKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] selectKey FAILED:', e));
           }
           break;
         }
@@ -2627,7 +2627,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadKeysV14_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadKeysV14 FAILED:', e));
           }
           break;
         }
@@ -2645,7 +2645,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadKeys_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadKeys FAILED:', e));
           }
           break;
         }
@@ -2663,7 +2663,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_ResourceRatingTier_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] resourceRatingTier FAILED:', e));
           }
           break;
         }
@@ -2681,7 +2681,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_BuildInformation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] buildInformation FAILED:', e));
           }
           break;
         }
@@ -2699,7 +2699,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_RefreshKeys_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] refreshKeys FAILED:', e));
           }
           break;
         }
@@ -2717,7 +2717,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadEntitledContentKeys_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadEntitledContentKeys FAILED:', e));
           }
           break;
         }
@@ -2734,7 +2734,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GetOemPublicCertificate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOemPublicCertificate FAILED:', e));
           }
           break;
         }
@@ -2752,7 +2752,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] maximumUsageTableHeaderSize FAILED:', e));
           }
           break;
         }
@@ -2770,7 +2770,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isAntiRollbackHwPresent FAILED:', e));
           }
           break;
         }
@@ -2788,7 +2788,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_MinorApiVersion_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] minorApiVersion FAILED:', e));
           }
           break;
         }
@@ -2805,7 +2805,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] prepAndSignLicenseRequest FAILED:', e));
           }
           break;
         }
@@ -2822,7 +2822,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] prepAndSignRenewalRequest FAILED:', e));
           }
           break;
         }
@@ -2839,7 +2839,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] prepAndSignProvisioningRequest FAILED:', e));
           }
           break;
         }
@@ -2857,7 +2857,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadLicense_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadLicense FAILED:', e));
           }
           break;
         }
@@ -2875,7 +2875,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadRenewal_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadRenewal FAILED:', e));
           }
           break;
         }
@@ -2892,7 +2892,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadProvisioning_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadProvisioning FAILED:', e));
           }
           break;
         }
@@ -2910,7 +2910,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadOemPrivateKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadOemPrivateKey FAILED:', e));
           }
           break;
         }
@@ -2928,7 +2928,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadDrmPrivateKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadDrmPrivateKey FAILED:', e));
           }
           break;
         }
@@ -2945,7 +2945,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_DecryptCenc_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] decryptCenc FAILED:', e));
           }
           break;
         }
@@ -2963,7 +2963,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_CopyBuffer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] copyBuffer FAILED:', e));
           }
           break;
         }
@@ -3233,7 +3233,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoInstance_Init_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }

@@ -325,7 +325,7 @@ mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] register FAILED:', e));
           }
           break;
         }
@@ -349,7 +349,7 @@ mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRegistrations FAILED:', e));
           }
           break;
         }
@@ -517,7 +517,7 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] register FAILED:', e));
           }
           break;
         }
@@ -535,7 +535,7 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] unregister FAILED:', e));
           }
           break;
         }
@@ -552,7 +552,7 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRegistrations FAILED:', e));
           }
           break;
         }

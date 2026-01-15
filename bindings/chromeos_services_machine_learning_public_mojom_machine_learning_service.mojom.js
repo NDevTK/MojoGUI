@@ -562,7 +562,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadBuiltinModel FAILED:', e));
           }
           break;
         }
@@ -580,7 +580,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadFlatBufferModel FAILED:', e));
           }
           break;
         }
@@ -598,7 +598,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadTextClassifier FAILED:', e));
           }
           break;
         }
@@ -616,7 +616,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadHandwritingModel FAILED:', e));
           }
           break;
         }
@@ -634,7 +634,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadSpeechRecognizer FAILED:', e));
           }
           break;
         }
@@ -652,7 +652,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadGrammarChecker FAILED:', e));
           }
           break;
         }
@@ -670,7 +670,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadTextSuggester FAILED:', e));
           }
           break;
         }
@@ -688,7 +688,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadWebPlatformHandwritingModel FAILED:', e));
           }
           break;
         }
@@ -706,7 +706,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadDocumentScanner FAILED:', e));
           }
           break;
         }
@@ -724,7 +724,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadImageAnnotator FAILED:', e));
           }
           break;
         }
@@ -742,7 +742,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadHeatmapPalmRejection FAILED:', e));
           }
           break;
         }
@@ -760,7 +760,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] rEMOVED_4 FAILED:', e));
           }
           break;
         }

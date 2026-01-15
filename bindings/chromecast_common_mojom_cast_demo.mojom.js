@@ -596,7 +596,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRetailerName FAILED:', e));
           }
           break;
         }
@@ -614,7 +614,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getStoreId FAILED:', e));
           }
           break;
         }
@@ -639,7 +639,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDefaultVolumeLevel FAILED:', e));
           }
           break;
         }
@@ -671,7 +671,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAvailableWifiNetworks FAILED:', e));
           }
           break;
         }
@@ -689,7 +689,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getConnectionStatus FAILED:', e));
           }
           break;
         }

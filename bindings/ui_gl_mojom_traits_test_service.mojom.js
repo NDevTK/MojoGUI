@@ -274,7 +274,7 @@ mojo.internal.bindings.gl.mojom.TraitsTestServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] echoGpuPreference FAILED:', e));
           }
           break;
         }
@@ -292,7 +292,7 @@ mojo.internal.bindings.gl.mojom.TraitsTestServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] echoGLImplementationParts FAILED:', e));
           }
           break;
         }

@@ -288,7 +288,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerTestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addDeviceForTesting FAILED:', e));
           }
           break;
         }
@@ -305,7 +305,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerTestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] removeDeviceForTesting FAILED:', e));
           }
           break;
         }
@@ -323,7 +323,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerTestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getTestDevices FAILED:', e));
           }
           break;
         }

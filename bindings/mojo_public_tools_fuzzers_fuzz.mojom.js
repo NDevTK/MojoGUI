@@ -499,7 +499,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fuzzBasicResp FAILED:', e));
           }
           break;
         }
@@ -516,7 +516,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fuzzBasicSyncResp FAILED:', e));
           }
           break;
         }
@@ -540,7 +540,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fuzzArgsResp FAILED:', e));
           }
           break;
         }
@@ -557,7 +557,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fuzzArgsSyncResp FAILED:', e));
           }
           break;
         }

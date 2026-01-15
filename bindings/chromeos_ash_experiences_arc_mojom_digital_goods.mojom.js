@@ -354,7 +354,7 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDetails FAILED:', e));
           }
           break;
         }
@@ -372,7 +372,7 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] acknowledge FAILED:', e));
           }
           break;
         }
@@ -389,7 +389,7 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deprecatedListPurchases FAILED:', e));
           }
           break;
         }
@@ -406,7 +406,7 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] listPurchases FAILED:', e));
           }
           break;
         }
@@ -423,7 +423,7 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] listPurchaseHistory FAILED:', e));
           }
           break;
         }
@@ -441,7 +441,7 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] consume FAILED:', e));
           }
           break;
         }

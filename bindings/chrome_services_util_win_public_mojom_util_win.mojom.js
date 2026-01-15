@@ -406,7 +406,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isPinnedToTaskbar FAILED:', e));
           }
           break;
         }
@@ -423,7 +423,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] unpinShortcuts FAILED:', e));
           }
           break;
         }
@@ -441,7 +441,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createOrUpdateShortcuts FAILED:', e));
           }
           break;
         }
@@ -458,7 +458,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] callExecuteSelectFile FAILED:', e));
           }
           break;
         }
@@ -476,7 +476,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] inspectModule FAILED:', e));
           }
           break;
         }
@@ -494,7 +494,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAntiVirusProducts FAILED:', e));
           }
           break;
         }
@@ -512,7 +512,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getTpmIdentifier FAILED:', e));
           }
           break;
         }
@@ -652,7 +652,7 @@ mojo.internal.bindings.chrome.mojom.ProcessorMetricsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] recordProcessorMetrics FAILED:', e));
           }
           break;
         }

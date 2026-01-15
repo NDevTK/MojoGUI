@@ -594,7 +594,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] makeTabGroupShared FAILED:', e));
           }
           break;
         }
@@ -612,7 +612,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getShareLink FAILED:', e));
           }
           break;
         }
@@ -630,7 +630,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getTabGroupPreview FAILED:', e));
           }
           break;
         }
@@ -862,7 +862,7 @@ mojo.internal.bindings.data_sharing.mojom.PageReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] readGroups FAILED:', e));
           }
           break;
         }
@@ -880,7 +880,7 @@ mojo.internal.bindings.data_sharing.mojom.PageReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] readGroupWithToken FAILED:', e));
           }
           break;
         }
@@ -898,7 +898,7 @@ mojo.internal.bindings.data_sharing.mojom.PageReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteGroup FAILED:', e));
           }
           break;
         }
@@ -916,7 +916,7 @@ mojo.internal.bindings.data_sharing.mojom.PageReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] leaveGroup FAILED:', e));
           }
           break;
         }

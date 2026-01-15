@@ -270,7 +270,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] cancel FAILED:', e));
           }
           break;
         }
@@ -439,7 +439,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isUserVerifyingPlatformAuthenticatorAvailable FAILED:', e));
           }
           break;
         }
@@ -457,7 +457,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] create FAILED:', e));
           }
           break;
         }
@@ -475,7 +475,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] get FAILED:', e));
           }
           break;
         }

@@ -533,7 +533,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] hasMethod FAILED:', e));
           }
           break;
         }
@@ -551,7 +551,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMethods FAILED:', e));
           }
           break;
         }
@@ -569,7 +569,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] invokeMethod FAILED:', e));
           }
           break;
         }

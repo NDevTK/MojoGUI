@@ -280,7 +280,7 @@ mojo.internal.bindings.content.mojom.RenderMessageFilterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] generateSingleFrameRoutingInfo FAILED:', e));
           }
           break;
         }
@@ -298,7 +298,7 @@ mojo.internal.bindings.content.mojom.RenderMessageFilterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] generateFrameRoutingInfos FAILED:', e));
           }
           break;
         }

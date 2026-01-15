@@ -499,7 +499,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] listActions FAILED:', e));
           }
           break;
         }
@@ -517,7 +517,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] listCategories FAILED:', e));
           }
           break;
         }
@@ -542,7 +542,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getIsCustomized FAILED:', e));
           }
           break;
         }

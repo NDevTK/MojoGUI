@@ -343,7 +343,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] joinGroup FAILED:', e));
           }
           break;
         }
@@ -361,7 +361,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] leaveGroup FAILED:', e));
           }
           break;
         }
@@ -386,7 +386,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] send FAILED:', e));
           }
           break;
         }
@@ -404,7 +404,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendTo FAILED:', e));
           }
           break;
         }

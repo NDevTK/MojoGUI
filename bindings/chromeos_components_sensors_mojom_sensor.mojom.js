@@ -389,7 +389,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDeviceIds FAILED:', e));
           }
           break;
         }
@@ -407,7 +407,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAllDeviceIds FAILED:', e));
           }
           break;
         }
@@ -660,7 +660,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAttributes FAILED:', e));
           }
           break;
         }
@@ -678,7 +678,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setFrequency FAILED:', e));
           }
           break;
         }
@@ -710,7 +710,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAllChannelIds FAILED:', e));
           }
           break;
         }
@@ -728,7 +728,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getChannelsEnabled FAILED:', e));
           }
           break;
         }
@@ -746,7 +746,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getChannelsAttributes FAILED:', e));
           }
           break;
         }

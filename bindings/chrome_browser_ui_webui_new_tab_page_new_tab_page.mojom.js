@@ -948,7 +948,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMostVisitedSettings FAILED:', e));
           }
           break;
         }
@@ -966,7 +966,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDoodle FAILED:', e));
           }
           break;
         }
@@ -1047,7 +1047,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesIdNames_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getModulesIdNames FAILED:', e));
           }
           break;
         }
@@ -1065,7 +1065,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getModulesEligibleForRemoval FAILED:', e));
           }
           break;
         }
@@ -1090,7 +1090,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesOrder_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getModulesOrder FAILED:', e));
           }
           break;
         }
@@ -1184,7 +1184,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onDoodleImageRendered FAILED:', e));
           }
           break;
         }

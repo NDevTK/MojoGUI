@@ -382,7 +382,7 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetAllForUrl_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAllForUrl FAILED:', e));
           }
           break;
         }
@@ -400,7 +400,7 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCanonicalCookie_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setCanonicalCookie FAILED:', e));
           }
           break;
         }
@@ -417,7 +417,7 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addChangeListener FAILED:', e));
           }
           break;
         }
@@ -435,7 +435,7 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setCookieFromString FAILED:', e));
           }
           break;
         }
@@ -452,7 +452,7 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCookiesString FAILED:', e));
           }
           break;
         }
@@ -470,7 +470,7 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.RestrictedCookieManager_CookiesEnabledFor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] cookiesEnabledFor FAILED:', e));
           }
           break;
         }

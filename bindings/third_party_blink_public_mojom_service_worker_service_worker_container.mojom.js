@@ -424,7 +424,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] register FAILED:', e));
           }
           break;
         }
@@ -441,7 +441,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRegistration FAILED:', e));
           }
           break;
         }
@@ -458,7 +458,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRegistrations FAILED:', e));
           }
           break;
         }
@@ -476,7 +476,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRegistrationForReady FAILED:', e));
           }
           break;
         }
@@ -514,7 +514,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] ensureFileAccess FAILED:', e));
           }
           break;
         }

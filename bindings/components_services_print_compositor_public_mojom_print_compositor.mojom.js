@@ -476,7 +476,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] compositePage FAILED:', e));
           }
           break;
         }
@@ -493,7 +493,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] compositeDocument FAILED:', e));
           }
           break;
         }
@@ -511,7 +511,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] prepareToCompositeDocument FAILED:', e));
           }
           break;
         }
@@ -528,7 +528,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] finishDocumentComposition FAILED:', e));
           }
           break;
         }

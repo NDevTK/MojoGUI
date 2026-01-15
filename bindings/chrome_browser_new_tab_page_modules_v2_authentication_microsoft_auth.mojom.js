@@ -295,7 +295,7 @@ mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandlerReceiver
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] shouldShowModule FAILED:', e));
           }
           break;
         }

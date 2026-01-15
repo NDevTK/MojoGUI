@@ -429,7 +429,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.ChannelReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendMessage FAILED:', e));
           }
           break;
         }
@@ -447,7 +447,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.ChannelReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] registerPayloadFile FAILED:', e));
           }
           break;
         }
@@ -465,7 +465,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.ChannelReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getConnectionMetadata FAILED:', e));
           }
           break;
         }
@@ -1122,7 +1122,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getLastSeenTimestamp FAILED:', e));
           }
           break;
         }

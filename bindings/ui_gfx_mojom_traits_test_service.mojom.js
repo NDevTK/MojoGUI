@@ -312,7 +312,7 @@ mojo.internal.bindings.gfx.mojom.TraitsTestServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] echoSelectionBound FAILED:', e));
           }
           break;
         }
@@ -330,7 +330,7 @@ mojo.internal.bindings.gfx.mojom.TraitsTestServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] echoTransform FAILED:', e));
           }
           break;
         }
@@ -348,7 +348,7 @@ mojo.internal.bindings.gfx.mojom.TraitsTestServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] echoGpuMemoryBufferHandle FAILED:', e));
           }
           break;
         }
@@ -366,7 +366,7 @@ mojo.internal.bindings.gfx.mojom.TraitsTestServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] echoRRectF FAILED:', e));
           }
           break;
         }

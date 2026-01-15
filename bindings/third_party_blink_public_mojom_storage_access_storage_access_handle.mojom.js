@@ -413,7 +413,7 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDirectory FAILED:', e));
           }
           break;
         }
@@ -430,7 +430,7 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] estimate FAILED:', e));
           }
           break;
         }

@@ -634,7 +634,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestMouseLock FAILED:', e));
           }
           break;
         }
@@ -1237,7 +1237,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] handleStylusWritingGestureAction FAILED:', e));
           }
           break;
         }
@@ -1367,7 +1367,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] selectAroundCaret FAILED:', e));
           }
           break;
         }
@@ -1398,7 +1398,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] waitForPageScaleAnimationForTesting FAILED:', e));
           }
           break;
         }
@@ -1769,7 +1769,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.WidgetInputHandler_ImeSetComposition_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] imeSetComposition FAILED:', e));
           }
           break;
         }
@@ -1786,7 +1786,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.WidgetInputHandler_ImeCommitText_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] imeCommitText FAILED:', e));
           }
           break;
         }
@@ -1824,7 +1824,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dispatchEvent FAILED:', e));
           }
           break;
         }
@@ -1848,7 +1848,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.WidgetInputHandler_WaitForInputProcessed_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] waitForInputProcessed FAILED:', e));
           }
           break;
         }
@@ -1865,7 +1865,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.WidgetInputHandler_PingMainThread_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] pingMainThread FAILED:', e));
           }
           break;
         }

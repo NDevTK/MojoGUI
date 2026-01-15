@@ -713,7 +713,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] invalidateFrameSinkId FAILED:', e));
           }
           break;
         }
@@ -758,7 +758,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] destroyCompositorFrameSink FAILED:', e));
           }
           break;
         }

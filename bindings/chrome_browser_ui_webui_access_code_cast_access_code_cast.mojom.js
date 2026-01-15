@@ -436,7 +436,7 @@ mojo.internal.bindings.access_code_cast.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addSink FAILED:', e));
           }
           break;
         }
@@ -454,7 +454,7 @@ mojo.internal.bindings.access_code_cast.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] castToSink FAILED:', e));
           }
           break;
         }

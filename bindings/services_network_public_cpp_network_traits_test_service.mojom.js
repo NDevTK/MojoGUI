@@ -255,7 +255,7 @@ mojo.internal.bindings.network.mojom.TraitsTestServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] echoHttpRequestHeaders FAILED:', e));
           }
           break;
         }

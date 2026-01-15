@@ -317,7 +317,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] listDevices FAILED:', e));
           }
           break;
         }
@@ -335,7 +335,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] listProperties FAILED:', e));
           }
           break;
         }
@@ -352,7 +352,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getProperty FAILED:', e));
           }
           break;
         }
@@ -370,7 +370,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setProperty FAILED:', e));
           }
           break;
         }

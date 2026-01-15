@@ -426,7 +426,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendDatagram FAILED:', e));
           }
           break;
         }
@@ -443,7 +443,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.WebTransport_CreateStream_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createStream FAILED:', e));
           }
           break;
         }
@@ -460,7 +460,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] acceptBidirectionalStream FAILED:', e));
           }
           break;
         }
@@ -477,7 +477,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] acceptUnidirectionalStream FAILED:', e));
           }
           break;
         }
@@ -523,7 +523,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.WebTransport_GetStats_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getStats FAILED:', e));
           }
           break;
         }

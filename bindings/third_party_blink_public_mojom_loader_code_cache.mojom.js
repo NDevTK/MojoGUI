@@ -335,7 +335,7 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPendingBackend FAILED:', e));
           }
           break;
         }
@@ -359,7 +359,7 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fetchCachedCode FAILED:', e));
           }
           break;
         }

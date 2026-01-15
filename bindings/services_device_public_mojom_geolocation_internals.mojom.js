@@ -472,7 +472,7 @@ mojo.internal.bindings.device.mojom.GeolocationInternalsReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addInternalsObserver FAILED:', e));
           }
           break;
         }

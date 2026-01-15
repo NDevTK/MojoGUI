@@ -445,7 +445,7 @@ mojo.internal.bindings.sharing.mojom.MdnsManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] startDiscoverySession FAILED:', e));
           }
           break;
         }
@@ -463,7 +463,7 @@ mojo.internal.bindings.sharing.mojom.MdnsManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] stopDiscoverySession FAILED:', e));
           }
           break;
         }

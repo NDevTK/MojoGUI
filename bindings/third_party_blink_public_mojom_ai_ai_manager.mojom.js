@@ -1120,7 +1120,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] canCreateLanguageModel FAILED:', e));
           }
           break;
         }
@@ -1145,7 +1145,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] canCreateSummarizer FAILED:', e));
           }
           break;
         }
@@ -1170,7 +1170,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getLanguageModelParams FAILED:', e));
           }
           break;
         }
@@ -1188,7 +1188,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] canCreateWriter FAILED:', e));
           }
           break;
         }
@@ -1213,7 +1213,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] canCreateRewriter FAILED:', e));
           }
           break;
         }
@@ -1238,7 +1238,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] canCreateProofreader FAILED:', e));
           }
           break;
         }

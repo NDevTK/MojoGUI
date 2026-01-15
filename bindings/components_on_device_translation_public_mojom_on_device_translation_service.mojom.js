@@ -306,7 +306,7 @@ mojo.internal.bindings.on_device_translation.mojom.FileOperationProxyReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fileExists FAILED:', e));
           }
           break;
         }
@@ -324,7 +324,7 @@ mojo.internal.bindings.on_device_translation.mojom.FileOperationProxyReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] open FAILED:', e));
           }
           break;
         }
@@ -500,7 +500,7 @@ mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationServiceRec
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createTranslator FAILED:', e));
           }
           break;
         }
@@ -518,7 +518,7 @@ mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationServiceRec
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] canTranslate FAILED:', e));
           }
           break;
         }

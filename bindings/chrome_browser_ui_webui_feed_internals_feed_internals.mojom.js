@@ -453,7 +453,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getGeneralProperties FAILED:', e));
           }
           break;
         }
@@ -471,7 +471,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getLastFetchProperties FAILED:', e));
           }
           break;
         }
@@ -510,7 +510,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFeedProcessScopeDump FAILED:', e));
           }
           break;
         }
@@ -528,7 +528,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFeedHistograms FAILED:', e));
           }
           break;
         }

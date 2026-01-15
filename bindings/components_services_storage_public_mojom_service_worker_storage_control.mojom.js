@@ -538,7 +538,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReaderReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] readResponseHead FAILED:', e));
           }
           break;
         }
@@ -556,7 +556,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReaderReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] prepareReadData FAILED:', e));
           }
           break;
         }
@@ -574,7 +574,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReaderReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] readData FAILED:', e));
           }
           break;
         }
@@ -729,7 +729,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriterReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] writeResponseHead FAILED:', e));
           }
           break;
         }
@@ -747,7 +747,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriterReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] writeData FAILED:', e));
           }
           break;
         }
@@ -888,7 +888,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceMetadataWriterReceiver
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] writeMetadata FAILED:', e));
           }
           break;
         }
@@ -1602,7 +1602,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Disable_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] disable FAILED:', e));
           }
           break;
         }
@@ -1620,7 +1620,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] delete FAILED:', e));
           }
           break;
         }
@@ -1637,7 +1637,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Recover_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] recover FAILED:', e));
           }
           break;
         }
@@ -1655,7 +1655,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRegisteredStorageKeys FAILED:', e));
           }
           break;
         }
@@ -1672,7 +1672,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] findRegistrationForClientUrl FAILED:', e));
           }
           break;
         }
@@ -1689,7 +1689,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] findRegistrationForScope FAILED:', e));
           }
           break;
         }
@@ -1706,7 +1706,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] findRegistrationForId FAILED:', e));
           }
           break;
         }
@@ -1723,7 +1723,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRegistrationsForStorageKey FAILED:', e));
           }
           break;
         }
@@ -1740,7 +1740,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUsageForStorageKey FAILED:', e));
           }
           break;
         }
@@ -1757,7 +1757,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAllRegistrationsDeprecated FAILED:', e));
           }
           break;
         }
@@ -1774,7 +1774,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] storeRegistration FAILED:', e));
           }
           break;
         }
@@ -1791,7 +1791,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteRegistration FAILED:', e));
           }
           break;
         }
@@ -1809,7 +1809,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateToActiveState FAILED:', e));
           }
           break;
         }
@@ -1827,7 +1827,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateLastUpdateCheckTime FAILED:', e));
           }
           break;
         }
@@ -1845,7 +1845,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateNavigationPreloadEnabled FAILED:', e));
           }
           break;
         }
@@ -1863,7 +1863,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateNavigationPreloadHeader FAILED:', e));
           }
           break;
         }
@@ -1881,7 +1881,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateFetchHandlerType FAILED:', e));
           }
           break;
         }
@@ -1899,7 +1899,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateResourceSha256Checksums FAILED:', e));
           }
           break;
         }
@@ -1917,7 +1917,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNewRegistrationId FAILED:', e));
           }
           break;
         }
@@ -1934,7 +1934,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNewVersionId FAILED:', e));
           }
           break;
         }
@@ -1952,7 +1952,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNewResourceId FAILED:', e));
           }
           break;
         }
@@ -1991,7 +1991,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] storeUncommittedResourceId FAILED:', e));
           }
           break;
         }
@@ -2009,7 +2009,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] doomUncommittedResources FAILED:', e));
           }
           break;
         }
@@ -2026,7 +2026,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUserData FAILED:', e));
           }
           break;
         }
@@ -2044,7 +2044,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] storeUserData FAILED:', e));
           }
           break;
         }
@@ -2062,7 +2062,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearUserData FAILED:', e));
           }
           break;
         }
@@ -2079,7 +2079,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUserDataByKeyPrefix FAILED:', e));
           }
           break;
         }
@@ -2096,7 +2096,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUserKeysAndDataByKeyPrefix FAILED:', e));
           }
           break;
         }
@@ -2114,7 +2114,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearUserDataByKeyPrefixes FAILED:', e));
           }
           break;
         }
@@ -2131,7 +2131,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUserDataForAllRegistrations FAILED:', e));
           }
           break;
         }
@@ -2148,7 +2148,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUserDataForAllRegistrationsByKeyPrefix FAILED:', e));
           }
           break;
         }
@@ -2166,7 +2166,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearUserDataForAllRegistrationsByKeyPrefix FAILED:', e));
           }
           break;
         }
@@ -2183,7 +2183,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] performStorageCleanup FAILED:', e));
           }
           break;
         }
@@ -2201,7 +2201,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] applyPolicyUpdates FAILED:', e));
           }
           break;
         }
@@ -2218,7 +2218,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPurgingResourceIdsForTest FAILED:', e));
           }
           break;
         }
@@ -2235,7 +2235,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPurgingResourceIdsForLiveVersionForTest FAILED:', e));
           }
           break;
         }
@@ -2252,7 +2252,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPurgeableResourceIdsForTest FAILED:', e));
           }
           break;
         }
@@ -2269,7 +2269,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUncommittedResourceIdsForTest FAILED:', e));
           }
           break;
         }
@@ -2286,7 +2286,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setPurgingCompleteCallbackForTest FAILED:', e));
           }
           break;
         }

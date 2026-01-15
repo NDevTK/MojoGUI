@@ -457,7 +457,7 @@ mojo.internal.bindings.coral.mojom.CoralProcessorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] group FAILED:', e));
           }
           break;
         }
@@ -475,7 +475,7 @@ mojo.internal.bindings.coral.mojom.CoralProcessorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] cacheEmbeddings FAILED:', e));
           }
           break;
         }
@@ -658,7 +658,7 @@ mojo.internal.bindings.coral.mojom.CoralServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] groupDeprecated FAILED:', e));
           }
           break;
         }
@@ -676,7 +676,7 @@ mojo.internal.bindings.coral.mojom.CoralServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] cacheEmbeddingsDeprecated FAILED:', e));
           }
           break;
         }

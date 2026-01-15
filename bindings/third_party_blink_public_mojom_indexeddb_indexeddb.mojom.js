@@ -937,7 +937,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.IDBCursor_Advance_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] advance FAILED:', e));
           }
           break;
         }
@@ -955,7 +955,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.IDBCursor_Continue_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] continue FAILED:', e));
           }
           break;
         }
@@ -973,7 +973,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.IDBCursor_Prefetch_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] prefetch FAILED:', e));
           }
           break;
         }
@@ -1205,7 +1205,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.IDBTransaction_Put_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] put FAILED:', e));
           }
           break;
         }
@@ -1749,7 +1749,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.IDBDatabase_Get_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] get FAILED:', e));
           }
           break;
         }
@@ -1767,7 +1767,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.IDBDatabase_GetAll_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAll FAILED:', e));
           }
           break;
         }
@@ -1785,7 +1785,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.IDBDatabase_OpenCursor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openCursor FAILED:', e));
           }
           break;
         }
@@ -1802,7 +1802,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.IDBDatabase_Count_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] count FAILED:', e));
           }
           break;
         }
@@ -1820,7 +1820,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.IDBDatabase_DeleteRange_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteRange FAILED:', e));
           }
           break;
         }
@@ -1837,7 +1837,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getKeyGeneratorCurrentNumber FAILED:', e));
           }
           break;
         }
@@ -1855,7 +1855,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.IDBDatabase_Clear_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clear FAILED:', e));
           }
           break;
         }
@@ -2065,7 +2065,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.IDBFactory_GetDatabaseInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDatabaseInfo FAILED:', e));
           }
           break;
         }

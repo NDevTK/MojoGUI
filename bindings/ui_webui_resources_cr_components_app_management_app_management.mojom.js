@@ -746,7 +746,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.app_management.mojom.PageHandler_GetApps_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getApps FAILED:', e));
           }
           break;
         }
@@ -764,7 +764,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.app_management.mojom.PageHandler_GetApp_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getApp FAILED:', e));
           }
           break;
         }
@@ -782,7 +782,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSubAppToParentMap FAILED:', e));
           }
           break;
         }
@@ -800,7 +800,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getExtensionAppPermissionMessages FAILED:', e));
           }
           break;
         }
@@ -860,7 +860,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.app_management.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOverlappingPreferredApps FAILED:', e));
           }
           break;
         }

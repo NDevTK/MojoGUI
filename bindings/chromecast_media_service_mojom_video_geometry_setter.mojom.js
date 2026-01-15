@@ -401,7 +401,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriberRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] subscribeToVideoGeometryChange FAILED:', e));
           }
           break;
         }

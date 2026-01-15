@@ -1185,7 +1185,7 @@ mojo.internal.bindings.glic.mojom.GlicPreloadHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.GlicPreloadHandler_PrepareForClient_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] prepareForClient FAILED:', e));
           }
           break;
         }
@@ -1733,7 +1733,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.PageHandler_PrepareForClient_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] prepareForClient FAILED:', e));
           }
           break;
         }
@@ -1757,7 +1757,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.PageHandler_ClosePanel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] closePanel FAILED:', e));
           }
           break;
         }
@@ -1795,7 +1795,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.PageHandler_ResizeWidget_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] resizeWidget FAILED:', e));
           }
           break;
         }
@@ -1827,7 +1827,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.PageHandler_GetProfileEnablement_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getProfileEnablement FAILED:', e));
           }
           break;
         }
@@ -3288,7 +3288,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_WebClientCreated_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] webClientCreated FAILED:', e));
           }
           break;
         }
@@ -3320,7 +3320,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_CreateTab_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createTab FAILED:', e));
           }
           break;
         }
@@ -3401,7 +3401,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_GetModelQualityClientId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getModelQualityClientId FAILED:', e));
           }
           break;
         }
@@ -3419,7 +3419,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextFromFocusedTab_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getContextFromFocusedTab FAILED:', e));
           }
           break;
         }
@@ -3437,7 +3437,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextFromTab_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getContextFromTab FAILED:', e));
           }
           break;
         }
@@ -3455,7 +3455,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextForActorFromTab_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getContextForActorFromTab FAILED:', e));
           }
           break;
         }
@@ -3473,7 +3473,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setMaximumNumberOfPinnedTabs FAILED:', e));
           }
           break;
         }
@@ -3491,7 +3491,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_PinTabs_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] pinTabs FAILED:', e));
           }
           break;
         }
@@ -3509,7 +3509,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_UnpinTabs_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] unpinTabs FAILED:', e));
           }
           break;
         }
@@ -3534,7 +3534,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_CreateSkill_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createSkill FAILED:', e));
           }
           break;
         }
@@ -3552,7 +3552,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_UpdateSkill_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateSkill FAILED:', e));
           }
           break;
         }
@@ -3570,7 +3570,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_GetSkill_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSkill FAILED:', e));
           }
           break;
         }
@@ -3609,7 +3609,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_CancelActions_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] cancelActions FAILED:', e));
           }
           break;
         }
@@ -3641,7 +3641,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_ResumeActorTask_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] resumeActorTask FAILED:', e));
           }
           break;
         }
@@ -3673,7 +3673,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_CreateActorTab_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createActorTab FAILED:', e));
           }
           break;
         }
@@ -3697,7 +3697,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_ResizeWidget_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] resizeWidget FAILED:', e));
           }
           break;
         }
@@ -3715,7 +3715,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_CaptureScreenshot_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] captureScreenshot FAILED:', e));
           }
           break;
         }
@@ -3740,7 +3740,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SetAudioDucking_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setAudioDucking FAILED:', e));
           }
           break;
         }
@@ -3757,7 +3757,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SetPanelDraggableAreas_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setPanelDraggableAreas FAILED:', e));
           }
           break;
         }
@@ -3781,7 +3781,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SetMicrophonePermissionState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setMicrophonePermissionState FAILED:', e));
           }
           break;
         }
@@ -3798,7 +3798,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SetLocationPermissionState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setLocationPermissionState FAILED:', e));
           }
           break;
         }
@@ -3815,7 +3815,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SetTabContextPermissionState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setTabContextPermissionState FAILED:', e));
           }
           break;
         }
@@ -3832,7 +3832,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setClosedCaptioningSetting FAILED:', e));
           }
           break;
         }
@@ -3849,7 +3849,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SetActuationOnWebSetting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setActuationOnWebSetting FAILED:', e));
           }
           break;
         }
@@ -3867,7 +3867,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] shouldAllowMediaPermissionRequest FAILED:', e));
           }
           break;
         }
@@ -3885,7 +3885,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] shouldAllowGeolocationPermissionRequest FAILED:', e));
           }
           break;
         }
@@ -3910,7 +3910,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_GetUserProfileInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUserProfileInfo FAILED:', e));
           }
           break;
         }
@@ -3928,7 +3928,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] syncCookies FAILED:', e));
           }
           break;
         }
@@ -3974,7 +3974,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_JournalSnapshot_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] journalSnapshot FAILED:', e));
           }
           break;
         }
@@ -4097,7 +4097,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_ScrollTo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] scrollTo FAILED:', e));
           }
           break;
         }
@@ -4136,7 +4136,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOsMicrophonePermissionStatus FAILED:', e));
           }
           break;
         }
@@ -4154,7 +4154,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getZeroStateSuggestionsAndSubscribe FAILED:', e));
           }
           break;
         }
@@ -4172,7 +4172,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getZeroStateSuggestionsForFocusedTab FAILED:', e));
           }
           break;
         }
@@ -4197,7 +4197,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_IsDebuggerAttached_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isDebuggerAttached FAILED:', e));
           }
           break;
         }
@@ -4222,7 +4222,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToPageMetadata_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] subscribeToPageMetadata FAILED:', e));
           }
           break;
         }
@@ -4240,7 +4240,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SwitchConversation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] switchConversation FAILED:', e));
           }
           break;
         }
@@ -4258,7 +4258,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_RegisterConversation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] registerConversation FAILED:', e));
           }
           break;
         }
@@ -5005,7 +5005,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelWillOpen_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] notifyPanelWillOpen FAILED:', e));
           }
           break;
         }
@@ -5022,7 +5022,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelWasClosed_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] notifyPanelWasClosed FAILED:', e));
           }
           break;
         }
@@ -5201,7 +5201,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestToShowCredentialSelectionDialog FAILED:', e));
           }
           break;
         }
@@ -5219,7 +5219,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestToShowAutofillSuggestionsDialog FAILED:', e));
           }
           break;
         }
@@ -5237,7 +5237,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestToShowUserConfirmationDialog FAILED:', e));
           }
           break;
         }
@@ -5255,7 +5255,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClient_RequestToConfirmNavigation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestToConfirmNavigation FAILED:', e));
           }
           break;
         }

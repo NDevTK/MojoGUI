@@ -272,7 +272,7 @@ mojo.internal.bindings.extensions.mime_handler.MimeHandlerServiceReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getStreamInfo FAILED:', e));
           }
           break;
         }
@@ -419,7 +419,7 @@ mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlReceiver = cla
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setShowBeforeUnloadDialog FAILED:', e));
           }
           break;
         }

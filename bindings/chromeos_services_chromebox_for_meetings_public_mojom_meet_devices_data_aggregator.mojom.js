@@ -433,7 +433,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataSourceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fetch FAILED:', e));
           }
           break;
         }
@@ -451,7 +451,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataSourceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addWatchDog FAILED:', e));
           }
           break;
         }
@@ -627,7 +627,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataAggregatorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDataSourceNames FAILED:', e));
           }
           break;
         }
@@ -645,7 +645,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataAggregatorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addDataSource FAILED:', e));
           }
           break;
         }
@@ -663,7 +663,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataAggregatorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addWatchDog FAILED:', e));
           }
           break;
         }

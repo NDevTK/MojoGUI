@@ -489,7 +489,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPermissionStatus FAILED:', e));
           }
           break;
         }
@@ -506,7 +506,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_RequestPermission_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestPermission FAILED:', e));
           }
           break;
         }
@@ -523,7 +523,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_AsBlob_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] asBlob FAILED:', e));
           }
           break;
         }
@@ -540,7 +540,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createFileWriter FAILED:', e));
           }
           break;
         }
@@ -558,7 +558,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_Rename_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] rename FAILED:', e));
           }
           break;
         }
@@ -576,7 +576,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_Move_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] move FAILED:', e));
           }
           break;
         }
@@ -594,7 +594,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_Remove_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] remove FAILED:', e));
           }
           break;
         }
@@ -611,7 +611,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openAccessHandle FAILED:', e));
           }
           break;
         }
@@ -628,7 +628,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isSameEntry FAILED:', e));
           }
           break;
         }
@@ -652,7 +652,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUniqueId FAILED:', e));
           }
           break;
         }
@@ -669,7 +669,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCloudIdentifiers FAILED:', e));
           }
           break;
         }

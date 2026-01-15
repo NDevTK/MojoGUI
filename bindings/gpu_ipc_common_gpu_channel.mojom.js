@@ -649,7 +649,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gpu.mojom.GpuChannel_GetChannelToken_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getChannelToken FAILED:', e));
           }
           break;
         }
@@ -666,7 +666,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gpu.mojom.GpuChannel_Flush_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] flush FAILED:', e));
           }
           break;
         }
@@ -684,7 +684,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSharedMemoryForFlushId FAILED:', e));
           }
           break;
         }
@@ -701,7 +701,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gpu.mojom.GpuChannel_CreateCommandBuffer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createCommandBuffer FAILED:', e));
           }
           break;
         }
@@ -718,7 +718,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gpu.mojom.GpuChannel_DestroyCommandBuffer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] destroyCommandBuffer FAILED:', e));
           }
           break;
         }
@@ -743,7 +743,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createGpuMemoryBuffer FAILED:', e));
           }
           break;
         }
@@ -761,7 +761,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gpu.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createDCOMPTexture FAILED:', e));
           }
           break;
         }
@@ -779,7 +779,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] registerOverlayStateObserver FAILED:', e));
           }
           break;
         }
@@ -797,7 +797,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] waitForTokenInRange FAILED:', e));
           }
           break;
         }
@@ -815,7 +815,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] waitForGetOffsetInRange FAILED:', e));
           }
           break;
         }
@@ -833,7 +833,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] copyToGpuMemoryBufferAsync FAILED:', e));
           }
           break;
         }
@@ -1065,7 +1065,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gpu.mojom.CommandBuffer_GetGpuFenceHandle_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getGpuFenceHandle FAILED:', e));
           }
           break;
         }
@@ -1476,7 +1476,7 @@ mojo.internal.bindings.gpu.mojom.DCOMPTextureReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setDCOMPSurfaceHandle FAILED:', e));
           }
           break;
         }

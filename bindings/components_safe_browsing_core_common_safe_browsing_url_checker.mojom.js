@@ -255,7 +255,7 @@ mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlCheckerReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] checkUrl FAILED:', e));
           }
           break;
         }

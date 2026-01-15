@@ -1123,7 +1123,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinters_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPrinters FAILED:', e));
           }
           break;
         }
@@ -1141,7 +1141,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetCapability_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCapability FAILED:', e));
           }
           break;
         }
@@ -1159,7 +1159,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getEulaUrl FAILED:', e));
           }
           break;
         }
@@ -1177,7 +1177,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetStatus_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getStatus FAILED:', e));
           }
           break;
         }
@@ -1194,7 +1194,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] showSystemPrintSettings FAILED:', e));
           }
           break;
         }
@@ -1211,7 +1211,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_CreatePrintJob_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createPrintJob FAILED:', e));
           }
           break;
         }
@@ -1229,7 +1229,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_CancelPrintJob_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] cancelPrintJob FAILED:', e));
           }
           break;
         }
@@ -1247,7 +1247,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrintServersConfig_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPrintServersConfig FAILED:', e));
           }
           break;
         }
@@ -1264,7 +1264,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_ChoosePrintServers_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] choosePrintServers FAILED:', e));
           }
           break;
         }
@@ -1281,7 +1281,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintServerObserver_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addPrintServerObserver FAILED:', e));
           }
           break;
         }
@@ -1299,7 +1299,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPolicies FAILED:', e));
           }
           break;
         }
@@ -1317,7 +1317,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUsernamePerPolicy FAILED:', e));
           }
           break;
         }
@@ -1335,7 +1335,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPrinterTypeDenyList FAILED:', e));
           }
           break;
         }
@@ -1352,7 +1352,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addPrintJobObserver FAILED:', e));
           }
           break;
         }
@@ -1370,7 +1370,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOAuthAccessToken FAILED:', e));
           }
           break;
         }
@@ -1388,7 +1388,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getIppClientInfo FAILED:', e));
           }
           break;
         }
@@ -1406,7 +1406,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addLocalPrintersObserver FAILED:', e));
           }
           break;
         }

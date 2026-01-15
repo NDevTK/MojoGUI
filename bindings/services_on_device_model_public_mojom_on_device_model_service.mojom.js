@@ -551,7 +551,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadModel FAILED:', e));
           }
           break;
         }
@@ -569,7 +569,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCapabilities FAILED:', e));
           }
           break;
         }
@@ -593,7 +593,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDeviceAndPerformanceInfo FAILED:', e));
           }
           break;
         }
@@ -790,7 +790,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadPlatformModel FAILED:', e));
           }
           break;
         }
@@ -808,7 +808,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPlatformModelState FAILED:', e));
           }
           break;
         }
@@ -826,7 +826,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getEstimatedPerformanceClass FAILED:', e));
           }
           break;
         }
@@ -844,7 +844,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] formatInput FAILED:', e));
           }
           break;
         }
@@ -862,7 +862,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] validateSafetyResult FAILED:', e));
           }
           break;
         }

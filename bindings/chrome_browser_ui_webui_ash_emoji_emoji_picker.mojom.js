@@ -664,7 +664,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isIncognitoTextField FAILED:', e));
           }
           break;
         }
@@ -682,7 +682,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFeatureList FAILED:', e));
           }
           break;
         }
@@ -699,7 +699,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCategories FAILED:', e));
           }
           break;
         }
@@ -716,7 +716,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFeaturedGifs FAILED:', e));
           }
           break;
         }
@@ -733,7 +733,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] searchGifs FAILED:', e));
           }
           break;
         }
@@ -750,7 +750,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getGifsByIds FAILED:', e));
           }
           break;
         }
@@ -775,7 +775,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getInitialCategory FAILED:', e));
           }
           break;
         }
@@ -793,7 +793,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getInitialQuery FAILED:', e));
           }
           break;
         }
@@ -825,7 +825,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getHistoryFromPrefs FAILED:', e));
           }
           break;
         }

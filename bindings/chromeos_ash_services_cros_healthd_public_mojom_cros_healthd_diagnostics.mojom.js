@@ -402,7 +402,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierR
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getColorMatched FAILED:', e));
           }
           break;
         }

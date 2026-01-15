@@ -505,7 +505,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getHwKeyData FAILED:', e));
           }
           break;
         }
@@ -529,7 +529,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getHwConfigData FAILED:', e));
           }
           break;
         }
@@ -547,7 +547,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getScreenResolutions FAILED:', e));
           }
           break;
         }
@@ -565,7 +565,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] allocateSecureBuffer FAILED:', e));
           }
           break;
         }
@@ -582,7 +582,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] parseEncryptedSliceHeader FAILED:', e));
           }
           break;
         }
@@ -599,7 +599,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] decryptVideoBuffer FAILED:', e));
           }
           break;
         }

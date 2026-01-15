@@ -256,7 +256,7 @@ mojo.internal.bindings.blink.mojom.HyphenationReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openDictionary FAILED:', e));
           }
           break;
         }

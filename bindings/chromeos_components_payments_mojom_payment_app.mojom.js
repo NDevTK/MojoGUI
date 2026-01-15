@@ -317,7 +317,7 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isPaymentImplemented FAILED:', e));
           }
           break;
         }
@@ -335,7 +335,7 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isReadyToPay FAILED:', e));
           }
           break;
         }
@@ -353,7 +353,7 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] invokePaymentApp FAILED:', e));
           }
           break;
         }
@@ -371,7 +371,7 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] abortPaymentApp FAILED:', e));
           }
           break;
         }

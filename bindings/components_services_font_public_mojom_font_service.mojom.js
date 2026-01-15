@@ -373,7 +373,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] matchFamilyName FAILED:', e));
           }
           break;
         }
@@ -391,7 +391,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openStream FAILED:', e));
           }
           break;
         }
@@ -408,7 +408,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fallbackFontForCharacter FAILED:', e));
           }
           break;
         }
@@ -426,7 +426,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fontRenderStyleForStrike FAILED:', e));
           }
           break;
         }
@@ -444,7 +444,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] matchFontByPostscriptNameOrFullFontName FAILED:', e));
           }
           break;
         }
@@ -462,7 +462,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] listFamilies FAILED:', e));
           }
           break;
         }
@@ -480,7 +480,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] matchFontWithFallback FAILED:', e));
           }
           break;
         }

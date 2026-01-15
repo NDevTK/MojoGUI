@@ -875,7 +875,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onOpenCustomTab FAILED:', e));
           }
           break;
         }
@@ -949,7 +949,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isChromeAppEnabled FAILED:', e));
           }
           break;
         }
@@ -1376,7 +1376,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.IntentHelperInstance_Init_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -1394,7 +1394,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestActivityIcons FAILED:', e));
           }
           break;
         }
@@ -1412,7 +1412,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestIntentHandlerList FAILED:', e));
           }
           break;
         }
@@ -1430,7 +1430,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestUrlHandlerList FAILED:', e));
           }
           break;
         }
@@ -1448,7 +1448,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestUrlListHandlerList FAILED:', e));
           }
           break;
         }
@@ -1473,7 +1473,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestTextSelectionActions FAILED:', e));
           }
           break;
         }
@@ -1491,7 +1491,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] handleCameraResult FAILED:', e));
           }
           break;
         }

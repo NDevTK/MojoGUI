@@ -274,7 +274,7 @@ mojo.internal.bindings.gfx.mojom.ImageTraitsTestServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] echoImageSkiaRep FAILED:', e));
           }
           break;
         }
@@ -292,7 +292,7 @@ mojo.internal.bindings.gfx.mojom.ImageTraitsTestServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] echoImageSkia FAILED:', e));
           }
           break;
         }

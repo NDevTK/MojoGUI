@@ -251,7 +251,7 @@ mojo.internal.bindings.ash.ime.mojom.InputChannelReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] processMessage FAILED:', e));
           }
           break;
         }

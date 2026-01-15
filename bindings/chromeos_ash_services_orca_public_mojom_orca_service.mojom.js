@@ -569,7 +569,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPresetTextQueries FAILED:', e));
           }
           break;
         }
@@ -587,7 +587,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestPresetRewrite FAILED:', e));
           }
           break;
         }
@@ -605,7 +605,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestFreeformRewrite FAILED:', e));
           }
           break;
         }
@@ -623,7 +623,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestFreeformWrite FAILED:', e));
           }
           break;
         }
@@ -697,7 +697,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] previewFeedback FAILED:', e));
           }
           break;
         }
@@ -1417,7 +1417,7 @@ mojo.internal.bindings.ash.orca.mojom.TextQueryProviderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] process FAILED:', e));
           }
           break;
         }

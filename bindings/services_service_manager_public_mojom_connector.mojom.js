@@ -475,7 +475,7 @@ mojo.internal.bindings.service_manager.mojom.ConnectorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.service_manager.mojom.Connector_BindInterface_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] bindInterface FAILED:', e));
           }
           break;
         }
@@ -493,7 +493,7 @@ mojo.internal.bindings.service_manager.mojom.ConnectorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.service_manager.mojom.Connector_QueryService_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] queryService FAILED:', e));
           }
           break;
         }
@@ -510,7 +510,7 @@ mojo.internal.bindings.service_manager.mojom.ConnectorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.service_manager.mojom.Connector_WarmService_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] warmService FAILED:', e));
           }
           break;
         }
@@ -528,7 +528,7 @@ mojo.internal.bindings.service_manager.mojom.ConnectorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] registerServiceInstance FAILED:', e));
           }
           break;
         }

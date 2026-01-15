@@ -561,7 +561,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getReadLaterEntries FAILED:', e));
           }
           break;
         }
@@ -642,7 +642,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getWindowData FAILED:', e));
           }
           break;
         }

@@ -288,7 +288,7 @@ mojo.internal.bindings.ash.ime.mojom.ConnectionFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] connectToInputMethod FAILED:', e));
           }
           break;
         }
@@ -306,7 +306,7 @@ mojo.internal.bindings.ash.ime.mojom.ConnectionFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] unused FAILED:', e));
           }
           break;
         }

@@ -524,7 +524,7 @@ mojo.internal.bindings.network.mojom.SSLPrivateKeyReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sign FAILED:', e));
           }
           break;
         }
@@ -949,7 +949,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onSSLCertificateError FAILED:', e));
           }
           break;
         }
@@ -981,7 +981,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onLocalNetworkAccessPermissionRequired FAILED:', e));
           }
           break;
         }
@@ -998,7 +998,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onClearSiteData FAILED:', e));
           }
           break;
         }
@@ -1015,7 +1015,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onLoadingStateUpdate FAILED:', e));
           }
           break;
         }
@@ -1039,7 +1039,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onSharedStorageHeaderReceived FAILED:', e));
           }
           break;
         }

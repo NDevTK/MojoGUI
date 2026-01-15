@@ -301,7 +301,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.service_manager.mojom.Service_OnStart_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onStart FAILED:', e));
           }
           break;
         }
@@ -318,7 +318,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onBindInterface FAILED:', e));
           }
           break;
         }

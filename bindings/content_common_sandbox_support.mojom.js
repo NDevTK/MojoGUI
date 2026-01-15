@@ -325,7 +325,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] lcidAndFirstDayOfWeek FAILED:', e));
           }
           break;
         }
@@ -342,7 +342,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] digitsAndSigns FAILED:', e));
           }
           break;
         }
@@ -360,7 +360,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] localeString FAILED:', e));
           }
           break;
         }
@@ -378,7 +378,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] localeStrings FAILED:', e));
           }
           break;
         }

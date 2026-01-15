@@ -264,7 +264,7 @@ mojo.internal.bindings.network.mojom.ChunkedDataPipeGetterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSize FAILED:', e));
           }
           break;
         }

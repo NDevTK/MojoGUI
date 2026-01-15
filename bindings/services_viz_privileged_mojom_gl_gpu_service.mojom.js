@@ -727,7 +727,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.GpuService_EstablishGpuChannel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] establishGpuChannel FAILED:', e));
           }
           break;
         }
@@ -780,7 +780,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] registerDCOMPSurfaceHandle FAILED:', e));
           }
           break;
         }
@@ -819,7 +819,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.GpuService_GetVideoMemoryUsageStats_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getVideoMemoryUsageStats FAILED:', e));
           }
           break;
         }
@@ -843,7 +843,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.GpuService_GetPeakMemoryUsage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPeakMemoryUsage FAILED:', e));
           }
           break;
         }
@@ -861,7 +861,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.GpuService_RequestDXGIInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestDXGIInfo FAILED:', e));
           }
           break;
         }
@@ -948,7 +948,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.GpuService_WriteClangProfilingProfile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] writeClangProfilingProfile FAILED:', e));
           }
           break;
         }
@@ -966,7 +966,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.GpuService_GetDawnInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDawnInfo FAILED:', e));
           }
           break;
         }

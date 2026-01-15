@@ -279,7 +279,7 @@ mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] show FAILED:', e));
           }
           break;
         }

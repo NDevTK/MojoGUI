@@ -314,7 +314,7 @@ mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] securePaymentConfirmationAvailability FAILED:', e));
           }
           break;
         }
@@ -332,7 +332,7 @@ mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] storePaymentCredential FAILED:', e));
           }
           break;
         }
@@ -349,7 +349,7 @@ mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] makePaymentCredential FAILED:', e));
           }
           break;
         }

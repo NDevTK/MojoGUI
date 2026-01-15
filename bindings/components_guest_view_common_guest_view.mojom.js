@@ -382,7 +382,7 @@ mojo.internal.bindings.guest_view.mojom.GuestViewHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] attachToEmbedderFrame FAILED:', e));
           }
           break;
         }

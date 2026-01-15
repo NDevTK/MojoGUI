@@ -486,7 +486,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] hasClient FAILED:', e));
           }
           break;
         }
@@ -504,7 +504,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] hasInputContext FAILED:', e));
           }
           break;
         }
@@ -522,7 +522,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isRTL FAILED:', e));
           }
           break;
         }
@@ -540,7 +540,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSelectionRange FAILED:', e));
           }
           break;
         }
@@ -557,7 +557,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSelectionText FAILED:', e));
           }
           break;
         }
@@ -603,7 +603,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] hasCompositionText FAILED:', e));
           }
           break;
         }
@@ -621,7 +621,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getCompositionTextRange FAILED:', e));
           }
           break;
         }
@@ -638,7 +638,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAttributedSubstringForRange FAILED:', e));
           }
           break;
         }
@@ -655,7 +655,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFirstRectForRange FAILED:', e));
           }
           break;
         }
@@ -673,7 +673,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isTextEditCommandEnabled FAILED:', e));
           }
           break;
         }

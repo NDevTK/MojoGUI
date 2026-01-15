@@ -324,7 +324,7 @@ mojo.internal.bindings.device.mojom.PressureManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addVirtualPressureSource FAILED:', e));
           }
           break;
         }
@@ -341,7 +341,7 @@ mojo.internal.bindings.device.mojom.PressureManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] removeVirtualPressureSource FAILED:', e));
           }
           break;
         }
@@ -358,7 +358,7 @@ mojo.internal.bindings.device.mojom.PressureManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateVirtualPressureSourceData FAILED:', e));
           }
           break;
         }
@@ -376,7 +376,7 @@ mojo.internal.bindings.device.mojom.PressureManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.PressureManager_AddClient_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addClient FAILED:', e));
           }
           break;
         }

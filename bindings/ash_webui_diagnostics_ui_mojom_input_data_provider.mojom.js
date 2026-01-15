@@ -1180,7 +1180,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getConnectedDevices FAILED:', e));
           }
           break;
         }
@@ -1212,7 +1212,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] observeTabletMode FAILED:', e));
           }
           break;
         }
@@ -1230,7 +1230,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProviderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] observeLidState FAILED:', e));
           }
           break;
         }

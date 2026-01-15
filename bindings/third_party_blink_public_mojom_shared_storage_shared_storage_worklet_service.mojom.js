@@ -591,7 +591,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sharedStorageUpdate FAILED:', e));
           }
           break;
         }
@@ -609,7 +609,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sharedStorageBatchUpdate FAILED:', e));
           }
           break;
         }
@@ -626,7 +626,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sharedStorageGet FAILED:', e));
           }
           break;
         }
@@ -657,7 +657,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sharedStorageLength FAILED:', e));
           }
           break;
         }
@@ -674,7 +674,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sharedStorageRemainingBudget FAILED:', e));
           }
           break;
         }
@@ -692,7 +692,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getInterestGroups FAILED:', e));
           }
           break;
         }
@@ -889,7 +889,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_Initialize_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] initialize FAILED:', e));
           }
           break;
         }
@@ -906,7 +906,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_AddModule_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addModule FAILED:', e));
           }
           break;
         }
@@ -923,7 +923,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runURLSelectionOperation FAILED:', e));
           }
           break;
         }
@@ -940,7 +940,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunOperation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runOperation FAILED:', e));
           }
           break;
         }

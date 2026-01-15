@@ -335,7 +335,7 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMlModelVersion FAILED:', e));
           }
           break;
         }
@@ -353,7 +353,7 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] startMl FAILED:', e));
           }
           break;
         }

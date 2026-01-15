@@ -542,7 +542,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getBaseDataPathForTesting FAILED:', e));
           }
           break;
         }
@@ -560,7 +560,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFilePathForTesting FAILED:', e));
           }
           break;
         }
@@ -577,7 +577,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] resetCachesForTesting FAILED:', e));
           }
           break;
         }
@@ -595,7 +595,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPathForBlobForTesting FAILED:', e));
           }
           break;
         }
@@ -612,7 +612,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] flushBackingStoreForTesting FAILED:', e));
           }
           break;
         }
@@ -629,7 +629,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] flushBucketSequenceForTesting FAILED:', e));
           }
           break;
         }
@@ -647,7 +647,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUsageForTesting FAILED:', e));
           }
           break;
         }
@@ -671,7 +671,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] forceInitializeFromFilesForTesting FAILED:', e));
           }
           break;
         }

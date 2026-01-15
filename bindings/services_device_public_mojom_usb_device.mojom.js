@@ -594,7 +594,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_Open_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] open FAILED:', e));
           }
           break;
         }
@@ -611,7 +611,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_Close_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] close FAILED:', e));
           }
           break;
         }
@@ -629,7 +629,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_SetConfiguration_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setConfiguration FAILED:', e));
           }
           break;
         }
@@ -647,7 +647,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_ClaimInterface_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] claimInterface FAILED:', e));
           }
           break;
         }
@@ -665,7 +665,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_ReleaseInterface_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] releaseInterface FAILED:', e));
           }
           break;
         }
@@ -683,7 +683,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setInterfaceAlternateSetting FAILED:', e));
           }
           break;
         }
@@ -701,7 +701,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_Reset_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] reset FAILED:', e));
           }
           break;
         }
@@ -719,7 +719,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_ClearHalt_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearHalt FAILED:', e));
           }
           break;
         }
@@ -736,7 +736,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferIn_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] controlTransferIn FAILED:', e));
           }
           break;
         }
@@ -754,7 +754,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferOut_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] controlTransferOut FAILED:', e));
           }
           break;
         }
@@ -771,7 +771,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferIn_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] genericTransferIn FAILED:', e));
           }
           break;
         }
@@ -789,7 +789,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferOut_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] genericTransferOut FAILED:', e));
           }
           break;
         }
@@ -806,7 +806,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferIn_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isochronousTransferIn FAILED:', e));
           }
           break;
         }
@@ -824,7 +824,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferOut_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isochronousTransferOut FAILED:', e));
           }
           break;
         }

@@ -303,7 +303,7 @@ mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getBuffer FAILED:', e));
           }
           break;
         }
@@ -321,7 +321,7 @@ mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] enableBitstreamConverter FAILED:', e));
           }
           break;
         }
@@ -476,7 +476,7 @@ mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getBuffer FAILED:', e));
           }
           break;
         }
@@ -494,7 +494,7 @@ mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] enableBitstreamConverter FAILED:', e));
           }
           break;
         }
@@ -648,7 +648,7 @@ mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] enableReceiver FAILED:', e));
           }
           break;
         }

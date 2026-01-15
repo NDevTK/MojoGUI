@@ -521,7 +521,7 @@ mojo.internal.bindings.device.mojom.GamepadMonitorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] gamepadStartPolling FAILED:', e));
           }
           break;
         }
@@ -538,7 +538,7 @@ mojo.internal.bindings.device.mojom.GamepadMonitorReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] gamepadStopPolling FAILED:', e));
           }
           break;
         }
@@ -700,7 +700,7 @@ mojo.internal.bindings.device.mojom.GamepadHapticsManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] playVibrationEffectOnce FAILED:', e));
           }
           break;
         }
@@ -718,7 +718,7 @@ mojo.internal.bindings.device.mojom.GamepadHapticsManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] resetVibrationActuator FAILED:', e));
           }
           break;
         }

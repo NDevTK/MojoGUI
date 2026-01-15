@@ -594,7 +594,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openFeedbackDialog FAILED:', e));
           }
           break;
         }
@@ -633,7 +633,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isLauncherSearchEnabled FAILED:', e));
           }
           break;
         }
@@ -665,7 +665,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDeviceInfo FAILED:', e));
           }
           break;
         }

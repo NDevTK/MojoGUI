@@ -298,7 +298,7 @@ mojo.internal.bindings.content.mojom.ChildProcessHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] ping FAILED:', e));
           }
           break;
         }
@@ -634,7 +634,7 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] writeClangProfilingProfile FAILED:', e));
           }
           break;
         }

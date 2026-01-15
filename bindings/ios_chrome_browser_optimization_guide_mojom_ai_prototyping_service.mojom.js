@@ -271,7 +271,7 @@ mojo.internal.bindings.ai.mojom.AIPrototypingServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] executeServerQuery FAILED:', e));
           }
           break;
         }
@@ -289,7 +289,7 @@ mojo.internal.bindings.ai.mojom.AIPrototypingServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] executeOnDeviceQuery FAILED:', e));
           }
           break;
         }

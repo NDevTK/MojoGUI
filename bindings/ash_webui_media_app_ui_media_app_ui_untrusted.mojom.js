@@ -392,7 +392,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isMantisAvailable FAILED:', e));
           }
           break;
         }
@@ -410,7 +410,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createMantisUntrustedService FAILED:', e));
           }
           break;
         }
@@ -751,7 +751,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPageReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestBitmap FAILED:', e));
           }
           break;
         }
@@ -1120,7 +1120,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPageReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPdfContent FAILED:', e));
           }
           break;
         }
@@ -1331,7 +1331,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] segmentImage FAILED:', e));
           }
           break;
         }
@@ -1349,7 +1349,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] generativeFillImage FAILED:', e));
           }
           break;
         }
@@ -1367,7 +1367,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] inpaintImage FAILED:', e));
           }
           break;
         }
@@ -1385,7 +1385,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] outpaintImage FAILED:', e));
           }
           break;
         }
@@ -1403,7 +1403,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] classifyImageSafety FAILED:', e));
           }
           break;
         }
@@ -1421,7 +1421,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] inferSegmentationMode FAILED:', e));
           }
           break;
         }

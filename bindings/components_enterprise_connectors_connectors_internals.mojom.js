@@ -348,7 +348,7 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDeviceTrustState FAILED:', e));
           }
           break;
         }
@@ -365,7 +365,7 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteDeviceTrustKey FAILED:', e));
           }
           break;
         }
@@ -383,7 +383,7 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getClientCertificateState FAILED:', e));
           }
           break;
         }
@@ -401,7 +401,7 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSignalsReportingState FAILED:', e));
           }
           break;
         }

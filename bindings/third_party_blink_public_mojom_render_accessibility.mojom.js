@@ -302,7 +302,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] handleAXEvents FAILED:', e));
           }
           break;
         }
@@ -520,7 +520,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] hitTest FAILED:', e));
           }
           break;
         }

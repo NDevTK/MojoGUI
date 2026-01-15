@@ -300,7 +300,7 @@ mojo.internal.bindings.legion.mojom.OakSessionReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] initiateHandshake FAILED:', e));
           }
           break;
         }
@@ -318,7 +318,7 @@ mojo.internal.bindings.legion.mojom.OakSessionReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] completeHandshake FAILED:', e));
           }
           break;
         }
@@ -336,7 +336,7 @@ mojo.internal.bindings.legion.mojom.OakSessionReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] encrypt FAILED:', e));
           }
           break;
         }
@@ -354,7 +354,7 @@ mojo.internal.bindings.legion.mojom.OakSessionReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] decrypt FAILED:', e));
           }
           break;
         }

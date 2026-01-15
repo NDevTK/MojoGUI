@@ -367,7 +367,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createFactory FAILED:', e));
           }
           break;
         }
@@ -391,7 +391,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getHwConfigData FAILED:', e));
           }
           break;
         }
@@ -409,7 +409,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getScreenResolutions FAILED:', e));
           }
           break;
         }
@@ -426,7 +426,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAndroidHwKeyData FAILED:', e));
           }
           break;
         }
@@ -444,7 +444,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] allocateSecureBuffer FAILED:', e));
           }
           break;
         }
@@ -461,7 +461,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] parseEncryptedSliceHeader FAILED:', e));
           }
           break;
         }

@@ -339,7 +339,7 @@ mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] save FAILED:', e));
           }
           break;
         }
@@ -357,7 +357,7 @@ mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] saveInline FAILED:', e));
           }
           break;
         }

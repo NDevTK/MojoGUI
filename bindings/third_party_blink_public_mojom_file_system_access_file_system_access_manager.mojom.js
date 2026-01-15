@@ -402,7 +402,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSandboxedFileSystem FAILED:', e));
           }
           break;
         }
@@ -419,7 +419,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSandboxedFileSystemForDevtools FAILED:', e));
           }
           break;
         }
@@ -436,7 +436,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessManager_ChooseEntries_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] chooseEntries FAILED:', e));
           }
           break;
         }
@@ -467,7 +467,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getEntryFromDataTransferToken FAILED:', e));
           }
           break;
         }

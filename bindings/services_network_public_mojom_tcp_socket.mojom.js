@@ -320,7 +320,7 @@ mojo.internal.bindings.network.mojom.TCPBoundSocketReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] listen FAILED:', e));
           }
           break;
         }
@@ -337,7 +337,7 @@ mojo.internal.bindings.network.mojom.TCPBoundSocketReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] connect FAILED:', e));
           }
           break;
         }
@@ -533,7 +533,7 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] upgradeToTLS FAILED:', e));
           }
           break;
         }
@@ -551,7 +551,7 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setSendBufferSize FAILED:', e));
           }
           break;
         }
@@ -569,7 +569,7 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setReceiveBufferSize FAILED:', e));
           }
           break;
         }
@@ -587,7 +587,7 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setNoDelay FAILED:', e));
           }
           break;
         }
@@ -605,7 +605,7 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setKeepAlive FAILED:', e));
           }
           break;
         }
@@ -896,7 +896,7 @@ mojo.internal.bindings.network.mojom.TCPServerSocketReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] accept FAILED:', e));
           }
           break;
         }

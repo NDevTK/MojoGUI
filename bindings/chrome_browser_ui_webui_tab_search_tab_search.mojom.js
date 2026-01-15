@@ -1031,7 +1031,7 @@ mojo.internal.bindings.tab_search.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.tab_search.mojom.PageHandler_GetProfileData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getProfileData FAILED:', e));
           }
           break;
         }
@@ -1049,7 +1049,7 @@ mojo.internal.bindings.tab_search.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.tab_search.mojom.PageHandler_GetUnusedTabs_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUnusedTabs FAILED:', e));
           }
           break;
         }
@@ -1067,7 +1067,7 @@ mojo.internal.bindings.tab_search.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.tab_search.mojom.PageHandler_GetTabSearchSection_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getTabSearchSection FAILED:', e));
           }
           break;
         }
@@ -1085,7 +1085,7 @@ mojo.internal.bindings.tab_search.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.tab_search.mojom.PageHandler_GetTabOrganizationFeature_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getTabOrganizationFeature FAILED:', e));
           }
           break;
         }
@@ -1103,7 +1103,7 @@ mojo.internal.bindings.tab_search.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.tab_search.mojom.PageHandler_GetTabOrganizationSession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getTabOrganizationSession FAILED:', e));
           }
           break;
         }
@@ -1121,7 +1121,7 @@ mojo.internal.bindings.tab_search.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getTabOrganizationModelStrategy FAILED:', e));
           }
           break;
         }
@@ -1139,7 +1139,7 @@ mojo.internal.bindings.tab_search.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.tab_search.mojom.PageHandler_GetIsSplit_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getIsSplit FAILED:', e));
           }
           break;
         }

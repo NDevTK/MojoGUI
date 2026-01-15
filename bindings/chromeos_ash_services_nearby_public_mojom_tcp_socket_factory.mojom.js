@@ -302,7 +302,7 @@ mojo.internal.bindings.sharing.mojom.TcpSocketFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createTCPServerSocket FAILED:', e));
           }
           break;
         }
@@ -319,7 +319,7 @@ mojo.internal.bindings.sharing.mojom.TcpSocketFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createTCPConnectedSocket FAILED:', e));
           }
           break;
         }

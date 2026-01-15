@@ -1038,7 +1038,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getEligibleHostDevices FAILED:', e));
           }
           break;
         }
@@ -1056,7 +1056,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getEligibleActiveHostDevices FAILED:', e));
           }
           break;
         }
@@ -1074,7 +1074,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setHostDevice FAILED:', e));
           }
           break;
         }
@@ -1098,7 +1098,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getHostStatus FAILED:', e));
           }
           break;
         }
@@ -1116,7 +1116,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setFeatureEnabledState FAILED:', e));
           }
           break;
         }
@@ -1134,7 +1134,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFeatureStates FAILED:', e));
           }
           break;
         }
@@ -1152,7 +1152,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] retrySetHostNow FAILED:', e));
           }
           break;
         }
@@ -1170,7 +1170,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] triggerEventForDebugging FAILED:', e));
           }
           break;
         }
@@ -1195,7 +1195,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getQuickStartPhoneInstanceID FAILED:', e));
           }
           break;
         }
@@ -1336,7 +1336,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRec
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setHostDevice FAILED:', e));
           }
           break;
         }

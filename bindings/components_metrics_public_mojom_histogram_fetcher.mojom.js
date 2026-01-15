@@ -424,7 +424,7 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getChildNonPersistentHistogramData FAILED:', e));
           }
           break;
         }
@@ -441,7 +441,7 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] ping FAILED:', e));
           }
           break;
         }

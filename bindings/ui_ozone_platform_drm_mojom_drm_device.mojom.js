@@ -594,7 +594,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] takeDisplayControl FAILED:', e));
           }
           break;
         }
@@ -612,7 +612,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] relinquishDisplayControl FAILED:', e));
           }
           break;
         }
@@ -630,7 +630,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] refreshNativeDisplays FAILED:', e));
           }
           break;
         }
@@ -662,7 +662,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] shouldDisplayEventTriggerConfiguration FAILED:', e));
           }
           break;
         }
@@ -679,7 +679,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] configureNativeDisplays FAILED:', e));
           }
           break;
         }
@@ -696,7 +696,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setHdcpKeyProp FAILED:', e));
           }
           break;
         }
@@ -713,7 +713,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getHDCPState FAILED:', e));
           }
           break;
         }
@@ -730,7 +730,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setHDCPState FAILED:', e));
           }
           break;
         }
@@ -769,7 +769,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setPrivacyScreen FAILED:', e));
           }
           break;
         }
@@ -787,7 +787,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSeamlessRefreshRates FAILED:', e));
           }
           break;
         }

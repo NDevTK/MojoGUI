@@ -342,7 +342,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] selectURL FAILED:', e));
           }
           break;
         }
@@ -359,7 +359,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_Run_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] run FAILED:', e));
           }
           break;
         }
@@ -541,7 +541,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createWorklet FAILED:', e));
           }
           break;
         }
@@ -558,7 +558,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sharedStorageGet FAILED:', e));
           }
           break;
         }
@@ -576,7 +576,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sharedStorageUpdate FAILED:', e));
           }
           break;
         }
@@ -594,7 +594,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sharedStorageBatchUpdate FAILED:', e));
           }
           break;
         }

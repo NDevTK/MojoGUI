@@ -307,7 +307,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_Annotate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] annotate FAILED:', e));
           }
           break;
         }
@@ -325,7 +325,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] findLanguages FAILED:', e));
           }
           break;
         }
@@ -343,7 +343,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] rEMOVED_1 FAILED:', e));
           }
           break;
         }

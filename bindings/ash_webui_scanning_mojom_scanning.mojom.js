@@ -611,7 +611,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getScanners FAILED:', e));
           }
           break;
         }
@@ -629,7 +629,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getScannerCapabilities FAILED:', e));
           }
           break;
         }
@@ -647,7 +647,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] startScan FAILED:', e));
           }
           break;
         }
@@ -665,7 +665,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] startMultiPageScan FAILED:', e));
           }
           break;
         }
@@ -855,7 +855,7 @@ mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] scanNextPage FAILED:', e));
           }
           break;
         }
@@ -880,7 +880,7 @@ mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] rescanPage FAILED:', e));
           }
           break;
         }

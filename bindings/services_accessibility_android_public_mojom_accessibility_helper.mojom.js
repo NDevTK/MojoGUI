@@ -872,7 +872,7 @@ mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstanceReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstance_Init_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -897,7 +897,7 @@ mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstanceReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstance_PerformAction_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] performAction FAILED:', e));
           }
           break;
         }
@@ -922,7 +922,7 @@ mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstanceReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] refreshWithExtraData FAILED:', e));
           }
           break;
         }
@@ -947,7 +947,7 @@ mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstanceReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setNativeChromeVoxArcSupportForFocusedWindow FAILED:', e));
           }
           break;
         }

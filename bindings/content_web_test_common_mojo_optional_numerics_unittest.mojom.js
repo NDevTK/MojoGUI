@@ -1035,7 +1035,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBool_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullBool FAILED:', e));
           }
           break;
         }
@@ -1052,7 +1052,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint8_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullUint8 FAILED:', e));
           }
           break;
         }
@@ -1069,7 +1069,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt8_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullInt8 FAILED:', e));
           }
           break;
         }
@@ -1086,7 +1086,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint16_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullUint16 FAILED:', e));
           }
           break;
         }
@@ -1103,7 +1103,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullInt16 FAILED:', e));
           }
           break;
         }
@@ -1120,7 +1120,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullUint32 FAILED:', e));
           }
           break;
         }
@@ -1137,7 +1137,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt32_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullInt32 FAILED:', e));
           }
           break;
         }
@@ -1154,7 +1154,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint64_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullUint64 FAILED:', e));
           }
           break;
         }
@@ -1171,7 +1171,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt64_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullInt64 FAILED:', e));
           }
           break;
         }
@@ -1188,7 +1188,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullFloat_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullFloat FAILED:', e));
           }
           break;
         }
@@ -1205,7 +1205,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDouble_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullDouble FAILED:', e));
           }
           break;
         }
@@ -1222,7 +1222,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnum_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullEnum FAILED:', e));
           }
           break;
         }
@@ -1239,7 +1239,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBools_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullBools FAILED:', e));
           }
           break;
         }
@@ -1256,7 +1256,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullInt16s FAILED:', e));
           }
           break;
         }
@@ -1273,7 +1273,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullUint32s FAILED:', e));
           }
           break;
         }
@@ -1290,7 +1290,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullDoubles FAILED:', e));
           }
           break;
         }
@@ -1307,7 +1307,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnums_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullEnums FAILED:', e));
           }
           break;
         }
@@ -1324,7 +1324,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullBoolMap FAILED:', e));
           }
           break;
         }
@@ -1341,7 +1341,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullDoubleMap FAILED:', e));
           }
           break;
         }
@@ -1358,7 +1358,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullEnumMap FAILED:', e));
           }
           break;
         }
@@ -1376,7 +1376,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalBool FAILED:', e));
           }
           break;
         }
@@ -1394,7 +1394,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalUint8 FAILED:', e));
           }
           break;
         }
@@ -1412,7 +1412,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalInt8 FAILED:', e));
           }
           break;
         }
@@ -1430,7 +1430,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalUint16 FAILED:', e));
           }
           break;
         }
@@ -1448,7 +1448,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalInt16 FAILED:', e));
           }
           break;
         }
@@ -1466,7 +1466,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalUint32 FAILED:', e));
           }
           break;
         }
@@ -1484,7 +1484,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalInt32 FAILED:', e));
           }
           break;
         }
@@ -1502,7 +1502,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalUint64 FAILED:', e));
           }
           break;
         }
@@ -1520,7 +1520,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalInt64 FAILED:', e));
           }
           break;
         }
@@ -1538,7 +1538,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalFloat FAILED:', e));
           }
           break;
         }
@@ -1556,7 +1556,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalDouble FAILED:', e));
           }
           break;
         }
@@ -1574,7 +1574,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalEnum FAILED:', e));
           }
           break;
         }
@@ -1592,7 +1592,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalBools FAILED:', e));
           }
           break;
         }
@@ -1610,7 +1610,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalInt16s FAILED:', e));
           }
           break;
         }
@@ -1628,7 +1628,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalUint32s FAILED:', e));
           }
           break;
         }
@@ -1646,7 +1646,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalDoubles FAILED:', e));
           }
           break;
         }
@@ -1664,7 +1664,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalEnums FAILED:', e));
           }
           break;
         }
@@ -1682,7 +1682,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalBoolMap FAILED:', e));
           }
           break;
         }
@@ -1700,7 +1700,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalDoubleMap FAILED:', e));
           }
           break;
         }
@@ -1718,7 +1718,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalEnumMap FAILED:', e));
           }
           break;
         }
@@ -1735,7 +1735,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendNullStructWithOptionalNumerics FAILED:', e));
           }
           break;
         }
@@ -1752,7 +1752,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendStructWithNullOptionalNumerics FAILED:', e));
           }
           break;
         }
@@ -1769,7 +1769,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendStructWithOptionalNumerics FAILED:', e));
           }
           break;
         }
@@ -2498,7 +2498,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullBool FAILED:', e));
           }
           break;
         }
@@ -2516,7 +2516,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullUint8 FAILED:', e));
           }
           break;
         }
@@ -2534,7 +2534,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullInt8 FAILED:', e));
           }
           break;
         }
@@ -2552,7 +2552,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullUint16 FAILED:', e));
           }
           break;
         }
@@ -2570,7 +2570,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullInt16 FAILED:', e));
           }
           break;
         }
@@ -2588,7 +2588,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullUint32 FAILED:', e));
           }
           break;
         }
@@ -2606,7 +2606,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullInt32 FAILED:', e));
           }
           break;
         }
@@ -2624,7 +2624,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullUint64 FAILED:', e));
           }
           break;
         }
@@ -2642,7 +2642,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullInt64 FAILED:', e));
           }
           break;
         }
@@ -2660,7 +2660,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullFloat FAILED:', e));
           }
           break;
         }
@@ -2678,7 +2678,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullDouble FAILED:', e));
           }
           break;
         }
@@ -2696,7 +2696,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullEnum FAILED:', e));
           }
           break;
         }
@@ -2714,7 +2714,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullBools FAILED:', e));
           }
           break;
         }
@@ -2732,7 +2732,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullInt16s FAILED:', e));
           }
           break;
         }
@@ -2750,7 +2750,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullUint32s FAILED:', e));
           }
           break;
         }
@@ -2768,7 +2768,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullDoubles FAILED:', e));
           }
           break;
         }
@@ -2786,7 +2786,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullEnums FAILED:', e));
           }
           break;
         }
@@ -2804,7 +2804,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullBoolMap FAILED:', e));
           }
           break;
         }
@@ -2822,7 +2822,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullInt32Map FAILED:', e));
           }
           break;
         }
@@ -2840,7 +2840,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullEnumMap FAILED:', e));
           }
           break;
         }
@@ -2858,7 +2858,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalBool FAILED:', e));
           }
           break;
         }
@@ -2876,7 +2876,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalUint8 FAILED:', e));
           }
           break;
         }
@@ -2894,7 +2894,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalInt8 FAILED:', e));
           }
           break;
         }
@@ -2912,7 +2912,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalUint16 FAILED:', e));
           }
           break;
         }
@@ -2930,7 +2930,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalInt16 FAILED:', e));
           }
           break;
         }
@@ -2948,7 +2948,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalUint32 FAILED:', e));
           }
           break;
         }
@@ -2966,7 +2966,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalInt32 FAILED:', e));
           }
           break;
         }
@@ -2984,7 +2984,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalUint64 FAILED:', e));
           }
           break;
         }
@@ -3002,7 +3002,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalInt64 FAILED:', e));
           }
           break;
         }
@@ -3020,7 +3020,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalFloat FAILED:', e));
           }
           break;
         }
@@ -3038,7 +3038,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalDouble FAILED:', e));
           }
           break;
         }
@@ -3056,7 +3056,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalEnum FAILED:', e));
           }
           break;
         }
@@ -3074,7 +3074,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalBools FAILED:', e));
           }
           break;
         }
@@ -3092,7 +3092,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalInt16s FAILED:', e));
           }
           break;
         }
@@ -3110,7 +3110,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalUint32s FAILED:', e));
           }
           break;
         }
@@ -3128,7 +3128,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalDoubles FAILED:', e));
           }
           break;
         }
@@ -3146,7 +3146,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalEnums FAILED:', e));
           }
           break;
         }
@@ -3164,7 +3164,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalBoolMap FAILED:', e));
           }
           break;
         }
@@ -3182,7 +3182,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalFloatMap FAILED:', e));
           }
           break;
         }
@@ -3200,7 +3200,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalEnumMap FAILED:', e));
           }
           break;
         }
@@ -3218,7 +3218,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNullStructWithOptionalNumerics FAILED:', e));
           }
           break;
         }
@@ -3236,7 +3236,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getStructWithNullOptionalNumerics FAILED:', e));
           }
           break;
         }
@@ -3254,7 +3254,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getStructWithOptionalNumerics FAILED:', e));
           }
           break;
         }
@@ -3408,7 +3408,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0Recei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] methodWithVersionedParams FAILED:', e));
           }
           break;
         }
@@ -3426,7 +3426,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0Recei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] methodWithVersionedStruct FAILED:', e));
           }
           break;
         }
@@ -3580,7 +3580,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2Recei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] methodWithVersionedParams FAILED:', e));
           }
           break;
         }
@@ -3598,7 +3598,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2Recei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] methodWithVersionedStruct FAILED:', e));
           }
           break;
         }

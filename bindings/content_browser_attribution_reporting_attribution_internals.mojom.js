@@ -680,7 +680,7 @@ mojo.internal.bindings.attribution_internals.mojom.HandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isAttributionReportingEnabled FAILED:', e));
           }
           break;
         }
@@ -697,7 +697,7 @@ mojo.internal.bindings.attribution_internals.mojom.HandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.attribution_internals.mojom.Handler_SendReport_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendReport FAILED:', e));
           }
           break;
         }
@@ -714,7 +714,7 @@ mojo.internal.bindings.attribution_internals.mojom.HandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.attribution_internals.mojom.Handler_ClearStorage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] clearStorage FAILED:', e));
           }
           break;
         }

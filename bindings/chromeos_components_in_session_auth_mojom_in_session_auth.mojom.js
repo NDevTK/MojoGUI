@@ -314,7 +314,7 @@ mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestToken FAILED:', e));
           }
           break;
         }
@@ -332,7 +332,7 @@ mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] checkToken FAILED:', e));
           }
           break;
         }
@@ -357,7 +357,7 @@ mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestLegacyWebAuthn FAILED:', e));
           }
           break;
         }

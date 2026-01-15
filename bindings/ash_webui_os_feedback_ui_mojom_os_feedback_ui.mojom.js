@@ -353,7 +353,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProviderReceiver = cl
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getHelpContents FAILED:', e));
           }
           break;
         }
@@ -662,7 +662,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFeedbackContext FAILED:', e));
           }
           break;
         }
@@ -680,7 +680,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getScreenshotPng FAILED:', e));
           }
           break;
         }
@@ -698,7 +698,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendReport FAILED:', e));
           }
           break;
         }

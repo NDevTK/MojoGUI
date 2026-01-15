@@ -299,7 +299,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] changePaymentMethod FAILED:', e));
           }
           break;
         }
@@ -317,7 +317,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] changeShippingOption FAILED:', e));
           }
           break;
         }
@@ -335,7 +335,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] changeShippingAddress FAILED:', e));
           }
           break;
         }

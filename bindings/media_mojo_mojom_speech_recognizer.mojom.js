@@ -445,7 +445,7 @@ mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognitionReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] available FAILED:', e));
           }
           break;
         }
@@ -463,7 +463,7 @@ mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognitionReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] install FAILED:', e));
           }
           break;
         }

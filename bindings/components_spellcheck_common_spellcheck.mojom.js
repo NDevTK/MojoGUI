@@ -647,7 +647,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] callSpellingService FAILED:', e));
           }
           break;
         }
@@ -665,7 +665,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestTextCheck FAILED:', e));
           }
           break;
         }
@@ -683,7 +683,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] checkSpelling FAILED:', e));
           }
           break;
         }
@@ -701,7 +701,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fillSuggestionList FAILED:', e));
           }
           break;
         }
@@ -718,7 +718,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] initializeDictionaries FAILED:', e));
           }
           break;
         }

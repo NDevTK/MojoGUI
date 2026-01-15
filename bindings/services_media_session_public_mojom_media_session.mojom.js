@@ -1005,7 +1005,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMediaSessionInfo FAILED:', e));
           }
           break;
         }
@@ -1023,7 +1023,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDebugInfo FAILED:', e));
           }
           break;
         }
@@ -1111,7 +1111,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMediaImageBitmap FAILED:', e));
           }
           break;
         }
@@ -1227,7 +1227,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getVisibility FAILED:', e));
           }
           break;
         }

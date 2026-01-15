@@ -342,7 +342,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] findFamily FAILED:', e));
           }
           break;
         }
@@ -360,7 +360,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFamilyCount FAILED:', e));
           }
           break;
         }
@@ -378,7 +378,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFamilyNames FAILED:', e));
           }
           break;
         }
@@ -396,7 +396,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getFontFileHandles FAILED:', e));
           }
           break;
         }
@@ -413,7 +413,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] matchUniqueFont FAILED:', e));
           }
           break;
         }
@@ -431,7 +431,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] mapCharacters FAILED:', e));
           }
           break;
         }

@@ -331,7 +331,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateCRLSet FAILED:', e));
           }
           break;
         }

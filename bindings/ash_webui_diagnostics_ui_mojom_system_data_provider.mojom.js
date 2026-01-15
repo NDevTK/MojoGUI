@@ -893,7 +893,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSystemInfo FAILED:', e));
           }
           break;
         }
@@ -911,7 +911,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getBatteryInfo FAILED:', e));
           }
           break;
         }

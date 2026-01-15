@@ -434,7 +434,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onFrameSubmitted FAILED:', e));
           }
           break;
         }
@@ -452,7 +452,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] waitGetDeviceConfig FAILED:', e));
           }
           break;
         }
@@ -470,7 +470,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] waitGetPresentingPose FAILED:', e));
           }
           break;
         }
@@ -488,7 +488,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] waitGetMagicWindowPose FAILED:', e));
           }
           break;
         }
@@ -506,7 +506,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] waitGetControllerRoleForTrackedDeviceIndex FAILED:', e));
           }
           break;
         }
@@ -524,7 +524,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] waitGetControllerData FAILED:', e));
           }
           break;
         }
@@ -542,7 +542,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] waitGetEventData FAILED:', e));
           }
           break;
         }
@@ -560,7 +560,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] waitGetCanCreateSession FAILED:', e));
           }
           break;
         }
@@ -578,7 +578,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] waitGetVisibilityMask FAILED:', e));
           }
           break;
         }
@@ -732,7 +732,7 @@ mojo.internal.bindings.device_test.mojom.XRServiceTestHookReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setTestHook FAILED:', e));
           }
           break;
         }
@@ -749,7 +749,7 @@ mojo.internal.bindings.device_test.mojom.XRServiceTestHookReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] terminateDeviceServiceProcessForTesting FAILED:', e));
           }
           break;
         }

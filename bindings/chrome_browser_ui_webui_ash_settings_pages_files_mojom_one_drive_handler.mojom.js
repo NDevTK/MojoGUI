@@ -439,7 +439,7 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUserEmailAddress FAILED:', e));
           }
           break;
         }
@@ -457,7 +457,7 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] connectToOneDrive FAILED:', e));
           }
           break;
         }
@@ -475,7 +475,7 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] disconnectFromOneDrive FAILED:', e));
           }
           break;
         }
@@ -493,7 +493,7 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerReceiver = class 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] openOneDriveFolder FAILED:', e));
           }
           break;
         }

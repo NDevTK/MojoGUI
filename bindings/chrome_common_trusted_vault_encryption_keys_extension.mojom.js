@@ -266,7 +266,7 @@ mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtensionReceiver 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setEncryptionKeys FAILED:', e));
           }
           break;
         }
@@ -283,7 +283,7 @@ mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtensionReceiver 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addTrustedRecoveryMethod FAILED:', e));
           }
           break;
         }

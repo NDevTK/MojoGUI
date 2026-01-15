@@ -400,7 +400,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeBluetoothReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeBluetooth_SetLESupported_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setLESupported FAILED:', e));
           }
           break;
         }
@@ -418,7 +418,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeBluetoothReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeBluetooth_SimulateCentral_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] simulateCentral FAILED:', e));
           }
           break;
         }
@@ -436,7 +436,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeBluetoothReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] allResponsesConsumed FAILED:', e));
           }
           break;
         }
@@ -926,7 +926,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulatePreconnectedPeripheral_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] simulatePreconnectedPeripheral FAILED:', e));
           }
           break;
         }
@@ -943,7 +943,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateAdvertisementReceived_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] simulateAdvertisementReceived FAILED:', e));
           }
           break;
         }
@@ -960,7 +960,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setState FAILED:', e));
           }
           break;
         }
@@ -978,7 +978,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setNextGATTConnectionResponse FAILED:', e));
           }
           break;
         }
@@ -996,7 +996,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setNextGATTDiscoveryResponse FAILED:', e));
           }
           break;
         }
@@ -1014,7 +1014,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] simulateGATTOperationResponse FAILED:', e));
           }
           break;
         }
@@ -1032,7 +1032,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] simulateGATTDisconnection FAILED:', e));
           }
           break;
         }
@@ -1050,7 +1050,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] simulateGATTServicesChanged FAILED:', e));
           }
           break;
         }
@@ -1068,7 +1068,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] simulateCharacteristicOperationResponse FAILED:', e));
           }
           break;
         }
@@ -1086,7 +1086,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] simulateDescriptorOperationResponse FAILED:', e));
           }
           break;
         }
@@ -1104,7 +1104,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_AddFakeService_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addFakeService FAILED:', e));
           }
           break;
         }
@@ -1122,7 +1122,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_RemoveFakeService_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] removeFakeService FAILED:', e));
           }
           break;
         }
@@ -1140,7 +1140,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addFakeCharacteristic FAILED:', e));
           }
           break;
         }
@@ -1158,7 +1158,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] removeFakeCharacteristic FAILED:', e));
           }
           break;
         }
@@ -1176,7 +1176,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_AddFakeDescriptor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addFakeDescriptor FAILED:', e));
           }
           break;
         }
@@ -1194,7 +1194,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] removeFakeDescriptor FAILED:', e));
           }
           break;
         }
@@ -1212,7 +1212,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setNextReadCharacteristicResponse FAILED:', e));
           }
           break;
         }
@@ -1230,7 +1230,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setNextWriteCharacteristicResponse FAILED:', e));
           }
           break;
         }
@@ -1248,7 +1248,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setNextSubscribeToNotificationsResponse FAILED:', e));
           }
           break;
         }
@@ -1266,7 +1266,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setNextUnsubscribeFromNotificationsResponse FAILED:', e));
           }
           break;
         }
@@ -1283,7 +1283,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_IsNotifying_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isNotifying FAILED:', e));
           }
           break;
         }
@@ -1300,7 +1300,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getLastWrittenCharacteristicValue FAILED:', e));
           }
           break;
         }
@@ -1318,7 +1318,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setNextReadDescriptorResponse FAILED:', e));
           }
           break;
         }
@@ -1336,7 +1336,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setNextWriteDescriptorResponse FAILED:', e));
           }
           break;
         }
@@ -1353,7 +1353,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getLastWrittenDescriptorValue FAILED:', e));
           }
           break;
         }

@@ -318,7 +318,7 @@ mojo.internal.bindings.blink.mojom.NonPersistentNotificationListenerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClick_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onClick FAILED:', e));
           }
           break;
         }
@@ -335,7 +335,7 @@ mojo.internal.bindings.blink.mojom.NonPersistentNotificationListenerReceiver = c
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClose_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onClose FAILED:', e));
           }
           break;
         }
@@ -546,7 +546,7 @@ mojo.internal.bindings.blink.mojom.NotificationServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPermissionStatus FAILED:', e));
           }
           break;
         }
@@ -578,7 +578,7 @@ mojo.internal.bindings.blink.mojom.NotificationServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] displayPersistentNotification FAILED:', e));
           }
           break;
         }
@@ -602,7 +602,7 @@ mojo.internal.bindings.blink.mojom.NotificationServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNotifications FAILED:', e));
           }
           break;
         }

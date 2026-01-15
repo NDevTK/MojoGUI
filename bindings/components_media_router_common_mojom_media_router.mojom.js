@@ -537,7 +537,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createRoute FAILED:', e));
           }
           break;
         }
@@ -554,7 +554,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] joinRoute FAILED:', e));
           }
           break;
         }
@@ -571,7 +571,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] terminateRoute FAILED:', e));
           }
           break;
         }
@@ -638,7 +638,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] bindMediaController FAILED:', e));
           }
           break;
         }
@@ -656,7 +656,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getState FAILED:', e));
           }
           break;
         }
@@ -1007,7 +1007,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMediaSinkServiceStatus FAILED:', e));
           }
           break;
         }
@@ -1039,7 +1039,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getLogsAsString FAILED:', e));
           }
           break;
         }

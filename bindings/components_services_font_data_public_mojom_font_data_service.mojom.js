@@ -324,7 +324,7 @@ mojo.internal.bindings.font_data_service.mojom.FontDataServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] matchFamilyName FAILED:', e));
           }
           break;
         }
@@ -342,7 +342,7 @@ mojo.internal.bindings.font_data_service.mojom.FontDataServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] matchFamilyNameCharacter FAILED:', e));
           }
           break;
         }
@@ -360,7 +360,7 @@ mojo.internal.bindings.font_data_service.mojom.FontDataServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAllFamilyNames FAILED:', e));
           }
           break;
         }
@@ -378,7 +378,7 @@ mojo.internal.bindings.font_data_service.mojom.FontDataServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] legacyMakeTypeface FAILED:', e));
           }
           break;
         }

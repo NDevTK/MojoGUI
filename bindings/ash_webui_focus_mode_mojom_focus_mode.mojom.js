@@ -452,7 +452,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getTrack FAILED:', e));
           }
           break;
         }

@@ -483,7 +483,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createInputStream FAILED:', e));
           }
           break;
         }
@@ -508,7 +508,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createOutputStream FAILED:', e));
           }
           break;
         }
@@ -526,7 +526,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createSwitchableOutputStream FAILED:', e));
           }
           break;
         }
@@ -551,7 +551,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createLoopbackStream FAILED:', e));
           }
           break;
         }

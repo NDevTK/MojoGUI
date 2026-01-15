@@ -281,7 +281,7 @@ mojo.internal.bindings.network.mojom.ProxyResolvingSocketReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] upgradeToTLS FAILED:', e));
           }
           break;
         }
@@ -421,7 +421,7 @@ mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactoryReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createProxyResolvingSocket FAILED:', e));
           }
           break;
         }

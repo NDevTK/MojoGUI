@@ -567,7 +567,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintHostReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintHost_GetServer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getServer FAILED:', e));
           }
           break;
         }
@@ -707,7 +707,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintInstanceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintInstance_Init_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -1219,7 +1219,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_AddRngEntropy_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] addRngEntropy FAILED:', e));
           }
           break;
         }
@@ -1237,7 +1237,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] generateKey FAILED:', e));
           }
           break;
         }
@@ -1255,7 +1255,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] importKey FAILED:', e));
           }
           break;
         }
@@ -1273,7 +1273,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] importWrappedKey FAILED:', e));
           }
           break;
         }
@@ -1291,7 +1291,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpgradeKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] upgradeKey FAILED:', e));
           }
           break;
         }
@@ -1309,7 +1309,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteKey_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteKey FAILED:', e));
           }
           break;
         }
@@ -1327,7 +1327,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteAllKeys FAILED:', e));
           }
           break;
         }
@@ -1345,7 +1345,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] destroyAttestationIds FAILED:', e));
           }
           break;
         }
@@ -1363,7 +1363,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Begin_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] begin FAILED:', e));
           }
           break;
         }
@@ -1381,7 +1381,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeviceLocked_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deviceLocked FAILED:', e));
           }
           break;
         }
@@ -1399,7 +1399,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] earlyBootEnded FAILED:', e));
           }
           break;
         }
@@ -1417,7 +1417,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] convertStorageKeyToEphemeral FAILED:', e));
           }
           break;
         }
@@ -1435,7 +1435,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getKeyCharacteristics FAILED:', e));
           }
           break;
         }
@@ -1453,7 +1453,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRootOfTrustChallenge FAILED:', e));
           }
           break;
         }
@@ -1471,7 +1471,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRootOfTrust FAILED:', e));
           }
           break;
         }
@@ -1489,7 +1489,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] sendRootOfTrust FAILED:', e));
           }
           break;
         }
@@ -1507,7 +1507,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpdateAad_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateAad FAILED:', e));
           }
           break;
         }
@@ -1525,7 +1525,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Update_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] update FAILED:', e));
           }
           break;
         }
@@ -1543,7 +1543,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Finish_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] finish FAILED:', e));
           }
           break;
         }
@@ -1561,7 +1561,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Abort_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] abort FAILED:', e));
           }
           break;
         }
@@ -1579,7 +1579,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSharedSecretParameters FAILED:', e));
           }
           break;
         }
@@ -1597,7 +1597,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] computeSharedSecret FAILED:', e));
           }
           break;
         }
@@ -1615,7 +1615,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] generateTimeStamp FAILED:', e));
           }
           break;
         }
@@ -1633,7 +1633,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] generateEcdsaP256KeyPair FAILED:', e));
           }
           break;
         }
@@ -1651,7 +1651,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] generateCertificateRequest FAILED:', e));
           }
           break;
         }

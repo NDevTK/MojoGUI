@@ -420,7 +420,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] optInToExtendedUpdates FAILED:', e));
           }
           break;
         }
@@ -445,7 +445,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getInstalledAndroidApps FAILED:', e));
           }
           break;
         }

@@ -1024,7 +1024,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_GetPhotoState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPhotoState FAILED:', e));
           }
           break;
         }
@@ -1042,7 +1042,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] setPhotoOptions FAILED:', e));
           }
           break;
         }
@@ -1060,7 +1060,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_TakePhoto_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] takePhoto FAILED:', e));
           }
           break;
         }
@@ -1229,7 +1229,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDeviceInfos FAILED:', e));
           }
           break;
         }
@@ -1247,7 +1247,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createDevice FAILED:', e));
           }
           break;
         }

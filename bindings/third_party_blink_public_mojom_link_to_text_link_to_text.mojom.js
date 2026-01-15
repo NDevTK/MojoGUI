@@ -368,7 +368,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestSelector FAILED:', e));
           }
           break;
         }
@@ -393,7 +393,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] extractTextFragmentsMatches FAILED:', e));
           }
           break;
         }
@@ -411,7 +411,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getExistingSelectors FAILED:', e));
           }
           break;
         }
@@ -429,7 +429,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] extractFirstFragmentRect FAILED:', e));
           }
           break;
         }

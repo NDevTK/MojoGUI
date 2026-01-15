@@ -923,7 +923,7 @@ mojo.internal.bindings.lens.mojom.LensPageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.lens.mojom.LensPageHandler_GetOverlayInvocationSource_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getOverlayInvocationSource FAILED:', e));
           }
           break;
         }
@@ -1052,7 +1052,7 @@ mojo.internal.bindings.lens.mojom.LensPageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.lens.mojom.LensPageHandler_FetchSupportedLanguages_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fetchSupportedLanguages FAILED:', e));
           }
           break;
         }

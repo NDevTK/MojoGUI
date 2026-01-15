@@ -365,7 +365,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.echo.mojom.EchoService_EchoString_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] echoString FAILED:', e));
           }
           break;
         }
@@ -410,7 +410,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadNativeLibrary FAILED:', e));
           }
           break;
         }
@@ -428,7 +428,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] decryptEncrypt FAILED:', e));
           }
           break;
         }

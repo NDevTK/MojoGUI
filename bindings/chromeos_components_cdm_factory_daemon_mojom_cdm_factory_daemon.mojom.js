@@ -357,7 +357,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createCdm FAILED:', e));
           }
           break;
         }
@@ -624,7 +624,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createFactory FAILED:', e));
           }
           break;
         }
@@ -662,7 +662,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getHwConfigData FAILED:', e));
           }
           break;
         }
@@ -687,7 +687,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getHdcp14Key FAILED:', e));
           }
           break;
         }
@@ -704,7 +704,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAndroidHwKeyData FAILED:', e));
           }
           break;
         }
@@ -722,7 +722,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] allocateSecureBuffer FAILED:', e));
           }
           break;
         }
@@ -739,7 +739,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] parseEncryptedSliceHeader FAILED:', e));
           }
           break;
         }

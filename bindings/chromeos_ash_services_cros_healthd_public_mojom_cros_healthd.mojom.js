@@ -1153,7 +1153,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAvailableRoutines FAILED:', e));
           }
           break;
         }
@@ -1171,7 +1171,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRoutineUpdate FAILED:', e));
           }
           break;
         }
@@ -1189,7 +1189,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runUrandomRoutine FAILED:', e));
           }
           break;
         }
@@ -1207,7 +1207,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runBatteryCapacityRoutine FAILED:', e));
           }
           break;
         }
@@ -1225,7 +1225,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runBatteryHealthRoutine FAILED:', e));
           }
           break;
         }
@@ -1243,7 +1243,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runSmartctlCheckRoutine FAILED:', e));
           }
           break;
         }
@@ -1261,7 +1261,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runAcPowerRoutine FAILED:', e));
           }
           break;
         }
@@ -1279,7 +1279,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runCpuCacheRoutine FAILED:', e));
           }
           break;
         }
@@ -1297,7 +1297,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runCpuStressRoutine FAILED:', e));
           }
           break;
         }
@@ -1315,7 +1315,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runFloatingPointAccuracyRoutine FAILED:', e));
           }
           break;
         }
@@ -1333,7 +1333,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_RunNvmeWearLevelRoutineWithThreshold FAILED:', e));
           }
           break;
         }
@@ -1351,7 +1351,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_RunNvmeWearLevelRoutine FAILED:', e));
           }
           break;
         }
@@ -1369,7 +1369,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runNvmeSelfTestRoutine FAILED:', e));
           }
           break;
         }
@@ -1387,7 +1387,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runDiskReadRoutine FAILED:', e));
           }
           break;
         }
@@ -1405,7 +1405,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runPrimeSearchRoutine FAILED:', e));
           }
           break;
         }
@@ -1423,7 +1423,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runBatteryDischargeRoutine FAILED:', e));
           }
           break;
         }
@@ -1441,7 +1441,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runBatteryChargeRoutine FAILED:', e));
           }
           break;
         }
@@ -1459,7 +1459,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runMemoryRoutine FAILED:', e));
           }
           break;
         }
@@ -1477,7 +1477,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runLanConnectivityRoutine FAILED:', e));
           }
           break;
         }
@@ -1495,7 +1495,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runSignalStrengthRoutine FAILED:', e));
           }
           break;
         }
@@ -1513,7 +1513,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runGatewayCanBePingedRoutine FAILED:', e));
           }
           break;
         }
@@ -1531,7 +1531,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runHasSecureWiFiConnectionRoutine FAILED:', e));
           }
           break;
         }
@@ -1549,7 +1549,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runDnsResolverPresentRoutine FAILED:', e));
           }
           break;
         }
@@ -1567,7 +1567,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runDnsLatencyRoutine FAILED:', e));
           }
           break;
         }
@@ -1585,7 +1585,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runDnsResolutionRoutine FAILED:', e));
           }
           break;
         }
@@ -1603,7 +1603,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runCaptivePortalRoutine FAILED:', e));
           }
           break;
         }
@@ -1621,7 +1621,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runHttpFirewallRoutine FAILED:', e));
           }
           break;
         }
@@ -1639,7 +1639,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runHttpsFirewallRoutine FAILED:', e));
           }
           break;
         }
@@ -1657,7 +1657,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runHttpsLatencyRoutine FAILED:', e));
           }
           break;
         }
@@ -1675,7 +1675,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runVideoConferencingRoutine FAILED:', e));
           }
           break;
         }
@@ -1693,7 +1693,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runArcHttpRoutine FAILED:', e));
           }
           break;
         }
@@ -1711,7 +1711,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runArcPingRoutine FAILED:', e));
           }
           break;
         }
@@ -1729,7 +1729,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runArcDnsResolutionRoutine FAILED:', e));
           }
           break;
         }
@@ -1747,7 +1747,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runSensitiveSensorRoutine FAILED:', e));
           }
           break;
         }
@@ -1765,7 +1765,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runFingerprintRoutine FAILED:', e));
           }
           break;
         }
@@ -1783,7 +1783,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runFingerprintAliveRoutine FAILED:', e));
           }
           break;
         }
@@ -1801,7 +1801,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runPrivacyScreenRoutine FAILED:', e));
           }
           break;
         }
@@ -1819,7 +1819,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_RunLedLitUpRoutine FAILED:', e));
           }
           break;
         }
@@ -1837,7 +1837,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runEmmcLifetimeRoutine FAILED:', e));
           }
           break;
         }
@@ -1855,7 +1855,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_RunAudioSetVolumeRoutine FAILED:', e));
           }
           break;
         }
@@ -1873,7 +1873,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_RunAudioSetGainRoutine FAILED:', e));
           }
           break;
         }
@@ -1891,7 +1891,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runBluetoothPowerRoutine FAILED:', e));
           }
           break;
         }
@@ -1909,7 +1909,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runBluetoothDiscoveryRoutine FAILED:', e));
           }
           break;
         }
@@ -1927,7 +1927,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runBluetoothScanningRoutine FAILED:', e));
           }
           break;
         }
@@ -1945,7 +1945,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runBluetoothPairingRoutine FAILED:', e));
           }
           break;
         }
@@ -1963,7 +1963,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runPowerButtonRoutine FAILED:', e));
           }
           break;
         }
@@ -1981,7 +1981,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runAudioDriverRoutine FAILED:', e));
           }
           break;
         }
@@ -1999,7 +1999,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runUfsLifetimeRoutine FAILED:', e));
           }
           break;
         }
@@ -2017,7 +2017,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRecei
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] runFanRoutine FAILED:', e));
           }
           break;
         }
@@ -2326,7 +2326,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServiceReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] isEventSupported FAILED:', e));
           }
           break;
         }
@@ -2495,7 +2495,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] probeProcessInfo FAILED:', e));
           }
           break;
         }
@@ -2513,7 +2513,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] probeTelemetryInfo FAILED:', e));
           }
           break;
         }
@@ -2531,7 +2531,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = 
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] probeMultipleProcessInfo FAILED:', e));
           }
           break;
         }

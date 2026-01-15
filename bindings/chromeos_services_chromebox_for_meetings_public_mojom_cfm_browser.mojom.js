@@ -269,7 +269,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getVariationsData FAILED:', e));
           }
           break;
         }
@@ -286,7 +286,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getMemoryDetails FAILED:', e));
           }
           break;
         }

@@ -257,7 +257,7 @@ mojo.internal.bindings.content.mojom.PowerMonitorTestReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] queryNextState FAILED:', e));
           }
           break;
         }

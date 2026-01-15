@@ -376,7 +376,7 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSensor FAILED:', e));
           }
           break;
         }
@@ -394,7 +394,7 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createVirtualSensor FAILED:', e));
           }
           break;
         }
@@ -412,7 +412,7 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateVirtualSensor FAILED:', e));
           }
           break;
         }
@@ -429,7 +429,7 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] removeVirtualSensor FAILED:', e));
           }
           break;
         }
@@ -447,7 +447,7 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getVirtualSensorInformation FAILED:', e));
           }
           break;
         }

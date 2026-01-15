@@ -554,7 +554,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadModel FAILED:', e));
           }
           break;
         }
@@ -572,7 +572,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadPlatformModel FAILED:', e));
           }
           break;
         }
@@ -589,7 +589,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDeviceAndPerformanceInfo FAILED:', e));
           }
           break;
         }
@@ -607,7 +607,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDefaultModelPath FAILED:', e));
           }
           break;
         }
@@ -632,7 +632,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPageData FAILED:', e));
           }
           break;
         }
@@ -657,7 +657,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] decodeBitmap FAILED:', e));
           }
           break;
         }

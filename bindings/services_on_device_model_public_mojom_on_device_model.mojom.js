@@ -769,7 +769,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_model.mojom.Session_GetSizeInTokens_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSizeInTokens FAILED:', e));
           }
           break;
         }
@@ -787,7 +787,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_model.mojom.Session_Score_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] score FAILED:', e));
           }
           break;
         }
@@ -812,7 +812,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_model.mojom.Session_GetProbabilitiesBlocking_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getProbabilitiesBlocking FAILED:', e));
           }
           break;
         }
@@ -1016,7 +1016,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] classifyTextSafety FAILED:', e));
           }
           break;
         }
@@ -1034,7 +1034,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_DetectLanguage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] detectLanguage FAILED:', e));
           }
           break;
         }
@@ -1052,7 +1052,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_LoadAdaptation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] loadAdaptation FAILED:', e));
           }
           break;
         }
@@ -1221,7 +1221,7 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetySessionReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] classifyTextSafety FAILED:', e));
           }
           break;
         }
@@ -1239,7 +1239,7 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetySessionReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.on_device_model.mojom.TextSafetySession_DetectLanguage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] detectLanguage FAILED:', e));
           }
           break;
         }

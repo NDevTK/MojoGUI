@@ -381,7 +381,7 @@ mojo.internal.bindings.auction_worklet.mojom.GenerateBidClientReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] onBiddingSignalsReceived FAILED:', e));
           }
           break;
         }
@@ -714,7 +714,7 @@ mojo.internal.bindings.auction_worklet.mojom.BidderWorkletReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ReportWin_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] reportWin FAILED:', e));
           }
           break;
         }

@@ -769,7 +769,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createFolder FAILED:', e));
           }
           break;
         }
@@ -786,7 +786,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_DropBookmarks_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] dropBookmarks FAILED:', e));
           }
           break;
         }
@@ -901,7 +901,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] removeBookmarks FAILED:', e));
           }
           break;
         }
@@ -947,7 +947,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAllBookmarks FAILED:', e));
           }
           break;
         }

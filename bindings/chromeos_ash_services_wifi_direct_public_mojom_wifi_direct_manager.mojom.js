@@ -312,7 +312,7 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] createWifiDirectGroup FAILED:', e));
           }
           break;
         }
@@ -329,7 +329,7 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] connectToWifiDirectGroup FAILED:', e));
           }
           break;
         }
@@ -347,7 +347,7 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getWifiP2PCapabilities FAILED:', e));
           }
           break;
         }
@@ -502,7 +502,7 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getProperties FAILED:', e));
           }
           break;
         }
@@ -520,7 +520,7 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionReceiver = clas
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] associateSocket FAILED:', e));
           }
           break;
         }

@@ -561,7 +561,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] triggerFormExtractionWithResponse FAILED:', e));
           }
           break;
         }
@@ -593,7 +593,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.autofill.mojom.AutofillAgent_ExtractFormWithField_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] extractFormWithField FAILED:', e));
           }
           break;
         }
@@ -611,7 +611,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] extractLabeledTextNodeValue FAILED:', e));
           }
           break;
         }
@@ -685,7 +685,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getPotentialLastFourCombinationsForStandaloneCvc FAILED:', e));
           }
           break;
         }
@@ -994,7 +994,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fillPasswordSuggestion FAILED:', e));
           }
           break;
         }
@@ -1047,7 +1047,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillField_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fillField FAILED:', e));
           }
           break;
         }
@@ -1065,7 +1065,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] fillChangePasswordForm FAILED:', e));
           }
           break;
         }
@@ -1097,7 +1097,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] checkViewAreaVisible FAILED:', e));
           }
           break;
         }
@@ -1308,7 +1308,7 @@ mojo.internal.bindings.autofill.mojom.PasswordGenerationAgentReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] triggeredGeneratePassword FAILED:', e));
           }
           break;
         }

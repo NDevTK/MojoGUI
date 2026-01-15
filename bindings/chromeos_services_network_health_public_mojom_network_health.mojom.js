@@ -501,7 +501,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceReceive
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getNetworkList FAILED:', e));
           }
           break;
         }
@@ -519,7 +519,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceReceive
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getHealthSnapshot FAILED:', e));
           }
           break;
         }
@@ -537,7 +537,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceReceive
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getRecentlyActiveNetworks FAILED:', e));
           }
           break;
         }

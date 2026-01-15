@@ -262,7 +262,7 @@ mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingServiceReceiver = class
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] parse FAILED:', e));
           }
           break;
         }

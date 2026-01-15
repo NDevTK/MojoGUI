@@ -380,7 +380,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getUsage FAILED:', e));
           }
           break;
         }
@@ -397,7 +397,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteStorage FAILED:', e));
           }
           break;
         }
@@ -414,7 +414,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] cleanUpStorage FAILED:', e));
           }
           break;
         }

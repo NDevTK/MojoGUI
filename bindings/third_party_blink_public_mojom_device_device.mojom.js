@@ -460,7 +460,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getDirectoryId FAILED:', e));
           }
           break;
         }
@@ -478,7 +478,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getHostname FAILED:', e));
           }
           break;
         }
@@ -496,7 +496,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getSerialNumber FAILED:', e));
           }
           break;
         }
@@ -514,7 +514,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAnnotatedAssetId FAILED:', e));
           }
           break;
         }
@@ -532,7 +532,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getAnnotatedLocation FAILED:', e));
           }
           break;
         }
@@ -687,7 +687,7 @@ mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] getManagedConfiguration FAILED:', e));
           }
           break;
         }

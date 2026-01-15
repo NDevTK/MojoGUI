@@ -661,7 +661,7 @@ mojo.internal.bindings.device.mojom.XRRuntimeReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.XRRuntime_RequestSession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestSession FAILED:', e));
           }
           break;
         }
@@ -678,7 +678,7 @@ mojo.internal.bindings.device.mojom.XRRuntimeReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.XRRuntime_ShutdownSession_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] shutdownSession FAILED:', e));
           }
           break;
         }
@@ -868,7 +868,7 @@ mojo.internal.bindings.device.mojom.ImmersiveOverlayReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestNextOverlayPose FAILED:', e));
           }
           break;
         }
@@ -886,7 +886,7 @@ mojo.internal.bindings.device.mojom.ImmersiveOverlayReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] submitOverlayTexture FAILED:', e));
           }
           break;
         }
@@ -910,7 +910,7 @@ mojo.internal.bindings.device.mojom.ImmersiveOverlayReceiver = class {
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] requestNotificationOnWebXrSubmitted FAILED:', e));
           }
           break;
         }
