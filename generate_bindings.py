@@ -199,7 +199,7 @@ def parse_mojom(file_path):
         'is_chromeos': False,
         'is_ios': False,
         'is_fuchsia': False,
-        'USE_RENDERER_SPELLCHECKER': False, # Defaulting to false as likely browser-side in this context
+        'USE_RENDERER_SPELLCHECKER': True, # Enabled to include CallSpellingService
         'USE_BROWSER_SPELLCHECKER': True,
         'USE_BROWSER_SPELLCHECKER_AND_SPELLING_SERVICE': True,
     }
