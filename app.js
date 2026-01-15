@@ -832,11 +832,12 @@
     function renderInput(param, value, options = {}) {
         const { isInterceptor, index, interceptId, parentName, isTemplate, depth } = options;
 
-        let inputType = MojoParser.getInputType(param.type);
+        const typeString = typeof param.type === 'object' ? param.type.type : param.type;
+        let inputType = MojoParser.getInputType(typeString);
 
         // Special Handling for Common Mojo Types
         // 1. URL: Unwrap { arg_url: "..." } to simple string
-        if (param.type === 'Url' || param.type.endsWith('.Url') || (typeof value === 'object' && value && (value.arg_url || value.url))) {
+        if (typeString === 'Url' || typeString.endsWith('.Url') || (typeof value === 'object' && value && (value.arg_url || value.url))) {
             const urlVal = value ? (value.arg_url || value.url || '') : '';
             return `
                 <div class="form-group" data-original-name="${escapeHtml(param.name)}">
@@ -1256,7 +1257,7 @@
         let displayValue = value;
 
         // 2. BigBuffer: Handle as raw text/bytes
-        if (param.type.endsWith('BigBuffer')) {
+        if (typeString.endsWith('BigBuffer')) {
             // simplified display for big buffer
             inputType = 'textarea';
         }
@@ -1267,11 +1268,11 @@
 
         // Force textarea for 'json', complex types, or if it's a BigInt value (to allow editing as text)
         // Auto-switch to textarea if simple string is long or has newlines
-        if (param.type === 'string' && typeof value === 'string' && (value.length > 50 || value.includes('\n'))) {
+        if (typeString === 'string' && typeof value === 'string' && (value.length > 50 || value.includes('\n'))) {
             inputType = 'textarea';
         }
 
-        if (param.type === 'json' || param.type.includes('array') || param.type.includes('map') || (value && typeof value === 'object' && param.type !== 'string16' && param.type !== 'bigstring16' && param.type !== 'bigstring')) {
+        if (typeString === 'json' || typeString.includes('array') || typeString.includes('map') || (value && typeof value === 'object' && typeString !== 'string16' && typeString !== 'bigstring16' && typeString !== 'bigstring')) {
             inputType = 'textarea';
         }
 
@@ -1279,7 +1280,7 @@
         if (typeof value === 'bigint') {
             displayValue = value.toString() + 'n';
             if (inputType === 'number') inputType = 'text';
-        } else if (typeof value === 'object' && value !== null && param.type !== 'string16' && param.type !== 'bigstring16' && param.type !== 'bigstring') {
+        } else if (typeof value === 'object' && value !== null && typeString !== 'string16' && typeString !== 'bigstring16' && typeString !== 'bigstring') {
             // ... existing handle logic ...
             // Mojo Handle Detection for Form View
             if ((value.$ && value.proxy && typeof value.$ === 'object') || (value.handle && value.handle.router_)) {
@@ -1322,11 +1323,11 @@
         } else if (value === undefined || value === null) {
             // Handle defaults if value is not provided (for Manual Form)
             if (!isInterceptor) {
-                const def = MojoParser.getDefaultValue(param.type);
+                const def = MojoParser.getDefaultValue(typeString);
                 if (def !== undefined) {
                     displayValue = def;
                     if (typeof def === 'object') displayValue = safeStringify(def, 2);
-                } else if (param.type === 'json') {
+                } else if (typeString === 'json') {
                     displayValue = '{}';
                 }
             }
@@ -1339,13 +1340,13 @@
                           name="${escapeHtml(param.name)}"
                           data-id="${interceptId}"
                           data-index="${index}"
-                          data-type="${escapeHtml(param.type)}"`;
+                          data-type="${escapeHtml(typeString)}"`;
             if (inputType === 'textarea') attributes += ' style="min-height: 100px;"';
         } else {
             // Manual Form attributes
             const sep = param.name.startsWith('[') ? '' : '.';
             const fullName = parentName ? `${parentName}${sep}${param.name}` : param.name;
-            attributes = `class="param-input" name="${escapeHtml(fullName)}" data-type="${escapeHtml(param.type)}"`;
+            attributes = `class="param-input" name="${escapeHtml(fullName)}" data-type="${escapeHtml(typeString)}"`;
         }
 
         const displayName = escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '');
@@ -1356,7 +1357,7 @@
                     <label>
                         <input type="checkbox" ${attributes} ${displayValue ? 'checked' : ''}>
                         ${displayName}
-                        <span class="type">${escapeHtml(param.type)}</span>
+                        <span class="type">${escapeHtml(typeString)}</span>
                         ${param.optional ? '<span class="optional">(optional)</span>' : ''}
                     </label>
                 </div>
@@ -1366,24 +1367,47 @@
                 <div class="form-group" data-original-name="${escapeHtml(param.name)}">
                     <label>
                         ${displayName}
-                        <span class="type">${escapeHtml(param.type)}</span>
+                        <span class="type">${escapeHtml(typeString)}</span>
                         ${param.optional ? '<span class="optional">(optional)</span>' : ''}
                     </label>
-                    <textarea ${attributes} placeholder="Enter ${param.type}...">${escapeHtml(displayValue || '')}</textarea>
+                    <textarea ${attributes} placeholder="Enter ${typeString}...">${escapeHtml(displayValue || '')}</textarea>
                 </div>
             `;
+        } else if (typeof param.type === 'object' && param.type.type === 'enum') {
+            // Render Enum Dropdown
+            let optionsHtml = '';
+            const options = param.type.options || {};
+            // Helper to find the key for the current value (if any)
+            // displayValue might be the number.
+            for (const [key, val] of Object.entries(options)) {
+                const isSelected = (String(val) === String(displayValue));
+                optionsHtml += `<option value="${val}" ${isSelected ? 'selected' : ''}>${escapeHtml(key)} (${val})</option>`;
+            }
+
+            return `
+                 <div class="form-group" data-original-name="${escapeHtml(param.name)}">
+                     <label>
+                         ${displayName}
+                         <span class="type">enum</span>
+                         ${param.optional ? '<span class="optional">(optional)</span>' : ''}
+                     </label>
+                     <select class="param-input" data-type="enum" ${attributes} style="background:var(--bg-dark); color:var(--text-light); border:1px solid var(--border-color); padding:4px; border-radius:4px; width:100%;">
+                         ${optionsHtml}
+                     </select>
+                 </div>
+             `;
         } else {
             return `
                 <div class="form-group" data-original-name="${escapeHtml(param.name)}">
                     <label>
                         ${displayName}
-                        <span class="type">${escapeHtml(param.type)}</span>
+                        <span class="type">${escapeHtml(typeString)}</span>
                         ${param.optional ? '<span class="optional">(optional)</span>' : ''}
                     </label>
                     <input type="${inputType === 'number' && typeof displayValue === 'string' && displayValue.endsWith('n') ? 'text' : inputType}"
                            ${attributes}
                            value="${escapeHtml(displayValue ?? '')}"
-                           placeholder="Enter ${param.type}...">
+                           placeholder="Enter ${typeString}...">
                 </div>
             `;
         }
@@ -1412,6 +1436,10 @@
             }
             // Mojo Lite bindings often expect 'arg_' prefix for struct fields
             val = { arg_data: data };
+        } else if (type === 'enum') {
+            // Parse Enum value as integer
+            val = parseInt(val, 10);
+            if (isNaN(val)) val = 0; // Default safety
         } else if (type === 'bigstring16') {
             // Convert to Little Endian Uint16 bytes
             const bytes = [];
@@ -1624,7 +1652,30 @@
         // mojomType is often a constructor function with a static $ property containing the spec
         if (mojomType) {
             const spec = mojomType.$ || mojomType;
-            const name = spec.name || (spec.structSpec && spec.structSpec.name);
+            let name = spec.name || (spec.structSpec && spec.structSpec.name);
+
+            // Discovery: If name is missing, try to find it in the global bindings namespace
+            if (!name && typeof mojomType === 'object') {
+                // Heuristic: Search mojo.internal.bindings for this object
+                if (window.mojo && window.mojo.internal && window.mojo.internal.bindings) {
+                    const findInObj = (obj, path = '') => {
+                        if (obj === mojomType || (obj && obj.$ === spec)) return path;
+                        if (!obj || typeof obj !== 'object' || seen.has(obj)) return null;
+                        seen.add(obj);
+
+                        for (const key in obj) {
+                            const res = findInObj(obj[key], path ? `${path}.${key}` : key);
+                            if (res) return res;
+                        }
+                        return null;
+                    };
+                    const seen = new WeakSet();
+                    name = findInObj(window.mojo.internal.bindings);
+                    if (name) {
+                        // console.log(`[MojoGUI-Debug] Discovered name for unnamed type: ${name}`);
+                    }
+                }
+            }
 
             if (name && (name === 'mojo_base.mojom.String16' || name.endsWith('.String16'))) {
                 return 'string16';
@@ -1635,11 +1686,78 @@
             if (name && (name === 'mojo_base.mojom.BigString' || name.endsWith('.BigString'))) {
                 return 'bigstring';
             }
+
+            // Enum Detection:
+            // Enums in Mojo Lite often appear as simple objects with integer values.
+            // Some might lack metadata.
+            if (mojomType && typeof mojomType === 'object') {
+                // Check for "Mojo Enum" signatures
+                const hasMeta = mojomType.MIN_VALUE !== undefined && mojomType.MAX_VALUE !== undefined;
+
+                // Explicit Enum Spec check (e.g. { $: { enumSpec: ... } } or similar)
+                // Also check discovered name
+                let isEnumSpec = mojomType.$ && (
+                    (mojomType.$.name && mojomType.$.name.includes('Enum')) ||
+                    (mojomType.$.enumSpec) ||
+                    (name && (name.includes('Enum') || name.endsWith('Spec'))) // Common in Lite
+                );
+
+                // Additional heuristic for unnamed Enum Specs returned by mojo.internal.Enum()
+                if (!isEnumSpec && mojomType.$ && mojomType.$.isValidObjectKeyType === true && mojomType.$.arrayElementSize && mojomType.$.arrayElementSize(false) === 4) {
+                    isEnumSpec = true;
+                }
+
+                if (hasMeta || isEnumSpec) {
+                    // It's likely an Enum!
+                    let options = {};
+                    let foundOptions = false;
+
+                    // If it's a Spec, try to find the Value object (sister object)
+                    if (isEnumSpec && name && name.endsWith('Spec')) {
+                        const baseName = name.substring(0, name.length - 4);
+                        // Resolve the baseName from window.mojo.internal.bindings
+                        const parts = baseName.split('.');
+                        let current = window.mojo.internal.bindings;
+                        for (const part of parts) {
+                            if (current && current[part]) current = current[part];
+                            else { current = null; break; }
+                        }
+                        if (current && current !== mojomType) {
+                            // Found the Enum value object!
+                            // console.log(`[MojoGUI-Debug] Found sister Enum object for ${name}: ${baseName}`);
+                            for (const key in current) {
+                                if (typeof current[key] === 'number' && key !== 'MIN_VALUE' && key !== 'MAX_VALUE' && key !== '$') {
+                                    options[key] = current[key];
+                                    foundOptions = true;
+                                }
+                            }
+                        }
+                    }
+
+                    // Fallback to searching mojomType itself if not found in sister
+                    if (!foundOptions) {
+                        for (const key in mojomType) {
+                            // Skip internal mojo properties and reverse mappings (if any)
+                            if (typeof mojomType[key] === 'number' && key !== 'MIN_VALUE' && key !== 'MAX_VALUE' && key !== '$') {
+                                options[key] = mojomType[key];
+                                foundOptions = true;
+                            }
+                        }
+                    }
+
+                    if (foundOptions) {
+                        return { type: 'enum', options: options };
+                    }
+
+                    // Fallback for Enums where we can't find values - at least mark as number
+                    if (isEnumSpec) return 'number';
+                }
+            }
         }
 
         // Debug logging for description field specifically (Safe check)
         if (mojomType && mojomType.$ && mojomType.$.name && mojomType.$.name.includes('String16')) {
-            // console.log('[MojoGUI] Found String16-like type:', mojomType.$.name, mojomType);
+            console.log('[MojoGUI-Debug] Found String16-like type:', mojomType.$.name);
         }
 
         // Fallback: Check function name directly just in case (though less reliable)
@@ -1648,7 +1766,6 @@
         }
 
         if (typeof mojomType === 'string') return mojomType;
-
         return 'string'; // Default to string input for complex types so user can paste JSON/values
     }
 

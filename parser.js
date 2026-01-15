@@ -200,6 +200,10 @@
          * @returns {any} Default value
          */
         getDefaultValue(type) {
+            if (!type || typeof type !== 'string') {
+                if (type && type.type) type = type.type;
+                else return null;
+            }
             const typeLower = type.toLowerCase();
 
             if (typeLower.includes('int') || typeLower.includes('float') ||
@@ -228,6 +232,10 @@
          * @returns {string} HTML input type
          */
         getInputType(type) {
+            if (!type || typeof type !== 'string') {
+                if (type && type.type) type = type.type; // Extraction for MojoGUI Enum objects
+                else return 'text';
+            }
             const typeLower = type.toLowerCase();
 
             // 64-bit types should be text to allow BigInt precision (and 'n' suffix)
