@@ -133,7 +133,6 @@ mojo.internal.bindings.chrome.mojom.ImporterURLRowSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.SourceProfileSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.FaviconUsageDataListSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ImporterIE7PasswordInfoSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ProfileImportObserver = {};
 mojo.internal.bindings.chrome.mojom.ProfileImportObserverSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.ProfileImportObserver.$interfaceName = 'chrome.mojom.ProfileImportObserver';

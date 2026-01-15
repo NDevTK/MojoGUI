@@ -128,7 +128,6 @@ mojo.internal.bindings.media.mojom.CdmSpec = { $: {} };
 mojo.internal.bindings.media.mojom.OverlayInfoSpec = { $: {} };
 mojo.internal.bindings.media.mojom.SupportedVideoDecoderConfigSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CommandBufferIdSpec = { $: {} };
-mojo.internal.bindings.media.mojom.OverlayInfoSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoFrameHandleReleaser = {};
 mojo.internal.bindings.media.mojom.VideoFrameHandleReleaserSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.VideoFrameHandleReleaser.$interfaceName = 'media.mojom.VideoFrameHandleReleaser';
@@ -154,11 +153,6 @@ mojo.internal.bindings.media.mojom.VideoDecoderClient_OnWaiting_ParamsSpec = { $
 mojo.internal.bindings.media.mojom.VideoDecoderClient_RequestOverlayInfo_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
-mojo.internal.bindings.ReleaseVideoFrame(mojo_base = mojo.internal.bindings.ReleaseVideoFrame(mojo_base || {};
-mojo.internal.bindings.ReleaseVideoFrame(mojo_base.mojom = mojo.internal.bindings.ReleaseVideoFrame(mojo_base.mojom || {};
-mojo.internal.bindings.ReleaseVideoFrame(mojo_base.mojom.UnguessableToken release_token, gpu = mojo.internal.bindings.ReleaseVideoFrame(mojo_base.mojom.UnguessableToken release_token, gpu || {};
-mojo.internal.bindings.ReleaseVideoFrame(mojo_base.mojom.UnguessableToken release_token, gpu.mojom = mojo.internal.bindings.ReleaseVideoFrame(mojo_base.mojom.UnguessableToken release_token, gpu.mojom || {};
-mojo.internal.bindings.ReleaseVideoFrame(mojo_base.mojom.UnguessableToken release_token, gpu.mojom.SharedImageExportResultSpec = mojo.internal.bindings.ReleaseVideoFrame(mojo_base.mojom.UnguessableToken release_token, gpu.mojom.SharedImageExportResultSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.ColorSpaceSpec = mojo.internal.bindings.gfx.mojom.ColorSpaceSpec || { $: mojo.internal.OpaqueStruct.$ };

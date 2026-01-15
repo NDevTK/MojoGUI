@@ -130,13 +130,11 @@ mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec = { $: {} };
 mojo.internal.bindings.network.mojom.SSLInfoSpec = { $: {} };
 mojo.internal.bindings.network.mojom.X509CertificateSpec = { $: {} };
 mojo.internal.bindings.network.mojom.AuthChallengeInfoSpec = { $: {} };
-mojo.internal.bindings.network.mojom.AuthCredentialsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.HostPortPairSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ProxyServerSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ProxyChainSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ResolveErrorInfoSpec = { $: {} };
 mojo.internal.bindings.network.mojom.SSLCertRequestInfoSpec = { $: {} };
-mojo.internal.bindings.network.mojom.SSLInfoSpec = { $: {} };
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

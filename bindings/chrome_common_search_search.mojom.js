@@ -127,7 +127,6 @@ mojo.internal.bindings.search.mojom.OmniboxFocusStateSpec = { $: mojo.internal.E
 mojo.internal.bindings.search.mojom.OmniboxFocusChangeReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec = { $: {} };
 mojo.internal.bindings.search.mojom.NtpThemeSpec = { $: {} };
-mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec = { $: {} };
 mojo.internal.bindings.search.mojom.EmbeddedSearchConnector = {};
 mojo.internal.bindings.search.mojom.EmbeddedSearchConnectorSpec = { $ : {} };
 mojo.internal.bindings.search.mojom.EmbeddedSearchConnector.$interfaceName = 'search.mojom.EmbeddedSearchConnector';
