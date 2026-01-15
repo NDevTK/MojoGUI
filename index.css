@@ -1972,32 +1972,3 @@ select option {
 .add-item-btn {
     margin-top: var(--space-sm);
 }
-
-/* Associated Badge */
-.associated-badge {
-    background-color: #3b82f6;
-    color: white;
-    font-size: 0.75rem;
-    padding: 2px 6px;
-    border-radius: 4px;
-    margin-left: 8px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 18px;
-}
-
-/* Security Badge */
-.security-badge {
-    background-color: #ef4444;
-    /* Red for high visibility/security */
-    color: white;
-    font-size: 0.75rem;
-    padding: 2px 6px;
-    border-radius: 4px;
-    margin-left: 4px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 18px;
-}

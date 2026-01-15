@@ -152,125 +152,6 @@ def build_interface_scramble_map(all_parsed_files, mojom_file_scramble):
     no_scramble_count = sum(1 for v in INTERFACE_SCRAMBLE_MAP.values() if not v)
     print(f"[Scramble] {no_scramble_count} interfaces marked as no-scramble")
 
-def analyze_interface_usage(all_parsed, global_kind_map):
-    """
-    Analyze all Mojo files to determine if interfaces are used as 'associated' or 'direct'.
-    Returns a dict: { "module.Interface": {'associated', 'direct'} }
-    """
-    usage_map = {} # { fqn: set(['associated', 'direct']) }
-    
-    def register_usage(type_name, usage_type, current_module):
-        clean = type_name.replace('?', '').strip()
-        
-        # Handle Array/Map wrappers
-        if clean.startswith('array<'):
-            inner = clean[6:-1].strip()
-            register_usage(inner, usage_type, current_module)
-            return
-        if clean.startswith('map<'):
-            # map<Key, Value>
-            # naive split on comma (might break on nested templates, but ok for now)
-            parts = clean[4:-1].split(',', 1)
-            if len(parts) == 2:
-                register_usage(parts[1].strip(), usage_type, current_module)
-            return
-
-        # Extract target interface
-        target = None
-        
-        # Check for explicit associated/pending wrappers
-        if clean.startswith('pending_associated_receiver<'):
-            target = clean[28:-1].strip()
-            usage_type = 'associated'
-        elif clean.startswith('pending_associated_remote<'):
-            target = clean[26:-1].strip()
-            usage_type = 'associated'
-        elif clean.startswith('pending_receiver<'):
-            target = clean[17:-1].strip()
-            # usage_type remains as passed (usually direct)
-        elif clean.startswith('pending_remote<'):
-            target = clean[15:-1].strip()
-            # usage_type remains as passed (usually direct)
-        else:
-            # Maybe it's a raw Interface name logic?
-            # In Mojom, "Interface" type usually means Remote<Interface> which is direct.
-            # But "associated Interface" is associated.
-            if clean.startswith('associated '):
-                target = clean[11:].strip()
-                usage_type = 'associated'
-            else:
-                target = clean
-        
-        if not target: return
-
-        # Resolve FQN for target
-        fqn = None
-        
-        # 1. Check Global Map directly
-        if target in global_kind_map and global_kind_map[target] == 'interface':
-            fqn = target
-        else:
-            # 2. Check Local/Relative
-            # Try current module prefix
-            candidate = f"{current_module}.{target}"
-            if candidate in global_kind_map and global_kind_map[candidate] == 'interface':
-                fqn = candidate
-            else:
-                # 3. Check Imports (Not easily available here without the file context pass, 
-                # but we can try heuristic scanning if global_kind_map is complete)
-                # Actually, register_usage is called inside loop where we know imports.
-                # But let's keep it simple: brute force search in global map if short name matches unique interface
-                 pass
-
-        # If we found a valid interface FQN, mark it
-        if fqn:
-            if fqn not in usage_map: usage_map[fqn] = set()
-            usage_map[fqn].add(usage_type)
-
-    usage_map = {}
-    
-    # Scan matches using regex on raw file content for robustness
-    # This detects "standard" usage of associated types.
-    for item in all_parsed: 
-        file_path = item['file']
-        try:
-             with open(file_path, 'r', encoding='utf-8') as f:
-                 content = f.read()
-        except:
-             continue
-        
-        # Regex patterns
-        patterns = {
-            'associated': [
-                r'pending_associated_receiver\s*<\s*([\w\.]+)\s*>',
-                r'pending_associated_remote\s*<\s*([\w\.]+)\s*>',
-                r'\bassociated\s+([\w\.]+)'
-            ],
-            'direct': [
-                 r'pending_receiver\s*<\s*([\w\.]+)\s*>',
-                 r'pending_remote\s*<\s*([\w\.]+)\s*>'
-            ]
-        }
-        
-        for usage_type, regex_list in patterns.items():
-            for pat in regex_list:
-                for match in re.finditer(pat, content):
-                    full_type = match.group(1)
-                    short_name = full_type.split('.')[-1]
-                    
-                    # Store for exact matches (FQN)
-                    if full_type in global_kind_map:
-                        if full_type not in usage_map: usage_map[full_type] = set()
-                        usage_map[full_type].add(usage_type)
-                    
-                    # Store for short name matches (all matching FQNs)
-                    for known_fqn in global_kind_map:
-                        if known_fqn.split('.')[-1] == short_name:
-                             if known_fqn not in usage_map: usage_map[known_fqn] = set()
-                             usage_map[known_fqn].add(usage_type)
-
-    return usage_map
-
 def parse_mojom(file_path):
     """Parse a .mojom file and extract interface definitions using regex."""
     try:
@@ -306,8 +187,7 @@ def parse_mojom(file_path):
 
     # Extract interfaces with their methods
     # Fix: Allow inheritance (e.g. interface A : B {) by matching usually non-brace chars until {
-    # Capture attributes preceding interface: [Attr] interface Name
-    interface_pattern = r'((?:\[[^\]]+\]\s*)*)interface\s+(\w+)[^{]*\{'
+    interface_pattern = r'interface\s+(\w+)[^{]*\{'
     # Feature flags for EnableIf
     # This should ideally be configurable, but for now we default to a Windows Desktop environment
     # matching the user's OS context where typical debugging happens.
@@ -348,8 +228,7 @@ def parse_mojom(file_path):
         return True
 
     for match in re.finditer(interface_pattern, content_no_comments):
-        interface_attrs_str = match.group(1)
-        interface_name = match.group(2)
+        interface_name = match.group(1)
         start_pos = match.end()
         
         # Find matching closing brace
@@ -371,7 +250,7 @@ def parse_mojom(file_path):
         method_pattern = r'((?:\[[^\]]+\]\s*)*)([a-zA-Z][a-zA-Z0-9_]*)(?:@(\d+))?\s*\(([^)]*)\)\s*(?:=>\s*\(([^)]*)\))?'
         
         for method_match in re.finditer(method_pattern, interface_body):
-            method_attrs_str = method_match.group(1)
+            attributes_str = method_match.group(1)
             method_name = method_match.group(2)
             ordinal_str = method_match.group(3)
             params_str = method_match.group(4).strip()
@@ -382,8 +261,8 @@ def parse_mojom(file_path):
                 continue
 
             # Check EnableIf
-            if not check_enable_if(method_attrs_str):
-                # print(f"[Generator] Skipping disabled method {interface_name}.{method_name}")
+            if not check_enable_if(attributes_str):
+                print(f"[Generator] Skipping disabled method {interface_name}.{method_name} (Attrs: {attributes_str.strip()})")
                 continue
             
             params = parse_params(params_str) if params_str else []
@@ -407,7 +286,6 @@ def parse_mojom(file_path):
         
         result['interfaces'].append({
             'name': interface_name,
-            'attributes': parse_attributes(interface_attrs_str) if interface_attrs_str else {},
             'methods': unique_methods
         })
 
@@ -491,34 +369,6 @@ def parse_mojom(file_path):
         # For now, simple parsing is enough as we reuse parse_params.
         result['unions'].append({'name': union_name, 'fields': fields})
 
-    return result
-
-def parse_attributes(attrs_str):
-    """Parse [Attr1=Val, Attr2] string into dict."""
-    if not attrs_str:
-        return {}
-    
-    result = {}
-    # Handle multiple blocks like [Attr1] [Attr2] -> [Attr1, Attr2]
-    # Replace '][' or '] [' with ',' to merge blocks
-    normalized = re.sub(r'\]\s*\[', ',', attrs_str)
-    
-    # Remove outer brackets and join if multiple
-    cleaned = normalized.replace('[', '').replace(']', '').replace('\n', ' ').strip()
-    
-    # Simple CSV split that respects optional internal commas if quoted (though not common in basic attrs)
-    # Using simple split is okay for 99% of Mojom cases where values are Enums or simple strings.
-    parts = [p.strip() for p in cleaned.split(',') if p.strip()]
-    
-    for part in parts:
-        if '=' in part:
-            key, val = part.split('=', 1)
-            result[key.strip()] = val.strip()
-        else:
-            result[part] = True
-            
-    return result
-            
     return result
 
 def parse_params(params_str):
@@ -1745,9 +1595,6 @@ def main():
     # Build the per-interface scramble map
     build_interface_scramble_map([item['data'] for item in all_parsed], mojom_file_scramble)
 
-    # Analyze usage (Associated vs Direct)
-    interface_usage_map = analyze_interface_usage(all_parsed, global_kind_map)
-
     # Pass 2: Generate Bindings
     for item in all_parsed:
         mojom_path = item['path']
@@ -1765,25 +1612,11 @@ def main():
                 success_count += 1
                 
                 for interface in parsed['interfaces']:
-                    mod_prefix = f"{parsed['module']}." if parsed.get('module') else ""
-                    fqn = f"{mod_prefix}{interface['name']}"
-                    usage = list(interface_usage_map.get(fqn, set()))
-                    
-                    # Extract Security Attributes
-                    attrs = interface.get('attributes', {})
-                    security = {}
-                    if 'ServiceSandbox' in attrs: security['ServiceSandbox'] = attrs['ServiceSandbox']
-                    if 'RequireContext' in attrs: security['RequireContext'] = attrs['RequireContext']
-                    if 'AllowedFrom' in attrs: security['AllowedFrom'] = attrs['AllowedFrom']
-                    if 'RuntimeFeature' in attrs: security['RuntimeFeature'] = attrs['RuntimeFeature']
-                    
                     index_data['interfaces'].append({
                         'name': interface['name'],
                         'module': parsed['module'],
                         'file': out_filename,
-                        'methods': [m['name'] for m in interface.get('methods', [])],
-                        'usage': usage,
-                        'security': security
+                        'methods': [m['name'] for m in interface.get('methods', [])]
                     })
                 
                 index_data['files'].append({
