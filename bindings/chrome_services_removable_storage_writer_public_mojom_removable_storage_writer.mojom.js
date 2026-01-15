@@ -143,13 +143,7 @@ mojo.internal.bindings.chrome.mojom.kRemovableStorageWriterSandbox = mojo.intern
 
 mojo.internal.bindings.chrome.mojom.kRemovableStorageWriterSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kNoSandbox;
 
-mojo.internal.bindings.chrome.mojom.kTestDevice = "chrome:
-
-  
-  
-  Write(mojo_base.mojom.FilePath source,
-        mojo_base.mojom.FilePath target,
-        pending_remote<RemovableStorageWriterClient> client);
+mojo.internal.bindings.chrome.mojom.kTestDevice = "chrome://test-removable-storage-writer";
 
 // Interface: RemovableStorageWriter
 mojo.internal.Struct(
