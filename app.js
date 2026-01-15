@@ -372,6 +372,9 @@
 
 
 
+        // Registry for lazy-loaded array templates
+        window.MojoTemplateRegistry = {};
+
         // Interceptor
         elements.interceptToggleBtn.addEventListener('click', toggleInterceptor);
         elements.clearActivityBtn?.addEventListener('click', clearActivityLog);
@@ -752,14 +755,46 @@
     };
 
     window.addArrayItem = function (btn) {
-        const container = btn.parentElement.querySelector('.array-items-container') || btn.parentElement.querySelector('.map-entries-container');
-        const template = btn.parentElement.querySelector('.item-template').innerHTML;
-        const prefix = btn.closest('.array-group') ? btn.closest('.array-group').dataset.prefix : btn.closest('.map-group').dataset.prefix;
+        const group = btn.closest('.array-group') || btn.closest('.map-group');
+        const container = group.querySelector('.array-items-container') || group.querySelector('.map-entries-container');
+        const template = group.querySelector('.item-template').innerHTML;
+        const prefix = group.dataset.prefix;
 
         // Use current length as index for new item
         const index = container.children.length;
 
-        const newItemHtml = template.replace(/\{index\}/g, index);
+        let newItemHtml;
+        if (!template || template.trim() === '') {
+            const spec = window.MojoTemplateRegistry[group.id];
+            if (spec) {
+                let itemType = inferTypeFromMojomType(spec.elementSpec);
+                if (itemType !== 'string16' && spec.structSpec) {
+                    itemType = 'struct';
+                }
+                const itemParam = {
+                    name: `[${index}]`,
+                    type: itemType,
+                    structSpec: spec.structSpec,
+                    elementSpec: (spec.elementSpec.elementType || (spec.elementSpec.$ && spec.elementSpec.$.elementType)) || null
+                };
+
+                const siblingInput = group.querySelector('.param-input');
+                const interceptId = siblingInput ? siblingInput.dataset.id : '';
+                const isInterceptor = !!interceptId;
+
+                newItemHtml = renderInput(itemParam, null, {
+                    isInterceptor,
+                    interceptId,
+                    parentName: prefix,
+                    isTemplate: false
+                });
+            } else {
+                console.error("No template and no registry spec found for", group.id);
+                return;
+            }
+        } else {
+            newItemHtml = template.replace(/\{index\}/g, index);
+        }
 
         // Create temp div to parse HTML
         const temp = document.createElement('div');
@@ -795,7 +830,7 @@
     };
 
     function renderInput(param, value, options = {}) {
-        const { isInterceptor, index, interceptId, parentName } = options;
+        const { isInterceptor, index, interceptId, parentName, isTemplate } = options;
 
         let inputType = MojoParser.getInputType(param.type);
 
@@ -830,11 +865,11 @@
                 if (pValue === undefined && p.name.startsWith('arg_')) {
                     pValue = childValues[p.name.substring(4)];
                 }
-                // Recurse without index (nested items use structural association)
                 return renderInput(p, pValue, {
                     isInterceptor,
                     interceptId,
-                    parentName: parentName ? `${parentName}.${param.name}` : param.name
+                    parentName: parentName ? `${parentName}.${param.name}` : param.name,
+                    isTemplate
                 });
             }).join('');
 
@@ -877,7 +912,8 @@
                 return renderInput(itemParam, val, {
                     isInterceptor,
                     interceptId,
-                    parentName: prefix
+                    parentName: prefix,
+                    isTemplate
                 });
             };
 
@@ -888,13 +924,28 @@
                 </div>
             `).join('');
 
-            // Template for new items (using a placeholder index that the Add handler will replace)
-            // We use 'TEMPLATE_INDEX' as a special placeholder
-            const templateHtml = renderItemHtml(null, 'TEMPLATE_INDEX')
-                .replace(/name="([^"]*?)\[TEMPLATE_INDEX\]"/g, 'name="$1[{index}]"'); // Fix name attribute
+            // Template for new items
+            // If we are already inside a template (isTemplate=true), we do NOT generate the inner template to avoid infinite recursion.
+            let templateHtml = '';
+
+            // Generate a unique ID for this array container to link it to the registry
+            const containerId = 'array_group_' + Math.random().toString(36).substr(2, 9);
+
+            if (!isTemplate) {
+                templateHtml = renderItemHtml(null, 'TEMPLATE_INDEX', { isTemplate: true })
+                    .replace(/name="([^"]*?)\[TEMPLATE_INDEX\]"/g, 'name="$1[{index}]"');
+            } else {
+                // Register the spec for lazy loading
+                window.MojoTemplateRegistry[containerId] = {
+                    elementSpec: param.elementSpec,
+                    structSpec: (param.elementSpec.$ && param.elementSpec.$.structSpec) ? param.elementSpec.$.structSpec : null,
+                    type: param.type
+                };
+            }
 
             return `
                 <div class="form-group array-group" 
+                     id="${containerId}"
                      data-type="array" 
                      data-original-name="${escapeHtml(param.name)}"
                      data-prefix="${escapeHtml(prefix)}">
@@ -943,8 +994,8 @@
                     } : null
                 };
 
-                const keyHtml = renderInput(keyParam, entryKey, { isInterceptor, interceptId, parentName: `${prefix}[${idx}]` });
-                const valHtml = renderInput(valParam, entryValue, { isInterceptor, interceptId, parentName: `${prefix}[${idx}]` });
+                const keyHtml = renderInput(keyParam, entryKey, { isInterceptor, interceptId, parentName: `${prefix}[${idx}]`, depth: (depth || 0) + 1 });
+                const valHtml = renderInput(valParam, entryValue, { isInterceptor, interceptId, parentName: `${prefix}[${idx}]`, depth: (depth || 0) + 1 });
 
                 return `
                         <div class="form-group struct-group map-entry" 
@@ -1029,7 +1080,7 @@
                 // We need to prevent ID conflicts if we render all? No, IDs are fine.
                 return `
                     <div class="union-field" data-tag="${f.name}" ${isHidden ? 'hidden' : ''}>
-                        ${renderInput(f, val, { isInterceptor, interceptId, parentName: parentName ? `${parentName}.${param.name}` : param.name })}
+                        ${renderInput(f, val, { isInterceptor, interceptId, parentName: parentName ? `${parentName}.${param.name}` : param.name, depth: (depth || 0) + 1 })}
                     </div>
                  `;
             }).join('');
